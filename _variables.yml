@@ -2,19 +2,33 @@ course:
   author: "Jeff Jacobs"
   institute: "<a href='mailto:jj1088@georgetown.edu' target='_blank'>`jj1088@georgetown.edu`</a>"
   slides-subtitle: "*DSAN 6000: Big Data and Cloud Computing*<br>Fall 2025"
-  zoom_url: "https://georgetown.zoom.us/j/92295251878?pwd=K8nOs3w9uRlj3mfn63bh0yazBpBbsC.1"
-  feedback_url: "https://forms.gle/1qmHmeXo94BaoN7d8"
-  intro_survey_url: "https://forms.gle/kAyGvsMYSoLjZUtbA"
   name: "Big Data and Cloud Computing"
   code: "DSAN 6000"
-  gspace_url: "https://chat.google.com/room/AAAAbGZ4pJk?cls=7"
-  groups_url: "https://groups.google.com/a/georgetown.edu/g/dsan6750"
-  posit_url: "https://posit.cloud/spaces/547750/join?access_code=pxoi5atXz19sdp1N9e2X2qUbtxGV8yqRTtN5MeeD"
+  number: "DSAN 6000"
+  semester: "Fall 2025"
+  days: "Mondays & Thursdays (Prof Jeff)"
+  time: "3:30-6:00 PM (Jeff Mon), 6:30-9:00 PM (Jeff Thu)"
+  location: "Reiss 262 (W, Amit), Walsh 394 (Mon & Thu, Jeff)"
+  dates: "August 27 – December 20, 2025"
+  github: "https://github.com/gu-dsan/6000-fall-2025.git"
+  github_org: https://github.com/gu-dsan/
+  github_classroom: https://classroom.github.com/classrooms/34950344-georgetown-university-dsan6000-big-data-and-cloud-computing
+  url: "https://gu-dsan.github.io/6000-fall-2025/"
+  copyright_year: "2025"
+  slack: "https://dsan6000fall2025.slack.com"
+  slack_join: "https://join.slack.com/t/dsan6000fall2025/shared_invite/zt-3b22qhque-GagQykwYYNiEzli9UXJn4w"
+  email: dsan-Fall-2025@georgetown.edu
+  class_start_hhmmss: "093000"
+  class_end_hhmmss: "120000"
+  lab0: https://georgetown.instructure.com/courses/193302/assignments
+  lms_course_url: https://georgetown.instructure.com/courses/TBA-2025
+  lms_course_url_md: "[`{{< var course.lms_course_url >}}`]({{< var course.lms_course_url >}})"
+  last_day_of_class: "Dec 20th, 2025"
 weeks:
   - weeknum: 1
-    title: "Introduction to GIS"
-    footer: "PPOL 6805 Week 1: GIS Overview"
-    date-md: "Aug 27"
+    title: "Course Overview"
+    footer: "DSAN 6000 Week 1: Course Overview"
+    date-md: "Aug 28"
   - weeknum: 2
     title: "How Do Maps Work?"
     footer: "PPOL 6805 Week 2: How Do Maps Work?"
@@ -71,22 +85,8 @@ weeks:
     title: "Final Presentations II"
     footer: "PPOL 6805 Week 15"
     date-md: "Dec 11"
-hw:
-  - hw-num: 1
-    title: "GIS Concepts"
-    pct: 10
-  - hw-num: 2
-    title: "Unary Operations"
-    pct: 10
-  - hw-num: 3
-    title: "Binary Operations and Spatial Joins"
-    pct: 10
-  - hw-num: 4
-    title: "Autocorrelation, Clustering, and Point Processes"
-    pct: 10
-  - hw-num: "5A"
-    title: "Point Hypothesis Evaluation"
-    pct: "[+50 Bonus Points]"
-  - hw-num: "5B"
-    title: "Spatial Regression"
-    pct: "[+50 Bonus Points]"
+university:
+  name: Georgetown University
+  url: "https://www.georgetown.edu/"
+  lms: Canvas
+  lms_url: https://canvas.georgetown.edu
