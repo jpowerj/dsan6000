@@ -71,7 +71,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       '.sec-w13-date': 'Nov 24',
       '.sec-w14-date': 'Dec 1',
       '.sec-w15-date': 'Dec 8',
-      '.sec-start': '12:30pm',
+      '.sec-start': '3:30pm',
       '.sec-p10': '12:40pm',
       '.sec-p15': '12:45pm',
       '.sec-p20': '12:50pm',
@@ -89,7 +89,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       '.sec-p100': '2:10pm',
       '.sec-p130': '2:40pm',
       '.sec-p140': '2:50pm',
-      '.sec-end': '3:00pm',
+      '.sec-end': '6:00pm',
     },
     '02': {
       '.sec-num': '02',
@@ -113,7 +113,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       '.sec-w13-date': 'Nov 24',
       '.sec-w14-date': 'Dec 4',
       '.sec-w15-date': 'Dec 8',
-      '.sec-start': '3:30pm',
+      '.sec-start': '6:30pm',
       '.sec-p10': '3:40pm',
       '.sec-p15': '3:45pm',
       '.sec-p20': '3:50pm',
@@ -131,7 +131,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       '.sec-p100': '5:10pm',
       '.sec-p130': '5:40pm',
       '.sec-p140': '5:50pm',
-      '.sec-end': '6:00pm',
+      '.sec-end': '9:00pm',
     }
   };
   const applyToggleSection = (newStr) => {
