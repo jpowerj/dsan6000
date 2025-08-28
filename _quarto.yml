@@ -1,0 +1,72 @@
+project:
+  type: website
+  output-dir: docs
+  pre-render: _pre-set-updated.py
+  preview:
+    port: 4321
+
+website:
+  title: "DSAN 6000 Slide Hub"
+  favicon: "favicon.png"
+  repo-url: "https://github.com/jpowerj/dsan6000"
+  repo-actions: [source]
+  repo-link-target: "_blank"
+  sidebar:
+    id: mainnav
+    title: "DSAN 6000 Slide Hub"
+    footer: "*Updated {{< env DSAN6000_LAST_UPDATED \"2024-08-28\" >}}*"
+    contents:
+      - href: index.qmd
+        text: "<i class='bi bi-house pe-1'></i> Home"
+      - "---"
+      - href: w01/index.qmd
+        text: "Week 1: Aug 28"
+      # - href: w02/index.qmd
+      #   text: "Week 2: Sep 4"
+      # - href: w03/index.qmd
+      #   text: "Week 3: Sep 11"
+      # - href: w04/index.qmd
+      #   text: "Week 4: Sep 18"
+      # - href: w05/index.qmd
+      #   text: "Week 5: Sep 25"
+      # - href: w06/index.qmd
+      #   text: "Week 6: Oct 2"
+      # - href: w07/index.qmd
+      #   text: "Week 7: Oct 9"
+      # - href: w08/index.qmd
+      #   text: "Week 8: Oct 16"
+      # - href: w09/index.qmd
+      #   text: "Week 9: Oct 23"
+      # - href: w10/index.qmd
+      #   text: "Week 10: Oct 30"
+      # - href: w11/index.qmd
+      #   text: "Week 11: Nov 6"
+      # - href: w12/index.qmd
+      #   text: "Week 12: Nov 13"
+      # - href: w13/index.qmd
+      #   text: "Week 13: Nov 20"
+      # - href: w14/index.qmd
+      #   text: "Week 14: Dec 4"
+      - "---"
+      - href: "https://georgetown.zoom.us/j/92295251878?pwd=K8nOs3w9uRlj3mfn63bh0yazBpBbsC.1"
+        text: "Zoom Link <i class='bi bi-box-arrow-up-right ps-1' style='font-size: 75%;'></i>"
+        target: "_blank"
+      - href: "https://georgetown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=20a30444-5d14-4a4e-9994-b34400dc520d"
+        text: "Recordings <i class='bi bi-box-arrow-up-right ps-1' style='font-size: 75%;'></i>"
+        target: "_blank"
+      - href: "https://jjacobs.me/meet"
+        text: "Book Office Hour <i class='bi bi-box-arrow-up-right ps-1' style='font-size: 75%;'></i>"
+        target: "_blank"
+
+format:
+  html:
+    theme:
+      light: default
+      dark: darkly
+    css: "/dsan-globals/jjstyles.css"
+    toc: true
+    link-external-newwindow: true
+    link-external-icon: true
+    include-in-header:
+      text: "<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='' crossorigin='anonymous' referrerpolicy='no-referrer'></script><link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'><script src='/sidebar.js'></script>"
+
