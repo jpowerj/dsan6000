@@ -5,9 +5,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // https://icons8.com/icon/set/zoom/group-color
   // var zoomIconBlue = "<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='22' height='22' viewBox='0 0 48 48'><circle cx='24' cy='24' r='20' fill='#2196f3'></circle><path fill='#fff' d='M29,31H14c-1.657,0-3-1.343-3-3V17h15c1.657,0,3,1.343,3,3V31z'></path><polygon fill='#fff' points='37,31 31,27 31,21 37,17'></polygon></svg>";
   // var zoomHtml = `<a href='https://georgetown.zoom.us/j/92295251878?pwd=K8nOs3w9uRlj3mfn63bh0yazBpBbsC.1' target='_blank' style='text-decoration: none !important;'><div class='sidebar-subtitle btn btn-outline-dark btn-block mt-2 mx-0 px-2 w-100 d-flex justify-content-center align-items-center'><span class='icon ps-0'>${zoomIconBlue}</span><div class='flex-grow-1 h-100' style='line-height: 1.0;'>Zoom Link</div><span class='bi bi-box-arrow-up-right pe-1 ps-1 me-0' style='font-size: 95%;'></span></div></a>`;
-  let sectionToggleHtml= `<span class='btn-group section-toggle' role='group' aria-label='Basic radio toggle button group' style='display: inline-flex !important; margin-top: 4px !important; width: 100% !important;'><input type='radio' class='btn-check pt-5' name='btnradio' id='btn-radio-01' autocomplete='off' onclick=\"window.toggleSectionClicked('01');\"><label class='btn btn-outline-secondary btn-sm' for='btn-radio-01' id='btn-label-01'>Sec 01</label><input type='radio' class='btn-check' name='btnradio' id='btn-radio-02' autocomplete='off' onclick=\"window.toggleSectionClicked('02');\"><label class='btn btn-outline-secondary btn-sm' for='btn-radio-02' id='btn-label-02'>Sec 02</label></span><br><span class='section-info sidebar-subtitle'><span class='sec-day'>M</span> <span class='sec-time'>3:30pm-6pm</span><br><span class='sec-room'>Walsh 394</span>`
-  var subtitleDiv = $(`${sectionToggleHtml}<br>${roomHtml}<br>${termHtml}<br>${emailHtml}`);
-    $('.sidebar-title').append(subtitleDiv);
+  let sectionToggleHtml= `<span class='btn-group section-toggle' role='group' aria-label='Basic radio toggle button group' style='display: inline-flex !important; margin-top: 4px !important; width: 100% !important;'><input type='radio' class='btn-check pt-5' name='btnradio' id='btn-radio-01' autocomplete='off' onclick=\"window.toggleSectionClicked('01');\"><label class='btn btn-outline-secondary btn-sm' for='btn-radio-01' id='btn-label-01'>Sec 01</label><input type='radio' class='btn-check' name='btnradio' id='btn-radio-02' autocomplete='off' onclick=\"window.toggleSectionClicked('02');\"><label class='btn btn-outline-secondary btn-sm' for='btn-radio-02' id='btn-label-02'>Sec 02</label></span><br><span class='section-info sidebar-subtitle'><span class='sec-day'>M</span> <span class='sec-time'>3:30-6pm</span>, <span class='sec-room'>Walsh 394</span>`
+  var subtitleDiv = $(`${sectionToggleHtml}<br>${termHtml}<br>${emailHtml}`);
+  $('.sidebar-title').append(subtitleDiv);
+  
   // And once the sidebar is set up we can do this stuff...
   const sectionKey = 'dsan6000-section';
   window.toggleSectionClicked = (sectionStr) => {
@@ -52,11 +53,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       '.sec-num': '01',
       '.sec-day': 'M',
       '.sec-day-full': 'Monday',
-      '.sec-time': '3:30pm-6pm',
+      '.sec-time': '3:30-6pm',
       '.sec-room': 'Walsh 394',
-      '.sec-zoom-link': 'https://georgetown.zoom.us/j/93896372980',
-      '.sec-w01-date': 'Aug 23',
-      '.sec-w02-date': 'Aug 29',
+      '.sec-zoom-link': 'https://georgetown.zoom.us/j/91628796534?pwd=BSnBpL4VeysAQMbUtbH4MmwOunglLh.1',
+      '.sec-w01-date': 'Aug 28',
+      '.sec-w02-date': 'Sep 2',
       '.sec-w03-date': 'Sep 6',
       '.sec-w04-date': 'Sep 12',
       '.sec-w05-date': 'Sep 19',
@@ -87,25 +88,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       '.sec-p130': '2:40pm',
       '.sec-p140': '2:50pm',
       '.sec-end': '3:00pm',
-      '.rec-link-w05': '../recordings/recording-w05s02-1.html',
-      '.rec-link-w06': '../recordings/recording-w06s02-1.html',
-      '.rec-link-w07': '../recordings/recording-w07s02-1.html',
-      '.rec-link-w08': '../recordings/recording-w08s02-1.html',
-      '.rec-link-w09': '../recordings/recording-w09s02-1.html',
-      '.rec-link-w10': '../recordings/recording-w10s02-1.html',
-      '.rec-link-w11': '../recordings/recording-w11s02-1.html',
-      '.rec-link-w12': '../recordings/recording-w12s02-1.html',
-      '.rec-link-w13': '../recordings/recording-w13s02-1.html'
     },
     '02': {
       '.sec-num': '02',
       '.sec-day': 'Th',
-      '.sec-day-full': 'Wednesday',
-      '.sec-time': '3:30pm-6pm',
-      '.sec-room': 'Car Barn 203',
-      '.sec-zoom-link': 'https://georgetown.zoom.us/j/99159827749',
-      '.sec-w01-date': 'Aug 23',
-      '.sec-w02-date': 'Aug 30',
+      '.sec-day-full': 'Thursday',
+      '.sec-time': '6:30-9pm',
+      '.sec-room': 'Walsh 394',
+      '.sec-zoom-link': 'https://georgetown.zoom.us/j/92724737140?pwd=rIyVrsa3CDq9xCv4LGNX3Cq0o2J3An.1',
+      '.sec-w01-date': 'Aug 28',
+      '.sec-w02-date': 'Sep 4',
       '.sec-w03-date': 'Sep 6',
       '.sec-w04-date': 'Sep 13',
       '.sec-w05-date': 'Sep 20',
@@ -136,15 +128,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       '.sec-p130': '5:40pm',
       '.sec-p140': '5:50pm',
       '.sec-end': '6:00pm',
-      '.rec-link-w05': '../recordings/recording-w05s03-1.html',
-      '.rec-link-w06': '../recordings/recording-w06s03-1.html',
-      '.rec-link-w07': '../recordings/recording-w07s03-1.html',
-      '.rec-link-w08': '../recordings/recording-w08s03-1.html',
-      '.rec-link-w09': '../recordings/recording-w09s03-1.html',
-      '.rec-link-w10': '../recordings/recording-w10s03-1.html',
-      '.rec-link-w11': '../recordings/recording-w11s03-1.html',
-      '.rec-link-w12': '../recordings/recording-w12s03-1.html',
-      '.rec-link-w13': '../recordings/recording-w13s03-1.html'
     }
   };
   const applyToggleSection = (newStr) => {

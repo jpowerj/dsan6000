@@ -18,4 +18,4 @@ format:
 
 This webpage just serves as a hub collecting Jeff's slides for *DSAN 6000: Big Data and Cloud Computing*, Fall 2025 at Georgetown University. It is **not a replacement for the [main course webpage]()!**
 
-Section <span class='sec-num'>01</span> of the course takes place on **<span class='sec-day-full'>Wednesday</span>** from **6:30 to 9:00pm** in **<span class='room'>Healy 105</span>**.
+Section <span class='sec-num'>01</span> of the course takes place on **<span class='sec-day-full'>Wednesday</span>** from **6:30 to 9:00pm** in **<span class='room'>Walsh 394</span>**.

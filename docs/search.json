@@ -11,22 +11,42 @@
     "href": "index.html",
     "title": "DSAN 6000 Slide Hub",
     "section": "",
-    "text": "This webpage just serves as a hub collecting Jeff’s slides for DSAN 6000: Big Data and Cloud Computing, Fall 2025 at Georgetown University. It is not a replacement for the main course webpage!\nSection 01 of the course takes place on Wednesday from 6:30 to 9:00pm in Healy 105.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Introduction to Big Data\n\n\nAug 28\n\n\n\n\n\n\nNo matching items",
+    "text": "This webpage just serves as a hub collecting Jeff’s slides for DSAN 6000: Big Data and Cloud Computing, Fall 2025 at Georgetown University. It is not a replacement for the main course webpage!\nSection 01 of the course takes place on Wednesday from 6:30 to 9:00pm in Walsh 394.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 28\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 2\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "<i class='bi bi-house pe-1'></i> Home"
     ]
   },
   {
-    "objectID": "writeups/relative-intensity/index.html",
-    "href": "writeups/relative-intensity/index.html",
-    "title": "Computing and Evaluating Relative Intensity Ratios",
+    "objectID": "w02/index.html",
+    "href": "w02/index.html",
+    "title": "Week 2: Cloud Computing",
     "section": "",
-    "text": "As we approached the midterm, there were two “threads” in what we were learning:\n\nIntensity function estimation\nRelative risk surfaces\n\nMy goal was to bring them together, which I was able to do to some extent during Week 9, but there were a lot of details I had to sweep under the rug in order to get to the basic relative risk surface visualization.\nSo, since it has turned out to be one of the more common techniques needed across different final projects, I wanted to create this writeup as a “how-to” guide.\nTo give some specific examples (each of them corresponds to more than one final project!), you may find yourself with:\n\nOne set of points representing cases of interest (say, of a disease), with\nAnother set of points representing a sample of the population from which the cases are drawn.\n\nOr:\n\nOne estimated intensity function representing damaged buildings (and hence buildings needing reconstruction), with\nAnother intensity function representing the danger construction crews would face in going and rebuilding those buildings (estimated, e.g., from points representing bomb attacks).\n\nOr more generally:\n\nOne set of points representing events, with\nAnother set of points representing base rates.\n\nIn each of these cases, the idea is that an intensity function representing the ratio of the first bullet point and the second bullet point is often more useful than the intensity functions considered on their own."
+    "text": "Open slides in new tab →",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#references",
+    "href": "w02/index.html#references",
+    "title": "Week 2: Cloud Computing",
+    "section": "References",
+    "text": "References",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/slides.html#references",
+    "href": "w02/slides.html#references",
+    "title": "Week 2: Cloud Computing",
+    "section": "References",
+    "text": "References"
   },
   {
     "objectID": "w01/index.html",
     "href": "w01/index.html",
-    "title": "Week 1: Introduction to Big Data",
+    "title": "Week 1: Course Overview",
     "section": "",
     "text": "Open slides in new tab →",
     "crumbs": [
@@ -36,7 +56,7 @@
   {
     "objectID": "w01/index.html#references",
     "href": "w01/index.html#references",
-    "title": "Week 1: Introduction to Big Data",
+    "title": "Week 1: Course Overview",
     "section": "References",
     "text": "References",
     "crumbs": [
@@ -46,7 +66,7 @@
   {
     "objectID": "w01/slides.html#references",
     "href": "w01/slides.html#references",
-    "title": "Week 1: Introduction to Big Data",
+    "title": "Week 1: Course Overview",
     "section": "References",
     "text": "References"
   }

@@ -14,5 +14,9 @@
   },
   "git_submodules.md": {
     "git_submodules.html": "97515115"
+  },
+  "w02/index.qmd": {
+    "slides.html": "058cf73c",
+    "index.html": "09461b7c"
   }
 }
