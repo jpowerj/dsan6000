@@ -26,5 +26,49 @@
   "w04/index.qmd": {
     "slides.html": "4a8849a0",
     "index.html": "3d3a2ac7"
+  },
+  "w05/index.qmd": {
+    "slides.html": "345029f9",
+    "index.html": "f060beab"
+  },
+  "w11/index.qmd": {
+    "slides.html": "95edab14",
+    "index.html": "316a22b8"
+  },
+  "w10/index.qmd": {
+    "slides.html": "85ec11f9",
+    "index.html": "1614c95d"
+  },
+  "w07/index.qmd": {
+    "slides.html": "9b267687",
+    "index.html": "f0a5809d"
+  },
+  "w09/index.qmd": {
+    "slides.html": "3625903e",
+    "index.html": "c1319723"
+  },
+  "w08/index.qmd": {
+    "slides.html": "74602b56",
+    "index.html": "623227ea"
+  },
+  "w06/index.qmd": {
+    "slides.html": "53527ff8",
+    "index.html": "4bd968a0"
+  },
+  "w15/index.qmd": {
+    "slides.html": "4e600056",
+    "index.html": "3d0158f6"
+  },
+  "w12/index.qmd": {
+    "slides.html": "96f21522",
+    "index.html": "34477fb7"
+  },
+  "w13/index.qmd": {
+    "slides.html": "c42f03fe",
+    "index.html": "36ef2160"
+  },
+  "w14/index.qmd": {
+    "slides.html": "25756da9",
+    "index.html": "5fe5b0bf"
   }
 }
