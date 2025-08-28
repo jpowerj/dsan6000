@@ -22,7 +22,7 @@ format:
     link-external-newwindow: true
     footer: "{{< var weeks.1.footer >}}"
     include-in-header:
-      text: "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'><link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'><script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz' crossorigin='anonymous'></script>"
+      text: "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'><link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link href='https://fonts.googleapis.com/css2?family=Honk&display=swap' rel='stylesheet'>"
     theme: [default, "../dsan-globals/jjquarto.scss"]
     revealjs-plugins:
       - simplemenu
@@ -394,19 +394,30 @@ Some of these are **HUGE**
 
 <img src="img/syslog-file.jpg" width=600>
 
-## Internet of Things (IoT) in 2025
+## Internet of Things (IoT) in 2025 {.crunch-title .crunch-p .crunch-ul .crunch-img}
 
 **75 billion connected devices generating data:**
+
+:::: {layout="[50,50]" layout-valign="top"}
+::: {#iot-text}
+
 * Smart home devices (Alexa, Google Home, Apple HomePod)
 * Wearables (Apple Watch, Fitbit, Oura rings)
-* Connected vehicles & autonomous driving systems
+* Connected vehicles & self-driving cars
 * Industrial IoT sensors
+
+:::
+::: {#iot-img}
+
 * Smart city infrastructure
 * Medical devices & remote patient monitoring
 
 <img src="img/sensors-everywhere.jpg" width=600>
 
-## Smartphones collecting our information
+:::
+::::
+
+## Smartphone Location Data
 
 <img src="img/smartphone.jpg">
 
@@ -431,16 +442,19 @@ Some of these are **HUGE**
 * Some old floppy disk lying around the house
 
 
-## Typical real world scenarios (2025)
+## Typical Real-World Scenarios in 2025 {.text-90}
 
-### Scenario 1: Traditional Big Data
+**Scenario 1: Traditional Big Data**
+
 You have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. **What do you do?**
 
-### Scenario 2: AI/ML Pipeline
+**Scenario 2: AI/ML Pipeline**
+
 Your company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. **How do you architect this?**
 
-### Scenario 3: Real-time Analytics
-You need to process 1 million events per second from IoT devices and provide real-time dashboards with <1 second latency. **What's your stack?** 
+**Scenario 3: Real-Time Analytics**
+
+You need to process 1 million events/second from IoT devices and provide real-time dashboards with <1s latency. **What's your stack?** 
 
 # What is Big Data?
 
@@ -450,99 +464,106 @@ You need to process 1 million events per second from IoT devices and provide rea
 
 ## Big Data Definitions
 
-### Wikipedia
+**Wikipedia**
 
-_"In essence, is a term for a collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis"_
-
-
-### O'Reilly
-
-_"Big data is when the size of the data itself becomes part of the problem"_
+_"A collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis"_
 
 
-### EMC/IDC
+**O'Reilly**
 
-_"Big data technologies describe a new generation of technologies and architectures, designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discovery, and/or analysis."_
-
-
-## Frameworks for thinking about Big Data
-
-### IBM:  (The famous 3-V's definition)
-
-* Volume (Gigabytes -> Exabytes -> Zettabytes)
-
-* Velocity (Batch -> Streaming -> Real-time AI inference)
-
-* Variety (Structured, Semi-structured, Unstructured, Embeddings)
+_"Big data is when **the size of the data itself** becomes **part of the problem**"_
 
 
-### Additional V's for 2025
+## Frameworks for Thinking About Big Data {.crunch-title .title-08}
+
+**IBM (The 3 V's)**
+
+* **Volume** (Gigabytes &rarr; Exabytes &rarr; Zettabytes)
+* **Velocity** (Batch &rarr; Streaming &rarr; Real-time AI inference)
+* **Variety** (Structured, Unstructured, Embeddings)
+
+**Additional V's for 2025**
+
+:::: {.columns}
+::: {.column width="35%"}
 
 * Variability
 * Veracity
 * Visualization
+
+:::
+::: {.column width="65%"}
+
 * Value
 * **Vectors** (embeddings for AI/ML)
 * **Versatility** (multi-modal data)
 
+:::
+::::
 
-## Think of data size as a function of processing and storage
+## Data "Size"
+
+$$
+\text{``Size''} = f(\text{Processing Ability}, \text{Storage Space})
+$$
 
 * Can you analyze/process your data on a single machine?
-
-
 * Can you store (or is it stored) on a single machine?
-
-
 * Can you serve it fast enough for real-time AI applications?
-
 
 If any of of the answers is _**no**_ then you have a big-ish data problem!
 
 
 # Big Data in the Age of Generative AI
 
-## The New Data Landscape (2025)
+## The New Data Landscape (2025) {.crunch-ul}
 
-### Training Foundation Models
-* GPT-4: Trained on ~13 trillion tokens
+**Training Foundation Models**
+
+* GPT-4: Trained on about 13 trillion tokens
 * Llama 3: 15 trillion tokens 
-* Google's Gemini: Multi-modal training on text, images, video
+* Google Gemini: Multi-modal training (text, images, video)
 * Each iteration requires **petabytes** of curated data
 
-### Data Requirements Have Exploded
+**Data Requirements Have Exploded**
+
 * 2020: BERT trained on 3.3 billion words
 * 2023: GPT-4 trained on ~13 trillion tokens
 * 2024: Llama 3 trained on 15+ trillion tokens
-* Future: Approaching the limits of human-generated text
 
-
-## Big Data Infrastructure for AI
-
-### Data Lakes & Warehouses for AI
+## Big Data Infrastructure: Data Lakes, Warehouses {.title-09 .text-80}
 
 **Traditional Use Cases:**
+
 * Business intelligence
 * Analytics & reporting
 * Historical data storage
 
 **Modern AI Use Cases:**
+
 * Training data repositories
 * Vector embeddings storage
 * RAG (Retrieval-Augmented Generation) context
 * Fine-tuning datasets
 * Evaluation & benchmark data
 
+## RAG and Context Engineering: The New Data Pipeline {.text-80 .crunch-title .crunch-p}
 
-## RAG & Context Engineering
-
-### The New Data Pipeline
-
-```
-Raw Data → Data Lake → Processing → Vector DB → LLM Context
+```{dot}
+//| fig-height: 1
+digraph G {
+  rankdir="LR";
+  raw[label="Raw Data"];
+  lake[label="Data Lake"];
+  proc[label="Processing"];
+  vec[label="Vector DB"];
+  context[label="LLM Context"];
+  raw -> lake -> proc -> vec -> context;
+}
 ```
 
 **Key Components:**
+
 * **Data Lakes** (S3, Azure Data Lake): Store massive unstructured data
 * **Data Warehouses** (Snowflake, BigQuery): Structured data for context
 * **Vector Databases** (Pinecone, Weaviate, Qdrant): Semantic search
@@ -550,131 +571,176 @@ Raw Data → Data Lake → Processing → Vector DB → LLM Context
 * **Orchestration** (Airflow, Prefect): Manage the pipeline
 
 
-## MCP Servers & Agentic AI
+## MCP Servers & Agentic AI {.smaller .crunch-title .crunch-ul .crunch-p}
 
-### Model Context Protocol (MCP)
+**Model Context Protocol (MCP)**
 
-**What is MCP?**
 * Open protocol for connecting AI assistants to data sources
 * Standardized way to expose tools and data to LLMs
 * Enables "agentic" behavior - AI that can act autonomously
 
-### MCP in Production
-```
-Data Warehouse → MCP Server → AI Agent → Action
+**MCP in Production**
+
+```{dot}
+//| fig-height: 1
+digraph G {
+  rankdir="LR";
+  ware[label="Data Warehouse"];
+  mcp[label="MCP Server"];
+  agent[label="AI Agent"];
+  action[label="Action"];
+  ware -> mcp -> agent -> action;
+}
 ```
 
 **Examples:**
+
 * AI agents querying Snowflake for real-time analytics
 * Autonomous systems updating data lakes based on predictions
 * Multi-agent systems coordinating through shared data contexts
 
 
-## Data Quality for AI
+## Data Quality for AI {.text-85 .crunch-p .crunch-ul}
 
-### Why Data Quality Matters More Than Ever
+*(Why Data Quality Matters More Than Ever)*
 
 **Garbage In, Garbage Out - Amplified:**
+
 * Bad training data → Biased models
 * Incorrect RAG data → Hallucinations
 * Poor data governance → Compliance issues
 
-### Data Quality Challenges in 2025
+**Data Quality Challenges in 2025**
+
 * **Scale**: Validating trillions of tokens
 * **Diversity**: Multi-modal, multi-lingual data
 * **Velocity**: Real-time data for online learning
 * **Veracity**: Detecting AI-generated synthetic data
 
+## Real-World Big Data / AI Examples {.crunch-title .smaller .title-11 .crunch-ul .crunch-p}
 
-## Real-World Big Data + AI Examples
+**Netflix**
 
-### Netflix
 * **Data Scale**: 260+ million subscribers generating 100+ billion events/day
 * **AI Use**: Personalization, content recommendations, thumbnail generation
 * **Stack**: S3 → Spark → Iceberg → ML models → Real-time serving
 
-### Uber
+**Uber**
+
 * **Data Scale**: 35+ million trips per day, petabytes of location data
 * **AI Use**: ETA prediction, surge pricing, driver-rider matching
 * **Stack**: Kafka → Spark Streaming → Feature Store → ML Platform
 
-### OpenAI
+**OpenAI**
+
 * **Data Scale**: Trillions of tokens for training, millions of queries/day
 * **AI Use**: GPT models, DALL-E, embeddings
-* **Stack**: Distributed training → Vector DBs → Inference clusters
+* **Stack**: Distributed training &rarr; Vector DBs &rarr; Inference clusters
 
 
-## The Future: Big Data + AI Convergence
-
-### Emerging Trends (2025-2027)
+## Emerging Trends (2025-2027) {.smaller .crunch-ul .crunch-p}
 
 **Unified Platforms:**
+
 * Data lakes becoming "AI lakes"
 * Integrated vector + relational databases
 * One-stop shops for data + AI (Databricks, Snowflake Cortex)
 
 **Edge Computing + AI:**
+
 * Processing at the data source
 * Federated learning across devices
 * 5G enabling real-time edge AI
 
 **Synthetic Data:**
+
 * AI generating training data for AI
 * Privacy-preserving synthetic datasets
-* Infinite data generation loops
+
+## Relative Data Sizes {.text-90 .crunch-title}
+
+&nbsp;<br>
+
+```{=html}
+<style>
+.honk-honk {
+  font-size: 200% !important;
+  /* font-family: "Bungee Spice", sans-serif; */
+  font-family: "Honk", sans-serif;
+  /* font-optical-sizing: auto; */
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
+```
+
+```{=html}
+<table>
+<thead>
+</thead>
+<tbody>
+<tr>
+  <td align="center" rowspan="2" width="15%" style="vertical-align: middle; border-bottom: 0px;">Can be <b>processed</b> on single machine?</td>
+  <td align="center" width="5%" style="vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><i>No</i></td>
+  <td align="center" width="40%" style="vertical-align: middle; border-right: 2px solid #909090; border-top: 2px solid #909090; background-color: #FF991C90;"><span data-qmd="**Medium**<br>(*Parallel Processing*)"></span></td>
+  <td align="center" width="40%" style="background-color: #FF991C90; vertical-align: middle; border-top: 2px solid #909090; border-right: 2px solid #909090;"><span data-qmd="[Big!]{.honk-honk}<br>Parallel + Distributed Processing"></span></td>
+</tr>
+<tr>
+  <td align="center" style="vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><i>Yes</i></td>
+  <td align="center" style="vertical-align: middle; border-right: 2px solid #909090;"><span data-qmd="Small<br>(*Your Laptop*)"></span></td>
+  <td align="center" style="vertical-align: middle; border-right: 2px solid #909090; background-color: #FF991C90;"><span data-qmd="**Medium**<br>(*Data Streaming*)"></span></td>
+</tr>
+<tr>
+  <td style="border-bottom: 0px;"></td>
+  <td style="border-bottom: 0px solid #909090;"></td>
+  <td align="center" style="vertical-align: middle; border-bottom: 0px solid #909090;"><i>Yes</i></td>
+  <td align="center" style="vertical-align: middle; border-bottom: 0px solid #909090;"><i>No</i></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+  <td align="center" colspan="2">Can be <b>stored</b> on single machine?</td>
+</tr>
+</tbody>
+</table>
+```
 
 
-## Relative data sizes {auto-animate=true}
+## What You'll Learn in This Course {.crunch-title .smaller}
 
-<img src="img/medium-1.png" width=600>
+*Modern Big Data Stack (2025)*
 
-## Relative data sizes {auto-animate=true}
-
-<img src="img/medium-2.png" width=600>
-
-
-## Relative data sizes {auto-animate=true}
-
-<img src="img/medium-3.png" width=600>
-
-
-## Relative data sizes {auto-animate=true}
-
-<img src="img/medium-4.png" width=600>
-
-
-## Relative data sizes {auto-animate=true}
-
-<img src="img/medium-5.png" width=600>
-
-
-## Relative data sizes {auto-animate=true}
-
-<img src="img/medium-6.png" width=600>
-
-
-## What You'll Learn in This Course
-
-### Modern Big Data Stack (2025)
+:::: {layout="[1,1]"}
+::: {#bd-stack-left}
 
 **Query Engines:**
+
 * DuckDB - In-process analytical database
 * Polars - Lightning-fast DataFrame library  
 * Spark - Distributed processing at scale
 
 **Data Warehouses & Lakes:**
+
 * Snowflake - Cloud-native data warehouse
 * Athena - Serverless SQL on S3
 * Iceberg - Open table format
 
+:::
+::: {#bd-stack-right}
+
 **AI/ML Integration:**
+
 * Vector databases for embeddings
 * RAG implementation patterns
 * Streaming with Spark Structured Streaming
 
 **Orchestration:**
+
 * Airflow for pipeline management
 * Serverless with AWS Lambda
+
+:::
+::::
 
 ## Data Types
 
@@ -687,7 +753,7 @@ Data Warehouse → MCP Server → AI Agent → Action
 * Streaming
 
 
-## Big Data vs. Small Data
+## Big Data vs. Small Data I {.smaller .crunch-title .text-60}
 
 |  | Small Data is usually... | On the other hand, Big Data... |
 |---|---|---|
@@ -695,6 +761,13 @@ Data Warehouse → MCP Server → AI Agent → Action
 | **Location** | in one place, and often in a single computer file | can be in multiple files in multiple servers on computers in different geographic locations |
 | **Structure/Contents** | highly structured like an Excel spreadsheet, and it's got rows and columns of data | can be unstructured, it can have many formats in files involved across disciplines, and may link to other resources |
 | **Preparation** | prepared by the end user for their own purposes | is often prepared by one group of people, analyzed by a second group of people, and then used by a third group of people, and they may have different purposes, and they may have different disciplines |
+
+: {tbl-colwidths="[20, 40, 40]"}
+
+## Big Data vs. Small Data II {.smaller .crunch-title .text-60}
+
+|  | Small Data is usually... | On the other hand, Big Data... |
+|---|---|---|
 | **Longevity** | kept for a specific amount of time after the project is over because there's a clear ending point. In the academic world it's maybe five or seven years and then you can throw it away | contains data that must be stored in perpetuity. Many big data projects extend into the past and future |
 | **Measurements** | measured with a single protocol using set units and it's usually done at the same time | is collected and measured using many sources, protocols, units, etc |
 | **Reproducibility** | be reproduced in their entirety if something goes wrong in the process | replication is seldom feasible |
@@ -702,10 +775,11 @@ Data Warehouse → MCP Server → AI Agent → Action
 | **Access** | identified by a location specified in a row/column | unless it is exceptionally well designed, the organization can be inscrutable |
 | **Analysis** | analyzed together, all at once | is ordinarily analyzed in incremental steps |
 
+: {tbl-colwidths="[20, 40, 40]"}
 
-# Challenges of working with very large datasets
+## Challenges of Working with Large Datasets {.text-85 .title-09}
 
-| V | Challenge |
+| The V | The Challenge |
 |---|---|
 | **Volume** | data scale |
 | **Value** | data usefulness in decision making |
@@ -718,26 +792,20 @@ Data Warehouse → MCP Server → AI Agent → Action
 | **Variety** | data heterogeneity |
 
 
-# Thinking about big data workflows
+## Thinking About Big Data Workflows {.smaller .crunch-title .title-12}
 
-[William Cohen](http://www.cs.cmu.edu/~wcohen/) (Director, Research Engineering, Google) said the following:
+[William Cohen](http://www.cs.cmu.edu/~wcohen/) (Director, Research Engineering, Google):
 
-
-Working with big data is _not_ about:
-
-* Code optimization
-* Learning the details of today's hardware/software (they are evolving...)
-
-Working with big data _is_ about **understanding**:
-
-* The cost of what you want to do
-* What the tools that are available offer
-* How much can be accomplished with linear or nearly-linear operations 
-* How to organize your computations so that they effectively use whatever’s fast
-* How to test/debug/verify with large data
-
-
-## Traditional data analysis tools like `R` and `Python` are single threaded
+* Working with big data is _not_ about...
+  * Code optimization
+  * Learning the details of today's hardware/software (they are evolving...)
+* Working with big data _is_ about **understanding**:
+  * The cost of what you want to do
+  * What the tools that are available offer
+  * How much can be accomplished with linear or nearly-linear operations 
+  * How to organize your computations so that they effectively use whatever’s fast
+  * How to test/debug/verify with large data
+* Recall that traditional tools like `R` and `Python` are **single threaded** (by default)
 
 ## Tools at-a-glance
 
@@ -754,8 +822,8 @@ Working with big data _is_ about **understanding**:
 - [Apache Arrow](https://arrow.apache.org/)
 - [Apache Spark](https://spark.apache.org/)
 - [SQL](https://en.wikipedia.org/wiki/SQL) 
+- [Apache Hadoop](https://hadoop.apache.org/) (briefly)
 
-We'll talk briefly about [Apache Hadoop](https://hadoop.apache.org/) today but we will not cover it in this course.
 :::
 
 ::: {.column width="50%" .r-fit-text}
@@ -787,130 +855,136 @@ Other:
 - [10 Best Big Data Tools for 2023](https://jelvix.com/blog/top-5-big-data-frameworks) 
 
 
-# Data Engineering
+# Data Engineering {data-stack-name="Data Engineering"}
 
-## Difference between Data Scientist and Data Engineer
+## Data Scientist vs. Data Engineer {.smaller}
 
-In this course, you'll be doing *a little* data engineering!
+In this course, you'll **augment** your data scientist skills with data engineering skills!
 
-<div align="center">
-<img src="img/bdi-core-competencies-deng-and-dsci.png" width=600>
-</div>
+<center>
 
-## Responsibilities
+<img src="img/bdi-core-competencies-deng-and-dsci.png" width="60%">
 
-<div align="center">
+</center>
+
+## Data Engineer Responsibilities
+
+<center>
+
 <img src="img/datacamp-3.png" width=600>
-</div>
+
+</center>
 
 
-## Data Engineering falls into levels 2 and 3 primarily
+## Data Engineering: Levels 2 and 3
 
-<div align="center">
+<center>
+
 <img src="img/rogati.png" width=600>
-</div>
 
+</center>
 
-## As an analyst/data scientist, you _really_ need both
-
-<div align="center">
-<img src="img/data-engineering-ability.png" width=600>
-</div>
-
-# The modern data architecture
+# Modern Data Architecture
 
 ## Architecture
 
-![](img/01-data-platform-anatomy.png)
+![](img/01-data-platform-anatomy.png){fig-align="center"}
 
 ## Storage
 
-![](img/02-data-platform-storage.png)
+![](img/02-data-platform-storage.png){fig-align="center"}
 
 ## Source control
 
-![](img/03-data-platform-source-control.png)
+![](img/03-data-platform-source-control.png){fig-align="center"}
 
 ## Orchestration
 
-![](img/04-data-platform-orchestration.png)
+![](img/04-data-platform-orchestration.png){fig-align="center"}
 
 ## Processing
 
-![](img/05-data-platform-processing.png)
+![](img/05-data-platform-processing.png){fig-align="center"}
 
 ## Analytics
 
-![](img/06-data-platform-analytics.png)
+![](img/06-data-platform-analytics.png){fig-align="center"}
 
 ## Machine Learning
 
-![](img/07-data-platform-ml.png)
+![](img/07-data-platform-ml.png){fig-align="center"}
 
 ## Governance
 
-![](img/08-data-platform-governance.png)
+![](img/08-data-platform-governance.png){fig-align="center"}
 
+# Time for Lab! Linux Command Line {data-stack-name="Linux Lab"}
 
+## The Terminal {.crunch-title .text-90}
 
-# Time for Lab!
-
-
-# Linux Command Line
-
-
-## Linux Command Line
-
-### Terminal 
-
-![](img/terminal_old_computer.jpg)
+:::: {layout="[1,1]" layout-valign="center"}
+::: {#terminal-text}
 
 - Terminal access was **THE ONLY** way to do programming
 - No GUIs! No Spyder, Jupyter, RStudio, etc.
 - Coding is still more powerful than graphical interfaces for complex jobs
 - Coding makes work repeatable
 
-## Linux Command Line
+:::
+::: {#terminal-img}
 
-### BASH
+![](img/terminal_old_computer.jpg)
+
+:::
+::::
+
+## BASH {.crunch-title}
+
+:::: {layout="[60,40]" layout-valign="center"}
+::: {#bash-text}
+
+* Created in 1989 by Brian Fox: "**B**ourne-**A**gain **Sh**ell"
+* Brian Fox also built the first online interactive banking software
+* BASH is a command processor
+* Connection between you and the machine language and hardware
+
+:::
+::: {#bash-img}
 
 ![](img/bash.png)
 
-- Created in 1989 by Brian Fox
-- Brian Fox also built the first online interactive banking software
-- BASH is a command processor
-- Connection between you and the machine language and hardware
+:::
+::::
 
-## Linux Command Line
+## The Prompt
 
-### The Prompt
-
+``` {.bash code-line-numbers="false"}
 username@hostname:current_directory $
+```
 
 What do we learn from the prompt?
 
-- Who you are - **username**
-- The machine where your code is running - **hostname**
-- The directory where your code is running - **current_directory**
-- The shell type - **$** - this symbol means BASH
+- Who you are - **`username`**
+- The machine where your code is running - **`hostname`**
+- The directory where your code is running - **`current_directory`**
+- The shell type - **`$`** - this symbol means BA$H
 
+## Syntax {.smaller .crunch-title .crunch-p .crunch-li-7}
 
-## Linux Command Line
+``` {.bash code-line-numbers="false"}
+COMMAND -F --FLAG
+```
 
-### Syntax
+* `COMMAND` is the program, everything after that = arguments
+* `F` is a single letter flag, `FLAG` is a single word or words connected by dashes. A space breaks things into a new argument.
+* Sometimes argument has single letter and long form versions (e.g. `F` and `FLAG`)
 
-**`COMMAND -F --FLAG`**
-* COMMAND is the program
-* Everything after that are arguments
-* F is a single letter flag
-* FLAG is a single word or words connected by dashes flag. A space breaks things into a new argument.
-  + Sometimes single letter and long form flags (e.g. F and FLAG) can refer to the same argument
+```{.bash code-line-numbers="false"}
+COMMAND -F --FILE file1
+```
 
-**`COMMAND -F --FILE file1`**
-
-Here we pass an text argument "file1" into the FILE flag
-
-The **`-h`** flag is usually to get help. You can also run the **`man`** command and pass the name of the program as the argument to get the help page.
+* Here we pass a text argument `"file1"` as the **value** for the `FILE` flag
+* **`-h`** flag is usually to get help. You can also run the **`man`** command and pass the name of the program as the argument to get the help page.
 
 Let's try basic commands:
 
@@ -918,71 +992,47 @@ Let's try basic commands:
 - **`whoami`** to get your user name
 - **`echo "Hello World"`** to print to the console
 
+## Examining Files {.crunch-title .text-85 .crunch-ul .crunch-li-8}
 
-## Linux Command Line
+* Find out your **P**resent **W**orking **D**irectory **`pwd`**
+* Examine the contents of files and folders using **`ls`**
+* Make new files from scratch using **`touch`**
+* **Glob**: "Mini-language" for selecting files with wildcards
+  - **`\*`** for wild card any number of characters
+  - **`\?`** for wild card for a single character
+  - **`[]`** for one of many character options
+  - **`!`** for exclusion
+  - **`[:alpha:]`**, **`[:alnum:]`**, **`[:digit:]`**, **`[:lower:]`**, **`[:upper:]`**
 
-### Examining Files
-
-Find out your **P**resent **W**orking **D**irectory **`pwd`**
-
-Examine the contents of files and folders using the **`ls`** command
-
-Make new files from scratch using the **`touch`** command
-
-Globbing - how to select files in a general way
-
-- **`\*`** for wild card any number of characters
-- **`\?`** for wild card for a single character
-- **`[]`** for one of many character options
-- **`!`** for exclusion
-- special options **`[:alpha:]`**, **`[:alnum:]`**, **`[:digit:]`**, **`[:lower:]`**, **`[:upper:]`**
-
-[Reference material](https://www.geeksforgeeks.org/file-globbing-linux/)
 [Reference material: Shell Lesson 1,2,4,5](https://linuxjourney.com/lesson/the-shell)
 
----
+## Navigating Directories {.crunch-title .text-80 .crunch-ul .crunch-p .crunch-li-8}
 
-## Linux Command Line
-
-### Navigating Directories
-
-Knowing where your terminal is executing code ensures you are working with the right inputs and making the right outputs.
-
-Use the command `pwd` to determine the Present Working Directory.
-
-Let's say you need to change to a folder called "git-repo". To change directories you can use a command like `cd git-repo`.
-
-
+* Knowing **where your terminal is executing code** ensures you are working with the right inputs/outputs.
+* Use `pwd` to determine the Present Working Directory.
+* Change to a folder called "git-repo" with `cd git-repo`.
 - **`.`** refers to the current directory, such as **`./git-repo`**
-- **`..`** can be used to move up one folder, use **`cd ..`**, and can be combined to move up multiple levels **`../../my_folder`**
-- **`/`** is the root of the Linux OS, where there are core folders, such as system, users, etc.
-- **`~`** is the home directory. Move to folders referenced relative to this path by including it at the start of your path, for example **`~/projects`**.
-
-To view the structure of directories from your present working directory, use the **`tree`** command
+- **`..`** can be used to move up one level (**`cd ..`**), and can be combined to move up multiple levels (**`cd ../../my_folder`**)
+- **`/`** is the **root** of the filesystem: contains core folders (system, users)
+- **`~`** is the **home directory**. Move to folders referenced relative to this path by including it at the start of your path, for example **`~/projects`**.
+* To **visualize the structure** of your working directory, use **`tree`**
 
 [Reference link](https://www.freecodecamp.org/news/linux-command-line-bash-tutorial/)
 
-## Linux Command Line
+## Interacting with Files {.crunch-title .crunch-ul .text-85 .crunch-p .crunch-li-8}
 
-### Interacting with Files
-
-Now that we know how to navigate through directories, we need to learn the commands for interacting with files
+Now that we know how to navigate through **directories**, we need commands for interacting with **files**...
 
 - **`mv`** to move files from one location to another
-  + Can use file globbing here - ?, *, [], ...
+  * Can use glob here - `?`, `*`, `[]`, ...
 - **`cp`** to copy files instead of moving
-  + Can use file globbing here - ?, *, [], ...
+  + Can use glob here - `?`, `*`, `[]`, ...
 - **`mkdir`** to make a directory
 - **`rm`** to remove files
 - **`rmdir`** to remove directories
 - **`rm -rf`** to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING
----
 
-## Linux Command Line
-
-### Using BASH for Data Exploration
-
-Commands:
+## Using BASH for Data Exploration {.crunch-title .crunch-ul .text-90 .crunch-li-8}
 
 - **`head FILENAME`** / **`tail FILENAME`** - glimpsing the first / last few rows of data
 - **`more FILENAME`** / **`less FILENAME`** - viewing the data with basic up / (up & down) controls
@@ -991,79 +1041,54 @@ Commands:
 - **`grep FILENAME`** - search for lines within a file that match a regex expression
 - **`wc FILENAME`** - count the number of lines (**`-l`** flag) or number of words (**`-w`** flag)
 
-
-[Reference link](https://elucidata.io/bash-the-data-scientists-magnifying-glass/)
 [Reference material: Text Lesson 8,9,15,16](https://linuxjourney.com/lesson/stdout-standard-out-redirect)
 
-## Linux Command Line
-
-### Pipes and Arrows
+## Pipes and Arrows
 
 * **`|`** sends the stdout to another command (is the most powerful symbol in BASH!)
 * **`>`**  sends stdout to a file and overwrites anything that was there before
 * **`>>`** appends the stdout to the end of a file (or starts a new file from scratch if one does not exist yet)
 * **`<`** sends stdin into the command on the left
 
-To-dos:
-
-* `echo Hello World`
-* Counting rows of data with certain attributes
-
 [Reference material: Text Lesson 1,2,3,4,5](https://linuxjourney.com/lesson/stdout-standard-out-redirect)
 
+## Alias and User Files {.crunch-title .text-85}
 
-## Linux Command Line
+* `/.bashrc` is where your shell settings are located
+* How many processes? **`whoami | xargs ps -u | wc -l`**
+* Hard to remember full command! Let's make an **alias**
+* General syntax:
 
-### Alias and User Files
+  ``` {.bash code-line-numbers="false"}
+  alias alias_name="command_to_run"
+  ```
 
-.bashrc is where your shell settings are located
+* For our case:
 
-If we wanted a shortcut to find out the number of our running processes, we would write a commmand like **`whoami | xargs ps -u | wc -l`**.
+  ``` {.bash code-line-numbers="false"}
+  alias nproc="whoami | xargs ps -u | wc -l"
+  ```
 
-We don't want to write out this full command every time! Let's make an alias.
+* Now we need to put this alias into the .bashrc
 
-**`alias alias_name="command_to_run"`**
+  ``` {.bash code-line-numbers="false"}
+  alias nproc="whoami | xargs ps -u | wc -l" >> ~/.bashrc
+  ```
 
-**`alias nproc="whoami | xargs ps -u | wc -l"`**
+* Your commands get saved in **`~/.bash_history`**
 
-Now we need to put this alias into the .bashrc
+## Process Management {.crunch-title .text-90 .crunch-ul .crunch-p .crunch-li-8}
 
-**`alias nproc="whoami | xargs ps -u | wc -l" >> ~/.bashrc`**
-
-What happened??
-
-
-**`echo alias nproc="whoami | xargs ps -u | wc -l" >> ~/.bashrc`**
-
-Your commands get saved in **`~/.bash_history`**
-
-## Linux Command Line
-
-### Process Managment
-
-Use the command **`ps`** to see your running processes.
-
-Use the command **`top`** or even better **`htop`** to see all the running processes on the machine.
-
-Install the program **htop** using the command **`sudo yum install htop -y`**
-
-
-Find the process ID (PID) so you can kill a broken process.
-
-Use the command **`kill [PID NUM]`** to signal the process to terminate. If things get really bad, then use the command **`kill -9 [PID NUM]`**
-
-To kill a command in the terminal window it is running in, try using **Ctrl + C** or **Ctrl + /**
-
-Run the **`cat`** command on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.
+* Use **`ps`** to see your running processes
+* Use **`top`** or even better **`htop`** to see all running processes
+* Install **htop** via **`sudo yum install htop -y`**
+* To kill a broken process: first find the **process ID (PID)**
+* Then use **`kill [PID NUM]`** to "ask" the process to terminate. If things get really bad: **`kill -9 [PID NUM]`**
+* To kill a command in the terminal window it is running in, try using **Ctrl + C** or **Ctrl + /**
+* Run **`cat`** on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.
 
 [Reference material: Text Lesson 1,2,3,7,9,10](https://linuxjourney.com/lesson/monitor-processes-ps-command)
 
+## Try playing a Linux game!
 
-### Try playing a Linux game!
-
-[https://gitlab.com/slackermedia/bashcrawl](Bash crawl) is a game to help you practice your navigation and file access skills. Click on the **binder** link in this repo to launch a jupyter lab session and explore!
-
-## References
-
-::: {#refs}
-:::
+[Bash crawl](https://gitlab.com/slackermedia/bashcrawl) is a game to help you practice your navigation and file access skills. Click on the **binder** link in this repo to launch a jupyter lab session and explore!

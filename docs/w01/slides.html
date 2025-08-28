@@ -29,26 +29,73 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
     }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f1a2fbe10646af64ab771edae1b2cadf.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -143,7 +190,7 @@
       margin-right: 0; 
     }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -526,13 +573,31 @@ Jeff Jacobs
 <h2>System log files</h2>
 
 <img src="img/syslog-file.jpg" width="600" class="r-stretch"></section>
-<section id="internet-of-things-iot-in-2025" class="slide level2">
+<section id="internet-of-things-iot-in-2025" class="slide level2 crunch-title crunch-p crunch-ul crunch-img">
 <h2>Internet of Things (IoT) in 2025</h2>
-<p><strong>75 billion connected devices generating data:</strong> * Smart home devices (Alexa, Google Home, Apple HomePod) * Wearables (Apple Watch, Fitbit, Oura rings) * Connected vehicles &amp; autonomous driving systems * Industrial IoT sensors * Smart city infrastructure * Medical devices &amp; remote patient monitoring</p>
-
-<img src="img/sensors-everywhere.jpg" width="600" class="r-stretch"></section>
-<section id="smartphones-collecting-our-information" class="slide level2">
-<h2>Smartphones collecting our information</h2>
+<p><strong>75 billion connected devices generating data:</strong></p>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="iot-text" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Smart home devices (Alexa, Google Home, Apple HomePod)</li>
+<li>Wearables (Apple Watch, Fitbit, Oura rings)</li>
+<li>Connected vehicles &amp; self-driving cars</li>
+<li>Industrial IoT sensors</li>
+</ul>
+</div>
+<div id="iot-img" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Smart city infrastructure</li>
+<li>Medical devices &amp; remote patient monitoring</li>
+</ul>
+<p><img src="img/sensors-everywhere.jpg" width="600"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="smartphone-location-data" class="slide level2">
+<h2>Smartphone Location Data</h2>
 
 <img src="img/smartphone.jpg" class="r-stretch"></section>
 <section id="where-else" class="slide level2">
@@ -547,14 +612,14 @@ Jeff Jacobs
 <li><p>Some old floppy disk lying around the house</p></li>
 </ul>
 </section>
-<section id="typical-real-world-scenarios-2025" class="slide level2">
-<h2>Typical real world scenarios (2025)</h2>
-<h3 id="scenario-1-traditional-big-data">Scenario 1: Traditional Big Data</h3>
+<section id="typical-real-world-scenarios-in-2025" class="slide level2 text-90">
+<h2>Typical Real-World Scenarios in 2025</h2>
+<p><strong>Scenario 1: Traditional Big Data</strong></p>
 <p>You have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. <strong>What do you do?</strong></p>
-<h3 id="scenario-2-aiml-pipeline">Scenario 2: AI/ML Pipeline</h3>
+<p><strong>Scenario 2: AI/ML Pipeline</strong></p>
 <p>Your company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. <strong>How do you architect this?</strong></p>
-<h3 id="scenario-3-real-time-analytics">Scenario 3: Real-time Analytics</h3>
-<p>You need to process 1 million events per second from IoT devices and provide real-time dashboards with &lt;1 second latency. <strong>What’s your stack?</strong></p>
+<p><strong>Scenario 3: Real-Time Analytics</strong></p>
+<p>You need to process 1 million events/second from IoT devices and provide real-time dashboards with &lt;1s latency. <strong>What’s your stack?</strong></p>
 </section></section>
 <section>
 <section id="what-is-big-data" class="title-slide slide level1 center">
@@ -567,37 +632,44 @@ Jeff Jacobs
 <img data-src="img/data-exp-growth-statista.png" class="r-stretch quarto-figure-center"><p class="caption">Exponential data growth</p></section>
 <section id="big-data-definitions" class="slide level2">
 <h2>Big Data Definitions</h2>
-<h3 id="wikipedia">Wikipedia</h3>
-<p><em>“In essence, is a term for a collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis”</em></p>
-<h3 id="oreilly">O’Reilly</h3>
-<p><em>“Big data is when the size of the data itself becomes part of the problem”</em></p>
-<h3 id="emcidc">EMC/IDC</h3>
-<p><em>“Big data technologies describe a new generation of technologies and architectures, designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discovery, and/or analysis.”</em></p>
+<p><strong>Wikipedia</strong></p>
+<p><em>“A collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis”</em></p>
+<p><strong>O’Reilly</strong></p>
+<p><em>“Big data is when <strong>the size of the data itself</strong> becomes <strong>part of the problem</strong>”</em></p>
 </section>
-<section id="frameworks-for-thinking-about-big-data" class="slide level2">
-<h2>Frameworks for thinking about Big Data</h2>
-<h3 id="ibm-the-famous-3-vs-definition">IBM: (The famous 3-V’s definition)</h3>
+<section id="frameworks-for-thinking-about-big-data" class="slide level2 crunch-title title-08">
+<h2>Frameworks for Thinking About Big Data</h2>
+<p><strong>IBM (The 3 V’s)</strong></p>
 <ul>
-<li><p>Volume (Gigabytes -&gt; Exabytes -&gt; Zettabytes)</p></li>
-<li><p>Velocity (Batch -&gt; Streaming -&gt; Real-time AI inference)</p></li>
-<li><p>Variety (Structured, Semi-structured, Unstructured, Embeddings)</p></li>
+<li><strong>Volume</strong> (Gigabytes → Exabytes → Zettabytes)</li>
+<li><strong>Velocity</strong> (Batch → Streaming → Real-time AI inference)</li>
+<li><strong>Variety</strong> (Structured, Unstructured, Embeddings)</li>
 </ul>
-<h3 id="additional-vs-for-2025">Additional V’s for 2025</h3>
+<p><strong>Additional V’s for 2025</strong></p>
+<div class="columns">
+<div class="column" style="width:35%;">
 <ul>
 <li>Variability</li>
 <li>Veracity</li>
 <li>Visualization</li>
+</ul>
+</div><div class="column" style="width:65%;">
+<ul>
 <li>Value</li>
 <li><strong>Vectors</strong> (embeddings for AI/ML)</li>
 <li><strong>Versatility</strong> (multi-modal data)</li>
 </ul>
+</div></div>
 </section>
-<section id="think-of-data-size-as-a-function-of-processing-and-storage" class="slide level2">
-<h2>Think of data size as a function of processing and storage</h2>
+<section id="data-size" class="slide level2">
+<h2>Data “Size”</h2>
+<p><span class="math display">\[
+\text{``Size''} = f(\text{Processing Ability}, \text{Storage Space})
+\]</span></p>
 <ul>
-<li><p>Can you analyze/process your data on a single machine?</p></li>
-<li><p>Can you store (or is it stored) on a single machine?</p></li>
-<li><p>Can you serve it fast enough for real-time AI applications?</p></li>
+<li>Can you analyze/process your data on a single machine?</li>
+<li>Can you store (or is it stored) on a single machine?</li>
+<li>Can you serve it fast enough for real-time AI applications?</li>
 </ul>
 <p>If any of of the answers is <em><strong>no</strong></em> then you have a big-ish data problem!</p>
 </section></section>
@@ -606,48 +678,204 @@ Jeff Jacobs
 <h1>Big Data in the Age of Generative AI</h1>
 
 </section>
-<section id="the-new-data-landscape-2025" class="slide level2">
+<section id="the-new-data-landscape-2025" class="slide level2 crunch-ul">
 <h2>The New Data Landscape (2025)</h2>
-<h3 id="training-foundation-models">Training Foundation Models</h3>
+<p><strong>Training Foundation Models</strong></p>
 <ul>
-<li>GPT-4: Trained on ~13 trillion tokens</li>
+<li>GPT-4: Trained on about 13 trillion tokens</li>
 <li>Llama 3: 15 trillion tokens</li>
-<li>Google’s Gemini: Multi-modal training on text, images, video</li>
+<li>Google Gemini: Multi-modal training (text, images, video)</li>
 <li>Each iteration requires <strong>petabytes</strong> of curated data</li>
 </ul>
-<h3 id="data-requirements-have-exploded">Data Requirements Have Exploded</h3>
+<p><strong>Data Requirements Have Exploded</strong></p>
 <ul>
 <li>2020: BERT trained on 3.3 billion words</li>
 <li>2023: GPT-4 trained on ~13 trillion tokens</li>
 <li>2024: Llama 3 trained on 15+ trillion tokens</li>
-<li>Future: Approaching the limits of human-generated text</li>
 </ul>
 </section>
-<section id="big-data-infrastructure-for-ai" class="slide level2">
-<h2>Big Data Infrastructure for AI</h2>
-<h3 id="data-lakes-warehouses-for-ai">Data Lakes &amp; Warehouses for AI</h3>
-<p><strong>Traditional Use Cases:</strong> * Business intelligence * Analytics &amp; reporting * Historical data storage</p>
-<p><strong>Modern AI Use Cases:</strong> * Training data repositories * Vector embeddings storage * RAG (Retrieval-Augmented Generation) context * Fine-tuning datasets * Evaluation &amp; benchmark data</p>
+<section id="big-data-infrastructure-data-lakes-warehouses" class="slide level2 title-09 text-80">
+<h2>Big Data Infrastructure: Data Lakes, Warehouses</h2>
+<p><strong>Traditional Use Cases:</strong></p>
+<ul>
+<li>Business intelligence</li>
+<li>Analytics &amp; reporting</li>
+<li>Historical data storage</li>
+</ul>
+<p><strong>Modern AI Use Cases:</strong></p>
+<ul>
+<li>Training data repositories</li>
+<li>Vector embeddings storage</li>
+<li>RAG (Retrieval-Augmented Generation) context</li>
+<li>Fine-tuning datasets</li>
+<li>Evaluation &amp; benchmark data</li>
+</ul>
 </section>
-<section id="rag-context-engineering" class="slide level2">
-<h2>RAG &amp; Context Engineering</h2>
-<h3 id="the-new-data-pipeline">The New Data Pipeline</h3>
-<pre><code>Raw Data → Data Lake → Processing → Vector DB → LLM Context</code></pre>
-<p><strong>Key Components:</strong> * <strong>Data Lakes</strong> (S3, Azure Data Lake): Store massive unstructured data * <strong>Data Warehouses</strong> (Snowflake, BigQuery): Structured data for context * <strong>Vector Databases</strong> (Pinecone, Weaviate, Qdrant): Semantic search * <strong>Embedding Models</strong>: Convert data to vectors * <strong>Orchestration</strong> (Airflow, Prefect): Manage the pipeline</p>
+<section id="rag-and-context-engineering-the-new-data-pipeline" class="slide level2 text-80 crunch-title crunch-p">
+<h2>RAG and Context Engineering: The New Data Pipeline</h2>
+<div class="cell" data-fig-height="1" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="96" viewbox="0.00 0.00 693.59 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 689.59,-40 689.59,4 -4,4"></polygon>
+<!-- raw -->
+<g id="node1" class="node">
+<title>raw</title>
+<ellipse fill="none" stroke="black" cx="49.38" cy="-18" rx="49.26" ry="18"></ellipse>
+<text text-anchor="middle" x="49.38" y="-13.8" font-family="Times,serif" font-size="14.00">Raw Data</text>
+</g>
+<!-- lake -->
+<g id="node2" class="node">
+<title>lake</title>
+<ellipse fill="none" stroke="black" cx="185.74" cy="-18" rx="50.96" ry="18"></ellipse>
+<text text-anchor="middle" x="185.74" y="-13.8" font-family="Times,serif" font-size="14.00">Data Lake</text>
+</g>
+<!-- raw&#45;&gt;lake -->
+<g id="edge1" class="edge">
+<title>raw-&gt;lake</title>
+<path fill="none" stroke="black" d="M98.89,-18C107.12,-18 115.75,-18 124.25,-18"></path>
+<polygon fill="black" stroke="black" points="124.5,-21.5 134.5,-18 124.5,-14.5 124.5,-21.5"></polygon>
+</g>
+<!-- proc -->
+<g id="node3" class="node">
+<title>proc</title>
+<ellipse fill="none" stroke="black" cx="325.6" cy="-18" rx="52.76" ry="18"></ellipse>
+<text text-anchor="middle" x="325.6" y="-13.8" font-family="Times,serif" font-size="14.00">Processing</text>
+</g>
+<!-- lake&#45;&gt;proc -->
+<g id="edge2" class="edge">
+<title>lake-&gt;proc</title>
+<path fill="none" stroke="black" d="M236.9,-18C245.11,-18 253.71,-18 262.17,-18"></path>
+<polygon fill="black" stroke="black" points="262.39,-21.5 272.39,-18 262.39,-14.5 262.39,-21.5"></polygon>
+</g>
+<!-- vec -->
+<g id="node4" class="node">
+<title>vec</title>
+<ellipse fill="none" stroke="black" cx="467.62" cy="-18" rx="53.28" ry="18"></ellipse>
+<text text-anchor="middle" x="467.62" y="-13.8" font-family="Times,serif" font-size="14.00">Vector DB</text>
+</g>
+<!-- proc&#45;&gt;vec -->
+<g id="edge3" class="edge">
+<title>proc-&gt;vec</title>
+<path fill="none" stroke="black" d="M378.74,-18C387.03,-18 395.68,-18 404.18,-18"></path>
+<polygon fill="black" stroke="black" points="404.44,-21.5 414.44,-18 404.44,-14.5 404.44,-21.5"></polygon>
+</g>
+<!-- context -->
+<g id="node5" class="node">
+<title>context</title>
+<ellipse fill="none" stroke="black" cx="621.18" cy="-18" rx="64.33" ry="18"></ellipse>
+<text text-anchor="middle" x="621.18" y="-13.8" font-family="Times,serif" font-size="14.00">LLM Context</text>
+</g>
+<!-- vec&#45;&gt;context -->
+<g id="edge4" class="edge">
+<title>vec-&gt;context</title>
+<path fill="none" stroke="black" d="M520.78,-18C529.09,-18 537.82,-18 546.51,-18"></path>
+<polygon fill="black" stroke="black" points="546.67,-21.5 556.67,-18 546.67,-14.5 546.67,-21.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Key Components:</strong></p>
+<ul>
+<li><strong>Data Lakes</strong> (S3, Azure Data Lake): Store massive unstructured data</li>
+<li><strong>Data Warehouses</strong> (Snowflake, BigQuery): Structured data for context</li>
+<li><strong>Vector Databases</strong> (Pinecone, Weaviate, Qdrant): Semantic search</li>
+<li><strong>Embedding Models</strong>: Convert data to vectors</li>
+<li><strong>Orchestration</strong> (Airflow, Prefect): Manage the pipeline</li>
+</ul>
 </section>
-<section id="mcp-servers-agentic-ai" class="slide level2">
+<section id="mcp-servers-agentic-ai" class="slide level2 smaller crunch-title crunch-ul crunch-p">
 <h2>MCP Servers &amp; Agentic AI</h2>
-<h3 id="model-context-protocol-mcp">Model Context Protocol (MCP)</h3>
-<p><strong>What is MCP?</strong> * Open protocol for connecting AI assistants to data sources * Standardized way to expose tools and data to LLMs * Enables “agentic” behavior - AI that can act autonomously</p>
-<h3 id="mcp-in-production">MCP in Production</h3>
-<pre><code>Data Warehouse → MCP Server → AI Agent → Action</code></pre>
-<p><strong>Examples:</strong> * AI agents querying Snowflake for real-time analytics * Autonomous systems updating data lakes based on predictions * Multi-agent systems coordinating through shared data contexts</p>
+<p><strong>Model Context Protocol (MCP)</strong></p>
+<ul>
+<li>Open protocol for connecting AI assistants to data sources</li>
+<li>Standardized way to expose tools and data to LLMs</li>
+<li>Enables “agentic” behavior - AI that can act autonomously</li>
+</ul>
+<p><strong>MCP in Production</strong></p>
+<div class="cell" data-fig-height="1" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="96" viewbox="0.00 0.00 553.45 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 549.45,-40 549.45,4 -4,4"></polygon>
+<!-- ware -->
+<g id="node1" class="node">
+<title>ware</title>
+<ellipse fill="none" stroke="black" cx="75.11" cy="-18" rx="75.23" ry="18"></ellipse>
+<text text-anchor="middle" x="75.11" y="-13.8" font-family="Times,serif" font-size="14.00">Data Warehouse</text>
+</g>
+<!-- mcp -->
+<g id="node2" class="node">
+<title>mcp</title>
+<ellipse fill="none" stroke="black" cx="245.28" cy="-18" rx="59.1" ry="18"></ellipse>
+<text text-anchor="middle" x="245.28" y="-13.8" font-family="Times,serif" font-size="14.00">MCP Server</text>
+</g>
+<!-- ware&#45;&gt;mcp -->
+<g id="edge1" class="edge">
+<title>ware-&gt;mcp</title>
+<path fill="none" stroke="black" d="M150.36,-18C158.87,-18 167.51,-18 175.94,-18"></path>
+<polygon fill="black" stroke="black" points="176.08,-21.5 186.08,-18 176.08,-14.5 176.08,-21.5"></polygon>
+</g>
+<!-- agent -->
+<g id="node3" class="node">
+<title>agent</title>
+<ellipse fill="none" stroke="black" cx="387.57" cy="-18" rx="47.48" ry="18"></ellipse>
+<text text-anchor="middle" x="387.57" y="-13.8" font-family="Times,serif" font-size="14.00">AI Agent</text>
+</g>
+<!-- mcp&#45;&gt;agent -->
+<g id="edge2" class="edge">
+<title>mcp-&gt;agent</title>
+<path fill="none" stroke="black" d="M304.56,-18C313.01,-18 321.71,-18 330.13,-18"></path>
+<polygon fill="black" stroke="black" points="330.23,-21.5 340.23,-18 330.23,-14.5 330.23,-21.5"></polygon>
+</g>
+<!-- action -->
+<g id="node4" class="node">
+<title>action</title>
+<ellipse fill="none" stroke="black" cx="508.13" cy="-18" rx="37.14" ry="18"></ellipse>
+<text text-anchor="middle" x="508.13" y="-13.8" font-family="Times,serif" font-size="14.00">Action</text>
+</g>
+<!-- agent&#45;&gt;action -->
+<g id="edge3" class="edge">
+<title>agent-&gt;action</title>
+<path fill="none" stroke="black" d="M435.09,-18C443.48,-18 452.24,-18 460.63,-18"></path>
+<polygon fill="black" stroke="black" points="460.64,-21.5 470.64,-18 460.64,-14.5 460.64,-21.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>AI agents querying Snowflake for real-time analytics</li>
+<li>Autonomous systems updating data lakes based on predictions</li>
+<li>Multi-agent systems coordinating through shared data contexts</li>
+</ul>
 </section>
-<section id="data-quality-for-ai" class="slide level2">
+<section id="data-quality-for-ai" class="slide level2 text-85 crunch-p crunch-ul">
 <h2>Data Quality for AI</h2>
-<h3 id="why-data-quality-matters-more-than-ever">Why Data Quality Matters More Than Ever</h3>
-<p><strong>Garbage In, Garbage Out - Amplified:</strong> * Bad training data → Biased models * Incorrect RAG data → Hallucinations * Poor data governance → Compliance issues</p>
-<h3 id="data-quality-challenges-in-2025">Data Quality Challenges in 2025</h3>
+<p><em>(Why Data Quality Matters More Than Ever)</em></p>
+<p><strong>Garbage In, Garbage Out - Amplified:</strong></p>
+<ul>
+<li>Bad training data → Biased models</li>
+<li>Incorrect RAG data → Hallucinations</li>
+<li>Poor data governance → Compliance issues</li>
+</ul>
+<p><strong>Data Quality Challenges in 2025</strong></p>
 <ul>
 <li><strong>Scale</strong>: Validating trillions of tokens</li>
 <li><strong>Diversity</strong>: Multi-modal, multi-lingual data</li>
@@ -655,66 +883,122 @@ Jeff Jacobs
 <li><strong>Veracity</strong>: Detecting AI-generated synthetic data</li>
 </ul>
 </section>
-<section id="real-world-big-data-ai-examples" class="slide level2">
-<h2>Real-World Big Data + AI Examples</h2>
-<h3 id="netflix">Netflix</h3>
+<section id="real-world-big-data-ai-examples" class="slide level2 crunch-title smaller title-11 crunch-ul crunch-p">
+<h2>Real-World Big Data / AI Examples</h2>
+<p><strong>Netflix</strong></p>
 <ul>
 <li><strong>Data Scale</strong>: 260+ million subscribers generating 100+ billion events/day</li>
 <li><strong>AI Use</strong>: Personalization, content recommendations, thumbnail generation</li>
 <li><strong>Stack</strong>: S3 → Spark → Iceberg → ML models → Real-time serving</li>
 </ul>
-<h3 id="uber">Uber</h3>
+<p><strong>Uber</strong></p>
 <ul>
 <li><strong>Data Scale</strong>: 35+ million trips per day, petabytes of location data</li>
 <li><strong>AI Use</strong>: ETA prediction, surge pricing, driver-rider matching</li>
 <li><strong>Stack</strong>: Kafka → Spark Streaming → Feature Store → ML Platform</li>
 </ul>
-<h3 id="openai">OpenAI</h3>
+<p><strong>OpenAI</strong></p>
 <ul>
 <li><strong>Data Scale</strong>: Trillions of tokens for training, millions of queries/day</li>
 <li><strong>AI Use</strong>: GPT models, DALL-E, embeddings</li>
 <li><strong>Stack</strong>: Distributed training → Vector DBs → Inference clusters</li>
 </ul>
 </section>
-<section id="the-future-big-data-ai-convergence" class="slide level2">
-<h2>The Future: Big Data + AI Convergence</h2>
-<h3 id="emerging-trends-2025-2027">Emerging Trends (2025-2027)</h3>
-<p><strong>Unified Platforms:</strong> * Data lakes becoming “AI lakes” * Integrated vector + relational databases * One-stop shops for data + AI (Databricks, Snowflake Cortex)</p>
-<p><strong>Edge Computing + AI:</strong> * Processing at the data source * Federated learning across devices * 5G enabling real-time edge AI</p>
-<p><strong>Synthetic Data:</strong> * AI generating training data for AI * Privacy-preserving synthetic datasets * Infinite data generation loops</p>
+<section id="emerging-trends-2025-2027" class="slide level2 smaller crunch-ul crunch-p">
+<h2>Emerging Trends (2025-2027)</h2>
+<p><strong>Unified Platforms:</strong></p>
+<ul>
+<li>Data lakes becoming “AI lakes”</li>
+<li>Integrated vector + relational databases</li>
+<li>One-stop shops for data + AI (Databricks, Snowflake Cortex)</li>
+</ul>
+<p><strong>Edge Computing + AI:</strong></p>
+<ul>
+<li>Processing at the data source</li>
+<li>Federated learning across devices</li>
+<li>5G enabling real-time edge AI</li>
+</ul>
+<p><strong>Synthetic Data:</strong></p>
+<ul>
+<li>AI generating training data for AI</li>
+<li>Privacy-preserving synthetic datasets</li>
+</ul>
 </section>
-<section id="relative-data-sizes" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Relative data sizes</h2>
-
-<img src="img/medium-1.png" width="600" class="r-stretch"></section>
-<section id="relative-data-sizes-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Relative data sizes</h2>
-
-<img src="img/medium-2.png" width="600" class="r-stretch"></section>
-<section id="relative-data-sizes-2" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Relative data sizes</h2>
-
-<img src="img/medium-3.png" width="600" class="r-stretch"></section>
-<section id="relative-data-sizes-3" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Relative data sizes</h2>
-
-<img src="img/medium-4.png" width="600" class="r-stretch"></section>
-<section id="relative-data-sizes-4" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Relative data sizes</h2>
-
-<img src="img/medium-5.png" width="600" class="r-stretch"></section>
-<section id="relative-data-sizes-5" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Relative data sizes</h2>
-
-<img src="img/medium-6.png" width="600" class="r-stretch"></section>
-<section id="what-youll-learn-in-this-course" class="slide level2">
+<section id="relative-data-sizes" class="slide level2 text-90 crunch-title">
+<h2>Relative Data Sizes</h2>
+<p>&nbsp;<br></p>
+<style>
+.honk-honk {
+  font-size: 200% !important;
+  /* font-family: "Bungee Spice", sans-serif; */
+  font-family: "Honk", sans-serif;
+  /* font-optical-sizing: auto; */
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
+<table class="caption-top" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td rowspan="2" width="15%" style="text-align: center; vertical-align: middle; border-bottom: 0px;">Can be <strong>processed</strong> on single machine?</td>
+<td width="5%" style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><em>No</em></td>
+<td width="40%" style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-top: 2px solid #909090; background-color: #FF991C90;"><strong>Medium</strong><br>(<em>Parallel Processing</em>)</td>
+<td width="40%" style="text-align: center; background-color: #FF991C90; vertical-align: middle; border-top: 2px solid #909090; border-right: 2px solid #909090;"><span class="honk-honk">Big!</span><br>Parallel + Distributed Processing</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><em>Yes</em></td>
+<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090;">Small<br>(<em>Your Laptop</em>)</td>
+<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; background-color: #FF991C90;"><strong>Medium</strong><br>(<em>Data Streaming</em>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; border-bottom: 0px;"></td>
+<td style="text-align: center; border-bottom: 0px solid #909090;"></td>
+<td style="text-align: center; vertical-align: middle; border-bottom: 0px solid #909090;"><em>Yes</em></td>
+<td style="text-align: center; vertical-align: middle; border-bottom: 0px solid #909090;"><em>No</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td colspan="2" style="text-align: center;">Can be <strong>stored</strong> on single machine?</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-youll-learn-in-this-course" class="slide level2 crunch-title smaller">
 <h2>What You’ll Learn in This Course</h2>
-<h3 id="modern-big-data-stack-2025">Modern Big Data Stack (2025)</h3>
-<p><strong>Query Engines:</strong> * DuckDB - In-process analytical database * Polars - Lightning-fast DataFrame library<br>
-* Spark - Distributed processing at scale</p>
-<p><strong>Data Warehouses &amp; Lakes:</strong> * Snowflake - Cloud-native data warehouse * Athena - Serverless SQL on S3 * Iceberg - Open table format</p>
-<p><strong>AI/ML Integration:</strong> * Vector databases for embeddings * RAG implementation patterns * Streaming with Spark Structured Streaming</p>
-<p><strong>Orchestration:</strong> * Airflow for pipeline management * Serverless with AWS Lambda</p>
+<p><em>Modern Big Data Stack (2025)</em></p>
+<div class="quarto-layout-panel" data-layout="[1,1]">
+<div class="quarto-layout-row">
+<div id="bd-stack-left" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>Query Engines:</strong></p>
+<ul>
+<li>DuckDB - In-process analytical database</li>
+<li>Polars - Lightning-fast DataFrame library<br>
+</li>
+<li>Spark - Distributed processing at scale</li>
+</ul>
+<p><strong>Data Warehouses &amp; Lakes:</strong></p>
+<ul>
+<li>Snowflake - Cloud-native data warehouse</li>
+<li>Athena - Serverless SQL on S3</li>
+<li>Iceberg - Open table format</li>
+</ul>
+</div>
+<div id="bd-stack-right" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>AI/ML Integration:</strong></p>
+<ul>
+<li>Vector databases for embeddings</li>
+<li>RAG implementation patterns</li>
+<li>Streaming with Spark Structured Streaming</li>
+</ul>
+<p><strong>Orchestration:</strong></p>
+<ul>
+<li>Airflow for pipeline management</li>
+<li>Serverless with AWS Lambda</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="data-types" class="slide level2">
 <h2>Data Types</h2>
@@ -728,13 +1012,13 @@ Jeff Jacobs
 <li>Streaming</li>
 </ul>
 </section>
-<section id="big-data-vs.-small-data" class="slide level2">
-<h2>Big Data vs.&nbsp;Small Data</h2>
+<section id="big-data-vs.-small-data-i" class="slide level2 smaller crunch-title text-60">
+<h2>Big Data vs.&nbsp;Small Data I</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -764,6 +1048,25 @@ Jeff Jacobs
 <td>prepared by the end user for their own purposes</td>
 <td>is often prepared by one group of people, analyzed by a second group of people, and then used by a third group of people, and they may have different purposes, and they may have different disciplines</td>
 </tr>
+</tbody>
+</table>
+</section>
+<section id="big-data-vs.-small-data-ii" class="slide level2 smaller crunch-title text-60">
+<h2>Big Data vs.&nbsp;Small Data II</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Small Data is usually…</th>
+<th>On the other hand, Big Data…</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td><strong>Longevity</strong></td>
 <td>kept for a specific amount of time after the project is over because there’s a clear ending point. In the academic world it’s maybe five or seven years and then you can throw it away</td>
@@ -796,14 +1099,14 @@ Jeff Jacobs
 </tr>
 </tbody>
 </table>
-</section></section>
-<section id="challenges-of-working-with-very-large-datasets" class="title-slide slide level1 center">
-<h1>Challenges of working with very large datasets</h1>
+</section>
+<section id="challenges-of-working-with-large-datasets" class="slide level2 text-85 title-09">
+<h2>Challenges of Working with Large Datasets</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>V</th>
-<th>Challenge</th>
+<th>The V</th>
+<th>The Challenge</th>
 </tr>
 </thead>
 <tbody>
@@ -846,27 +1149,25 @@ Jeff Jacobs
 </tbody>
 </table>
 </section>
-
-<section>
-<section id="thinking-about-big-data-workflows" class="title-slide slide level1 center">
-<h1>Thinking about big data workflows</h1>
-<p><a href="http://www.cs.cmu.edu/~wcohen/">William Cohen</a> (Director, Research Engineering, Google) said the following:</p>
-<p>Working with big data is <em>not</em> about:</p>
+<section id="thinking-about-big-data-workflows" class="slide level2 smaller crunch-title title-12">
+<h2>Thinking About Big Data Workflows</h2>
+<p><a href="http://www.cs.cmu.edu/~wcohen/">William Cohen</a> (Director, Research Engineering, Google):</p>
+<ul>
+<li>Working with big data is <em>not</em> about…
 <ul>
 <li>Code optimization</li>
 <li>Learning the details of today’s hardware/software (they are evolving…)</li>
-</ul>
-<p>Working with big data <em>is</em> about <strong>understanding</strong>:</p>
+</ul></li>
+<li>Working with big data <em>is</em> about <strong>understanding</strong>:
 <ul>
 <li>The cost of what you want to do</li>
 <li>What the tools that are available offer</li>
 <li>How much can be accomplished with linear or nearly-linear operations</li>
 <li>How to organize your computations so that they effectively use whatever’s fast</li>
 <li>How to test/debug/verify with large data</li>
+</ul></li>
+<li>Recall that traditional tools like <code>R</code> and <code>Python</code> are <strong>single threaded</strong> (by default)</li>
 </ul>
-</section>
-<section id="traditional-data-analysis-tools-like-r-and-python-are-single-threaded" class="slide level2">
-<h2>Traditional data analysis tools like <code>R</code> and <code>Python</code> are single threaded</h2>
 </section>
 <section id="tools-at-a-glance" class="slide level2">
 <h2>Tools at-a-glance</h2>
@@ -886,8 +1187,8 @@ Jeff Jacobs
 <li><a href="https://arrow.apache.org/">Apache Arrow</a></li>
 <li><a href="https://spark.apache.org/">Apache Spark</a></li>
 <li><a href="https://en.wikipedia.org/wiki/SQL">SQL</a></li>
+<li><a href="https://hadoop.apache.org/">Apache Hadoop</a> (briefly)</li>
 </ul>
-<p>We’ll talk briefly about <a href="https://hadoop.apache.org/">Apache Hadoop</a> today but we will not cover it in this course.</p>
 </div><div class="column r-fit-text" style="width:50%;">
 <h3 id="cloud-services">Cloud Services</h3>
 <ul>
@@ -921,123 +1222,131 @@ Jeff Jacobs
 </ul>
 </section></section>
 <section>
-<section id="data-engineering" class="title-slide slide level1 center">
+<section id="data-engineering" class="title-slide slide level1 center" data-stack-name="Data Engineering">
 <h1>Data Engineering</h1>
 
 </section>
-<section id="difference-between-data-scientist-and-data-engineer" class="slide level2">
-<h2>Difference between Data Scientist and Data Engineer</h2>
-<p>In this course, you’ll be doing <em>a little</em> data engineering!</p>
-<div data-align="center">
-<p><img src="img/bdi-core-competencies-deng-and-dsci.png" width="600"></p>
-</div>
+<section id="data-scientist-vs.-data-engineer" class="slide level2 smaller">
+<h2>Data Scientist vs.&nbsp;Data Engineer</h2>
+<p>In this course, you’ll <strong>augment</strong> your data scientist skills with data engineering skills!</p>
+<center>
+<p><img src="img/bdi-core-competencies-deng-and-dsci.png" width="60%"></p>
+</center>
 </section>
-<section id="responsibilities" class="slide level2">
-<h2>Responsibilities</h2>
-<div data-align="center">
+<section id="data-engineer-responsibilities" class="slide level2">
+<h2>Data Engineer Responsibilities</h2>
+<center>
 <p><img src="img/datacamp-3.png" width="600"></p>
-</div>
+</center>
 </section>
-<section id="data-engineering-falls-into-levels-2-and-3-primarily" class="slide level2">
-<h2>Data Engineering falls into levels 2 and 3 primarily</h2>
-<div data-align="center">
+<section id="data-engineering-levels-2-and-3" class="slide level2">
+<h2>Data Engineering: Levels 2 and 3</h2>
+<center>
 <p><img src="img/rogati.png" width="600"></p>
-</div>
-</section>
-<section id="as-an-analystdata-scientist-you-really-need-both" class="slide level2">
-<h2>As an analyst/data scientist, you <em>really</em> need both</h2>
-<div data-align="center">
-<p><img src="img/data-engineering-ability.png" width="600"></p>
-</div>
+</center>
 </section></section>
 <section>
-<section id="the-modern-data-architecture" class="title-slide slide level1 center">
-<h1>The modern data architecture</h1>
+<section id="modern-data-architecture" class="title-slide slide level1 center">
+<h1>Modern Data Architecture</h1>
 
 </section>
 <section id="architecture" class="slide level2">
 <h2>Architecture</h2>
 
-<img data-src="img/01-data-platform-anatomy.png" class="r-stretch"></section>
+<img data-src="img/01-data-platform-anatomy.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="storage" class="slide level2">
 <h2>Storage</h2>
 
-<img data-src="img/02-data-platform-storage.png" class="r-stretch"></section>
+<img data-src="img/02-data-platform-storage.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="source-control" class="slide level2">
 <h2>Source control</h2>
 
-<img data-src="img/03-data-platform-source-control.png" class="r-stretch"></section>
+<img data-src="img/03-data-platform-source-control.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="orchestration" class="slide level2">
 <h2>Orchestration</h2>
 
-<img data-src="img/04-data-platform-orchestration.png" class="r-stretch"></section>
+<img data-src="img/04-data-platform-orchestration.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="processing" class="slide level2">
 <h2>Processing</h2>
 
-<img data-src="img/05-data-platform-processing.png" class="r-stretch"></section>
+<img data-src="img/05-data-platform-processing.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="analytics" class="slide level2">
 <h2>Analytics</h2>
 
-<img data-src="img/06-data-platform-analytics.png" class="r-stretch"></section>
+<img data-src="img/06-data-platform-analytics.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="machine-learning" class="slide level2">
 <h2>Machine Learning</h2>
 
-<img data-src="img/07-data-platform-ml.png" class="r-stretch"></section>
+<img data-src="img/07-data-platform-ml.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="governance" class="slide level2">
 <h2>Governance</h2>
 
-<img data-src="img/08-data-platform-governance.png" class="r-stretch"></section></section>
-<section id="time-for-lab" class="title-slide slide level1 center">
-<h1>Time for Lab!</h1>
-
-</section>
-
+<img data-src="img/08-data-platform-governance.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
 <section>
-<section id="linux-command-line" class="title-slide slide level1 center">
-<h1>Linux Command Line</h1>
+<section id="time-for-lab-linux-command-line" class="title-slide slide level1 center" data-stack-name="Linux Lab">
+<h1>Time for Lab! Linux Command Line</h1>
 
 </section>
-<section id="linux-command-line-1" class="slide level2">
-<h2>Linux Command Line</h2>
-<h3 id="terminal">Terminal</h3>
-
-<img data-src="img/terminal_old_computer.jpg" class="r-stretch"><ul>
+<section id="the-terminal" class="slide level2 crunch-title text-90">
+<h2>The Terminal</h2>
+<div class="quarto-layout-panel" data-layout="[1,1]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div id="terminal-text" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
 <li>Terminal access was <strong>THE ONLY</strong> way to do programming</li>
 <li>No GUIs! No Spyder, Jupyter, RStudio, etc.</li>
 <li>Coding is still more powerful than graphical interfaces for complex jobs</li>
 <li>Coding makes work repeatable</li>
 </ul>
+</div>
+<div id="terminal-img" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="img/terminal_old_computer.jpg"></p>
+</div>
+</div>
+</div>
 </section>
-<section id="linux-command-line-2" class="slide level2">
-<h2>Linux Command Line</h2>
-<h3 id="bash">BASH</h3>
-
-<img data-src="img/bash.png" class="r-stretch"><ul>
-<li>Created in 1989 by Brian Fox</li>
+<section id="bash" class="slide level2 crunch-title">
+<h2>BASH</h2>
+<div class="quarto-layout-panel" data-layout="[60,40]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div id="bash-text" class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
+<ul>
+<li>Created in 1989 by Brian Fox: “<strong>B</strong>ourne-<strong>A</strong>gain <strong>Sh</strong>ell”</li>
 <li>Brian Fox also built the first online interactive banking software</li>
 <li>BASH is a command processor</li>
 <li>Connection between you and the machine language and hardware</li>
 </ul>
+</div>
+<div id="bash-img" class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
+<p><img data-src="img/bash.png"></p>
+</div>
+</div>
+</div>
 </section>
-<section id="linux-command-line-3" class="slide level2">
-<h2>Linux Command Line</h2>
-<h3 id="the-prompt">The Prompt</h3>
-<p>username@hostname:current_directory $</p>
+<section id="the-prompt" class="slide level2">
+<h2>The Prompt</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">username@hostname:current_directory</span> $</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>What do we learn from the prompt?</p>
 <ul>
-<li>Who you are - <strong>username</strong></li>
-<li>The machine where your code is running - <strong>hostname</strong></li>
-<li>The directory where your code is running - <strong>current_directory</strong></li>
-<li>The shell type - <strong>$</strong> - this symbol means BASH</li>
+<li>Who you are - <strong><code>username</code></strong></li>
+<li>The machine where your code is running - <strong><code>hostname</code></strong></li>
+<li>The directory where your code is running - <strong><code>current_directory</code></strong></li>
+<li>The shell type - <strong><code>$</code></strong> - this symbol means BA$H</li>
 </ul>
 </section>
-<section id="linux-command-line-4" class="slide level2">
-<h2>Linux Command Line</h2>
-<h3 id="syntax">Syntax</h3>
-<p><strong><code>COMMAND -F --FLAG</code></strong> * COMMAND is the program * Everything after that are arguments * F is a single letter flag * FLAG is a single word or words connected by dashes flag. A space breaks things into a new argument. + Sometimes single letter and long form flags (e.g.&nbsp;F and FLAG) can refer to the same argument</p>
-<p><strong><code>COMMAND -F --FILE file1</code></strong></p>
-<p>Here we pass an text argument “file1” into the FILE flag</p>
-<p>The <strong><code>-h</code></strong> flag is usually to get help. You can also run the <strong><code>man</code></strong> command and pass the name of the program as the argument to get the help page.</p>
+<section id="syntax" class="slide level2 smaller crunch-title crunch-p crunch-li-7">
+<h2>Syntax</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">COMMAND</span> <span class="at">-F</span> <span class="at">--FLAG</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>COMMAND</code> is the program, everything after that = arguments</li>
+<li><code>F</code> is a single letter flag, <code>FLAG</code> is a single word or words connected by dashes. A space breaks things into a new argument.</li>
+<li>Sometimes argument has single letter and long form versions (e.g.&nbsp;<code>F</code> and <code>FLAG</code>)</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">COMMAND</span> <span class="at">-F</span> <span class="at">--FILE</span> file1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Here we pass a text argument <code>"file1"</code> as the <strong>value</strong> for the <code>FILE</code> flag</li>
+<li><strong><code>-h</code></strong> flag is usually to get help. You can also run the <strong><code>man</code></strong> command and pass the name of the program as the argument to get the help page.</li>
+</ul>
 <p>Let’s try basic commands:</p>
 <ul>
 <li><strong><code>date</code></strong> to get the current date</li>
@@ -1045,60 +1354,57 @@ Jeff Jacobs
 <li><strong><code>echo "Hello World"</code></strong> to print to the console</li>
 </ul>
 </section>
-<section id="linux-command-line-5" class="slide level2">
-<h2>Linux Command Line</h2>
-<h3 id="examining-files">Examining Files</h3>
-<p>Find out your <strong>P</strong>resent <strong>W</strong>orking <strong>D</strong>irectory <strong><code>pwd</code></strong></p>
-<p>Examine the contents of files and folders using the <strong><code>ls</code></strong> command</p>
-<p>Make new files from scratch using the <strong><code>touch</code></strong> command</p>
-<p>Globbing - how to select files in a general way</p>
+<section id="examining-files" class="slide level2 crunch-title text-85 crunch-ul crunch-li-8">
+<h2>Examining Files</h2>
+<ul>
+<li>Find out your <strong>P</strong>resent <strong>W</strong>orking <strong>D</strong>irectory <strong><code>pwd</code></strong></li>
+<li>Examine the contents of files and folders using <strong><code>ls</code></strong></li>
+<li>Make new files from scratch using <strong><code>touch</code></strong></li>
+<li><strong>Glob</strong>: “Mini-language” for selecting files with wildcards
 <ul>
 <li><strong><code>\*</code></strong> for wild card any number of characters</li>
 <li><strong><code>\?</code></strong> for wild card for a single character</li>
 <li><strong><code>[]</code></strong> for one of many character options</li>
 <li><strong><code>!</code></strong> for exclusion</li>
-<li>special options <strong><code>[:alpha:]</code></strong>, <strong><code>[:alnum:]</code></strong>, <strong><code>[:digit:]</code></strong>, <strong><code>[:lower:]</code></strong>, <strong><code>[:upper:]</code></strong></li>
+<li><strong><code>[:alpha:]</code></strong>, <strong><code>[:alnum:]</code></strong>, <strong><code>[:digit:]</code></strong>, <strong><code>[:lower:]</code></strong>, <strong><code>[:upper:]</code></strong></li>
+</ul></li>
 </ul>
-<p><a href="https://www.geeksforgeeks.org/file-globbing-linux/">Reference material</a> <a href="https://linuxjourney.com/lesson/the-shell">Reference material: Shell Lesson 1,2,4,5</a></p>
+<p><a href="https://linuxjourney.com/lesson/the-shell">Reference material: Shell Lesson 1,2,4,5</a></p>
 </section>
-<section id="linux-command-line-6" class="slide level2">
-<h2>Linux Command Line</h2>
-<h3 id="navigating-directories">Navigating Directories</h3>
-<p>Knowing where your terminal is executing code ensures you are working with the right inputs and making the right outputs.</p>
-<p>Use the command <code>pwd</code> to determine the Present Working Directory.</p>
-<p>Let’s say you need to change to a folder called “git-repo”. To change directories you can use a command like <code>cd git-repo</code>.</p>
+<section id="navigating-directories" class="slide level2 crunch-title text-80 crunch-ul crunch-p crunch-li-8">
+<h2>Navigating Directories</h2>
 <ul>
+<li>Knowing <strong>where your terminal is executing code</strong> ensures you are working with the right inputs/outputs.</li>
+<li>Use <code>pwd</code> to determine the Present Working Directory.</li>
+<li>Change to a folder called “git-repo” with <code>cd git-repo</code>.</li>
 <li><strong><code>.</code></strong> refers to the current directory, such as <strong><code>./git-repo</code></strong></li>
-<li><strong><code>..</code></strong> can be used to move up one folder, use <strong><code>cd ..</code></strong>, and can be combined to move up multiple levels <strong><code>../../my_folder</code></strong></li>
-<li><strong><code>/</code></strong> is the root of the Linux OS, where there are core folders, such as system, users, etc.</li>
-<li><strong><code>~</code></strong> is the home directory. Move to folders referenced relative to this path by including it at the start of your path, for example <strong><code>~/projects</code></strong>.</li>
+<li><strong><code>..</code></strong> can be used to move up one level (<strong><code>cd ..</code></strong>), and can be combined to move up multiple levels (<strong><code>cd ../../my_folder</code></strong>)</li>
+<li><strong><code>/</code></strong> is the <strong>root</strong> of the filesystem: contains core folders (system, users)</li>
+<li><strong><code>~</code></strong> is the <strong>home directory</strong>. Move to folders referenced relative to this path by including it at the start of your path, for example <strong><code>~/projects</code></strong>.</li>
+<li>To <strong>visualize the structure</strong> of your working directory, use <strong><code>tree</code></strong></li>
 </ul>
-<p>To view the structure of directories from your present working directory, use the <strong><code>tree</code></strong> command</p>
 <p><a href="https://www.freecodecamp.org/news/linux-command-line-bash-tutorial/">Reference link</a></p>
 </section>
-<section id="linux-command-line-7" class="slide level2">
-<h2>Linux Command Line</h2>
-<h3 id="interacting-with-files">Interacting with Files</h3>
-<p>Now that we know how to navigate through directories, we need to learn the commands for interacting with files</p>
+<section id="interacting-with-files" class="slide level2 crunch-title crunch-ul text-85 crunch-p crunch-li-8">
+<h2>Interacting with Files</h2>
+<p>Now that we know how to navigate through <strong>directories</strong>, we need commands for interacting with <strong>files</strong>…</p>
 <ul>
 <li><strong><code>mv</code></strong> to move files from one location to another
 <ul>
-<li>Can use file globbing here - ?, *, [], …</li>
+<li>Can use glob here - <code>?</code>, <code>*</code>, <code>[]</code>, …</li>
 </ul></li>
 <li><strong><code>cp</code></strong> to copy files instead of moving
 <ul>
-<li>Can use file globbing here - ?, *, [], …</li>
+<li>Can use glob here - <code>?</code>, <code>*</code>, <code>[]</code>, …</li>
 </ul></li>
 <li><strong><code>mkdir</code></strong> to make a directory</li>
 <li><strong><code>rm</code></strong> to remove files</li>
 <li><strong><code>rmdir</code></strong> to remove directories</li>
-<li><h2 id="rm--rf-to-blast-everything-warning-do-not-use-unless-you-know-what-you-are-doing"><strong><code>rm -rf</code></strong> to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING</h2></li>
+<li><strong><code>rm -rf</code></strong> to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING</li>
 </ul>
 </section>
-<section id="linux-command-line-8" class="slide level2">
-<h2>Linux Command Line</h2>
-<h3 id="using-bash-for-data-exploration">Using BASH for Data Exploration</h3>
-<p>Commands:</p>
+<section id="using-bash-for-data-exploration" class="slide level2 crunch-title crunch-ul text-90 crunch-li-8">
+<h2>Using BASH for Data Exploration</h2>
 <ul>
 <li><strong><code>head FILENAME</code></strong> / <strong><code>tail FILENAME</code></strong> - glimpsing the first / last few rows of data</li>
 <li><strong><code>more FILENAME</code></strong> / <strong><code>less FILENAME</code></strong> - viewing the data with basic up / (up &amp; down) controls</li>
@@ -1107,57 +1413,49 @@ Jeff Jacobs
 <li><strong><code>grep FILENAME</code></strong> - search for lines within a file that match a regex expression</li>
 <li><strong><code>wc FILENAME</code></strong> - count the number of lines (<strong><code>-l</code></strong> flag) or number of words (<strong><code>-w</code></strong> flag)</li>
 </ul>
-<p><a href="https://elucidata.io/bash-the-data-scientists-magnifying-glass/">Reference link</a> <a href="https://linuxjourney.com/lesson/stdout-standard-out-redirect">Reference material: Text Lesson 8,9,15,16</a></p>
+<p><a href="https://linuxjourney.com/lesson/stdout-standard-out-redirect">Reference material: Text Lesson 8,9,15,16</a></p>
 </section>
-<section id="linux-command-line-9" class="slide level2">
-<h2>Linux Command Line</h2>
-<h3 id="pipes-and-arrows">Pipes and Arrows</h3>
+<section id="pipes-and-arrows" class="slide level2">
+<h2>Pipes and Arrows</h2>
 <ul>
 <li><strong><code>|</code></strong> sends the stdout to another command (is the most powerful symbol in BASH!)</li>
 <li><strong><code>&gt;</code></strong> sends stdout to a file and overwrites anything that was there before</li>
 <li><strong><code>&gt;&gt;</code></strong> appends the stdout to the end of a file (or starts a new file from scratch if one does not exist yet)</li>
 <li><strong><code>&lt;</code></strong> sends stdin into the command on the left</li>
 </ul>
-<p>To-dos:</p>
-<ul>
-<li><code>echo Hello World</code></li>
-<li>Counting rows of data with certain attributes</li>
-</ul>
 <p><a href="https://linuxjourney.com/lesson/stdout-standard-out-redirect">Reference material: Text Lesson 1,2,3,4,5</a></p>
 </section>
-<section id="linux-command-line-10" class="slide level2">
-<h2>Linux Command Line</h2>
-<h3 id="alias-and-user-files">Alias and User Files</h3>
-<p>.bashrc is where your shell settings are located</p>
-<p>If we wanted a shortcut to find out the number of our running processes, we would write a commmand like <strong><code>whoami | xargs ps -u | wc -l</code></strong>.</p>
-<p>We don’t want to write out this full command every time! Let’s make an alias.</p>
-<p><strong><code>alias alias_name="command_to_run"</code></strong></p>
-<p><strong><code>alias nproc="whoami | xargs ps -u | wc -l"</code></strong></p>
-<p>Now we need to put this alias into the .bashrc</p>
-<p><strong><code>alias nproc="whoami | xargs ps -u | wc -l" &gt;&gt; ~/.bashrc</code></strong></p>
-<p>What happened??</p>
-<p><strong><code>echo alias nproc="whoami | xargs ps -u | wc -l" &gt;&gt; ~/.bashrc</code></strong></p>
-<p>Your commands get saved in <strong><code>~/.bash_history</code></strong></p>
+<section id="alias-and-user-files" class="slide level2 crunch-title text-85">
+<h2>Alias and User Files</h2>
+<ul>
+<li><p><code>/.bashrc</code> is where your shell settings are located</p></li>
+<li><p>How many processes? <strong><code>whoami | xargs ps -u | wc -l</code></strong></p></li>
+<li><p>Hard to remember full command! Let’s make an <strong>alias</strong></p></li>
+<li><p>General syntax:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> alias_name=<span class="st">"command_to_run"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>For our case:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> nproc=<span class="st">"whoami | xargs ps -u | wc -l"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Now we need to put this alias into the .bashrc</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> nproc=<span class="st">"whoami | xargs ps -u | wc -l"</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Your commands get saved in <strong><code>~/.bash_history</code></strong></p></li>
+</ul>
 </section>
-<section id="linux-command-line-11" class="slide level2">
-<h2>Linux Command Line</h2>
-<h3 id="process-managment">Process Managment</h3>
-<p>Use the command <strong><code>ps</code></strong> to see your running processes.</p>
-<p>Use the command <strong><code>top</code></strong> or even better <strong><code>htop</code></strong> to see all the running processes on the machine.</p>
-<p>Install the program <strong>htop</strong> using the command <strong><code>sudo yum install htop -y</code></strong></p>
-<p>Find the process ID (PID) so you can kill a broken process.</p>
-<p>Use the command <strong><code>kill [PID NUM]</code></strong> to signal the process to terminate. If things get really bad, then use the command <strong><code>kill -9 [PID NUM]</code></strong></p>
-<p>To kill a command in the terminal window it is running in, try using <strong>Ctrl + C</strong> or <strong>Ctrl + /</strong></p>
-<p>Run the <strong><code>cat</code></strong> command on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.</p>
+<section id="process-management" class="slide level2 crunch-title text-90 crunch-ul crunch-p crunch-li-8">
+<h2>Process Management</h2>
+<ul>
+<li>Use <strong><code>ps</code></strong> to see your running processes</li>
+<li>Use <strong><code>top</code></strong> or even better <strong><code>htop</code></strong> to see all running processes</li>
+<li>Install <strong>htop</strong> via <strong><code>sudo yum install htop -y</code></strong></li>
+<li>To kill a broken process: first find the <strong>process ID (PID)</strong></li>
+<li>Then use <strong><code>kill [PID NUM]</code></strong> to “ask” the process to terminate. If things get really bad: <strong><code>kill -9 [PID NUM]</code></strong></li>
+<li>To kill a command in the terminal window it is running in, try using <strong>Ctrl + C</strong> or <strong>Ctrl + /</strong></li>
+<li>Run <strong><code>cat</code></strong> on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.</li>
+</ul>
 <p><a href="https://linuxjourney.com/lesson/monitor-processes-ps-command">Reference material: Text Lesson 1,2,3,7,9,10</a></p>
-<h3 id="try-playing-a-linux-game">Try playing a Linux game!</h3>
-<p><a href="Bash crawl">https://gitlab.com/slackermedia/bashcrawl</a> is a game to help you practice your navigation and file access skills. Click on the <strong>binder</strong> link in this repo to launch a jupyter lab session and explore!</p>
 </section>
-<section id="references" class="slide level2 smaller scrollable">
-<h2>References</h2>
-<div id="refs" role="list">
-
-</div>
+<section id="try-playing-a-linux-game" class="slide level2">
+<h2>Try playing a Linux game!</h2>
+<p><a href="https://gitlab.com/slackermedia/bashcrawl">Bash crawl</a> is a game to help you practice your navigation and file access skills. Click on the <strong>binder</strong> link in this repo to launch a jupyter lab session and explore!</p>
 
 
 </section></section>

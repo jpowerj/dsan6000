@@ -235,14 +235,14 @@
     "href": "w01/slides.html#internet-of-things-iot-in-2025",
     "title": "Week 1: Course Overview",
     "section": "Internet of Things (IoT) in 2025",
-    "text": "Internet of Things (IoT) in 2025\n75 billion connected devices generating data: * Smart home devices (Alexa, Google Home, Apple HomePod) * Wearables (Apple Watch, Fitbit, Oura rings) * Connected vehicles & autonomous driving systems * Industrial IoT sensors * Smart city infrastructure * Medical devices & remote patient monitoring"
+    "text": "Internet of Things (IoT) in 2025\n75 billion connected devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nConnected vehicles & self-driving cars\nIndustrial IoT sensors\n\n\n\n\nSmart city infrastructure\nMedical devices & remote patient monitoring"
   },
   {
-    "objectID": "w01/slides.html#smartphones-collecting-our-information",
-    "href": "w01/slides.html#smartphones-collecting-our-information",
+    "objectID": "w01/slides.html#smartphone-location-data",
+    "href": "w01/slides.html#smartphone-location-data",
     "title": "Week 1: Course Overview",
-    "section": "Smartphones collecting our information",
-    "text": "Smartphones collecting our information"
+    "section": "Smartphone Location Data",
+    "text": "Smartphone Location Data"
   },
   {
     "objectID": "w01/slides.html#where-else",
@@ -252,11 +252,11 @@
     "text": "Where else?\n\nThe Internet\nTransactions\nDatabases\nExcel\nPDF Files\nAnything digital (music, movies, apps)\nSome old floppy disk lying around the house"
   },
   {
-    "objectID": "w01/slides.html#typical-real-world-scenarios-2025",
-    "href": "w01/slides.html#typical-real-world-scenarios-2025",
+    "objectID": "w01/slides.html#typical-real-world-scenarios-in-2025",
+    "href": "w01/slides.html#typical-real-world-scenarios-in-2025",
     "title": "Week 1: Course Overview",
-    "section": "Typical real world scenarios (2025)",
-    "text": "Typical real world scenarios (2025)\nScenario 1: Traditional Big Data\nYou have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. What do you do?\nScenario 2: AI/ML Pipeline\nYour company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. How do you architect this?\nScenario 3: Real-time Analytics\nYou need to process 1 million events per second from IoT devices and provide real-time dashboards with &lt;1 second latency. What’s your stack?"
+    "section": "Typical Real-World Scenarios in 2025",
+    "text": "Typical Real-World Scenarios in 2025\nScenario 1: Traditional Big Data\nYou have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. What do you do?\nScenario 2: AI/ML Pipeline\nYour company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. How do you architect this?\nScenario 3: Real-Time Analytics\nYou need to process 1 million events/second from IoT devices and provide real-time dashboards with &lt;1s latency. What’s your stack?"
   },
   {
     "objectID": "w01/slides.html#lets-discuss",
@@ -270,119 +270,84 @@
     "href": "w01/slides.html#big-data-definitions",
     "title": "Week 1: Course Overview",
     "section": "Big Data Definitions",
-    "text": "Big Data Definitions\nWikipedia\n“In essence, is a term for a collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis”\nO’Reilly\n“Big data is when the size of the data itself becomes part of the problem”\nEMC/IDC\n“Big data technologies describe a new generation of technologies and architectures, designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discovery, and/or analysis.”"
+    "text": "Big Data Definitions\nWikipedia\n“A collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis”\nO’Reilly\n“Big data is when the size of the data itself becomes part of the problem”"
   },
   {
     "objectID": "w01/slides.html#frameworks-for-thinking-about-big-data",
     "href": "w01/slides.html#frameworks-for-thinking-about-big-data",
     "title": "Week 1: Course Overview",
-    "section": "Frameworks for thinking about Big Data",
-    "text": "Frameworks for thinking about Big Data\nIBM: (The famous 3-V’s definition)\n\nVolume (Gigabytes -&gt; Exabytes -&gt; Zettabytes)\nVelocity (Batch -&gt; Streaming -&gt; Real-time AI inference)\nVariety (Structured, Semi-structured, Unstructured, Embeddings)\n\nAdditional V’s for 2025\n\nVariability\nVeracity\nVisualization\nValue\nVectors (embeddings for AI/ML)\nVersatility (multi-modal data)"
+    "section": "Frameworks for Thinking About Big Data",
+    "text": "Frameworks for Thinking About Big Data\nIBM (The 3 V’s)\n\nVolume (Gigabytes → Exabytes → Zettabytes)\nVelocity (Batch → Streaming → Real-time AI inference)\nVariety (Structured, Unstructured, Embeddings)\n\nAdditional V’s for 2025\n\n\n\nVariability\nVeracity\nVisualization\n\n\n\nValue\nVectors (embeddings for AI/ML)\nVersatility (multi-modal data)"
   },
   {
-    "objectID": "w01/slides.html#think-of-data-size-as-a-function-of-processing-and-storage",
-    "href": "w01/slides.html#think-of-data-size-as-a-function-of-processing-and-storage",
+    "objectID": "w01/slides.html#data-size",
+    "href": "w01/slides.html#data-size",
     "title": "Week 1: Course Overview",
-    "section": "Think of data size as a function of processing and storage",
-    "text": "Think of data size as a function of processing and storage\n\nCan you analyze/process your data on a single machine?\nCan you store (or is it stored) on a single machine?\nCan you serve it fast enough for real-time AI applications?\n\nIf any of of the answers is no then you have a big-ish data problem!"
+    "section": "Data “Size”",
+    "text": "Data “Size”\n\\[\n\\text{``Size''} = f(\\text{Processing Ability}, \\text{Storage Space})\n\\]\n\nCan you analyze/process your data on a single machine?\nCan you store (or is it stored) on a single machine?\nCan you serve it fast enough for real-time AI applications?\n\nIf any of of the answers is no then you have a big-ish data problem!"
   },
   {
     "objectID": "w01/slides.html#the-new-data-landscape-2025",
     "href": "w01/slides.html#the-new-data-landscape-2025",
     "title": "Week 1: Course Overview",
     "section": "The New Data Landscape (2025)",
-    "text": "The New Data Landscape (2025)\nTraining Foundation Models\n\nGPT-4: Trained on ~13 trillion tokens\nLlama 3: 15 trillion tokens\nGoogle’s Gemini: Multi-modal training on text, images, video\nEach iteration requires petabytes of curated data\n\nData Requirements Have Exploded\n\n2020: BERT trained on 3.3 billion words\n2023: GPT-4 trained on ~13 trillion tokens\n2024: Llama 3 trained on 15+ trillion tokens\nFuture: Approaching the limits of human-generated text"
+    "text": "The New Data Landscape (2025)\nTraining Foundation Models\n\nGPT-4: Trained on about 13 trillion tokens\nLlama 3: 15 trillion tokens\nGoogle Gemini: Multi-modal training (text, images, video)\nEach iteration requires petabytes of curated data\n\nData Requirements Have Exploded\n\n2020: BERT trained on 3.3 billion words\n2023: GPT-4 trained on ~13 trillion tokens\n2024: Llama 3 trained on 15+ trillion tokens"
   },
   {
-    "objectID": "w01/slides.html#big-data-infrastructure-for-ai",
-    "href": "w01/slides.html#big-data-infrastructure-for-ai",
+    "objectID": "w01/slides.html#big-data-infrastructure-data-lakes-warehouses",
+    "href": "w01/slides.html#big-data-infrastructure-data-lakes-warehouses",
     "title": "Week 1: Course Overview",
-    "section": "Big Data Infrastructure for AI",
-    "text": "Big Data Infrastructure for AI\nData Lakes & Warehouses for AI\nTraditional Use Cases: * Business intelligence * Analytics & reporting * Historical data storage\nModern AI Use Cases: * Training data repositories * Vector embeddings storage * RAG (Retrieval-Augmented Generation) context * Fine-tuning datasets * Evaluation & benchmark data"
+    "section": "Big Data Infrastructure: Data Lakes, Warehouses",
+    "text": "Big Data Infrastructure: Data Lakes, Warehouses\nTraditional Use Cases:\n\nBusiness intelligence\nAnalytics & reporting\nHistorical data storage\n\nModern AI Use Cases:\n\nTraining data repositories\nVector embeddings storage\nRAG (Retrieval-Augmented Generation) context\nFine-tuning datasets\nEvaluation & benchmark data"
   },
   {
-    "objectID": "w01/slides.html#rag-context-engineering",
-    "href": "w01/slides.html#rag-context-engineering",
+    "objectID": "w01/slides.html#rag-and-context-engineering-the-new-data-pipeline",
+    "href": "w01/slides.html#rag-and-context-engineering-the-new-data-pipeline",
     "title": "Week 1: Course Overview",
-    "section": "RAG & Context Engineering",
-    "text": "RAG & Context Engineering\nThe New Data Pipeline\nRaw Data → Data Lake → Processing → Vector DB → LLM Context\nKey Components: * Data Lakes (S3, Azure Data Lake): Store massive unstructured data * Data Warehouses (Snowflake, BigQuery): Structured data for context * Vector Databases (Pinecone, Weaviate, Qdrant): Semantic search * Embedding Models: Convert data to vectors * Orchestration (Airflow, Prefect): Manage the pipeline"
+    "section": "RAG and Context Engineering: The New Data Pipeline",
+    "text": "RAG and Context Engineering: The New Data Pipeline\n\n\n\n\n\n\n\nG\n\n\n\nraw\n\nRaw Data\n\n\n\nlake\n\nData Lake\n\n\n\nraw-&gt;lake\n\n\n\n\n\nproc\n\nProcessing\n\n\n\nlake-&gt;proc\n\n\n\n\n\nvec\n\nVector DB\n\n\n\nproc-&gt;vec\n\n\n\n\n\ncontext\n\nLLM Context\n\n\n\nvec-&gt;context\n\n\n\n\n\n\n\n\n\n\nKey Components:\n\nData Lakes (S3, Azure Data Lake): Store massive unstructured data\nData Warehouses (Snowflake, BigQuery): Structured data for context\nVector Databases (Pinecone, Weaviate, Qdrant): Semantic search\nEmbedding Models: Convert data to vectors\nOrchestration (Airflow, Prefect): Manage the pipeline"
   },
   {
     "objectID": "w01/slides.html#mcp-servers-agentic-ai",
     "href": "w01/slides.html#mcp-servers-agentic-ai",
     "title": "Week 1: Course Overview",
     "section": "MCP Servers & Agentic AI",
-    "text": "MCP Servers & Agentic AI\nModel Context Protocol (MCP)\nWhat is MCP? * Open protocol for connecting AI assistants to data sources * Standardized way to expose tools and data to LLMs * Enables “agentic” behavior - AI that can act autonomously\nMCP in Production\nData Warehouse → MCP Server → AI Agent → Action\nExamples: * AI agents querying Snowflake for real-time analytics * Autonomous systems updating data lakes based on predictions * Multi-agent systems coordinating through shared data contexts"
+    "text": "MCP Servers & Agentic AI\nModel Context Protocol (MCP)\n\nOpen protocol for connecting AI assistants to data sources\nStandardized way to expose tools and data to LLMs\nEnables “agentic” behavior - AI that can act autonomously\n\nMCP in Production\n\n\n\n\n\n\n\nG\n\n\n\nware\n\nData Warehouse\n\n\n\nmcp\n\nMCP Server\n\n\n\nware-&gt;mcp\n\n\n\n\n\nagent\n\nAI Agent\n\n\n\nmcp-&gt;agent\n\n\n\n\n\naction\n\nAction\n\n\n\nagent-&gt;action\n\n\n\n\n\n\n\n\n\n\nExamples:\n\nAI agents querying Snowflake for real-time analytics\nAutonomous systems updating data lakes based on predictions\nMulti-agent systems coordinating through shared data contexts"
   },
   {
     "objectID": "w01/slides.html#data-quality-for-ai",
     "href": "w01/slides.html#data-quality-for-ai",
     "title": "Week 1: Course Overview",
     "section": "Data Quality for AI",
-    "text": "Data Quality for AI\nWhy Data Quality Matters More Than Ever\nGarbage In, Garbage Out - Amplified: * Bad training data → Biased models * Incorrect RAG data → Hallucinations * Poor data governance → Compliance issues\nData Quality Challenges in 2025\n\nScale: Validating trillions of tokens\nDiversity: Multi-modal, multi-lingual data\nVelocity: Real-time data for online learning\nVeracity: Detecting AI-generated synthetic data"
+    "text": "Data Quality for AI\n(Why Data Quality Matters More Than Ever)\nGarbage In, Garbage Out - Amplified:\n\nBad training data → Biased models\nIncorrect RAG data → Hallucinations\nPoor data governance → Compliance issues\n\nData Quality Challenges in 2025\n\nScale: Validating trillions of tokens\nDiversity: Multi-modal, multi-lingual data\nVelocity: Real-time data for online learning\nVeracity: Detecting AI-generated synthetic data"
   },
   {
     "objectID": "w01/slides.html#real-world-big-data-ai-examples",
     "href": "w01/slides.html#real-world-big-data-ai-examples",
     "title": "Week 1: Course Overview",
-    "section": "Real-World Big Data + AI Examples",
-    "text": "Real-World Big Data + AI Examples\nNetflix\n\nData Scale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\nUber\n\nData Scale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\nOpenAI\n\nData Scale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters"
+    "section": "Real-World Big Data / AI Examples",
+    "text": "Real-World Big Data / AI Examples\nNetflix\n\nData Scale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\nUber\n\nData Scale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\nOpenAI\n\nData Scale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters"
   },
   {
-    "objectID": "w01/slides.html#the-future-big-data-ai-convergence",
-    "href": "w01/slides.html#the-future-big-data-ai-convergence",
+    "objectID": "w01/slides.html#emerging-trends-2025-2027",
+    "href": "w01/slides.html#emerging-trends-2025-2027",
     "title": "Week 1: Course Overview",
-    "section": "The Future: Big Data + AI Convergence",
-    "text": "The Future: Big Data + AI Convergence\nEmerging Trends (2025-2027)\nUnified Platforms: * Data lakes becoming “AI lakes” * Integrated vector + relational databases * One-stop shops for data + AI (Databricks, Snowflake Cortex)\nEdge Computing + AI: * Processing at the data source * Federated learning across devices * 5G enabling real-time edge AI\nSynthetic Data: * AI generating training data for AI * Privacy-preserving synthetic datasets * Infinite data generation loops"
+    "section": "Emerging Trends (2025-2027)",
+    "text": "Emerging Trends (2025-2027)\nUnified Platforms:\n\nData lakes becoming “AI lakes”\nIntegrated vector + relational databases\nOne-stop shops for data + AI (Databricks, Snowflake Cortex)\n\nEdge Computing + AI:\n\nProcessing at the data source\nFederated learning across devices\n5G enabling real-time edge AI\n\nSynthetic Data:\n\nAI generating training data for AI\nPrivacy-preserving synthetic datasets"
   },
   {
     "objectID": "w01/slides.html#relative-data-sizes",
     "href": "w01/slides.html#relative-data-sizes",
     "title": "Week 1: Course Overview",
-    "section": "Relative data sizes",
-    "text": "Relative data sizes"
-  },
-  {
-    "objectID": "w01/slides.html#relative-data-sizes-1",
-    "href": "w01/slides.html#relative-data-sizes-1",
-    "title": "Week 1: Course Overview",
-    "section": "Relative data sizes",
-    "text": "Relative data sizes"
-  },
-  {
-    "objectID": "w01/slides.html#relative-data-sizes-2",
-    "href": "w01/slides.html#relative-data-sizes-2",
-    "title": "Week 1: Course Overview",
-    "section": "Relative data sizes",
-    "text": "Relative data sizes"
-  },
-  {
-    "objectID": "w01/slides.html#relative-data-sizes-3",
-    "href": "w01/slides.html#relative-data-sizes-3",
-    "title": "Week 1: Course Overview",
-    "section": "Relative data sizes",
-    "text": "Relative data sizes"
-  },
-  {
-    "objectID": "w01/slides.html#relative-data-sizes-4",
-    "href": "w01/slides.html#relative-data-sizes-4",
-    "title": "Week 1: Course Overview",
-    "section": "Relative data sizes",
-    "text": "Relative data sizes"
-  },
-  {
-    "objectID": "w01/slides.html#relative-data-sizes-5",
-    "href": "w01/slides.html#relative-data-sizes-5",
-    "title": "Week 1: Course Overview",
-    "section": "Relative data sizes",
-    "text": "Relative data sizes"
+    "section": "Relative Data Sizes",
+    "text": "Relative Data Sizes\n \n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?"
   },
   {
     "objectID": "w01/slides.html#what-youll-learn-in-this-course",
     "href": "w01/slides.html#what-youll-learn-in-this-course",
     "title": "Week 1: Course Overview",
     "section": "What You’ll Learn in This Course",
-    "text": "What You’ll Learn in This Course\nModern Big Data Stack (2025)\nQuery Engines: * DuckDB - In-process analytical database * Polars - Lightning-fast DataFrame library\n* Spark - Distributed processing at scale\nData Warehouses & Lakes: * Snowflake - Cloud-native data warehouse * Athena - Serverless SQL on S3 * Iceberg - Open table format\nAI/ML Integration: * Vector databases for embeddings * RAG implementation patterns * Streaming with Spark Structured Streaming\nOrchestration: * Airflow for pipeline management * Serverless with AWS Lambda"
+    "text": "What You’ll Learn in This Course\nModern Big Data Stack (2025)\n\n\n\nQuery Engines:\n\nDuckDB - In-process analytical database\nPolars - Lightning-fast DataFrame library\n\nSpark - Distributed processing at scale\n\nData Warehouses & Lakes:\n\nSnowflake - Cloud-native data warehouse\nAthena - Serverless SQL on S3\nIceberg - Open table format\n\n\n\nAI/ML Integration:\n\nVector databases for embeddings\nRAG implementation patterns\nStreaming with Spark Structured Streaming\n\nOrchestration:\n\nAirflow for pipeline management\nServerless with AWS Lambda"
   },
   {
     "objectID": "w01/slides.html#data-types",
@@ -392,25 +357,39 @@
     "text": "Data Types\n\nStructured\nUnstructured\nNatural language\nMachine-generated\nGraph-based\nAudio, video, and images\nStreaming"
   },
   {
-    "objectID": "w01/slides.html#big-data-vs.-small-data",
-    "href": "w01/slides.html#big-data-vs.-small-data",
+    "objectID": "w01/slides.html#big-data-vs.-small-data-i",
+    "href": "w01/slides.html#big-data-vs.-small-data-i",
     "title": "Week 1: Course Overview",
-    "section": "Big Data vs. Small Data",
-    "text": "Big Data vs. Small Data\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nGoals\ngathered for a specific goal\nmay have a goal in mind when it’s first started, but things can evolve or take unexpected directions\n\n\nLocation\nin one place, and often in a single computer file\ncan be in multiple files in multiple servers on computers in different geographic locations\n\n\nStructure/Contents\nhighly structured like an Excel spreadsheet, and it’s got rows and columns of data\ncan be unstructured, it can have many formats in files involved across disciplines, and may link to other resources\n\n\nPreparation\nprepared by the end user for their own purposes\nis often prepared by one group of people, analyzed by a second group of people, and then used by a third group of people, and they may have different purposes, and they may have different disciplines\n\n\nLongevity\nkept for a specific amount of time after the project is over because there’s a clear ending point. In the academic world it’s maybe five or seven years and then you can throw it away\ncontains data that must be stored in perpetuity. Many big data projects extend into the past and future\n\n\nMeasurements\nmeasured with a single protocol using set units and it’s usually done at the same time\nis collected and measured using many sources, protocols, units, etc\n\n\nReproducibility\nbe reproduced in their entirety if something goes wrong in the process\nreplication is seldom feasible\n\n\nStakes\nif things go wrong the costs are limited, it’s not an enormous problem\ncan have high costs of failure in terms of money, time and labor\n\n\nAccess\nidentified by a location specified in a row/column\nunless it is exceptionally well designed, the organization can be inscrutable\n\n\nAnalysis\nanalyzed together, all at once\nis ordinarily analyzed in incremental steps"
+    "section": "Big Data vs. Small Data I",
+    "text": "Big Data vs. Small Data I\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nGoals\ngathered for a specific goal\nmay have a goal in mind when it’s first started, but things can evolve or take unexpected directions\n\n\nLocation\nin one place, and often in a single computer file\ncan be in multiple files in multiple servers on computers in different geographic locations\n\n\nStructure/Contents\nhighly structured like an Excel spreadsheet, and it’s got rows and columns of data\ncan be unstructured, it can have many formats in files involved across disciplines, and may link to other resources\n\n\nPreparation\nprepared by the end user for their own purposes\nis often prepared by one group of people, analyzed by a second group of people, and then used by a third group of people, and they may have different purposes, and they may have different disciplines"
   },
   {
-    "objectID": "w01/slides.html#traditional-data-analysis-tools-like-r-and-python-are-single-threaded",
-    "href": "w01/slides.html#traditional-data-analysis-tools-like-r-and-python-are-single-threaded",
+    "objectID": "w01/slides.html#big-data-vs.-small-data-ii",
+    "href": "w01/slides.html#big-data-vs.-small-data-ii",
     "title": "Week 1: Course Overview",
-    "section": "Traditional data analysis tools like R and Python are single threaded",
-    "text": "Traditional data analysis tools like R and Python are single threaded"
+    "section": "Big Data vs. Small Data II",
+    "text": "Big Data vs. Small Data II\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nLongevity\nkept for a specific amount of time after the project is over because there’s a clear ending point. In the academic world it’s maybe five or seven years and then you can throw it away\ncontains data that must be stored in perpetuity. Many big data projects extend into the past and future\n\n\nMeasurements\nmeasured with a single protocol using set units and it’s usually done at the same time\nis collected and measured using many sources, protocols, units, etc\n\n\nReproducibility\nbe reproduced in their entirety if something goes wrong in the process\nreplication is seldom feasible\n\n\nStakes\nif things go wrong the costs are limited, it’s not an enormous problem\ncan have high costs of failure in terms of money, time and labor\n\n\nAccess\nidentified by a location specified in a row/column\nunless it is exceptionally well designed, the organization can be inscrutable\n\n\nAnalysis\nanalyzed together, all at once\nis ordinarily analyzed in incremental steps"
+  },
+  {
+    "objectID": "w01/slides.html#challenges-of-working-with-large-datasets",
+    "href": "w01/slides.html#challenges-of-working-with-large-datasets",
+    "title": "Week 1: Course Overview",
+    "section": "Challenges of Working with Large Datasets",
+    "text": "Challenges of Working with Large Datasets\n\n\n\nThe V\nThe Challenge\n\n\n\n\nVolume\ndata scale\n\n\nValue\ndata usefulness in decision making\n\n\nVelocity\ndata processing: batch or stream\n\n\nViscosity\ndata complexity\n\n\nVariability\ndata flow inconsistency\n\n\nVolatility\ndata durability\n\n\nViability\ndata activeness\n\n\nValidity\ndata properly understandable\n\n\nVariety\ndata heterogeneity"
+  },
+  {
+    "objectID": "w01/slides.html#thinking-about-big-data-workflows",
+    "href": "w01/slides.html#thinking-about-big-data-workflows",
+    "title": "Week 1: Course Overview",
+    "section": "Thinking About Big Data Workflows",
+    "text": "Thinking About Big Data Workflows\nWilliam Cohen (Director, Research Engineering, Google):\n\nWorking with big data is not about…\n\nCode optimization\nLearning the details of today’s hardware/software (they are evolving…)\n\nWorking with big data is about understanding:\n\nThe cost of what you want to do\nWhat the tools that are available offer\nHow much can be accomplished with linear or nearly-linear operations\nHow to organize your computations so that they effectively use whatever’s fast\nHow to test/debug/verify with large data\n\nRecall that traditional tools like R and Python are single threaded (by default)"
   },
   {
     "objectID": "w01/slides.html#tools-at-a-glance",
     "href": "w01/slides.html#tools-at-a-glance",
     "title": "Week 1: Course Overview",
     "section": "Tools at-a-glance",
-    "text": "Tools at-a-glance\n\n\nLanguages, libraries, and projects\n\nPython\n\npandas\npolars\nPySpark\nduckdb\ndask\nray\n\nApache Arrow\nApache Spark\nSQL\n\nWe’ll talk briefly about Apache Hadoop today but we will not cover it in this course.\n\nCloud Services\n\nAmazon Web Services (AWS)\n\nAWS Sagemaker\nAmazon S3\n\nAzure\n\nAzure Blob\nAzure Machine Learning\n\n\nOther:\n\nAWS Elastic MapReduce (EMR)"
+    "text": "Tools at-a-glance\n\n\nLanguages, libraries, and projects\n\nPython\n\npandas\npolars\nPySpark\nduckdb\ndask\nray\n\nApache Arrow\nApache Spark\nSQL\nApache Hadoop (briefly)\n\n\nCloud Services\n\nAmazon Web Services (AWS)\n\nAWS Sagemaker\nAmazon S3\n\nAzure\n\nAzure Blob\nAzure Machine Learning\n\n\nOther:\n\nAWS Elastic MapReduce (EMR)"
   },
   {
     "objectID": "w01/slides.html#additional-links-of-interest",
@@ -420,32 +399,25 @@
     "text": "Additional links of interest\n\nMatt Turck’s Machine Learning, Artificial Intelligence & Data Landscape (MAD)\n\nArticle\nInteractive Landscape\n\nIs there life after Hadoop?\n10 Best Big Data Tools for 2023"
   },
   {
-    "objectID": "w01/slides.html#difference-between-data-scientist-and-data-engineer",
-    "href": "w01/slides.html#difference-between-data-scientist-and-data-engineer",
+    "objectID": "w01/slides.html#data-scientist-vs.-data-engineer",
+    "href": "w01/slides.html#data-scientist-vs.-data-engineer",
     "title": "Week 1: Course Overview",
-    "section": "Difference between Data Scientist and Data Engineer",
-    "text": "Difference between Data Scientist and Data Engineer\nIn this course, you’ll be doing a little data engineering!"
+    "section": "Data Scientist vs. Data Engineer",
+    "text": "Data Scientist vs. Data Engineer\nIn this course, you’ll augment your data scientist skills with data engineering skills!"
   },
   {
-    "objectID": "w01/slides.html#responsibilities",
-    "href": "w01/slides.html#responsibilities",
+    "objectID": "w01/slides.html#data-engineer-responsibilities",
+    "href": "w01/slides.html#data-engineer-responsibilities",
     "title": "Week 1: Course Overview",
-    "section": "Responsibilities",
-    "text": "Responsibilities"
+    "section": "Data Engineer Responsibilities",
+    "text": "Data Engineer Responsibilities"
   },
   {
-    "objectID": "w01/slides.html#data-engineering-falls-into-levels-2-and-3-primarily",
-    "href": "w01/slides.html#data-engineering-falls-into-levels-2-and-3-primarily",
+    "objectID": "w01/slides.html#data-engineering-levels-2-and-3",
+    "href": "w01/slides.html#data-engineering-levels-2-and-3",
     "title": "Week 1: Course Overview",
-    "section": "Data Engineering falls into levels 2 and 3 primarily",
-    "text": "Data Engineering falls into levels 2 and 3 primarily"
-  },
-  {
-    "objectID": "w01/slides.html#as-an-analystdata-scientist-you-really-need-both",
-    "href": "w01/slides.html#as-an-analystdata-scientist-you-really-need-both",
-    "title": "Week 1: Course Overview",
-    "section": "As an analyst/data scientist, you really need both",
-    "text": "As an analyst/data scientist, you really need both"
+    "section": "Data Engineering: Levels 2 and 3",
+    "text": "Data Engineering: Levels 2 and 3"
   },
   {
     "objectID": "w01/slides.html#architecture",
@@ -504,88 +476,88 @@
     "text": "Governance"
   },
   {
-    "objectID": "w01/slides.html#linux-command-line-1",
-    "href": "w01/slides.html#linux-command-line-1",
+    "objectID": "w01/slides.html#the-terminal",
+    "href": "w01/slides.html#the-terminal",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\nTerminal\n\n\nTerminal access was THE ONLY way to do programming\nNo GUIs! No Spyder, Jupyter, RStudio, etc.\nCoding is still more powerful than graphical interfaces for complex jobs\nCoding makes work repeatable"
+    "section": "The Terminal",
+    "text": "The Terminal\n\n\n\n\nTerminal access was THE ONLY way to do programming\nNo GUIs! No Spyder, Jupyter, RStudio, etc.\nCoding is still more powerful than graphical interfaces for complex jobs\nCoding makes work repeatable"
   },
   {
-    "objectID": "w01/slides.html#linux-command-line-2",
-    "href": "w01/slides.html#linux-command-line-2",
+    "objectID": "w01/slides.html#bash",
+    "href": "w01/slides.html#bash",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\nBASH\n\n\nCreated in 1989 by Brian Fox\nBrian Fox also built the first online interactive banking software\nBASH is a command processor\nConnection between you and the machine language and hardware"
+    "section": "BASH",
+    "text": "BASH\n\n\n\n\nCreated in 1989 by Brian Fox: “Bourne-Again Shell”\nBrian Fox also built the first online interactive banking software\nBASH is a command processor\nConnection between you and the machine language and hardware"
   },
   {
-    "objectID": "w01/slides.html#linux-command-line-3",
-    "href": "w01/slides.html#linux-command-line-3",
+    "objectID": "w01/slides.html#the-prompt",
+    "href": "w01/slides.html#the-prompt",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\nThe Prompt\nusername@hostname:current_directory $\nWhat do we learn from the prompt?\n\nWho you are - username\nThe machine where your code is running - hostname\nThe directory where your code is running - current_directory\nThe shell type - $ - this symbol means BASH"
+    "section": "The Prompt",
+    "text": "The Prompt\nusername@hostname:current_directory $\nWhat do we learn from the prompt?\n\nWho you are - username\nThe machine where your code is running - hostname\nThe directory where your code is running - current_directory\nThe shell type - $ - this symbol means BA$H"
   },
   {
-    "objectID": "w01/slides.html#linux-command-line-4",
-    "href": "w01/slides.html#linux-command-line-4",
+    "objectID": "w01/slides.html#syntax",
+    "href": "w01/slides.html#syntax",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\nSyntax\nCOMMAND -F --FLAG * COMMAND is the program * Everything after that are arguments * F is a single letter flag * FLAG is a single word or words connected by dashes flag. A space breaks things into a new argument. + Sometimes single letter and long form flags (e.g. F and FLAG) can refer to the same argument\nCOMMAND -F --FILE file1\nHere we pass an text argument “file1” into the FILE flag\nThe -h flag is usually to get help. You can also run the man command and pass the name of the program as the argument to get the help page.\nLet’s try basic commands:\n\ndate to get the current date\nwhoami to get your user name\necho \"Hello World\" to print to the console"
+    "section": "Syntax",
+    "text": "Syntax\nCOMMAND -F --FLAG\n\nCOMMAND is the program, everything after that = arguments\nF is a single letter flag, FLAG is a single word or words connected by dashes. A space breaks things into a new argument.\nSometimes argument has single letter and long form versions (e.g. F and FLAG)\n\nCOMMAND -F --FILE file1\n\nHere we pass a text argument \"file1\" as the value for the FILE flag\n-h flag is usually to get help. You can also run the man command and pass the name of the program as the argument to get the help page.\n\nLet’s try basic commands:\n\ndate to get the current date\nwhoami to get your user name\necho \"Hello World\" to print to the console"
   },
   {
-    "objectID": "w01/slides.html#linux-command-line-5",
-    "href": "w01/slides.html#linux-command-line-5",
+    "objectID": "w01/slides.html#examining-files",
+    "href": "w01/slides.html#examining-files",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\nExamining Files\nFind out your Present Working Directory pwd\nExamine the contents of files and folders using the ls command\nMake new files from scratch using the touch command\nGlobbing - how to select files in a general way\n\n\\* for wild card any number of characters\n\\? for wild card for a single character\n[] for one of many character options\n! for exclusion\nspecial options [:alpha:], [:alnum:], [:digit:], [:lower:], [:upper:]\n\nReference material Reference material: Shell Lesson 1,2,4,5"
+    "section": "Examining Files",
+    "text": "Examining Files\n\nFind out your Present Working Directory pwd\nExamine the contents of files and folders using ls\nMake new files from scratch using touch\nGlob: “Mini-language” for selecting files with wildcards\n\n\\* for wild card any number of characters\n\\? for wild card for a single character\n[] for one of many character options\n! for exclusion\n[:alpha:], [:alnum:], [:digit:], [:lower:], [:upper:]\n\n\nReference material: Shell Lesson 1,2,4,5"
   },
   {
-    "objectID": "w01/slides.html#linux-command-line-6",
-    "href": "w01/slides.html#linux-command-line-6",
+    "objectID": "w01/slides.html#navigating-directories",
+    "href": "w01/slides.html#navigating-directories",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\nNavigating Directories\nKnowing where your terminal is executing code ensures you are working with the right inputs and making the right outputs.\nUse the command pwd to determine the Present Working Directory.\nLet’s say you need to change to a folder called “git-repo”. To change directories you can use a command like cd git-repo.\n\n. refers to the current directory, such as ./git-repo\n.. can be used to move up one folder, use cd .., and can be combined to move up multiple levels ../../my_folder\n/ is the root of the Linux OS, where there are core folders, such as system, users, etc.\n~ is the home directory. Move to folders referenced relative to this path by including it at the start of your path, for example ~/projects.\n\nTo view the structure of directories from your present working directory, use the tree command\nReference link"
+    "section": "Navigating Directories",
+    "text": "Navigating Directories\n\nKnowing where your terminal is executing code ensures you are working with the right inputs/outputs.\nUse pwd to determine the Present Working Directory.\nChange to a folder called “git-repo” with cd git-repo.\n. refers to the current directory, such as ./git-repo\n.. can be used to move up one level (cd ..), and can be combined to move up multiple levels (cd ../../my_folder)\n/ is the root of the filesystem: contains core folders (system, users)\n~ is the home directory. Move to folders referenced relative to this path by including it at the start of your path, for example ~/projects.\nTo visualize the structure of your working directory, use tree\n\nReference link"
   },
   {
-    "objectID": "w01/slides.html#linux-command-line-7",
-    "href": "w01/slides.html#linux-command-line-7",
+    "objectID": "w01/slides.html#interacting-with-files",
+    "href": "w01/slides.html#interacting-with-files",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\nInteracting with Files\nNow that we know how to navigate through directories, we need to learn the commands for interacting with files\n\nmv to move files from one location to another\n\nCan use file globbing here - ?, *, [], …\n\ncp to copy files instead of moving\n\nCan use file globbing here - ?, *, [], …\n\nmkdir to make a directory\nrm to remove files\nrmdir to remove directories\nrm -rf to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING"
+    "section": "Interacting with Files",
+    "text": "Interacting with Files\nNow that we know how to navigate through directories, we need commands for interacting with files…\n\nmv to move files from one location to another\n\nCan use glob here - ?, *, [], …\n\ncp to copy files instead of moving\n\nCan use glob here - ?, *, [], …\n\nmkdir to make a directory\nrm to remove files\nrmdir to remove directories\nrm -rf to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING"
   },
   {
-    "objectID": "w01/slides.html#linux-command-line-8",
-    "href": "w01/slides.html#linux-command-line-8",
+    "objectID": "w01/slides.html#using-bash-for-data-exploration",
+    "href": "w01/slides.html#using-bash-for-data-exploration",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\nUsing BASH for Data Exploration\nCommands:\n\nhead FILENAME / tail FILENAME - glimpsing the first / last few rows of data\nmore FILENAME / less FILENAME - viewing the data with basic up / (up & down) controls\ncat FILENAME - print entire file contents into terminal\nvim FILENAME - open (or edit!) the file in vim editor\ngrep FILENAME - search for lines within a file that match a regex expression\nwc FILENAME - count the number of lines (-l flag) or number of words (-w flag)\n\nReference link Reference material: Text Lesson 8,9,15,16"
+    "section": "Using BASH for Data Exploration",
+    "text": "Using BASH for Data Exploration\n\nhead FILENAME / tail FILENAME - glimpsing the first / last few rows of data\nmore FILENAME / less FILENAME - viewing the data with basic up / (up & down) controls\ncat FILENAME - print entire file contents into terminal\nvim FILENAME - open (or edit!) the file in vim editor\ngrep FILENAME - search for lines within a file that match a regex expression\nwc FILENAME - count the number of lines (-l flag) or number of words (-w flag)\n\nReference material: Text Lesson 8,9,15,16"
   },
   {
-    "objectID": "w01/slides.html#linux-command-line-9",
-    "href": "w01/slides.html#linux-command-line-9",
+    "objectID": "w01/slides.html#pipes-and-arrows",
+    "href": "w01/slides.html#pipes-and-arrows",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\nPipes and Arrows\n\n| sends the stdout to another command (is the most powerful symbol in BASH!)\n&gt; sends stdout to a file and overwrites anything that was there before\n&gt;&gt; appends the stdout to the end of a file (or starts a new file from scratch if one does not exist yet)\n&lt; sends stdin into the command on the left\n\nTo-dos:\n\necho Hello World\nCounting rows of data with certain attributes\n\nReference material: Text Lesson 1,2,3,4,5"
+    "section": "Pipes and Arrows",
+    "text": "Pipes and Arrows\n\n| sends the stdout to another command (is the most powerful symbol in BASH!)\n&gt; sends stdout to a file and overwrites anything that was there before\n&gt;&gt; appends the stdout to the end of a file (or starts a new file from scratch if one does not exist yet)\n&lt; sends stdin into the command on the left\n\nReference material: Text Lesson 1,2,3,4,5"
   },
   {
-    "objectID": "w01/slides.html#linux-command-line-10",
-    "href": "w01/slides.html#linux-command-line-10",
+    "objectID": "w01/slides.html#alias-and-user-files",
+    "href": "w01/slides.html#alias-and-user-files",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\nAlias and User Files\n.bashrc is where your shell settings are located\nIf we wanted a shortcut to find out the number of our running processes, we would write a commmand like whoami | xargs ps -u | wc -l.\nWe don’t want to write out this full command every time! Let’s make an alias.\nalias alias_name=\"command_to_run\"\nalias nproc=\"whoami | xargs ps -u | wc -l\"\nNow we need to put this alias into the .bashrc\nalias nproc=\"whoami | xargs ps -u | wc -l\" &gt;&gt; ~/.bashrc\nWhat happened??\necho alias nproc=\"whoami | xargs ps -u | wc -l\" &gt;&gt; ~/.bashrc\nYour commands get saved in ~/.bash_history"
+    "section": "Alias and User Files",
+    "text": "Alias and User Files\n\n/.bashrc is where your shell settings are located\nHow many processes? whoami | xargs ps -u | wc -l\nHard to remember full command! Let’s make an alias\nGeneral syntax:\nalias alias_name=\"command_to_run\"\nFor our case:\nalias nproc=\"whoami | xargs ps -u | wc -l\"\nNow we need to put this alias into the .bashrc\nalias nproc=\"whoami | xargs ps -u | wc -l\" &gt;&gt; ~/.bashrc\nYour commands get saved in ~/.bash_history"
   },
   {
-    "objectID": "w01/slides.html#linux-command-line-11",
-    "href": "w01/slides.html#linux-command-line-11",
+    "objectID": "w01/slides.html#process-management",
+    "href": "w01/slides.html#process-management",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\nProcess Managment\nUse the command ps to see your running processes.\nUse the command top or even better htop to see all the running processes on the machine.\nInstall the program htop using the command sudo yum install htop -y\nFind the process ID (PID) so you can kill a broken process.\nUse the command kill [PID NUM] to signal the process to terminate. If things get really bad, then use the command kill -9 [PID NUM]\nTo kill a command in the terminal window it is running in, try using Ctrl + C or Ctrl + /\nRun the cat command on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.\nReference material: Text Lesson 1,2,3,7,9,10\nTry playing a Linux game!\nhttps://gitlab.com/slackermedia/bashcrawl is a game to help you practice your navigation and file access skills. Click on the binder link in this repo to launch a jupyter lab session and explore!"
+    "section": "Process Management",
+    "text": "Process Management\n\nUse ps to see your running processes\nUse top or even better htop to see all running processes\nInstall htop via sudo yum install htop -y\nTo kill a broken process: first find the process ID (PID)\nThen use kill [PID NUM] to “ask” the process to terminate. If things get really bad: kill -9 [PID NUM]\nTo kill a command in the terminal window it is running in, try using Ctrl + C or Ctrl + /\nRun cat on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.\n\nReference material: Text Lesson 1,2,3,7,9,10"
   },
   {
-    "objectID": "w01/slides.html#references",
-    "href": "w01/slides.html#references",
+    "objectID": "w01/slides.html#try-playing-a-linux-game",
+    "href": "w01/slides.html#try-playing-a-linux-game",
     "title": "Week 1: Course Overview",
-    "section": "References",
-    "text": "References"
+    "section": "Try playing a Linux game!",
+    "text": "Try playing a Linux game!\nBash crawl is a game to help you practice your navigation and file access skills. Click on the binder link in this repo to launch a jupyter lab session and explore!"
   },
   {
     "objectID": "w01/index.html",
@@ -922,17 +894,17 @@
     "href": "w01/index.html#internet-of-things-iot-in-2025",
     "title": "Week 1: Course Overview",
     "section": "Internet of Things (IoT) in 2025",
-    "text": "Internet of Things (IoT) in 2025\n75 billion connected devices generating data: * Smart home devices (Alexa, Google Home, Apple HomePod) * Wearables (Apple Watch, Fitbit, Oura rings) * Connected vehicles & autonomous driving systems * Industrial IoT sensors * Smart city infrastructure * Medical devices & remote patient monitoring",
+    "text": "Internet of Things (IoT) in 2025\n75 billion connected devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nConnected vehicles & self-driving cars\nIndustrial IoT sensors\n\n\n\n\nSmart city infrastructure\nMedical devices & remote patient monitoring",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#smartphones-collecting-our-information",
-    "href": "w01/index.html#smartphones-collecting-our-information",
+    "objectID": "w01/index.html#smartphone-location-data",
+    "href": "w01/index.html#smartphone-location-data",
     "title": "Week 1: Course Overview",
-    "section": "Smartphones collecting our information",
-    "text": "Smartphones collecting our information",
+    "section": "Smartphone Location Data",
+    "text": "Smartphone Location Data",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -948,11 +920,11 @@
     ]
   },
   {
-    "objectID": "w01/index.html#typical-real-world-scenarios-2025",
-    "href": "w01/index.html#typical-real-world-scenarios-2025",
+    "objectID": "w01/index.html#typical-real-world-scenarios-in-2025",
+    "href": "w01/index.html#typical-real-world-scenarios-in-2025",
     "title": "Week 1: Course Overview",
-    "section": "Typical real world scenarios (2025)",
-    "text": "Typical real world scenarios (2025)\n\nScenario 1: Traditional Big Data\nYou have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. What do you do?\n\n\nScenario 2: AI/ML Pipeline\nYour company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. How do you architect this?\n\n\nScenario 3: Real-time Analytics\nYou need to process 1 million events per second from IoT devices and provide real-time dashboards with &lt;1 second latency. What’s your stack?",
+    "section": "Typical Real-World Scenarios in 2025",
+    "text": "Typical Real-World Scenarios in 2025\nScenario 1: Traditional Big Data\nYou have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. What do you do?\nScenario 2: AI/ML Pipeline\nYour company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. How do you architect this?\nScenario 3: Real-Time Analytics\nYou need to process 1 million events/second from IoT devices and provide real-time dashboards with &lt;1s latency. What’s your stack?",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -972,7 +944,7 @@
     "href": "w01/index.html#big-data-definitions",
     "title": "Week 1: Course Overview",
     "section": "Big Data Definitions",
-    "text": "Big Data Definitions\n\nWikipedia\n“In essence, is a term for a collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis”\n\n\nO’Reilly\n“Big data is when the size of the data itself becomes part of the problem”\n\n\nEMC/IDC\n“Big data technologies describe a new generation of technologies and architectures, designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discovery, and/or analysis.”",
+    "text": "Big Data Definitions\nWikipedia\n“A collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis”\nO’Reilly\n“Big data is when the size of the data itself becomes part of the problem”",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -981,18 +953,18 @@
     "objectID": "w01/index.html#frameworks-for-thinking-about-big-data",
     "href": "w01/index.html#frameworks-for-thinking-about-big-data",
     "title": "Week 1: Course Overview",
-    "section": "Frameworks for thinking about Big Data",
-    "text": "Frameworks for thinking about Big Data\n\nIBM: (The famous 3-V’s definition)\n\nVolume (Gigabytes -&gt; Exabytes -&gt; Zettabytes)\nVelocity (Batch -&gt; Streaming -&gt; Real-time AI inference)\nVariety (Structured, Semi-structured, Unstructured, Embeddings)\n\n\n\nAdditional V’s for 2025\n\nVariability\nVeracity\nVisualization\nValue\nVectors (embeddings for AI/ML)\nVersatility (multi-modal data)",
+    "section": "Frameworks for Thinking About Big Data",
+    "text": "Frameworks for Thinking About Big Data\nIBM (The 3 V’s)\n\nVolume (Gigabytes → Exabytes → Zettabytes)\nVelocity (Batch → Streaming → Real-time AI inference)\nVariety (Structured, Unstructured, Embeddings)\n\nAdditional V’s for 2025\n\n\n\nVariability\nVeracity\nVisualization\n\n\n\nValue\nVectors (embeddings for AI/ML)\nVersatility (multi-modal data)",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#think-of-data-size-as-a-function-of-processing-and-storage",
-    "href": "w01/index.html#think-of-data-size-as-a-function-of-processing-and-storage",
+    "objectID": "w01/index.html#data-size",
+    "href": "w01/index.html#data-size",
     "title": "Week 1: Course Overview",
-    "section": "Think of data size as a function of processing and storage",
-    "text": "Think of data size as a function of processing and storage\n\nCan you analyze/process your data on a single machine?\nCan you store (or is it stored) on a single machine?\nCan you serve it fast enough for real-time AI applications?\n\nIf any of of the answers is no then you have a big-ish data problem!",
+    "section": "Data “Size”",
+    "text": "Data “Size”\n\\[\n\\text{``Size''} = f(\\text{Processing Ability}, \\text{Storage Space})\n\\]\n\nCan you analyze/process your data on a single machine?\nCan you store (or is it stored) on a single machine?\nCan you serve it fast enough for real-time AI applications?\n\nIf any of of the answers is no then you have a big-ish data problem!",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -1002,27 +974,27 @@
     "href": "w01/index.html#the-new-data-landscape-2025",
     "title": "Week 1: Course Overview",
     "section": "The New Data Landscape (2025)",
-    "text": "The New Data Landscape (2025)\n\nTraining Foundation Models\n\nGPT-4: Trained on ~13 trillion tokens\nLlama 3: 15 trillion tokens\nGoogle’s Gemini: Multi-modal training on text, images, video\nEach iteration requires petabytes of curated data\n\n\n\nData Requirements Have Exploded\n\n2020: BERT trained on 3.3 billion words\n2023: GPT-4 trained on ~13 trillion tokens\n2024: Llama 3 trained on 15+ trillion tokens\nFuture: Approaching the limits of human-generated text",
+    "text": "The New Data Landscape (2025)\nTraining Foundation Models\n\nGPT-4: Trained on about 13 trillion tokens\nLlama 3: 15 trillion tokens\nGoogle Gemini: Multi-modal training (text, images, video)\nEach iteration requires petabytes of curated data\n\nData Requirements Have Exploded\n\n2020: BERT trained on 3.3 billion words\n2023: GPT-4 trained on ~13 trillion tokens\n2024: Llama 3 trained on 15+ trillion tokens",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#big-data-infrastructure-for-ai",
-    "href": "w01/index.html#big-data-infrastructure-for-ai",
+    "objectID": "w01/index.html#big-data-infrastructure-data-lakes-warehouses",
+    "href": "w01/index.html#big-data-infrastructure-data-lakes-warehouses",
     "title": "Week 1: Course Overview",
-    "section": "Big Data Infrastructure for AI",
-    "text": "Big Data Infrastructure for AI\n\nData Lakes & Warehouses for AI\nTraditional Use Cases: * Business intelligence * Analytics & reporting * Historical data storage\nModern AI Use Cases: * Training data repositories * Vector embeddings storage * RAG (Retrieval-Augmented Generation) context * Fine-tuning datasets * Evaluation & benchmark data",
+    "section": "Big Data Infrastructure: Data Lakes, Warehouses",
+    "text": "Big Data Infrastructure: Data Lakes, Warehouses\nTraditional Use Cases:\n\nBusiness intelligence\nAnalytics & reporting\nHistorical data storage\n\nModern AI Use Cases:\n\nTraining data repositories\nVector embeddings storage\nRAG (Retrieval-Augmented Generation) context\nFine-tuning datasets\nEvaluation & benchmark data",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#rag-context-engineering",
-    "href": "w01/index.html#rag-context-engineering",
+    "objectID": "w01/index.html#rag-and-context-engineering-the-new-data-pipeline",
+    "href": "w01/index.html#rag-and-context-engineering-the-new-data-pipeline",
     "title": "Week 1: Course Overview",
-    "section": "RAG & Context Engineering",
-    "text": "RAG & Context Engineering\n\nThe New Data Pipeline\nRaw Data → Data Lake → Processing → Vector DB → LLM Context\nKey Components: * Data Lakes (S3, Azure Data Lake): Store massive unstructured data * Data Warehouses (Snowflake, BigQuery): Structured data for context * Vector Databases (Pinecone, Weaviate, Qdrant): Semantic search * Embedding Models: Convert data to vectors * Orchestration (Airflow, Prefect): Manage the pipeline",
+    "section": "RAG and Context Engineering: The New Data Pipeline",
+    "text": "RAG and Context Engineering: The New Data Pipeline\n\n\n\n\n\n\n\nG\n\n\n\nraw\n\nRaw Data\n\n\n\nlake\n\nData Lake\n\n\n\nraw-&gt;lake\n\n\n\n\n\nproc\n\nProcessing\n\n\n\nlake-&gt;proc\n\n\n\n\n\nvec\n\nVector DB\n\n\n\nproc-&gt;vec\n\n\n\n\n\ncontext\n\nLLM Context\n\n\n\nvec-&gt;context\n\n\n\n\n\n\n\n\n\n\nKey Components:\n\nData Lakes (S3, Azure Data Lake): Store massive unstructured data\nData Warehouses (Snowflake, BigQuery): Structured data for context\nVector Databases (Pinecone, Weaviate, Qdrant): Semantic search\nEmbedding Models: Convert data to vectors\nOrchestration (Airflow, Prefect): Manage the pipeline",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -1032,7 +1004,7 @@
     "href": "w01/index.html#mcp-servers-agentic-ai",
     "title": "Week 1: Course Overview",
     "section": "MCP Servers & Agentic AI",
-    "text": "MCP Servers & Agentic AI\n\nModel Context Protocol (MCP)\nWhat is MCP? * Open protocol for connecting AI assistants to data sources * Standardized way to expose tools and data to LLMs * Enables “agentic” behavior - AI that can act autonomously\n\n\nMCP in Production\nData Warehouse → MCP Server → AI Agent → Action\nExamples: * AI agents querying Snowflake for real-time analytics * Autonomous systems updating data lakes based on predictions * Multi-agent systems coordinating through shared data contexts",
+    "text": "MCP Servers & Agentic AI\nModel Context Protocol (MCP)\n\nOpen protocol for connecting AI assistants to data sources\nStandardized way to expose tools and data to LLMs\nEnables “agentic” behavior - AI that can act autonomously\n\nMCP in Production\n\n\n\n\n\n\n\nG\n\n\n\nware\n\nData Warehouse\n\n\n\nmcp\n\nMCP Server\n\n\n\nware-&gt;mcp\n\n\n\n\n\nagent\n\nAI Agent\n\n\n\nmcp-&gt;agent\n\n\n\n\n\naction\n\nAction\n\n\n\nagent-&gt;action\n\n\n\n\n\n\n\n\n\n\nExamples:\n\nAI agents querying Snowflake for real-time analytics\nAutonomous systems updating data lakes based on predictions\nMulti-agent systems coordinating through shared data contexts",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -1042,7 +1014,7 @@
     "href": "w01/index.html#data-quality-for-ai",
     "title": "Week 1: Course Overview",
     "section": "Data Quality for AI",
-    "text": "Data Quality for AI\n\nWhy Data Quality Matters More Than Ever\nGarbage In, Garbage Out - Amplified: * Bad training data → Biased models * Incorrect RAG data → Hallucinations * Poor data governance → Compliance issues\n\n\nData Quality Challenges in 2025\n\nScale: Validating trillions of tokens\nDiversity: Multi-modal, multi-lingual data\nVelocity: Real-time data for online learning\nVeracity: Detecting AI-generated synthetic data",
+    "text": "Data Quality for AI\n(Why Data Quality Matters More Than Ever)\nGarbage In, Garbage Out - Amplified:\n\nBad training data → Biased models\nIncorrect RAG data → Hallucinations\nPoor data governance → Compliance issues\n\nData Quality Challenges in 2025\n\nScale: Validating trillions of tokens\nDiversity: Multi-modal, multi-lingual data\nVelocity: Real-time data for online learning\nVeracity: Detecting AI-generated synthetic data",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -1051,18 +1023,18 @@
     "objectID": "w01/index.html#real-world-big-data-ai-examples",
     "href": "w01/index.html#real-world-big-data-ai-examples",
     "title": "Week 1: Course Overview",
-    "section": "Real-World Big Data + AI Examples",
-    "text": "Real-World Big Data + AI Examples\n\nNetflix\n\nData Scale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\n\n\nUber\n\nData Scale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\n\n\nOpenAI\n\nData Scale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters",
+    "section": "Real-World Big Data / AI Examples",
+    "text": "Real-World Big Data / AI Examples\nNetflix\n\nData Scale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\nUber\n\nData Scale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\nOpenAI\n\nData Scale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#the-future-big-data-ai-convergence",
-    "href": "w01/index.html#the-future-big-data-ai-convergence",
+    "objectID": "w01/index.html#emerging-trends-2025-2027",
+    "href": "w01/index.html#emerging-trends-2025-2027",
     "title": "Week 1: Course Overview",
-    "section": "The Future: Big Data + AI Convergence",
-    "text": "The Future: Big Data + AI Convergence\n\nEmerging Trends (2025-2027)\nUnified Platforms: * Data lakes becoming “AI lakes” * Integrated vector + relational databases * One-stop shops for data + AI (Databricks, Snowflake Cortex)\nEdge Computing + AI: * Processing at the data source * Federated learning across devices * 5G enabling real-time edge AI\nSynthetic Data: * AI generating training data for AI * Privacy-preserving synthetic datasets * Infinite data generation loops",
+    "section": "Emerging Trends (2025-2027)",
+    "text": "Emerging Trends (2025-2027)\nUnified Platforms:\n\nData lakes becoming “AI lakes”\nIntegrated vector + relational databases\nOne-stop shops for data + AI (Databricks, Snowflake Cortex)\n\nEdge Computing + AI:\n\nProcessing at the data source\nFederated learning across devices\n5G enabling real-time edge AI\n\nSynthetic Data:\n\nAI generating training data for AI\nPrivacy-preserving synthetic datasets",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -1071,58 +1043,8 @@
     "objectID": "w01/index.html#relative-data-sizes",
     "href": "w01/index.html#relative-data-sizes",
     "title": "Week 1: Course Overview",
-    "section": "Relative data sizes",
-    "text": "Relative data sizes",
-    "crumbs": [
-      "Week 1: Aug 28"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#relative-data-sizes-1",
-    "href": "w01/index.html#relative-data-sizes-1",
-    "title": "Week 1: Course Overview",
-    "section": "Relative data sizes",
-    "text": "Relative data sizes",
-    "crumbs": [
-      "Week 1: Aug 28"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#relative-data-sizes-2",
-    "href": "w01/index.html#relative-data-sizes-2",
-    "title": "Week 1: Course Overview",
-    "section": "Relative data sizes",
-    "text": "Relative data sizes",
-    "crumbs": [
-      "Week 1: Aug 28"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#relative-data-sizes-3",
-    "href": "w01/index.html#relative-data-sizes-3",
-    "title": "Week 1: Course Overview",
-    "section": "Relative data sizes",
-    "text": "Relative data sizes",
-    "crumbs": [
-      "Week 1: Aug 28"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#relative-data-sizes-4",
-    "href": "w01/index.html#relative-data-sizes-4",
-    "title": "Week 1: Course Overview",
-    "section": "Relative data sizes",
-    "text": "Relative data sizes",
-    "crumbs": [
-      "Week 1: Aug 28"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#relative-data-sizes-5",
-    "href": "w01/index.html#relative-data-sizes-5",
-    "title": "Week 1: Course Overview",
-    "section": "Relative data sizes",
-    "text": "Relative data sizes",
+    "section": "Relative Data Sizes",
+    "text": "Relative Data Sizes\n \n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -1132,7 +1054,7 @@
     "href": "w01/index.html#what-youll-learn-in-this-course",
     "title": "Week 1: Course Overview",
     "section": "What You’ll Learn in This Course",
-    "text": "What You’ll Learn in This Course\n\nModern Big Data Stack (2025)\nQuery Engines: * DuckDB - In-process analytical database * Polars - Lightning-fast DataFrame library\n* Spark - Distributed processing at scale\nData Warehouses & Lakes: * Snowflake - Cloud-native data warehouse * Athena - Serverless SQL on S3 * Iceberg - Open table format\nAI/ML Integration: * Vector databases for embeddings * RAG implementation patterns * Streaming with Spark Structured Streaming\nOrchestration: * Airflow for pipeline management * Serverless with AWS Lambda",
+    "text": "What You’ll Learn in This Course\nModern Big Data Stack (2025)\n\n\n\nQuery Engines:\n\nDuckDB - In-process analytical database\nPolars - Lightning-fast DataFrame library\n\nSpark - Distributed processing at scale\n\nData Warehouses & Lakes:\n\nSnowflake - Cloud-native data warehouse\nAthena - Serverless SQL on S3\nIceberg - Open table format\n\n\n\nAI/ML Integration:\n\nVector databases for embeddings\nRAG implementation patterns\nStreaming with Spark Structured Streaming\n\nOrchestration:\n\nAirflow for pipeline management\nServerless with AWS Lambda",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -1148,21 +1070,41 @@
     ]
   },
   {
-    "objectID": "w01/index.html#big-data-vs.-small-data",
-    "href": "w01/index.html#big-data-vs.-small-data",
+    "objectID": "w01/index.html#big-data-vs.-small-data-i",
+    "href": "w01/index.html#big-data-vs.-small-data-i",
     "title": "Week 1: Course Overview",
-    "section": "Big Data vs. Small Data",
-    "text": "Big Data vs. Small Data\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nGoals\ngathered for a specific goal\nmay have a goal in mind when it’s first started, but things can evolve or take unexpected directions\n\n\nLocation\nin one place, and often in a single computer file\ncan be in multiple files in multiple servers on computers in different geographic locations\n\n\nStructure/Contents\nhighly structured like an Excel spreadsheet, and it’s got rows and columns of data\ncan be unstructured, it can have many formats in files involved across disciplines, and may link to other resources\n\n\nPreparation\nprepared by the end user for their own purposes\nis often prepared by one group of people, analyzed by a second group of people, and then used by a third group of people, and they may have different purposes, and they may have different disciplines\n\n\nLongevity\nkept for a specific amount of time after the project is over because there’s a clear ending point. In the academic world it’s maybe five or seven years and then you can throw it away\ncontains data that must be stored in perpetuity. Many big data projects extend into the past and future\n\n\nMeasurements\nmeasured with a single protocol using set units and it’s usually done at the same time\nis collected and measured using many sources, protocols, units, etc\n\n\nReproducibility\nbe reproduced in their entirety if something goes wrong in the process\nreplication is seldom feasible\n\n\nStakes\nif things go wrong the costs are limited, it’s not an enormous problem\ncan have high costs of failure in terms of money, time and labor\n\n\nAccess\nidentified by a location specified in a row/column\nunless it is exceptionally well designed, the organization can be inscrutable\n\n\nAnalysis\nanalyzed together, all at once\nis ordinarily analyzed in incremental steps",
+    "section": "Big Data vs. Small Data I",
+    "text": "Big Data vs. Small Data I\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nGoals\ngathered for a specific goal\nmay have a goal in mind when it’s first started, but things can evolve or take unexpected directions\n\n\nLocation\nin one place, and often in a single computer file\ncan be in multiple files in multiple servers on computers in different geographic locations\n\n\nStructure/Contents\nhighly structured like an Excel spreadsheet, and it’s got rows and columns of data\ncan be unstructured, it can have many formats in files involved across disciplines, and may link to other resources\n\n\nPreparation\nprepared by the end user for their own purposes\nis often prepared by one group of people, analyzed by a second group of people, and then used by a third group of people, and they may have different purposes, and they may have different disciplines",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#traditional-data-analysis-tools-like-r-and-python-are-single-threaded",
-    "href": "w01/index.html#traditional-data-analysis-tools-like-r-and-python-are-single-threaded",
+    "objectID": "w01/index.html#big-data-vs.-small-data-ii",
+    "href": "w01/index.html#big-data-vs.-small-data-ii",
     "title": "Week 1: Course Overview",
-    "section": "Traditional data analysis tools like R and Python are single threaded",
-    "text": "Traditional data analysis tools like R and Python are single threaded",
+    "section": "Big Data vs. Small Data II",
+    "text": "Big Data vs. Small Data II\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nLongevity\nkept for a specific amount of time after the project is over because there’s a clear ending point. In the academic world it’s maybe five or seven years and then you can throw it away\ncontains data that must be stored in perpetuity. Many big data projects extend into the past and future\n\n\nMeasurements\nmeasured with a single protocol using set units and it’s usually done at the same time\nis collected and measured using many sources, protocols, units, etc\n\n\nReproducibility\nbe reproduced in their entirety if something goes wrong in the process\nreplication is seldom feasible\n\n\nStakes\nif things go wrong the costs are limited, it’s not an enormous problem\ncan have high costs of failure in terms of money, time and labor\n\n\nAccess\nidentified by a location specified in a row/column\nunless it is exceptionally well designed, the organization can be inscrutable\n\n\nAnalysis\nanalyzed together, all at once\nis ordinarily analyzed in incremental steps",
+    "crumbs": [
+      "Week 1: Aug 28"
+    ]
+  },
+  {
+    "objectID": "w01/index.html#challenges-of-working-with-large-datasets",
+    "href": "w01/index.html#challenges-of-working-with-large-datasets",
+    "title": "Week 1: Course Overview",
+    "section": "Challenges of Working with Large Datasets",
+    "text": "Challenges of Working with Large Datasets\n\n\n\nThe V\nThe Challenge\n\n\n\n\nVolume\ndata scale\n\n\nValue\ndata usefulness in decision making\n\n\nVelocity\ndata processing: batch or stream\n\n\nViscosity\ndata complexity\n\n\nVariability\ndata flow inconsistency\n\n\nVolatility\ndata durability\n\n\nViability\ndata activeness\n\n\nValidity\ndata properly understandable\n\n\nVariety\ndata heterogeneity",
+    "crumbs": [
+      "Week 1: Aug 28"
+    ]
+  },
+  {
+    "objectID": "w01/index.html#thinking-about-big-data-workflows",
+    "href": "w01/index.html#thinking-about-big-data-workflows",
+    "title": "Week 1: Course Overview",
+    "section": "Thinking About Big Data Workflows",
+    "text": "Thinking About Big Data Workflows\nWilliam Cohen (Director, Research Engineering, Google):\n\nWorking with big data is not about…\n\nCode optimization\nLearning the details of today’s hardware/software (they are evolving…)\n\nWorking with big data is about understanding:\n\nThe cost of what you want to do\nWhat the tools that are available offer\nHow much can be accomplished with linear or nearly-linear operations\nHow to organize your computations so that they effectively use whatever’s fast\nHow to test/debug/verify with large data\n\nRecall that traditional tools like R and Python are single threaded (by default)",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -1172,7 +1114,7 @@
     "href": "w01/index.html#tools-at-a-glance",
     "title": "Week 1: Course Overview",
     "section": "Tools at-a-glance",
-    "text": "Tools at-a-glance\n\n\n\nLanguages, libraries, and projects\n\nPython\n\npandas\npolars\nPySpark\nduckdb\ndask\nray\n\nApache Arrow\nApache Spark\nSQL\n\nWe’ll talk briefly about Apache Hadoop today but we will not cover it in this course.\n\n\n\nCloud Services\n\nAmazon Web Services (AWS)\n\nAWS Sagemaker\nAmazon S3\n\nAzure\n\nAzure Blob\nAzure Machine Learning\n\n\nOther:\n\nAWS Elastic MapReduce (EMR)",
+    "text": "Tools at-a-glance\n\n\n\nLanguages, libraries, and projects\n\nPython\n\npandas\npolars\nPySpark\nduckdb\ndask\nray\n\nApache Arrow\nApache Spark\nSQL\nApache Hadoop (briefly)\n\n\n\n\nCloud Services\n\nAmazon Web Services (AWS)\n\nAWS Sagemaker\nAmazon S3\n\nAzure\n\nAzure Blob\nAzure Machine Learning\n\n\nOther:\n\nAWS Elastic MapReduce (EMR)",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -1188,41 +1130,31 @@
     ]
   },
   {
-    "objectID": "w01/index.html#difference-between-data-scientist-and-data-engineer",
-    "href": "w01/index.html#difference-between-data-scientist-and-data-engineer",
+    "objectID": "w01/index.html#data-scientist-vs.-data-engineer",
+    "href": "w01/index.html#data-scientist-vs.-data-engineer",
     "title": "Week 1: Course Overview",
-    "section": "Difference between Data Scientist and Data Engineer",
-    "text": "Difference between Data Scientist and Data Engineer\nIn this course, you’ll be doing a little data engineering!",
+    "section": "Data Scientist vs. Data Engineer",
+    "text": "Data Scientist vs. Data Engineer\nIn this course, you’ll augment your data scientist skills with data engineering skills!",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#responsibilities",
-    "href": "w01/index.html#responsibilities",
+    "objectID": "w01/index.html#data-engineer-responsibilities",
+    "href": "w01/index.html#data-engineer-responsibilities",
     "title": "Week 1: Course Overview",
-    "section": "Responsibilities",
-    "text": "Responsibilities",
+    "section": "Data Engineer Responsibilities",
+    "text": "Data Engineer Responsibilities",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#data-engineering-falls-into-levels-2-and-3-primarily",
-    "href": "w01/index.html#data-engineering-falls-into-levels-2-and-3-primarily",
+    "objectID": "w01/index.html#data-engineering-levels-2-and-3",
+    "href": "w01/index.html#data-engineering-levels-2-and-3",
     "title": "Week 1: Course Overview",
-    "section": "Data Engineering falls into levels 2 and 3 primarily",
-    "text": "Data Engineering falls into levels 2 and 3 primarily",
-    "crumbs": [
-      "Week 1: Aug 28"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#as-an-analystdata-scientist-you-really-need-both",
-    "href": "w01/index.html#as-an-analystdata-scientist-you-really-need-both",
-    "title": "Week 1: Course Overview",
-    "section": "As an analyst/data scientist, you really need both",
-    "text": "As an analyst/data scientist, you really need both",
+    "section": "Data Engineering: Levels 2 and 3",
+    "text": "Data Engineering: Levels 2 and 3",
     "crumbs": [
       "Week 1: Aug 28"
     ]
@@ -1308,121 +1240,121 @@
     ]
   },
   {
-    "objectID": "w01/index.html#linux-command-line-1",
-    "href": "w01/index.html#linux-command-line-1",
+    "objectID": "w01/index.html#the-terminal",
+    "href": "w01/index.html#the-terminal",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\n\nTerminal\n\n\nTerminal access was THE ONLY way to do programming\nNo GUIs! No Spyder, Jupyter, RStudio, etc.\nCoding is still more powerful than graphical interfaces for complex jobs\nCoding makes work repeatable",
+    "section": "The Terminal",
+    "text": "The Terminal\n\n\n\n\nTerminal access was THE ONLY way to do programming\nNo GUIs! No Spyder, Jupyter, RStudio, etc.\nCoding is still more powerful than graphical interfaces for complex jobs\nCoding makes work repeatable",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#linux-command-line-2",
-    "href": "w01/index.html#linux-command-line-2",
+    "objectID": "w01/index.html#bash",
+    "href": "w01/index.html#bash",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\n\nBASH\n\n\nCreated in 1989 by Brian Fox\nBrian Fox also built the first online interactive banking software\nBASH is a command processor\nConnection between you and the machine language and hardware",
+    "section": "BASH",
+    "text": "BASH\n\n\n\n\nCreated in 1989 by Brian Fox: “Bourne-Again Shell”\nBrian Fox also built the first online interactive banking software\nBASH is a command processor\nConnection between you and the machine language and hardware",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#linux-command-line-3",
-    "href": "w01/index.html#linux-command-line-3",
+    "objectID": "w01/index.html#the-prompt",
+    "href": "w01/index.html#the-prompt",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\n\nThe Prompt\nusername@hostname:current_directory $\nWhat do we learn from the prompt?\n\nWho you are - username\nThe machine where your code is running - hostname\nThe directory where your code is running - current_directory\nThe shell type - $ - this symbol means BASH",
+    "section": "The Prompt",
+    "text": "The Prompt\nusername@hostname:current_directory $\nWhat do we learn from the prompt?\n\nWho you are - username\nThe machine where your code is running - hostname\nThe directory where your code is running - current_directory\nThe shell type - $ - this symbol means BA$H",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#linux-command-line-4",
-    "href": "w01/index.html#linux-command-line-4",
+    "objectID": "w01/index.html#syntax",
+    "href": "w01/index.html#syntax",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\n\nSyntax\nCOMMAND -F --FLAG * COMMAND is the program * Everything after that are arguments * F is a single letter flag * FLAG is a single word or words connected by dashes flag. A space breaks things into a new argument. + Sometimes single letter and long form flags (e.g. F and FLAG) can refer to the same argument\nCOMMAND -F --FILE file1\nHere we pass an text argument “file1” into the FILE flag\nThe -h flag is usually to get help. You can also run the man command and pass the name of the program as the argument to get the help page.\nLet’s try basic commands:\n\ndate to get the current date\nwhoami to get your user name\necho \"Hello World\" to print to the console",
+    "section": "Syntax",
+    "text": "Syntax\nCOMMAND -F --FLAG\n\nCOMMAND is the program, everything after that = arguments\nF is a single letter flag, FLAG is a single word or words connected by dashes. A space breaks things into a new argument.\nSometimes argument has single letter and long form versions (e.g. F and FLAG)\n\nCOMMAND -F --FILE file1\n\nHere we pass a text argument \"file1\" as the value for the FILE flag\n-h flag is usually to get help. You can also run the man command and pass the name of the program as the argument to get the help page.\n\nLet’s try basic commands:\n\ndate to get the current date\nwhoami to get your user name\necho \"Hello World\" to print to the console",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#linux-command-line-5",
-    "href": "w01/index.html#linux-command-line-5",
+    "objectID": "w01/index.html#examining-files",
+    "href": "w01/index.html#examining-files",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\n\nExamining Files\nFind out your Present Working Directory pwd\nExamine the contents of files and folders using the ls command\nMake new files from scratch using the touch command\nGlobbing - how to select files in a general way\n\n\\* for wild card any number of characters\n\\? for wild card for a single character\n[] for one of many character options\n! for exclusion\nspecial options [:alpha:], [:alnum:], [:digit:], [:lower:], [:upper:]\n\nReference material Reference material: Shell Lesson 1,2,4,5",
+    "section": "Examining Files",
+    "text": "Examining Files\n\nFind out your Present Working Directory pwd\nExamine the contents of files and folders using ls\nMake new files from scratch using touch\nGlob: “Mini-language” for selecting files with wildcards\n\n\\* for wild card any number of characters\n\\? for wild card for a single character\n[] for one of many character options\n! for exclusion\n[:alpha:], [:alnum:], [:digit:], [:lower:], [:upper:]\n\n\nReference material: Shell Lesson 1,2,4,5",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#linux-command-line-6",
-    "href": "w01/index.html#linux-command-line-6",
+    "objectID": "w01/index.html#navigating-directories",
+    "href": "w01/index.html#navigating-directories",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\n\nNavigating Directories\nKnowing where your terminal is executing code ensures you are working with the right inputs and making the right outputs.\nUse the command pwd to determine the Present Working Directory.\nLet’s say you need to change to a folder called “git-repo”. To change directories you can use a command like cd git-repo.\n\n. refers to the current directory, such as ./git-repo\n.. can be used to move up one folder, use cd .., and can be combined to move up multiple levels ../../my_folder\n/ is the root of the Linux OS, where there are core folders, such as system, users, etc.\n~ is the home directory. Move to folders referenced relative to this path by including it at the start of your path, for example ~/projects.\n\nTo view the structure of directories from your present working directory, use the tree command\nReference link",
+    "section": "Navigating Directories",
+    "text": "Navigating Directories\n\nKnowing where your terminal is executing code ensures you are working with the right inputs/outputs.\nUse pwd to determine the Present Working Directory.\nChange to a folder called “git-repo” with cd git-repo.\n. refers to the current directory, such as ./git-repo\n.. can be used to move up one level (cd ..), and can be combined to move up multiple levels (cd ../../my_folder)\n/ is the root of the filesystem: contains core folders (system, users)\n~ is the home directory. Move to folders referenced relative to this path by including it at the start of your path, for example ~/projects.\nTo visualize the structure of your working directory, use tree\n\nReference link",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#linux-command-line-7",
-    "href": "w01/index.html#linux-command-line-7",
+    "objectID": "w01/index.html#interacting-with-files",
+    "href": "w01/index.html#interacting-with-files",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\n\nInteracting with Files\nNow that we know how to navigate through directories, we need to learn the commands for interacting with files\n\nmv to move files from one location to another\n\nCan use file globbing here - ?, *, [], …\n\ncp to copy files instead of moving\n\nCan use file globbing here - ?, *, [], …\n\nmkdir to make a directory\nrm to remove files\nrmdir to remove directories\nrm -rf to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING",
+    "section": "Interacting with Files",
+    "text": "Interacting with Files\nNow that we know how to navigate through directories, we need commands for interacting with files…\n\nmv to move files from one location to another\n\nCan use glob here - ?, *, [], …\n\ncp to copy files instead of moving\n\nCan use glob here - ?, *, [], …\n\nmkdir to make a directory\nrm to remove files\nrmdir to remove directories\nrm -rf to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#linux-command-line-8",
-    "href": "w01/index.html#linux-command-line-8",
+    "objectID": "w01/index.html#using-bash-for-data-exploration",
+    "href": "w01/index.html#using-bash-for-data-exploration",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\n\nUsing BASH for Data Exploration\nCommands:\n\nhead FILENAME / tail FILENAME - glimpsing the first / last few rows of data\nmore FILENAME / less FILENAME - viewing the data with basic up / (up & down) controls\ncat FILENAME - print entire file contents into terminal\nvim FILENAME - open (or edit!) the file in vim editor\ngrep FILENAME - search for lines within a file that match a regex expression\nwc FILENAME - count the number of lines (-l flag) or number of words (-w flag)\n\nReference link Reference material: Text Lesson 8,9,15,16",
+    "section": "Using BASH for Data Exploration",
+    "text": "Using BASH for Data Exploration\n\nhead FILENAME / tail FILENAME - glimpsing the first / last few rows of data\nmore FILENAME / less FILENAME - viewing the data with basic up / (up & down) controls\ncat FILENAME - print entire file contents into terminal\nvim FILENAME - open (or edit!) the file in vim editor\ngrep FILENAME - search for lines within a file that match a regex expression\nwc FILENAME - count the number of lines (-l flag) or number of words (-w flag)\n\nReference material: Text Lesson 8,9,15,16",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#linux-command-line-9",
-    "href": "w01/index.html#linux-command-line-9",
+    "objectID": "w01/index.html#pipes-and-arrows",
+    "href": "w01/index.html#pipes-and-arrows",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\n\nPipes and Arrows\n\n| sends the stdout to another command (is the most powerful symbol in BASH!)\n&gt; sends stdout to a file and overwrites anything that was there before\n&gt;&gt; appends the stdout to the end of a file (or starts a new file from scratch if one does not exist yet)\n&lt; sends stdin into the command on the left\n\nTo-dos:\n\necho Hello World\nCounting rows of data with certain attributes\n\nReference material: Text Lesson 1,2,3,4,5",
+    "section": "Pipes and Arrows",
+    "text": "Pipes and Arrows\n\n| sends the stdout to another command (is the most powerful symbol in BASH!)\n&gt; sends stdout to a file and overwrites anything that was there before\n&gt;&gt; appends the stdout to the end of a file (or starts a new file from scratch if one does not exist yet)\n&lt; sends stdin into the command on the left\n\nReference material: Text Lesson 1,2,3,4,5",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#linux-command-line-10",
-    "href": "w01/index.html#linux-command-line-10",
+    "objectID": "w01/index.html#alias-and-user-files",
+    "href": "w01/index.html#alias-and-user-files",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\n\nAlias and User Files\n.bashrc is where your shell settings are located\nIf we wanted a shortcut to find out the number of our running processes, we would write a commmand like whoami | xargs ps -u | wc -l.\nWe don’t want to write out this full command every time! Let’s make an alias.\nalias alias_name=\"command_to_run\"\nalias nproc=\"whoami | xargs ps -u | wc -l\"\nNow we need to put this alias into the .bashrc\nalias nproc=\"whoami | xargs ps -u | wc -l\" &gt;&gt; ~/.bashrc\nWhat happened??\necho alias nproc=\"whoami | xargs ps -u | wc -l\" &gt;&gt; ~/.bashrc\nYour commands get saved in ~/.bash_history",
+    "section": "Alias and User Files",
+    "text": "Alias and User Files\n\n/.bashrc is where your shell settings are located\nHow many processes? whoami | xargs ps -u | wc -l\nHard to remember full command! Let’s make an alias\nGeneral syntax:\nalias alias_name=\"command_to_run\"\nFor our case:\nalias nproc=\"whoami | xargs ps -u | wc -l\"\nNow we need to put this alias into the .bashrc\nalias nproc=\"whoami | xargs ps -u | wc -l\" &gt;&gt; ~/.bashrc\nYour commands get saved in ~/.bash_history",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#linux-command-line-11",
-    "href": "w01/index.html#linux-command-line-11",
+    "objectID": "w01/index.html#process-management",
+    "href": "w01/index.html#process-management",
     "title": "Week 1: Course Overview",
-    "section": "Linux Command Line",
-    "text": "Linux Command Line\n\nProcess Managment\nUse the command ps to see your running processes.\nUse the command top or even better htop to see all the running processes on the machine.\nInstall the program htop using the command sudo yum install htop -y\nFind the process ID (PID) so you can kill a broken process.\nUse the command kill [PID NUM] to signal the process to terminate. If things get really bad, then use the command kill -9 [PID NUM]\nTo kill a command in the terminal window it is running in, try using Ctrl + C or Ctrl + /\nRun the cat command on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.\nReference material: Text Lesson 1,2,3,7,9,10\n\n\nTry playing a Linux game!\nhttps://gitlab.com/slackermedia/bashcrawl is a game to help you practice your navigation and file access skills. Click on the binder link in this repo to launch a jupyter lab session and explore!",
+    "section": "Process Management",
+    "text": "Process Management\n\nUse ps to see your running processes\nUse top or even better htop to see all running processes\nInstall htop via sudo yum install htop -y\nTo kill a broken process: first find the process ID (PID)\nThen use kill [PID NUM] to “ask” the process to terminate. If things get really bad: kill -9 [PID NUM]\nTo kill a command in the terminal window it is running in, try using Ctrl + C or Ctrl + /\nRun cat on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.\n\nReference material: Text Lesson 1,2,3,7,9,10",
     "crumbs": [
       "Week 1: Aug 28"
     ]
   },
   {
-    "objectID": "w01/index.html#references",
-    "href": "w01/index.html#references",
+    "objectID": "w01/index.html#try-playing-a-linux-game",
+    "href": "w01/index.html#try-playing-a-linux-game",
     "title": "Week 1: Course Overview",
-    "section": "References",
-    "text": "References",
+    "section": "Try playing a Linux game!",
+    "text": "Try playing a Linux game!\nBash crawl is a game to help you practice your navigation and file access skills. Click on the binder link in this repo to launch a jupyter lab session and explore!",
     "crumbs": [
       "Week 1: Aug 28"
     ]
