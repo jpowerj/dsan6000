@@ -23,30 +23,32 @@ website:
         text: "Week 1: Aug 28"
       - href: w02/index.qmd
         text: "Week 2: <span class='sec-w02-date'>Sep 2</span>"
-      # - href: w03/index.qmd
-      #   text: "Week 3: Sep 11"
-      # - href: w04/index.qmd
-      #   text: "Week 4: Sep 18"
-      # - href: w05/index.qmd
-      #   text: "Week 5: Sep 25"
-      # - href: w06/index.qmd
-      #   text: "Week 6: Oct 2"
-      # - href: w07/index.qmd
-      #   text: "Week 7: Oct 9"
-      # - href: w08/index.qmd
-      #   text: "Week 8: Oct 16"
-      # - href: w09/index.qmd
-      #   text: "Week 9: Oct 23"
-      # - href: w10/index.qmd
-      #   text: "Week 10: Oct 30"
-      # - href: w11/index.qmd
-      #   text: "Week 11: Nov 6"
-      # - href: w12/index.qmd
-      #   text: "Week 12: Nov 13"
-      # - href: w13/index.qmd
-      #   text: "Week 13: Nov 20"
-      # - href: w14/index.qmd
-      #   text: "Week 14: Dec 4"
+      - href: w03/index.qmd
+        text: "Week 3: <span class='sec-w03-date'>Sep 8</span>"
+      - href: w04/index.qmd
+        text: "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      - href: w05/index.qmd
+        text: "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      - href: w06/index.qmd
+        text: "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      - href: w07/index.qmd
+        text: "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      - href: w08/index.qmd
+        text: "Week 8: <span class='sec-w08-date'>Oct 20</span>"
+      - href: w09/index.qmd
+        text: "Week 9: <span class='sec-w09-date'>Oct 27</span>"
+      - href: w10/index.qmd
+        text: "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      - href: w11/index.qmd
+        text: "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+      - href: w12/index.qmd
+        text: "Week 12: <span class='sec-w12-date'>Nov 17</span>"
+      - href: w13/index.qmd
+        text: "Week 13: <span class='sec-w13-date'>Nov 24</span>"
+      - href: w14/index.qmd
+        text: "Week 14: <span class='sec-w14-date'>Dec 1</span>"
+      - href: w15/index.qmd
+        text: "Week 15: <span class='sec-w15-date'>Dec 8</span>"
       - "---"
       - href: "https://georgetown.zoom.us/j/92295251878?pwd=K8nOs3w9uRlj3mfn63bh0yazBpBbsC.1"
         text: "S<span class='sec-num'>01</span> Zoom Link <i class='bi bi-box-arrow-up-right ps-1' style='font-size: 75%;'></i>"
