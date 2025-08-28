@@ -16,6 +16,6 @@ format:
     link-external-newwindow: true
 ---
 
-This webpage just serves as a hub collecting Jeff's slides for *DSAN 6000: Big Data and Cloud Computing*, Fall 2025 at Georgetown University. It is **not a replacement for the [main course webpage]()!**
+This webpage just serves as a hub collecting Jeff's slides for *DSAN 6000: Big Data and Cloud Computing*, Fall 2025 at Georgetown University. It is **not a replacement for the [main course webpage](https://gu-dsan.github.io/6000-fall-2025/)!**
 
 Section <span class='sec-num'>01</span> of the course takes place on **<span class='sec-day-full'>Wednesday</span>** from **<span class='sec-start'>3:30pm</span> to <span class='sec-end'>6:00pm</span>** in **<span class='sec-room'>Walsh 394</span>**.

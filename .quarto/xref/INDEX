@@ -18,5 +18,13 @@
   "w02/index.qmd": {
     "slides.html": "058cf73c",
     "index.html": "09461b7c"
+  },
+  "w03/index.qmd": {
+    "slides.html": "31acf789",
+    "index.html": "0c80c502"
+  },
+  "w04/index.qmd": {
+    "slides.html": "4a8849a0",
+    "index.html": "3d3a2ac7"
   }
 }

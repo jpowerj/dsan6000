@@ -16,8 +16,8 @@ website:
     title: "DSAN 6000 Slide Hub"
     footer: "*Updated {{< env DSAN6000_LAST_UPDATED \"2024-08-28\" >}}*"
     contents:
-      - href: index.qmd
-        text: "<i class='bi bi-house pe-1'></i> Home"
+      - href: "https://gu-dsan.github.io/6000-fall-2025/"
+        text: "<i class='bi bi-arrow-left-short pe-1'></i> Main Course Page"
       - "---"
       - href: w01/index.qmd
         text: "Week 1: Aug 28"
