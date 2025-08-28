@@ -1,5 +1,6 @@
 ---
 title: "DSAN 6000 Sections 01 and 02"
+sidebar: mainnav
 listing:
   sort-ui: false
   filter-ui: false
