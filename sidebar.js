@@ -72,23 +72,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       '.sec-w14-date': 'Dec 1',
       '.sec-w15-date': 'Dec 8',
       '.sec-start': '3:30pm',
-      '.sec-p10': '12:40pm',
-      '.sec-p15': '12:45pm',
-      '.sec-p20': '12:50pm',
-      '.sec-p30': '1:00pm',
-      '.sec-p35': '1:05pm',
-      '.sec-p40': '1:10pm',
-      '.sec-p45': '1:15pm',
-      '.sec-p50': '1:20pm',
-      '.sec-p55': '1:25pm',
-      '.sec-p60': '1:30pm',
-      '.sec-p65': '1:35pm',
-      '.sec-p70': '1:40pm',
-      '.sec-p80': '1:50pm',
-      '.sec-p90': '2:00pm',
-      '.sec-p100': '2:10pm',
-      '.sec-p130': '2:40pm',
-      '.sec-p140': '2:50pm',
       '.sec-end': '6:00pm',
     },
     '02': {
@@ -114,23 +97,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       '.sec-w14-date': 'Dec 4',
       '.sec-w15-date': 'Dec 8',
       '.sec-start': '6:30pm',
-      '.sec-p10': '3:40pm',
-      '.sec-p15': '3:45pm',
-      '.sec-p20': '3:50pm',
-      '.sec-p30': '4:00pm',
-      '.sec-p35': '4:05pm',
-      '.sec-p40': '4:10pm',
-      '.sec-p45': '4:15pm',
-      '.sec-p50': '4:20pm',
-      '.sec-p55': '4:25pm',
-      '.sec-p60': '4:30pm',
-      '.sec-p65': '4:35pm',
-      '.sec-p70': '4:40pm',
-      '.sec-p80': '4:50pm',
-      '.sec-p90': '5:00pm',
-      '.sec-p100': '5:10pm',
-      '.sec-p130': '5:40pm',
-      '.sec-p140': '5:50pm',
       '.sec-end': '9:00pm',
     }
   };
@@ -150,6 +116,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         $(sKey).text(sVal);
       }
       //console.log(`${key}: ${value}`);
+    }
+    // Special code for updating sidebar zoom link
+    let s01ZoomUrl = sectionData['01']['.sec-zoom-link'];
+    let s02ZoomUrl = sectionData['02']['.sec-zoom-link'];
+    if (newStr == "01") {
+      // Find any sidebar link with S02 href and update
+      let s02LinkSelector = 'a[href="' + s02ZoomUrl + '"]';
+      let sidebarElt = $(s02LinkSelector);
+      // console.log(sidebarElt);
+      sidebarElt.attr('href', s01ZoomUrl);
+    } else {
+      let s01LinkSelector = 'a[href="' + s01ZoomUrl + '"]';
+      let sidebarElt = $(s01LinkSelector);
+      // console.log(sidebarElt);
+      sidebarElt.attr('href', s02ZoomUrl);
     }
     // A special one for the slides... Very janky
     const s02Replace = {

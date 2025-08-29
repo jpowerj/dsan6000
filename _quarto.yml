@@ -50,10 +50,10 @@ website:
       - href: w15/index.qmd
         text: "Week 15: <span class='sec-w15-date'>Dec 8</span>"
       - "---"
-      - href: "https://georgetown.zoom.us/j/92295251878?pwd=K8nOs3w9uRlj3mfn63bh0yazBpBbsC.1"
+      - href: "https://georgetown.zoom.us/j/91628796534?pwd=BSnBpL4VeysAQMbUtbH4MmwOunglLh.1"
         text: "S<span class='sec-num'>01</span> Zoom Link <i class='bi bi-box-arrow-up-right ps-1' style='font-size: 75%;'></i>"
         target: "_blank"
-      - href: "https://georgetown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=20a30444-5d14-4a4e-9994-b34400dc520d"
+      - href: "https://georgetown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9ebe4700-c41f-434a-bb78-b34801332737"
         text: "Recordings <i class='bi bi-box-arrow-up-right ps-1' style='font-size: 75%;'></i>"
         target: "_blank"
       - href: "https://jjacobs.me/meet"
