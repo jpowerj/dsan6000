@@ -513,7 +513,6 @@ $$
 
 If any of of the answers is _**no**_ then you have a big-ish data problem!
 
-
 # Big Data in the Age of Generative AI
 
 ## The New Data Landscape (2025) {.crunch-ul}
