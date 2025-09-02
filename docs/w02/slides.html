@@ -7,7 +7,9 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
   <meta name="author" content="Jeff Jacobs">
@@ -29,10 +31,77 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -143,7 +212,7 @@
       margin-right: 0; 
     }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><script src="//cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script><script src="../sidebar.js"></script><link rel="preconnect" href="//fonts.gstatic.com" crossorigin=""><link href="//fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -166,18 +235,413 @@ Jeff Jacobs
 
   <p class="date">Tuesday, September 2, 2025</p>
 </section>
+<section>
+<section id="so-youve-hit-a-data-related-wall-what-now" class="title-slide slide level1 smaller title-12 center" data-stack-name="[Thing]-as-a-Service">
+<h1>So You’ve Hit A Data-Related Wall… What Now?</h1>
+<style>
+.honk-honk {
+  font-size: 200% !important;
+  /* font-family: "Bungee Spice", sans-serif; */
+  font-family: "Honk", sans-serif;
+  /* font-optical-sizing: auto; */
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
+<table class="caption-top" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td rowspan="2" width="15%" style="text-align: center; vertical-align: middle; border-bottom: 0px;">Can be <strong>processed</strong> on single machine?</td>
+<td width="5%" style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><em>No</em></td>
+<td width="40%" style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-top: 2px solid #909090; background-color: #FF991C90;"><strong>Medium</strong><br>(<em>Parallel Processing</em>)</td>
+<td width="40%" style="text-align: center; background-color: #FF991C90; vertical-align: middle; border-top: 2px solid #909090; border-right: 2px solid #909090;"><span class="honk-honk">Big!</span><br>Parallel + Distributed Processing</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><em>Yes</em></td>
+<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090;">Small<br>(<em>Your Laptop</em>)</td>
+<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; background-color: #FF991C90;"><strong>Medium</strong><br>(<em>Data Streaming</em>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; border-bottom: 0px;"></td>
+<td style="text-align: center; border-bottom: 0px solid #909090;"></td>
+<td style="text-align: center; vertical-align: middle; border-bottom: 0px solid #909090;"><em>Yes</em></td>
+<td style="text-align: center; vertical-align: middle; border-bottom: 0px solid #909090;"><em>No</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td colspan="2" style="text-align: center;">Can be <strong>stored</strong> on single machine?</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="jeffs-favorite-big-data-definition" class="slide level2 title-09">
+<h2>Jeff’s Favorite “Big Data” Definition</h2>
+<p>&nbsp;<br></p>
+<blockquote>
+<p><em>Big data is when <strong>the size of the data itself</strong> becomes <strong>part of the problem</strong></em> <span class="citation" data-cites="loukides_what_2010">(<a href="#/references" role="doc-biblioref" onclick="">Loukides 2010</a>)</span></p>
+</blockquote>
+<ul>
+<li>In other words: Your problem becomes a “big data problem” when you <strong>hit one or both of the walls!</strong></li>
+</ul>
+</section>
+<section id="you-vs.-your-opps" class="slide level2 smaller">
+<h2>You vs.&nbsp;Your Opps</h2>
+<center>
+<video id="video_shortcode_videojs_video1" width="800" height="500" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="https://jpj.georgetown.domains/dsan6000-scratch/Coyote.mp4"></video>
+</center>
+</section>
+<section id="so-you-find-yourself-smashed-against-a-wall" class="slide level2 smaller title-11">
+<h2>So you find yourself smashed against a wall…</h2>
+<p><em>(Some of yall would fold in this scenario)</em></p>
+
+<img data-src="img/fear.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="the-pre-cloud-approach-make-the-one-computer-faster-and-faster" class="slide level2 smaller title-10">
+<h2>The “Pre-Cloud” Approach: Make The One Computer Faster and Faster</h2>
+<center>
+<video id="video_shortcode_videojs_video2" width="800" height="500" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="https://jpj.georgetown.domains/dsan6000-scratch/nerf.mp4"></video>
+</center>
+</section>
+<section id="it-worked-for-many-decades" class="slide level2">
+<h2>It Worked For… Many Decades!</h2>
+
+<img data-src="img/moores.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="is-moores-law-dead" class="slide level2">
+<h2>Is Moore’s Law Dead?</h2>
+<ul>
+<li>…Kind of?</li>
+<li>Focus nowadays: <strong>specialized hardware / compute architectures</strong> hyper-optimized for <strong>particular tasks</strong>
+<ul>
+<li>[If you took DSAN 5500] Think of <strong>BLAS</strong></li>
+</ul></li>
+<li>Graphic Processing Units (GPUs)</li>
+<li>Field Programmable Gate Arrays (FPGAs)</li>
+<li>Data Processing Units (DPUs)</li>
+<li>Google’s <strong>Tensor Processing Units (TPUs)</strong></li>
+</ul>
+</section>
+<section id="so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do" class="slide level2">
+<h2>So, even upgrading our hardware didn’t help 😭 <em>now</em> what do we do?</h2>
+<ul>
+<li>We <span class="honk-honk">distribute!</span></li>
+<li>More CPUs, more memory, more storage!</li>
+</ul>
+</section>
+<section id="my-favorite-example-ever" class="slide level2 smaller">
+<h2>My Favorite Example Ever</h2>
+<ul>
+<li>Spongebob is cooking Krabby Patties too slowly to satisfy ravenous customers…</li>
+<li>Should he <strong>upgrade his one spatula?</strong> How bout just <strong>many simple spatulas at once!</strong></li>
+</ul>
+<center>
+<video id="video_shortcode_videojs_video3" width="800" height="400" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="https://jpj.georgetown.domains/dsan6000-scratch/triple_spatula.mp4"></video>
+</center>
+</section>
+<section id="how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for" class="slide level2 smaller title-12">
+<h2>How Do We Achieve This? …That’s Exactly What <em>The Cloud</em> is For!</h2>
+
+<img data-src="img/cloud-providers.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="benefits" class="slide level2">
+<h2>Benefits</h2>
+<div class="quarto-layout-panel" data-layout="[1,1]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div id="benefits-text" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Provides access to low-cost computing</li>
+<li>Costs are decreasing every year</li>
+<li>Elastic</li>
+<li>PaaS works!</li>
+<li>Many other benefits…</li>
+</ul>
+</div>
+<div id="benefits-img" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/scale-up-scale-out.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="q-what-is-the-cloud" class="slide level2">
+<h2>Q: What is The Cloud?</h2>
+<ul>
+<li>A: <strong>Using someone else’s computers</strong></li>
+</ul>
+</section>
+<section id="nist-definition" class="slide level2 crunch-title smaller">
+<h2>NIST Definition</h2>
+
+<img data-src="img/cloud-nist.png" class="r-stretch quarto-figure-center"><p class="caption">Based on <span class="citation" data-cites="mell_nist_2011">Mell and Grance (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span> (The “official” NIST definition of “Cloud Computing”)</p></section>
+<section id="service-models" class="slide level2">
+<h2>Service Models</h2>
+
+<img src="img/cloud-service-models-traditional.png" class="r-stretch"></section>
+<section id="hotel-analogy" class="slide level2">
+<h2>Hotel Analogy</h2>
+
+<img src="img/cloud-service-models-hotel.png" class="r-stretch"></section>
+<section id="infrastructure-as-a-service-iaas" class="slide level2 smaller">
+<h2>Infrastructure as a Service (IaaS)</h2>
+<ul>
+<li><strong>Virtualized computing resources</strong> delivered over the internet</li>
+<li>Provider manages: Physical hardware, virtualization, networking, storage</li>
+<li>You manage: Operating systems, applications, runtime, data, middleware</li>
+</ul>
+<p><strong>Examples and Use Cases</strong></p>
+<ul>
+<li><strong>Amazon EC2</strong>, Microsoft Azure VMs, Google Compute Engine</li>
+<li><strong>Perfect for:</strong> Development environments, web hosting, backup &amp; recovery</li>
+<li><strong>Benefits:</strong> Rapid scaling, pay-as-you-go, global availability</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Launch a virtual machine in seconds</span></span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> ec2 run-instances <span class="at">--image-id</span> ami-12345 <span class="at">--instance-type</span> t3.xlarge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="platform-as-a-service-paas" class="slide level2 smaller">
+<h2>Platform as a Service (PaaS)</h2>
+<h3 id="what-is-paas">What is PaaS?</h3>
+<ul>
+<li><strong>Complete development and deployment environment</strong> in the cloud</li>
+<li>Provider manages: Infrastructure, operating systems, runtime environments</li>
+<li>You manage: Applications and data</li>
+</ul>
+<p><strong>Examples and Use Cases</strong></p>
+<ul>
+<li><strong>AWS Elastic Beanstalk</strong>, Google App Engine, Microsoft Azure App Service</li>
+<li><strong>Perfect for:</strong> Web applications, API development, microservices</li>
+<li><strong>Benefits:</strong> Faster development, automatic scaling, integrated DevOps</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Deploy your app with minimal configuration</span></span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push heroku main  <span class="co"># App automatically deployed and scaled</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="software-as-a-service-saas" class="slide level2 smaller">
+<h2>Software as a Service (SaaS)</h2>
+<ul>
+<li><strong>Complete applications</strong> delivered over the internet</li>
+<li>Provider manages: Everything (infrastructure, platform, software)</li>
+<li>You manage: Your data and user access</li>
+</ul>
+<p><strong>Examples and Use Cases</strong></p>
+<ul>
+<li><strong>Gmail</strong>, Salesforce, Microsoft 365, Slack, Zoom</li>
+<li><strong>Perfect for:</strong> Business applications, collaboration tools, CRM</li>
+<li><strong>Benefits:</strong> No installation, automatic updates, accessible anywhere</li>
+</ul>
+<p><strong>The SaaS Revolution</strong></p>
+<ul>
+<li>80% of companies use SaaS applications</li>
+<li>$195 billion market size (2023)</li>
+</ul>
+</section>
+<section id="cloud-infrastructure-and-the-ai-revolution" class="slide level2 smaller">
+<h2>Cloud Infrastructure and the AI Revolution</h2>
+<ul>
+<li><strong>Massive Computational Requirements</strong>
+<ul>
+<li>Training large language models requires thousands of GPUs</li>
+<li>Cloud provides elastic access to specialized hardware</li>
+</ul></li>
+<li><strong>Data Storage &amp; Processing</strong>
+<ul>
+<li>AI models need petabytes of training data</li>
+<li>Cloud offers unlimited, globally distributed storage</li>
+</ul></li>
+<li><strong>Cost Efficiency</strong>
+<ul>
+<li>Pay-per-use model for expensive AI hardware</li>
+<li>No upfront investment in GPU clusters</li>
+</ul></li>
+</ul>
+</section>
+<section id="gpu-infrastructure-the-ai-powerhouse" class="slide level2 smaller title-11">
+<h2>GPU Infrastructure: The AI Powerhouse</h2>
+<p><strong>From Gaming to AI</strong></p>
+<ul>
+<li><strong>Originally</strong>: Graphics processing for video games</li>
+<li><strong>Now</strong>: Parallel processing powerhouse for AI/ML workloads</li>
+<li><strong>Architecture</strong>: Thousands of cores vs.&nbsp;CPUs 8-64 cores</li>
+</ul>
+<p><strong>Cloud GPU Offerings</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="co"># AWS GPU instances for different AI workloads</span></span>
+<span id="cb3-2"><a></a><span class="ex">p4d.24xlarge</span>   <span class="co"># 8x NVIDIA A100 (40GB) - $32/hour</span></span>
+<span id="cb3-3"><a></a><span class="ex">p3.16xlarge</span>    <span class="co"># 8x NVIDIA V100 (16GB) - $24/hour</span></span>
+<span id="cb3-4"><a></a><span class="ex">g4dn.xlarge</span>    <span class="co"># 1x NVIDIA T4 (16GB)   - $0.50/hour</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>The Scale Challenge</strong></p>
+<ul>
+<li><strong>GPT-4 training</strong>: Estimated 25,000 A100 GPUs for 6 months</li>
+<li><strong>Meta’s AI infrastructure</strong>: 350,000+ NVIDIA H100 chips</li>
+<li><strong>Cost</strong>: Single AI training run can cost $100M+</li>
+</ul>
+</section>
+<section id="distributed-computing-and-large-clusters" class="slide level2 smaller title-11 crunch-ul">
+<h2>Distributed Computing and Large Clusters</h2>
+<p><strong>Modern AI Requires Massive Clusters</strong></p>
+<ul>
+<li><strong>Model parallelism</strong>: Split models across multiple GPUs</li>
+<li><strong>Data parallelism</strong>: Process different data batches simultaneously<br>
+</li>
+<li><strong>Pipeline parallelism</strong>: Different layers on different GPUs</li>
+</ul>
+<p><strong>Technologies Enabling Scale</strong></p>
+<ul>
+<li><strong>Kubernetes</strong>: Container orchestration for microservices</li>
+<li><strong>Apache Spark</strong>: Distributed data processing framework</li>
+<li><strong>Ray</strong>: Distributed AI/ML framework for Python</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="co"># Distributed training with Ray</span></span>
+<span id="cb4-2"><a></a><span class="im">import</span> ray</span>
+<span id="cb4-3"><a></a><span class="im">from</span> ray <span class="im">import</span> tune</span>
+<span id="cb4-4"><a></a><span class="co"># Scale across 1000+ machines automatically</span></span>
+<span id="cb4-5"><a></a>tune.run(train_model, resources_per_trial<span class="op">=</span>{<span class="st">"gpu"</span>: <span class="dv">8</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="data-storage-evolution" class="slide level2 smaller">
+<h2>Data Storage Evolution</h2>
+<p><strong>The Data Tsunami</strong></p>
+<ul>
+<li><strong>2025 projection</strong>: 181 zettabytes of data globally</li>
+<li><strong>AI training datasets</strong>: CommonCrawl (800TB), ImageNet (150GB)</li>
+<li><strong>Real-time requirements</strong>: 1-10ms latency for inference and in some cases Sub-millisecond</li>
+</ul>
+<p><strong>Storage Technologies</strong></p>
+<ul>
+<li><strong>Object Storage</strong>: Amazon S3, Google Cloud Storage (petabyte scale)</li>
+<li><strong>High-performance</strong>: NVMe SSDs, persistent memory</li>
+<li><strong>Distributed filesystems</strong>: HDFS, GlusterFS, Ceph</li>
+</ul>
+<p><strong>The Economics of Data</strong></p>
+<ul>
+<li><strong>Storage costs</strong>: Dropped 99.9% since 1980</li>
+<li><strong>Transfer costs</strong>: Still significant for large datasets</li>
+<li><strong>Edge computing</strong>: Bringing compute closer to data sources</li>
+</ul>
+</section>
+<section id="evolution-of-the-cloud" class="slide level2">
+<h2>Evolution of the Cloud</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Yesterday</th>
+<th>Today</th>
+<th>Tomorrow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Limited number of tools and vendors</td>
+<td>Many tools and vendors to work with</td>
+<td>Integrated tools and vendors</td>
+</tr>
+<tr class="even">
+<td>One platform - few devices</td>
+<td>Multiple platforms - many devices</td>
+<td>Connected platforms and devices</td>
+</tr>
+<tr class="odd">
+<td>Data is scarce but manageable</td>
+<td>Overabundance of data</td>
+<td>Data is used for important business decisions</td>
+</tr>
+<tr class="even">
+<td>IT has major influence and control</td>
+<td>IT has limited influence and control</td>
+<td>IT is strategic to the business</td>
+</tr>
+<tr class="odd">
+<td>People only work when they are at work</td>
+<td>People work wherever they want</td>
+<td>People have access to what they need, wherever they are</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-does-the-cloud-look-like" class="slide level2" data-background-image="http://i2.cdn.turner.com/money/dam/assets/140903164019-cloud-data-center-thumb-1280x720.png">
+<h2>What does the cloud look like?</h2>
+</section>
+<section id="virtual-visit-to-microsoft-azure-data-center" class="slide level2 smaller title-11">
+<h2>Virtual Visit to Microsoft Azure Data Center</h2>
+<center>
+<iframe data-external="1" src="https://www.youtube.com/embed/80aK2_iwMOs" width="800" height="500" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</center>
+</section>
+<section id="loudon-county-va-cloudon" class="slide level2">
+<h2>Loudon County, VA: “CLoudon”</h2>
+<ul>
+<li>70% of the world’s internet traffic passes through Loudon</li>
+<li><a href="https://gcn.com/articles/2018/10/12/loudoun-county-data-centers.aspx">How data centers power VA’s Loudon County</a></li>
+<li><a href="https://www.cbsnews.com/news/cloud-computing-loudoun-county-virginia/">The heart of “The Cloud” is in Virginia</a></li>
+<li><a href="https://biz.loudoun.gov/2017/10/30/cbs-sunday-morning-visits-loudoun/">CBS Sunday Morning Visits the Home of the Internet in Loudoun County</a></li>
+</ul>
+</section></section>
+<section>
+<section id="further-reading-rabbitholes" class="title-slide slide level1 center" data-stack-name="Further Reading">
+<h1>Further Reading (Rabbitholes!)</h1>
+
+</section>
+<section id="further-reading-saas-and-cloud-computing" class="slide level2 smaller title-11">
+<h2>Further Reading: SaaS and Cloud Computing</h2>
+<p><strong>SaaS and Cloud Computing Statistics:</strong></p>
+<ul>
+<li><a href="https://zylo.com/blog/saas-statistics/">1. Zylo: 111 Unmissable SaaS Statistics for 2025</a></li>
+<li><a href="https://www.spendesk.com/blog/saas-statistics/">2. Spendesk: 60+ eye-opening SaaS statistics (2025)</a></li>
+<li><a href="https://www.substly.com/en/blog/the-28-most-important-saas-statistics-in-2023">3. Substly: The 28 most important SaaS statistics in 2023</a></li>
+<li><a href="https://harpa.ai/blog/saas-industry-key-statistics-2023">4. Harpa AI: SaaS Industry Key Statistics 2023</a></li>
+<li><a href="https://www.contentbeta.com/blog/saas-video-statistics/">5. Content Beta: 110+ SaaS Statistics and Trends</a></li>
+<li><a href="https://www.statista.com/statistics/1233538/average-number-saas-apps-yearly/">6. Statista: Average number of SaaS apps used in the U.S. 2024</a></li>
+<li><a href="https://meetanshi.com/blog/saas-statistics/">7. Meetanshi: SaaS Statistics for 2025: Market Size, Growth, Trends &amp; More</a></li>
+</ul>
+</section>
+<section id="further-reading-data-storage-and-ai-infrastructure" class="slide level2 smaller title-11">
+<h2>Further Reading: Data Storage and AI Infrastructure</h2>
+<ul>
+<li><a href="https://rivery.io/blog/big-data-statistics-how-much-data-is-there-in-the-world/">2025 global data volume (181 zettabytes)</a>, https://explodingtopics.com/blog/data-generated-per-day [6], https://www.pit.edu/news/data-analytics-statistics-and-trends-for-2025/ [7], https://www.forbes.com/councils/forbestechcouncil/2024/03/04/from-5mb-hard-drives-to-180-zettabytes-the-data-migration-challenge/ [9]</li>
+<li>CommonCrawl and ImageNet dataset sizes: https://www.ibm.com/think/topics/ai-data-center [10]</li>
+<li>AI inference latency and storage tech: https://www.ibm.com/think/topics/ai-data-center [10], https://www.rcrwireless.com/20250407/fundamentals/ai-optimized-data-center [11]</li>
+</ul>
+</section>
+<section id="further-reading-storage-economics-and-technology" class="slide level2 smaller">
+<h2>Further Reading: Storage Economics and Technology</h2>
+<ul>
+<li>Storage cost declines: https://humanprogress.org/trends/vastly-cheaper-computation/ [1], https://ourworldindata.org/data-insights/the-price-of-computer-storage-has-fallen-exponentially-since-the-1950s [8]</li>
+<li>Ongoing significance of transfer (egress) costs: https://lightedge.com/the-data-explosion-and-hidden-data-storage-costs-in-the-cloud-could-object-storage-be-the-answer/ [3]</li>
+<li>Edge computing trends: https://mondo.com/insights/evolution-data-storage-tapes-cloud-computing/ [5]</li>
+</ul>
+</section>
+<section id="gpu-infrastructure-and-ai-training-costs" class="slide level2 smaller title-11">
+<h2>GPU Infrastructure and AI Training Costs</h2>
+<ul>
+<li>GPT-4 GPU count and training duration: https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33 [1], https://klu.ai/blog/gpt-4-llm [3], https://www.acorn.io/resources/learning-center/openai/ [5]</li>
+<li>Meta’s NVIDIA H100 GPUs: https://www.reddit.com/r/singularity/comments/1bi8rme/jensen_huang_just_gave_us_some_numbers_for_the/ [4]</li>
+<li>AI training cost estimates: https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33 [1], https://www.acorn.io/resources/learning-center/openai/ [5]</li>
+</ul>
+</section></section>
+<section>
+<section id="lab-ec2-s3" class="title-slide slide level1 center" data-stack-name="AWS Lab">
+<h1>Lab: EC2 🤝 S3</h1>
+<p><a href="https://gu-dsan.github.io/6000-fall-2025/labs/02-labs.html">Click to Open Lab 2</a></p>
+</section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
-<div id="refs" role="list">
-
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-loukides_what_2010" class="csl-entry" role="listitem">
+Loukides, Mike. 2010. <span>“What Is Data Science?”</span> <em>O’Reilly Media</em>. <a href="https://www.oreilly.com/radar/what-is-data-science/">https://www.oreilly.com/radar/what-is-data-science/</a>.
+</div>
+<div id="ref-mell_nist_2011" class="csl-entry" role="listitem">
+Mell, Peter, and Timothy Grance. 2011. <span>“The <span>NIST Definition</span> of <span>Cloud Computing</span>.”</span> <em>National Institute of Standards and Technology, Special Publication</em> 800 (2011): 145. <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf">https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf</a>.
+</div>
 </div>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>PPOL 6805 Week 2: How Do Maps Work?</p>
+<p>DSAN 6000 Week 2: Cloud Computing</p>
 </div>
 </div></div>
 
@@ -211,7 +675,7 @@ Jeff Jacobs
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'simplemenu': {"menubarclass":"menubar","menuclass":"menu","activeclass":"active","activeelement":"li","flat":true,"barhtml":{"header":"<div class='menubar'><span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span><ul class='menu'></ul></div>","footer":""},"scale":0.5},
+'simplemenu': {"menubarclass":"menubar","menuclass":"menu","activeclass":"active","activeelement":"li","flat":true,"barhtml":{"header":"<div class='menubar'>\n  <span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span>\n\n  <span style='position: absolute; right: 0; padding-right: 8px; padding-top: 3px; z-index: 10; display: inline-flex !important; align-items: center !important;'>\n    <a id='toggle-01-label' href='#' onclick=\"window.toggleSectionClicked('01'); return(false);\" class='no-decoration'>01</a>\n    <a href='#' onclick=\"window.toggleIconClicked(); return(false);\" class='no-decoration'><i id='section-toggle-icon' class='bi bi-toggle-off' style='padding-top: 0px; padding-left: 3px; padding-right: 3px;'></i></a>\n    <a id='toggle-02-label' href='#' onclick=\"window.toggleSectionClicked('02'); return(false);\" class='no-decoration'>02</a>\n  </span>\n  <ul class='menu'></ul>\n</div>\n","footer":""},"scale":0.5},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -565,6 +1029,9 @@ Jeff Jacobs
         }
       });
       </script>
+    <script>videojs(video_shortcode_videojs_video1);</script>
+    <script>videojs(video_shortcode_videojs_video2);</script>
+    <script>videojs(video_shortcode_videojs_video3);</script>
     
 
 </body></html>

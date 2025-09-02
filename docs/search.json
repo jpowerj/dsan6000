@@ -1,563 +1,530 @@
 [
   {
-    "objectID": "git_submodules.html",
-    "href": "git_submodules.html",
-    "title": "Git Submodules - Basic Explanation",
+    "objectID": "w02/slides.html#jeffs-favorite-big-data-definition",
+    "href": "w02/slides.html#jeffs-favorite-big-data-definition",
+    "title": "Week 2: Cloud Computing",
+    "section": "Jeff’s Favorite “Big Data” Definition",
+    "text": "Jeff’s Favorite “Big Data” Definition\n \n\nBig data is when the size of the data itself becomes part of the problem (Loukides 2010)\n\n\nIn other words: Your problem becomes a “big data problem” when you hit one or both of the walls!"
+  },
+  {
+    "objectID": "w02/slides.html#you-vs.-your-opps",
+    "href": "w02/slides.html#you-vs.-your-opps",
+    "title": "Week 2: Cloud Computing",
+    "section": "You vs. Your Opps",
+    "text": "You vs. Your Opps"
+  },
+  {
+    "objectID": "w02/slides.html#so-you-find-yourself-smashed-against-a-wall",
+    "href": "w02/slides.html#so-you-find-yourself-smashed-against-a-wall",
+    "title": "Week 2: Cloud Computing",
+    "section": "So you find yourself smashed against a wall…",
+    "text": "So you find yourself smashed against a wall…\n(Some of yall would fold in this scenario)"
+  },
+  {
+    "objectID": "w02/slides.html#the-pre-cloud-approach-make-the-one-computer-faster-and-faster",
+    "href": "w02/slides.html#the-pre-cloud-approach-make-the-one-computer-faster-and-faster",
+    "title": "Week 2: Cloud Computing",
+    "section": "The “Pre-Cloud” Approach: Make The One Computer Faster and Faster",
+    "text": "The “Pre-Cloud” Approach: Make The One Computer Faster and Faster"
+  },
+  {
+    "objectID": "w02/slides.html#it-worked-for-many-decades",
+    "href": "w02/slides.html#it-worked-for-many-decades",
+    "title": "Week 2: Cloud Computing",
+    "section": "It Worked For… Many Decades!",
+    "text": "It Worked For… Many Decades!"
+  },
+  {
+    "objectID": "w02/slides.html#is-moores-law-dead",
+    "href": "w02/slides.html#is-moores-law-dead",
+    "title": "Week 2: Cloud Computing",
+    "section": "Is Moore’s Law Dead?",
+    "text": "Is Moore’s Law Dead?\n\n…Kind of?\nFocus nowadays: specialized hardware / compute architectures hyper-optimized for particular tasks\n\n[If you took DSAN 5500] Think of BLAS\n\nGraphic Processing Units (GPUs)\nField Programmable Gate Arrays (FPGAs)\nData Processing Units (DPUs)\nGoogle’s Tensor Processing Units (TPUs)"
+  },
+  {
+    "objectID": "w02/slides.html#so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
+    "href": "w02/slides.html#so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
+    "title": "Week 2: Cloud Computing",
+    "section": "So, even upgrading our hardware didn’t help 😭 now what do we do?",
+    "text": "So, even upgrading our hardware didn’t help 😭 now what do we do?\n\nWe distribute!\nMore CPUs, more memory, more storage!"
+  },
+  {
+    "objectID": "w02/slides.html#my-favorite-example-ever",
+    "href": "w02/slides.html#my-favorite-example-ever",
+    "title": "Week 2: Cloud Computing",
+    "section": "My Favorite Example Ever",
+    "text": "My Favorite Example Ever\n\nSpongebob is cooking Krabby Patties too slowly to satisfy ravenous customers…\nShould he upgrade his one spatula? How bout just many simple spatulas at once!"
+  },
+  {
+    "objectID": "w02/slides.html#how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for",
+    "href": "w02/slides.html#how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for",
+    "title": "Week 2: Cloud Computing",
+    "section": "How Do We Achieve This? …That’s Exactly What The Cloud is For!",
+    "text": "How Do We Achieve This? …That’s Exactly What The Cloud is For!"
+  },
+  {
+    "objectID": "w02/slides.html#benefits",
+    "href": "w02/slides.html#benefits",
+    "title": "Week 2: Cloud Computing",
+    "section": "Benefits",
+    "text": "Benefits\n\n\n\n\nProvides access to low-cost computing\nCosts are decreasing every year\nElastic\nPaaS works!\nMany other benefits…"
+  },
+  {
+    "objectID": "w02/slides.html#q-what-is-the-cloud",
+    "href": "w02/slides.html#q-what-is-the-cloud",
+    "title": "Week 2: Cloud Computing",
+    "section": "Q: What is The Cloud?",
+    "text": "Q: What is The Cloud?\n\nA: Using someone else’s computers"
+  },
+  {
+    "objectID": "w02/slides.html#nist-definition",
+    "href": "w02/slides.html#nist-definition",
+    "title": "Week 2: Cloud Computing",
+    "section": "NIST Definition",
+    "text": "NIST Definition\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)"
+  },
+  {
+    "objectID": "w02/slides.html#service-models",
+    "href": "w02/slides.html#service-models",
+    "title": "Week 2: Cloud Computing",
+    "section": "Service Models",
+    "text": "Service Models"
+  },
+  {
+    "objectID": "w02/slides.html#hotel-analogy",
+    "href": "w02/slides.html#hotel-analogy",
+    "title": "Week 2: Cloud Computing",
+    "section": "Hotel Analogy",
+    "text": "Hotel Analogy"
+  },
+  {
+    "objectID": "w02/slides.html#infrastructure-as-a-service-iaas",
+    "href": "w02/slides.html#infrastructure-as-a-service-iaas",
+    "title": "Week 2: Cloud Computing",
+    "section": "Infrastructure as a Service (IaaS)",
+    "text": "Infrastructure as a Service (IaaS)\n\nVirtualized computing resources delivered over the internet\nProvider manages: Physical hardware, virtualization, networking, storage\nYou manage: Operating systems, applications, runtime, data, middleware\n\nExamples and Use Cases\n\nAmazon EC2, Microsoft Azure VMs, Google Compute Engine\nPerfect for: Development environments, web hosting, backup & recovery\nBenefits: Rapid scaling, pay-as-you-go, global availability\n\n# Launch a virtual machine in seconds\naws ec2 run-instances --image-id ami-12345 --instance-type t3.xlarge"
+  },
+  {
+    "objectID": "w02/slides.html#platform-as-a-service-paas",
+    "href": "w02/slides.html#platform-as-a-service-paas",
+    "title": "Week 2: Cloud Computing",
+    "section": "Platform as a Service (PaaS)",
+    "text": "Platform as a Service (PaaS)\nWhat is PaaS?\n\nComplete development and deployment environment in the cloud\nProvider manages: Infrastructure, operating systems, runtime environments\nYou manage: Applications and data\n\nExamples and Use Cases\n\nAWS Elastic Beanstalk, Google App Engine, Microsoft Azure App Service\nPerfect for: Web applications, API development, microservices\nBenefits: Faster development, automatic scaling, integrated DevOps\n\n# Deploy your app with minimal configuration\ngit push heroku main  # App automatically deployed and scaled"
+  },
+  {
+    "objectID": "w02/slides.html#software-as-a-service-saas",
+    "href": "w02/slides.html#software-as-a-service-saas",
+    "title": "Week 2: Cloud Computing",
+    "section": "Software as a Service (SaaS)",
+    "text": "Software as a Service (SaaS)\n\nComplete applications delivered over the internet\nProvider manages: Everything (infrastructure, platform, software)\nYou manage: Your data and user access\n\nExamples and Use Cases\n\nGmail, Salesforce, Microsoft 365, Slack, Zoom\nPerfect for: Business applications, collaboration tools, CRM\nBenefits: No installation, automatic updates, accessible anywhere\n\nThe SaaS Revolution\n\n80% of companies use SaaS applications\n$195 billion market size (2023)"
+  },
+  {
+    "objectID": "w02/slides.html#cloud-infrastructure-and-the-ai-revolution",
+    "href": "w02/slides.html#cloud-infrastructure-and-the-ai-revolution",
+    "title": "Week 2: Cloud Computing",
+    "section": "Cloud Infrastructure and the AI Revolution",
+    "text": "Cloud Infrastructure and the AI Revolution\n\nMassive Computational Requirements\n\nTraining large language models requires thousands of GPUs\nCloud provides elastic access to specialized hardware\n\nData Storage & Processing\n\nAI models need petabytes of training data\nCloud offers unlimited, globally distributed storage\n\nCost Efficiency\n\nPay-per-use model for expensive AI hardware\nNo upfront investment in GPU clusters"
+  },
+  {
+    "objectID": "w02/slides.html#gpu-infrastructure-the-ai-powerhouse",
+    "href": "w02/slides.html#gpu-infrastructure-the-ai-powerhouse",
+    "title": "Week 2: Cloud Computing",
+    "section": "GPU Infrastructure: The AI Powerhouse",
+    "text": "GPU Infrastructure: The AI Powerhouse\nFrom Gaming to AI\n\nOriginally: Graphics processing for video games\nNow: Parallel processing powerhouse for AI/ML workloads\nArchitecture: Thousands of cores vs. CPUs 8-64 cores\n\nCloud GPU Offerings\n# AWS GPU instances for different AI workloads\np4d.24xlarge   # 8x NVIDIA A100 (40GB) - $32/hour\np3.16xlarge    # 8x NVIDIA V100 (16GB) - $24/hour\ng4dn.xlarge    # 1x NVIDIA T4 (16GB)   - $0.50/hour\nThe Scale Challenge\n\nGPT-4 training: Estimated 25,000 A100 GPUs for 6 months\nMeta’s AI infrastructure: 350,000+ NVIDIA H100 chips\nCost: Single AI training run can cost $100M+"
+  },
+  {
+    "objectID": "w02/slides.html#distributed-computing-and-large-clusters",
+    "href": "w02/slides.html#distributed-computing-and-large-clusters",
+    "title": "Week 2: Cloud Computing",
+    "section": "Distributed Computing and Large Clusters",
+    "text": "Distributed Computing and Large Clusters\nModern AI Requires Massive Clusters\n\nModel parallelism: Split models across multiple GPUs\nData parallelism: Process different data batches simultaneously\n\nPipeline parallelism: Different layers on different GPUs\n\nTechnologies Enabling Scale\n\nKubernetes: Container orchestration for microservices\nApache Spark: Distributed data processing framework\nRay: Distributed AI/ML framework for Python\n\n# Distributed training with Ray\nimport ray\nfrom ray import tune\n# Scale across 1000+ machines automatically\ntune.run(train_model, resources_per_trial={\"gpu\": 8})"
+  },
+  {
+    "objectID": "w02/slides.html#data-storage-evolution",
+    "href": "w02/slides.html#data-storage-evolution",
+    "title": "Week 2: Cloud Computing",
+    "section": "Data Storage Evolution",
+    "text": "Data Storage Evolution\nThe Data Tsunami\n\n2025 projection: 181 zettabytes of data globally\nAI training datasets: CommonCrawl (800TB), ImageNet (150GB)\nReal-time requirements: 1-10ms latency for inference and in some cases Sub-millisecond\n\nStorage Technologies\n\nObject Storage: Amazon S3, Google Cloud Storage (petabyte scale)\nHigh-performance: NVMe SSDs, persistent memory\nDistributed filesystems: HDFS, GlusterFS, Ceph\n\nThe Economics of Data\n\nStorage costs: Dropped 99.9% since 1980\nTransfer costs: Still significant for large datasets\nEdge computing: Bringing compute closer to data sources"
+  },
+  {
+    "objectID": "w02/slides.html#evolution-of-the-cloud",
+    "href": "w02/slides.html#evolution-of-the-cloud",
+    "title": "Week 2: Cloud Computing",
+    "section": "Evolution of the Cloud",
+    "text": "Evolution of the Cloud\n\n\n\n\n\n\n\n\nYesterday\nToday\nTomorrow\n\n\n\n\nLimited number of tools and vendors\nMany tools and vendors to work with\nIntegrated tools and vendors\n\n\nOne platform - few devices\nMultiple platforms - many devices\nConnected platforms and devices\n\n\nData is scarce but manageable\nOverabundance of data\nData is used for important business decisions\n\n\nIT has major influence and control\nIT has limited influence and control\nIT is strategic to the business\n\n\nPeople only work when they are at work\nPeople work wherever they want\nPeople have access to what they need, wherever they are"
+  },
+  {
+    "objectID": "w02/slides.html#what-does-the-cloud-look-like",
+    "href": "w02/slides.html#what-does-the-cloud-look-like",
+    "title": "Week 2: Cloud Computing",
+    "section": "What does the cloud look like?",
+    "text": "What does the cloud look like?"
+  },
+  {
+    "objectID": "w02/slides.html#virtual-visit-to-microsoft-azure-data-center",
+    "href": "w02/slides.html#virtual-visit-to-microsoft-azure-data-center",
+    "title": "Week 2: Cloud Computing",
+    "section": "Virtual Visit to Microsoft Azure Data Center",
+    "text": "Virtual Visit to Microsoft Azure Data Center"
+  },
+  {
+    "objectID": "w02/slides.html#loudon-county-va-cloudon",
+    "href": "w02/slides.html#loudon-county-va-cloudon",
+    "title": "Week 2: Cloud Computing",
+    "section": "Loudon County, VA: “CLoudon”",
+    "text": "Loudon County, VA: “CLoudon”\n\n70% of the world’s internet traffic passes through Loudon\nHow data centers power VA’s Loudon County\nThe heart of “The Cloud” is in Virginia\nCBS Sunday Morning Visits the Home of the Internet in Loudoun County"
+  },
+  {
+    "objectID": "w02/slides.html#further-reading-saas-and-cloud-computing",
+    "href": "w02/slides.html#further-reading-saas-and-cloud-computing",
+    "title": "Week 2: Cloud Computing",
+    "section": "Further Reading: SaaS and Cloud Computing",
+    "text": "Further Reading: SaaS and Cloud Computing\nSaaS and Cloud Computing Statistics:\n\n1. Zylo: 111 Unmissable SaaS Statistics for 2025\n2. Spendesk: 60+ eye-opening SaaS statistics (2025)\n3. Substly: The 28 most important SaaS statistics in 2023\n4. Harpa AI: SaaS Industry Key Statistics 2023\n5. Content Beta: 110+ SaaS Statistics and Trends\n6. Statista: Average number of SaaS apps used in the U.S. 2024\n7. Meetanshi: SaaS Statistics for 2025: Market Size, Growth, Trends & More"
+  },
+  {
+    "objectID": "w02/slides.html#further-reading-data-storage-and-ai-infrastructure",
+    "href": "w02/slides.html#further-reading-data-storage-and-ai-infrastructure",
+    "title": "Week 2: Cloud Computing",
+    "section": "Further Reading: Data Storage and AI Infrastructure",
+    "text": "Further Reading: Data Storage and AI Infrastructure\n\n2025 global data volume (181 zettabytes), https://explodingtopics.com/blog/data-generated-per-day [6], https://www.pit.edu/news/data-analytics-statistics-and-trends-for-2025/ [7], https://www.forbes.com/councils/forbestechcouncil/2024/03/04/from-5mb-hard-drives-to-180-zettabytes-the-data-migration-challenge/ [9]\nCommonCrawl and ImageNet dataset sizes: https://www.ibm.com/think/topics/ai-data-center [10]\nAI inference latency and storage tech: https://www.ibm.com/think/topics/ai-data-center [10], https://www.rcrwireless.com/20250407/fundamentals/ai-optimized-data-center [11]"
+  },
+  {
+    "objectID": "w02/slides.html#further-reading-storage-economics-and-technology",
+    "href": "w02/slides.html#further-reading-storage-economics-and-technology",
+    "title": "Week 2: Cloud Computing",
+    "section": "Further Reading: Storage Economics and Technology",
+    "text": "Further Reading: Storage Economics and Technology\n\nStorage cost declines: https://humanprogress.org/trends/vastly-cheaper-computation/ [1], https://ourworldindata.org/data-insights/the-price-of-computer-storage-has-fallen-exponentially-since-the-1950s [8]\nOngoing significance of transfer (egress) costs: https://lightedge.com/the-data-explosion-and-hidden-data-storage-costs-in-the-cloud-could-object-storage-be-the-answer/ [3]\nEdge computing trends: https://mondo.com/insights/evolution-data-storage-tapes-cloud-computing/ [5]"
+  },
+  {
+    "objectID": "w02/slides.html#gpu-infrastructure-and-ai-training-costs",
+    "href": "w02/slides.html#gpu-infrastructure-and-ai-training-costs",
+    "title": "Week 2: Cloud Computing",
+    "section": "GPU Infrastructure and AI Training Costs",
+    "text": "GPU Infrastructure and AI Training Costs\n\nGPT-4 GPU count and training duration: https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33 [1], https://klu.ai/blog/gpt-4-llm [3], https://www.acorn.io/resources/learning-center/openai/ [5]\nMeta’s NVIDIA H100 GPUs: https://www.reddit.com/r/singularity/comments/1bi8rme/jensen_huang_just_gave_us_some_numbers_for_the/ [4]\nAI training cost estimates: https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33 [1], https://www.acorn.io/resources/learning-center/openai/ [5]"
+  },
+  {
+    "objectID": "w02/slides.html#references",
+    "href": "w02/slides.html#references",
+    "title": "Week 2: Cloud Computing",
+    "section": "References",
+    "text": "References\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. https://www.oreilly.com/radar/what-is-data-science/.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf."
+  },
+  {
+    "objectID": "w02/index.html",
+    "href": "w02/index.html",
+    "title": "Week 2: Cloud Computing",
     "section": "",
-    "text": "Git Submodules - Basic Explanation\n\nWhy submodules?\nIn Git you can add a submodule to a repository. This is basically a repository embedded in your main repository. This can be very useful. A couple of usecases of submodules:\n\nSeparate big codebases into multiple repositories.\nUseful if you have a big project that contains multiple subprojects. You can make every subproject a submodule. This way you’ll have a cleaner Git log, because the commits are specific to a certain submodule.\nRe-use the submodule in multiple parent repositories.\nUseful if you have multiple repositories that share a common component. With this approach you can easily update that shared component in all the repositories that added them as a submodule. This is a lot more convienient than copy-pasting the code into the repositories.\n\n\n\nBasics\nWhen you add a submodule in Git, you don’t add the code of the submodule to the main repository, you only add information about the submodule that is added to the main repository. This information describes which commit the submodule is pointing at. This way, the submodule’s code won’t automatically be updated if the submodule’s repository is updated. This is good, because your main repository might not work with the latest commit of the submodule; it prevents unexpected behaviour.\n\n\nAdding a submodule\nYou can add a submodule to a repository like this:\ngit submodule add git@github.com:path_to/submodule.git path-to-submodule\ngit submodule add jpowerj@github.com:dsan-globals.git dsan-globals\nWith default configuration, this will check out the code of the submodule.git repository to the path-to-submodule directory, and will add information to the main repository about this submodule, which contains the commit the submodule points to, which will be the current commit of the default branch (usually the master branch) at the time this command is executed.\nAfter this operation, if you do a git status you’ll see two files in the Changes to be committed list: the .gitmodules file and the path to the submodule. When you commit and push these files, you’ll commit/push the submodule to the origin.\n\n\nGetting the submodule’s code\nIf a new submodule is created by one person, the other people in the team need to initiate this submodule. First you have to get the information about the submodule, this is retrieved by a normal git pull. If there are new submodules you’ll see it in the output of git pull. Then you’ll have to initiate them with:\ngit submodule init\nThis will pull all the code from the submodule and place it in the directory that it’s configured to.\nIf you’ve cloned a repository that makes use of submodules, you should also run this command to get the submodule’s code. This is not automatically done by git clone. However, if you add the --recurse-submodules flag, it will.\n\n\nPushing updates in the submodule\nThe submodule is just a separate repository. If you want to make changes to it, you should make the changes in its repository and push them like in a regular Git repository: Just execute the git commands in the submodule’s directory. However, you should also let the main repository know that you’ve updated the submodule’s repository, and make it use the new commit of the repository of the submodule. Because if you make new commits inside a submodule, the main repository will still point to the old commit.\nIf there are changes in the submodule’s repository, and you do a git status in the main repository, then the submodule will be in the Changes not staged for commit list, and will have the text (modified content) behind it. This means that the code of the submodule is checked out on a different commit than the main repository is pointing to. To make the main repository point to this new commit, you should create another commit in the main repository.\nThe next sections describe different scenarios on doing this.\n\nMake changes inside a submodule\n\ncd inside the submodule directory.\nMake the desired changes.\ngit commit the new changes.\ngit push the new commit.\ncd back to the main repository.\nIn git status you’ll see that the submodule directory is modified.\nIn git diff you’ll see the old and new commit pointers.\nWhen you git commit in the main repository, it will update the pointer.\n\n\n\nUpdate the submodule pointer to a different commit\n\ncd inside the submodule directory.\ngit checkout the branch/commit you want to point to.\ncd back to the main repository.\nIn git status you’ll see that the submodule directory is modified.\nIn git diff you’ll see the old and new commit pointers.\nWhen you git commit in the main repository, it will update the pointer.\n\n\n\nIf someone else updated the submodule pointer\nIf someone updated a submodule, the other team-members should update the code of their submodules. This is not automatically done by git pull, because with git pull it only retrieves the information that the submodule is pointing to another commit, but doesn’t update the submodule’s code.\nTo see the current commits that are checked out for all your submodules:\ngit submodule status\nTo update the code of your submodules:\ngit submodule update\nIf a submodule is not initiated yet, add the --init flag. If any submodule has submodules itself, you can add the --recursive flag to recursively init and update submodules.\n\nWhat happens if you don’t run this command?\nIf you don’t run this command, the code of your submodule is checked out to an old commit. When you do git status in the main repository, you will see the submodule in the Changes not staged for commit list with the text (modified content) behind it. If you would do a git status inside the submodule, it would say HEAD detached at &lt;commit-hash&gt;. This is not because you changed the submodule’s code, but because its code is checked out to a different commit than the commit used in the main repository. So in the main repo, Git sees this as a change, but actually you just didn’t update the submodule. So if you’re working with submodules, don’t forget to keep your submodules up-to-date.\n\n\n\n\nMaking it easier for everyone\nIt is sometimes annoying if you forget to initiate and update your submodules. Fortunately, there are some tricks to make it easier:\ngit clone --recurse-submodules\nThis will clone a repository and also init / update any possible submodules the repository has.\ngit pull --recurse-submodules\nThis will pull the main repository and also it’s submodules.\nAnd you can make it easier with aliases:\ngit config --global alias.clone-all 'clone --recurse-submodules'\ngit config --global alias.pull-all 'pull --recurse-submodules'"
-  },
-  {
-    "objectID": "w01/slides.html#agenda-for-todays-session",
-    "href": "w01/slides.html#agenda-for-todays-session",
-    "title": "Week 1: Course Overview",
-    "section": "Agenda for today’s session",
-    "text": "Agenda for today’s session\n\nCourse and syllabus overview\nBig Data Concepts\n\nDefinition\nChallenges\nApproaches\n\nData Engineering\nIntroduction to bash\n\nLab: Linux command line"
-  },
-  {
-    "objectID": "w01/slides.html#bookmark-these-links",
-    "href": "w01/slides.html#bookmark-these-links",
-    "title": "Week 1: Course Overview",
-    "section": "Bookmark these links!",
-    "text": "Bookmark these links!\n\nCourse website: https://gu-dsan.github.io/6000-fall-2025/\nGitHub Organization for your deliverables: https://github.com/gu-dsan/\nGitHub Classroom: https://classroom.github.com/classrooms/34950344-georgetown-university-dsan6000-big-data-and-cloud-computing\nSlack Workspace: DSAN6000 Fall 2025 - https://dsan6000fall2025.slack.com\n\nJoin link: https://join.slack.com/t/dsan6000fall2025/shared_invite/zt-3b22qhque-GagQykwYYNiEzli9UXJn4w\n\nInstructors email: dsan-Fall-2025@georgetown.edu\nCanvas: https://georgetown.instructure.com/courses/TBA-2025\n\n\n\n\n\n\n\nThese are also pinned on the Slack main channel"
-  },
-  {
-    "objectID": "w01/slides.html#instructional-team---professors",
-    "href": "w01/slides.html#instructional-team---professors",
-    "title": "Week 1: Course Overview",
-    "section": "Instructional Team - Professors",
-    "text": "Instructional Team - Professors\n\nAmit Arora, aa1603@georgetown.edu\nJeff Jacobs, jj1088@georgetown.edu"
-  },
-  {
-    "objectID": "w01/slides.html#amit-arora-aa1603georgetown.edu",
-    "href": "w01/slides.html#amit-arora-aa1603georgetown.edu",
-    "title": "Week 1: Course Overview",
-    "section": "Amit Arora, aa1603@georgetown.edu",
-    "text": "Amit Arora, aa1603@georgetown.edu\n\n\n\nPrincipal Solutions Architect - AI/ML at AWS\nAdjunct Professor at Georgetown University\nMultiple patents in telecommunications and applications of ML in telecommunications\n\nFun Facts\n\n\n\n\nI am a self-published author https://blueberriesinmysalad.com/\nMy book “Blueberries in my salad: my forever journey towards fitness & strength” is written as code in R and Markdown\nI love to read books about health and human performance, productivity, philosophy and Mathematics for ML. My reading list is online!"
-  },
-  {
-    "objectID": "w01/slides.html#jeff-jacobs-jj1088georgetown.edu",
-    "href": "w01/slides.html#jeff-jacobs-jj1088georgetown.edu",
-    "title": "Week 1: Course Overview",
-    "section": "Jeff Jacobs, jj1088@georgetown.edu",
-    "text": "Jeff Jacobs, jj1088@georgetown.edu\n\n\n\nFull-time Professor at Georgetown (DSAN and Public Policy)\nBackground in Computational Social Science (Comp Sci MS → Political Economy PhD → Labor Econ Postdoc)\n\nFun Facts\n\nUsed Apache Airflow daily for PhD projects! (Example)\n\n\n\n\n\nServer admin for lab server → lab AWS account at Columbia (2015-2023) → new DSAN server (!) (2025-)\nPassion project 1: Code for Palestine (2015-2022) → YouthCode-Gaza (2023) → Ukraine Ministry of Digital Transformation (2024)\nPassion projects 2+3 [🤓]: Sample-based music production, web app frameworks\nSleep disorder means lots of reading – mainly history! – at night\nAlso teaching PPOL6805 / DSAN 6750: GIS for Spatial Data Science this semester"
-  },
-  {
-    "objectID": "w01/slides.html#instructional-team---teaching-assistants",
-    "href": "w01/slides.html#instructional-team---teaching-assistants",
-    "title": "Week 1: Course Overview",
-    "section": "Instructional Team - Teaching Assistants",
-    "text": "Instructional Team - Teaching Assistants\n\nBinhui Chen, bc928@georgetown.edu\nPranav Sudhir Patil, pp755@georgetown.edu\nOfure Udabor, au195@georgetown.edu\nYifei Wu, yw924@georgetown.edu\nNaomi Yamaguchi, ny159@georgetown.edu\nLeqi Ying, ly290@georgetown.edu\nXinyue (Monica) Zhang, xz646@georgetown.edu"
-  },
-  {
-    "objectID": "w01/slides.html#binhui-chen-bc928georgetown.edu",
-    "href": "w01/slides.html#binhui-chen-bc928georgetown.edu",
-    "title": "Week 1: Course Overview",
-    "section": "Binhui Chen, bc928@georgetown.edu",
-    "text": "Binhui Chen, bc928@georgetown.edu\n(Lead TA for the course!)"
-  },
-  {
-    "objectID": "w01/slides.html#pranav-sudhir-patil-pp755georgetown.edu",
-    "href": "w01/slides.html#pranav-sudhir-patil-pp755georgetown.edu",
-    "title": "Week 1: Course Overview",
-    "section": "Pranav Sudhir Patil, pp755@georgetown.edu",
-    "text": "Pranav Sudhir Patil, pp755@georgetown.edu"
-  },
-  {
-    "objectID": "w01/slides.html#ofure-udabor-au195georgetown.edu",
-    "href": "w01/slides.html#ofure-udabor-au195georgetown.edu",
-    "title": "Week 1: Course Overview",
-    "section": "Ofure Udabor, au195@georgetown.edu",
-    "text": "Ofure Udabor, au195@georgetown.edu"
-  },
-  {
-    "objectID": "w01/slides.html#yifei-wu-yw924georgetown.edu",
-    "href": "w01/slides.html#yifei-wu-yw924georgetown.edu",
-    "title": "Week 1: Course Overview",
-    "section": "Yifei Wu, yw924@georgetown.edu",
-    "text": "Yifei Wu, yw924@georgetown.edu"
-  },
-  {
-    "objectID": "w01/slides.html#naomi-yamaguchi-ny159georgetown.edu",
-    "href": "w01/slides.html#naomi-yamaguchi-ny159georgetown.edu",
-    "title": "Week 1: Course Overview",
-    "section": "Naomi Yamaguchi, ny159@georgetown.edu",
-    "text": "Naomi Yamaguchi, ny159@georgetown.edu"
-  },
-  {
-    "objectID": "w01/slides.html#leqi-ying-ly290georgetown.edu",
-    "href": "w01/slides.html#leqi-ying-ly290georgetown.edu",
-    "title": "Week 1: Course Overview",
-    "section": "Leqi Ying, ly290@georgetown.edu",
-    "text": "Leqi Ying, ly290@georgetown.edu"
-  },
-  {
-    "objectID": "w01/slides.html#xinyue-monica-zhang-xz646georgetown.edu",
-    "href": "w01/slides.html#xinyue-monica-zhang-xz646georgetown.edu",
-    "title": "Week 1: Course Overview",
-    "section": "Xinyue (Monica) Zhang, xz646@georgetown.edu",
-    "text": "Xinyue (Monica) Zhang, xz646@georgetown.edu"
-  },
-  {
-    "objectID": "w01/slides.html#course-description",
-    "href": "w01/slides.html#course-description",
-    "title": "Week 1: Course Overview",
-    "section": "Course Description",
-    "text": "Course Description\n\nData is everywhere! Many times, it’s just too big to work with traditional tools. This is a hands-on, practical workshop style course about using cloud computing resources to do analysis and manipulation of datasets that are too large to fit on a single machine and/or analyzed with traditional tools. The course will focus on Spark, MapReduce, the Hadoop Ecosystem and other tools.\nYou will understand how to acquire and/or ingest the data, and then massage, clean, transform, analyze, and model it within the context of big data analytics. You will be able to think more programmatically and logically about your big data needs, tools and issues.\n\nAlways refer to the syllabus and calendar in the course website for class policies."
-  },
-  {
-    "objectID": "w01/slides.html#learning-objectives",
-    "href": "w01/slides.html#learning-objectives",
-    "title": "Week 1: Course Overview",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nSetup, operate and manage big data tools and cloud infrastructure, including Spark, DuckDB, Polars, Athena, Snowflake, and orchestration tools like Airflow on Amazon Web Services\nUse ancillary tools that support big data processing, including git and the Linux command line\nExecute a big data analytics exercise from start to finish: ingest, wrangle, clean, analyze, store, and present\nDevelop strategies to break down large problems and datasets into manageable pieces\nIdentify broad spectrum resources and documentation to remain current with big data tools and developments\nCommunicate and interpret the big data analytics results through written and verbal methods"
-  },
-  {
-    "objectID": "w01/slides.html#evaluation",
-    "href": "w01/slides.html#evaluation",
-    "title": "Week 1: Course Overview",
-    "section": "Evaluation",
-    "text": "Evaluation\n\nGroup project : 40%\nAssignments : 30%\nLab completions : 20%\nQuizzes : 10%"
-  },
-  {
-    "objectID": "w01/slides.html#course-materials",
-    "href": "w01/slides.html#course-materials",
-    "title": "Week 1: Course Overview",
-    "section": "Course Materials",
-    "text": "Course Materials\n\nSlides/labs/assignment on Website/GitHub\nQuizzes and readings in Canvas"
-  },
-  {
-    "objectID": "w01/slides.html#communication",
-    "href": "w01/slides.html#communication",
-    "title": "Week 1: Course Overview",
-    "section": "Communication",
-    "text": "Communication\n\nSlack is the primary form of communication\nInstructional team email: dsan-Fall-2025@georgetown.edu"
-  },
-  {
-    "objectID": "w01/slides.html#slack-rules",
-    "href": "w01/slides.html#slack-rules",
-    "title": "Week 1: Course Overview",
-    "section": "Slack rules",
-    "text": "Slack rules\n\nPost any question/comment about the course, assignments or any technical issue.\nDMs are to be used sparingly\nYou may not DM multiple people in the instructional team at the same time for the same issue\nKeep an eye on the questions posted in Slack. Use the search function. It’s very possible that we have already answered a questions\nYou may DM us back only if we DM you first on a given issue\nLab/assignment/project questions will only be answered up to 6 hours before something is due (i.e. 6pm on Mondays)"
-  },
-  {
-    "objectID": "w01/slides.html#midterm-project-new",
-    "href": "w01/slides.html#midterm-project-new",
-    "title": "Week 1: Course Overview",
-    "section": "Midterm Project (NEW!)",
-    "text": "Midterm Project (NEW!)\n\nIndividual assignment (not team-based)\nTiming: Around Week 5-6\nWeight: Equivalent to 2 homework assignments\nFormat:\n\nWe provide the dataset and problem statement\nYou apply big data tools and techniques learned in class\nEnd-to-end data pipeline implementation\n\nDetails: TBD (will be announced in Week 4)"
-  },
-  {
-    "objectID": "w01/slides.html#final-project",
-    "href": "w01/slides.html#final-project",
-    "title": "Week 1: Course Overview",
-    "section": "Final Project",
-    "text": "Final Project\n\nGroups of 3-4 students\nUse an archive of Reddit data, augmented with external data\nExploratory analysis\nNLP\nMachine Learning\nWriteup\n\nData sourcing and ingesting\nExploratory analysis\nModeling\nChallenges and Learnings\nConclusions\nFuture work"
-  },
-  {
-    "objectID": "w01/slides.html#in-one-minute-of-time-2018",
-    "href": "w01/slides.html#in-one-minute-of-time-2018",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2018)",
-    "text": "In one minute of time (2018)"
-  },
-  {
-    "objectID": "w01/slides.html#in-one-minute-of-time-2019",
-    "href": "w01/slides.html#in-one-minute-of-time-2019",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2019)",
-    "text": "In one minute of time (2019)"
-  },
-  {
-    "objectID": "w01/slides.html#in-one-minute-of-time-2020",
-    "href": "w01/slides.html#in-one-minute-of-time-2020",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2020)",
-    "text": "In one minute of time (2020)"
-  },
-  {
-    "objectID": "w01/slides.html#in-one-minute-of-time-2021",
-    "href": "w01/slides.html#in-one-minute-of-time-2021",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2021)",
-    "text": "In one minute of time (2021)"
-  },
-  {
-    "objectID": "w01/slides.html#in-one-minute-of-time-2025",
-    "href": "w01/slides.html#in-one-minute-of-time-2025",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2025)",
-    "text": "In one minute of time (2025)\nEvery 60 seconds in 2025:\n\nChatGPT serves millions of requests (exact numbers proprietary)\n500 hours of video uploaded to YouTube\n1.04 million Slack messages sent\n362,000 hours watched on Netflix\n5.9-11.4 million Google searches\n$443,000 spent on Amazon\nAI-generated images created at massive scale (metrics not publicly available)\n347,200 posts on X (formerly Twitter)\n231-250 million emails sent"
-  },
-  {
-    "objectID": "w01/slides.html#a-lot-of-it-is-hapenning-online.",
-    "href": "w01/slides.html#a-lot-of-it-is-hapenning-online.",
-    "title": "Week 1: Course Overview",
-    "section": "A lot of it is hapenning online.",
-    "text": "A lot of it is hapenning online.\n\n\nWe can record every:\n\nclick\nad impression\nbilling event\nvideo interaction\nserver request\ntransaction\nnetwork message\nfault\n…"
-  },
-  {
-    "objectID": "w01/slides.html#it-can-also-be-user-generated-content",
-    "href": "w01/slides.html#it-can-also-be-user-generated-content",
-    "title": "Week 1: Course Overview",
-    "section": "It can also be user-generated content:",
-    "text": "It can also be user-generated content:\n\n\n\n\nInstagram posts & Reels\nX (Twitter) posts & Threads\nTikTok videos\nYouTube Shorts\nReddit discussions\nDiscord conversations\nAI-generated content (text, images, code)\n…"
-  },
-  {
-    "objectID": "w01/slides.html#but-health-and-scientific-computing-create-a-lot-too",
-    "href": "w01/slides.html#but-health-and-scientific-computing-create-a-lot-too",
-    "title": "Week 1: Course Overview",
-    "section": "But health and scientific computing create a lot too!",
-    "text": "But health and scientific computing create a lot too!"
-  },
-  {
-    "objectID": "w01/slides.html#theres-lots-of-graph-data-too",
-    "href": "w01/slides.html#theres-lots-of-graph-data-too",
-    "title": "Week 1: Course Overview",
-    "section": "There’s lots of graph data too",
-    "text": "There’s lots of graph data too\n\n\n\nMany interesting datasets have a graph structure:\n\nSocial networks\nGoogle’s knowledge graph\nTelecom networks\nComputer networks\nRoad networks\nCollaboration/relationships\n\nSome of these are HUGE"
-  },
-  {
-    "objectID": "w01/slides.html#apache-web-server-log-files",
-    "href": "w01/slides.html#apache-web-server-log-files",
-    "title": "Week 1: Course Overview",
-    "section": "Apache (web server) log files",
-    "text": "Apache (web server) log files"
-  },
-  {
-    "objectID": "w01/slides.html#system-log-files",
-    "href": "w01/slides.html#system-log-files",
-    "title": "Week 1: Course Overview",
-    "section": "System log files",
-    "text": "System log files"
-  },
-  {
-    "objectID": "w01/slides.html#internet-of-things-iot-in-2025",
-    "href": "w01/slides.html#internet-of-things-iot-in-2025",
-    "title": "Week 1: Course Overview",
-    "section": "Internet of Things (IoT) in 2025",
-    "text": "Internet of Things (IoT) in 2025\n75 billion connected devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nConnected vehicles & self-driving cars\nIndustrial IoT sensors\n\n\n\n\nSmart city infrastructure\nMedical devices & remote patient monitoring"
-  },
-  {
-    "objectID": "w01/slides.html#smartphone-location-data",
-    "href": "w01/slides.html#smartphone-location-data",
-    "title": "Week 1: Course Overview",
-    "section": "Smartphone Location Data",
-    "text": "Smartphone Location Data"
-  },
-  {
-    "objectID": "w01/slides.html#where-else",
-    "href": "w01/slides.html#where-else",
-    "title": "Week 1: Course Overview",
-    "section": "Where else?",
-    "text": "Where else?\n\nThe Internet\nTransactions\nDatabases\nExcel\nPDF Files\nAnything digital (music, movies, apps)\nSome old floppy disk lying around the house"
-  },
-  {
-    "objectID": "w01/slides.html#typical-real-world-scenarios-in-2025",
-    "href": "w01/slides.html#typical-real-world-scenarios-in-2025",
-    "title": "Week 1: Course Overview",
-    "section": "Typical Real-World Scenarios in 2025",
-    "text": "Typical Real-World Scenarios in 2025\nScenario 1: Traditional Big Data\nYou have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. What do you do?\nScenario 2: AI/ML Pipeline\nYour company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. How do you architect this?\nScenario 3: Real-Time Analytics\nYou need to process 1 million events/second from IoT devices and provide real-time dashboards with &lt;1s latency. What’s your stack?"
-  },
-  {
-    "objectID": "w01/slides.html#lets-discuss",
-    "href": "w01/slides.html#lets-discuss",
-    "title": "Week 1: Course Overview",
-    "section": "Let’s discuss!",
-    "text": "Let’s discuss!\n\nExponential data growth"
-  },
-  {
-    "objectID": "w01/slides.html#big-data-definitions",
-    "href": "w01/slides.html#big-data-definitions",
-    "title": "Week 1: Course Overview",
-    "section": "Big Data Definitions",
-    "text": "Big Data Definitions\nWikipedia\n“A collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis”\nO’Reilly\n“Big data is when the size of the data itself becomes part of the problem”"
-  },
-  {
-    "objectID": "w01/slides.html#frameworks-for-thinking-about-big-data",
-    "href": "w01/slides.html#frameworks-for-thinking-about-big-data",
-    "title": "Week 1: Course Overview",
-    "section": "Frameworks for Thinking About Big Data",
-    "text": "Frameworks for Thinking About Big Data\nIBM (The 3 V’s)\n\nVolume (Gigabytes → Exabytes → Zettabytes)\nVelocity (Batch → Streaming → Real-time AI inference)\nVariety (Structured, Unstructured, Embeddings)\n\nAdditional V’s for 2025\n\n\n\nVariability\nVeracity\nVisualization\n\n\n\nValue\nVectors (embeddings for AI/ML)\nVersatility (multi-modal data)"
-  },
-  {
-    "objectID": "w01/slides.html#data-size",
-    "href": "w01/slides.html#data-size",
-    "title": "Week 1: Course Overview",
-    "section": "Data “Size”",
-    "text": "Data “Size”\n\\[\n\\text{``Size''} = f(\\text{Processing Ability}, \\text{Storage Space})\n\\]\n\nCan you analyze/process your data on a single machine?\nCan you store (or is it stored) on a single machine?\nCan you serve it fast enough for real-time AI applications?\n\nIf any of of the answers is no then you have a big-ish data problem!"
-  },
-  {
-    "objectID": "w01/slides.html#the-new-data-landscape-2025",
-    "href": "w01/slides.html#the-new-data-landscape-2025",
-    "title": "Week 1: Course Overview",
-    "section": "The New Data Landscape (2025)",
-    "text": "The New Data Landscape (2025)\nTraining Foundation Models\n\nGPT-4: Trained on about 13 trillion tokens\nLlama 3: 15 trillion tokens\nGoogle Gemini: Multi-modal training (text, images, video)\nEach iteration requires petabytes of curated data\n\nData Requirements Have Exploded\n\n2020: BERT trained on 3.3 billion words\n2023: GPT-4 trained on ~13 trillion tokens\n2024: Llama 3 trained on 15+ trillion tokens"
-  },
-  {
-    "objectID": "w01/slides.html#big-data-infrastructure-data-lakes-warehouses",
-    "href": "w01/slides.html#big-data-infrastructure-data-lakes-warehouses",
-    "title": "Week 1: Course Overview",
-    "section": "Big Data Infrastructure: Data Lakes, Warehouses",
-    "text": "Big Data Infrastructure: Data Lakes, Warehouses\nTraditional Use Cases:\n\nBusiness intelligence\nAnalytics & reporting\nHistorical data storage\n\nModern AI Use Cases:\n\nTraining data repositories\nVector embeddings storage\nRAG (Retrieval-Augmented Generation) context\nFine-tuning datasets\nEvaluation & benchmark data"
-  },
-  {
-    "objectID": "w01/slides.html#rag-and-context-engineering-the-new-data-pipeline",
-    "href": "w01/slides.html#rag-and-context-engineering-the-new-data-pipeline",
-    "title": "Week 1: Course Overview",
-    "section": "RAG and Context Engineering: The New Data Pipeline",
-    "text": "RAG and Context Engineering: The New Data Pipeline\n\n\n\n\n\n\n\nG\n\n\n\nraw\n\nRaw Data\n\n\n\nlake\n\nData Lake\n\n\n\nraw-&gt;lake\n\n\n\n\n\nproc\n\nProcessing\n\n\n\nlake-&gt;proc\n\n\n\n\n\nvec\n\nVector DB\n\n\n\nproc-&gt;vec\n\n\n\n\n\ncontext\n\nLLM Context\n\n\n\nvec-&gt;context\n\n\n\n\n\n\n\n\n\n\nKey Components:\n\nData Lakes (S3, Azure Data Lake): Store massive unstructured data\nData Warehouses (Snowflake, BigQuery): Structured data for context\nVector Databases (Pinecone, Weaviate, Qdrant): Semantic search\nEmbedding Models: Convert data to vectors\nOrchestration (Airflow, Prefect): Manage the pipeline"
-  },
-  {
-    "objectID": "w01/slides.html#mcp-servers-agentic-ai",
-    "href": "w01/slides.html#mcp-servers-agentic-ai",
-    "title": "Week 1: Course Overview",
-    "section": "MCP Servers & Agentic AI",
-    "text": "MCP Servers & Agentic AI\nModel Context Protocol (MCP)\n\nOpen protocol for connecting AI assistants to data sources\nStandardized way to expose tools and data to LLMs\nEnables “agentic” behavior - AI that can act autonomously\n\nMCP in Production\n\n\n\n\n\n\n\nG\n\n\n\nware\n\nData Warehouse\n\n\n\nmcp\n\nMCP Server\n\n\n\nware-&gt;mcp\n\n\n\n\n\nagent\n\nAI Agent\n\n\n\nmcp-&gt;agent\n\n\n\n\n\naction\n\nAction\n\n\n\nagent-&gt;action\n\n\n\n\n\n\n\n\n\n\nExamples:\n\nAI agents querying Snowflake for real-time analytics\nAutonomous systems updating data lakes based on predictions\nMulti-agent systems coordinating through shared data contexts"
-  },
-  {
-    "objectID": "w01/slides.html#data-quality-for-ai",
-    "href": "w01/slides.html#data-quality-for-ai",
-    "title": "Week 1: Course Overview",
-    "section": "Data Quality for AI",
-    "text": "Data Quality for AI\n(Why Data Quality Matters More Than Ever)\nGarbage In, Garbage Out - Amplified:\n\nBad training data → Biased models\nIncorrect RAG data → Hallucinations\nPoor data governance → Compliance issues\n\nData Quality Challenges in 2025\n\nScale: Validating trillions of tokens\nDiversity: Multi-modal, multi-lingual data\nVelocity: Real-time data for online learning\nVeracity: Detecting AI-generated synthetic data"
-  },
-  {
-    "objectID": "w01/slides.html#real-world-big-data-ai-examples",
-    "href": "w01/slides.html#real-world-big-data-ai-examples",
-    "title": "Week 1: Course Overview",
-    "section": "Real-World Big Data / AI Examples",
-    "text": "Real-World Big Data / AI Examples\nNetflix\n\nData Scale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\nUber\n\nData Scale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\nOpenAI\n\nData Scale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters"
-  },
-  {
-    "objectID": "w01/slides.html#emerging-trends-2025-2027",
-    "href": "w01/slides.html#emerging-trends-2025-2027",
-    "title": "Week 1: Course Overview",
-    "section": "Emerging Trends (2025-2027)",
-    "text": "Emerging Trends (2025-2027)\nUnified Platforms:\n\nData lakes becoming “AI lakes”\nIntegrated vector + relational databases\nOne-stop shops for data + AI (Databricks, Snowflake Cortex)\n\nEdge Computing + AI:\n\nProcessing at the data source\nFederated learning across devices\n5G enabling real-time edge AI\n\nSynthetic Data:\n\nAI generating training data for AI\nPrivacy-preserving synthetic datasets"
-  },
-  {
-    "objectID": "w01/slides.html#relative-data-sizes",
-    "href": "w01/slides.html#relative-data-sizes",
-    "title": "Week 1: Course Overview",
-    "section": "Relative Data Sizes",
-    "text": "Relative Data Sizes\n \n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?"
-  },
-  {
-    "objectID": "w01/slides.html#what-youll-learn-in-this-course",
-    "href": "w01/slides.html#what-youll-learn-in-this-course",
-    "title": "Week 1: Course Overview",
-    "section": "What You’ll Learn in This Course",
-    "text": "What You’ll Learn in This Course\nModern Big Data Stack (2025)\n\n\n\nQuery Engines:\n\nDuckDB - In-process analytical database\nPolars - Lightning-fast DataFrame library\n\nSpark - Distributed processing at scale\n\nData Warehouses & Lakes:\n\nSnowflake - Cloud-native data warehouse\nAthena - Serverless SQL on S3\nIceberg - Open table format\n\n\n\nAI/ML Integration:\n\nVector databases for embeddings\nRAG implementation patterns\nStreaming with Spark Structured Streaming\n\nOrchestration:\n\nAirflow for pipeline management\nServerless with AWS Lambda"
-  },
-  {
-    "objectID": "w01/slides.html#data-types",
-    "href": "w01/slides.html#data-types",
-    "title": "Week 1: Course Overview",
-    "section": "Data Types",
-    "text": "Data Types\n\nStructured\nUnstructured\nNatural language\nMachine-generated\nGraph-based\nAudio, video, and images\nStreaming"
-  },
-  {
-    "objectID": "w01/slides.html#big-data-vs.-small-data-i",
-    "href": "w01/slides.html#big-data-vs.-small-data-i",
-    "title": "Week 1: Course Overview",
-    "section": "Big Data vs. Small Data I",
-    "text": "Big Data vs. Small Data I\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nGoals\ngathered for a specific goal\nmay have a goal in mind when it’s first started, but things can evolve or take unexpected directions\n\n\nLocation\nin one place, and often in a single computer file\ncan be in multiple files in multiple servers on computers in different geographic locations\n\n\nStructure/Contents\nhighly structured like an Excel spreadsheet, and it’s got rows and columns of data\ncan be unstructured, it can have many formats in files involved across disciplines, and may link to other resources\n\n\nPreparation\nprepared by the end user for their own purposes\nis often prepared by one group of people, analyzed by a second group of people, and then used by a third group of people, and they may have different purposes, and they may have different disciplines"
-  },
-  {
-    "objectID": "w01/slides.html#big-data-vs.-small-data-ii",
-    "href": "w01/slides.html#big-data-vs.-small-data-ii",
-    "title": "Week 1: Course Overview",
-    "section": "Big Data vs. Small Data II",
-    "text": "Big Data vs. Small Data II\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nLongevity\nkept for a specific amount of time after the project is over because there’s a clear ending point. In the academic world it’s maybe five or seven years and then you can throw it away\ncontains data that must be stored in perpetuity. Many big data projects extend into the past and future\n\n\nMeasurements\nmeasured with a single protocol using set units and it’s usually done at the same time\nis collected and measured using many sources, protocols, units, etc\n\n\nReproducibility\nbe reproduced in their entirety if something goes wrong in the process\nreplication is seldom feasible\n\n\nStakes\nif things go wrong the costs are limited, it’s not an enormous problem\ncan have high costs of failure in terms of money, time and labor\n\n\nAccess\nidentified by a location specified in a row/column\nunless it is exceptionally well designed, the organization can be inscrutable\n\n\nAnalysis\nanalyzed together, all at once\nis ordinarily analyzed in incremental steps"
-  },
-  {
-    "objectID": "w01/slides.html#challenges-of-working-with-large-datasets",
-    "href": "w01/slides.html#challenges-of-working-with-large-datasets",
-    "title": "Week 1: Course Overview",
-    "section": "Challenges of Working with Large Datasets",
-    "text": "Challenges of Working with Large Datasets\n\n\n\nThe V\nThe Challenge\n\n\n\n\nVolume\ndata scale\n\n\nValue\ndata usefulness in decision making\n\n\nVelocity\ndata processing: batch or stream\n\n\nViscosity\ndata complexity\n\n\nVariability\ndata flow inconsistency\n\n\nVolatility\ndata durability\n\n\nViability\ndata activeness\n\n\nValidity\ndata properly understandable\n\n\nVariety\ndata heterogeneity"
-  },
-  {
-    "objectID": "w01/slides.html#thinking-about-big-data-workflows",
-    "href": "w01/slides.html#thinking-about-big-data-workflows",
-    "title": "Week 1: Course Overview",
-    "section": "Thinking About Big Data Workflows",
-    "text": "Thinking About Big Data Workflows\nWilliam Cohen (Director, Research Engineering, Google):\n\nWorking with big data is not about…\n\nCode optimization\nLearning the details of today’s hardware/software (they are evolving…)\n\nWorking with big data is about understanding:\n\nThe cost of what you want to do\nWhat the tools that are available offer\nHow much can be accomplished with linear or nearly-linear operations\nHow to organize your computations so that they effectively use whatever’s fast\nHow to test/debug/verify with large data\n\nRecall that traditional tools like R and Python are single threaded (by default)"
-  },
-  {
-    "objectID": "w01/slides.html#tools-at-a-glance",
-    "href": "w01/slides.html#tools-at-a-glance",
-    "title": "Week 1: Course Overview",
-    "section": "Tools at-a-glance",
-    "text": "Tools at-a-glance\n\n\nLanguages, libraries, and projects\n\nPython\n\npandas\npolars\nPySpark\nduckdb\ndask\nray\n\nApache Arrow\nApache Spark\nSQL\nApache Hadoop (briefly)\n\n\nCloud Services\n\nAmazon Web Services (AWS)\n\nAWS Sagemaker\nAmazon S3\n\nAzure\n\nAzure Blob\nAzure Machine Learning\n\n\nOther:\n\nAWS Elastic MapReduce (EMR)"
-  },
-  {
-    "objectID": "w01/slides.html#additional-links-of-interest",
-    "href": "w01/slides.html#additional-links-of-interest",
-    "title": "Week 1: Course Overview",
-    "section": "Additional links of interest",
-    "text": "Additional links of interest\n\nMatt Turck’s Machine Learning, Artificial Intelligence & Data Landscape (MAD)\n\nArticle\nInteractive Landscape\n\nIs there life after Hadoop?\n10 Best Big Data Tools for 2023"
-  },
-  {
-    "objectID": "w01/slides.html#data-scientist-vs.-data-engineer",
-    "href": "w01/slides.html#data-scientist-vs.-data-engineer",
-    "title": "Week 1: Course Overview",
-    "section": "Data Scientist vs. Data Engineer",
-    "text": "Data Scientist vs. Data Engineer\nIn this course, you’ll augment your data scientist skills with data engineering skills!"
-  },
-  {
-    "objectID": "w01/slides.html#data-engineer-responsibilities",
-    "href": "w01/slides.html#data-engineer-responsibilities",
-    "title": "Week 1: Course Overview",
-    "section": "Data Engineer Responsibilities",
-    "text": "Data Engineer Responsibilities"
-  },
-  {
-    "objectID": "w01/slides.html#data-engineering-levels-2-and-3",
-    "href": "w01/slides.html#data-engineering-levels-2-and-3",
-    "title": "Week 1: Course Overview",
-    "section": "Data Engineering: Levels 2 and 3",
-    "text": "Data Engineering: Levels 2 and 3"
-  },
-  {
-    "objectID": "w01/slides.html#architecture",
-    "href": "w01/slides.html#architecture",
-    "title": "Week 1: Course Overview",
-    "section": "Architecture",
-    "text": "Architecture"
-  },
-  {
-    "objectID": "w01/slides.html#storage",
-    "href": "w01/slides.html#storage",
-    "title": "Week 1: Course Overview",
-    "section": "Storage",
-    "text": "Storage"
-  },
-  {
-    "objectID": "w01/slides.html#source-control",
-    "href": "w01/slides.html#source-control",
-    "title": "Week 1: Course Overview",
-    "section": "Source control",
-    "text": "Source control"
-  },
-  {
-    "objectID": "w01/slides.html#orchestration",
-    "href": "w01/slides.html#orchestration",
-    "title": "Week 1: Course Overview",
-    "section": "Orchestration",
-    "text": "Orchestration"
-  },
-  {
-    "objectID": "w01/slides.html#processing",
-    "href": "w01/slides.html#processing",
-    "title": "Week 1: Course Overview",
-    "section": "Processing",
-    "text": "Processing"
-  },
-  {
-    "objectID": "w01/slides.html#analytics",
-    "href": "w01/slides.html#analytics",
-    "title": "Week 1: Course Overview",
-    "section": "Analytics",
-    "text": "Analytics"
-  },
-  {
-    "objectID": "w01/slides.html#machine-learning",
-    "href": "w01/slides.html#machine-learning",
-    "title": "Week 1: Course Overview",
-    "section": "Machine Learning",
-    "text": "Machine Learning"
-  },
-  {
-    "objectID": "w01/slides.html#governance",
-    "href": "w01/slides.html#governance",
-    "title": "Week 1: Course Overview",
-    "section": "Governance",
-    "text": "Governance"
-  },
-  {
-    "objectID": "w01/slides.html#the-terminal",
-    "href": "w01/slides.html#the-terminal",
-    "title": "Week 1: Course Overview",
-    "section": "The Terminal",
-    "text": "The Terminal\n\n\n\n\nTerminal access was THE ONLY way to do programming\nNo GUIs! No Spyder, Jupyter, RStudio, etc.\nCoding is still more powerful than graphical interfaces for complex jobs\nCoding makes work repeatable"
-  },
-  {
-    "objectID": "w01/slides.html#bash",
-    "href": "w01/slides.html#bash",
-    "title": "Week 1: Course Overview",
-    "section": "BASH",
-    "text": "BASH\n\n\n\n\nCreated in 1989 by Brian Fox: “Bourne-Again Shell”\nBrian Fox also built the first online interactive banking software\nBASH is a command processor\nConnection between you and the machine language and hardware"
-  },
-  {
-    "objectID": "w01/slides.html#the-prompt",
-    "href": "w01/slides.html#the-prompt",
-    "title": "Week 1: Course Overview",
-    "section": "The Prompt",
-    "text": "The Prompt\nusername@hostname:current_directory $\nWhat do we learn from the prompt?\n\nWho you are - username\nThe machine where your code is running - hostname\nThe directory where your code is running - current_directory\nThe shell type - $ - this symbol means BA$H"
-  },
-  {
-    "objectID": "w01/slides.html#syntax",
-    "href": "w01/slides.html#syntax",
-    "title": "Week 1: Course Overview",
-    "section": "Syntax",
-    "text": "Syntax\nCOMMAND -F --FLAG\n\nCOMMAND is the program, everything after that = arguments\nF is a single letter flag, FLAG is a single word or words connected by dashes. A space breaks things into a new argument.\nSometimes argument has single letter and long form versions (e.g. F and FLAG)\n\nCOMMAND -F --FILE file1\n\nHere we pass a text argument \"file1\" as the value for the FILE flag\n-h flag is usually to get help. You can also run the man command and pass the name of the program as the argument to get the help page.\n\nLet’s try basic commands:\n\ndate to get the current date\nwhoami to get your user name\necho \"Hello World\" to print to the console"
-  },
-  {
-    "objectID": "w01/slides.html#examining-files",
-    "href": "w01/slides.html#examining-files",
-    "title": "Week 1: Course Overview",
-    "section": "Examining Files",
-    "text": "Examining Files\n\nFind out your Present Working Directory pwd\nExamine the contents of files and folders using ls\nMake new files from scratch using touch\nGlob: “Mini-language” for selecting files with wildcards\n\n\\* for wild card any number of characters\n\\? for wild card for a single character\n[] for one of many character options\n! for exclusion\n[:alpha:], [:alnum:], [:digit:], [:lower:], [:upper:]\n\n\nReference material: Shell Lesson 1,2,4,5"
-  },
-  {
-    "objectID": "w01/slides.html#navigating-directories",
-    "href": "w01/slides.html#navigating-directories",
-    "title": "Week 1: Course Overview",
-    "section": "Navigating Directories",
-    "text": "Navigating Directories\n\nKnowing where your terminal is executing code ensures you are working with the right inputs/outputs.\nUse pwd to determine the Present Working Directory.\nChange to a folder called “git-repo” with cd git-repo.\n. refers to the current directory, such as ./git-repo\n.. can be used to move up one level (cd ..), and can be combined to move up multiple levels (cd ../../my_folder)\n/ is the root of the filesystem: contains core folders (system, users)\n~ is the home directory. Move to folders referenced relative to this path by including it at the start of your path, for example ~/projects.\nTo visualize the structure of your working directory, use tree\n\nReference link"
-  },
-  {
-    "objectID": "w01/slides.html#interacting-with-files",
-    "href": "w01/slides.html#interacting-with-files",
-    "title": "Week 1: Course Overview",
-    "section": "Interacting with Files",
-    "text": "Interacting with Files\nNow that we know how to navigate through directories, we need commands for interacting with files…\n\nmv to move files from one location to another\n\nCan use glob here - ?, *, [], …\n\ncp to copy files instead of moving\n\nCan use glob here - ?, *, [], …\n\nmkdir to make a directory\nrm to remove files\nrmdir to remove directories\nrm -rf to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING"
-  },
-  {
-    "objectID": "w01/slides.html#using-bash-for-data-exploration",
-    "href": "w01/slides.html#using-bash-for-data-exploration",
-    "title": "Week 1: Course Overview",
-    "section": "Using BASH for Data Exploration",
-    "text": "Using BASH for Data Exploration\n\nhead FILENAME / tail FILENAME - glimpsing the first / last few rows of data\nmore FILENAME / less FILENAME - viewing the data with basic up / (up & down) controls\ncat FILENAME - print entire file contents into terminal\nvim FILENAME - open (or edit!) the file in vim editor\ngrep FILENAME - search for lines within a file that match a regex expression\nwc FILENAME - count the number of lines (-l flag) or number of words (-w flag)\n\nReference material: Text Lesson 8,9,15,16"
-  },
-  {
-    "objectID": "w01/slides.html#pipes-and-arrows",
-    "href": "w01/slides.html#pipes-and-arrows",
-    "title": "Week 1: Course Overview",
-    "section": "Pipes and Arrows",
-    "text": "Pipes and Arrows\n\n| sends the stdout to another command (is the most powerful symbol in BASH!)\n&gt; sends stdout to a file and overwrites anything that was there before\n&gt;&gt; appends the stdout to the end of a file (or starts a new file from scratch if one does not exist yet)\n&lt; sends stdin into the command on the left\n\nReference material: Text Lesson 1,2,3,4,5"
-  },
-  {
-    "objectID": "w01/slides.html#alias-and-user-files",
-    "href": "w01/slides.html#alias-and-user-files",
-    "title": "Week 1: Course Overview",
-    "section": "Alias and User Files",
-    "text": "Alias and User Files\n\n/.bashrc is where your shell settings are located\nHow many processes? whoami | xargs ps -u | wc -l\nHard to remember full command! Let’s make an alias\nGeneral syntax:\nalias alias_name=\"command_to_run\"\nFor our case:\nalias nproc=\"whoami | xargs ps -u | wc -l\"\nNow we need to put this alias into the .bashrc\nalias nproc=\"whoami | xargs ps -u | wc -l\" &gt;&gt; ~/.bashrc\nYour commands get saved in ~/.bash_history"
-  },
-  {
-    "objectID": "w01/slides.html#process-management",
-    "href": "w01/slides.html#process-management",
-    "title": "Week 1: Course Overview",
-    "section": "Process Management",
-    "text": "Process Management\n\nUse ps to see your running processes\nUse top or even better htop to see all running processes\nInstall htop via sudo yum install htop -y\nTo kill a broken process: first find the process ID (PID)\nThen use kill [PID NUM] to “ask” the process to terminate. If things get really bad: kill -9 [PID NUM]\nTo kill a command in the terminal window it is running in, try using Ctrl + C or Ctrl + /\nRun cat on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.\n\nReference material: Text Lesson 1,2,3,7,9,10"
-  },
-  {
-    "objectID": "w01/slides.html#try-playing-a-linux-game",
-    "href": "w01/slides.html#try-playing-a-linux-game",
-    "title": "Week 1: Course Overview",
-    "section": "Try playing a Linux game!",
-    "text": "Try playing a Linux game!\nBash crawl is a game to help you practice your navigation and file access skills. Click on the binder link in this repo to launch a jupyter lab session and explore!"
+    "text": "Open slides in new tab →",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#jeffs-favorite-big-data-definition",
+    "href": "w02/index.html#jeffs-favorite-big-data-definition",
+    "title": "Week 2: Cloud Computing",
+    "section": "Jeff’s Favorite “Big Data” Definition",
+    "text": "Jeff’s Favorite “Big Data” Definition\n \n\nBig data is when the size of the data itself becomes part of the problem (Loukides 2010)\n\n\nIn other words: Your problem becomes a “big data problem” when you hit one or both of the walls!",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#you-vs.-your-opps",
+    "href": "w02/index.html#you-vs.-your-opps",
+    "title": "Week 2: Cloud Computing",
+    "section": "You vs. Your Opps",
+    "text": "You vs. Your Opps",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#so-you-find-yourself-smashed-against-a-wall",
+    "href": "w02/index.html#so-you-find-yourself-smashed-against-a-wall",
+    "title": "Week 2: Cloud Computing",
+    "section": "So you find yourself smashed against a wall…",
+    "text": "So you find yourself smashed against a wall…\n(Some of yall would fold in this scenario)",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#the-pre-cloud-approach-make-the-one-computer-faster-and-faster",
+    "href": "w02/index.html#the-pre-cloud-approach-make-the-one-computer-faster-and-faster",
+    "title": "Week 2: Cloud Computing",
+    "section": "The “Pre-Cloud” Approach: Make The One Computer Faster and Faster",
+    "text": "The “Pre-Cloud” Approach: Make The One Computer Faster and Faster",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#it-worked-for-many-decades",
+    "href": "w02/index.html#it-worked-for-many-decades",
+    "title": "Week 2: Cloud Computing",
+    "section": "It Worked For… Many Decades!",
+    "text": "It Worked For… Many Decades!",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#is-moores-law-dead",
+    "href": "w02/index.html#is-moores-law-dead",
+    "title": "Week 2: Cloud Computing",
+    "section": "Is Moore’s Law Dead?",
+    "text": "Is Moore’s Law Dead?\n\n…Kind of?\nFocus nowadays: specialized hardware / compute architectures hyper-optimized for particular tasks\n\n[If you took DSAN 5500] Think of BLAS\n\nGraphic Processing Units (GPUs)\nField Programmable Gate Arrays (FPGAs)\nData Processing Units (DPUs)\nGoogle’s Tensor Processing Units (TPUs)",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
+    "href": "w02/index.html#so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
+    "title": "Week 2: Cloud Computing",
+    "section": "So, even upgrading our hardware didn’t help 😭 now what do we do?",
+    "text": "So, even upgrading our hardware didn’t help 😭 now what do we do?\n\nWe distribute!\nMore CPUs, more memory, more storage!",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#my-favorite-example-ever",
+    "href": "w02/index.html#my-favorite-example-ever",
+    "title": "Week 2: Cloud Computing",
+    "section": "My Favorite Example Ever",
+    "text": "My Favorite Example Ever\n\nSpongebob is cooking Krabby Patties too slowly to satisfy ravenous customers…\nShould he upgrade his one spatula? How bout just many simple spatulas at once!",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for",
+    "href": "w02/index.html#how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for",
+    "title": "Week 2: Cloud Computing",
+    "section": "How Do We Achieve This? …That’s Exactly What The Cloud is For!",
+    "text": "How Do We Achieve This? …That’s Exactly What The Cloud is For!",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#benefits",
+    "href": "w02/index.html#benefits",
+    "title": "Week 2: Cloud Computing",
+    "section": "Benefits",
+    "text": "Benefits\n\n\n\n\nProvides access to low-cost computing\nCosts are decreasing every year\nElastic\nPaaS works!\nMany other benefits…",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#q-what-is-the-cloud",
+    "href": "w02/index.html#q-what-is-the-cloud",
+    "title": "Week 2: Cloud Computing",
+    "section": "Q: What is The Cloud?",
+    "text": "Q: What is The Cloud?\n\nA: Using someone else’s computers",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#nist-definition",
+    "href": "w02/index.html#nist-definition",
+    "title": "Week 2: Cloud Computing",
+    "section": "NIST Definition",
+    "text": "NIST Definition\n\n\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#service-models",
+    "href": "w02/index.html#service-models",
+    "title": "Week 2: Cloud Computing",
+    "section": "Service Models",
+    "text": "Service Models",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#hotel-analogy",
+    "href": "w02/index.html#hotel-analogy",
+    "title": "Week 2: Cloud Computing",
+    "section": "Hotel Analogy",
+    "text": "Hotel Analogy",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#infrastructure-as-a-service-iaas",
+    "href": "w02/index.html#infrastructure-as-a-service-iaas",
+    "title": "Week 2: Cloud Computing",
+    "section": "Infrastructure as a Service (IaaS)",
+    "text": "Infrastructure as a Service (IaaS)\n\nVirtualized computing resources delivered over the internet\nProvider manages: Physical hardware, virtualization, networking, storage\nYou manage: Operating systems, applications, runtime, data, middleware\n\nExamples and Use Cases\n\nAmazon EC2, Microsoft Azure VMs, Google Compute Engine\nPerfect for: Development environments, web hosting, backup & recovery\nBenefits: Rapid scaling, pay-as-you-go, global availability\n\n# Launch a virtual machine in seconds\naws ec2 run-instances --image-id ami-12345 --instance-type t3.xlarge",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#platform-as-a-service-paas",
+    "href": "w02/index.html#platform-as-a-service-paas",
+    "title": "Week 2: Cloud Computing",
+    "section": "Platform as a Service (PaaS)",
+    "text": "Platform as a Service (PaaS)\n\nWhat is PaaS?\n\nComplete development and deployment environment in the cloud\nProvider manages: Infrastructure, operating systems, runtime environments\nYou manage: Applications and data\n\nExamples and Use Cases\n\nAWS Elastic Beanstalk, Google App Engine, Microsoft Azure App Service\nPerfect for: Web applications, API development, microservices\nBenefits: Faster development, automatic scaling, integrated DevOps\n\n# Deploy your app with minimal configuration\ngit push heroku main  # App automatically deployed and scaled",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#software-as-a-service-saas",
+    "href": "w02/index.html#software-as-a-service-saas",
+    "title": "Week 2: Cloud Computing",
+    "section": "Software as a Service (SaaS)",
+    "text": "Software as a Service (SaaS)\n\nComplete applications delivered over the internet\nProvider manages: Everything (infrastructure, platform, software)\nYou manage: Your data and user access\n\nExamples and Use Cases\n\nGmail, Salesforce, Microsoft 365, Slack, Zoom\nPerfect for: Business applications, collaboration tools, CRM\nBenefits: No installation, automatic updates, accessible anywhere\n\nThe SaaS Revolution\n\n80% of companies use SaaS applications\n$195 billion market size (2023)",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#cloud-infrastructure-and-the-ai-revolution",
+    "href": "w02/index.html#cloud-infrastructure-and-the-ai-revolution",
+    "title": "Week 2: Cloud Computing",
+    "section": "Cloud Infrastructure and the AI Revolution",
+    "text": "Cloud Infrastructure and the AI Revolution\n\nMassive Computational Requirements\n\nTraining large language models requires thousands of GPUs\nCloud provides elastic access to specialized hardware\n\nData Storage & Processing\n\nAI models need petabytes of training data\nCloud offers unlimited, globally distributed storage\n\nCost Efficiency\n\nPay-per-use model for expensive AI hardware\nNo upfront investment in GPU clusters",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#gpu-infrastructure-the-ai-powerhouse",
+    "href": "w02/index.html#gpu-infrastructure-the-ai-powerhouse",
+    "title": "Week 2: Cloud Computing",
+    "section": "GPU Infrastructure: The AI Powerhouse",
+    "text": "GPU Infrastructure: The AI Powerhouse\nFrom Gaming to AI\n\nOriginally: Graphics processing for video games\nNow: Parallel processing powerhouse for AI/ML workloads\nArchitecture: Thousands of cores vs. CPUs 8-64 cores\n\nCloud GPU Offerings\n# AWS GPU instances for different AI workloads\np4d.24xlarge   # 8x NVIDIA A100 (40GB) - $32/hour\np3.16xlarge    # 8x NVIDIA V100 (16GB) - $24/hour\ng4dn.xlarge    # 1x NVIDIA T4 (16GB)   - $0.50/hour\nThe Scale Challenge\n\nGPT-4 training: Estimated 25,000 A100 GPUs for 6 months\nMeta’s AI infrastructure: 350,000+ NVIDIA H100 chips\nCost: Single AI training run can cost $100M+",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#distributed-computing-and-large-clusters",
+    "href": "w02/index.html#distributed-computing-and-large-clusters",
+    "title": "Week 2: Cloud Computing",
+    "section": "Distributed Computing and Large Clusters",
+    "text": "Distributed Computing and Large Clusters\nModern AI Requires Massive Clusters\n\nModel parallelism: Split models across multiple GPUs\nData parallelism: Process different data batches simultaneously\n\nPipeline parallelism: Different layers on different GPUs\n\nTechnologies Enabling Scale\n\nKubernetes: Container orchestration for microservices\nApache Spark: Distributed data processing framework\nRay: Distributed AI/ML framework for Python\n\n# Distributed training with Ray\nimport ray\nfrom ray import tune\n# Scale across 1000+ machines automatically\ntune.run(train_model, resources_per_trial={\"gpu\": 8})",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#data-storage-evolution",
+    "href": "w02/index.html#data-storage-evolution",
+    "title": "Week 2: Cloud Computing",
+    "section": "Data Storage Evolution",
+    "text": "Data Storage Evolution\nThe Data Tsunami\n\n2025 projection: 181 zettabytes of data globally\nAI training datasets: CommonCrawl (800TB), ImageNet (150GB)\nReal-time requirements: 1-10ms latency for inference and in some cases Sub-millisecond\n\nStorage Technologies\n\nObject Storage: Amazon S3, Google Cloud Storage (petabyte scale)\nHigh-performance: NVMe SSDs, persistent memory\nDistributed filesystems: HDFS, GlusterFS, Ceph\n\nThe Economics of Data\n\nStorage costs: Dropped 99.9% since 1980\nTransfer costs: Still significant for large datasets\nEdge computing: Bringing compute closer to data sources",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#evolution-of-the-cloud",
+    "href": "w02/index.html#evolution-of-the-cloud",
+    "title": "Week 2: Cloud Computing",
+    "section": "Evolution of the Cloud",
+    "text": "Evolution of the Cloud\n\n\n\n\n\n\n\n\nYesterday\nToday\nTomorrow\n\n\n\n\nLimited number of tools and vendors\nMany tools and vendors to work with\nIntegrated tools and vendors\n\n\nOne platform - few devices\nMultiple platforms - many devices\nConnected platforms and devices\n\n\nData is scarce but manageable\nOverabundance of data\nData is used for important business decisions\n\n\nIT has major influence and control\nIT has limited influence and control\nIT is strategic to the business\n\n\nPeople only work when they are at work\nPeople work wherever they want\nPeople have access to what they need, wherever they are",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#what-does-the-cloud-look-like",
+    "href": "w02/index.html#what-does-the-cloud-look-like",
+    "title": "Week 2: Cloud Computing",
+    "section": "What does the cloud look like?",
+    "text": "What does the cloud look like?",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#virtual-visit-to-microsoft-azure-data-center",
+    "href": "w02/index.html#virtual-visit-to-microsoft-azure-data-center",
+    "title": "Week 2: Cloud Computing",
+    "section": "Virtual Visit to Microsoft Azure Data Center",
+    "text": "Virtual Visit to Microsoft Azure Data Center",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#loudon-county-va-cloudon",
+    "href": "w02/index.html#loudon-county-va-cloudon",
+    "title": "Week 2: Cloud Computing",
+    "section": "Loudon County, VA: “CLoudon”",
+    "text": "Loudon County, VA: “CLoudon”\n\n70% of the world’s internet traffic passes through Loudon\nHow data centers power VA’s Loudon County\nThe heart of “The Cloud” is in Virginia\nCBS Sunday Morning Visits the Home of the Internet in Loudoun County",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#further-reading-saas-and-cloud-computing",
+    "href": "w02/index.html#further-reading-saas-and-cloud-computing",
+    "title": "Week 2: Cloud Computing",
+    "section": "Further Reading: SaaS and Cloud Computing",
+    "text": "Further Reading: SaaS and Cloud Computing\nSaaS and Cloud Computing Statistics:\n\n1. Zylo: 111 Unmissable SaaS Statistics for 2025\n2. Spendesk: 60+ eye-opening SaaS statistics (2025)\n3. Substly: The 28 most important SaaS statistics in 2023\n4. Harpa AI: SaaS Industry Key Statistics 2023\n5. Content Beta: 110+ SaaS Statistics and Trends\n6. Statista: Average number of SaaS apps used in the U.S. 2024\n7. Meetanshi: SaaS Statistics for 2025: Market Size, Growth, Trends & More",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#further-reading-data-storage-and-ai-infrastructure",
+    "href": "w02/index.html#further-reading-data-storage-and-ai-infrastructure",
+    "title": "Week 2: Cloud Computing",
+    "section": "Further Reading: Data Storage and AI Infrastructure",
+    "text": "Further Reading: Data Storage and AI Infrastructure\n\n2025 global data volume (181 zettabytes), https://explodingtopics.com/blog/data-generated-per-day [6], https://www.pit.edu/news/data-analytics-statistics-and-trends-for-2025/ [7], https://www.forbes.com/councils/forbestechcouncil/2024/03/04/from-5mb-hard-drives-to-180-zettabytes-the-data-migration-challenge/ [9]\nCommonCrawl and ImageNet dataset sizes: https://www.ibm.com/think/topics/ai-data-center [10]\nAI inference latency and storage tech: https://www.ibm.com/think/topics/ai-data-center [10], https://www.rcrwireless.com/20250407/fundamentals/ai-optimized-data-center [11]",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#further-reading-storage-economics-and-technology",
+    "href": "w02/index.html#further-reading-storage-economics-and-technology",
+    "title": "Week 2: Cloud Computing",
+    "section": "Further Reading: Storage Economics and Technology",
+    "text": "Further Reading: Storage Economics and Technology\n\nStorage cost declines: https://humanprogress.org/trends/vastly-cheaper-computation/ [1], https://ourworldindata.org/data-insights/the-price-of-computer-storage-has-fallen-exponentially-since-the-1950s [8]\nOngoing significance of transfer (egress) costs: https://lightedge.com/the-data-explosion-and-hidden-data-storage-costs-in-the-cloud-could-object-storage-be-the-answer/ [3]\nEdge computing trends: https://mondo.com/insights/evolution-data-storage-tapes-cloud-computing/ [5]",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#gpu-infrastructure-and-ai-training-costs",
+    "href": "w02/index.html#gpu-infrastructure-and-ai-training-costs",
+    "title": "Week 2: Cloud Computing",
+    "section": "GPU Infrastructure and AI Training Costs",
+    "text": "GPU Infrastructure and AI Training Costs\n\nGPT-4 GPU count and training duration: https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33 [1], https://klu.ai/blog/gpt-4-llm [3], https://www.acorn.io/resources/learning-center/openai/ [5]\nMeta’s NVIDIA H100 GPUs: https://www.reddit.com/r/singularity/comments/1bi8rme/jensen_huang_just_gave_us_some_numbers_for_the/ [4]\nAI training cost estimates: https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33 [1], https://www.acorn.io/resources/learning-center/openai/ [5]",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#references",
+    "href": "w02/index.html#references",
+    "title": "Week 2: Cloud Computing",
+    "section": "References",
+    "text": "References\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. https://www.oreilly.com/radar/what-is-data-science/.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf.",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DSAN 6000 Sections 01 and 02",
+    "section": "",
+    "text": "This webpage just serves as a hub collecting Jeff’s slides for DSAN 6000: Big Data and Cloud Computing, Fall 2025 at Georgetown University. It is not a replacement for the main course webpage!\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 28\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 2\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 8\n\n\n\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\n\nSep 15\n\n\n\n\n\n\nWeek 5: Data Warehouse (Athena, Presto, Snowflake)\n\n\nSep 22\n\n\n\n\n\n\nWeek 6: Introduction to Spark, RDDs\n\n\nSep 29\n\n\n\n\n\n\nWeek 7: Spark DataFrames and Spark SQL\n\n\nOct 6\n\n\n\n\n\n\nWeek 8: Spark ML and Streaming\n\n\nOct 20\n\n\n\n\n\n\nWeek 9: Apache Iceberg, Table Formats\n\n\nOct 27\n\n\n\n\n\n\nWeek 10: Data Pipeline Orchestration with Airflow\n\n\nNov 3\n\n\n\n\n\n\nWeek 11: Vector Databases, RAG\n\n\nNov 10\n\n\n\n\n\n\nWeek 12: Modern Data Stack, Governance\n\n\nNov 17\n\n\n\n\n\n\nWeek 13: Serverless and Container Orchestration\n\n\nNov 24\n\n\n\n\n\n\nWeek 14: Final Topics, Review\n\n\nDec 1\n\n\n\n\n\n\nWeek 15: Final Project Presentations\n\n\nDec 8\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "w01/index.html",
@@ -1360,37 +1327,556 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DSAN 6000 Sections 01 and 02",
-    "section": "",
-    "text": "This webpage just serves as a hub collecting Jeff’s slides for DSAN 6000: Big Data and Cloud Computing, Fall 2025 at Georgetown University. It is not a replacement for the main course webpage!\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 28\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 2\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 8\n\n\n\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\n\nSep 15\n\n\n\n\n\n\nWeek 5: Data Warehouse (Athena, Presto, Snowflake)\n\n\nSep 22\n\n\n\n\n\n\nWeek 6: Introduction to Spark, RDDs\n\n\nSep 29\n\n\n\n\n\n\nWeek 7: Spark DataFrames and Spark SQL\n\n\nOct 6\n\n\n\n\n\n\nWeek 8: Spark ML and Streaming\n\n\nOct 20\n\n\n\n\n\n\nWeek 9: Apache Iceberg, Table Formats\n\n\nOct 27\n\n\n\n\n\n\nWeek 10: Data Pipeline Orchestration with Airflow\n\n\nNov 3\n\n\n\n\n\n\nWeek 11: Vector Databases, RAG\n\n\nNov 10\n\n\n\n\n\n\nWeek 12: Modern Data Stack, Governance\n\n\nNov 17\n\n\n\n\n\n\nWeek 13: Serverless and Container Orchestration\n\n\nNov 24\n\n\n\n\n\n\nWeek 14: Final Topics, Review\n\n\nDec 1\n\n\n\n\n\n\nWeek 15: Final Project Presentations\n\n\nDec 8\n\n\n\n\n\n\nNo matching items"
+    "objectID": "w01/slides.html#agenda-for-todays-session",
+    "href": "w01/slides.html#agenda-for-todays-session",
+    "title": "Week 1: Course Overview",
+    "section": "Agenda for today’s session",
+    "text": "Agenda for today’s session\n\nCourse and syllabus overview\nBig Data Concepts\n\nDefinition\nChallenges\nApproaches\n\nData Engineering\nIntroduction to bash\n\nLab: Linux command line"
   },
   {
-    "objectID": "w02/index.html",
-    "href": "w02/index.html",
-    "title": "Week 2: Cloud Computing",
-    "section": "",
-    "text": "Open slides in new tab →",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
-    ]
+    "objectID": "w01/slides.html#bookmark-these-links",
+    "href": "w01/slides.html#bookmark-these-links",
+    "title": "Week 1: Course Overview",
+    "section": "Bookmark these links!",
+    "text": "Bookmark these links!\n\nCourse website: https://gu-dsan.github.io/6000-fall-2025/\nGitHub Organization for your deliverables: https://github.com/gu-dsan/\nGitHub Classroom: https://classroom.github.com/classrooms/34950344-georgetown-university-dsan6000-big-data-and-cloud-computing\nSlack Workspace: DSAN6000 Fall 2025 - https://dsan6000fall2025.slack.com\n\nJoin link: https://join.slack.com/t/dsan6000fall2025/shared_invite/zt-3b22qhque-GagQykwYYNiEzli9UXJn4w\n\nInstructors email: dsan-Fall-2025@georgetown.edu\nCanvas: https://georgetown.instructure.com/courses/TBA-2025\n\n\n\n\n\n\n\nThese are also pinned on the Slack main channel"
   },
   {
-    "objectID": "w02/index.html#references",
-    "href": "w02/index.html#references",
-    "title": "Week 2: Cloud Computing",
-    "section": "References",
-    "text": "References",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
-    ]
+    "objectID": "w01/slides.html#instructional-team---professors",
+    "href": "w01/slides.html#instructional-team---professors",
+    "title": "Week 1: Course Overview",
+    "section": "Instructional Team - Professors",
+    "text": "Instructional Team - Professors\n\nAmit Arora, aa1603@georgetown.edu\nJeff Jacobs, jj1088@georgetown.edu"
   },
   {
-    "objectID": "w02/slides.html#references",
-    "href": "w02/slides.html#references",
-    "title": "Week 2: Cloud Computing",
-    "section": "References",
-    "text": "References"
+    "objectID": "w01/slides.html#amit-arora-aa1603georgetown.edu",
+    "href": "w01/slides.html#amit-arora-aa1603georgetown.edu",
+    "title": "Week 1: Course Overview",
+    "section": "Amit Arora, aa1603@georgetown.edu",
+    "text": "Amit Arora, aa1603@georgetown.edu\n\n\n\nPrincipal Solutions Architect - AI/ML at AWS\nAdjunct Professor at Georgetown University\nMultiple patents in telecommunications and applications of ML in telecommunications\n\nFun Facts\n\n\n\n\nI am a self-published author https://blueberriesinmysalad.com/\nMy book “Blueberries in my salad: my forever journey towards fitness & strength” is written as code in R and Markdown\nI love to read books about health and human performance, productivity, philosophy and Mathematics for ML. My reading list is online!"
+  },
+  {
+    "objectID": "w01/slides.html#jeff-jacobs-jj1088georgetown.edu",
+    "href": "w01/slides.html#jeff-jacobs-jj1088georgetown.edu",
+    "title": "Week 1: Course Overview",
+    "section": "Jeff Jacobs, jj1088@georgetown.edu",
+    "text": "Jeff Jacobs, jj1088@georgetown.edu\n\n\n\nFull-time Professor at Georgetown (DSAN and Public Policy)\nBackground in Computational Social Science (Comp Sci MS → Political Economy PhD → Labor Econ Postdoc)\n\nFun Facts\n\nUsed Apache Airflow daily for PhD projects! (Example)\n\n\n\n\n\nServer admin for lab server → lab AWS account at Columbia (2015-2023) → new DSAN server (!) (2025-)\nPassion project 1: Code for Palestine (2015-2022) → YouthCode-Gaza (2023) → Ukraine Ministry of Digital Transformation (2024)\nPassion projects 2+3 [🤓]: Sample-based music production, web app frameworks\nSleep disorder means lots of reading – mainly history! – at night\nAlso teaching PPOL6805 / DSAN 6750: GIS for Spatial Data Science this semester"
+  },
+  {
+    "objectID": "w01/slides.html#instructional-team---teaching-assistants",
+    "href": "w01/slides.html#instructional-team---teaching-assistants",
+    "title": "Week 1: Course Overview",
+    "section": "Instructional Team - Teaching Assistants",
+    "text": "Instructional Team - Teaching Assistants\n\nBinhui Chen, bc928@georgetown.edu\nPranav Sudhir Patil, pp755@georgetown.edu\nOfure Udabor, au195@georgetown.edu\nYifei Wu, yw924@georgetown.edu\nNaomi Yamaguchi, ny159@georgetown.edu\nLeqi Ying, ly290@georgetown.edu\nXinyue (Monica) Zhang, xz646@georgetown.edu"
+  },
+  {
+    "objectID": "w01/slides.html#binhui-chen-bc928georgetown.edu",
+    "href": "w01/slides.html#binhui-chen-bc928georgetown.edu",
+    "title": "Week 1: Course Overview",
+    "section": "Binhui Chen, bc928@georgetown.edu",
+    "text": "Binhui Chen, bc928@georgetown.edu\n(Lead TA for the course!)"
+  },
+  {
+    "objectID": "w01/slides.html#pranav-sudhir-patil-pp755georgetown.edu",
+    "href": "w01/slides.html#pranav-sudhir-patil-pp755georgetown.edu",
+    "title": "Week 1: Course Overview",
+    "section": "Pranav Sudhir Patil, pp755@georgetown.edu",
+    "text": "Pranav Sudhir Patil, pp755@georgetown.edu"
+  },
+  {
+    "objectID": "w01/slides.html#ofure-udabor-au195georgetown.edu",
+    "href": "w01/slides.html#ofure-udabor-au195georgetown.edu",
+    "title": "Week 1: Course Overview",
+    "section": "Ofure Udabor, au195@georgetown.edu",
+    "text": "Ofure Udabor, au195@georgetown.edu"
+  },
+  {
+    "objectID": "w01/slides.html#yifei-wu-yw924georgetown.edu",
+    "href": "w01/slides.html#yifei-wu-yw924georgetown.edu",
+    "title": "Week 1: Course Overview",
+    "section": "Yifei Wu, yw924@georgetown.edu",
+    "text": "Yifei Wu, yw924@georgetown.edu"
+  },
+  {
+    "objectID": "w01/slides.html#naomi-yamaguchi-ny159georgetown.edu",
+    "href": "w01/slides.html#naomi-yamaguchi-ny159georgetown.edu",
+    "title": "Week 1: Course Overview",
+    "section": "Naomi Yamaguchi, ny159@georgetown.edu",
+    "text": "Naomi Yamaguchi, ny159@georgetown.edu"
+  },
+  {
+    "objectID": "w01/slides.html#leqi-ying-ly290georgetown.edu",
+    "href": "w01/slides.html#leqi-ying-ly290georgetown.edu",
+    "title": "Week 1: Course Overview",
+    "section": "Leqi Ying, ly290@georgetown.edu",
+    "text": "Leqi Ying, ly290@georgetown.edu"
+  },
+  {
+    "objectID": "w01/slides.html#xinyue-monica-zhang-xz646georgetown.edu",
+    "href": "w01/slides.html#xinyue-monica-zhang-xz646georgetown.edu",
+    "title": "Week 1: Course Overview",
+    "section": "Xinyue (Monica) Zhang, xz646@georgetown.edu",
+    "text": "Xinyue (Monica) Zhang, xz646@georgetown.edu"
+  },
+  {
+    "objectID": "w01/slides.html#course-description",
+    "href": "w01/slides.html#course-description",
+    "title": "Week 1: Course Overview",
+    "section": "Course Description",
+    "text": "Course Description\n\nData is everywhere! Many times, it’s just too big to work with traditional tools. This is a hands-on, practical workshop style course about using cloud computing resources to do analysis and manipulation of datasets that are too large to fit on a single machine and/or analyzed with traditional tools. The course will focus on Spark, MapReduce, the Hadoop Ecosystem and other tools.\nYou will understand how to acquire and/or ingest the data, and then massage, clean, transform, analyze, and model it within the context of big data analytics. You will be able to think more programmatically and logically about your big data needs, tools and issues.\n\nAlways refer to the syllabus and calendar in the course website for class policies."
+  },
+  {
+    "objectID": "w01/slides.html#learning-objectives",
+    "href": "w01/slides.html#learning-objectives",
+    "title": "Week 1: Course Overview",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nSetup, operate and manage big data tools and cloud infrastructure, including Spark, DuckDB, Polars, Athena, Snowflake, and orchestration tools like Airflow on Amazon Web Services\nUse ancillary tools that support big data processing, including git and the Linux command line\nExecute a big data analytics exercise from start to finish: ingest, wrangle, clean, analyze, store, and present\nDevelop strategies to break down large problems and datasets into manageable pieces\nIdentify broad spectrum resources and documentation to remain current with big data tools and developments\nCommunicate and interpret the big data analytics results through written and verbal methods"
+  },
+  {
+    "objectID": "w01/slides.html#evaluation",
+    "href": "w01/slides.html#evaluation",
+    "title": "Week 1: Course Overview",
+    "section": "Evaluation",
+    "text": "Evaluation\n\nGroup project : 40%\nAssignments : 30%\nLab completions : 20%\nQuizzes : 10%"
+  },
+  {
+    "objectID": "w01/slides.html#course-materials",
+    "href": "w01/slides.html#course-materials",
+    "title": "Week 1: Course Overview",
+    "section": "Course Materials",
+    "text": "Course Materials\n\nSlides/labs/assignment on Website/GitHub\nQuizzes and readings in Canvas"
+  },
+  {
+    "objectID": "w01/slides.html#communication",
+    "href": "w01/slides.html#communication",
+    "title": "Week 1: Course Overview",
+    "section": "Communication",
+    "text": "Communication\n\nSlack is the primary form of communication\nInstructional team email: dsan-Fall-2025@georgetown.edu"
+  },
+  {
+    "objectID": "w01/slides.html#slack-rules",
+    "href": "w01/slides.html#slack-rules",
+    "title": "Week 1: Course Overview",
+    "section": "Slack rules",
+    "text": "Slack rules\n\nPost any question/comment about the course, assignments or any technical issue.\nDMs are to be used sparingly\nYou may not DM multiple people in the instructional team at the same time for the same issue\nKeep an eye on the questions posted in Slack. Use the search function. It’s very possible that we have already answered a questions\nYou may DM us back only if we DM you first on a given issue\nLab/assignment/project questions will only be answered up to 6 hours before something is due (i.e. 6pm on Mondays)"
+  },
+  {
+    "objectID": "w01/slides.html#midterm-project-new",
+    "href": "w01/slides.html#midterm-project-new",
+    "title": "Week 1: Course Overview",
+    "section": "Midterm Project (NEW!)",
+    "text": "Midterm Project (NEW!)\n\nIndividual assignment (not team-based)\nTiming: Around Week 5-6\nWeight: Equivalent to 2 homework assignments\nFormat:\n\nWe provide the dataset and problem statement\nYou apply big data tools and techniques learned in class\nEnd-to-end data pipeline implementation\n\nDetails: TBD (will be announced in Week 4)"
+  },
+  {
+    "objectID": "w01/slides.html#final-project",
+    "href": "w01/slides.html#final-project",
+    "title": "Week 1: Course Overview",
+    "section": "Final Project",
+    "text": "Final Project\n\nGroups of 3-4 students\nUse an archive of Reddit data, augmented with external data\nExploratory analysis\nNLP\nMachine Learning\nWriteup\n\nData sourcing and ingesting\nExploratory analysis\nModeling\nChallenges and Learnings\nConclusions\nFuture work"
+  },
+  {
+    "objectID": "w01/slides.html#in-one-minute-of-time-2018",
+    "href": "w01/slides.html#in-one-minute-of-time-2018",
+    "title": "Week 1: Course Overview",
+    "section": "In one minute of time (2018)",
+    "text": "In one minute of time (2018)"
+  },
+  {
+    "objectID": "w01/slides.html#in-one-minute-of-time-2019",
+    "href": "w01/slides.html#in-one-minute-of-time-2019",
+    "title": "Week 1: Course Overview",
+    "section": "In one minute of time (2019)",
+    "text": "In one minute of time (2019)"
+  },
+  {
+    "objectID": "w01/slides.html#in-one-minute-of-time-2020",
+    "href": "w01/slides.html#in-one-minute-of-time-2020",
+    "title": "Week 1: Course Overview",
+    "section": "In one minute of time (2020)",
+    "text": "In one minute of time (2020)"
+  },
+  {
+    "objectID": "w01/slides.html#in-one-minute-of-time-2021",
+    "href": "w01/slides.html#in-one-minute-of-time-2021",
+    "title": "Week 1: Course Overview",
+    "section": "In one minute of time (2021)",
+    "text": "In one minute of time (2021)"
+  },
+  {
+    "objectID": "w01/slides.html#in-one-minute-of-time-2025",
+    "href": "w01/slides.html#in-one-minute-of-time-2025",
+    "title": "Week 1: Course Overview",
+    "section": "In one minute of time (2025)",
+    "text": "In one minute of time (2025)\nEvery 60 seconds in 2025:\n\nChatGPT serves millions of requests (exact numbers proprietary)\n500 hours of video uploaded to YouTube\n1.04 million Slack messages sent\n362,000 hours watched on Netflix\n5.9-11.4 million Google searches\n$443,000 spent on Amazon\nAI-generated images created at massive scale (metrics not publicly available)\n347,200 posts on X (formerly Twitter)\n231-250 million emails sent"
+  },
+  {
+    "objectID": "w01/slides.html#a-lot-of-it-is-hapenning-online.",
+    "href": "w01/slides.html#a-lot-of-it-is-hapenning-online.",
+    "title": "Week 1: Course Overview",
+    "section": "A lot of it is hapenning online.",
+    "text": "A lot of it is hapenning online.\n\n\nWe can record every:\n\nclick\nad impression\nbilling event\nvideo interaction\nserver request\ntransaction\nnetwork message\nfault\n…"
+  },
+  {
+    "objectID": "w01/slides.html#it-can-also-be-user-generated-content",
+    "href": "w01/slides.html#it-can-also-be-user-generated-content",
+    "title": "Week 1: Course Overview",
+    "section": "It can also be user-generated content:",
+    "text": "It can also be user-generated content:\n\n\n\n\nInstagram posts & Reels\nX (Twitter) posts & Threads\nTikTok videos\nYouTube Shorts\nReddit discussions\nDiscord conversations\nAI-generated content (text, images, code)\n…"
+  },
+  {
+    "objectID": "w01/slides.html#but-health-and-scientific-computing-create-a-lot-too",
+    "href": "w01/slides.html#but-health-and-scientific-computing-create-a-lot-too",
+    "title": "Week 1: Course Overview",
+    "section": "But health and scientific computing create a lot too!",
+    "text": "But health and scientific computing create a lot too!"
+  },
+  {
+    "objectID": "w01/slides.html#theres-lots-of-graph-data-too",
+    "href": "w01/slides.html#theres-lots-of-graph-data-too",
+    "title": "Week 1: Course Overview",
+    "section": "There’s lots of graph data too",
+    "text": "There’s lots of graph data too\n\n\n\nMany interesting datasets have a graph structure:\n\nSocial networks\nGoogle’s knowledge graph\nTelecom networks\nComputer networks\nRoad networks\nCollaboration/relationships\n\nSome of these are HUGE"
+  },
+  {
+    "objectID": "w01/slides.html#apache-web-server-log-files",
+    "href": "w01/slides.html#apache-web-server-log-files",
+    "title": "Week 1: Course Overview",
+    "section": "Apache (web server) log files",
+    "text": "Apache (web server) log files"
+  },
+  {
+    "objectID": "w01/slides.html#system-log-files",
+    "href": "w01/slides.html#system-log-files",
+    "title": "Week 1: Course Overview",
+    "section": "System log files",
+    "text": "System log files"
+  },
+  {
+    "objectID": "w01/slides.html#internet-of-things-iot-in-2025",
+    "href": "w01/slides.html#internet-of-things-iot-in-2025",
+    "title": "Week 1: Course Overview",
+    "section": "Internet of Things (IoT) in 2025",
+    "text": "Internet of Things (IoT) in 2025\n75 billion connected devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nConnected vehicles & self-driving cars\nIndustrial IoT sensors\n\n\n\n\nSmart city infrastructure\nMedical devices & remote patient monitoring"
+  },
+  {
+    "objectID": "w01/slides.html#smartphone-location-data",
+    "href": "w01/slides.html#smartphone-location-data",
+    "title": "Week 1: Course Overview",
+    "section": "Smartphone Location Data",
+    "text": "Smartphone Location Data"
+  },
+  {
+    "objectID": "w01/slides.html#where-else",
+    "href": "w01/slides.html#where-else",
+    "title": "Week 1: Course Overview",
+    "section": "Where else?",
+    "text": "Where else?\n\nThe Internet\nTransactions\nDatabases\nExcel\nPDF Files\nAnything digital (music, movies, apps)\nSome old floppy disk lying around the house"
+  },
+  {
+    "objectID": "w01/slides.html#typical-real-world-scenarios-in-2025",
+    "href": "w01/slides.html#typical-real-world-scenarios-in-2025",
+    "title": "Week 1: Course Overview",
+    "section": "Typical Real-World Scenarios in 2025",
+    "text": "Typical Real-World Scenarios in 2025\nScenario 1: Traditional Big Data\nYou have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. What do you do?\nScenario 2: AI/ML Pipeline\nYour company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. How do you architect this?\nScenario 3: Real-Time Analytics\nYou need to process 1 million events/second from IoT devices and provide real-time dashboards with &lt;1s latency. What’s your stack?"
+  },
+  {
+    "objectID": "w01/slides.html#lets-discuss",
+    "href": "w01/slides.html#lets-discuss",
+    "title": "Week 1: Course Overview",
+    "section": "Let’s discuss!",
+    "text": "Let’s discuss!\n\nExponential data growth"
+  },
+  {
+    "objectID": "w01/slides.html#big-data-definitions",
+    "href": "w01/slides.html#big-data-definitions",
+    "title": "Week 1: Course Overview",
+    "section": "Big Data Definitions",
+    "text": "Big Data Definitions\nWikipedia\n“A collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis”\nO’Reilly\n“Big data is when the size of the data itself becomes part of the problem”"
+  },
+  {
+    "objectID": "w01/slides.html#frameworks-for-thinking-about-big-data",
+    "href": "w01/slides.html#frameworks-for-thinking-about-big-data",
+    "title": "Week 1: Course Overview",
+    "section": "Frameworks for Thinking About Big Data",
+    "text": "Frameworks for Thinking About Big Data\nIBM (The 3 V’s)\n\nVolume (Gigabytes → Exabytes → Zettabytes)\nVelocity (Batch → Streaming → Real-time AI inference)\nVariety (Structured, Unstructured, Embeddings)\n\nAdditional V’s for 2025\n\n\n\nVariability\nVeracity\nVisualization\n\n\n\nValue\nVectors (embeddings for AI/ML)\nVersatility (multi-modal data)"
+  },
+  {
+    "objectID": "w01/slides.html#data-size",
+    "href": "w01/slides.html#data-size",
+    "title": "Week 1: Course Overview",
+    "section": "Data “Size”",
+    "text": "Data “Size”\n\\[\n\\text{``Size''} = f(\\text{Processing Ability}, \\text{Storage Space})\n\\]\n\nCan you analyze/process your data on a single machine?\nCan you store (or is it stored) on a single machine?\nCan you serve it fast enough for real-time AI applications?\n\nIf any of of the answers is no then you have a big-ish data problem!"
+  },
+  {
+    "objectID": "w01/slides.html#the-new-data-landscape-2025",
+    "href": "w01/slides.html#the-new-data-landscape-2025",
+    "title": "Week 1: Course Overview",
+    "section": "The New Data Landscape (2025)",
+    "text": "The New Data Landscape (2025)\nTraining Foundation Models\n\nGPT-4: Trained on about 13 trillion tokens\nLlama 3: 15 trillion tokens\nGoogle Gemini: Multi-modal training (text, images, video)\nEach iteration requires petabytes of curated data\n\nData Requirements Have Exploded\n\n2020: BERT trained on 3.3 billion words\n2023: GPT-4 trained on ~13 trillion tokens\n2024: Llama 3 trained on 15+ trillion tokens"
+  },
+  {
+    "objectID": "w01/slides.html#big-data-infrastructure-data-lakes-warehouses",
+    "href": "w01/slides.html#big-data-infrastructure-data-lakes-warehouses",
+    "title": "Week 1: Course Overview",
+    "section": "Big Data Infrastructure: Data Lakes, Warehouses",
+    "text": "Big Data Infrastructure: Data Lakes, Warehouses\nTraditional Use Cases:\n\nBusiness intelligence\nAnalytics & reporting\nHistorical data storage\n\nModern AI Use Cases:\n\nTraining data repositories\nVector embeddings storage\nRAG (Retrieval-Augmented Generation) context\nFine-tuning datasets\nEvaluation & benchmark data"
+  },
+  {
+    "objectID": "w01/slides.html#rag-and-context-engineering-the-new-data-pipeline",
+    "href": "w01/slides.html#rag-and-context-engineering-the-new-data-pipeline",
+    "title": "Week 1: Course Overview",
+    "section": "RAG and Context Engineering: The New Data Pipeline",
+    "text": "RAG and Context Engineering: The New Data Pipeline\n\n\n\n\n\n\n\nG\n\n\n\nraw\n\nRaw Data\n\n\n\nlake\n\nData Lake\n\n\n\nraw-&gt;lake\n\n\n\n\n\nproc\n\nProcessing\n\n\n\nlake-&gt;proc\n\n\n\n\n\nvec\n\nVector DB\n\n\n\nproc-&gt;vec\n\n\n\n\n\ncontext\n\nLLM Context\n\n\n\nvec-&gt;context\n\n\n\n\n\n\n\n\n\n\nKey Components:\n\nData Lakes (S3, Azure Data Lake): Store massive unstructured data\nData Warehouses (Snowflake, BigQuery): Structured data for context\nVector Databases (Pinecone, Weaviate, Qdrant): Semantic search\nEmbedding Models: Convert data to vectors\nOrchestration (Airflow, Prefect): Manage the pipeline"
+  },
+  {
+    "objectID": "w01/slides.html#mcp-servers-agentic-ai",
+    "href": "w01/slides.html#mcp-servers-agentic-ai",
+    "title": "Week 1: Course Overview",
+    "section": "MCP Servers & Agentic AI",
+    "text": "MCP Servers & Agentic AI\nModel Context Protocol (MCP)\n\nOpen protocol for connecting AI assistants to data sources\nStandardized way to expose tools and data to LLMs\nEnables “agentic” behavior - AI that can act autonomously\n\nMCP in Production\n\n\n\n\n\n\n\nG\n\n\n\nware\n\nData Warehouse\n\n\n\nmcp\n\nMCP Server\n\n\n\nware-&gt;mcp\n\n\n\n\n\nagent\n\nAI Agent\n\n\n\nmcp-&gt;agent\n\n\n\n\n\naction\n\nAction\n\n\n\nagent-&gt;action\n\n\n\n\n\n\n\n\n\n\nExamples:\n\nAI agents querying Snowflake for real-time analytics\nAutonomous systems updating data lakes based on predictions\nMulti-agent systems coordinating through shared data contexts"
+  },
+  {
+    "objectID": "w01/slides.html#data-quality-for-ai",
+    "href": "w01/slides.html#data-quality-for-ai",
+    "title": "Week 1: Course Overview",
+    "section": "Data Quality for AI",
+    "text": "Data Quality for AI\n(Why Data Quality Matters More Than Ever)\nGarbage In, Garbage Out - Amplified:\n\nBad training data → Biased models\nIncorrect RAG data → Hallucinations\nPoor data governance → Compliance issues\n\nData Quality Challenges in 2025\n\nScale: Validating trillions of tokens\nDiversity: Multi-modal, multi-lingual data\nVelocity: Real-time data for online learning\nVeracity: Detecting AI-generated synthetic data"
+  },
+  {
+    "objectID": "w01/slides.html#real-world-big-data-ai-examples",
+    "href": "w01/slides.html#real-world-big-data-ai-examples",
+    "title": "Week 1: Course Overview",
+    "section": "Real-World Big Data / AI Examples",
+    "text": "Real-World Big Data / AI Examples\nNetflix\n\nData Scale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\nUber\n\nData Scale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\nOpenAI\n\nData Scale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters"
+  },
+  {
+    "objectID": "w01/slides.html#emerging-trends-2025-2027",
+    "href": "w01/slides.html#emerging-trends-2025-2027",
+    "title": "Week 1: Course Overview",
+    "section": "Emerging Trends (2025-2027)",
+    "text": "Emerging Trends (2025-2027)\nUnified Platforms:\n\nData lakes becoming “AI lakes”\nIntegrated vector + relational databases\nOne-stop shops for data + AI (Databricks, Snowflake Cortex)\n\nEdge Computing + AI:\n\nProcessing at the data source\nFederated learning across devices\n5G enabling real-time edge AI\n\nSynthetic Data:\n\nAI generating training data for AI\nPrivacy-preserving synthetic datasets"
+  },
+  {
+    "objectID": "w01/slides.html#relative-data-sizes",
+    "href": "w01/slides.html#relative-data-sizes",
+    "title": "Week 1: Course Overview",
+    "section": "Relative Data Sizes",
+    "text": "Relative Data Sizes\n \n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?"
+  },
+  {
+    "objectID": "w01/slides.html#what-youll-learn-in-this-course",
+    "href": "w01/slides.html#what-youll-learn-in-this-course",
+    "title": "Week 1: Course Overview",
+    "section": "What You’ll Learn in This Course",
+    "text": "What You’ll Learn in This Course\nModern Big Data Stack (2025)\n\n\n\nQuery Engines:\n\nDuckDB - In-process analytical database\nPolars - Lightning-fast DataFrame library\n\nSpark - Distributed processing at scale\n\nData Warehouses & Lakes:\n\nSnowflake - Cloud-native data warehouse\nAthena - Serverless SQL on S3\nIceberg - Open table format\n\n\n\nAI/ML Integration:\n\nVector databases for embeddings\nRAG implementation patterns\nStreaming with Spark Structured Streaming\n\nOrchestration:\n\nAirflow for pipeline management\nServerless with AWS Lambda"
+  },
+  {
+    "objectID": "w01/slides.html#data-types",
+    "href": "w01/slides.html#data-types",
+    "title": "Week 1: Course Overview",
+    "section": "Data Types",
+    "text": "Data Types\n\nStructured\nUnstructured\nNatural language\nMachine-generated\nGraph-based\nAudio, video, and images\nStreaming"
+  },
+  {
+    "objectID": "w01/slides.html#big-data-vs.-small-data-i",
+    "href": "w01/slides.html#big-data-vs.-small-data-i",
+    "title": "Week 1: Course Overview",
+    "section": "Big Data vs. Small Data I",
+    "text": "Big Data vs. Small Data I\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nGoals\ngathered for a specific goal\nmay have a goal in mind when it’s first started, but things can evolve or take unexpected directions\n\n\nLocation\nin one place, and often in a single computer file\ncan be in multiple files in multiple servers on computers in different geographic locations\n\n\nStructure/Contents\nhighly structured like an Excel spreadsheet, and it’s got rows and columns of data\ncan be unstructured, it can have many formats in files involved across disciplines, and may link to other resources\n\n\nPreparation\nprepared by the end user for their own purposes\nis often prepared by one group of people, analyzed by a second group of people, and then used by a third group of people, and they may have different purposes, and they may have different disciplines"
+  },
+  {
+    "objectID": "w01/slides.html#big-data-vs.-small-data-ii",
+    "href": "w01/slides.html#big-data-vs.-small-data-ii",
+    "title": "Week 1: Course Overview",
+    "section": "Big Data vs. Small Data II",
+    "text": "Big Data vs. Small Data II\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nLongevity\nkept for a specific amount of time after the project is over because there’s a clear ending point. In the academic world it’s maybe five or seven years and then you can throw it away\ncontains data that must be stored in perpetuity. Many big data projects extend into the past and future\n\n\nMeasurements\nmeasured with a single protocol using set units and it’s usually done at the same time\nis collected and measured using many sources, protocols, units, etc\n\n\nReproducibility\nbe reproduced in their entirety if something goes wrong in the process\nreplication is seldom feasible\n\n\nStakes\nif things go wrong the costs are limited, it’s not an enormous problem\ncan have high costs of failure in terms of money, time and labor\n\n\nAccess\nidentified by a location specified in a row/column\nunless it is exceptionally well designed, the organization can be inscrutable\n\n\nAnalysis\nanalyzed together, all at once\nis ordinarily analyzed in incremental steps"
+  },
+  {
+    "objectID": "w01/slides.html#challenges-of-working-with-large-datasets",
+    "href": "w01/slides.html#challenges-of-working-with-large-datasets",
+    "title": "Week 1: Course Overview",
+    "section": "Challenges of Working with Large Datasets",
+    "text": "Challenges of Working with Large Datasets\n\n\n\nThe V\nThe Challenge\n\n\n\n\nVolume\ndata scale\n\n\nValue\ndata usefulness in decision making\n\n\nVelocity\ndata processing: batch or stream\n\n\nViscosity\ndata complexity\n\n\nVariability\ndata flow inconsistency\n\n\nVolatility\ndata durability\n\n\nViability\ndata activeness\n\n\nValidity\ndata properly understandable\n\n\nVariety\ndata heterogeneity"
+  },
+  {
+    "objectID": "w01/slides.html#thinking-about-big-data-workflows",
+    "href": "w01/slides.html#thinking-about-big-data-workflows",
+    "title": "Week 1: Course Overview",
+    "section": "Thinking About Big Data Workflows",
+    "text": "Thinking About Big Data Workflows\nWilliam Cohen (Director, Research Engineering, Google):\n\nWorking with big data is not about…\n\nCode optimization\nLearning the details of today’s hardware/software (they are evolving…)\n\nWorking with big data is about understanding:\n\nThe cost of what you want to do\nWhat the tools that are available offer\nHow much can be accomplished with linear or nearly-linear operations\nHow to organize your computations so that they effectively use whatever’s fast\nHow to test/debug/verify with large data\n\nRecall that traditional tools like R and Python are single threaded (by default)"
+  },
+  {
+    "objectID": "w01/slides.html#tools-at-a-glance",
+    "href": "w01/slides.html#tools-at-a-glance",
+    "title": "Week 1: Course Overview",
+    "section": "Tools at-a-glance",
+    "text": "Tools at-a-glance\n\n\nLanguages, libraries, and projects\n\nPython\n\npandas\npolars\nPySpark\nduckdb\ndask\nray\n\nApache Arrow\nApache Spark\nSQL\nApache Hadoop (briefly)\n\n\nCloud Services\n\nAmazon Web Services (AWS)\n\nAWS Sagemaker\nAmazon S3\n\nAzure\n\nAzure Blob\nAzure Machine Learning\n\n\nOther:\n\nAWS Elastic MapReduce (EMR)"
+  },
+  {
+    "objectID": "w01/slides.html#additional-links-of-interest",
+    "href": "w01/slides.html#additional-links-of-interest",
+    "title": "Week 1: Course Overview",
+    "section": "Additional links of interest",
+    "text": "Additional links of interest\n\nMatt Turck’s Machine Learning, Artificial Intelligence & Data Landscape (MAD)\n\nArticle\nInteractive Landscape\n\nIs there life after Hadoop?\n10 Best Big Data Tools for 2023"
+  },
+  {
+    "objectID": "w01/slides.html#data-scientist-vs.-data-engineer",
+    "href": "w01/slides.html#data-scientist-vs.-data-engineer",
+    "title": "Week 1: Course Overview",
+    "section": "Data Scientist vs. Data Engineer",
+    "text": "Data Scientist vs. Data Engineer\nIn this course, you’ll augment your data scientist skills with data engineering skills!"
+  },
+  {
+    "objectID": "w01/slides.html#data-engineer-responsibilities",
+    "href": "w01/slides.html#data-engineer-responsibilities",
+    "title": "Week 1: Course Overview",
+    "section": "Data Engineer Responsibilities",
+    "text": "Data Engineer Responsibilities"
+  },
+  {
+    "objectID": "w01/slides.html#data-engineering-levels-2-and-3",
+    "href": "w01/slides.html#data-engineering-levels-2-and-3",
+    "title": "Week 1: Course Overview",
+    "section": "Data Engineering: Levels 2 and 3",
+    "text": "Data Engineering: Levels 2 and 3"
+  },
+  {
+    "objectID": "w01/slides.html#architecture",
+    "href": "w01/slides.html#architecture",
+    "title": "Week 1: Course Overview",
+    "section": "Architecture",
+    "text": "Architecture"
+  },
+  {
+    "objectID": "w01/slides.html#storage",
+    "href": "w01/slides.html#storage",
+    "title": "Week 1: Course Overview",
+    "section": "Storage",
+    "text": "Storage"
+  },
+  {
+    "objectID": "w01/slides.html#source-control",
+    "href": "w01/slides.html#source-control",
+    "title": "Week 1: Course Overview",
+    "section": "Source control",
+    "text": "Source control"
+  },
+  {
+    "objectID": "w01/slides.html#orchestration",
+    "href": "w01/slides.html#orchestration",
+    "title": "Week 1: Course Overview",
+    "section": "Orchestration",
+    "text": "Orchestration"
+  },
+  {
+    "objectID": "w01/slides.html#processing",
+    "href": "w01/slides.html#processing",
+    "title": "Week 1: Course Overview",
+    "section": "Processing",
+    "text": "Processing"
+  },
+  {
+    "objectID": "w01/slides.html#analytics",
+    "href": "w01/slides.html#analytics",
+    "title": "Week 1: Course Overview",
+    "section": "Analytics",
+    "text": "Analytics"
+  },
+  {
+    "objectID": "w01/slides.html#machine-learning",
+    "href": "w01/slides.html#machine-learning",
+    "title": "Week 1: Course Overview",
+    "section": "Machine Learning",
+    "text": "Machine Learning"
+  },
+  {
+    "objectID": "w01/slides.html#governance",
+    "href": "w01/slides.html#governance",
+    "title": "Week 1: Course Overview",
+    "section": "Governance",
+    "text": "Governance"
+  },
+  {
+    "objectID": "w01/slides.html#the-terminal",
+    "href": "w01/slides.html#the-terminal",
+    "title": "Week 1: Course Overview",
+    "section": "The Terminal",
+    "text": "The Terminal\n\n\n\n\nTerminal access was THE ONLY way to do programming\nNo GUIs! No Spyder, Jupyter, RStudio, etc.\nCoding is still more powerful than graphical interfaces for complex jobs\nCoding makes work repeatable"
+  },
+  {
+    "objectID": "w01/slides.html#bash",
+    "href": "w01/slides.html#bash",
+    "title": "Week 1: Course Overview",
+    "section": "BASH",
+    "text": "BASH\n\n\n\n\nCreated in 1989 by Brian Fox: “Bourne-Again Shell”\nBrian Fox also built the first online interactive banking software\nBASH is a command processor\nConnection between you and the machine language and hardware"
+  },
+  {
+    "objectID": "w01/slides.html#the-prompt",
+    "href": "w01/slides.html#the-prompt",
+    "title": "Week 1: Course Overview",
+    "section": "The Prompt",
+    "text": "The Prompt\nusername@hostname:current_directory $\nWhat do we learn from the prompt?\n\nWho you are - username\nThe machine where your code is running - hostname\nThe directory where your code is running - current_directory\nThe shell type - $ - this symbol means BA$H"
+  },
+  {
+    "objectID": "w01/slides.html#syntax",
+    "href": "w01/slides.html#syntax",
+    "title": "Week 1: Course Overview",
+    "section": "Syntax",
+    "text": "Syntax\nCOMMAND -F --FLAG\n\nCOMMAND is the program, everything after that = arguments\nF is a single letter flag, FLAG is a single word or words connected by dashes. A space breaks things into a new argument.\nSometimes argument has single letter and long form versions (e.g. F and FLAG)\n\nCOMMAND -F --FILE file1\n\nHere we pass a text argument \"file1\" as the value for the FILE flag\n-h flag is usually to get help. You can also run the man command and pass the name of the program as the argument to get the help page.\n\nLet’s try basic commands:\n\ndate to get the current date\nwhoami to get your user name\necho \"Hello World\" to print to the console"
+  },
+  {
+    "objectID": "w01/slides.html#examining-files",
+    "href": "w01/slides.html#examining-files",
+    "title": "Week 1: Course Overview",
+    "section": "Examining Files",
+    "text": "Examining Files\n\nFind out your Present Working Directory pwd\nExamine the contents of files and folders using ls\nMake new files from scratch using touch\nGlob: “Mini-language” for selecting files with wildcards\n\n\\* for wild card any number of characters\n\\? for wild card for a single character\n[] for one of many character options\n! for exclusion\n[:alpha:], [:alnum:], [:digit:], [:lower:], [:upper:]\n\n\nReference material: Shell Lesson 1,2,4,5"
+  },
+  {
+    "objectID": "w01/slides.html#navigating-directories",
+    "href": "w01/slides.html#navigating-directories",
+    "title": "Week 1: Course Overview",
+    "section": "Navigating Directories",
+    "text": "Navigating Directories\n\nKnowing where your terminal is executing code ensures you are working with the right inputs/outputs.\nUse pwd to determine the Present Working Directory.\nChange to a folder called “git-repo” with cd git-repo.\n. refers to the current directory, such as ./git-repo\n.. can be used to move up one level (cd ..), and can be combined to move up multiple levels (cd ../../my_folder)\n/ is the root of the filesystem: contains core folders (system, users)\n~ is the home directory. Move to folders referenced relative to this path by including it at the start of your path, for example ~/projects.\nTo visualize the structure of your working directory, use tree\n\nReference link"
+  },
+  {
+    "objectID": "w01/slides.html#interacting-with-files",
+    "href": "w01/slides.html#interacting-with-files",
+    "title": "Week 1: Course Overview",
+    "section": "Interacting with Files",
+    "text": "Interacting with Files\nNow that we know how to navigate through directories, we need commands for interacting with files…\n\nmv to move files from one location to another\n\nCan use glob here - ?, *, [], …\n\ncp to copy files instead of moving\n\nCan use glob here - ?, *, [], …\n\nmkdir to make a directory\nrm to remove files\nrmdir to remove directories\nrm -rf to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING"
+  },
+  {
+    "objectID": "w01/slides.html#using-bash-for-data-exploration",
+    "href": "w01/slides.html#using-bash-for-data-exploration",
+    "title": "Week 1: Course Overview",
+    "section": "Using BASH for Data Exploration",
+    "text": "Using BASH for Data Exploration\n\nhead FILENAME / tail FILENAME - glimpsing the first / last few rows of data\nmore FILENAME / less FILENAME - viewing the data with basic up / (up & down) controls\ncat FILENAME - print entire file contents into terminal\nvim FILENAME - open (or edit!) the file in vim editor\ngrep FILENAME - search for lines within a file that match a regex expression\nwc FILENAME - count the number of lines (-l flag) or number of words (-w flag)\n\nReference material: Text Lesson 8,9,15,16"
+  },
+  {
+    "objectID": "w01/slides.html#pipes-and-arrows",
+    "href": "w01/slides.html#pipes-and-arrows",
+    "title": "Week 1: Course Overview",
+    "section": "Pipes and Arrows",
+    "text": "Pipes and Arrows\n\n| sends the stdout to another command (is the most powerful symbol in BASH!)\n&gt; sends stdout to a file and overwrites anything that was there before\n&gt;&gt; appends the stdout to the end of a file (or starts a new file from scratch if one does not exist yet)\n&lt; sends stdin into the command on the left\n\nReference material: Text Lesson 1,2,3,4,5"
+  },
+  {
+    "objectID": "w01/slides.html#alias-and-user-files",
+    "href": "w01/slides.html#alias-and-user-files",
+    "title": "Week 1: Course Overview",
+    "section": "Alias and User Files",
+    "text": "Alias and User Files\n\n/.bashrc is where your shell settings are located\nHow many processes? whoami | xargs ps -u | wc -l\nHard to remember full command! Let’s make an alias\nGeneral syntax:\nalias alias_name=\"command_to_run\"\nFor our case:\nalias nproc=\"whoami | xargs ps -u | wc -l\"\nNow we need to put this alias into the .bashrc\nalias nproc=\"whoami | xargs ps -u | wc -l\" &gt;&gt; ~/.bashrc\nYour commands get saved in ~/.bash_history"
+  },
+  {
+    "objectID": "w01/slides.html#process-management",
+    "href": "w01/slides.html#process-management",
+    "title": "Week 1: Course Overview",
+    "section": "Process Management",
+    "text": "Process Management\n\nUse ps to see your running processes\nUse top or even better htop to see all running processes\nInstall htop via sudo yum install htop -y\nTo kill a broken process: first find the process ID (PID)\nThen use kill [PID NUM] to “ask” the process to terminate. If things get really bad: kill -9 [PID NUM]\nTo kill a command in the terminal window it is running in, try using Ctrl + C or Ctrl + /\nRun cat on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.\n\nReference material: Text Lesson 1,2,3,7,9,10"
+  },
+  {
+    "objectID": "w01/slides.html#try-playing-a-linux-game",
+    "href": "w01/slides.html#try-playing-a-linux-game",
+    "title": "Week 1: Course Overview",
+    "section": "Try playing a Linux game!",
+    "text": "Try playing a Linux game!\nBash crawl is a game to help you practice your navigation and file access skills. Click on the binder link in this repo to launch a jupyter lab session and explore!"
   }
 ]

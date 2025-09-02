@@ -1,15 +1,12 @@
 window.document.addEventListener("DOMContentLoaded", function (event) {
-  var roomHtml = "<span class='sidebar-subtitle'>Th 6:30-9pm, Walsh 394</span>";
+  let sectionToggleHtml= `<span class='btn-group section-toggle' role='group' aria-label='Basic radio toggle button group' style='display: inline-flex !important; margin-top: 4px !important; width: 100% !important;'><input type='radio' class='btn-check pt-5' name='btnradio' id='btn-radio-01' autocomplete='off' onclick=\"window.toggleSectionClicked('01');\"><label class='btn btn-outline-secondary btn-sm' for='btn-radio-01' id='btn-label-01'>Sec 01</label><input type='radio' class='btn-check' name='btnradio' id='btn-radio-02' autocomplete='off' onclick=\"window.toggleSectionClicked('02');\"><label class='btn btn-outline-secondary btn-sm' for='btn-radio-02' id='btn-label-02'>Sec 02</label></span><br><span class='section-info sidebar-subtitle'><span class='sec-day'>M</span> <span class='sec-time'>3:30-6pm</span>, <span class='sec-room'>Walsh 394</span>`;
   var termHtml = "<span class='sidebar-subtitle'>Georgetown Fall 2025</span>";
   var emailHtml = "<span class='sidebar-subtitle w-100'>Prof. Jeff Jacobs&nbsp;<a href='mailto:jj1088@georgetown.edu' target='_blank'><i class='bi bi-envelope-at ps-1 pe-1'></i></a></span>";
-  // https://icons8.com/icon/set/zoom/group-color
-  // var zoomIconBlue = "<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='22' height='22' viewBox='0 0 48 48'><circle cx='24' cy='24' r='20' fill='#2196f3'></circle><path fill='#fff' d='M29,31H14c-1.657,0-3-1.343-3-3V17h15c1.657,0,3,1.343,3,3V31z'></path><polygon fill='#fff' points='37,31 31,27 31,21 37,17'></polygon></svg>";
-  // var zoomHtml = `<a href='https://georgetown.zoom.us/j/92295251878?pwd=K8nOs3w9uRlj3mfn63bh0yazBpBbsC.1' target='_blank' style='text-decoration: none !important;'><div class='sidebar-subtitle btn btn-outline-dark btn-block mt-2 mx-0 px-2 w-100 d-flex justify-content-center align-items-center'><span class='icon ps-0'>${zoomIconBlue}</span><div class='flex-grow-1 h-100' style='line-height: 1.0;'>Zoom Link</div><span class='bi bi-box-arrow-up-right pe-1 ps-1 me-0' style='font-size: 95%;'></span></div></a>`;
-  let sectionToggleHtml= `<span class='btn-group section-toggle' role='group' aria-label='Basic radio toggle button group' style='display: inline-flex !important; margin-top: 4px !important; width: 100% !important;'><input type='radio' class='btn-check pt-5' name='btnradio' id='btn-radio-01' autocomplete='off' onclick=\"window.toggleSectionClicked('01');\"><label class='btn btn-outline-secondary btn-sm' for='btn-radio-01' id='btn-label-01'>Sec 01</label><input type='radio' class='btn-check' name='btnradio' id='btn-radio-02' autocomplete='off' onclick=\"window.toggleSectionClicked('02');\"><label class='btn btn-outline-secondary btn-sm' for='btn-radio-02' id='btn-label-02'>Sec 02</label></span><br><span class='section-info sidebar-subtitle'><span class='sec-day'>M</span> <span class='sec-time'>3:30-6pm</span>, <span class='sec-room'>Walsh 394</span>`
   var subtitleDiv = $(`${sectionToggleHtml}<br>${termHtml}<br>${emailHtml}`);
   $('.sidebar-title').append(subtitleDiv);
   
   // And once the sidebar is set up we can do this stuff...
+  console.log("Obtaining section key");
   const sectionKey = 'dsan6000-section';
   window.toggleSectionClicked = (sectionStr) => {
     console.log("window.toggleSectionClicked: " + sectionStr);
@@ -133,11 +130,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       sidebarElt.attr('href', s02ZoomUrl);
     }
     // A special one for the slides... Very janky
-    const s02Replace = {
-      // w01
-      'Wednesday, August 23, 2023': 'Tuesday, August 22, 2023',
+    const s01Replace = {
       // w02
-      'Wednesday, August 30, 2023': 'Tuesday, August 29, 2023',
+      'Thursday, September 4, 2025': 'Tuesday, September 2, 2025',
       // w03
       'Wednesday, September 6, 2023': 'Tuesday, September 5, 2023',
       // w04
@@ -159,11 +154,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       // w12
       'Wednesday, November 15, 2023': 'Tuesday, November 14, 2023'
     };
-    const s03Replace = {
-      // w01
-      'Tuesday, August 22, 2023': 'Wednesday, August 23, 2023',
+    const s02Replace = {
       // w02
-      'Tuesday, August 29, 2023': 'Wednesday, August 30, 2023',
+      'Tuesday, September 2, 2025': 'Thursday, September 4, 2025',
       // w03
       'Tuesday, September 5, 2023': 'Wednesday, September 6, 2023',
       // w04
@@ -186,16 +179,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       'Tuesday, November 14, 2023': 'Wednesday, November 15, 2023'
     };
     let shownDate = $('p.date').text();
-    //console.log(shownDate);
-    if (newStr == "03" && (s03Replace.hasOwnProperty(shownDate))) {
-      console.log("Replacing with s03 date");
-      let replaceWith = s03Replace[shownDate];
-      console.log("Replacement should be: " + replaceWith);
-      $('p.date').text(replaceWith);
-    }
+    console.log("shownDate:");
+    console.log(shownDate);
     if (newStr == "02" && (s02Replace.hasOwnProperty(shownDate))) {
       console.log("Replacing with s02 date");
       let replaceWith = s02Replace[shownDate];
+      console.log("Replacement should be: " + replaceWith);
+      $('p.date').text(replaceWith);
+    }
+    if (newStr == "01" && (s01Replace.hasOwnProperty(shownDate))) {
+      console.log("Replacing with s01 date");
+      let replaceWith = s01Replace[shownDate];
       $('p.date').text(replaceWith);
     }
   };
@@ -203,22 +197,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // Check for the toggle button
     let toggleSelector = '#section-toggle-icon';
     let toggleElt = $(toggleSelector);
-    if (toggleElt.length && newSection == "03") {
+    if (toggleElt.length && newSection == "02") {
       toggleElt.removeClass("bi-toggle-off");
       toggleElt.addClass("bi-toggle-on");
       // And bold the name
-      let oldLabelElt = $('#toggle-02-label');
+      let oldLabelElt = $('#toggle-01-label');
       oldLabelElt.css('font-weight', 'normal')
-      let newLabelElt = $('#toggle-03-label');
+      let newLabelElt = $('#toggle-02-label');
       newLabelElt.css('font-weight', 'bolder');
       return;
     }
-    if (toggleElt.length && newSection == "02") {
+    if (toggleElt.length && newSection == "01") {
       toggleElt.removeClass("bi-toggle-on");
       toggleElt.addClass("bi-toggle-off");
-      let oldLabelElt = $('#toggle-03-label');
+      let oldLabelElt = $('#toggle-02-label');
       oldLabelElt.css('font-weight', 'normal');
-      let newLabelElt = $('#toggle-02-label');
+      let newLabelElt = $('#toggle-01-label');
       newLabelElt.css('font-weight', 'bolder');
     }
   };
