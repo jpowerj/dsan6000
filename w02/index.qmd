@@ -192,17 +192,28 @@ format:
 
 * A: **Using someone else's computers**
 
-## NIST Definition {.crunch-title .smaller}
+## NIST Definition {.crunch-title .smaller .title-12 .crunch-quarto-layout-panel .crunch-img .crunch-p}
+
+:::: {layout="[96,4]"}
+::: {#nist-img}
 
 ![Based on @mell_nist_2011 (The "official" NIST definition of "Cloud Computing")](img/cloud-nist.png){fig-align="center"}
 
+:::
+::: {#nist-card}
+
+![](img/nist_card.jpg){width="30"} ![](img/nist_door.jpg){width="30"}
+
+:::
+::::
+
 ## Service Models
 
-<img src="img/cloud-service-models-traditional.png">
+![](img/cloud-service-models-traditional.png){fig-align="center"}
 
 ## Hotel Analogy
 
-<img src="img/cloud-service-models-hotel.png">
+![](img/cloud-service-models-hotel.png){fig-align="center"}
 
 ## Infrastructure as a Service (IaaS) {.smaller}
 
@@ -263,7 +274,7 @@ git push heroku main  # App automatically deployed and scaled
   * Training large language models requires thousands of GPUs
   * Cloud provides elastic access to specialized hardware
   
-* **Data Storage & Processing**
+* **Data Storage and Processing**
   * AI models need petabytes of training data
   * Cloud offers unlimited, globally distributed storage
 
@@ -316,13 +327,13 @@ from ray import tune
 tune.run(train_model, resources_per_trial={"gpu": 8})
 ```
 
-## Data Storage Evolution {.smaller}
+## Data Storage Evolution {.smaller .crunch-title .crunch-p .text-65}
 
 **The Data Tsunami**
 
 * **2025 projection**: 181 zettabytes of data globally
 * **AI training datasets**: CommonCrawl (800TB), ImageNet (150GB)
-* **Real-time requirements**: 1-10ms latency for inference and in some cases Sub-millisecond
+* **Real-time requirements**: 1-10ms latency for inference (some cases sub-millisecond)
 
 **Storage Technologies**
 
@@ -336,7 +347,7 @@ tune.run(train_model, resources_per_trial={"gpu": 8})
 * **Transfer costs**: Still significant for large datasets
 * **Edge computing**: Bringing compute closer to data sources
 
-## Evolution of the Cloud
+## Evolution of the Cloud {.smaller}
 
 | Yesterday | Today | Tomorrow |
 |---|---|---|
@@ -344,12 +355,9 @@ tune.run(train_model, resources_per_trial={"gpu": 8})
 | One platform - few devices | Multiple platforms - many devices | Connected platforms and devices |
 | Data is scarce but manageable | Overabundance of data | Data is used for important business decisions |
 | IT has major influence and control | IT has limited influence and control | IT is strategic to the business |
-| People only work when they are at work | People work wherever they want | People have access to what they need, wherever they are |
+| People only work when they are at work | People work wherever they want | People have access to what they need wherever they are |
 
-## What does the cloud look like? {background-image="http://i2.cdn.turner.com/money/dam/assets/140903164019-cloud-data-center-thumb-1280x720.png"}
-
-
-## Virtual Visit to Microsoft Azure Data Center {.smaller .title-11}
+## What Does the Cloud Look Like? Microsoft Azure Data Center {.smaller .title-08}
 
 <center>
 
@@ -378,24 +386,36 @@ tune.run(train_model, resources_per_trial={"gpu": 8})
 - [6. Statista: Average number of SaaS apps used in the U.S. 2024](https://www.statista.com/statistics/1233538/average-number-saas-apps-yearly/)
 - [7. Meetanshi: SaaS Statistics for 2025: Market Size, Growth, Trends & More](https://meetanshi.com/blog/saas-statistics/)
 
-## Further Reading: Data Storage and AI Infrastructure {.smaller .title-11}
+## Data Storage and AI Infrastructure {.smaller .title-11}
 
-- [2025 global data volume (181 zettabytes)](https://rivery.io/blog/big-data-statistics-how-much-data-is-there-in-the-world/), https://explodingtopics.com/blog/data-generated-per-day [6], https://www.pit.edu/news/data-analytics-statistics-and-trends-for-2025/ [7], https://www.forbes.com/councils/forbestechcouncil/2024/03/04/from-5mb-hard-drives-to-180-zettabytes-the-data-migration-challenge/ [9]
-- CommonCrawl and ImageNet dataset sizes: https://www.ibm.com/think/topics/ai-data-center [10]
-- AI inference latency and storage tech: https://www.ibm.com/think/topics/ai-data-center [10], https://www.rcrwireless.com/20250407/fundamentals/ai-optimized-data-center [11]
+* **2025 global data volume (181 zettabytes)**
+  * [rivery.io](https://rivery.io/blog/big-data-statistics-how-much-data-is-there-in-the-world/)
+  * [ExplodingTopics.com](https://explodingtopics.com/blog/data-generated-per-day)
+  * [PIT.edu](https://www.pit.edu/news/data-analytics-statistics-and-trends-for-2025/)
+  * [Forbes](https://www.forbes.com/councils/forbestechcouncil/2024/03/04/from-5mb-hard-drives-to-180-zettabytes-the-data-migration-challenge/)
+* [CommonCrawl and ImageNet dataset sizes](https://www.ibm.com/think/topics/ai-data-center)
+* AI inference latency and storage tech:
+  * [IBM](https://www.ibm.com/think/topics/ai-data-center)
+  * [RCR Wireless](https://www.rcrwireless.com/20250407/fundamentals/ai-optimized-data-center)
 
+## Storage Economics and Technology {.smaller}
 
-## Further Reading: Storage Economics and Technology {.smaller}
-
-- Storage cost declines: https://humanprogress.org/trends/vastly-cheaper-computation/ [1], https://ourworldindata.org/data-insights/the-price-of-computer-storage-has-fallen-exponentially-since-the-1950s [8]
-- Ongoing significance of transfer (egress) costs: https://lightedge.com/the-data-explosion-and-hidden-data-storage-costs-in-the-cloud-could-object-storage-be-the-answer/ [3]
-- Edge computing trends: https://mondo.com/insights/evolution-data-storage-tapes-cloud-computing/ [5]
+* **Storage cost declines**
+  * [HumanProgress.org](https://humanprogress.org/trends/vastly-cheaper-computation/)
+  * [Our World In Data](https://ourworldindata.org/data-insights/the-price-of-computer-storage-has-fallen-exponentially-since-the-1950s)
+* [Ongoing significance of transfer (egress) costs](https://lightedge.com/the-data-explosion-and-hidden-data-storage-costs-in-the-cloud-could-object-storage-be-the-answer/)
+* [Edge computing trends](https://mondo.com/insights/evolution-data-storage-tapes-cloud-computing/)
 
 ## GPU Infrastructure and AI Training Costs {.smaller .title-11}
 
-- GPT-4 GPU count and training duration: https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33 [1], https://klu.ai/blog/gpt-4-llm [3], https://www.acorn.io/resources/learning-center/openai/ [5]
-- Meta's NVIDIA H100 GPUs: https://www.reddit.com/r/singularity/comments/1bi8rme/jensen_huang_just_gave_us_some_numbers_for_the/ [4]
-- AI training cost estimates: https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33 [1], https://www.acorn.io/resources/learning-center/openai/ [5]
+* GPT-4 GPU count and training duration
+  * [Genspark.ai](https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33)
+  * [klu.ai](https://klu.ai/blog/gpt-4-llm)
+  * [acorn.io](https://www.acorn.io/resources/learning-center/openai/)
+* [Meta's NVIDIA H100 GPUs](https://www.reddit.com/r/singularity/comments/1bi8rme/jensen_huang_just_gave_us_some_numbers_for_the/)
+* AI training cost estimates
+  * [Genspark.ai](https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33)
+  * [acorn.io](https://www.acorn.io/resources/learning-center/openai/)
 
 # Lab: EC2 🤝 S3 {data-stack-name="AWS Lab"}
 

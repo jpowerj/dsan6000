@@ -81,7 +81,7 @@
     "href": "w02/slides.html#nist-definition",
     "title": "Week 2: Cloud Computing",
     "section": "NIST Definition",
-    "text": "NIST Definition\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)"
+    "text": "NIST Definition\n\n\n\n\n\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)"
   },
   {
     "objectID": "w02/slides.html#service-models",
@@ -123,7 +123,7 @@
     "href": "w02/slides.html#cloud-infrastructure-and-the-ai-revolution",
     "title": "Week 2: Cloud Computing",
     "section": "Cloud Infrastructure and the AI Revolution",
-    "text": "Cloud Infrastructure and the AI Revolution\n\nMassive Computational Requirements\n\nTraining large language models requires thousands of GPUs\nCloud provides elastic access to specialized hardware\n\nData Storage & Processing\n\nAI models need petabytes of training data\nCloud offers unlimited, globally distributed storage\n\nCost Efficiency\n\nPay-per-use model for expensive AI hardware\nNo upfront investment in GPU clusters"
+    "text": "Cloud Infrastructure and the AI Revolution\n\nMassive Computational Requirements\n\nTraining large language models requires thousands of GPUs\nCloud provides elastic access to specialized hardware\n\nData Storage and Processing\n\nAI models need petabytes of training data\nCloud offers unlimited, globally distributed storage\n\nCost Efficiency\n\nPay-per-use model for expensive AI hardware\nNo upfront investment in GPU clusters"
   },
   {
     "objectID": "w02/slides.html#gpu-infrastructure-the-ai-powerhouse",
@@ -144,28 +144,21 @@
     "href": "w02/slides.html#data-storage-evolution",
     "title": "Week 2: Cloud Computing",
     "section": "Data Storage Evolution",
-    "text": "Data Storage Evolution\nThe Data Tsunami\n\n2025 projection: 181 zettabytes of data globally\nAI training datasets: CommonCrawl (800TB), ImageNet (150GB)\nReal-time requirements: 1-10ms latency for inference and in some cases Sub-millisecond\n\nStorage Technologies\n\nObject Storage: Amazon S3, Google Cloud Storage (petabyte scale)\nHigh-performance: NVMe SSDs, persistent memory\nDistributed filesystems: HDFS, GlusterFS, Ceph\n\nThe Economics of Data\n\nStorage costs: Dropped 99.9% since 1980\nTransfer costs: Still significant for large datasets\nEdge computing: Bringing compute closer to data sources"
+    "text": "Data Storage Evolution\nThe Data Tsunami\n\n2025 projection: 181 zettabytes of data globally\nAI training datasets: CommonCrawl (800TB), ImageNet (150GB)\nReal-time requirements: 1-10ms latency for inference (some cases sub-millisecond)\n\nStorage Technologies\n\nObject Storage: Amazon S3, Google Cloud Storage (petabyte scale)\nHigh-performance: NVMe SSDs, persistent memory\nDistributed filesystems: HDFS, GlusterFS, Ceph\n\nThe Economics of Data\n\nStorage costs: Dropped 99.9% since 1980\nTransfer costs: Still significant for large datasets\nEdge computing: Bringing compute closer to data sources"
   },
   {
     "objectID": "w02/slides.html#evolution-of-the-cloud",
     "href": "w02/slides.html#evolution-of-the-cloud",
     "title": "Week 2: Cloud Computing",
     "section": "Evolution of the Cloud",
-    "text": "Evolution of the Cloud\n\n\n\n\n\n\n\n\nYesterday\nToday\nTomorrow\n\n\n\n\nLimited number of tools and vendors\nMany tools and vendors to work with\nIntegrated tools and vendors\n\n\nOne platform - few devices\nMultiple platforms - many devices\nConnected platforms and devices\n\n\nData is scarce but manageable\nOverabundance of data\nData is used for important business decisions\n\n\nIT has major influence and control\nIT has limited influence and control\nIT is strategic to the business\n\n\nPeople only work when they are at work\nPeople work wherever they want\nPeople have access to what they need, wherever they are"
+    "text": "Evolution of the Cloud\n\n\n\n\n\n\n\n\nYesterday\nToday\nTomorrow\n\n\n\n\nLimited number of tools and vendors\nMany tools and vendors to work with\nIntegrated tools and vendors\n\n\nOne platform - few devices\nMultiple platforms - many devices\nConnected platforms and devices\n\n\nData is scarce but manageable\nOverabundance of data\nData is used for important business decisions\n\n\nIT has major influence and control\nIT has limited influence and control\nIT is strategic to the business\n\n\nPeople only work when they are at work\nPeople work wherever they want\nPeople have access to what they need wherever they are"
   },
   {
-    "objectID": "w02/slides.html#what-does-the-cloud-look-like",
-    "href": "w02/slides.html#what-does-the-cloud-look-like",
+    "objectID": "w02/slides.html#what-does-the-cloud-look-like-microsoft-azure-data-center",
+    "href": "w02/slides.html#what-does-the-cloud-look-like-microsoft-azure-data-center",
     "title": "Week 2: Cloud Computing",
-    "section": "What does the cloud look like?",
-    "text": "What does the cloud look like?"
-  },
-  {
-    "objectID": "w02/slides.html#virtual-visit-to-microsoft-azure-data-center",
-    "href": "w02/slides.html#virtual-visit-to-microsoft-azure-data-center",
-    "title": "Week 2: Cloud Computing",
-    "section": "Virtual Visit to Microsoft Azure Data Center",
-    "text": "Virtual Visit to Microsoft Azure Data Center"
+    "section": "What Does the Cloud Look Like? Microsoft Azure Data Center",
+    "text": "What Does the Cloud Look Like? Microsoft Azure Data Center"
   },
   {
     "objectID": "w02/slides.html#loudon-county-va-cloudon",
@@ -182,25 +175,25 @@
     "text": "Further Reading: SaaS and Cloud Computing\nSaaS and Cloud Computing Statistics:\n\n1. Zylo: 111 Unmissable SaaS Statistics for 2025\n2. Spendesk: 60+ eye-opening SaaS statistics (2025)\n3. Substly: The 28 most important SaaS statistics in 2023\n4. Harpa AI: SaaS Industry Key Statistics 2023\n5. Content Beta: 110+ SaaS Statistics and Trends\n6. Statista: Average number of SaaS apps used in the U.S. 2024\n7. Meetanshi: SaaS Statistics for 2025: Market Size, Growth, Trends & More"
   },
   {
-    "objectID": "w02/slides.html#further-reading-data-storage-and-ai-infrastructure",
-    "href": "w02/slides.html#further-reading-data-storage-and-ai-infrastructure",
+    "objectID": "w02/slides.html#data-storage-and-ai-infrastructure",
+    "href": "w02/slides.html#data-storage-and-ai-infrastructure",
     "title": "Week 2: Cloud Computing",
-    "section": "Further Reading: Data Storage and AI Infrastructure",
-    "text": "Further Reading: Data Storage and AI Infrastructure\n\n2025 global data volume (181 zettabytes), https://explodingtopics.com/blog/data-generated-per-day [6], https://www.pit.edu/news/data-analytics-statistics-and-trends-for-2025/ [7], https://www.forbes.com/councils/forbestechcouncil/2024/03/04/from-5mb-hard-drives-to-180-zettabytes-the-data-migration-challenge/ [9]\nCommonCrawl and ImageNet dataset sizes: https://www.ibm.com/think/topics/ai-data-center [10]\nAI inference latency and storage tech: https://www.ibm.com/think/topics/ai-data-center [10], https://www.rcrwireless.com/20250407/fundamentals/ai-optimized-data-center [11]"
+    "section": "Data Storage and AI Infrastructure",
+    "text": "Data Storage and AI Infrastructure\n\n2025 global data volume (181 zettabytes)\n\nrivery.io\nExplodingTopics.com\nPIT.edu\nForbes\n\nCommonCrawl and ImageNet dataset sizes\nAI inference latency and storage tech:\n\nIBM\nRCR Wireless"
   },
   {
-    "objectID": "w02/slides.html#further-reading-storage-economics-and-technology",
-    "href": "w02/slides.html#further-reading-storage-economics-and-technology",
+    "objectID": "w02/slides.html#storage-economics-and-technology",
+    "href": "w02/slides.html#storage-economics-and-technology",
     "title": "Week 2: Cloud Computing",
-    "section": "Further Reading: Storage Economics and Technology",
-    "text": "Further Reading: Storage Economics and Technology\n\nStorage cost declines: https://humanprogress.org/trends/vastly-cheaper-computation/ [1], https://ourworldindata.org/data-insights/the-price-of-computer-storage-has-fallen-exponentially-since-the-1950s [8]\nOngoing significance of transfer (egress) costs: https://lightedge.com/the-data-explosion-and-hidden-data-storage-costs-in-the-cloud-could-object-storage-be-the-answer/ [3]\nEdge computing trends: https://mondo.com/insights/evolution-data-storage-tapes-cloud-computing/ [5]"
+    "section": "Storage Economics and Technology",
+    "text": "Storage Economics and Technology\n\nStorage cost declines\n\nHumanProgress.org\nOur World In Data\n\nOngoing significance of transfer (egress) costs\nEdge computing trends"
   },
   {
     "objectID": "w02/slides.html#gpu-infrastructure-and-ai-training-costs",
     "href": "w02/slides.html#gpu-infrastructure-and-ai-training-costs",
     "title": "Week 2: Cloud Computing",
     "section": "GPU Infrastructure and AI Training Costs",
-    "text": "GPU Infrastructure and AI Training Costs\n\nGPT-4 GPU count and training duration: https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33 [1], https://klu.ai/blog/gpt-4-llm [3], https://www.acorn.io/resources/learning-center/openai/ [5]\nMeta’s NVIDIA H100 GPUs: https://www.reddit.com/r/singularity/comments/1bi8rme/jensen_huang_just_gave_us_some_numbers_for_the/ [4]\nAI training cost estimates: https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33 [1], https://www.acorn.io/resources/learning-center/openai/ [5]"
+    "text": "GPU Infrastructure and AI Training Costs\n\nGPT-4 GPU count and training duration\n\nGenspark.ai\nklu.ai\nacorn.io\n\nMeta’s NVIDIA H100 GPUs\nAI training cost estimates\n\nGenspark.ai\nacorn.io"
   },
   {
     "objectID": "w02/slides.html#references",
@@ -334,7 +327,7 @@
     "href": "w02/index.html#nist-definition",
     "title": "Week 2: Cloud Computing",
     "section": "NIST Definition",
-    "text": "NIST Definition\n\n\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)",
+    "text": "NIST Definition\n\n\n\n\n\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 2</span>"
     ]
@@ -394,7 +387,7 @@
     "href": "w02/index.html#cloud-infrastructure-and-the-ai-revolution",
     "title": "Week 2: Cloud Computing",
     "section": "Cloud Infrastructure and the AI Revolution",
-    "text": "Cloud Infrastructure and the AI Revolution\n\nMassive Computational Requirements\n\nTraining large language models requires thousands of GPUs\nCloud provides elastic access to specialized hardware\n\nData Storage & Processing\n\nAI models need petabytes of training data\nCloud offers unlimited, globally distributed storage\n\nCost Efficiency\n\nPay-per-use model for expensive AI hardware\nNo upfront investment in GPU clusters",
+    "text": "Cloud Infrastructure and the AI Revolution\n\nMassive Computational Requirements\n\nTraining large language models requires thousands of GPUs\nCloud provides elastic access to specialized hardware\n\nData Storage and Processing\n\nAI models need petabytes of training data\nCloud offers unlimited, globally distributed storage\n\nCost Efficiency\n\nPay-per-use model for expensive AI hardware\nNo upfront investment in GPU clusters",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 2</span>"
     ]
@@ -424,7 +417,7 @@
     "href": "w02/index.html#data-storage-evolution",
     "title": "Week 2: Cloud Computing",
     "section": "Data Storage Evolution",
-    "text": "Data Storage Evolution\nThe Data Tsunami\n\n2025 projection: 181 zettabytes of data globally\nAI training datasets: CommonCrawl (800TB), ImageNet (150GB)\nReal-time requirements: 1-10ms latency for inference and in some cases Sub-millisecond\n\nStorage Technologies\n\nObject Storage: Amazon S3, Google Cloud Storage (petabyte scale)\nHigh-performance: NVMe SSDs, persistent memory\nDistributed filesystems: HDFS, GlusterFS, Ceph\n\nThe Economics of Data\n\nStorage costs: Dropped 99.9% since 1980\nTransfer costs: Still significant for large datasets\nEdge computing: Bringing compute closer to data sources",
+    "text": "Data Storage Evolution\nThe Data Tsunami\n\n2025 projection: 181 zettabytes of data globally\nAI training datasets: CommonCrawl (800TB), ImageNet (150GB)\nReal-time requirements: 1-10ms latency for inference (some cases sub-millisecond)\n\nStorage Technologies\n\nObject Storage: Amazon S3, Google Cloud Storage (petabyte scale)\nHigh-performance: NVMe SSDs, persistent memory\nDistributed filesystems: HDFS, GlusterFS, Ceph\n\nThe Economics of Data\n\nStorage costs: Dropped 99.9% since 1980\nTransfer costs: Still significant for large datasets\nEdge computing: Bringing compute closer to data sources",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 2</span>"
     ]
@@ -434,27 +427,17 @@
     "href": "w02/index.html#evolution-of-the-cloud",
     "title": "Week 2: Cloud Computing",
     "section": "Evolution of the Cloud",
-    "text": "Evolution of the Cloud\n\n\n\n\n\n\n\n\nYesterday\nToday\nTomorrow\n\n\n\n\nLimited number of tools and vendors\nMany tools and vendors to work with\nIntegrated tools and vendors\n\n\nOne platform - few devices\nMultiple platforms - many devices\nConnected platforms and devices\n\n\nData is scarce but manageable\nOverabundance of data\nData is used for important business decisions\n\n\nIT has major influence and control\nIT has limited influence and control\nIT is strategic to the business\n\n\nPeople only work when they are at work\nPeople work wherever they want\nPeople have access to what they need, wherever they are",
+    "text": "Evolution of the Cloud\n\n\n\n\n\n\n\n\nYesterday\nToday\nTomorrow\n\n\n\n\nLimited number of tools and vendors\nMany tools and vendors to work with\nIntegrated tools and vendors\n\n\nOne platform - few devices\nMultiple platforms - many devices\nConnected platforms and devices\n\n\nData is scarce but manageable\nOverabundance of data\nData is used for important business decisions\n\n\nIT has major influence and control\nIT has limited influence and control\nIT is strategic to the business\n\n\nPeople only work when they are at work\nPeople work wherever they want\nPeople have access to what they need wherever they are",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 2</span>"
     ]
   },
   {
-    "objectID": "w02/index.html#what-does-the-cloud-look-like",
-    "href": "w02/index.html#what-does-the-cloud-look-like",
+    "objectID": "w02/index.html#what-does-the-cloud-look-like-microsoft-azure-data-center",
+    "href": "w02/index.html#what-does-the-cloud-look-like-microsoft-azure-data-center",
     "title": "Week 2: Cloud Computing",
-    "section": "What does the cloud look like?",
-    "text": "What does the cloud look like?",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#virtual-visit-to-microsoft-azure-data-center",
-    "href": "w02/index.html#virtual-visit-to-microsoft-azure-data-center",
-    "title": "Week 2: Cloud Computing",
-    "section": "Virtual Visit to Microsoft Azure Data Center",
-    "text": "Virtual Visit to Microsoft Azure Data Center",
+    "section": "What Does the Cloud Look Like? Microsoft Azure Data Center",
+    "text": "What Does the Cloud Look Like? Microsoft Azure Data Center",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 2</span>"
     ]
@@ -480,21 +463,21 @@
     ]
   },
   {
-    "objectID": "w02/index.html#further-reading-data-storage-and-ai-infrastructure",
-    "href": "w02/index.html#further-reading-data-storage-and-ai-infrastructure",
+    "objectID": "w02/index.html#data-storage-and-ai-infrastructure",
+    "href": "w02/index.html#data-storage-and-ai-infrastructure",
     "title": "Week 2: Cloud Computing",
-    "section": "Further Reading: Data Storage and AI Infrastructure",
-    "text": "Further Reading: Data Storage and AI Infrastructure\n\n2025 global data volume (181 zettabytes), https://explodingtopics.com/blog/data-generated-per-day [6], https://www.pit.edu/news/data-analytics-statistics-and-trends-for-2025/ [7], https://www.forbes.com/councils/forbestechcouncil/2024/03/04/from-5mb-hard-drives-to-180-zettabytes-the-data-migration-challenge/ [9]\nCommonCrawl and ImageNet dataset sizes: https://www.ibm.com/think/topics/ai-data-center [10]\nAI inference latency and storage tech: https://www.ibm.com/think/topics/ai-data-center [10], https://www.rcrwireless.com/20250407/fundamentals/ai-optimized-data-center [11]",
+    "section": "Data Storage and AI Infrastructure",
+    "text": "Data Storage and AI Infrastructure\n\n2025 global data volume (181 zettabytes)\n\nrivery.io\nExplodingTopics.com\nPIT.edu\nForbes\n\nCommonCrawl and ImageNet dataset sizes\nAI inference latency and storage tech:\n\nIBM\nRCR Wireless",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 2</span>"
     ]
   },
   {
-    "objectID": "w02/index.html#further-reading-storage-economics-and-technology",
-    "href": "w02/index.html#further-reading-storage-economics-and-technology",
+    "objectID": "w02/index.html#storage-economics-and-technology",
+    "href": "w02/index.html#storage-economics-and-technology",
     "title": "Week 2: Cloud Computing",
-    "section": "Further Reading: Storage Economics and Technology",
-    "text": "Further Reading: Storage Economics and Technology\n\nStorage cost declines: https://humanprogress.org/trends/vastly-cheaper-computation/ [1], https://ourworldindata.org/data-insights/the-price-of-computer-storage-has-fallen-exponentially-since-the-1950s [8]\nOngoing significance of transfer (egress) costs: https://lightedge.com/the-data-explosion-and-hidden-data-storage-costs-in-the-cloud-could-object-storage-be-the-answer/ [3]\nEdge computing trends: https://mondo.com/insights/evolution-data-storage-tapes-cloud-computing/ [5]",
+    "section": "Storage Economics and Technology",
+    "text": "Storage Economics and Technology\n\nStorage cost declines\n\nHumanProgress.org\nOur World In Data\n\nOngoing significance of transfer (egress) costs\nEdge computing trends",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 2</span>"
     ]
@@ -504,7 +487,7 @@
     "href": "w02/index.html#gpu-infrastructure-and-ai-training-costs",
     "title": "Week 2: Cloud Computing",
     "section": "GPU Infrastructure and AI Training Costs",
-    "text": "GPU Infrastructure and AI Training Costs\n\nGPT-4 GPU count and training duration: https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33 [1], https://klu.ai/blog/gpt-4-llm [3], https://www.acorn.io/resources/learning-center/openai/ [5]\nMeta’s NVIDIA H100 GPUs: https://www.reddit.com/r/singularity/comments/1bi8rme/jensen_huang_just_gave_us_some_numbers_for_the/ [4]\nAI training cost estimates: https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33 [1], https://www.acorn.io/resources/learning-center/openai/ [5]",
+    "text": "GPU Infrastructure and AI Training Costs\n\nGPT-4 GPU count and training duration\n\nGenspark.ai\nklu.ai\nacorn.io\n\nMeta’s NVIDIA H100 GPUs\nAI training cost estimates\n\nGenspark.ai\nacorn.io",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 2</span>"
     ]
