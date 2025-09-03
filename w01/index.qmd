@@ -13,6 +13,10 @@ crossref:
 # bibliography: "../_PPOL6805.bib"
 cache: true
 format:
+  html:
+    output-file: "index.html"
+    html-math-method: mathjax
+    df-print: kable
   revealjs:
     output-file: "slides.html"
     html-math-method: mathjax
@@ -21,8 +25,6 @@ format:
     link-external-icon: true
     link-external-newwindow: true
     footer: "{{< var weeks.1.footer >}}"
-    include-in-header:
-      text: "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'><link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link href='https://fonts.googleapis.com/css2?family=Honk&display=swap' rel='stylesheet'>"
     theme: [default, "../dsan-globals/jjquarto.scss"]
     revealjs-plugins:
       - simplemenu
@@ -31,12 +33,6 @@ format:
       barhtml:
         header: "<div class='menubar'><span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span><ul class='menu'></ul></div>"
       scale: 0.5
-  html:
-    output-file: "index.html"
-    html-math-method: mathjax
-    df-print: kable
-    include-in-header:
-      text: "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'><link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link href='https://fonts.googleapis.com/css2?family=Honk&display=swap' rel='stylesheet'>"
 ---
 
 ::: {.content-visible unless-format="revealjs"}
