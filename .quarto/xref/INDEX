@@ -70,5 +70,8 @@
   "w14/index.qmd": {
     "slides.html": "25756da9",
     "index.html": "5fe5b0bf"
+  },
+  "resources.qmd": {
+    "resources.html": "3b1db4ae"
   }
 }

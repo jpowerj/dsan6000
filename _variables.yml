@@ -1,5 +1,5 @@
 course:
-  author: "Jeff Jacobs"
+  author: "Amit Arora and Jeff Jacobs"
   institute: "<a href='mailto:jj1088@georgetown.edu' target='_blank'>`jj1088@georgetown.edu`</a>"
   slides-subtitle: "*DSAN 6000: Big Data and Cloud Computing*<br>Fall 2025"
   name: "Big Data and Cloud Computing"
@@ -35,8 +35,8 @@ weeks:
     date-md: "Sep 2"
   - weeknum: 3
     title: "Unary Operations"
-    footer: "PPOL 6805 Week 3: Unary Operations"
-    date-md: "Sep 11"
+    footer: "DSAN 6000 Week 3: Parallelization Concepts"
+    date-md: "Sep 8"
   - weeknum: 4
     title: "Binary Operations"
     footer: "PPOL 6805 Week 4: Binary Operations"
@@ -90,3 +90,7 @@ university:
   url: "https://www.georgetown.edu/"
   lms: Canvas
   lms_url: https://canvas.georgetown.edu
+due_dates:
+  assignment02: "September 17, 2025"
+  assignment03: "September 24, 2025"
+  lab03: "September 17, 2025"

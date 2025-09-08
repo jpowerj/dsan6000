@@ -1,0 +1,8 @@
+---
+title: "Resource Hub"
+sidebar: mainnav
+format:
+  html:
+    df-print: kable
+---
+

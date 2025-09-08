@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jeff Jacobs">
+<meta name="author" content="Amit Arora and Jeff Jacobs">
 
 <title>Week 3: Parallelization Concepts – DSAN 6000 Slide Hub</title>
 <style>
@@ -21,7 +21,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -46,6 +101,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-a14e3238c51140e99ccc48519b6ed9ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-ccd81253fefb92e9cd3f9eb5b5d87b54.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-a14e3238c51140e99ccc48519b6ed9ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,6 +132,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><script src="../sidebar.js"></script><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../dsan-globals/jjstyles.css">
 </head>
@@ -397,13 +483,58 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2025-09-03, 01:38:28 AM</em></p>
+<p><em>Updated 2025-09-08, 03:24:26 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#looking-back" id="toc-looking-back" class="nav-link active" data-scroll-target="#looking-back">Looking back</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary">Glossary</a></li>
+  <li><a href="#parallelization-in-general" id="toc-parallelization-in-general" class="nav-link" data-scroll-target="#parallelization-in-general">Parallelization in General</a>
+  <ul class="collapse">
+  <li><a href="#quick-survey-question-for-intuition-building" id="toc-quick-survey-question-for-intuition-building" class="nav-link" data-scroll-target="#quick-survey-question-for-intuition-building">Quick Survey Question, for Intuition-Building</a></li>
+  <li><a href="#the-answer" id="toc-the-answer" class="nav-link" data-scroll-target="#the-answer">The Answer</a></li>
+  <li><a href="#helpful-specifically-for-programming" id="toc-helpful-specifically-for-programming" class="nav-link" data-scroll-target="#helpful-specifically-for-programming">Helpful <em>Specifically</em> for Programming</a></li>
+  <li><a href="#helpful-in-general-as-a-way-of-thinking" id="toc-helpful-in-general-as-a-way-of-thinking" class="nav-link" data-scroll-target="#helpful-in-general-as-a-way-of-thinking">Helpful <em>In General</em> as a Way of Thinking!</a></li>
+  <li><a href="#avoiding-the-rabbithole" id="toc-avoiding-the-rabbithole" class="nav-link" data-scroll-target="#avoiding-the-rabbithole">Avoiding the Rabbithole</a></li>
+  <li><a href="#typical-real-world-scenarios" id="toc-typical-real-world-scenarios" class="nav-link" data-scroll-target="#typical-real-world-scenarios">Typical Real-World Scenarios</a></li>
+  <li><a href="#embarrassingly-parallel-pipelines" id="toc-embarrassingly-parallel-pipelines" class="nav-link" data-scroll-target="#embarrassingly-parallel-pipelines">“Embarrassingly Parallel” Pipelines</a></li>
+  <li><a href="#parallelizing-non-embarrassingly-parallel-pipelines" id="toc-parallelizing-non-embarrassingly-parallel-pipelines" class="nav-link" data-scroll-target="#parallelizing-non-embarrassingly-parallel-pipelines">Parallelizing Non-Embarrassingly-Parallel Pipelines</a></li>
+  <li><a href="#buzzkill-complications-to-come" id="toc-buzzkill-complications-to-come" class="nav-link" data-scroll-target="#buzzkill-complications-to-come">Buzzkill: Complications to Come 😰</a></li>
+  <li><a href="#rules-of-thumb-for-parallelization" id="toc-rules-of-thumb-for-parallelization" class="nav-link" data-scroll-target="#rules-of-thumb-for-parallelization">Rules of Thumb for Parallelization</a></li>
+  <li><a href="#in-action" id="toc-in-action" class="nav-link" data-scroll-target="#in-action">In Action</a></li>
+  </ul></li>
+  <li><a href="#beyond-embarrassingly-parallel-tasks" id="toc-beyond-embarrassingly-parallel-tasks" class="nav-link" data-scroll-target="#beyond-embarrassingly-parallel-tasks">Beyond Embarrassingly Parallel Tasks…</a>
+  <ul class="collapse">
+  <li><a href="#what-happens-when-not-embarrassingly-parallel" id="toc-what-happens-when-not-embarrassingly-parallel" class="nav-link" data-scroll-target="#what-happens-when-not-embarrassingly-parallel">What Happens When <em>Not</em> Embarrassingly Parallel?</a></li>
+  <li><a href="#the-analogy-to-map-reduce" id="toc-the-analogy-to-map-reduce" class="nav-link" data-scroll-target="#the-analogy-to-map-reduce">The Analogy to Map-Reduce</a></li>
+  <li><a href="#the-direct-analogy-map-reduce" id="toc-the-direct-analogy-map-reduce" class="nav-link" data-scroll-target="#the-direct-analogy-map-reduce">The Direct Analogy: Map-Reduce!</a></li>
+  </ul></li>
+  <li><a href="#quick-aside-functional-programming-fp" id="toc-quick-aside-functional-programming-fp" class="nav-link" data-scroll-target="#quick-aside-functional-programming-fp">Quick Aside: Functional Programming (FP)</a>
+  <ul class="collapse">
+  <li><a href="#functions-vs.-functionals" id="toc-functions-vs.-functionals" class="nav-link" data-scroll-target="#functions-vs.-functionals">Functions vs.&nbsp;Functionals</a></li>
+  <li><a href="#train-your-brain-for-functional-approach-implies-master-debugging" id="toc-train-your-brain-for-functional-approach-implies-master-debugging" class="nav-link" data-scroll-target="#train-your-brain-for-functional-approach-implies-master-debugging">Train Your Brain for Functional Approach <span class="math inline">\(\implies\)</span> Master Debugging!</a></li>
+  <li><a href="#code-rightarrow-pipelines-rightarrow-debuggable-pipelines" id="toc-code-rightarrow-pipelines-rightarrow-debuggable-pipelines" class="nav-link" data-scroll-target="#code-rightarrow-pipelines-rightarrow-debuggable-pipelines">Code <span class="math inline">\(\rightarrow\)</span> Pipelines <span class="math inline">\(\rightarrow\)</span> <em>Debuggable</em> Pipelines</a></li>
+  <li><a href="#if-its-so-useful-why-doesnt-everyone-do-it" id="toc-if-its-so-useful-why-doesnt-everyone-do-it" class="nav-link" data-scroll-target="#if-its-so-useful-why-doesnt-everyone-do-it">If It’s So Useful, Why Doesn’t Everyone Do It?</a></li>
+  </ul></li>
+  <li><a href="#but-why-is-all-this-weird-mapping-and-reducing-necessary" id="toc-but-why-is-all-this-weird-mapping-and-reducing-necessary" class="nav-link" data-scroll-target="#but-why-is-all-this-weird-mapping-and-reducing-necessary">But… Why is All This Weird Mapping and Reducing Necessary?</a>
+  <ul class="collapse">
+  <li><a href="#the-killer-application-matrix-multiplication" id="toc-the-killer-application-matrix-multiplication" class="nav-link" data-scroll-target="#the-killer-application-matrix-multiplication">The “Killer Application”: Matrix Multiplication</a></li>
+  <li><a href="#the-killer-way-to-learn-text-counts" id="toc-the-killer-way-to-learn-text-counts" class="nav-link" data-scroll-target="#the-killer-way-to-learn-text-counts">The Killer Way-To-Learn: Text Counts!</a></li>
+  <li><a href="#if-everything-doesnt-fit-on-cpu" id="toc-if-everything-doesnt-fit-on-cpu" class="nav-link" data-scroll-target="#if-everything-doesnt-fit-on-cpu">If Everything <em>Doesn’t</em> Fit on CPU…</a></li>
+  <li><a href="#break-problem-into-chunks-for-the-green-bois" id="toc-break-problem-into-chunks-for-the-green-bois" class="nav-link" data-scroll-target="#break-problem-into-chunks-for-the-green-bois">Break Problem into <em>Chunks</em> for the Green Bois!</a></li>
+  </ul></li>
+  <li><a href="#lab-time" id="toc-lab-time" class="nav-link" data-scroll-target="#lab-time">Lab Time!</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w03/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -418,23 +549,16 @@ ul.task-list li input[type="checkbox"] {
   </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Jeff Jacobs </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="mailto:jj1088@georgetown.edu" target="_blank"><code>jj1088@georgetown.edu</code></a>
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Amit Arora and Jeff Jacobs </p>
+          </div>
+  </div>
+    
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
@@ -450,8 +574,883 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<center class="mb-3">
+<a class="h2" href="./slides.html" target="_blank">Open slides in new tab →</a>
+</center>
+<section id="looking-back" class="level2">
+<h2 class="anchored" data-anchor-id="looking-back">Looking back</h2>
+<ul>
+<li>Continued great use of Slack!
+<ul>
+<li>Nice interactions</li>
+</ul></li>
+<li>Due date reminders:
+<ul>
+<li>Assignment 2: September 17, 2025</li>
+<li>Lab 3: September 17, 2025</li>
+<li>Assignment 3: September 24, 2025</li>
+</ul></li>
+</ul>
+</section>
+<section id="glossary" class="level2 smaller crunch-title text-65">
+<h2 class="smaller crunch-title text-65 anchored" data-anchor-id="glossary">Glossary</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Local</strong></td>
+<td>Your current workstation (laptop, desktop, etc.), wherever you start the terminal/console application.</td>
+</tr>
+<tr class="even">
+<td><strong>Remote</strong></td>
+<td>Any machine you connect to via ssh or other means.</td>
+</tr>
+<tr class="odd">
+<td><strong>EC2</strong></td>
+<td>Single virtual machine in the cloud where you can run computation</td>
+</tr>
+<tr class="even">
+<td><strong>SageMaker</strong></td>
+<td>Integrated Developer Environment where you can conduct data science on single machines or distributed training</td>
+</tr>
+<tr class="odd">
+<td><strong>GPU</strong></td>
+<td>Graphics Processing Unit - specialized hardware for parallel computation, essential for AI/ML</td>
+</tr>
+<tr class="even">
+<td><strong>TPU</strong></td>
+<td>Tensor Processing Unit - Google’s custom AI accelerator chips</td>
+</tr>
+<tr class="odd">
+<td><strong>Ephemeral</strong></td>
+<td>Lasting for a short time - any machine that will get turned off or place you will lose data</td>
+</tr>
+<tr class="even">
+<td><strong>Persistent</strong></td>
+<td>Lasting for a long time - any environment where your work is NOT lost when the timer goes off</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parallelization-in-general" class="level1" data-stack-name="Parallel Overview">
+<h1 data-stack-name="Parallel Overview">Parallelization in General</h1>
+<section id="quick-survey-question-for-intuition-building" class="level2">
+<h2 class="anchored" data-anchor-id="quick-survey-question-for-intuition-building">Quick Survey Question, for Intuition-Building</h2>
+<ul>
+<li>Are humans capable of <strong>“true” multi-tasking</strong>?
+<ul>
+<li>As in, doing two things at the <strong>exact same time?</strong></li>
+</ul></li>
+<li>(Or, do we instead <strong>rapidly switch back and forth</strong> between tasks?)</li>
+</ul>
+</section>
+<section id="the-answer" class="level2 smaller crunch-title crunch-ul">
+<h2 class="smaller crunch-title crunch-ul anchored" data-anchor-id="the-answer">The Answer</h2>
+<ul>
+<li>(From what we understand, at the moment, by way of studies in neuroscience/cognitive science/etc…)</li>
+<li>Humans are <strong>not</strong> capable of true multitasking! In CS terms, this would be called <strong>multiprocessing</strong> (more on this later)</li>
+<li>We <strong>are</strong> capable, however, of various modes of <strong>concurrency</strong>!</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Multithreading</th>
+<th>Asynchronous Execution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Unconsciously</strong><br>(you do it already, “naturally”)</td>
+<td>Focus on <strong>one</strong> speaker within a loud room, with tons of other conversations entering your ears</td>
+<td>Put something in oven, set alarm, go do something else, take out of oven once alarm goes off</td>
+</tr>
+<tr class="even">
+<td><strong>Consciously</strong><br>(you can do it with effort/practice)</td>
+<td>Pat head (up and down) and rub stomach (circular motion) “simultaneously”</td>
+<td>Throw a ball in the air, clap 3 times, catch ball</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="helpful-specifically-for-programming" class="level2 title-09">
+<h2 class="title-09 anchored" data-anchor-id="helpful-specifically-for-programming">Helpful <em>Specifically</em> for Programming</h2>
+<ul>
+<li>Course notes from MIT’s <a href="https://book.sciml.ai/">class on parallel computing</a> phrases it like: if implemented thoughtfully, concurrency is a <strong>power multiplier</strong> for your code (do 10 things in 1 second instead of 10 seconds…)</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/mario.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="helpful-in-general-as-a-way-of-thinking" class="level2 crunch-title crunch-ul title-08">
+<h2 class="crunch-title crunch-ul title-08 anchored" data-anchor-id="helpful-in-general-as-a-way-of-thinking">Helpful <em>In General</em> as a Way of Thinking!</h2>
+<ul>
+<li>Say you get hired as a Project Manager…</li>
+<li>Part of your job will fundamentally involve <strong>pipelines!</strong>
+<ul>
+<li>Need to know when Task <span class="math inline">\(B\)</span> does/does not require Task <span class="math inline">\(A\)</span> as a prerequisite</li>
+<li>Need to know whether Task <span class="math inline">\(A\)</span> and Task <span class="math inline">\(B\)</span> can <strong>share one resource</strong> or <strong>need their own individual resources</strong></li>
+<li>Once Task <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> both complete, how do we <strong>merge</strong> their results together?</li>
+</ul></li>
+</ul>
+</section>
+<section id="avoiding-the-rabbithole" class="level2">
+<h2 class="anchored" data-anchor-id="avoiding-the-rabbithole">Avoiding the Rabbithole</h2>
+<ul>
+<li>Parallel computing is a <strong>rabbithole</strong>, but one you can safely avoid via simple heuristics (“rules of thumb”)!</li>
+</ul>
+<ol type="1">
+<li>Check for optimizations to serial code first,</li>
+<li>Check for <strong>embarrassingly parallel</strong> code blocks</li>
+<li>Use <strong>map-reduce</strong> approach for more complicated cases</li>
+</ol>
+</section>
+<section id="typical-real-world-scenarios" class="level2 smaller crunch-title text-65">
+<h2 class="smaller crunch-title text-65 anchored" data-anchor-id="typical-real-world-scenarios">Typical Real-World Scenarios</h2>
+<ul>
+<li>You need to <strong>prepare training data</strong> for LLMs by cleaning and deduplicating 100TB of web-scraped text</li>
+<li>You are building a <strong>RAG system</strong> that requires embedding and indexing millions of documents in parallel</li>
+<li>You need to <strong>extract structured data</strong> from millions of PDFs using vision models for document AI</li>
+<li>You are <strong>preprocessing multimodal datasets</strong> with billions of image-text pairs for foundation model training</li>
+<li>You need to run <strong>quality filtering</strong> on petabytes of Common Crawl data for training dataset</li>
+<li>You are <strong>generating synthetic training data</strong> using LLMs to augment limited real-world datasets</li>
+<li>You need to <strong>transform and tokenize</strong> text across 100+ languages for multilingual AI</li>
+<li>You are building <strong>real-time data pipelines</strong> that process streaming data for online learning</li>
+</ul>
+</section>
+<section id="embarrassingly-parallel-pipelines" class="level2 smaller crunch-title crunch-ul">
+<h2 class="smaller crunch-title crunch-ul anchored" data-anchor-id="embarrassingly-parallel-pipelines">“Embarrassingly Parallel” Pipelines</h2>
+<ul>
+<li>Technical definition: tasks within pipeline can easily be parallelized bc <strong>no dependence</strong> and <strong>no need for communication</strong> (triple spatula!)</li>
+</ul>
+<center>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" width="800" height="400" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="https://jpj.georgetown.domains/dsan6000-scratch/triple_spatula.mp4"></video></div>
+</center>
+</section>
+<section id="parallelizing-non-embarrassingly-parallel-pipelines" class="level2 smaller title-10 crunch-title">
+<h2 class="smaller title-10 crunch-title anchored" data-anchor-id="parallelizing-non-embarrassingly-parallel-pipelines">Parallelizing Non-Embarrassingly-Parallel Pipelines</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/epic_bacon_lifehack.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="buzzkill-complications-to-come" class="level2 crunch-title crunch-ul title-09 crunch-li-8">
+<h2 class="crunch-title crunch-ul title-09 crunch-li-8 anchored" data-anchor-id="buzzkill-complications-to-come">Buzzkill: Complications to Come 😰</h2>
+<ul>
+<li>If it’s such a magical powerup, shouldn’t we just <strong>parallelize everything</strong>? Answer: No 😞 bc <strong>overhead</strong>.</li>
+<li>Overhead source 1: <strong>Sending</strong> tasks to workers (processors), <strong>collecting</strong> results</li>
+<li>Overhead source 2: Even after setting up new stacks and heaps, threads may need to <strong>communicate with each other</strong> (e.g.&nbsp;if they need to <strong>synchronize</strong> at some point(s))</li>
+<li>In fact, probably the earliest super-popular parallelization library was created to handle <strong>Source 2</strong>, not Source 1: <a href="https://en.wikipedia.org/wiki/Message_Passing_Interface" target="_blank"><strong>Message Passing Interface</strong></a> (C, C++, and Fortran)</li>
+</ul>
+</section>
+<section id="rules-of-thumb-for-parallelization" class="level2 smaller crunch-title crunch-p crunch-ul crunch-li-5 text-60">
+<h2 class="smaller crunch-title crunch-p crunch-ul crunch-li-5 text-60 anchored" data-anchor-id="rules-of-thumb-for-parallelization">Rules of Thumb for Parallelization</h2>
+<div class="column" style="width:49%;">
+<center>
+<p><strong><em>Yes - Parallelize These</em></strong></p>
+</center>
+<p><strong>Data Preparation:</strong></p>
+<ul>
+<li>Text extraction from documents</li>
+<li>Tokenization of text corpora</li>
+<li>Image preprocessing</li>
+<li>Embedding generation for documents</li>
+<li>Data quality filtering and validation</li>
+<li>Format conversions (audio features)</li>
+<li>Web scraping and data collection</li>
+<li>Synthetic data generation</li>
+</ul>
+<p><strong>Data Processing:</strong></p>
+<ul>
+<li>Batch inference on datasets</li>
+<li>Feature extraction at scale</li>
+<li>Data deduplication (local)</li>
+</ul>
+</div>
+<div class="column" style="width:48%;">
+<center>
+<p><strong>No - Keep Sequential</strong></p>
+</center>
+<p><strong>Order-Dependent:</strong></p>
+<ul>
+<li>Conversation threading</li>
+<li>Time-series preprocessing</li>
+<li>Sequential data validation</li>
+<li>Cumulative statistics</li>
+</ul>
+<p><strong>Global Operations:</strong></p>
+<ul>
+<li>Global deduplication</li>
+<li>Cross-dataset joins</li>
+<li>Computing exact quantiles</li>
+</ul>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>For data operations in the “No” column, they often require global coordination or maintain strict ordering. However, many can be approximated with parallel algorithms (like approximate deduplication with locality-sensitive hashing)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="in-action" class="level2 crunch-title crunch-details">
+<h2 class="crunch-title crunch-details anchored" data-anchor-id="in-action">In Action</h2>
+<div id="7491e7a9" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.ntheory <span class="im">import</span> factorint</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> joblib <span class="im">import</span> Parallel, delayed</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>parallel_runner <span class="op">=</span> Parallel(n_jobs<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> <span class="dv">500</span>, <span class="dv">580</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_prime_factors(num):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  time.sleep(<span class="fl">.01</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> factorint(num, multiple<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>disp_time <span class="op">=</span> <span class="kw">lambda</span> start, end: <span class="bu">print</span>(<span class="st">'</span><span class="sc">{:.4f}</span><span class="st"> s'</span>.<span class="bu">format</span>(end <span class="op">-</span> start))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="75ed7acc" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>serial_start <span class="op">=</span> time.time()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> [</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  (i,find_prime_factors(i))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(start, end<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>serial_end <span class="op">=</span> time.time()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>disp_time(serial_start, serial_end)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.9703 s</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="d54f6efb" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>par_start <span class="op">=</span> time.time()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> parallel_runner(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  delayed(find_prime_factors)(i)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(start, end<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>par_end <span class="op">=</span> time.time()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>disp_time(par_start, par_end)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2.1605 s</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="beyond-embarrassingly-parallel-tasks" class="level1" data-stack-name="Beyond Embarrassingly Parallel">
+<h1 data-stack-name="Beyond Embarrassingly Parallel">Beyond Embarrassingly Parallel Tasks…</h1>
+<section id="what-happens-when-not-embarrassingly-parallel" class="level2 smaller crunch-title crunch-math crunch-ul title-09">
+<h2 class="smaller crunch-title crunch-math crunch-ul title-09 anchored" data-anchor-id="what-happens-when-not-embarrassingly-parallel">What Happens When <em>Not</em> Embarrassingly Parallel?</h2>
+<ul>
+<li>Think of the difference between <strong>linear</strong> and <strong>quadratic equations</strong> in algebra:</li>
+<li><span class="math inline">\(3x - 1 = 0\)</span> is “embarrassingly” solvable, on its own: you can solve it directly, by adding 3 to both sides <span class="math inline">\(\implies x = \frac{1}{3}\)</span>. Same for <span class="math inline">\(2x + 3 = 0 \implies x = -\frac{3}{2}\)</span></li>
+<li>Now consider <span class="math inline">\(6x^2 + 7x - 3 = 0\)</span>: Harder to solve “directly”, so your instinct might be to turn to the laborious <strong>quadratic equation</strong>:</li>
+</ul>
+<p><span class="math display">\[
+\begin{align*}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)} = \frac{-7 \pm 11}{12} = \left\{\frac{1}{3},-\frac{3}{2}\right\}
+\end{align*}
+\]</span></p>
+<ul>
+<li>And yet, <span class="math inline">\(6x^2 + 7x - 3 = (3x - 1)(2x + 3)\)</span>, meaning that we could have <strong>split</strong> the problem into two “embarrassingly” solvable pieces, then <strong>multiplied</strong> to get result!</li>
+</ul>
+</section>
+<section id="the-analogy-to-map-reduce" class="level2 crunch-title title-09 text-90">
+<h2 class="crunch-title title-09 text-90 anchored" data-anchor-id="the-analogy-to-map-reduce">The Analogy to Map-Reduce</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 75%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\leadsto\)</span> If code is <strong>not</strong> embarrassingly parallel (instinctually requiring laborious serial execution),</td>
+<td style="text-align: center;"><span class="math inline">\(\underbrace{6x^2 + 7x - 3 = 0}_{\text{Solve using Quadratic Eqn}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">But can be <strong>split</strong> into…</td>
+<td style="text-align: center;"><span class="math inline">\((3x - 1)(2x + 3) = 0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Embarrassingly parallel <strong>pieces</strong> which <strong>combine</strong> to same result,</td>
+<td style="text-align: center;"><span class="math inline">\(\underbrace{3x - 1 = 0}_{\text{Solve directly}}, \underbrace{2x + 3 = 0}_{\text{Solve directly}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">We can use <strong>map-reduce</strong> to achieve ultra speedup (running “pieces” on <strong>GPU!</strong>)</td>
+<td style="text-align: center;"><span class="math inline">\(\underbrace{(3x-1)(2x+3) = 0}_{\text{Solutions satisfy this product}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-direct-analogy-map-reduce" class="level2 smaller crunch-title crunch-details">
+<h2 class="smaller crunch-title crunch-details anchored" data-anchor-id="the-direct-analogy-map-reduce">The Direct Analogy: Map-Reduce!</h2>
+<ul>
+<li><p>Problem from DSAN 5000/5100: Computing SSR (<strong>Sum of Squared Residuals</strong>)</p></li>
+<li><p><span class="math inline">\(y = (1,3,2), \widehat{y} = (2, 5, 0) \implies \text{SSR} = (1-2)^2 + (3-5)^2 + (2-0)^2 = 9\)</span></p></li>
+<li><p>Computing pieces separately:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">map</span>(do_something_with_piece, list_of_pieces)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3b2bd975" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_map <span class="op">=</span> <span class="bu">map</span>(<span class="kw">lambda</span> <span class="bu">input</span>: <span class="bu">input</span><span class="op">**</span><span class="dv">2</span>, [(<span class="dv">1</span><span class="op">-</span><span class="dv">2</span>), (<span class="dv">3</span><span class="op">-</span><span class="dv">5</span>), (<span class="dv">2</span><span class="op">-</span><span class="dv">0</span>)])</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>map_result <span class="op">=</span> <span class="bu">list</span>(my_map)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>map_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>[1, 4, 4]</code></pre>
+</div>
+</div></li>
+<li><p>Combining solved pieces</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">reduce</span>(how_to_combine_pair_of_pieces, pieces_to_combine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4b0c271b" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>my_reduce <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span> piece1, piece2: piece1 <span class="op">+</span> piece2, map_result)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>my_reduce</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>9</code></pre>
+</div>
+</div></li>
+</ul>
+</section>
+</section>
+<section id="quick-aside-functional-programming-fp" class="level1">
+<h1>Quick Aside: Functional Programming (FP)</h1>
+<section id="functions-vs.-functionals" class="level2 crunch-title crunch-ul crunch-details title-09 crunch-li-8 text-90">
+<h2 class="crunch-title crunch-ul crunch-details title-09 crunch-li-8 text-90 anchored" data-anchor-id="functions-vs.-functionals">Functions vs.&nbsp;Functionals</h2>
+<p>You may have noticed: <code>map()</code> and <code>reduce()</code> are “meta-functions”: functions that <strong>take other functions as inputs</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="51220b87" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_5(num):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> num <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>add_5(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>15</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="0727aa33" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> apply_twice(fn, arg):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> fn(fn(arg))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>apply_twice(add_5, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>20</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>In Python, functions <strong>can be used as</strong> vars (Hence <code class="sourceCode python"><span class="kw">lambda</span></code>):</p>
+<div id="4d8bd728" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>add_5 <span class="op">=</span> <span class="kw">lambda</span> num: num <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>apply_twice(add_5, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>20</code></pre>
+</div>
+</div>
+<p>This relates to a whole paradigm, “functional programming”: mostly outside scope of course, but lots of important+useful takeaways/rules-of-thumb!</p>
+</section>
+<section id="train-your-brain-for-functional-approach-implies-master-debugging" class="level2 crunch-title title-09 crunch-ul crunch-blockquote">
+<h2 class="crunch-title title-09 crunch-ul crunch-blockquote anchored" data-anchor-id="train-your-brain-for-functional-approach-implies-master-debugging">Train Your Brain for Functional Approach <span class="math inline">\(\implies\)</span> Master Debugging!</h2>
+<ul>
+<li><p>In CS Theory: enables <a href="https://softwarefoundations.cis.upenn.edu/vfa-current/toc.html" target="_blank">formal proofs of correctness</a></p></li>
+<li><p>In CS practice:</p>
+<blockquote class="blockquote">
+<p>When a program doesn’t work, each function is an interface point where you can check that the data are correct. You can look at the intermediate inputs and outputs to <strong>quickly isolate the function</strong> that’s <strong>responsible for a bug</strong>.<br>(from Python’s <a href="https://docs.python.org/3/howto/functional.html#ease-of-debugging-and-testing" target="_blank">“Functional Programming HowTo”</a>)</p>
+</blockquote></li>
+</ul>
+</section>
+<section id="code-rightarrow-pipelines-rightarrow-debuggable-pipelines" class="level2 smaller crunch-title title-11 crunch-ul crunch-p text-65">
+<h2 class="smaller crunch-title title-11 crunch-ul crunch-p text-65 anchored" data-anchor-id="code-rightarrow-pipelines-rightarrow-debuggable-pipelines">Code <span class="math inline">\(\rightarrow\)</span> Pipelines <span class="math inline">\(\rightarrow\)</span> <em>Debuggable</em> Pipelines</h2>
+<!-- * Imperative ("standard") programming: Code runs line-by-line, from top to bottom -->
+<ul>
+<li>Scenario: Run code, check the output, and… it’s wrong 😵 what do you do?</li>
+<li>Usual approach: Read lines one-by-one, figuring out what they do, seeing if something <strong>pops out</strong> that seems wrong; adding comments like <code class="sourceCode python"><span class="co"># Convert to lowercase</span></code></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p><strong>Easy case</strong>: found typo in punctuation removal code. Fix the error, add comment like <code class="sourceCode python"><span class="co"># Remove punctuation</span></code></p>
+<p><i class="bi bi-arrow-return-right"></i> <strong>Rule 1</strong> of FP: transform these comments into <strong>function names</strong></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p><strong>Hard case</strong>: Something in <code>load_text()</code> modifies a variable that <strong>later on</strong> breaks <code>remove_punct()</code> (Called a <strong>side-effect</strong>)</p>
+<p><i class="bi bi-arrow-return-right"></i> <strong>Rule 2</strong> of FP: <strong>NO SIDE-EFFECTS!</strong></p></li>
+</ul>
+</div>
+</div>
+<div class="cell" data-fig-height="1" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="96" viewbox="0.00 0.00 922.61 65.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 61)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-61 918.61,-61 918.61,4 -4,4"></polygon>
+<!-- input -->
+<g id="node1" class="node">
+<title>input</title>
+<text text-anchor="middle" x="33.2" y="-24.3" font-family="Courier,monospace" font-size="14.00">in.txt</text>
+</g>
+<!-- load_text -->
+<g id="node2" class="node">
+<title>load_text</title>
+<text text-anchor="start" x="115" y="-33.1" font-family="Courier,monospace" font-size="16.00">load_text</text>
+<text text-anchor="start" x="141.53" y="-11.7" font-family="Arial" font-size="12.00">(Verb)</text>
+<polygon fill="none" stroke="black" points="110.2,-4 110.2,-53 206.2,-53 206.2,-4 110.2,-4"></polygon>
+</g>
+<!-- input&#45;&gt;load_text -->
+<g id="edge1" class="edge">
+<title>input-&gt;load_text</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M66.9,-28.5C75.63,-28.5 84.37,-28.5 93.11,-28.5"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="93.35,-31.48 101.85,-28.5 93.35,-25.53 93.35,-31.48"></polygon>
+</g>
+<!-- lowercase -->
+<g id="node3" class="node">
+<title>lowercase</title>
+<text text-anchor="start" x="273" y="-33.1" font-family="Courier,monospace" font-size="16.00">lowercase</text>
+<text text-anchor="start" x="299.53" y="-11.7" font-family="Arial" font-size="12.00">(Verb)</text>
+<polygon fill="none" stroke="black" points="268.2,-4 268.2,-53 364.2,-53 364.2,-4 268.2,-4"></polygon>
+</g>
+<!-- load_text&#45;&gt;lowercase -->
+<g id="edge2" class="edge">
+<title>load_text-&gt;lowercase</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M214.35,-28.5C226.27,-28.5 238.95,-28.5 251.17,-28.5"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="251.47,-31.48 259.97,-28.5 251.47,-25.53 251.47,-31.48"></polygon>
+<text text-anchor="middle" x="237.2" y="-35.7" font-family="Times,serif" font-size="14.00">🧐 ✅</text>
+</g>
+<!-- remove_punct -->
+<g id="node4" class="node">
+<title>remove_punct</title>
+<text text-anchor="start" x="431.09" y="-33.1" font-family="Courier,monospace" font-size="16.00">remove_punct</text>
+<text text-anchor="start" x="472.03" y="-11.7" font-family="Arial" font-size="12.00">(Verb)</text>
+<polygon fill="none" stroke="black" points="425.7,-4 425.7,-53 550.7,-53 550.7,-4 425.7,-4"></polygon>
+</g>
+<!-- lowercase&#45;&gt;remove_punct -->
+<g id="edge3" class="edge">
+<title>lowercase-&gt;remove_punct</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M372.52,-28.5C384.23,-28.5 396.76,-28.5 409.11,-28.5"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="409.11,-31.48 417.61,-28.5 409.11,-25.53 409.11,-31.48"></polygon>
+<text text-anchor="middle" x="394.95" y="-35.7" font-family="Times,serif" font-size="14.00">🧐 ✅</text>
+</g>
+<!-- remove_stopwords -->
+<g id="node5" class="node">
+<title>remove_stopwords</title>
+<text text-anchor="start" x="638.89" y="-33.1" font-family="Courier,monospace" font-size="16.00">remove_stopwords</text>
+<text text-anchor="start" x="699.03" y="-11.7" font-family="Arial" font-size="12.00">(Verb)</text>
+<polygon fill="none" stroke="black" points="633.7,-4 633.7,-53 796.7,-53 796.7,-4 633.7,-4"></polygon>
+</g>
+<!-- remove_punct&#45;&gt;remove_stopwords -->
+<g id="edge4" class="edge">
+<title>remove_punct-&gt;remove_stopwords</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M558.78,-28.5C577.15,-28.5 597.27,-28.5 616.79,-28.5"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="616.91,-31.48 625.41,-28.5 616.91,-25.53 616.91,-31.48"></polygon>
+<text text-anchor="middle" x="592.2" y="-35.7" font-family="Times,serif" font-size="14.00">🧐 ❌❗️</text>
+</g>
+<!-- output -->
+<g id="node6" class="node">
+<title>output</title>
+<text text-anchor="middle" x="877.2" y="-24.3" font-family="Courier,monospace" font-size="14.00">out.txt</text>
+</g>
+<!-- remove_stopwords&#45;&gt;output -->
+<g id="edge5" class="edge">
+<title>remove_stopwords-&gt;output</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M804.75,-28.5C813.52,-28.5 822.3,-28.5 831.07,-28.5"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="831.34,-31.48 839.84,-28.5 831.34,-25.53 831.34,-31.48"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p><figcaption> <em>(Does this way of diagramming a program look familiar?)</em></figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>With</strong> side effects: ❌ <span class="math inline">\(\implies\)</span> issue is <strong>somewhere earlier in the chain</strong> 😩🏃‍♂️</li>
+<li><strong>No</strong> side effects: ❌ <span class="math inline">\(\implies\)</span> issue <strong>must be in <code>remove_punct()</code>!!!</strong> 😎 <i class="bi bi-arrow-down"></i>⏱️ = <i class="bi bi-arrow-up"></i>💰</li>
+</ul>
+</section>
+<section id="if-its-so-useful-why-doesnt-everyone-do-it" class="level2 smaller crunch-title crunch-ul crunch-p crunch-quarto-figure title-10">
+<h2 class="smaller crunch-title crunch-ul crunch-p crunch-quarto-figure title-10 anchored" data-anchor-id="if-its-so-useful-why-doesnt-everyone-do-it">If It’s So Useful, Why Doesn’t Everyone Do It?</h2>
+<ul>
+<li>Trapped in <strong>imperative</strong> (sequential) coding mode: <strong>Path dependency</strong> / QWERTY</li>
+<li><strong>We</strong> need to start thinking like this bc, <strong>1000x</strong> harder to debug <strong>parallel code!</strong> So we need to be less ad hoc in how we write+debug, from here on out! 🙇‍♂️🙏</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/map_reduce_full.svg" class="img-fluid figure-img" width="500"></p>
+<figcaption>From <span class="citation" data-cites="leskovec_mining_2014">Leskovec, Rajaraman, and Ullman (<a href="#ref-leskovec_mining_2014" role="doc-biblioref">2014</a>)</span></figcaption>
+</figure>
+</div>
+<div class="notes">
+<p>The title relates to a classic Economics joke (the best kind of joke): “An economist and a CEO are walking down the street, when the CEO points at the ground and tells the economist, ‘look! A $20 bill on the ground!’ The economist keeps on walking, scoffing at the CEO: ‘don’t be silly, if there was a $20 bill on the ground, somebody would have picked it up already’.”</p>
+</div>
+</section>
+</section>
+<section id="but-why-is-all-this-weird-mapping-and-reducing-necessary" class="level1" data-stack-name="Map-Reduce Rationale">
+<h1 data-stack-name="Map-Reduce Rationale">But… Why is All This Weird Mapping and Reducing Necessary?</h1>
+<ul>
+<li>Without knowing a bit more of the <strong>internals</strong> of <strong>computing efficiency</strong>, it may seem like a huge cost in terms of overly-complicated overhead, not to mention learning curve…</li>
+</ul>
+<section id="the-killer-application-matrix-multiplication" class="level2 crunch-title smaller title-11">
+<h2 class="crunch-title smaller title-11 anchored" data-anchor-id="the-killer-application-matrix-multiplication">The “Killer Application”: Matrix Multiplication</h2>
+<ul>
+<li><em>(I learned from <a href="http://infolab.stanford.edu/~ullman/" target="_blank">Jeff Ullman</a>, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the <a href="http://web.stanford.edu/class/cs246/" target="_blank">class</a> did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)</em></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/map_reduce3.svg" class="img-fluid figure-img"></p>
+<figcaption>From <span class="citation" data-cites="leskovec_mining_2014">Leskovec, Rajaraman, and Ullman (<a href="#ref-leskovec_mining_2014" role="doc-biblioref">2014</a>)</span>, which is (legally) <a href="http://www.mmds.org/" target="_blank">free online</a>!</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-killer-way-to-learn-text-counts" class="level2 smaller crunch-title crunch-ul crunch-p title-12">
+<h2 class="smaller crunch-title crunch-ul crunch-p title-12 anchored" data-anchor-id="the-killer-way-to-learn-text-counts">The Killer Way-To-Learn: Text Counts!</h2>
+<ul>
+<li><span class="citation" data-cites="leskovec_mining_2014">(<a href="#ref-leskovec_mining_2014" role="doc-biblioref">2014</a>)</span>: Text counts (2.2) <span class="math inline">\(\rightarrow\)</span> Matrix multiplication (2.3) <span class="math inline">\(\rightarrow \cdots \rightarrow\)</span> PageRank (5.1)</li>
+<li>The goal: User searches <a href="https://www.youtube.com/watch?v=eqwiC93zmxI" target="_blank">“Denzel Curry”</a>… How <strong>relevant</strong> is a given webpage?</li>
+<li>Scenario 1: Entire internet fits on CPU <span class="math inline">\(\implies\)</span> We can just make a big dict:</li>
+</ul>
+<div class="cell" data-fig-height="4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="384" viewbox="0.00 0.00 658.86 285.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 281)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-281 654.86,-281 654.86,4 -4,4"></polygon>
+<!-- internet -->
+<g id="node1" class="node">
+<title>internet</title>
+<polyline fill="none" stroke="black" points="11.5,-247.5 208.5,-247.5 "></polyline>
+<text text-anchor="start" x="68.76" y="-253.9" font-family="Helvetica,sans-Serif" font-size="14.00">Scan in O(n):</text>
+<text text-anchor="start" x="13.5" y="-230.9" font-family="Courier,monospace" font-size="14.00">Today Denzel Washington</text>
+<text text-anchor="start" x="13.5" y="-214.1" font-family="Courier,monospace" font-size="14.00">ate a big bowl of Yum's</text>
+<text text-anchor="start" x="13.5" y="-197.3" font-family="Courier,monospace" font-size="14.00">curry. Denzel allegedly</text>
+<text text-anchor="start" x="13.5" y="-180.5" font-family="Courier,monospace" font-size="14.00">rubbed his tum and said</text>
+<text text-anchor="start" x="13.5" y="-163.7" font-family="Courier,monospace" font-size="14.00">"yum yum yum" when he</text>
+<text text-anchor="start" x="13.5" y="-146.9" font-family="Courier,monospace" font-size="14.00">tasted today's curry.</text>
+<text text-anchor="start" x="13.5" y="-130.1" font-family="Courier,monospace" font-size="14.00">"Yum! It is me Denzel,</text>
+<text text-anchor="start" x="13.5" y="-113.3" font-family="Courier,monospace" font-size="14.00">curry is my fav!", he</text>
+<text text-anchor="start" x="13.5" y="-96.5" font-family="Courier,monospace" font-size="14.00">exclaimed. According to</text>
+<text text-anchor="start" x="13.5" y="-79.7" font-family="Courier,monospace" font-size="14.00">his friend Steph, curry</text>
+<text text-anchor="start" x="13.5" y="-62.9" font-family="Courier,monospace" font-size="14.00">is indeed Denzel's fav.</text>
+<text text-anchor="start" x="13.5" y="-46.1" font-family="Courier,monospace" font-size="14.00">We are live with Del</text>
+<text text-anchor="start" x="13.5" y="-29.3" font-family="Courier,monospace" font-size="14.00">Curry in Washington for</text>
+<text text-anchor="start" x="13.5" y="-12.5" font-family="Courier,monospace" font-size="14.00">a Denzel curry update.</text>
+<polygon fill="none" stroke="black" points="8,-4 8,-273 211,-273 211,-4 8,-4"></polygon>
+</g>
+<!-- ccounts -->
+<g id="node2" class="node">
+<title>ccounts</title>
+<polyline fill="none" stroke="black" points="367.86,-223.5 639.86,-223.5 "></polyline>
+<text text-anchor="start" x="457.57" y="-229.9" font-family="Helvetica,sans-Serif" font-size="14.00">Overall Counts</text>
+<polyline fill="none" stroke="black" points="499.86,-31.5 499.86,-221.5 "></polyline>
+<text text-anchor="start" x="370.86" y="-205.9" font-family="Courier,monospace" font-size="14.00">('according',1)</text>
+<text text-anchor="start" x="370.86" y="-189.1" font-family="Courier,monospace" font-size="14.00">('allegedly',1)</text>
+<text text-anchor="start" x="370.86" y="-172.3" font-family="Courier,monospace" font-size="14.00">('ate',1)</text>
+<text text-anchor="start" x="370.86" y="-155.5" font-family="Courier,monospace" font-size="14.00">('big',1)</text>
+<text text-anchor="start" x="370.86" y="-138.7" font-family="Courier,monospace" font-size="14.00">('bowl',1)</text>
+<text text-anchor="start" x="370.86" y="-121.9" font-family="Courier,monospace" font-size="14.00">('curry',6)</text>
+<text text-anchor="start" x="370.86" y="-105.1" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
+<text text-anchor="start" x="370.86" y="-88.3" font-family="Courier,monospace" font-size="14.00">('denzel',5)</text>
+<text text-anchor="start" x="370.86" y="-71.5" font-family="Courier,monospace" font-size="14.00">('exclaimed',1)</text>
+<text text-anchor="start" x="370.86" y="-54.7" font-family="Courier,monospace" font-size="14.00">('fav',2)</text>
+<text text-anchor="start" x="370.86" y="-37.9" font-family="Courier,monospace" font-size="14.00">('friend',1)</text>
+<text text-anchor="start" x="503.86" y="-206.3" font-family="Courier,monospace" font-size="14.00">('indeed',1)</text>
+<text text-anchor="start" x="503.86" y="-189.5" font-family="Courier,monospace" font-size="14.00">('live',1)</text>
+<text text-anchor="start" x="503.86" y="-172.7" font-family="Courier,monospace" font-size="14.00">('rubbed',1)</text>
+<text text-anchor="start" x="503.86" y="-155.9" font-family="Courier,monospace" font-size="14.00">('said',1)</text>
+<text text-anchor="start" x="503.86" y="-139.1" font-family="Courier,monospace" font-size="14.00">('steph',1)</text>
+<text text-anchor="start" x="503.86" y="-122.3" font-family="Courier,monospace" font-size="14.00">('tasted',1)</text>
+<text text-anchor="start" x="503.86" y="-105.5" font-family="Courier,monospace" font-size="14.00">('today',2)</text>
+<text text-anchor="start" x="503.86" y="-88.7" font-family="Courier,monospace" font-size="14.00">('tum',1)</text>
+<text text-anchor="start" x="503.86" y="-71.9" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
+<text text-anchor="start" x="503.86" y="-55.1" font-family="Courier,monospace" font-size="14.00">('washington',2)</text>
+<text text-anchor="start" x="503.86" y="-38.3" font-family="Courier,monospace" font-size="14.00">('yum',4)</text>
+<polygon fill="none" stroke="black" points="364.86,-28.5 364.86,-248.5 642.86,-248.5 642.86,-28.5 364.86,-28.5"></polygon>
+</g>
+<!-- internet&#45;&gt;ccounts -->
+<g id="edge1" class="edge">
+<title>internet-&gt;ccounts</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M219.01,-138.5C258.88,-138.5 304.83,-138.5 347.99,-138.5"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="348.08,-141.48 356.58,-138.5 348.08,-135.53 348.08,-141.48"></polygon>
+<text text-anchor="middle" x="287.93" y="-142.7" font-family="Times,serif" font-size="14.00">Loop Over Words</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="if-everything-doesnt-fit-on-cpu" class="level2">
+<h2 class="anchored" data-anchor-id="if-everything-doesnt-fit-on-cpu">If Everything <em>Doesn’t</em> Fit on CPU…</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cpu_gpu.png" class="img-fluid figure-img"></p>
+<figcaption>From Cornell Virtual Workshop, <a href="https://cvw.cac.cornell.edu/gpu-architecture/gpu-characteristics/design" target="_blank">“Understanding GPU Architecture”</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="break-problem-into-chunks-for-the-green-bois" class="level2 smaller crunch-title title-10 crunch-quarto-figure">
+<h2 class="smaller crunch-title title-10 crunch-quarto-figure anchored" data-anchor-id="break-problem-into-chunks-for-the-green-bois">Break Problem into <em>Chunks</em> for the Green Bois!</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 930.65 419.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 415)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-415 926.65,-415 926.65,4 -4,4"></polygon>
+<!-- chunked -->
+<g id="node1" class="node">
+<title>chunked</title>
+<polyline fill="none" stroke="black" points="11.5,-339.5 210.5,-339.5 "></polyline>
+<text text-anchor="start" x="49.13" y="-345.9" font-family="Helvetica,sans-Serif" font-size="14.00">Chunked Document</text>
+<polyline fill="none" stroke="black" points="11.5,-264.5 210.5,-264.5 "></polyline>
+<text text-anchor="start" x="14.5" y="-321.9" font-family="Courier,monospace" font-size="14.00">Today Denzel Washington</text>
+<text text-anchor="start" x="14.5" y="-305.1" font-family="Courier,monospace" font-size="14.00">ate a big bowl of Yum's</text>
+<text text-anchor="start" x="14.5" y="-288.3" font-family="Courier,monospace" font-size="14.00">curry. Denzel allegedly</text>
+<text text-anchor="start" x="14.5" y="-271.5" font-family="Courier,monospace" font-size="14.00">rubbed his tum and said</text>
+<polyline fill="none" stroke="black" points="11.5,-189.5 210.5,-189.5 "></polyline>
+<text text-anchor="start" x="14.5" y="-246.9" font-family="Courier,monospace" font-size="14.00">"yum yum yum" when he</text>
+<text text-anchor="start" x="14.5" y="-230.1" font-family="Courier,monospace" font-size="14.00">tasted today's curry.</text>
+<text text-anchor="start" x="14.5" y="-213.3" font-family="Courier,monospace" font-size="14.00">"Yum! It is me Denzel,</text>
+<text text-anchor="start" x="14.5" y="-196.5" font-family="Courier,monospace" font-size="14.00">curry is my fav!", he</text>
+<polyline fill="none" stroke="black" points="11.5,-114.5 210.5,-114.5 "></polyline>
+<text text-anchor="start" x="14.5" y="-171.9" font-family="Courier,monospace" font-size="14.00">exclaimed. According to</text>
+<text text-anchor="start" x="14.5" y="-155.1" font-family="Courier,monospace" font-size="14.00">his friend Steph, curry</text>
+<text text-anchor="start" x="14.5" y="-138.3" font-family="Courier,monospace" font-size="14.00">is indeed Denzel's fav.</text>
+<text text-anchor="start" x="14.5" y="-121.5" font-family="Courier,monospace" font-size="14.00">We are live with Del</text>
+<text text-anchor="start" x="13.5" y="-97.9" font-family="Courier,monospace" font-size="14.00">Curry in Washington for</text>
+<text text-anchor="start" x="13.5" y="-81.1" font-family="Courier,monospace" font-size="14.00">a Denzel curry update.</text>
+<polygon fill="none" stroke="black" points="8,-72.5 8,-364.5 213,-364.5 213,-72.5 8,-72.5"></polygon>
+</g>
+<!-- chcounts -->
+<g id="node2" class="node">
+<title>chcounts</title>
+<polyline fill="none" stroke="black" points="305.32,-365.5 443.32,-365.5 "></polyline>
+<text text-anchor="start" x="322.18" y="-371.9" font-family="Helvetica,sans-Serif" font-size="14.00">Chunked Counts</text>
+<polyline fill="none" stroke="black" points="305.32,-273.5 443.32,-273.5 "></polyline>
+<text text-anchor="start" x="308.32" y="-347.9" font-family="Courier,monospace" font-size="14.00">('today',1)</text>
+<text text-anchor="start" x="308.32" y="-331.1" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="308.32" y="-314.3" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="308.32" y="-297.5" font-family="Courier,monospace" font-size="14.00">('tum',1)</text>
+<text text-anchor="start" x="308.32" y="-280.7" font-family="Courier,monospace" font-size="14.00">('said',1)</text>
+<polyline fill="none" stroke="black" points="305.32,-181.5 443.32,-181.5 "></polyline>
+<text text-anchor="start" x="308.32" y="-255.9" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
+<text text-anchor="start" x="308.32" y="-239.1" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
+<text text-anchor="start" x="308.32" y="-222.3" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
+<text text-anchor="start" x="308.32" y="-205.5" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="308.32" y="-188.7" font-family="Courier,monospace" font-size="14.00">('fav',1)</text>
+<polyline fill="none" stroke="black" points="305.32,-123.5 443.32,-123.5 "></polyline>
+<text text-anchor="start" x="308.32" y="-163.9" font-family="Courier,monospace" font-size="14.00">('exclaimed',1)</text>
+<text text-anchor="start" x="308.32" y="-147.1" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="308.32" y="-130.3" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
+<text text-anchor="start" x="307.32" y="-106.9" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
+<text text-anchor="start" x="307.32" y="-90.1" font-family="Courier,monospace" font-size="14.00">('washington',1)</text>
+<text text-anchor="start" x="307.32" y="-73.3" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="307.32" y="-56.5" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
+<text text-anchor="start" x="307.32" y="-39.7" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
+<polygon fill="none" stroke="black" points="302.32,-30.5 302.32,-390.5 446.32,-390.5 446.32,-30.5 302.32,-30.5"></polygon>
+</g>
+<!-- chunked&#45;&gt;chcounts -->
+<g id="edge1" class="edge">
+<title>chunked:p1-&gt;chcounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-301.5C250.33,-301.5 260.87,-316.07 295.5,-318.23"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="295.74,-321.22 304.32,-318.5 295.92,-315.27 295.74,-321.22"></polygon>
+<text text-anchor="middle" x="257.66" y="-318.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chunked&#45;&gt;chcounts -->
+<g id="edge2" class="edge">
+<title>chunked:p2-&gt;chcounts:p2</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-226.5C249.69,-226.5 261.37,-226.5 295.62,-226.5"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="295.82,-229.48 304.32,-226.5 295.82,-223.53 295.82,-229.48"></polygon>
+<text text-anchor="middle" x="257.66" y="-230.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chunked&#45;&gt;chcounts -->
+<g id="edge3" class="edge">
+<title>chunked:p3-&gt;chcounts:p3</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-150.5C249.7,-150.5 261.37,-151.36 295.62,-151.48"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="295.82,-154.46 304.32,-151.5 295.83,-148.51 295.82,-154.46"></polygon>
+<text text-anchor="middle" x="257.66" y="-154.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chunked&#45;&gt;chcounts -->
+<g id="edge4" class="edge">
+<title>chunked:p4-&gt;chcounts:p4</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-93.5C250.26,-93.5 260.93,-79.79 295.52,-77.75"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="295.91,-80.72 304.32,-77.5 295.74,-74.77 295.91,-80.72"></polygon>
+<text text-anchor="middle" x="257.66" y="-94.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- scounts -->
+<g id="node3" class="node">
+<title>scounts</title>
+<polyline fill="none" stroke="black" points="538.65,-376.5 676.65,-376.5 "></polyline>
+<text text-anchor="start" x="559.4" y="-382.9" font-family="Helvetica,sans-Serif" font-size="14.00">Hashed Counts</text>
+<polyline fill="none" stroke="black" points="538.65,-268.5 676.65,-268.5 "></polyline>
+<text text-anchor="start" x="541.65" y="-358.9" font-family="Courier,monospace" font-size="14.00">('allegedly',1)</text>
+<text text-anchor="start" x="541.65" y="-342.1" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="541.65" y="-325.3" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
+<text text-anchor="start" x="541.65" y="-308.5" font-family="Courier,monospace" font-size="14.00">('denzel',2)</text>
+<text text-anchor="start" x="541.65" y="-291.7" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="541.65" y="-274.9" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
+<polyline fill="none" stroke="black" points="538.65,-193.5 676.65,-193.5 "></polyline>
+<text text-anchor="start" x="541.65" y="-250.9" font-family="Courier,monospace" font-size="14.00">('curry',2)</text>
+<text text-anchor="start" x="541.65" y="-234.1" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="541.65" y="-217.3" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="541.65" y="-200.5" font-family="Courier,monospace" font-size="14.00">('yum',4)</text>
+<polyline fill="none" stroke="black" points="538.65,-101.5 676.65,-101.5 "></polyline>
+<text text-anchor="start" x="541.65" y="-175.9" font-family="Courier,monospace" font-size="14.00">('according',1)</text>
+<text text-anchor="start" x="541.65" y="-159.1" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
+<text text-anchor="start" x="541.65" y="-142.3" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
+<text text-anchor="start" x="541.65" y="-125.5" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="541.65" y="-108.7" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="540.65" y="-84.9" font-family="Courier,monospace" font-size="14.00">('curry',2)</text>
+<text text-anchor="start" x="540.65" y="-68.1" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="540.65" y="-51.3" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
+<text text-anchor="start" x="540.65" y="-34.5" font-family="Courier,monospace" font-size="14.00">('washington',1)</text>
+<polygon fill="none" stroke="black" points="535.65,-25.5 535.65,-401.5 679.65,-401.5 679.65,-25.5 535.65,-25.5"></polygon>
+</g>
+<!-- chcounts&#45;&gt;scounts -->
+<g id="edge5" class="edge">
+<title>chcounts:p1-&gt;scounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-318.5C482.74,-318.5 494.45,-321.07 528.9,-321.45"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="529.13,-324.43 537.65,-321.5 529.16,-318.48 529.13,-324.43"></polygon>
+<text text-anchor="middle" x="490.99" y="-324.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chcounts&#45;&gt;scounts -->
+<g id="edge6" class="edge">
+<title>chcounts:p2-&gt;scounts:p2</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-226.5C482.76,-226.5 494.43,-229.93 528.9,-230.44"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="529.13,-233.41 537.65,-230.5 529.17,-227.46 529.13,-233.41"></polygon>
+<text text-anchor="middle" x="490.99" y="-233.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chcounts&#45;&gt;scounts -->
+<g id="edge7" class="edge">
+<title>chcounts:p3-&gt;scounts:p3</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-151.5C482.78,-151.5 494.42,-147.21 528.89,-146.58"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="529.18,-149.55 537.65,-146.5 529.12,-143.6 529.18,-149.55"></polygon>
+<text text-anchor="middle" x="490.99" y="-154.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chcounts&#45;&gt;scounts -->
+<g id="edge8" class="edge">
+<title>chcounts:p4-&gt;scounts:p4</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-77.5C483.15,-77.5 494.13,-65.5 528.82,-63.72"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="529.23,-66.69 537.65,-63.5 529.08,-60.74 529.23,-66.69"></polygon>
+<text text-anchor="middle" x="490.99" y="-79.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- ccounts -->
+<g id="node4" class="node">
+<title>ccounts</title>
+<polyline fill="none" stroke="black" points="773.65,-381.5 911.65,-381.5 "></polyline>
+<text text-anchor="start" x="796.35" y="-387.9" font-family="Helvetica,sans-Serif" font-size="14.00">Overall Counts</text>
+<text text-anchor="start" x="775.65" y="-364.9" font-family="Courier,monospace" font-size="14.00">('according',1)</text>
+<text text-anchor="start" x="775.65" y="-348.1" font-family="Courier,monospace" font-size="14.00">('allegedly',1)</text>
+<text text-anchor="start" x="775.65" y="-331.3" font-family="Courier,monospace" font-size="14.00">('ate',1)</text>
+<text text-anchor="start" x="775.65" y="-314.5" font-family="Courier,monospace" font-size="14.00">('big',1)</text>
+<text text-anchor="start" x="775.65" y="-297.7" font-family="Courier,monospace" font-size="14.00">('bowl',1)</text>
+<text text-anchor="start" x="775.65" y="-280.9" font-family="Courier,monospace" font-size="14.00">('curry',6)</text>
+<text text-anchor="start" x="775.65" y="-264.1" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
+<text text-anchor="start" x="775.65" y="-247.3" font-family="Courier,monospace" font-size="14.00">('denzel',5)</text>
+<text text-anchor="start" x="775.65" y="-230.5" font-family="Courier,monospace" font-size="14.00">('exclaimed',1)</text>
+<text text-anchor="start" x="775.65" y="-213.7" font-family="Courier,monospace" font-size="14.00">('fav',2)</text>
+<text text-anchor="start" x="775.65" y="-196.9" font-family="Courier,monospace" font-size="14.00">('friend',1)</text>
+<text text-anchor="start" x="775.65" y="-180.1" font-family="Courier,monospace" font-size="14.00">('indeed',1)</text>
+<text text-anchor="start" x="775.65" y="-163.3" font-family="Courier,monospace" font-size="14.00">('live',1)</text>
+<text text-anchor="start" x="775.65" y="-146.5" font-family="Courier,monospace" font-size="14.00">('rubbed',1)</text>
+<text text-anchor="start" x="775.65" y="-129.7" font-family="Courier,monospace" font-size="14.00">('said',1)</text>
+<text text-anchor="start" x="775.65" y="-112.9" font-family="Courier,monospace" font-size="14.00">('steph',1)</text>
+<text text-anchor="start" x="775.65" y="-96.1" font-family="Courier,monospace" font-size="14.00">('tasted',1)</text>
+<text text-anchor="start" x="775.65" y="-79.3" font-family="Courier,monospace" font-size="14.00">('today',2)</text>
+<text text-anchor="start" x="775.65" y="-62.5" font-family="Courier,monospace" font-size="14.00">('tum',1)</text>
+<text text-anchor="start" x="775.65" y="-45.7" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
+<text text-anchor="start" x="775.65" y="-28.9" font-family="Courier,monospace" font-size="14.00">('washington',2)</text>
+<text text-anchor="start" x="775.65" y="-12.1" font-family="Courier,monospace" font-size="14.00">('yum',4)</text>
+<polygon fill="none" stroke="black" points="770.65,-4 770.65,-407 914.65,-407 914.65,-4 770.65,-4"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge9" class="edge">
+<title>scounts:p1-&gt;ccounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-321.5C723.01,-321.5 718.85,-281.81 744.65,-244.5 757.59,-225.78 749.4,-200.42 764.12,-194.02"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="764.8,-196.92 772.65,-192.5 763.76,-191.06 764.8,-196.92"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge10" class="edge">
+<title>scounts:p2-&gt;ccounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-230.5C691.56,-230.5 692.85,-221.97 705.65,-216.5 731.89,-205.29 739.57,-194.77 764.06,-192.82"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="764.27,-195.79 772.65,-192.5 764.04,-189.84 764.27,-195.79"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge11" class="edge">
+<title>scounts:p3-&gt;ccounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-146.5C721.44,-146.5 725.38,-186.59 763.88,-191.92"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="763.97,-194.91 772.65,-192.5 764.36,-188.97 763.97,-194.91"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge12" class="edge">
+<title>scounts:p4-&gt;ccounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-63.5C710.33,-63.5 733.06,-172.2 764.11,-190.04"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="763.66,-193 772.65,-192.5 765.31,-187.29 763.66,-193"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge13" class="edge">
+<title>scounts:p2-&gt;ccounts</title>
+<path fill="none" stroke="black" stroke-width="0" d="M677.65,-230.5C705.33,-230.5 735.35,-226.98 762.04,-222.57"></path>
+<polygon fill="black" stroke="black" stroke-width="0" points="762.26,-222.57 762.36,-222.52 762.25,-222.5 762.26,-222.57"></polygon>
+<text text-anchor="middle" x="729.34" y="-240.91" font-family="Times,serif" font-size="14.00"> </text>
+<polygon fill="white" stroke="transparent" points="686.69,-194.15 686.69,-231.15 740.69,-231.15 740.69,-194.15 686.69,-194.15"></polygon>
+<text text-anchor="start" x="688.23" y="-216.55" font-family="Times,serif" font-size="14.00">Merge in</text>
+<text text-anchor="start" x="700.47" y="-199.75" font-family="Times,serif" font-size="14.00">O(n)</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(\implies\)</span> Total = <span class="math inline">\(O(3n) = O(n)\)</span></li>
+<li>But <strong>also</strong> optimized in terms of constants, because of <strong>sequential memory reads</strong></li>
+</ul>
+</section>
+</section>
+<section id="lab-time" class="level1" data-stack-name="Lab">
+<h1 data-stack-name="Lab">Lab Time!</h1>
+<p><a href="https://gu-dsan.github.io/6000-fall-2025/labs/03-labs.html">Lab 3: Python’s <code>multiprocessing</code> library</a></p>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-leskovec_mining_2014" class="csl-entry" role="listitem">
+Leskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. <em>Mining of <span>Massive Datasets</span></em>. Cambridge University Press.
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -874,8 +1873,9 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w03/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer><script>videojs(video_shortcode_videojs_video1);</script>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w03/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+</body></html>
