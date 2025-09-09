@@ -18,6 +18,8 @@ website:
     contents:
       - href: "https://gu-dsan.github.io/6000-fall-2025/"
         text: "<i class='bi bi-arrow-left-short pe-1'></i> Main Course Page"
+      - href: resources.qmd
+        text: "Resources"
       - "---"
       - href: w01/index.qmd
         text: "Week 1: Aug 28"
