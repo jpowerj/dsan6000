@@ -10,7 +10,8 @@ categories:
   - "Class Sessions"
 crossref:
   fig-title: Fig
-cache: true
+cache: false
+bibliography: "../_DSAN6000.bib"
 format:
   revealjs:
     output-file: "slides.html"
@@ -28,7 +29,16 @@ format:
     simplemenu:
       flat: true
       barhtml:
-        header: "<div class='menubar'><span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span><ul class='menu'></ul></div>"
+        header: >
+          <div class='menubar'>
+            <span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span>
+            <span style='position: absolute; right: 0; padding-right: 8px; padding-top: 3px; z-index: 10; display: inline-flex !important; align-items: center !important;'>
+              <a id='toggle-01-label' href='#' onclick="window.toggleSectionClicked('01'); return(false);" class='no-decoration'>01</a>
+              <a href='#' onclick="window.toggleIconClicked(); return(false);" class='no-decoration'><i id='section-toggle-icon' class='bi bi-toggle-off' style='padding-top: 0px; padding-left: 3px; padding-right: 3px;'></i></a>
+              <a id='toggle-02-label' href='#' onclick="window.toggleSectionClicked('02'); return(false);" class='no-decoration'>02</a>
+            </span>
+            <ul class='menu'></ul>
+          </div>
       scale: 0.5
   html:
     output-file: "index.html"
@@ -36,3 +46,807 @@ format:
     df-print: kable
 ---
 
+::: {.content-visible unless-format="revealjs"}
+
+<center class='mb-3'>
+<a class="h2" href="./slides.html" target="_blank">Open slides in new tab &rarr;</a>
+</center>
+
+:::
+
+## Agenda and Goals for Today
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### Lecture
+
+* Distributed file systems
+* Modern file types
+* Working with large tabular data on a single node
+  * DuckDB
+  * Polars
+
+:::
+
+::: {.column width="50%"}
+
+### Lab
+
+* Run a similar task with Pandas, polars and duckdb
+
+:::
+::::
+
+## Logistics and Review {.smaller .crunch-title .crunch-p}
+
+:::: {.columns}
+::: {.column width="60%"}
+
+**Deadlines**
+
+- ~~Assignment 1: Python Skills **Due Sept 5 11:59pm**~~
+- ~~Lab 2: Cloud Tooling **Due Sept 5 6pm**~~
+- ~~Assignment 2: Shell & Linux **Due Sept 11 11:59pm**~~
+- ~~Lab 3: Parallel Computing **Due Sept 12 6pm**~~
+- Assignment 3: Parallelization **Due Sept 18 11:59pm**
+- Lab 4: Docker and Lambda **Due Sept 19 6pm**
+- Assignment 4: Containers **Due Sept 25 11:59pm**
+- Lab 5: DuckDB & Polars **Due Sept 26 6pm**
+
+:::
+::: {.column width="40%"}
+
+**Look back and ahead**
+
+* Continue to use Slack for questions!
+* Docker (containerization)
+* Lambda functions
+* Coming up: Spark and project
+
+:::
+::::
+
+<!-- Start _filesystems.qmd -->
+
+# Filesystems {data-stack-name="Filesystems"}
+
+## Raw Ingredients of Storage Systems {.title-09}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Disk drives (magnetic HDDs or SSDs)
+- RAM
+- Networking and CPU
+- Serialization
+- Compression
+- Caching
+
+:::
+
+::: {.column width="50%"}
+
+![From @reis_fundamentals_2022](images/fode_0602.png){height="500px"}
+
+:::
+::::
+
+## Single-Machine vs. Distributed Storage {.title-09 .crunch-title .text-90 .crunch-p}
+
+![From @reis_fundamentals_2022](images/fode_0604.png){fig-align="center"}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+<center>
+
+**Single-Machine**
+
+</center>
+
+- They are commonly used for storing operating system files, application files, and user data files.
+- Filesystems are also used in databases to store data files, transaction logs, and backups.
+
+:::
+::: {.column width="50%"}
+
+<center>
+
+**Distributed Storage**
+
+</center>
+
+- A distributed filesystem is a type of filesystem that spans multiple computers.
+- It provides a unified view of files across all the computers in the system.
+- Have existed before cloud
+
+:::
+::::
+
+## File Storage Types {.smaller .crunch-title}
+
+:::: {.columns}
+::: {.column width="30%"}
+
+<center>
+
+**Local Disk**
+
+</center>
+
+- OS-managed filesystems on local disk partition:
+- NTFS (Windows)
+- HFS+ (MacOS)
+- ext4 (Linux)() on a local disk partition of SSD or magnetic disk
+
+:::
+::: {.column width="30%"}
+
+<center>
+
+[**Network-Attached (NAS)**]{.text-90}
+
+</center>
+
+- Accessed by clients over a network
+- Redundancy and reliability, fine-grained control of resources, storage pooling across multiple disks for large virtual volumes, and file sharing across multiple machines
+
+:::
+::: {.column width="40%"}
+
+**Cloud Filesystems**
+
+- **Not object store (more on that later)**
+- **Not the virtual hard drive attached to a virtual machine**
+- Fully managed: Takes care of networking, managing disk clusters, failures, and configuration (Azure Files, Amazon Elastic Filesystem)
+- Backed by Object Store
+
+:::
+::::
+
+[Based on @reis_fundamentals_2022]{.text-70}
+
+
+## Object Stores {.smaller}
+
+* Somewhat confusing because **object** has several meanings in computer science.
+* In this context, we're talking about a specialized file-like construct. It could be any type of file: TXT, CSV, JSON, images, videos, audio
+
+
+:::: {layout="[33, 33, 33]" layout-valign="top"}
+
+::: {#cell1}
+
+![](images/s3-blob.png){fig-align="center"}
+
+:::
+
+::: {#cell2}
+
+![](images/fode_0608.png)
+
+:::
+
+::: {#cell3}
+
+![](images/object-storage-structure.png)
+
+:::
+::::
+
+- Contains objects of all shapes and sizes: each gets a **unique identifier**
+- Objects are **immutable**: cannot be modified in place (unlike local FS)
+
+## Distributed FS vs Object Store {.smaller}
+
+|     | Distributed File System | Object Storage |
+|---|-------------------------|----------------|
+| Organization| Files in hierarchical directories | Flat organization (though there can be overlays to provide hierarchical files structure) |
+| Method | POSIX File Operations | REST API |
+| Immutability | None: Random writes anywhere in file | Immutable: need to replace/append entire object |
+| Performance | Performs best for smaller files | Performs best for large files |
+| Scalability| Millions of files | Billions of objects |
+
+: {tbl-colwidths="[20, 40, 40]"}
+
+Both provide:
+
+- Fault tolerance
+- Availability and consistency
+
+## Before: Data locality (for Hadoop)
+
+![From @white_hadoop_2015](images/hdg-0202.png){fig-align="center" height="500"}
+
+## Today: De-Coupling Storage from Compute {.title-08}
+
+![From @gopalan_cloud_2022](images/tcdl_0106.png){fig-align="center"}
+
+## Data-on-Disk Formats
+
+* Plain Text (CSV, TSV, FWF)
+* JSON
+* Binary Files
+
+## Plain Text (CSV, TSV, FWF)
+
+![](https://meme-generator.com/wp-content/uploads/mememe/2021/04/we-shared-the-csv-with-a-different-separator-335529-1.jpg){fig-align="center" height="400"}
+
+- Pay attention to encodings!
+- Lines end in linefeed, carriage-return, or both together depending on the OS that generated
+- Typically, a single line of text contains a single record
+
+## JSON {.crunch-title .text-75}
+
+::: {.callout-warning}
+
+JSON files have two flavors: `JSON Lines` vs. `JSON`. Typically when we say data is in JSON format, we imply it's `JSON Lines` which means that there is a single JSON object per line, and there are multiple lines.
+
+:::
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**JSON Lines**
+
+4 records, one per line, no end comma
+
+```{.json}
+{"id":1, "name":"marck", "last_name":"vaisman"}
+{"id":2, "name":"anderson", "last_name":"monken"}
+{"id":3, "name":"amit", "last_name":"arora"}
+{"id":4, "name":"abhijit", "last_name":"dasgupta"}
+```
+
+:::
+::: {.column width="50%"}
+
+**JSON**
+
+4 records enclosed in 1 JSON Array
+
+``` {.json}
+[
+  {"id":1, "name":"marck", "last_name":"vaisman"},
+  {"id":2, "name":"anderson", "last_name":"monken"},
+  {"id":3, "name":"amit", "last_name":"arora"},
+  {"id":4, "name":"abhijit", "last_name":"dasgupta"},
+]
+```
+
+:::
+::::
+
+## Binary Files
+
+![](images/bin_1956.webp){fig-align="center"}
+
+## Issues with Common File Formats (Especially CSV) {.smaller .title-09}
+
+- **Ubiquitous** but highly **error-prone**
+- Default delimiter: familiar character in English, the **comma**
+- Ambiguities:
+  - Delimiter (comma, tab, semi-colon, custom)
+  - Quote characters (single or doble quote)
+  - Escaping to appropriately handle string data
+- Doesn't natively encode schema information 
+- No direct support for **nested** structures
+- Encoding+schema must be configured on target system to ensure ingestion
+- **Autodetection** provided in many cloud environments but is inappropriate for production ingestion (can be painfully slow)
+- **Data engineers** often forced to work with CSV data and then build robust **exception handling** and **error detection** to ensure data quality (**Pydantic!**)
+
+## Introducing Apache Parquet
+
+* Free, open-source, column-oriented data storage format created by Twitter and Cloudera (v1.0 released July 2013)
+- Data stored in **columnar format** (as opposed to **row** format), designed for read and write performance
+* **Builds in schema information** and natively supports **nested** data
+* Supported by R and Python through [Apache Arrow](https://arrow.apache.org/) (more coming up!)
+
+## Traditional Row-Store
+
+:::: {layout="[50, 50]" layout-valign="top"}
+
+::: {#col1}
+
+![](images/Row-store-1024x576.webp){fig-align="center"}
+
+:::
+
+::: {#col2}
+
+![](images/Row-based-scan-1024x576.webp){fig-align="center"}
+
+:::
+::::
+
+* Query: _"How many balls did we sell?_
+* The engine must scan each and every row until the end!
+
+## Column-Store
+
+![](images/Column-store-1024x576.webp){fig-align="center"}
+
+::: {.aside}
+
+[Parquet file format, everything you need to know](https://data-mozart.com/parquet-file-format-everything-you-need-to-know/)
+
+:::
+
+
+## Row Groups {.text-90}
+
+:::: {layout="[50, 50]" layout-valign="top"}
+
+::: {#col1}
+
+**Data is stored in row groups!**
+
+![](images/Row-store-1024x576.webp)
+
+:::
+
+::: {#col2}
+
+**Only required fields**
+
+![](images/Row-based-scan-1024x576.webp)
+
+:::
+::::
+
+## Metadata, compression, and dictionary encoding
+
+:::: {layout="[50, 50]" layout-valign="top"}
+::: {#col1}
+
+![](images/Format-1024x576.webp){fig-align="center"}
+
+:::
+
+::: {#col2}
+
+![](images/Dictionary-1024x576.webp){fig-align="center"}
+
+:::
+::::
+
+## Apache Arrow for In-Memory Analytics {.title-09}
+
+> Apache Arrow is a development platform for in-memory analytics. It contains a set of technologies that enable big data systems to process and move data fast. It specifies a standardized language-independent columnar memory format for flat and hierarchical data, organized for efficient analytic operations on modern hardware. [@topol_inmemory_2024]
+
+## Before Arrow
+
+![@topol_inmemory_2024](images/before-arrow.jpg){fig-align="center"}
+
+## After Arrow
+
+![@topol_inmemory_2024](images/after-arrow.jpg){fig-align="center"}
+
+## Arrow Compatibility
+
+![@topol_inmemory_2024](images/data-processing.jpg){fig-align="center"}
+
+## Arrow Performance
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![@topol_inmemory_2024](images/file-size-perf-numbers.jpg){fig-align="center"}
+
+:::
+::: {.column width="50%"}
+
+![@topol_inmemory_2024](images/mean-calc-mem-runtime.jpg){fig-align="center"}
+
+:::
+::::
+
+## Using Arrow with CSV and Parquet
+
+:::: {.columns}
+::: {.column width="50%"}
+
+<center>
+
+**Python**
+
+</center>
+
+`pyarrow` or from `pandas`
+
+```{.python}
+import pandas as pd
+pd.read_csv(engine = 'pyarrow')
+pd.read_parquet()
+
+import pyarrow.csv
+pyarrow.csv.read_csv()
+
+import pyarrow.parquet
+pyarrow.parquet.read_table()
+```
+
+:::
+::: {.column width="50%"}
+
+<center>
+
+**R**
+
+</center>
+
+Use the `arrow` package
+
+```{.r}
+library(arrow)
+
+read_csv_arrow()
+read_parquet()
+read_json_arrow()
+
+write_csv_arrow()
+write_parquet()
+```
+
+:::
+::::
+
+**Recommendation:** save your intermediate and analytical datasets as `Parquet`!
+
+<!-- Start _polars.qmd -->
+
+# Polars {data-stack-name="Polars"}
+
+Lightning-fast DataFrame library for Rust and Python
+
+## Before We Begin... {.text-90 .crunch-title}
+
+> [Pandas](https://pandas.pydata.org/) is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.
+
+Pandas is slow, but less slow if you use it the right way!
+
+* [Apache Arrow and the "10 Things I Hate About pandas"](https://wesmckinney.com/blog/apache-arrow-pandas-internals/) <font color=red size=5>(A 2017 post from the creator of Pandas...)</font>)
+* [50x faster data loading in Pandas: no problem](https://blog.esciencecenter.nl/irregular-data-in-pandas-using-c-88ce311cb9ef) <font color=red size=5>(an old 2019 article...)</font>
+* [Is Pandas really that slow?](https://medium.com/@tommerrissin/is-pandas-really-that-slow-cff4352e4f58)
+* [Pandas 2.0 and the arrow revolution](https://datapythonista.me/blog/pandas-20-and-the-arrow-revolution-part-i)
+
+## Polars {.crunch-title}
+
+![](images/polars.jpg){fig-align="center"}
+
+## Why is Polars Faster than Pandas? {.smaller .crunch-title}
+
+* **Polars is written in Rust**. Rust is **compiled**; Python is **interpreted**
+  * Compiled language: you generate the machine code only once then run it, subsequent runs do not need the compilation step.
+  * Interpreted language: code has to be parsed, interpreted and converted into machine code every single time.
+* **Parallelization**: Vectorized operations can be executed in parallel on multiple cores
+* **Lazy evaluation**: Polars supports two APIs lazy as well as eager evaluation (used by pandas). In lazy evaluation, a query is executed only when required. While in eager evaluation, a query is executed immediately.
+* **Polars uses [Arrow](https://arrow.apache.org/)** for in-memory data representation. Similar to how pandas uses NumPy (Pandas 2 allows using Arrow as backend)
+* **Polars $\approx$ in-memory DataFrame library + query optimizer**
+
+::: {.notes}
+
+* [Excerpt from [this post](https://news.ycombinator.com/item?id=26454585) from [Ritchie Vink](https://github.com/ritchie46), author of Polars] Arrow provides the efficient data structures and some compute kernels, like a SUM, a FILTER, a MAX etc. Arrow is not a query engine. Polars is a DataFrame library on top of arrow that has implemented efficient algorithms for JOINS, GROUPBY, PIVOTs, MELTs, QUERY OPTIMIZATION, etc. (the things you expect from a DF lib).
+
+:::
+
+## Ease of Use {.smaller .crunch-title .crunch-ul}
+
+* Familiar API for users of Pandas: differences in syntax but still a **Dataframe API** making it straightforward to perform common operations such as *filtering*, *aggregating*, and *joining* data
+* See [Migrating from Pandas](https://pola-rs.github.io/polars-book/user-guide/migration/pandas/)
+* **Reading data**
+
+  ```{.python}
+  # must install s3fs -> "pip install s3fs"
+  # Using Polars
+  import polars as pl
+  polars_df = pl.read_parquet("s3://nyc-tlc/trip data/yellow_tripdata_2023-06.parquet")
+
+  # using Pandas
+  import pandas as pd
+  pandas_df = pd.read_parquet("s3://nyc-tlc/trip data/yellow_tripdata_2023-06.parquet")
+  ```
+* **Selecting columns (see [Pushdown optimization](https://stackoverflow.com/questions/68713020/what-is-filter-pushdown-optimization))**
+  ``` {.python}
+  # Using Polars
+  selected_columns_polars = polars_df[['column1', 'column2']]
+
+  # Using Pandas
+  selected_columns_pandas = pandas_df[['column1', 'column2']]
+  ```
+
+## Ease of Use (contd.) {.crunch-title .crunch-ul}
+
+* **Filtering data**
+  ```{.python}
+  # Using Polars
+  filtered_polars = polars_df[polars_df['column1'] > 10]
+
+  # Using Pandas
+  filtered_pandas = pandas_df[pandas_df['column1'] > 10]
+  ```
+
+* Though you can write Polars code that looks like Pandas, better to write **idiomatic** Polars code that takes advantage of Polars' features
+* [Migrating from Apache Spark](https://pola-rs.github.io/polars-book/user-guide/migration/spark/): Whereas Spark DataFrame is a collection of rows, Polars DataFrame is closer to a collection of columns
+
+## Installation, Data Loading, and Basic Operations {.title-10 .smaller}
+
+Install via `pip`:
+
+``` {.bash}
+pip install polars
+```
+
+Import polars in your Python code and read data as usual:
+
+``` {.python}
+import polars as pl
+df = pl.read_parquet("s3://nyc-tlc/trip data/yellow_tripdata_2023-06.parquet")
+df.head()
+
+shape: (5, 19)
+┌──────────┬────────────┬──────────────┬──────────────┬─────┬──────────────┬──────────────┬──────────────┬─────────────┐
+│ VendorID ┆ tpep_picku ┆ tpep_dropoff ┆ passenger_co ┆ ... ┆ improvement_ ┆ total_amount ┆ congestion_s ┆ Airport_fee │
+│ ---      ┆ p_datetime ┆ _datetime    ┆ unt          ┆     ┆ surcharge    ┆ ---          ┆ urcharge     ┆ ---         │
+│ i32      ┆ ---        ┆ ---          ┆ ---          ┆     ┆ ---          ┆ f64          ┆ ---          ┆ f64         │
+│          ┆ datetime[n ┆ datetime[ns] ┆ i64          ┆     ┆ f64          ┆              ┆ f64          ┆             │
+│          ┆ s]         ┆              ┆              ┆     ┆              ┆              ┆              ┆             │
+╞══════════╪════════════╪══════════════╪══════════════╪═════╪══════════════╪══════════════╪══════════════╪═════════════╡
+│ 1        ┆ 2023-06-01 ┆ 2023-06-01   ┆ 1            ┆ ... ┆ 1.0          ┆ 33.6         ┆ 2.5          ┆ 0.0         │
+│          ┆ 00:08:48   ┆ 00:29:41     ┆              ┆     ┆              ┆              ┆              ┆             │
+│ 1        ┆ 2023-06-01 ┆ 2023-06-01   ┆ 0            ┆ ... ┆ 1.0          ┆ 23.6         ┆ 2.5          ┆ 0.0         │
+│          ┆ 00:15:04   ┆ 00:25:18     ┆              ┆     ┆              ┆              ┆              ┆             │
+│ 1        ┆ 2023-06-01 ┆ 2023-06-01   ┆ 1            ┆ ... ┆ 1.0          ┆ 60.05        ┆ 0.0          ┆ 1.75        │
+└──────────┴────────────┴──────────────┴──────────────┴─────┴──────────────┴──────────────┴──────────────┴─────────────┘
+```
+
+## Polars Pipeline Example {.crunch-title}
+
+We'll run this as part of the lab in a little bit; **think how you might code this in Pandas...**
+
+![Polars pipeline](images/polars-pipeline.png){fig-align="center"}
+
+## Further reading
+
+- [Polars](https://github.com/pola-rs/polars)
+- [User guide](https://pola-rs.github.io/polars-book/user-guide/) &larr; **MUST READ**
+- [Polars GitHub repo](https://github.com/pola-rs/polars)
+- [Pandas Vs Polars: a syntax and speed comparison](https://towardsdatascience.com/pandas-vs-polars-a-syntax-and-speed-comparison-5aa54e27497e)
+- [Tips & tricks for working with strings in Polars](https://towardsdatascience.com/tips-and-tricks-for-working-with-strings-in-polars-ec6bb74aeec2)
+
+<!-- Start _duckdb.qmd -->
+
+# DuckDB {data-stack-name="DuckDB"}
+
+An in-process SQL OLAP database management system
+
+## DuckDB {.text-80}
+
+* [DuckDB](https://duckdb.org/) is an in-process [SQL](https://en.wikipedia.org/wiki/SQL) [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) DB management system
+* Like `sqlite`, but for analytics. What does this mean? It means that your database runs inside your process, there are no servers to manage, no remote system to connect to. Easy to experiment with SQL-like syntax.
+* **Vectorized processing**: Loads chunks of data into memory (tries to keep everything in the CPU's L1 and L2 cache) and is thus able to handle datasets bigger than the amount of RAM available.
+* Supports Python, R and a host of other languages
+* Important paper on DuckDB: @raasveldt_duckdb_2019
+
+## Key Features {.text-80 .crunch-title .crunch-li-8}
+
+* **Columnar Storage, Vectorized Query Processing**: DuckDB contains a columnar-vectorized query execution engine, where queries are run on a large batch of values (a "vector") in one operation
+  * Most analytical queries (think group by and summarize) or even data retrieval for training ML models require retrieving a subset of columns and now the entire row, columnar storage make this faster
+* **In-Memory Processing**: All data needed for processing is brought within the process memory (recall that columnar storage format helps with this) making queries run faster (no DB call over the network)
+* **SQL Support**: highly Postgres-compatible version of SQL[^1].
+* **ACID Compliance**: Transactional guarantees (ACID properties) through bulk-optimized Multi-Version Concurrency Control (MVCC). 
+
+[^1]: [Friendlier SQL with DuckDB](https://duckdb.org/2022/05/04/friendlier-sql.html)
+
+
+## Use Cases for DuckDB {.crunch-title .text-90}
+
+* Data Warehousing
+* Business Intelligence
+* Real-Time Analytics
+* IoT Data Processing
+
+**DuckDB in the Wild**
+
+* [How We Silently Switched Mode's In-Memory Data Engine to DuckDB To Boost Visual Data Exploration Speed](https://mode.com/blog/how-we-switched-in-memory-data-engine-to-duck-db-to-boost-visual-data-exploration-speed/)
+* [Why we built Rill with DuckDB](https://www.rilldata.com/blog/why-we-built-rill-with-duckdb)
+* [Leveraging DuckDB for enhanced performance in dbt projects](https://www.astrafy.io/articles/leveraging-duckdb-for-enhanced-performance-in-dbt-projects)
+
+
+## DuckDB: DIY {.title-09 .crunch-title}
+
+![Datalake and DuckDB](images/duckdb.drawio.png){fig-align="center"}
+
+[Using DuckDB in AWS Lambda](https://tobilg.com/using-duckdb-in-aws-lambda)
+
+
+## DuckDB: Fully-Managed {.smaller .crunch-title}
+
+![MotherDuck Architecture](images/motherduck-architecture.png){fig-align="center"}
+
+* [Architecture and capabilities](https://motherduck.com/docs/architecture-and-capabilities/)
+* Seamlessly analyze data, whether it sits on your laptop, in the cloud or split between.
+* Hybrid execution automatically plans each part of your query and determines where it's best computed
+* [DuckDB Vs MotherDuck](https://kestra.io/blogs/2023-07-28-duckdb-vs-motherduck)
+
+## Setting Up DuckDB
+
+**Configuration and Initialization**: DuckDB is *integrated into* Python and R for efficient interactive data analysis (APIs for Java, C, C++, Julia, Swift, and others)
+
+``` {.bash code-line-numbers="false"}
+pip install duckdb
+```
+
+**Connecting to DuckDB**
+
+``` {.python}
+import duckdb
+# directly query a Pandas DataFrame
+import pandas as pd
+data_url = "https://raw.githubusercontent.com/anly503/datasets/main/EconomistData.csv"
+df = pd.read_csv(data_url)
+duckdb.sql('SELECT * FROM df')
+```
+
+## Setting Up DuckDB (contd.) {.text-90}
+
+**Supported data formats**: DuckDB can ingest data from a wide variety of formats – both on-disk and in-memory. See the [data ingestion page](https://duckdb.org/docs/api/python/data_ingestion) for more information.
+
+```{.python}
+import duckdb
+duckdb.read_csv('example.csv')                # read a CSV file into a Relation
+duckdb.read_parquet('example.parquet')        # read a Parquet file into a Relation
+duckdb.read_json('example.json')              # read a JSON file into a Relation
+
+duckdb.sql('SELECT * FROM "example.csv"')     # directly query a CSV file
+duckdb.sql('SELECT * FROM "example.parquet"') # directly query a Parquet file
+duckdb.sql('SELECT * FROM "example.json"')    # directly query a JSON file
+```
+
+## Querying DuckDB {.text-90}
+
+**Essential Reading**
+
+* [Friendlier SQL with DuckDB](https://duckdb.org/2022/05/04/friendlier-sql.html)
+* [SQL Introduction](https://duckdb.org/docs/sql/introduction)
+
+**Basic SQL Queries**
+
+``` {.python}
+import duckdb
+import pandas as pd
+babynames = pd.read_parquet("https://github.com/anly503/datasets/raw/main/babynames.parquet.zstd")
+duckdb.sql("select count(*)  from babynames where Name='John'")
+```
+
+**Aggregations and Grouping**
+
+``` {.python}
+duckdb.sql("select State, Name, count(*) as count  from babynames group by State, Name order by State desc, count desc") 
+```
+
+## Querying DuckDB (contd.) {.crunch-title .text-90}
+
+Essential reading: [`FROM` and `JOIN` clauses](https://duckdb.org/docs/sql/query_syntax/from.html)
+
+**Joins and Subqueries**
+
+``` {.python}
+# Join two tables together
+duckdb.sql("SELECT * FROM table_name JOIN other_table ON (table_name.key = other_table.key")
+```
+
+**Window Functions**
+
+```{.python}
+powerplants = pd.read_csv("https://raw.githubusercontent.com/anly503/datasets/main/powerplants.csv", parse_dates=["date"])
+q = """
+SELECT "plant", "date",
+    AVG("MWh") OVER (
+        PARTITION BY "plant"
+        ORDER BY "date" ASC
+        RANGE BETWEEN INTERVAL 3 DAYS PRECEDING
+                  AND INTERVAL 3 DAYS FOLLOWING)
+        AS "MWh 7-day Moving Average"
+FROM powerplants
+ORDER BY 1, 2;
+"""
+duckdb.sql(q)
+```
+
+## Using the DuckDB CLI and Shell {.crunch-title .smaller .crunch-ul .title-11}
+
+* Install [DuckDB CLI](http://duckdb.org/docs/installation/) or use in browser via [shell.duckdb.org](https://shell.duckdb.org/) for data exploration via SQL; Once installed, import a local file into the shell and run queries
+* You can download `powerplants.csv` [here](https://raw.githubusercontent.com/anly503/datasets/main/powerplants.csv)
+
+  ``` {.bash}
+  C:\Users\<username>\Downloads\duckdb_cli-windows-amd64> duckdb
+  v0.8.1 6536a77232
+  Enter ".help" for usage hints.
+  Connected to a transient in-memory database.
+  Use ".open FILENAME" to reopen on a persistent database.
+  D CREATE TABLE powerplants AS SELECT * FROM read_csv_auto('powerplants.csv');
+  D DESCRIBE powerplants;
+  ┌─────────────┬─────────────┬─────────┬─────────┬─────────┬───────┐
+  │ column_name │ column_type │  null   │   key   │ default │ extra │
+  │   varchar   │   varchar   │ varchar │ varchar │ varchar │ int32 │
+  ├─────────────┼─────────────┼─────────┼─────────┼─────────┼───────┤
+  │ plant       │ VARCHAR     │ YES     │         │         │       │
+  │ date        │ DATE        │ YES     │         │         │       │
+  │ MWh         │ BIGINT      │ YES     │         │         │       │
+  └─────────────┴─────────────┴─────────┴─────────┴─────────┴───────┘
+  D  SELECT * from powerplants where plant='Boston' and date='2019-01-02';
+  ┌─────────┬────────────┬────────┐
+  │  plant  │    date    │  MWh   │
+  │ varchar │    date    │ int64  │
+  ├─────────┼────────────┼────────┤
+  │ Boston  │ 2019-01-02 │ 564337 │
+  └─────────┴────────────┴────────┘
+  ```
+
+## Profiling in DuckDB {.smaller}
+
+**Query Optimization:** Use `EXPLAIN` and `ANALYZE` keywords to understand how your query is being executed and the time being spent in individual steps
+    
+``` {.bash}
+D EXPLAIN ANALYZE SELECT * from powerplants where plant='Boston' and date='2019-01-02';
+```
+
+DuckDB will use all the cores available on the underlying compute, but you can adjust this (Full configuration details [here](https://duckdb.org/docs/sql/configuration.html))
+
+```{.markdown}
+D select current_setting('threads');
+┌────────────────────────────┐
+│ current_setting('threads') │
+│           int64            │
+├────────────────────────────┤
+│                          8 │
+└────────────────────────────┘
+D SET threads=4;
+D select current_setting('threads');
+┌────────────────────────────┐
+│ current_setting('threads') │
+│           int64            │
+├────────────────────────────┤
+│                          4 │
+└────────────────────────────┘
+```
+
+## Benchmarks and Comparisons
+
+:::: {layout="[1,1]" layout-valign="center"}
+::: {#benchmark-left}
+
+* Tricky topic! Can make your chosen solution look better by focusing on metrics on which it provides better results
+* In general, [TPC-H](https://www.tpc.org/tpch/) and [TPC-DS](https://www.tpc.org/tpcds/) are considered the standard benchmarks for data processing.
+
+::: 
+::: {#benchmark-right}
+
+![TPC-DS Homepage](images/TPC-DS-Homepage.png)
+
+:::
+::::
+
+## Further Reading on DuckDB {.smaller}
+
+1. [Parallel Grouped Aggregation in DuckDB](https://duckdb.org/2022/03/07/aggregate-hashtable.html)
+1. [Meta queries](https://duckdb.org/docs/guides/meta/list_tables)
+1. [Profiling queries in DuckDB](https://duckdb.org/dev/profiling)
+1. [DuckDB tutorial for beginners](https://motherduck.com/blog/duckdb-tutorial-for-beginners/)
+1. [DuckDB CLI API](https://duckdb.org/docs/api/cli)
+1. [Using DuckDB in AWS Lambda](https://tobilg.com/using-duckdb-in-aws-lambda)
+1. [Revisiting the Poor Man’s Data Lake with MotherDuck](https://dagster.io/blog/poor-mans-datalake-motherduck)
+1. [Supercharge your data processing with DuckDB](https://medium.com/learning-sql/supercharge-your-data-processing-with-duckdb-cea907196704)
+1. [Friendlier SQL with DuckDB](https://duckdb.org/2022/05/04/friendlier-sql.html)
+1. [Building and deploying data apps with DuckDB and Streamlit](https://medium.com/@octavianzarzu/build-and-deploy-apps-with-duckdb-and-streamlit-in-under-one-hour-852cd31cccce)
+
+# Lab 4 {data-stack-name="Lab 4"}
+
+[GitHub Classroom Link]({{< var gh-classroom.a04 >}})
+
+## References
+
+::: {#refs}
+:::
