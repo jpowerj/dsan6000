@@ -1,12 +1,17 @@
 ---
 title: "Resource Hub"
 sidebar: mainnav
+bibliography: "_DSAN6000.bib"
+csl: "chicago-17-no-url.csl"
+nocite: |
+  @*
 format:
   html:
     df-print: kable
 ---
 
-Wolohan, [*Mastering Large Datasets with Python*](https://www.dropbox.com/scl/fi/ugkacs7krqdgo0c5xqgy0/John-T.-Wolohan-Mastering-Large-Datasets-with-Python.pdf?rlkey=397zleff6uuibvhfzfme18f41&dl=1)
+This page is auto-generated from all of the references across the slides for each week: click on the **name** of a reference to download the ebook version, if available!
 
-Kleppman, [*Designing Data-Intensive Applications*](https://www.dropbox.com/scl/fi/42hm32h6qz8mrj5bm5eet/DesigningData-IntensiveApplications_TheBigIdeasBehind-Kleppmann-Martin.pdf?rlkey=nournir9s213rsmegi3eo0zn3&dl=1)
+::: {#refs}
+:::
 
