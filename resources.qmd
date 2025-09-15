@@ -10,6 +10,16 @@ format:
     df-print: kable
 ---
 
+## In-Class Demos
+
+* [Week 4 Demo](https://colab.research.google.com/drive/1tS3nM7FJAqthDqdeXmqgxiOYMcRrFTZq?usp=sharing)
+
+## Lab .zips
+
+Access the [ZIP files here](https://jpj.georgetown.domains/dsan6000-zips/)
+
+## PDFs of Books
+
 This page is auto-generated from all of the references across the slides for each week: click on the **name** of a reference to download the ebook version, if available!
 
 ::: {#refs}
