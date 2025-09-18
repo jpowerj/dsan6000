@@ -12,7 +12,8 @@ format:
 
 ## In-Class Demos
 
-* [Week 4 Demo](https://colab.research.google.com/drive/1tS3nM7FJAqthDqdeXmqgxiOYMcRrFTZq?usp=sharing)
+* [Week 4 Polars Demo](https://colab.research.google.com/drive/1tS3nM7FJAqthDqdeXmqgxiOYMcRrFTZq?usp=sharing)
+* [Week 4 DuckDB Demo](https://colab.research.google.com/drive/1tPlayCjCJqS4D1TKXwtx93knBZhWxqOy?usp=sharing)
 
 ## Lab .zips
 

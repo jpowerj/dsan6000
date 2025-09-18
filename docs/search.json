@@ -4,7 +4,7 @@
     "href": "resources.html",
     "title": "Resource Hub",
     "section": "",
-    "text": "Week 4 Demo",
+    "text": "Week 4 Polars Demo\nWeek 4 DuckDB Demo",
     "crumbs": [
       "Resources"
     ]
@@ -14,7 +14,7 @@
     "href": "resources.html#in-class-demos",
     "title": "Resource Hub",
     "section": "",
-    "text": "Week 4 Demo",
+    "text": "Week 4 Polars Demo\nWeek 4 DuckDB Demo",
     "crumbs": [
       "Resources"
     ]
@@ -34,7 +34,7 @@
     "href": "resources.html#pdfs-of-books",
     "title": "Resource Hub",
     "section": "PDFs of Books",
-    "text": "PDFs of Books\nThis page is auto-generated from all of the references across the slides for each week: click on the name of a reference to download the ebook version, if available!\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nKleppmann, Martin. 2017. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. O’Reilly Media, Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.\n\n\nNeedham, Mark, Michael Hunger, and Michael Simons. 2024. DuckDB in Action. Simon and Schuster.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc.\n\n\nWolohan, John. 2020. Mastering Large Datasets with Python: Parallelize and Distribute Your Python Code. Simon and Schuster.",
+    "text": "PDFs of Books\nThis page is auto-generated from all of the references across the slides for each week: click on the name of a reference to download the ebook version, if available!\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc.\n\n\nHealy, Kieran. n.d. “America’s Ur-Choropleths.” Accessed September 17, 2025.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nKleppmann, Martin. 2017. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. O’Reilly Media, Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.\n\n\nNeedham, Mark, Michael Hunger, and Michael Simons. 2024. DuckDB in Action. Simon and Schuster.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc.\n\n\nWolohan, John. 2020. Mastering Large Datasets with Python: Parallelize and Distribute Your Python Code. Simon and Schuster.",
     "crumbs": [
       "Resources"
     ]
@@ -1488,7 +1488,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9623 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.4867 s"
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.0005 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.2124 s"
   },
   {
     "objectID": "w03/slides.html#what-happens-when-not-embarrassingly-parallel",
@@ -1709,7 +1709,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9687 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.4723 s",
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9757 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.2130 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 8</span>"
     ]
