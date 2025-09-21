@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/resources.html",
+    "items": [
+      "/writeups/sql-guide/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/w01/index.html",

@@ -1,0 +1,250 @@
+---
+title: "From Pandas to SQL"
+subtitle: "Converting Code into Queries"
+author: "Jeff Jacobs"
+date: 2025-09-20
+sidebar: mainnav
+categories:
+  - Extra Writeups
+format:
+  html:
+    df-print: kable
+    code-fold: show
+    html-math-method: mathjax
+    link-external-newwindow: true
+    link-external-icon: true
+    css: "../../dsan-globals/jjwriteups.css"
+---
+
+At some point during [Week 4](../../w04/index.qmd), you may have noticed a somewhat-jarring shift in our approach to data analytics...
+
+Specifically, you may have noticed that:
+
+* **Polars** basically lets you "supercharge" your Pandas skills, by taking Pandas objects (like `DataFrame`s) and functions (like `read_csv()`) and re-building them from the ground up for **distributed** cloud environments, alongside some new functions like `scan_csv()` and `sink_csv()`
+* **DuckDB**, on the other hand, probably felt far less familiar coming from Pandas. In a sense you can think of it as coming from the "opposite direction": rather than **adapting Pandas syntax** to big-data workflows like Polars, DuckDB takes a language that's already commonly used for **database creation and manipulation** in big-data workflows (namely, **SQL**) and **adapts this SQL language for use with Pandas**.
+
+So, given that your work in DSAN courses like DSAN 5000 and DSAN 5300 has been primarily oriented around Pandas syntax and coding patterns, the goal of this writeup is to get you up-to-speed with how you can **"translate"** the types of things you're used to doing with **Pandas code** into equivalent **SQL queries**.
+
+## Eager vs. Lazy Evaluation
+
+As a final note before we "zoom in" and focus on SQL, though: keep in mind that this move from **code** to **queries** is part of our endeavor in this class to start [**decoupling data from computation!**](https://motherduck.com/blog/separating-storage-compute-duckdb/) In an **eager-evaluation** setting like Pandas code, when we write a data-processing pipeline, the steps are **immediately evaluated**, line-by-line (like any other Python code). Consider the following example, where the goal of the pipeline is to figure out our average ratio of sleep hours to work hours on weekdays:
+
+```{python}
+#| label: sleep-df-create
+import pandas as pd
+import numpy as np
+rng = np.random.default_rng(seed=6000)
+import calendar
+list(calendar.day_name)
+sleep_df = pd.DataFrame({
+  'day': list(calendar.day_name),
+  'sleep_hrs': rng.uniform(3, 8, size=7),
+  'work_hrs': rng.uniform(6, 10, size=7),
+})
+display(sleep_df)
+```
+
+```{python}
+#| label: sleep-compute-ratios
+# Step 1: Compute ratios
+ratio_df = sleep_df.copy()
+ratio_df['ratio'] = ratio_df['work_hrs'] / ratio_df['sleep_hrs']
+display(ratio_df)
+```
+
+```{python}
+#| label: sleep-filter-weekends
+# Step 2: Filter to just weekdays
+weekend_days = ['Saturday', 'Sunday']
+weekday_df = ratio_df[~ratio_df['day'].isin(weekend_days)]
+display(weekday_df)
+```
+
+```{python}
+#| label: sleep-compute-mean
+# Step 3: Compute mean ratio over the weekdays
+weekday_df['ratio'].mean()
+```
+
+Notice here, however, that we are carrying out **unnecessary computations** in Step 1! Since we're going to **drop** the weekend rows in Step 2 anyways, there is no need to compute the ratio for these two days. Since Python (and thus Pandas) is evaluated line-by-line, however, Pandas has no way of knowing that these two ratios don't need to be computed. It simply does what it is told, dutifully computing all 7 ratios.
+
+There is an alternative approach here: we could instead **write out our "plan"** for this pipeline **in advance**, in the form of a **query**, **before** actually running any code! We can then utilize a query optimization engine like **Polars**, which can scan over our query and figure out that we don't need to compute ratios for weekend days, since they would be dropped in Step 2! Here is the same pipeline re-written using Polars' `LazyFrame` in place of a Pandas `DataFrame`:
+
+```{python}
+#| label: sleep-polars
+import polars as pl
+sleep_pl = pl.LazyFrame(sleep_df)
+compute_ratio_expr = pl.col('work_hrs') / pl.col('sleep_hrs')
+compute_ratios_expr = (
+  sleep_pl.with_columns(
+    compute_ratio_expr.alias('ratio')
+  ).filter(~pl.col('day').is_in(weekend_days))
+)
+```
+
+Note that **no computation has actually taken place yet!** We have just **written out our *plan*** for the computation, in the form of Polars expressions (which don't actually run until they're paired with a **context**).
+
+Because of this, we can see Polars' query optimization engine in action. First, we can use the `optimized=False` argument to `show_graph()` to see what our pipeline looks like **without** any optimizations (that is, running line-by-line as written, as our Pandas code did above):
+
+```{python}
+#| label: sleep-polars-non-optimized
+compute_ratios_expr.show_graph(optimized=False)
+```
+
+Remember that these query plans should be read from **bottom to top**. Now, compare that with the following graph, which shows our query **after** Polars scans over our instructions, detecting points where it can re-arrange our pipeline for greater efficiency:
+
+```{python}
+#| label: sleep-polars-optimized
+compute_ratios_expr.show_graph()
+```
+
+Notice the difference in the ordering of steps: Polars has successfully figured out that it should **filter out the weekend days *before* carrying out the calculations!**
+
+## Onto DuckDB!
+
+Once you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a... "middle ground" compromise, allowing:
+
+* **Pandas enthusiasts** who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to "meet halfway" with
+* **SQL enthusiasts** who are already used to writing all of their queries out before executing them
+
+I choose the "meet halfway" metaphor very specifically because, when you write Polars expressions like the `compute_ratios_expr` expression in the above code block, you are essentially **writing SQL queries programmatically!** Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with **writing queries**, you just don't know it yet!
+
+To see what I mean, let's do one final "translation" and re-write our pipeline once more using **DuckDB** this time:
+
+```{python}
+#| label: sleep-duckdb
+import duckdb
+con = duckdb.connect()
+ratio_query = """
+SELECT
+  day,
+  sleep_hrs,
+  work_hrs,
+  work_hrs / sleep_hrs AS ratio
+FROM sleep_df
+WHERE day NOT IN ('Saturday','Sunday')
+"""
+result_df = con.execute(ratio_query).df()
+result_df
+```
+
+Now, just like with Polars, we can ask DuckDB to **explain** how it will carry out this query: the syntax is a bit weird, but you can just add the commands `EXPLAIN ANALYZE` to the beginning of any query to obtain DuckDB's query plan:
+
+```{python}
+#| label: sleep-duckdb-explain
+ratio_query_explain = f"EXPLAIN ANALYZE {ratio_query}"
+print(ratio_query_explain)
+explanation = con.execute(ratio_query_explain).fetchone()
+print(explanation[1])
+```
+
+And, like before (again reading from bottom to top of the query plan), we can see that despite us **writing** the division `work_hrs / sleep_hrs` **earlier** in our query than the filtering step (the `WHERE` statement), DuckDB has also successfully **figured out that executing these in reverse order is more efficient!** (The `PROJECTION` step, occurring after the `FILTER` step, is the first step where the `ratio` result appears)
+
+## Basic Pandas Operations in SQL
+
+With all that in mind, you can now move towards thinking through how you can carry out the above sequence of "translations" -- from Pandas to Polars to DuckDB -- for other common Pandas tasks you're used to from e.g. DSAN 5000!
+
+To nudge you in that direction, in this section we'll conclude with a few examples of common Pandas pipelines and how they translate to SQL code.
+
+### Filtering Rows
+
+This is probably the most straightforward operation in SQL world, since SQL provides us with the `WHERE` operator which we can pair with a **boolean condition** to filter the rows of our `DataFrame`.
+
+So, for example, if we wanted to select one specific row in our `DataFrame` on the basis of some value, we can do this using the general syntax `SELECT * FROM df WHERE condition`. The following code uses this syntax to select just the row containing data for Thursday:
+
+```{python}
+#| label: duckdb-select-thursday
+con.execute("""
+SELECT * FROM sleep_df
+WHERE day = 'Friday'
+""").df()
+```
+
+Notice how, since SQL is a "declarative" language, it avoids the confusion which comes up in Python between the single-equals-sign **assignment operator** `=` and the double-equals-sign **equality operator** `==`. In SQL, you can actually use either of these in a boolean operator to indicate that you'd like to check for equality, though the single-equals-sign `=` used above is more common:
+
+```{python}
+#| label: duckdb-double-equals
+con.execute("""
+SELECT * FROM sleep_df
+WHERE day == 'Friday'
+""").df()
+```
+
+You may have noticed, however, that we didn't use this `=` operator when filtering out weekend days above. Instead, we used the `IN` operator, along with the `NOT` operator for negation. The `IN` operator on its own works like:
+
+```{python}
+#| label: duckdb-in
+con.execute("""
+SELECT * FROM sleep_df
+WHERE day IN ('Monday','Wednesday','Friday')
+""").df()
+```
+
+And then we can use the `NOT` operator to obtain the exact opposite (the days which are **not** among the three listed days in the query):
+
+```{python}
+#| label: duckdb-not-in
+con.execute("""
+SELECT * FROM sleep_df
+WHERE day NOT IN ('Monday','Wednesday','Friday')
+""").df()
+```
+
+### Selecting Columns
+
+Notice how, up until now, we've been using `SELECT *` at the beginning of our queries. That's because our goal was to view the entire contents of the `DataFrame`, just with certain **rows** selected and others filtered out.
+
+If we instead want to select certain **columns**, we can just replace the **wildcard symbol `*`** that we placed after `SELECT` with a **specific list of columns**:
+
+```{python}
+#| label: duckdb-select-cols
+con.execute("""
+SELECT day, work_hrs FROM sleep_df
+""").df()
+```
+
+Importantly, we can also match **regular expression patterns** in the names of columns, by using `SELECT COLUMNS()` rather than just `SELECT`. Here, for example, we use it to select all of the columns whose names end with `hrs`:
+
+```{python}
+#| label: duckdb-wildcard-cols
+con.execute("""
+SELECT COLUMNS('.+_hrs') FROM sleep_df
+""").df()
+```
+
+Note that this `COLUMNS()` syntax is specific to DuckDB's "flavor" of SQL, and not standard in other implementations of SQL.
+
+### Defining New Columns
+
+Finally, you may have noticed that the `SELECT` operator is basically doing double duty: not only did we use it in the previous section to request the three *original* columns in `sleep_df` (`day`, `sleep_hrs`, and `work_hrs`), but also to **define a new column** named `ratio`, by dividing `work_hrs` by `sleep_hrs`.
+
+This is a general feature of SQL, and DuckDB (and the `select()` function in Polars)! We can `SELECT` the columns "as-is" by just including their names, **or** we can define new columns within the select statement. For example, if we wanted the squared values of our two numeric columns for some reason, we could do the following:
+
+```{python}
+#| label: duckdb-squared-values
+con.execute("""
+SELECT
+  day,
+  sleep_hrs,
+  sleep_hrs^2 AS sleep_squared,
+  work_hrs,
+  work_hrs^2 AS work_squared
+FROM sleep_df
+""").df()
+```
+
+### Combining Operations
+
+To bring everything together, let's see how we can combine the above three tasks into a single query!
+
+```{python}
+con.execute("""
+SELECT
+  day,
+  work_hrs,
+  work_hrs^2 AS work_squared
+FROM sleep_df
+WHERE day = 'Tuesday'
+""").df()
+```
+

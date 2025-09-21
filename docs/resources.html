@@ -51,6 +51,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -92,8 +94,66 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-writeups .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-subtitle','listing-categories','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-writeups'] = new List('listing-writeups', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><script src="./sidebar.js"></script><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="./dsan-globals/jjstyles.css">
 </head>
@@ -428,7 +488,7 @@ div.csl-indent {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2025-09-20, 09:58:26 PM</em></p>
+<p><em>Updated 2025-09-21, 06:36:47 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -439,6 +499,7 @@ div.csl-indent {
   <ul>
   <li><a href="#in-class-demos" id="toc-in-class-demos" class="nav-link active" data-scroll-target="#in-class-demos">In-Class Demos</a></li>
   <li><a href="#lab-.zips" id="toc-lab-.zips" class="nav-link" data-scroll-target="#lab-.zips">Lab .zips</a></li>
+  <li><a href="#extra-writeups" id="toc-extra-writeups" class="nav-link" data-scroll-target="#extra-writeups">Extra Writeups</a></li>
   <li><a href="#key-books-by-week" id="toc-key-books-by-week" class="nav-link" data-scroll-target="#key-books-by-week">Key Books By Week</a>
   <ul class="collapse">
   <li><a href="#week-1-course-overview-and-week-2-cloud-computing" id="toc-week-1-course-overview-and-week-2-cloud-computing" class="nav-link" data-scroll-target="#week-1-course-overview-and-week-2-cloud-computing">Week 1: Course Overview and Week 2: Cloud Computing</a></li>
@@ -449,7 +510,7 @@ div.csl-indent {
   <li><a href="#pdfs-of-books" id="toc-pdfs-of-books" class="nav-link" data-scroll-target="#pdfs-of-books">PDFs of Books</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/resources.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RXh0cmElMjBXcml0ZXVwcw==">Extra Writeups <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -483,6 +544,37 @@ div.csl-indent {
 <section id="lab-.zips" class="level2">
 <h2 class="anchored" data-anchor-id="lab-.zips">Lab .zips</h2>
 <p>Access the <a href="https://jpj.georgetown.domains/dsan6000-zips/">ZIP files here</a></p>
+</section>
+<section id="extra-writeups" class="level2">
+<h2 class="anchored" data-anchor-id="extra-writeups">Extra Writeups</h2>
+<div id="listing-writeups" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="RXh0cmElMjBXcml0ZXVwcw==" data-listing-date-sort="1758340800000" data-listing-file-modified-sort="1758494196395" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1529">
+<a href="./writeups/sql-guide/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+From Pandas to SQL
+</h5>
+<div class="card-subtitle listing-subtitle">
+Converting Code into Queries
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RXh0cmElMjBXcml0ZXVwcw=='); return false;">Extra Writeups</div>
+
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Sep 20, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
 </section>
 <section id="key-books-by-week" class="level2">
 <h2 class="anchored" data-anchor-id="key-books-by-week">Key Books By Week</h2>
@@ -561,6 +653,7 @@ White, Tom E. 2015. <em>Hadoop: <span>The Definitive Guide</span></em>. O’Reil
 Wolohan, John. 2020. <em><a href="https://www.dropbox.com/scl/fi/ugkacs7krqdgo0c5xqgy0/John-T.-Wolohan-Mastering-Large-Datasets-with-Python.pdf?rlkey=397zleff6uuibvhfzfme18f41&amp;dl=1">Mastering <span>Large Datasets</span> with <span>Python</span>: <span>Parallelize</span> and <span>Distribute Your Python Code</span></a></em>. <span>Simon and Schuster</span>.
 </div>
 </div>
+
 
 
 </section>

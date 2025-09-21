@@ -2,6 +2,9 @@
   "listingMap": {
     "index.qmd": [
       "B3049D40"
+    ],
+    "resources.qmd": [
+      "writeups/**/*.qmd"
     ]
   }
 }

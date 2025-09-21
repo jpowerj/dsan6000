@@ -1,6 +1,13 @@
 ---
 title: "Resource Hub"
 sidebar: mainnav
+listing:
+  id: writeups
+  type: grid
+  categories: true
+  contents: "writeups/**/*.qmd"
+  image-height: 0px
+  fields: [title, subtitle, categories, date]
 bibliography: "_DSAN6000.bib"
 csl: "chicago-17-no-url.csl"
 nocite: |
@@ -18,6 +25,11 @@ format:
 ## Lab .zips
 
 Access the [ZIP files here](https://jpj.georgetown.domains/dsan6000-zips/)
+
+## Extra Writeups
+
+::: {#writeups}
+:::
 
 ## Key Books By Week
 

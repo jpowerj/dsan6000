@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="602pt" height="195pt" viewBox="0.00 0.00 601.50 194.50">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 190.5)">
+<title>polars_query</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-190.5 597.5,-190.5 597.5,4 -4,4"/>
+<!-- p2 -->
+<g id="node1" class="node">
+<title>p2</title>
+<polygon fill="none" stroke="black" points="593.5,-114.5 0,-114.5 0,-78.5 593.5,-78.5 593.5,-114.5"/>
+<text text-anchor="middle" x="296.75" y="-91.83" font-family="Monospace" font-size="14.00">WITH COLUMNS [[(col(&quot;work_hrs&quot;)) / (col(&quot;sleep_hrs&quot;))].alias(&quot;ratio&quot;)]</text>
+</g>
+<!-- p1 -->
+<g id="node2" class="node">
+<title>p1</title>
+<polygon fill="none" stroke="black" points="544,-186.5 49.5,-186.5 49.5,-150.5 544,-150.5 544,-186.5"/>
+<text text-anchor="middle" x="296.75" y="-163.82" font-family="Monospace" font-size="14.00">FILTER BY col(&quot;day&quot;).is_in([[&quot;Saturday&quot;, &quot;Sunday&quot;]]).not()</text>
+</g>
+<!-- p2&#45;&gt;p1 -->
+<g id="edge1" class="edge">
+<title>p2-&gt;p1</title>
+<path fill="none" stroke="black" d="M296.75,-114.8C296.75,-122.09 296.75,-130.77 296.75,-138.96"/>
+<polygon fill="black" stroke="black" points="293.25,-138.88 296.75,-148.88 300.25,-138.88 293.25,-138.88"/>
+</g>
+<!-- p3 -->
+<g id="node3" class="node">
+<title>p3</title>
+<polygon fill="none" stroke="black" points="325.38,-42.5 268.12,-42.5 268.12,0 325.38,0 325.38,-42.5"/>
+<text text-anchor="middle" x="296.75" y="-25.2" font-family="Monospace" font-size="14.00">TABLE</text>
+<text text-anchor="middle" x="296.75" y="-7.95" font-family="Monospace" font-size="14.00">π */3</text>
+</g>
+<!-- p3&#45;&gt;p2 -->
+<g id="edge2" class="edge">
+<title>p3-&gt;p2</title>
+<path fill="none" stroke="black" d="M296.75,-42.65C296.75,-50.16 296.75,-58.81 296.75,-66.91"/>
+<polygon fill="black" stroke="black" points="293.25,-66.67 296.75,-76.67 300.25,-66.67 293.25,-66.67"/>
+</g>
+</g>
+</svg>
