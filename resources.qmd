@@ -19,9 +19,31 @@ format:
 
 Access the [ZIP files here](https://jpj.georgetown.domains/dsan6000-zips/)
 
+## Key Books By Week
+
+### Week 1: Course Overview and Week 2: Cloud Computing
+
+* **The Boar Book**: @kleppmann_designing_2017, *Designing Data-Intensive Applications*
+
+### Week 3: Parallel Concepts
+
+* **The Wolohan MapReduce Book**: @wolohan_mastering_2020, *Mastering Large Datasets with Python*
+
+### Week 4: DuckDB, Polars, File Formats
+
+* **The Lynx Book**: @janssens_python_2025, *Python Polars: The Definitive Guide*
+* **The I-Need-Ham, Hunger Book**: @needham_duckdb_2024, *DuckDB in Action*
+
+### Week 5: Data Warehousing
+
+Two Packt Books:
+
+* **General Data Engineering on AWS**: @eagar_data_2021, *Data Engineering with AWS*
+* **Data Engineering with Athena**: @virtuoso_serverless_2021, *Serverless Analytics with Amazon Athena*
+
 ## PDFs of Books
 
-This page is auto-generated from all of the references across the slides for each week: click on the **name** of a reference to download the ebook version, if available!
+The remainder of this page is auto-generated from all of the references across the slides for each week: click on the **name** of a reference to download the ebook version, if available!
 
 ::: {#refs}
 :::

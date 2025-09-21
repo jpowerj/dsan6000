@@ -8,7 +8,7 @@
 
 <meta name="author" content="Amit Arora and Jeff Jacobs">
 
-<title>Week 5: Data Warehouse (Athena, Presto, Snowflake) – DSAN 6000 Slide Hub</title>
+<title>Week 5: Data Engineering – DSAN 6000 Slide Hub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -409,20 +444,55 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2025-09-20, 08:23:06 PM</em></p>
+<p><em>Updated 2025-09-20, 09:53:19 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link active" data-scroll-target="#agenda">Agenda</a>
+  <ul class="collapse">
+  <li><a href="#today" id="toc-today" class="nav-link" data-scroll-target="#today">Today</a></li>
+  </ul></li>
+  <li><a href="#data-engineering" id="toc-data-engineering" class="nav-link" data-scroll-target="#data-engineering">Data Engineering</a>
+  <ul class="collapse">
+  <li><a href="#what-is-data-engineering" id="toc-what-is-data-engineering" class="nav-link" data-scroll-target="#what-is-data-engineering">What is Data Engineering?</a></li>
+  <li><a href="#what-do-data-engineers-do" id="toc-what-do-data-engineers-do" class="nav-link" data-scroll-target="#what-do-data-engineers-do">What do Data Engineers do?</a></li>
+  <li><a href="#what-do-data-engineers-do-contd." id="toc-what-do-data-engineers-do-contd." class="nav-link" data-scroll-target="#what-do-data-engineers-do-contd.">What do Data Engineers do (contd.)?</a></li>
+  <li><a href="#data-engineering-tools-technologies" id="toc-data-engineering-tools-technologies" class="nav-link" data-scroll-target="#data-engineering-tools-technologies">Data engineering tools &amp; technologies</a></li>
+  <li><a href="#popular-data-engineering-tools" id="toc-popular-data-engineering-tools" class="nav-link" data-scroll-target="#popular-data-engineering-tools">Popular Data engineering tools</a></li>
+  <li><a href="#data-lakes" id="toc-data-lakes" class="nav-link" data-scroll-target="#data-lakes">Data Lakes</a></li>
+  <li><a href="#data-lake-cloud-provider-definitions" id="toc-data-lake-cloud-provider-definitions" class="nav-link" data-scroll-target="#data-lake-cloud-provider-definitions">Data Lake (Cloud Provider Definitions)</a></li>
+  <li><a href="#working-with-a-cloud-data-lake" id="toc-working-with-a-cloud-data-lake" class="nav-link" data-scroll-target="#working-with-a-cloud-data-lake">Working with a Cloud Data Lake</a></li>
+  <li><a href="#data-warehouses" id="toc-data-warehouses" class="nav-link" data-scroll-target="#data-warehouses">Data Warehouses</a></li>
+  <li><a href="#data-warehouse-cloud-provider-definitions" id="toc-data-warehouse-cloud-provider-definitions" class="nav-link" data-scroll-target="#data-warehouse-cloud-provider-definitions">Data Warehouse (Cloud Provider Definitions)</a></li>
+  <li><a href="#working-with-a-cloud-data-warehouse" id="toc-working-with-a-cloud-data-warehouse" class="nav-link" data-scroll-target="#working-with-a-cloud-data-warehouse">Working with a Cloud Data Warehouse</a></li>
+  <li><a href="#combining-data-lakes-and-data-warehouses" id="toc-combining-data-lakes-and-data-warehouses" class="nav-link" data-scroll-target="#combining-data-lakes-and-data-warehouses">Combining Data Lakes and Data Warehouses</a></li>
+  <li><a href="#nosql-databases" id="toc-nosql-databases" class="nav-link" data-scroll-target="#nosql-databases">NoSQL Databases</a></li>
+  <li><a href="#types-of-nosql-databases" id="toc-types-of-nosql-databases" class="nav-link" data-scroll-target="#types-of-nosql-databases">Types of NoSQL Databases</a></li>
+  <li><a href="#examples-of-nosql-databases" id="toc-examples-of-nosql-databases" class="nav-link" data-scroll-target="#examples-of-nosql-databases">Examples of NoSQL Databases</a></li>
+  <li><a href="#example-of-documents-in-a-document-database" id="toc-example-of-documents-in-a-document-database" class="nav-link" data-scroll-target="#example-of-documents-in-a-document-database">Example of documents in a document database</a></li>
+  <li><a href="#other-data-stores-to-know-about" id="toc-other-data-stores-to-know-about" class="nav-link" data-scroll-target="#other-data-stores-to-know-about">Other Data stores to know about</a></li>
+  <li><a href="#splunk" id="toc-splunk" class="nav-link" data-scroll-target="#splunk">Splunk</a></li>
+  <li><a href="#elasticsearch" id="toc-elasticsearch" class="nav-link" data-scroll-target="#elasticsearch">Elasticsearch</a></li>
+  <li><a href="#duckdb" id="toc-duckdb" class="nav-link" data-scroll-target="#duckdb">DuckDB</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a></li>
+  <li><a href="#lab-analyzing-nyc-taxi-dataset-with-athena" id="toc-lab-analyzing-nyc-taxi-dataset-with-athena" class="nav-link" data-scroll-target="#lab-analyzing-nyc-taxi-dataset-with-athena">Lab: Analyzing NYC-Taxi dataset with Athena</a></li>
+  <li><a href="#a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset" id="toc-a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset" class="nav-link" data-scroll-target="#a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset">A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w05/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 5: Data Warehouse (Athena, Presto, Snowflake)</h1>
+<h1 class="title">Week 5: Data Engineering</h1>
 <p class="subtitle lead"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2025</p>
   <div class="quarto-categories">
     <div class="quarto-category">Class Sessions</div>
@@ -462,8 +532,332 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<center class="mb-3">
+<a class="h2" href="./slides.html" target="_blank">Open slides in new tab →</a>
+</center>
+<section id="agenda" class="level2">
+<h2 class="anchored" data-anchor-id="agenda">Agenda</h2>
+<div class="column" style="width:47%;">
+<section id="looking-back" class="level3">
+<h3 class="anchored" data-anchor-id="looking-back">Looking Back</h3>
+<ul>
+<li>Introduction to cloud</li>
+<li>Python Multiprocessing &amp; async</li>
+<li>Duckdb, Polars</li>
+</ul>
+</section>
+<section id="future" class="level3">
+<h3 class="anchored" data-anchor-id="future">Future</h3>
+<ul>
+<li>Project introduction</li>
+<li>Spark dataframe, ML, NLP</li>
+</ul>
+</section>
+</div>
+<div class="column" style="width:47%;">
+<section id="today" class="level3">
+<h3 class="anchored" data-anchor-id="today">Today</h3>
+<ul>
+<li>Data Engineering
+<ul>
+<li>Data Lakes, Warehouses</li>
+<li>NoSQL Databases</li>
+</ul></li>
+<li>Lab:
+<ul>
+<li>Athena</li>
+<li>EC2</li>
+</ul></li>
+</ul>
+</section>
+</div>
+</section>
+<section id="data-engineering" class="level1 section">
+<h1 class="section">Data Engineering</h1>
+<section id="what-is-data-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-data-engineering">What is Data Engineering?</h2>
+<p>As the scale of the data grew, the existing ETL processes alone were not sufficient, a separate discipline was needed for:</p>
+<ul>
+<li>Collecting data</li>
+<li>Managing storage</li>
+<li>Cataloging</li>
+<li>Making it available for applications such as analytics &amp; machine learning)</li>
+<li>Security</li>
+<li>Lifecycle management</li>
+<li>And more…</li>
+</ul>
+<blockquote class="blockquote">
+<p><b><a href="https://en.wikipedia.org/wiki/Data_engineering">From Wikipedia</a>:</b> Data engineering refers to the building of systems to enable the collection and usage of data. This data is usually used to enable subsequent analysis and data science; which often involves machine learning. Making the data usable usually involves substantial compute and storage, as well as data processing and cleaning.</p>
+</blockquote>
+</section>
+<section id="what-do-data-engineers-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-do-data-engineers-do">What do Data Engineers do?</h2>
+<p>Data engineers build systems that collect data from different sources and make this data available for analytics and ML application. This usually involves the following:</p>
+<ul>
+<li><p><strong>Acquisition</strong>: Finding all the different datasets around the business.</p>
+<ul>
+<li>These could be availble in databases, shared drives, ingested directly from IoT devices, external datasets, and more.</li>
+</ul></li>
+<li><p><strong>Cleansing</strong>: The raw data usually cannot be used as is, it needs to be cleaned.</p></li>
+<li><p><strong>Conversion</strong>: Since the data is coming from different sources, it would probably in different formats (database tables, CSV, JSON, custom). Needs to be converted into a common format (such as parquet) before it becomes usable.</p>
+<ul>
+<li>Multiple datasets need to be joined together to answer a business question.</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-do-data-engineers-do-contd." class="level2">
+<h2 class="anchored" data-anchor-id="what-do-data-engineers-do-contd.">What do Data Engineers do (contd.)?</h2>
+<ul>
+<li><p><strong>Disambiguation</strong>: How to interpret what the data means? Use a data catalog and then with the help of subject matter experts (often called <em>Data Stewards</em>) add meaningful description to the datasets.</p></li>
+<li><p><strong>Deduplication</strong>: Having a single source of truth!</p></li>
+<li><p><strong>Data Governance</strong>: for how long to store the data, how to enforce access controls (<a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">Principle of least privilege</a>) etc.</p></li>
+</ul>
+<p>Once this is done, data may be stored in a central repository such as a <strong>data lake</strong> or <strong>data lakehouse</strong>. Data engineers may also copy and move subsets of data into a data warehouse.</p>
+</section>
+<section id="data-engineering-tools-technologies" class="level2">
+<h2 class="anchored" data-anchor-id="data-engineering-tools-technologies">Data engineering tools &amp; technologies</h2>
+<p>Data engineers work with a variety of tools and technologies, including:</p>
+<ul>
+<li><strong>ETL Tools</strong>: ETL (extract, transform, load) tools move data between systems. They access data, then apply rules to “transform” the data through steps that make it more suitable for analysis.</li>
+<li><strong>SQL</strong>: Structured Query Language (SQL) is the standard language for querying relational databases.</li>
+<li><strong>Python</strong>: Python is a general programming language. Data engineers may choose to use Python for ETL tasks. Spark (pyspark) for Big Data, Apache Flink for streaming data.</li>
+<li><strong>Cloud Data Storage</strong>: Including Amazon S3, Azure Data Lake Storage (ADLS), Google Cloud Storage, etc.</li>
+<li><strong>Cloud Data Warehouses</strong>: Data ready for use by data scientists and analysts is stored in data warehouses, such as Amazon Redshift, Google BigQuery, Azure Data Warehouse, Snowflake etc.</li>
+</ul>
+</section>
+<section id="popular-data-engineering-tools" class="level2">
+<h2 class="anchored" data-anchor-id="popular-data-engineering-tools">Popular Data engineering tools</h2>
+<p><img src="images/de-tools.png" class="img-fluid"></p>
+<p>Source: https://www.secoda.co/blog/the-top-20-most-commonly-used-data-engineering-tools</p>
+</section>
+<section id="data-lakes" class="level2">
+<h2 class="anchored" data-anchor-id="data-lakes">Data Lakes</h2>
+<p><a href="images/data-lake.png"></a></p>
+<blockquote class="blockquote">
+<p><strong><a href="https://en.wikipedia.org/wiki/Data_lake">From Wikipedia</a></strong>: A data lake is a system or repository of data stored in its natural/raw format, usually object blobs or files. A data lake is usually a single store of data including raw copies of source system data, sensor data, social data etc., and transformed data used for tasks such as reporting, visualization, advanced analytics and machine learning. A data lake can include structured data from relational databases (rows and columns), semi-structured data (CSV, logs, XML, JSON), unstructured data (emails, documents, PDFs) and binary data (images, audio, video).</p>
+</blockquote>
+</section>
+<section id="data-lake-cloud-provider-definitions" class="level2">
+<h2 class="anchored" data-anchor-id="data-lake-cloud-provider-definitions">Data Lake (Cloud Provider Definitions)</h2>
+<p>Definitions in the wild (<strong>emphasis mine</strong>).</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><a href="https://aws.amazon.com/big-data/datalakes-and-analytics/what-is-a-data-lake/">AWS</a></strong><br>
+A data lake is a <strong>centralized repository</strong> that allows you to store all your <strong>structured and unstructured</strong> data at any scale. You can store your data as-is, without having to first structure the data, and run different types of analytics—from dashboards and visualizations to big data processing, real-time <strong>analytics</strong>, and machine learning to guide better decisions.</p>
+</div><div class="column" style="width:50%;">
+<p><strong><a href="https://cloud.google.com/learn/what-is-a-data-lake">GCP</a></strong><br>
+A data lake provides a <strong>scalable and secure platform</strong> that allows enterprises to: ingest <strong>any data from any system at any speed</strong>—even if the data comes from on-premises, cloud, or edge-computing systems; store any type or volume of data in full fidelity; process data in real time or batch mode; and analyze data using SQL, Python, R, or any other language, third-party data, or <strong>analytics</strong> application.</p>
+</div><div class="column" style="width:50%;">
+<p><strong><a href="https://azure.microsoft.com/en-us/solutions/data-lake/">Azure</a></strong><br>
+Azure Data Lake includes all the capabilities required to make it easy for developers, data scientists, and analysts to <strong>store data of any size, shape, and speed</strong>, and do all types of processing and <strong>analytics</strong> across platforms and languages.</p>
+</div><div class="column" style="width:50%;">
+<p><strong><a href="https://www.databricks.com/discover/data-lakes/introduction">DataBricks</a></strong><br>
+A data lake is a central location that holds a <strong>large amount of data</strong> in its native, <strong>raw format</strong>. Compared to a hierarchical data warehouse, which stores data in files or folders, a data lake uses a flat architecture and <strong>object storage</strong> to store the data.‍</p>
+</div>
+</div>
+</section>
+<section id="working-with-a-cloud-data-lake" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-a-cloud-data-lake">Working with a Cloud Data Lake</h2>
+<p>A cloud data lake is setup using the cloud provider’s object store (S3, GCS, Azure Blob Storage).</p>
+<ul>
+<li><p>The object stores are extremely scalable, for context, the maximum size of an object in S3 is 5 TB and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html">there is no limit to number of objects in an S3 bucket</a>.</p></li>
+<li><p>They are extremely duarable, 99.999999999%. Provide strong consistency (read-after-write, listing buckets and objects, granting permissions etc.).</p></li>
+<li><p>Cost effective, with <a href="https://aws.amazon.com/s3/storage-classes/">multiple storage classes</a>.</p></li>
+<li><p>Integration with data processing tools such as Spark, machine learning tools such as SageMaker, data warehouses such as RedShift and data cataloging tools.</p></li>
+<li><p>They provide <em>Fine Grained Access Control</em> to the data.</p></li>
+</ul>
+</section>
+<section id="data-warehouses" class="level2">
+<h2 class="anchored" data-anchor-id="data-warehouses">Data Warehouses</h2>
+<p><img src="images/data-warehouse.png" class="img-fluid"></p>
+<blockquote class="blockquote">
+<p><strong><a href="https://en.wikipedia.org/wiki/Data_warehouse">From Wikipedia</a></strong>: In computing, a data warehouse (DW or DWH), also known as an enterprise data warehouse (EDW), is a system used for reporting and data analysis and is considered a core component of business intelligence. DWs are central repositories of integrated data from one or more disparate sources. They store current and historical data in one single place that are used for creating analytical reports for workers throughout the enterprise.</p>
+</blockquote>
+</section>
+<section id="data-warehouse-cloud-provider-definitions" class="level2">
+<h2 class="anchored" data-anchor-id="data-warehouse-cloud-provider-definitions">Data Warehouse (Cloud Provider Definitions)</h2>
+<p>Definitions in the wild (<strong>emphasis mine</strong>).</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><a href="https://aws.amazon.com/data-warehouse/">AWS</a></strong><br>
+A data warehouse is a <strong>central repository</strong> of information that can be analyzed to make more informed decisions. <strong>Data flows into a data warehouse</strong> from transactional systems, relational databases, and other sources, typically <strong>on a regular cadence</strong>. Business analysts, data engineers, data scientists, and decision makers <strong>access the data through business intelligence (BI) tools, SQL clients, and other analytics applications</strong>.</p>
+<p><strong><a href="https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/data-warehousing">Azure</a></strong><br>
+A data warehouse is a <strong>centralized repository</strong> of integrated data from one or more <strong>disparate sources</strong>. Data warehouses store current and historical data and are used for <strong>reporting and analysis</strong> of the data.</p>
+</div><div class="column" style="width:50%;">
+<p><strong><a href="https://cloud.google.com/learn/what-is-a-data-warehouse">GCP</a></strong><br>
+A data warehouse is an <strong>enterprise system</strong> used for the <strong>analysis and reporting</strong> of structured and semi-structured data from <strong>multiple sources</strong>, such as point-of-sale transactions, marketing automation, customer relationship management, and more.</p>
+<p><strong><a href="https://www.snowflake.com/data-cloud-glossary/data-warehousing">Snowflake</a></strong><br>
+A data warehouse (DW) is a <strong>relational database</strong> that is designed for <strong>analytical rather than transactional work</strong>. It collects and aggregates data from one or many sources so it can be analyzed to produce business insights.</p>
+</div>
+</div>
+</section>
+<section id="working-with-a-cloud-data-warehouse" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-a-cloud-data-warehouse">Working with a Cloud Data Warehouse</h2>
+<p>All cloud providers provide a data warehouse solution that works in conjunction with their data lake solution.</p>
+<ul>
+<li><p>AWS has <a href="https://aws.amazon.com/pm/redshift/">Redshift</a>, Azure has <a href="https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/data-warehousing">Synapse Analytics</a>. GCP has <a href="https://cloud.google.com/bigquery">BigQuery</a> and then there is <a href="https://www.snowflake.com/en/">Snowflake</a>.</p></li>
+<li><p>In a data warehouse, <em>Online analytical processing (OLAP)</em> allows for fast querying and analysis of data from different perspectives. It also helps in pre-aggregating and pre-calculating the information available in the archive.</p></li>
+<li><p>Data warehouses are Peta Byte scale (<a href="https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html">Amazon RedShift</a>, <a href="https://cloud.google.com/blog/products/data-analytics/new-blog-series-bigquery-explained-overview">Google BigQuery</a>, <a href="https://azure.microsoft.com/en-us/updates/introducing-azure-synapse-analytics-a-limitless-analytics-service-with-unmatched-time-to-insight/">Azure Synapse Analytics</a>).</p></li>
+<li><p>Data warehouses can have dedicated compute provisioned or be serverless (BigQuery is serverless, Redshift allows both options now).</p></li>
+<li><p>Data warehouses now offer integrated ML capabilities, you can build models with SQL and use them in queries (<a href="https://aws.amazon.com/redshift/features/redshift-ml/">Amazon RedShift ML</a>, <a href="https://cloud.google.com/bigquery-ml/docs/introduction">Google BigQuery ML</a>, <a href="https://learn.microsoft.com/en-us/azure/synapse-analytics/machine-learning/what-is-machine-learning">Azure Synapse Analytics ML</a>).</p></li>
+<li><p>Integration with reporting and dashboarding tools such as Tableau, Grafana, Looker etc. and data analytics tools such as Spark and data cataloging tools.</p></li>
+<li><p>They provide <em>Fine Grained Access Control</em> to the data.</p></li>
+</ul>
+</section>
+<section id="combining-data-lakes-and-data-warehouses" class="level2">
+<h2 class="anchored" data-anchor-id="combining-data-lakes-and-data-warehouses">Combining Data Lakes and Data Warehouses</h2>
+<p>Combine the flexibility, cost-efficiency, and scale of data lakes with the data management and ACID transactions of data warehouses to provide a single architecture that can enable business intelligence and machine learning on all data.</p>
+<ul>
+<li><a href="https://aws.amazon.com/blogs/big-data/build-a-lake-house-architecture-on-aws/">Build a lakehouse architecture on AWS</a></li>
+<li><a href="https://www.databricks.com/product/data-lakehouse">The Databricks lakehouse platform</a></li>
+<li><a href="https://cloud.google.com/blog/products/data-analytics/open-data-lakehouse-on-google-cloud">Open data lakehouse on Google Cloud</a></li>
+<li><a href="https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/the-data-lakehouse-the-data-warehouse-and-a-modern-data-platform/ba-p/2792337">The data lakehouse, the data warehouse and a modern data platform on Azure</a></li>
+</ul>
+</section>
+<section id="nosql-databases" class="level2">
+<h2 class="anchored" data-anchor-id="nosql-databases">NoSQL Databases</h2>
+<p>At some point we needed to think beyond relation databases, because: - Data became more and more complex (not all data is tabular, thinkin JSON data emitted by an IoT device). - Cost of storage decreased (everything did not need to be stored in the 3rd normal form) - More data on the cloud meant data needed to be placed across different servers (scale-out) - Data needed to be placed intelligently in geo locations of interest - And more…</p>
+<blockquote class="blockquote">
+<p><strong><a href="https://en.wikipedia.org/wiki/NoSQL">From Wikipedia</a></strong>: A NoSQL (originally referring to “non-SQL” or “non-relational”) database provides a mechanism for storage and retrieval of data that is modeled in means other than the tabular relations used in relational databases. Such databases have existed since the late 1960s, but the name “NoSQL” was only coined in the early 21st century, triggered by the needs of Web 2.0 companies. NoSQL databases are increasingly used in big data and real-time web applications. NoSQL systems are also sometimes called Not only SQL to emphasize that they may support SQL-like query languages or sit alongside SQL databases in polyglot-persistent architectures.</p>
+</blockquote>
+</section>
+<section id="types-of-nosql-databases" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-nosql-databases">Types of NoSQL Databases</h2>
+<p>Over time, four major types of NoSQL databases emerged: document databases, key-value databases, wide-column stores, and graph databases.</p>
+<ul>
+<li><p><strong>Document databases</strong> store data in documents similar to JSON (JavaScript Object Notation) objects. Each document contains pairs of fields and values. The values can typically be a variety of types including things like strings, numbers, booleans, arrays, or objects.</p></li>
+<li><p><strong>Key-value databases</strong> are a simpler type of database where each item contains keys and values.</p></li>
+<li><p><strong>Wide-column stores</strong> store data in tables, rows, and dynamic columns.</p></li>
+<li><p><strong>Graph databases</strong> store data in nodes and edges. Nodes typically store information about people, places, and things, while edges store information about the relationships between the nodes.</p></li>
+</ul>
+</section>
+<section id="examples-of-nosql-databases" class="level2">
+<h2 class="anchored" data-anchor-id="examples-of-nosql-databases">Examples of NoSQL Databases</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>NOSQL Database Type</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document Database</td>
+<td>Amazon DocumentDB, MongoDB, Cosmos DB, ArangoDB, Couchbase Server, CouchDB</td>
+</tr>
+<tr class="even">
+<td>Key-value Database</td>
+<td>Amazon DynamoDB, Couchbase, Memcached, Redis</td>
+</tr>
+<tr class="odd">
+<td>Wide-column datastores</td>
+<td>Amazon DynamoDB, Apache Cassandra, Google Bigtable, Azure Tables</td>
+</tr>
+<tr class="even">
+<td>Graph databases</td>
+<td>Amazon Neptune, Neo4j</td>
+</tr>
+</tbody>
+</table>
+<p>As a data scientist you would work with a NoSQL database through an SDK/API. Several programming languages are supported including Python, Java, Go, C++ etc.</p>
+</section>
+<section id="example-of-documents-in-a-document-database" class="level2">
+<h2 class="anchored" data-anchor-id="example-of-documents-in-a-document-database">Example of documents in a document database</h2>
+<p>Here is an example of a document inserted in a key-value/document database such as MongoDB.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   <span class="st">"name"</span> : <span class="st">"IS 350"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   <span class="st">"year"</span> : <span class="st">"2015"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="st">"make"</span> : <span class="st">"Lexus"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   <span class="st">"colors"</span> : <span class="pp">[</span><span class="st">"black"</span><span class="ss">,</span><span class="st">"white"</span><span class="ss">,</span><span class="st">"grey"</span><span class="pp">]</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>   <span class="st">"spec"</span> : {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"engine"</span> : <span class="st">"V6"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"wheelbase"</span> : <span class="st">"110.2 in"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"length"</span> : <span class="st">"183.7 in"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>   <span class="kw">}</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The same example can be inserted in an Amazon DynamoDB table called (say) <code>Cars</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>database <span class="op">=</span> boto3.resource(<span class="st">'dynamodb'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> database.Table(<span class="st">'cars'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>item <span class="op">=</span> {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>   <span class="st">"name"</span> : <span class="st">"IS 350"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>   <span class="st">"year"</span> : <span class="st">"2015"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>   <span class="st">"make"</span> : <span class="st">"Lexus"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>   <span class="st">"colors"</span> : [<span class="st">"black"</span>,<span class="st">"white"</span>,<span class="st">"grey"</span>],</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>   <span class="st">"spec"</span> : {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"engine"</span> : <span class="st">"V6"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">"wheelbase"</span> : <span class="st">"110.2 in"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">"length"</span> : <span class="st">"183.7 in"</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>table.put_item(Item <span class="op">=</span> item)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="other-data-stores-to-know-about" class="level2">
+<h2 class="anchored" data-anchor-id="other-data-stores-to-know-about">Other Data stores to know about</h2>
+<p>Besides the general concepts about data lkakes, warehouses, different types of databases, there are some purpose built databases that are good to know about.</p>
+<ul>
+<li>Splunk</li>
+<li>Elasticsearch</li>
+<li>DuckDB</li>
+<li>Many many more…</li>
+</ul>
+</section>
+<section id="splunk" class="level2">
+<h2 class="anchored" data-anchor-id="splunk">Splunk</h2>
+<p>Splunk is a software platform to search, analyze and visualize the <strong>machine-generated</strong> data gathered from the websites, applications, sensors, devices etc. which make up your IT infrastructure and business. See <a href="https://www.splunk.com/">https://www.splunk.com/</a>.</p>
+<blockquote class="blockquote">
+<p>The logfile we analyzed in assignment 4 <code>s3://bigdatateaching/forensicswiki/2012_logs.txt</code>, is the typical kind of data that gets ingested into Splunk.</p>
+</blockquote>
+<p><img src="images/splunk-dashboard.png" class="img-fluid"></p>
+</section>
+<section id="elasticsearch" class="level2">
+<h2 class="anchored" data-anchor-id="elasticsearch">Elasticsearch</h2>
+<p><em>From https://www.elastic.co/what-is/elasticsearch, <strong>emphasis mine</strong></em></p>
+<p>Elasticsearch is a <strong>distributed</strong>, free and <strong>open search and analytics engine</strong> for all types of data, including <strong>textual, numerical, geospatial, structured, and unstructured</strong>. Elasticsearch is built on Apache Lucene and was first released in 2010 by Elasticsearch N.V. (now known as Elastic).</p>
+<p>Commonly referred to as the <strong>ELK Stack</strong> (after <strong>Elasticsearch</strong>, <strong>Logstash</strong>, and <strong>Kibana</strong>), the Elastic Stack now includes a rich collection of lightweight shipping agents known as Beats for sending data to Elasticsearch.</p>
+<p>Data is inserted in Elasticsearch <em>indexes</em> as JSON documents using a REST API/SDK.</p>
+<p><img src="images/kibana.webp" class="img-fluid"></p>
+</section>
+<section id="duckdb" class="level2">
+<h2 class="anchored" data-anchor-id="duckdb">DuckDB</h2>
+<p>DuckDB is an in-process SQL OLAP database management system.</p>
+<blockquote class="blockquote">
+<p>It is like sqllite, but for analytics. What does this mean? It means that your database runs inside your process, there are no servers to manage, no remote system to connect to. Very snappy, easy to experiment with SQL like syntax.</p>
+</blockquote>
+<p>DuckDB does <strong>vectorized processing</strong> i.e.&nbsp;loads chunks of data into memory (tries to keep everything in the CPU’s L1 and L2 cache) and is thus able to handle datasets bigger than the amount of RAM available.</p>
+<p>DuckDB supports Python, R and a host of other languages.</p>
+<p><strong>When to use DuckDB</strong>: when you cannot use Pandas for rapid experimentation with Big Data, especially when combining <a href="https://duckdb.org/2021/12/03/duck-arrow.html">DuckDB with Arrow</a>.</p>
+<p><strong>When not to use DuckDB</strong>: DuckDB has a valuable but very niche use-case</p>
+</section>
+<section id="further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="further-reading">Further Reading</h2>
+<p>Please lookup these topics on Google for further reading. Not providing specific links here because they all point to vendor specific products.</p>
+<ul>
+<li>Data Catalog</li>
+<li>Data Governance</li>
+<li>Data Mesh</li>
+<li>Data Fabric</li>
+</ul>
+</section>
+<section id="lab-analyzing-nyc-taxi-dataset-with-athena" class="level2 section">
+<h2 class="section anchored" data-anchor-id="lab-analyzing-nyc-taxi-dataset-with-athena">Lab: Analyzing NYC-Taxi dataset with Athena</h2>
+</section>
+<section id="a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset">A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset</h2>
+<p>This notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.</p>
+<p><a href="TBA-2025">GitHub Classroom Link for Lab 5</a></p>
+<p><a href="TBA-2025">GitHub Classroom Link for Assignment 5</a></p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -890,4 +1284,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w05/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w05/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
