@@ -128,7 +128,7 @@ result_df = con.execute(ratio_query).df()
 result_df
 ```
 
-Now, just like with Polars, we can ask DuckDB to **explain** how it will carry out this query: the syntax is a bit weird, but you can just add the commands `EXPLAIN ANALYZE` to the beginning of any query to obtain DuckDB's query plan:
+Now, just like with Polars, we can ask DuckDB to [**explain**](https://duckdb.org/docs/stable/guides/meta/explain.html) how it will carry out this query: the syntax is a bit weird, but you can just add the commands `EXPLAIN ANALYZE` to the beginning of any query to obtain DuckDB's query plan:
 
 ```{python}
 #| label: sleep-duckdb-explain
