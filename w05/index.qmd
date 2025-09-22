@@ -356,7 +356,7 @@ Recall how many tiny bits of information are **streaming into** a given app's se
 
 ## What is the Quickest Possible Way to Explore Data in S3?
 
-![](images/athena_glue.jpg){fig-align="center"}
+![From [this video](https://www.youtube.com/watch?v=Wkpl66NaqEA)](images/athena_glue.jpg){fig-align="center"}
 
 ## Lab: Analyzing NYC Taxi dataset with Athena {.title-08 .crunch-title}
 
