@@ -2876,7 +2876,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9741 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1606 s",
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9807 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1619 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 8</span>"
     ]
@@ -3090,7 +3090,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9823 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.4908 s"
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9932 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1837 s"
   },
   {
     "objectID": "w03/slides.html#what-happens-when-not-embarrassingly-parallel",
@@ -3191,7 +3191,7 @@
     "href": "w05/index.html#agenda",
     "title": "Week 5: Data Engineering",
     "section": "Agenda",
-    "text": "Agenda\n\n\nLooking Back\n\nIntroduction to cloud\nPython Multiprocessing & async\nDuckdb, Polars\n\n\n\nFuture\n\nProject introduction\nSpark dataframe, ML, NLP\n\n\n\n\n\nToday\n\nData Engineering\n\nData Lakes, Warehouses\nNoSQL Databases\n\nLab:\n\nAthena\nEC2",
+    "text": "Agenda\n\n\nLooking Back\n\nIntroduction to cloud\nPython Multiprocessing\nDuckDB, Polars\n\n\n\nFuture\n\nProject introduction\nSpark dataframe, ML, NLP\n\n\n\n\n\nToday\n\nData Engineering\n\nData Lakes, Warehouses\nNoSQL Databases\n\nLab:\n\nAthena\nEC2",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 22</span>"
     ]
@@ -3211,7 +3211,7 @@
     "href": "w05/index.html#what-do-data-engineers-do",
     "title": "Week 5: Data Engineering",
     "section": "What do Data Engineers do?",
-    "text": "What do Data Engineers do?\nData engineers build systems that collect data from different sources and make this data available for analytics and ML application. This usually involves the following:\n\nAcquisition: Finding all the different datasets around the business.\n\nThese could be availble in databases, shared drives, ingested directly from IoT devices, external datasets, and more.\n\nCleansing: The raw data usually cannot be used as is, it needs to be cleaned.\nConversion: Since the data is coming from different sources, it would probably in different formats (database tables, CSV, JSON, custom). Needs to be converted into a common format (such as parquet) before it becomes usable.\n\nMultiple datasets need to be joined together to answer a business question.",
+    "text": "What do Data Engineers do?\nData engineers build systems that collect data from different sources and make this data available for analytics and ML application. This usually involves the following:\n\nAcquisition: Finding all the different datasets around the business.\n\nThese could be availble in databases, shared drives, ingested directly from IoT devices, external datasets, and more.\n\nCleaning: The raw data usually cannot be used as is, it needs to be cleaned.\nConversion: Since the data is coming from different sources, it would probably in different formats (database tables, CSV, JSON, custom). Needs to be converted into a common format (such as parquet) before it becomes usable.\n\nMultiple datasets need to be joined together to answer a business question.",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 22</span>"
     ]
@@ -3227,11 +3227,11 @@
     ]
   },
   {
-    "objectID": "w05/index.html#data-engineering-tools-technologies",
-    "href": "w05/index.html#data-engineering-tools-technologies",
+    "objectID": "w05/index.html#data-engineering-tools-and-technologies",
+    "href": "w05/index.html#data-engineering-tools-and-technologies",
     "title": "Week 5: Data Engineering",
-    "section": "Data engineering tools & technologies",
-    "text": "Data engineering tools & technologies\nData engineers work with a variety of tools and technologies, including:\n\nETL Tools: ETL (extract, transform, load) tools move data between systems. They access data, then apply rules to “transform” the data through steps that make it more suitable for analysis.\nSQL: Structured Query Language (SQL) is the standard language for querying relational databases.\nPython: Python is a general programming language. Data engineers may choose to use Python for ETL tasks. Spark (pyspark) for Big Data, Apache Flink for streaming data.\nCloud Data Storage: Including Amazon S3, Azure Data Lake Storage (ADLS), Google Cloud Storage, etc.\nCloud Data Warehouses: Data ready for use by data scientists and analysts is stored in data warehouses, such as Amazon Redshift, Google BigQuery, Azure Data Warehouse, Snowflake etc.",
+    "section": "Data Engineering Tools and Technologies",
+    "text": "Data Engineering Tools and Technologies\nData engineers work with a variety of tools and technologies, including:\n\nETL Tools: ETL (extract, transform, load) tools move data between systems. They access data, then apply rules to “transform” the data through steps that make it more suitable for analysis.\nSQL: Structured Query Language (SQL) is the standard language for querying relational databases.\nPython: Python is a general programming language. Data engineers may choose to use Python for ETL tasks. Spark (pyspark) for Big Data, Apache Flink for streaming data.\nCloud Data Storage: Including Amazon S3, Azure Data Lake Storage (ADLS), Google Cloud Storage, etc.\nCloud Data Warehouses: Data ready for use by data scientists and analysts is stored in data warehouses, such as Amazon Redshift, Google BigQuery, Azure Data Warehouse, Snowflake etc.",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 22</span>"
     ]
@@ -3241,27 +3241,27 @@
     "href": "w05/index.html#popular-data-engineering-tools",
     "title": "Week 5: Data Engineering",
     "section": "Popular Data engineering tools",
-    "text": "Popular Data engineering tools\n\nSource: https://www.secoda.co/blog/the-top-20-most-commonly-used-data-engineering-tools",
+    "text": "Popular Data engineering tools\n\n\n\nSource",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 22</span>"
     ]
   },
   {
-    "objectID": "w05/index.html#data-lakes",
-    "href": "w05/index.html#data-lakes",
+    "objectID": "w05/index.html#wikipedia-definition",
+    "href": "w05/index.html#wikipedia-definition",
     "title": "Week 5: Data Engineering",
-    "section": "Data Lakes",
-    "text": "Data Lakes\n\n\nFrom Wikipedia: A data lake is a system or repository of data stored in its natural/raw format, usually object blobs or files. A data lake is usually a single store of data including raw copies of source system data, sensor data, social data etc., and transformed data used for tasks such as reporting, visualization, advanced analytics and machine learning. A data lake can include structured data from relational databases (rows and columns), semi-structured data (CSV, logs, XML, JSON), unstructured data (emails, documents, PDFs) and binary data (images, audio, video).",
+    "section": "Wikipedia Definition",
+    "text": "Wikipedia Definition\n\nFrom Wikipedia: A data lake is a system or repository of data stored in its natural/raw format, usually object blobs or files. A data lake is usually a single store of data including raw copies of source system data, sensor data, social data etc., and transformed data used for tasks such as reporting, visualization, advanced analytics and machine learning. A data lake can include structured data from relational databases (rows and columns), semi-structured data (CSV, logs, XML, JSON), unstructured data (emails, documents, PDFs) and binary data (images, audio, video).",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 22</span>"
     ]
   },
   {
-    "objectID": "w05/index.html#data-lake-cloud-provider-definitions",
-    "href": "w05/index.html#data-lake-cloud-provider-definitions",
+    "objectID": "w05/index.html#cloud-provider-definitions",
+    "href": "w05/index.html#cloud-provider-definitions",
     "title": "Week 5: Data Engineering",
-    "section": "Data Lake (Cloud Provider Definitions)",
-    "text": "Data Lake (Cloud Provider Definitions)\nDefinitions in the wild (emphasis mine).\n\n\nAWS\nA data lake is a centralized repository that allows you to store all your structured and unstructured data at any scale. You can store your data as-is, without having to first structure the data, and run different types of analytics—from dashboards and visualizations to big data processing, real-time analytics, and machine learning to guide better decisions.\n\nGCP\nA data lake provides a scalable and secure platform that allows enterprises to: ingest any data from any system at any speed—even if the data comes from on-premises, cloud, or edge-computing systems; store any type or volume of data in full fidelity; process data in real time or batch mode; and analyze data using SQL, Python, R, or any other language, third-party data, or analytics application.\n\nAzure\nAzure Data Lake includes all the capabilities required to make it easy for developers, data scientists, and analysts to store data of any size, shape, and speed, and do all types of processing and analytics across platforms and languages.\n\nDataBricks\nA data lake is a central location that holds a large amount of data in its native, raw format. Compared to a hierarchical data warehouse, which stores data in files or folders, a data lake uses a flat architecture and object storage to store the data.‍",
+    "section": "Cloud Provider Definitions",
+    "text": "Cloud Provider Definitions\nDefinitions in the wild (emphasis mine).\n\n\nAWS\nA data lake is a centralized repository that allows you to store all your structured and unstructured data at any scale. You can store your data as-is, without having to first structure the data, and run different types of analytics—from dashboards and visualizations to big data processing, real-time analytics, and machine learning to guide better decisions.\n\nGCP\nA data lake provides a scalable and secure platform that allows enterprises to: ingest any data from any system at any speed—even if the data comes from on-premises, cloud, or edge-computing systems; store any type or volume of data in full fidelity; process data in real time or batch mode; and analyze data using SQL, Python, R, or any other language, third-party data, or analytics application.\n\nAzure\nAzure Data Lake includes all the capabilities required to make it easy for developers, data scientists, and analysts to store data of any size, shape, and speed, and do all types of processing and analytics across platforms and languages.\n\nDataBricks\nA data lake is a central location that holds a large amount of data in its native, raw format. Compared to a hierarchical data warehouse, which stores data in files or folders, a data lake uses a flat architecture and object storage to store the data.‍",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 22</span>"
     ]
@@ -3360,38 +3360,8 @@
     "objectID": "w05/index.html#other-data-stores-to-know-about",
     "href": "w05/index.html#other-data-stores-to-know-about",
     "title": "Week 5: Data Engineering",
-    "section": "Other Data stores to know about",
-    "text": "Other Data stores to know about\nBesides the general concepts about data lkakes, warehouses, different types of databases, there are some purpose built databases that are good to know about.\n\nSplunk\nElasticsearch\nDuckDB\nMany many more…",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#splunk",
-    "href": "w05/index.html#splunk",
-    "title": "Week 5: Data Engineering",
-    "section": "Splunk",
-    "text": "Splunk\nSplunk is a software platform to search, analyze and visualize the machine-generated data gathered from the websites, applications, sensors, devices etc. which make up your IT infrastructure and business. See https://www.splunk.com/.\n\nThe logfile we analyzed in assignment 4 s3://bigdatateaching/forensicswiki/2012_logs.txt, is the typical kind of data that gets ingested into Splunk.",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#elasticsearch",
-    "href": "w05/index.html#elasticsearch",
-    "title": "Week 5: Data Engineering",
-    "section": "Elasticsearch",
-    "text": "Elasticsearch\nFrom https://www.elastic.co/what-is/elasticsearch, emphasis mine\nElasticsearch is a distributed, free and open search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Elasticsearch is built on Apache Lucene and was first released in 2010 by Elasticsearch N.V. (now known as Elastic).\nCommonly referred to as the ELK Stack (after Elasticsearch, Logstash, and Kibana), the Elastic Stack now includes a rich collection of lightweight shipping agents known as Beats for sending data to Elasticsearch.\nData is inserted in Elasticsearch indexes as JSON documents using a REST API/SDK.",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#duckdb",
-    "href": "w05/index.html#duckdb",
-    "title": "Week 5: Data Engineering",
-    "section": "DuckDB",
-    "text": "DuckDB\nDuckDB is an in-process SQL OLAP database management system.\n\nLike sqllite, but for analytics\nWhat does this mean? It means that your database runs inside your process, there are no servers to manage, no remote system to connect to. Very snappy, easy to experiment with SQL syntax.\n\nDuckDB does vectorized processing i.e. loads chunks of data into memory (tries to keep everything in the CPU’s L1 and L2 cache) and is thus able to handle datasets bigger than the amount of RAM available.\nDuckDB supports Python, R and a host of other languages.\nWhen to use DuckDB: when you cannot use Pandas for rapid experimentation with Big Data, especially when combining DuckDB with Arrow",
+    "section": "Other Data Stores to Know About",
+    "text": "Other Data Stores to Know About\nBesides the general concepts about data lkakes, warehouses, different types of databases, there are some purpose built databases that are good to know about.\n\nSplunk\nElasticsearch\nDuckDB\nMany many more…",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 22</span>"
     ]
@@ -3407,21 +3377,41 @@
     ]
   },
   {
-    "objectID": "w05/index.html#lab-analyzing-nyc-taxi-dataset-with-athena",
-    "href": "w05/index.html#lab-analyzing-nyc-taxi-dataset-with-athena",
+    "objectID": "w05/index.html#boar-book-time",
+    "href": "w05/index.html#boar-book-time",
     "title": "Week 5: Data Engineering",
-    "section": "Lab: Analyzing NYC-Taxi dataset with Athena",
-    "text": "Lab: Analyzing NYC-Taxi dataset with Athena",
+    "section": "Boar Book Time!",
+    "text": "Boar Book Time!\n\n\nKleppmann (2017), pages 69-95",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 22</span>"
     ]
   },
   {
-    "objectID": "w05/index.html#a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset",
-    "href": "w05/index.html#a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset",
+    "objectID": "w05/index.html#telemetry-analytics",
+    "href": "w05/index.html#telemetry-analytics",
     "title": "Week 5: Data Engineering",
-    "section": "A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset",
-    "text": "A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset\nThis notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.\nGitHub Classroom Link for Lab 5\nGitHub Classroom Link for Assignment 5",
+    "section": "Telemetry → Analytics",
+    "text": "Telemetry → Analytics\nRecall how many tiny bits of information are streaming into a given app’s servers at any given time!\n\nDatabase administrators therefore closely guard their OLTP databases. They are usually reluctant to let business analysts run ad hoc analytic queries on an OLTP database, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions.",
+    "crumbs": [
+      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+    ]
+  },
+  {
+    "objectID": "w05/index.html#what-is-the-quickest-possible-way-to-explore-data-in-s3",
+    "href": "w05/index.html#what-is-the-quickest-possible-way-to-explore-data-in-s3",
+    "title": "Week 5: Data Engineering",
+    "section": "What is the Quickest Possible Way to Explore Data in S3?",
+    "text": "What is the Quickest Possible Way to Explore Data in S3?",
+    "crumbs": [
+      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+    ]
+  },
+  {
+    "objectID": "w05/index.html#lab-analyzing-nyc-taxi-dataset-with-athena",
+    "href": "w05/index.html#lab-analyzing-nyc-taxi-dataset-with-athena",
+    "title": "Week 5: Data Engineering",
+    "section": "Lab: Analyzing NYC Taxi dataset with Athena",
+    "text": "Lab: Analyzing NYC Taxi dataset with Athena\n\nA simple example of using DuckDB and Apache Arrow using NYC Taxi dataset\nThis notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.\n\nGitHub Classroom Link for Lab 5\nGitHub Classroom Link for Assignment 5",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 22</span>"
     ]
@@ -3431,7 +3421,7 @@
     "href": "w05/slides.html#agenda",
     "title": "Week 5: Data Engineering",
     "section": "Agenda",
-    "text": "Agenda\n\nLooking Back\n\nIntroduction to cloud\nPython Multiprocessing & async\nDuckdb, Polars\n\nFuture\n\nProject introduction\nSpark dataframe, ML, NLP\n\n\nToday\n\nData Engineering\n\nData Lakes, Warehouses\nNoSQL Databases\n\nLab:\n\nAthena\nEC2"
+    "text": "Agenda\n\nLooking Back\n\nIntroduction to cloud\nPython Multiprocessing\nDuckDB, Polars\n\nFuture\n\nProject introduction\nSpark dataframe, ML, NLP\n\n\nToday\n\nData Engineering\n\nData Lakes, Warehouses\nNoSQL Databases\n\nLab:\n\nAthena\nEC2"
   },
   {
     "objectID": "w05/slides.html#what-is-data-engineering",
@@ -3445,7 +3435,7 @@
     "href": "w05/slides.html#what-do-data-engineers-do",
     "title": "Week 5: Data Engineering",
     "section": "What do Data Engineers do?",
-    "text": "What do Data Engineers do?\nData engineers build systems that collect data from different sources and make this data available for analytics and ML application. This usually involves the following:\n\nAcquisition: Finding all the different datasets around the business.\n\nThese could be availble in databases, shared drives, ingested directly from IoT devices, external datasets, and more.\n\nCleansing: The raw data usually cannot be used as is, it needs to be cleaned.\nConversion: Since the data is coming from different sources, it would probably in different formats (database tables, CSV, JSON, custom). Needs to be converted into a common format (such as parquet) before it becomes usable.\n\nMultiple datasets need to be joined together to answer a business question."
+    "text": "What do Data Engineers do?\nData engineers build systems that collect data from different sources and make this data available for analytics and ML application. This usually involves the following:\n\nAcquisition: Finding all the different datasets around the business.\n\nThese could be availble in databases, shared drives, ingested directly from IoT devices, external datasets, and more.\n\nCleaning: The raw data usually cannot be used as is, it needs to be cleaned.\nConversion: Since the data is coming from different sources, it would probably in different formats (database tables, CSV, JSON, custom). Needs to be converted into a common format (such as parquet) before it becomes usable.\n\nMultiple datasets need to be joined together to answer a business question."
   },
   {
     "objectID": "w05/slides.html#what-do-data-engineers-do-contd.",
@@ -3455,32 +3445,32 @@
     "text": "What do Data Engineers do (contd.)?\n\nDisambiguation: How to interpret what the data means? Use a data catalog and then with the help of subject matter experts (often called Data Stewards) add meaningful description to the datasets.\nDeduplication: Having a single source of truth!\nData Governance: for how long to store the data, how to enforce access controls (Principle of least privilege) etc.\n\nOnce this is done, data may be stored in a central repository such as a data lake or data lakehouse. Data engineers may also copy and move subsets of data into a data warehouse."
   },
   {
-    "objectID": "w05/slides.html#data-engineering-tools-technologies",
-    "href": "w05/slides.html#data-engineering-tools-technologies",
+    "objectID": "w05/slides.html#data-engineering-tools-and-technologies",
+    "href": "w05/slides.html#data-engineering-tools-and-technologies",
     "title": "Week 5: Data Engineering",
-    "section": "Data engineering tools & technologies",
-    "text": "Data engineering tools & technologies\nData engineers work with a variety of tools and technologies, including:\n\nETL Tools: ETL (extract, transform, load) tools move data between systems. They access data, then apply rules to “transform” the data through steps that make it more suitable for analysis.\nSQL: Structured Query Language (SQL) is the standard language for querying relational databases.\nPython: Python is a general programming language. Data engineers may choose to use Python for ETL tasks. Spark (pyspark) for Big Data, Apache Flink for streaming data.\nCloud Data Storage: Including Amazon S3, Azure Data Lake Storage (ADLS), Google Cloud Storage, etc.\nCloud Data Warehouses: Data ready for use by data scientists and analysts is stored in data warehouses, such as Amazon Redshift, Google BigQuery, Azure Data Warehouse, Snowflake etc."
+    "section": "Data Engineering Tools and Technologies",
+    "text": "Data Engineering Tools and Technologies\nData engineers work with a variety of tools and technologies, including:\n\nETL Tools: ETL (extract, transform, load) tools move data between systems. They access data, then apply rules to “transform” the data through steps that make it more suitable for analysis.\nSQL: Structured Query Language (SQL) is the standard language for querying relational databases.\nPython: Python is a general programming language. Data engineers may choose to use Python for ETL tasks. Spark (pyspark) for Big Data, Apache Flink for streaming data.\nCloud Data Storage: Including Amazon S3, Azure Data Lake Storage (ADLS), Google Cloud Storage, etc.\nCloud Data Warehouses: Data ready for use by data scientists and analysts is stored in data warehouses, such as Amazon Redshift, Google BigQuery, Azure Data Warehouse, Snowflake etc."
   },
   {
     "objectID": "w05/slides.html#popular-data-engineering-tools",
     "href": "w05/slides.html#popular-data-engineering-tools",
     "title": "Week 5: Data Engineering",
     "section": "Popular Data engineering tools",
-    "text": "Popular Data engineering tools\n\nSource: https://www.secoda.co/blog/the-top-20-most-commonly-used-data-engineering-tools"
+    "text": "Popular Data engineering tools\n\nSource"
   },
   {
-    "objectID": "w05/slides.html#data-lakes",
-    "href": "w05/slides.html#data-lakes",
+    "objectID": "w05/slides.html#wikipedia-definition",
+    "href": "w05/slides.html#wikipedia-definition",
     "title": "Week 5: Data Engineering",
-    "section": "Data Lakes",
-    "text": "Data Lakes\n\n\nFrom Wikipedia: A data lake is a system or repository of data stored in its natural/raw format, usually object blobs or files. A data lake is usually a single store of data including raw copies of source system data, sensor data, social data etc., and transformed data used for tasks such as reporting, visualization, advanced analytics and machine learning. A data lake can include structured data from relational databases (rows and columns), semi-structured data (CSV, logs, XML, JSON), unstructured data (emails, documents, PDFs) and binary data (images, audio, video)."
+    "section": "Wikipedia Definition",
+    "text": "Wikipedia Definition\n\nFrom Wikipedia: A data lake is a system or repository of data stored in its natural/raw format, usually object blobs or files. A data lake is usually a single store of data including raw copies of source system data, sensor data, social data etc., and transformed data used for tasks such as reporting, visualization, advanced analytics and machine learning. A data lake can include structured data from relational databases (rows and columns), semi-structured data (CSV, logs, XML, JSON), unstructured data (emails, documents, PDFs) and binary data (images, audio, video)."
   },
   {
-    "objectID": "w05/slides.html#data-lake-cloud-provider-definitions",
-    "href": "w05/slides.html#data-lake-cloud-provider-definitions",
+    "objectID": "w05/slides.html#cloud-provider-definitions",
+    "href": "w05/slides.html#cloud-provider-definitions",
     "title": "Week 5: Data Engineering",
-    "section": "Data Lake (Cloud Provider Definitions)",
-    "text": "Data Lake (Cloud Provider Definitions)\nDefinitions in the wild (emphasis mine).\n\n\nAWS\nA data lake is a centralized repository that allows you to store all your structured and unstructured data at any scale. You can store your data as-is, without having to first structure the data, and run different types of analytics—from dashboards and visualizations to big data processing, real-time analytics, and machine learning to guide better decisions.\n\nGCP\nA data lake provides a scalable and secure platform that allows enterprises to: ingest any data from any system at any speed—even if the data comes from on-premises, cloud, or edge-computing systems; store any type or volume of data in full fidelity; process data in real time or batch mode; and analyze data using SQL, Python, R, or any other language, third-party data, or analytics application.\n\nAzure\nAzure Data Lake includes all the capabilities required to make it easy for developers, data scientists, and analysts to store data of any size, shape, and speed, and do all types of processing and analytics across platforms and languages.\n\nDataBricks\nA data lake is a central location that holds a large amount of data in its native, raw format. Compared to a hierarchical data warehouse, which stores data in files or folders, a data lake uses a flat architecture and object storage to store the data.‍"
+    "section": "Cloud Provider Definitions",
+    "text": "Cloud Provider Definitions\nDefinitions in the wild (emphasis mine).\n\n\nAWS\nA data lake is a centralized repository that allows you to store all your structured and unstructured data at any scale. You can store your data as-is, without having to first structure the data, and run different types of analytics—from dashboards and visualizations to big data processing, real-time analytics, and machine learning to guide better decisions.\n\nGCP\nA data lake provides a scalable and secure platform that allows enterprises to: ingest any data from any system at any speed—even if the data comes from on-premises, cloud, or edge-computing systems; store any type or volume of data in full fidelity; process data in real time or batch mode; and analyze data using SQL, Python, R, or any other language, third-party data, or analytics application.\n\nAzure\nAzure Data Lake includes all the capabilities required to make it easy for developers, data scientists, and analysts to store data of any size, shape, and speed, and do all types of processing and analytics across platforms and languages.\n\nDataBricks\nA data lake is a central location that holds a large amount of data in its native, raw format. Compared to a hierarchical data warehouse, which stores data in files or folders, a data lake uses a flat architecture and object storage to store the data.‍"
   },
   {
     "objectID": "w05/slides.html#working-with-a-cloud-data-lake",
@@ -3549,29 +3539,8 @@
     "objectID": "w05/slides.html#other-data-stores-to-know-about",
     "href": "w05/slides.html#other-data-stores-to-know-about",
     "title": "Week 5: Data Engineering",
-    "section": "Other Data stores to know about",
-    "text": "Other Data stores to know about\nBesides the general concepts about data lkakes, warehouses, different types of databases, there are some purpose built databases that are good to know about.\n\nSplunk\nElasticsearch\nDuckDB\nMany many more…"
-  },
-  {
-    "objectID": "w05/slides.html#splunk",
-    "href": "w05/slides.html#splunk",
-    "title": "Week 5: Data Engineering",
-    "section": "Splunk",
-    "text": "Splunk\nSplunk is a software platform to search, analyze and visualize the machine-generated data gathered from the websites, applications, sensors, devices etc. which make up your IT infrastructure and business. See https://www.splunk.com/.\n\nThe logfile we analyzed in assignment 4 s3://bigdatateaching/forensicswiki/2012_logs.txt, is the typical kind of data that gets ingested into Splunk."
-  },
-  {
-    "objectID": "w05/slides.html#elasticsearch",
-    "href": "w05/slides.html#elasticsearch",
-    "title": "Week 5: Data Engineering",
-    "section": "Elasticsearch",
-    "text": "Elasticsearch\nFrom https://www.elastic.co/what-is/elasticsearch, emphasis mine\nElasticsearch is a distributed, free and open search and analytics engine for all types of data, including textual, numerical, geospatial, structured, and unstructured. Elasticsearch is built on Apache Lucene and was first released in 2010 by Elasticsearch N.V. (now known as Elastic).\nCommonly referred to as the ELK Stack (after Elasticsearch, Logstash, and Kibana), the Elastic Stack now includes a rich collection of lightweight shipping agents known as Beats for sending data to Elasticsearch.\nData is inserted in Elasticsearch indexes as JSON documents using a REST API/SDK."
-  },
-  {
-    "objectID": "w05/slides.html#duckdb",
-    "href": "w05/slides.html#duckdb",
-    "title": "Week 5: Data Engineering",
-    "section": "DuckDB",
-    "text": "DuckDB\nDuckDB is an in-process SQL OLAP database management system.\n\nLike sqllite, but for analytics\nWhat does this mean? It means that your database runs inside your process, there are no servers to manage, no remote system to connect to. Very snappy, easy to experiment with SQL syntax.\n\nDuckDB does vectorized processing i.e. loads chunks of data into memory (tries to keep everything in the CPU’s L1 and L2 cache) and is thus able to handle datasets bigger than the amount of RAM available.\nDuckDB supports Python, R and a host of other languages.\nWhen to use DuckDB: when you cannot use Pandas for rapid experimentation with Big Data, especially when combining DuckDB with Arrow"
+    "section": "Other Data Stores to Know About",
+    "text": "Other Data Stores to Know About\nBesides the general concepts about data lkakes, warehouses, different types of databases, there are some purpose built databases that are good to know about.\n\nSplunk\nElasticsearch\nDuckDB\nMany many more…"
   },
   {
     "objectID": "w05/slides.html#further-reading",
@@ -3581,18 +3550,32 @@
     "text": "Further Reading\nPlease lookup these topics on Google for further reading. Not providing specific links here because they all point to vendor specific products.\n\nData Catalog\nData Governance\nData Mesh\nData Fabric"
   },
   {
+    "objectID": "w05/slides.html#boar-book-time",
+    "href": "w05/slides.html#boar-book-time",
+    "title": "Week 5: Data Engineering",
+    "section": "Boar Book Time!",
+    "text": "Boar Book Time!\n\n\nKleppmann (2017), pages 69-95"
+  },
+  {
+    "objectID": "w05/slides.html#telemetry-analytics",
+    "href": "w05/slides.html#telemetry-analytics",
+    "title": "Week 5: Data Engineering",
+    "section": "Telemetry → Analytics",
+    "text": "Telemetry → Analytics\nRecall how many tiny bits of information are streaming into a given app’s servers at any given time!\n\nDatabase administrators therefore closely guard their OLTP databases. They are usually reluctant to let business analysts run ad hoc analytic queries on an OLTP database, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions."
+  },
+  {
+    "objectID": "w05/slides.html#what-is-the-quickest-possible-way-to-explore-data-in-s3",
+    "href": "w05/slides.html#what-is-the-quickest-possible-way-to-explore-data-in-s3",
+    "title": "Week 5: Data Engineering",
+    "section": "What is the Quickest Possible Way to Explore Data in S3?",
+    "text": "What is the Quickest Possible Way to Explore Data in S3?"
+  },
+  {
     "objectID": "w05/slides.html#lab-analyzing-nyc-taxi-dataset-with-athena",
     "href": "w05/slides.html#lab-analyzing-nyc-taxi-dataset-with-athena",
     "title": "Week 5: Data Engineering",
-    "section": "Lab: Analyzing NYC-Taxi dataset with Athena",
-    "text": "Lab: Analyzing NYC-Taxi dataset with Athena"
-  },
-  {
-    "objectID": "w05/slides.html#a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset",
-    "href": "w05/slides.html#a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset",
-    "title": "Week 5: Data Engineering",
-    "section": "A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset",
-    "text": "A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset\nThis notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.\nGitHub Classroom Link for Lab 5\nGitHub Classroom Link for Assignment 5"
+    "section": "Lab: Analyzing NYC Taxi dataset with Athena",
+    "text": "Lab: Analyzing NYC Taxi dataset with Athena\n\nA simple example of using DuckDB and Apache Arrow using NYC Taxi dataset\nThis notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.\n\nGitHub Classroom Link for Lab 5\nGitHub Classroom Link for Assignment 5\n\n\n\n\n\nKleppmann, Martin. 2017. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/42hm32h6qz8mrj5bm5eet/DesigningData-IntensiveApplications_TheBigIdeasBehind-Kleppmann-Martin.pdf?rlkey=nournir9s213rsmegi3eo0zn3&dl=1."
   },
   {
     "objectID": "writeups/sql-guide/index.html",
@@ -3613,7 +3596,7 @@
     "href": "writeups/sql-guide/index.html#onto-duckdb",
     "title": "From Pandas to SQL",
     "section": "Onto DuckDB!",
-    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││        Total Time: 0.0003s        ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\n┌───────────────────────────┐\n│      RESULT_COLLECTOR     │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│           FILTER          │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 1           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│        PANDAS_SCAN        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 7           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             7             │\n│          (0.00s)          │\n└───────────────────────────┘                             \n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
+    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││        Total Time: 0.0002s        ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\n┌───────────────────────────┐\n│      RESULT_COLLECTOR     │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│           FILTER          │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 1           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│        PANDAS_SCAN        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 7           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             7             │\n│          (0.00s)          │\n└───────────────────────────┘                             \n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
   },
   {
     "objectID": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",

@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -444,7 +464,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2025-09-22, 12:21:15 AM</em></p>
+<p><em>Updated 2025-09-22, 03:27:47 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -462,10 +482,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-is-data-engineering" id="toc-what-is-data-engineering" class="nav-link" data-scroll-target="#what-is-data-engineering">What is Data Engineering?</a></li>
   <li><a href="#what-do-data-engineers-do" id="toc-what-do-data-engineers-do" class="nav-link" data-scroll-target="#what-do-data-engineers-do">What do Data Engineers do?</a></li>
   <li><a href="#what-do-data-engineers-do-contd." id="toc-what-do-data-engineers-do-contd." class="nav-link" data-scroll-target="#what-do-data-engineers-do-contd.">What do Data Engineers do (contd.)?</a></li>
-  <li><a href="#data-engineering-tools-technologies" id="toc-data-engineering-tools-technologies" class="nav-link" data-scroll-target="#data-engineering-tools-technologies">Data engineering tools &amp; technologies</a></li>
+  <li><a href="#data-engineering-tools-and-technologies" id="toc-data-engineering-tools-and-technologies" class="nav-link" data-scroll-target="#data-engineering-tools-and-technologies">Data Engineering Tools and Technologies</a></li>
   <li><a href="#popular-data-engineering-tools" id="toc-popular-data-engineering-tools" class="nav-link" data-scroll-target="#popular-data-engineering-tools">Popular Data engineering tools</a></li>
-  <li><a href="#data-lakes" id="toc-data-lakes" class="nav-link" data-scroll-target="#data-lakes">Data Lakes</a></li>
-  <li><a href="#data-lake-cloud-provider-definitions" id="toc-data-lake-cloud-provider-definitions" class="nav-link" data-scroll-target="#data-lake-cloud-provider-definitions">Data Lake (Cloud Provider Definitions)</a></li>
+  </ul></li>
+  <li><a href="#data-lakes" id="toc-data-lakes" class="nav-link" data-scroll-target="#data-lakes">Data Lakes</a>
+  <ul class="collapse">
+  <li><a href="#wikipedia-definition" id="toc-wikipedia-definition" class="nav-link" data-scroll-target="#wikipedia-definition">Wikipedia Definition</a></li>
+  <li><a href="#cloud-provider-definitions" id="toc-cloud-provider-definitions" class="nav-link" data-scroll-target="#cloud-provider-definitions">Cloud Provider Definitions</a></li>
   <li><a href="#working-with-a-cloud-data-lake" id="toc-working-with-a-cloud-data-lake" class="nav-link" data-scroll-target="#working-with-a-cloud-data-lake">Working with a Cloud Data Lake</a></li>
   <li><a href="#data-warehouses" id="toc-data-warehouses" class="nav-link" data-scroll-target="#data-warehouses">Data Warehouses</a></li>
   <li><a href="#data-warehouse-cloud-provider-definitions" id="toc-data-warehouse-cloud-provider-definitions" class="nav-link" data-scroll-target="#data-warehouse-cloud-provider-definitions">Data Warehouse (Cloud Provider Definitions)</a></li>
@@ -475,13 +498,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#types-of-nosql-databases" id="toc-types-of-nosql-databases" class="nav-link" data-scroll-target="#types-of-nosql-databases">Types of NoSQL Databases</a></li>
   <li><a href="#examples-of-nosql-databases" id="toc-examples-of-nosql-databases" class="nav-link" data-scroll-target="#examples-of-nosql-databases">Examples of NoSQL Databases</a></li>
   <li><a href="#example-of-documents-in-a-document-database" id="toc-example-of-documents-in-a-document-database" class="nav-link" data-scroll-target="#example-of-documents-in-a-document-database">Example of documents in a document database</a></li>
-  <li><a href="#other-data-stores-to-know-about" id="toc-other-data-stores-to-know-about" class="nav-link" data-scroll-target="#other-data-stores-to-know-about">Other Data stores to know about</a></li>
-  <li><a href="#splunk" id="toc-splunk" class="nav-link" data-scroll-target="#splunk">Splunk</a></li>
-  <li><a href="#elasticsearch" id="toc-elasticsearch" class="nav-link" data-scroll-target="#elasticsearch">Elasticsearch</a></li>
-  <li><a href="#duckdb" id="toc-duckdb" class="nav-link" data-scroll-target="#duckdb">DuckDB</a></li>
+  <li><a href="#other-data-stores-to-know-about" id="toc-other-data-stores-to-know-about" class="nav-link" data-scroll-target="#other-data-stores-to-know-about">Other Data Stores to Know About</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a></li>
-  <li><a href="#lab-analyzing-nyc-taxi-dataset-with-athena" id="toc-lab-analyzing-nyc-taxi-dataset-with-athena" class="nav-link" data-scroll-target="#lab-analyzing-nyc-taxi-dataset-with-athena">Lab: Analyzing NYC-Taxi dataset with Athena</a></li>
-  <li><a href="#a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset" id="toc-a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset" class="nav-link" data-scroll-target="#a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset">A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset</a></li>
+  </ul></li>
+  <li><a href="#diving-one-level-deeper-oltp-vs.-olap" id="toc-diving-one-level-deeper-oltp-vs.-olap" class="nav-link" data-scroll-target="#diving-one-level-deeper-oltp-vs.-olap">Diving One Level Deeper: OLTP vs.&nbsp;OLAP</a>
+  <ul class="collapse">
+  <li><a href="#boar-book-time" id="toc-boar-book-time" class="nav-link" data-scroll-target="#boar-book-time">Boar Book Time!</a></li>
+  <li><a href="#telemetry-analytics" id="toc-telemetry-analytics" class="nav-link" data-scroll-target="#telemetry-analytics">Telemetry → Analytics</a></li>
+  </ul></li>
+  <li><a href="#athena-for-eda-on-raw-data" id="toc-athena-for-eda-on-raw-data" class="nav-link" data-scroll-target="#athena-for-eda-on-raw-data">Athena for EDA on Raw Data!</a>
+  <ul class="collapse">
+  <li><a href="#what-is-the-quickest-possible-way-to-explore-data-in-s3" id="toc-what-is-the-quickest-possible-way-to-explore-data-in-s3" class="nav-link" data-scroll-target="#what-is-the-quickest-possible-way-to-explore-data-in-s3">What is the Quickest Possible Way to Explore Data in S3?</a></li>
+  <li><a href="#lab-analyzing-nyc-taxi-dataset-with-athena" id="toc-lab-analyzing-nyc-taxi-dataset-with-athena" class="nav-link" data-scroll-target="#lab-analyzing-nyc-taxi-dataset-with-athena">Lab: Analyzing NYC Taxi dataset with Athena</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w05/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -542,8 +570,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="looking-back">Looking Back</h3>
 <ul>
 <li>Introduction to cloud</li>
-<li>Python Multiprocessing &amp; async</li>
-<li>Duckdb, Polars</li>
+<li>Python Multiprocessing</li>
+<li>DuckDB, Polars</li>
 </ul>
 </section>
 <section id="future" class="level3">
@@ -572,8 +600,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </div>
 </section>
-<section id="data-engineering" class="level1 section">
-<h1 class="section">Data Engineering</h1>
+<section id="data-engineering" class="level1" data-stack-name="Data Engineering">
+<h1 data-stack-name="Data Engineering">Data Engineering</h1>
 <section id="what-is-data-engineering" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-data-engineering">What is Data Engineering?</h2>
 <p>As the scale of the data grew, the existing ETL processes alone were not sufficient, a separate discipline was needed for:</p>
@@ -594,12 +622,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="what-do-data-engineers-do">What do Data Engineers do?</h2>
 <p>Data engineers build systems that collect data from different sources and make this data available for analytics and ML application. This usually involves the following:</p>
 <ul>
-<li><p><strong>Acquisition</strong>: Finding all the different datasets around the business.</p>
+<li><strong>Acquisition</strong>: Finding all the different datasets around the business.
 <ul>
 <li>These could be availble in databases, shared drives, ingested directly from IoT devices, external datasets, and more.</li>
 </ul></li>
-<li><p><strong>Cleansing</strong>: The raw data usually cannot be used as is, it needs to be cleaned.</p></li>
-<li><p><strong>Conversion</strong>: Since the data is coming from different sources, it would probably in different formats (database tables, CSV, JSON, custom). Needs to be converted into a common format (such as parquet) before it becomes usable.</p>
+<li><strong>Cleaning</strong>: The raw data usually cannot be used as is, it needs to be cleaned.</li>
+<li><strong>Conversion</strong>: Since the data is coming from different sources, it would probably in different formats (database tables, CSV, JSON, custom). Needs to be converted into a common format (such as parquet) before it becomes usable.
 <ul>
 <li>Multiple datasets need to be joined together to answer a business question.</li>
 </ul></li>
@@ -608,14 +636,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="what-do-data-engineers-do-contd." class="level2">
 <h2 class="anchored" data-anchor-id="what-do-data-engineers-do-contd.">What do Data Engineers do (contd.)?</h2>
 <ul>
-<li><p><strong>Disambiguation</strong>: How to interpret what the data means? Use a data catalog and then with the help of subject matter experts (often called <em>Data Stewards</em>) add meaningful description to the datasets.</p></li>
-<li><p><strong>Deduplication</strong>: Having a single source of truth!</p></li>
-<li><p><strong>Data Governance</strong>: for how long to store the data, how to enforce access controls (<a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">Principle of least privilege</a>) etc.</p></li>
+<li><strong>Disambiguation</strong>: How to interpret what the data means? Use a data catalog and then with the help of subject matter experts (often called <em>Data Stewards</em>) add meaningful description to the datasets.</li>
+<li><strong>Deduplication</strong>: Having a single source of truth!</li>
+<li><strong>Data Governance</strong>: for how long to store the data, how to enforce access controls (<a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">Principle of least privilege</a>) etc.</li>
 </ul>
 <p>Once this is done, data may be stored in a central repository such as a <strong>data lake</strong> or <strong>data lakehouse</strong>. Data engineers may also copy and move subsets of data into a data warehouse.</p>
 </section>
-<section id="data-engineering-tools-technologies" class="level2">
-<h2 class="anchored" data-anchor-id="data-engineering-tools-technologies">Data engineering tools &amp; technologies</h2>
+<section id="data-engineering-tools-and-technologies" class="level2">
+<h2 class="anchored" data-anchor-id="data-engineering-tools-and-technologies">Data Engineering Tools and Technologies</h2>
 <p>Data engineers work with a variety of tools and technologies, including:</p>
 <ul>
 <li><strong>ETL Tools</strong>: ETL (extract, transform, load) tools move data between systems. They access data, then apply rules to “transform” the data through steps that make it more suitable for analysis.</li>
@@ -627,18 +655,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="popular-data-engineering-tools" class="level2">
 <h2 class="anchored" data-anchor-id="popular-data-engineering-tools">Popular Data engineering tools</h2>
-<p><img src="images/de-tools.png" class="img-fluid"></p>
-<p>Source: https://www.secoda.co/blog/the-top-20-most-commonly-used-data-engineering-tools</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/de-tools.png" class="img-fluid figure-img"></p>
+<figcaption><a href="https://www.secoda.co/blog/the-top-20-most-commonly-used-data-engineering-tools">Source</a></figcaption>
+</figure>
+</div>
 </section>
-<section id="data-lakes" class="level2">
-<h2 class="anchored" data-anchor-id="data-lakes">Data Lakes</h2>
+</section>
+<section id="data-lakes" class="level1" data-stack-name="Lakes vs. Warehouses">
+<h1 data-stack-name="Lakes vs. Warehouses">Data Lakes</h1>
 <p><a href="images/data-lake.png"></a></p>
+<section id="wikipedia-definition" class="level2">
+<h2 class="anchored" data-anchor-id="wikipedia-definition">Wikipedia Definition</h2>
 <blockquote class="blockquote">
 <p><strong><a href="https://en.wikipedia.org/wiki/Data_lake">From Wikipedia</a></strong>: A data lake is a system or repository of data stored in its natural/raw format, usually object blobs or files. A data lake is usually a single store of data including raw copies of source system data, sensor data, social data etc., and transformed data used for tasks such as reporting, visualization, advanced analytics and machine learning. A data lake can include structured data from relational databases (rows and columns), semi-structured data (CSV, logs, XML, JSON), unstructured data (emails, documents, PDFs) and binary data (images, audio, video).</p>
 </blockquote>
 </section>
-<section id="data-lake-cloud-provider-definitions" class="level2">
-<h2 class="anchored" data-anchor-id="data-lake-cloud-provider-definitions">Data Lake (Cloud Provider Definitions)</h2>
+<section id="cloud-provider-definitions" class="level2">
+<h2 class="anchored" data-anchor-id="cloud-provider-definitions">Cloud Provider Definitions</h2>
 <p>Definitions in the wild (<strong>emphasis mine</strong>).</p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -803,7 +838,7 @@ A data warehouse (DW) is a <strong>relational database</strong> that is designed
 <span id="cb2-14"><a href="#cb2-14"></a>table.put_item(Item <span class="op">=</span> item)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="other-data-stores-to-know-about" class="level2">
-<h2 class="anchored" data-anchor-id="other-data-stores-to-know-about">Other Data stores to know about</h2>
+<h2 class="anchored" data-anchor-id="other-data-stores-to-know-about">Other Data Stores to Know About</h2>
 <p>Besides the general concepts about data lkakes, warehouses, different types of databases, there are some purpose built databases that are good to know about.</p>
 <ul>
 <li>Splunk</li>
@@ -811,33 +846,6 @@ A data warehouse (DW) is a <strong>relational database</strong> that is designed
 <li>DuckDB</li>
 <li>Many many more…</li>
 </ul>
-</section>
-<section id="splunk" class="level2">
-<h2 class="anchored" data-anchor-id="splunk">Splunk</h2>
-<p>Splunk is a software platform to search, analyze and visualize the <strong>machine-generated</strong> data gathered from the websites, applications, sensors, devices etc. which make up your IT infrastructure and business. See <a href="https://www.splunk.com/">https://www.splunk.com/</a>.</p>
-<blockquote class="blockquote">
-<p>The logfile we analyzed in assignment 4 <code>s3://bigdatateaching/forensicswiki/2012_logs.txt</code>, is the typical kind of data that gets ingested into Splunk.</p>
-</blockquote>
-<p><img src="images/splunk-dashboard.png" class="img-fluid"></p>
-</section>
-<section id="elasticsearch" class="level2">
-<h2 class="anchored" data-anchor-id="elasticsearch">Elasticsearch</h2>
-<p><em>From https://www.elastic.co/what-is/elasticsearch, <strong>emphasis mine</strong></em></p>
-<p>Elasticsearch is a <strong>distributed</strong>, free and <strong>open search and analytics engine</strong> for all types of data, including <strong>textual, numerical, geospatial, structured, and unstructured</strong>. Elasticsearch is built on Apache Lucene and was first released in 2010 by Elasticsearch N.V. (now known as Elastic).</p>
-<p>Commonly referred to as the <strong>ELK Stack</strong> (after <strong>Elasticsearch</strong>, <strong>Logstash</strong>, and <strong>Kibana</strong>), the Elastic Stack now includes a rich collection of lightweight shipping agents known as Beats for sending data to Elasticsearch.</p>
-<p>Data is inserted in Elasticsearch <em>indexes</em> as JSON documents using a REST API/SDK.</p>
-<p><img src="images/kibana.webp" class="img-fluid"></p>
-</section>
-<section id="duckdb" class="level2">
-<h2 class="anchored" data-anchor-id="duckdb">DuckDB</h2>
-<p>DuckDB is an in-process SQL OLAP database management system.</p>
-<blockquote class="blockquote">
-<p>Like <code>sqllite</code>, but for analytics</p>
-<p>What does this mean? It means that your database runs inside your process, there are no servers to manage, no remote system to connect to. Very snappy, easy to <strong>experiment</strong> with SQL syntax.</p>
-</blockquote>
-<p>DuckDB does <strong>vectorized processing</strong> i.e.&nbsp;loads chunks of data into memory (tries to keep everything in the CPU’s L1 and L2 cache) and is thus able to handle datasets bigger than the amount of RAM available.</p>
-<p>DuckDB supports Python, R and a host of other languages.</p>
-<p><strong>When to use DuckDB</strong>: when you cannot use Pandas for rapid experimentation with Big Data, especially when combining <a href="https://duckdb.org/2021/12/03/duck-arrow.html">DuckDB with Arrow</a></p>
 </section>
 <section id="further-reading" class="level2">
 <h2 class="anchored" data-anchor-id="further-reading">Further Reading</h2>
@@ -849,20 +857,61 @@ A data warehouse (DW) is a <strong>relational database</strong> that is designed
 <li>Data Fabric</li>
 </ul>
 </section>
-<section id="lab-analyzing-nyc-taxi-dataset-with-athena" class="level2 section">
-<h2 class="section anchored" data-anchor-id="lab-analyzing-nyc-taxi-dataset-with-athena">Lab: Analyzing NYC-Taxi dataset with Athena</h2>
 </section>
-<section id="a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="a-simple-example-of-using-duckdb-and-apache-arrow-using-nyc-taxi-dataset">A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset</h2>
-<p>This notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.</p>
-<p><a href="https://classroom.github.com/a/rpt6da6u">GitHub Classroom Link for Lab 5</a></p>
-<p><a href="https://classroom.github.com/a/Nj6ELkFy">GitHub Classroom Link for Assignment 5</a></p>
+<section id="diving-one-level-deeper-oltp-vs.-olap" class="level1" data-stack-name="OLTP vs. OLAP">
+<h1 data-stack-name="OLTP vs. OLAP">Diving One Level Deeper: OLTP vs.&nbsp;OLAP</h1>
+<section id="boar-book-time" class="level2 crunch-title">
+<h2 class="crunch-title anchored" data-anchor-id="boar-book-time">Boar Book Time!</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><span class="citation" data-cites="kleppmann_designing_2017">Kleppmann (<a href="#ref-kleppmann_designing_2017" role="doc-biblioref">2017</a>)</span>, pages 69-95</p>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/boar_book.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="telemetry-analytics" class="level2">
+<h2 class="anchored" data-anchor-id="telemetry-analytics">Telemetry → Analytics</h2>
+<p>Recall how many tiny bits of information are <strong>streaming into</strong> a given app’s servers at any given time!</p>
+<blockquote class="blockquote">
+<p>Database administrators therefore <strong>closely guard their OLTP databases</strong>. They are usually <strong>reluctant to let business analysts run ad hoc analytic queries on an OLTP database</strong>, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions.</p>
+</blockquote>
+</section>
+</section>
+<section id="athena-for-eda-on-raw-data" class="level1" data-stack-name="Athena">
+<h1 data-stack-name="Athena">Athena for EDA on Raw Data!</h1>
+<section id="what-is-the-quickest-possible-way-to-explore-data-in-s3" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-quickest-possible-way-to-explore-data-in-s3">What is the Quickest Possible Way to Explore Data in S3?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/athena_glue.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="lab-analyzing-nyc-taxi-dataset-with-athena" class="level2 title-08 crunch-title">
+<h2 class="title-08 crunch-title anchored" data-anchor-id="lab-analyzing-nyc-taxi-dataset-with-athena">Lab: Analyzing NYC Taxi dataset with Athena</h2>
+<ul>
+<li>A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset</li>
+<li>This notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.<br>
+</li>
+<li><a href="https://classroom.github.com/a/rpt6da6u">GitHub Classroom Link for Lab 5</a></li>
+<li><a href="https://classroom.github.com/a/Nj6ELkFy">GitHub Classroom Link for Assignment 5</a></li>
+</ul>
 
 
+
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-kleppmann_designing_2017" class="csl-entry" role="listitem">
+Kleppmann, Martin. 2017. <em>Designing <span>Data-Intensive Applications</span>: <span>The Big Ideas Behind Reliable</span>, <span>Scalable</span>, and <span>Maintainable Systems</span></em>. O’Reilly Media, Inc. <a href="https://www.dropbox.com/scl/fi/42hm32h6qz8mrj5bm5eet/DesigningData-IntensiveApplications_TheBigIdeasBehind-Kleppmann-Martin.pdf?rlkey=nournir9s213rsmegi3eo0zn3&amp;dl=1">https://www.dropbox.com/scl/fi/42hm32h6qz8mrj5bm5eet/DesigningData-IntensiveApplications_TheBigIdeasBehind-Kleppmann-Martin.pdf?rlkey=nournir9s213rsmegi3eo0zn3&amp;dl=1</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

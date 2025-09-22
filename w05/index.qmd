@@ -10,7 +10,8 @@ categories:
   - "Class Sessions"
 crossref:
   fig-title: Fig
-cache: true
+cache: false
+bibliography: "../_DSAN6000.bib"
 format:
   revealjs:
     output-file: "slides.html"
@@ -60,8 +61,8 @@ format:
 ### Looking Back
 
 * Introduction to cloud
-* Python Multiprocessing & async
-* Duckdb, Polars
+* Python Multiprocessing
+* DuckDB, Polars
 
 ### Future  
 * Project introduction
@@ -81,9 +82,7 @@ format:
   * EC2
 :::
 
-
-
-# Data Engineering {.section}
+# Data Engineering {data-stack-name="Data Engineering"}
 
 ## What is Data Engineering?
 
@@ -97,7 +96,7 @@ As the scale of the data grew, the existing ETL processes alone were not suffici
 - Lifecycle management
 - And more...
 
-><b>[From Wikipedia](https://en.wikipedia.org/wiki/Data_engineering):</b> Data engineering refers to the building of systems to enable the collection and usage of data. This data is usually used to enable subsequent analysis and data science; which often involves machine learning. Making the data usable usually involves substantial compute and storage, as well as data processing and cleaning.
+> <b>[From Wikipedia](https://en.wikipedia.org/wiki/Data_engineering):</b> Data engineering refers to the building of systems to enable the collection and usage of data. This data is usually used to enable subsequent analysis and data science; which often involves machine learning. Making the data usable usually involves substantial compute and storage, as well as data processing and cleaning.
 
 ## What do Data Engineers do?
 
@@ -105,52 +104,50 @@ Data engineers build systems that collect data from different sources and make t
 
 - **Acquisition**: Finding all the different datasets around the business.
   - These could be availble in databases, shared drives, ingested directly from IoT devices, external datasets, and more.
-- **Cleansing**: The raw data usually cannot be used as is, it needs to be cleaned.
-
+- **Cleaning**: The raw data usually cannot be used as is, it needs to be cleaned.
 - **Conversion**: Since the data is coming from different sources, it would probably in different formats (database tables, CSV, JSON, custom). Needs to be converted into a common format (such as parquet) before it becomes usable.
   - Multiple datasets need to be joined together to answer a business question.
 
 ## What do Data Engineers do (contd.)?
 
 - **Disambiguation**: How to interpret what the data means? Use a data catalog and then with the help of subject matter experts (often called _Data Stewards_) add meaningful description to the datasets.
-
 - **Deduplication**: Having a single source of truth!
-
 - **Data Governance**: for how long to store the data, how to enforce access controls ([Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege)) etc.
 
 Once this is done, data may be stored in a central repository such as a **data lake** or **data lakehouse**. Data engineers may also copy and move subsets of data into a data warehouse.
 
-## Data engineering tools & technologies
+## Data Engineering Tools and Technologies
 
 Data engineers work with a variety of tools and technologies, including: 
  
- - **ETL Tools**: ETL (extract, transform, load) tools move data between systems. They access data, then apply rules to “transform” the data through steps that make it more suitable for analysis.
- - **SQL**: Structured Query Language (SQL) is the standard language for querying relational databases.
- - **Python**: Python is a general programming language. Data engineers may choose to use Python for ETL tasks. Spark (pyspark) for Big Data, Apache Flink for streaming data. 
- - **Cloud Data Storage**: Including Amazon S3, Azure Data Lake Storage (ADLS), Google Cloud Storage, etc.
- - **Cloud Data Warehouses**: Data ready for use by data scientists and analysts is stored in data warehouses, such as Amazon Redshift, Google BigQuery, Azure Data Warehouse, Snowflake etc.
+- **ETL Tools**: ETL (extract, transform, load) tools move data between systems. They access data, then apply rules to “transform” the data through steps that make it more suitable for analysis.
+- **SQL**: Structured Query Language (SQL) is the standard language for querying relational databases.
+- **Python**: Python is a general programming language. Data engineers may choose to use Python for ETL tasks. Spark (pyspark) for Big Data, Apache Flink for streaming data. 
+- **Cloud Data Storage**: Including Amazon S3, Azure Data Lake Storage (ADLS), Google Cloud Storage, etc.
+- **Cloud Data Warehouses**: Data ready for use by data scientists and analysts is stored in data warehouses, such as Amazon Redshift, Google BigQuery, Azure Data Warehouse, Snowflake etc.
 
 ## Popular Data engineering tools
 
-![](images/de-tools.png)
+![[Source](https://www.secoda.co/blog/the-top-20-most-commonly-used-data-engineering-tools)](images/de-tools.png)
 
-Source: https://www.secoda.co/blog/the-top-20-most-commonly-used-data-engineering-tools
-
-## Data Lakes
+# Data Lakes {data-stack-name="Lakes vs. Warehouses"}
 
 [](images/data-lake.png)
 
+## Wikipedia Definition
+
 > **[From Wikipedia](https://en.wikipedia.org/wiki/Data_lake)**: A data lake is a system or repository of data stored in its natural/raw format, usually object blobs or files. A data lake is usually a single store of data including raw copies of source system data, sensor data, social data etc., and transformed data used for tasks such as reporting, visualization, advanced analytics and machine learning. A data lake can include structured data from relational databases (rows and columns), semi-structured data (CSV, logs, XML, JSON), unstructured data (emails, documents, PDFs) and binary data (images, audio, video).
 
-## Data Lake (Cloud Provider Definitions)
+## Cloud Provider Definitions
 
 Definitions in the wild (**emphasis mine**).
 
-::: columns
+:::: {.columns}
 ::: {.column width="50%"}
 
 **[AWS](https://aws.amazon.com/big-data/datalakes-and-analytics/what-is-a-data-lake/)**  
 A data lake is a **centralized repository** that allows you to store all your **structured and unstructured** data at any scale. You can store your data as-is, without having to first structure the data, and run different types of analytics—from dashboards and visualizations to big data processing, real-time **analytics**, and machine learning to guide better decisions.
+
 :::
 
 ::: {.column width="50%"}
@@ -168,7 +165,7 @@ Azure Data Lake includes all the capabilities required to make it easy for devel
 **[DataBricks](https://www.databricks.com/discover/data-lakes/introduction)**  
 A data lake is a central location that holds a **large amount of data** in its native, **raw format**. Compared to a hierarchical data warehouse, which stores data in files or folders, a data lake uses a flat architecture and **object storage** to store the data.‍ 
 :::
-::: 
+::::
 
 ## Working with a Cloud Data Lake
 
@@ -314,7 +311,7 @@ item = {
 table.put_item(Item = item)
 ```
 
-## Other Data stores to know about
+## Other Data Stores to Know About
 
 Besides the general concepts about data lkakes, warehouses, different types of databases, there are some purpose built databases that are good to know about.
 
@@ -322,40 +319,6 @@ Besides the general concepts about data lkakes, warehouses, different types of d
 - Elasticsearch
 - DuckDB
 - Many many more...
-
-## Splunk
-
-Splunk is a software platform to search, analyze and visualize the **machine-generated** data gathered from the websites, applications, sensors, devices etc. which make up your IT infrastructure and business. See [https://www.splunk.com/](https://www.splunk.com/).
-
-> The logfile we analyzed in assignment 4 `s3://bigdatateaching/forensicswiki/2012_logs.txt`, is the typical kind of data that gets ingested into Splunk.
-
-![](images/splunk-dashboard.png)
-
-## Elasticsearch
-
-_From https://www.elastic.co/what-is/elasticsearch, **emphasis mine**_
-
-Elasticsearch is a **distributed**, free and **open search and analytics engine** for all types of data, including **textual, numerical, geospatial, structured, and unstructured**. Elasticsearch is built on Apache Lucene and was first released in 2010 by Elasticsearch N.V. (now known as Elastic). 
-
-Commonly referred to as the **ELK Stack** (after **Elasticsearch**, **Logstash**, and **Kibana**), the Elastic Stack now includes a rich collection of lightweight shipping agents known as Beats for sending data to Elasticsearch.
-
-Data is inserted in Elasticsearch _indexes_ as JSON documents using a REST API/SDK.
-
-![](images/kibana.webp)
-
-## DuckDB
-
-DuckDB is an in-process SQL OLAP database management system.
-
-> Like `sqllite`, but for analytics
-> 
-> What does this mean? It means that your database runs inside your process, there are no servers to manage, no remote system to connect to. Very snappy, easy to **experiment** with SQL syntax.
-
-DuckDB does **vectorized processing** i.e. loads chunks of data into memory (tries to keep everything in the CPU's L1 and L2 cache) and is thus able to handle datasets bigger than the amount of RAM available.
-
-DuckDB supports Python, R and a host of other languages.
-
-**When to use DuckDB**: when you cannot use Pandas for rapid experimentation with Big Data, especially when combining [DuckDB with Arrow](https://duckdb.org/2021/12/03/duck-arrow.html)
 
 ## Further Reading
 
@@ -366,12 +329,38 @@ Please lookup these topics on Google for further reading. Not providing specific
 - Data Mesh
 - Data Fabric
 
-## Lab: Analyzing NYC-Taxi dataset with Athena {.section}
+# Diving One Level Deeper: OLTP vs. OLAP {data-stack-name="OLTP vs. OLAP"}
 
-## A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset
+## Boar Book Time! {.crunch-title}
 
-This notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.  
+:::: {.columns}
+::: {.column width="40%"}
 
-[GitHub Classroom Link for Lab 5]({{< var gh-classroom.lab05 >}})  
+@kleppmann_designing_2017, pages 69-95
 
-[GitHub Classroom Link for Assignment 5]({{< var gh-classroom.a05 >}})
+:::
+::: {.column width="60%"}
+
+![](images/boar_book.jpg){fig-align="center" width="400"}
+
+:::
+::::
+
+## Telemetry &rarr; Analytics
+
+Recall how many tiny bits of information are **streaming into** a given app's servers at any given time!
+
+> Database administrators therefore **closely guard their OLTP databases**. They are usually **reluctant to let business analysts run ad hoc analytic queries on an OLTP database**, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions.
+
+# Athena for EDA on Raw Data! {data-stack-name="Athena"}
+
+## What is the Quickest Possible Way to Explore Data in S3?
+
+![](images/athena_glue.jpg){fig-align="center"}
+
+## Lab: Analyzing NYC Taxi dataset with Athena {.title-08 .crunch-title}
+
+* A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset
+* This notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.  
+* [GitHub Classroom Link for Lab 5]({{< var gh-classroom.lab05 >}})
+* [GitHub Classroom Link for Assignment 5]({{< var gh-classroom.a05 >}})
