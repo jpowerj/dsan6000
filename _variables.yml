@@ -46,8 +46,8 @@ weeks:
     footer: "DSAN 6000 Week 5: Data Engineering"
     date-md: "Sep 22"
   - weeknum: 6
-    title: ""
-    footer: "DSAN 6000 Week 6"
+    title: "Introduction to Spark"
+    footer: "DSAN 6000 Week 6: Spark"
     date-md: "Sep 29"
   - weeknum: 7
     title: ""

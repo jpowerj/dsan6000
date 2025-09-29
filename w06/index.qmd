@@ -1,5 +1,5 @@
 ---
-title: "Week 6: Introduction to Spark, RDDs"
+title: "Week 6: Introduction to Spark"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
@@ -10,7 +10,8 @@ categories:
   - "Class Sessions"
 crossref:
   fig-title: Fig
-cache: true
+cache: false
+bibliography: "../_DSAN6000.bib"
 format:
   revealjs:
     output-file: "slides.html"
@@ -28,7 +29,17 @@ format:
     simplemenu:
       flat: true
       barhtml:
-        header: "<div class='menubar'><span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span><ul class='menu'></ul></div>"
+        header: >
+          <div class='menubar'>
+            <span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span>
+            
+            <span style='position: absolute; right: 0; padding-right: 8px; padding-top: 3px; z-index: 10; display: inline-flex !important; align-items: center !important;'>
+              <a id='toggle-01-label' href='#' onclick="window.toggleSectionClicked('01'); return(false);" class='no-decoration'>01</a>
+              <a href='#' onclick="window.toggleIconClicked(); return(false);" class='no-decoration'><i id='section-toggle-icon' class='bi bi-toggle-off' style='padding-top: 0px; padding-left: 3px; padding-right: 3px;'></i></a>
+              <a id='toggle-02-label' href='#' onclick="window.toggleSectionClicked('02'); return(false);" class='no-decoration'>02</a>
+            </span>
+            <ul class='menu'></ul>
+          </div>
       scale: 0.5
   html:
     output-file: "index.html"
@@ -36,3 +47,256 @@ format:
     df-print: kable
 ---
 
+::: {.content-visible unless-format="revealjs"}
+
+The content for today is **split** between the following **two resources**:
+
+<center class='mb-3'>
+<a class="h2" href="https://gu-dsan.github.io/6000-fall-2025/slides/06-slides.html" target="_blank">Open *Spark* Slides from Main Site <i class='bi bi-box-arrow-up-right'></i></a>
+</center>
+
+<center class='mb-3'>
+<a class="h2" href="./slides.html" target="_blank">Open *MapReduce* slides in new tab &rarr;</a>
+</center>
+
+:::
+
+# A Reminder: Map-Reduce as a *Paradigm* {data-stack-name="Map-Reduce"}
+
+## What Happens When *Not* Embarrassingly Parallel? {.smaller .crunch-title .crunch-math .crunch-ul .title-09}
+
+* Think of the difference between **linear** and **quadratic equations** in algebra:
+* $3x - 1 = 0$ is "embarrassingly" solvable, on its own: you can solve it directly, by adding 3 to both sides $\implies x = \frac{1}{3}$. Same for $2x + 3 = 0 \implies x = -\frac{3}{2}$
+* Now consider $6x^2 + 7x - 3 = 0$: Harder to solve "directly", so your instinct might be to turn to the laborious **quadratic equation**:
+
+$$
+\begin{align*}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)} = \frac{-7 \pm 11}{12} = \left\{\frac{1}{3},-\frac{3}{2}\right\}
+\end{align*}
+$$
+
+* And yet, $6x^2 + 7x - 3 = (3x - 1)(2x + 3)$, meaning that we could have **split** the problem into two "embarrassingly" solvable pieces, then **multiplied** to get result!
+
+## The Analogy to Map-Reduce {.crunch-title .title-09}
+
+| | |
+|:- |:-:|
+| $\leadsto$ If code is **not** embarrassingly parallel (instinctually requiring laborious serial execution), | $\underbrace{6x^2 + 7x - 3 = 0}_{\text{Solve using Quadratic Eqn}}$ |
+| But can be **split** into... | $(3x - 1)(2x + 3) = 0$ |
+| Embarrassingly parallel **pieces** which **combine** to same result, | $\underbrace{3x - 1 = 0}_{\text{Solve directly}}, \underbrace{2x + 3 = 0}_{\text{Solve directly}}$ |
+| We can use **map-reduce** to achieve ultra speedup (running "pieces" on **GPU!**) | $\underbrace{(3x-1)(2x+3) = 0}_{\text{Solutions satisfy this product}}$ |
+
+: {tbl-colwidths="[75,25]"}
+
+## "Factoring" into Embarrassing and Non-Embarrassing Pieces {.smaller .crunch-title .crunch-details}
+
+* Problem from DSAN 5000/5100: Computing SSR (**Sum of Squared Residuals**)
+* $y = (1,3,2), \widehat{y} = (2, 5, 0) \implies \text{SSR} = (1-2)^2 + (3-5)^2 + (2-0)^2 = 9$
+* Computing pieces separately:
+
+```python
+map(do_something_with_piece, list_of_pieces)
+```
+
+```{python}
+my_map = map(lambda input: input**2, [(1-2), (3-5), (2-0)])
+map_result = list(my_map)
+map_result
+```
+
+* Combining solved pieces
+
+```python
+reduce(how_to_combine_pair_of_pieces, pieces_to_combine)
+```
+
+```{python}
+from functools import reduce
+my_reduce = reduce(lambda piece1, piece2: piece1 + piece2, map_result)
+my_reduce
+```
+
+# But... Why is All This Weird Mapping and Reducing Necessary? {data-stack-name="Map-Reduce Rationale"}
+
+* Without knowing a bit more of the **internals** of **computing efficiency**, it may seem like a huge cost in terms of overly-complicated overhead, not to mention learning curve...
+
+## The "Killer Application": Matrix Multiplication {.crunch-title .smaller .title-11}
+
+* *(I learned from <a href='http://infolab.stanford.edu/~ullman/' target='_blank'>Jeff Ullman</a>, who did the obnoxious Stanford thing of mentioning in passing how "two previous students in the <a href='http://web.stanford.edu/class/cs246/' target='_blank'>class</a> did this for a cool final project on web crawling and, well, it escalated quickly", aka became Google)*
+
+![From @leskovec_mining_2014, which is (legally) <a href='http://www.mmds.org/' target='_blank'>free online</a>!](images/map_reduce3.svg){fig-align="center"}
+
+## The Killer Way-To-Learn: Text Counts! {.smaller .crunch-title .crunch-ul .crunch-p .title-12}
+
+* [-@leskovec_mining_2014]: Text counts (2.2) $\rightarrow$ Matrix multiplication (2.3) $\rightarrow \cdots \rightarrow$ PageRank (5.1)
+* *(And yall thought it was just busywork for HW3* 😏*)*
+* The goal: User searches <a href='https://www.youtube.com/watch?v=eqwiC93zmxI' target='_blank'>"Denzel Curry"</a>... How **relevant** is a given webpage?
+* Scenario 1: Entire internet fits on CPU $\Rightarrow$ Can just make a big big hash table:
+
+```{dot}
+//| echo: false
+//| fig-height: 4
+digraph G {
+    rankdir="LR";
+    nodesep="10";
+	edge [penwidth=1.2,arrowsize=0.85]
+    node [
+        shape=plaintext;
+        fontname="Courier";
+    ];
+    # Chunked
+    internet [shape=none label=<
+<table border="1" cellborder="0">
+<tr>
+  <td border="1" sides="b"><font face="Helvetica">Scan in O(n):</font></td>
+</tr>
+<tr>
+  <td port="p1" align="text" balign="left">Today Denzel Washington<br />ate a big bowl of Yum's<br />curry. Denzel allegedly<br />rubbed his tum and said<br />"yum yum yum" when he<br />tasted today's curry.<br />"Yum! It is me Denzel,<br />curry is my fav!", he<br />exclaimed. According to<br />his friend Steph, curry<br />is indeed Denzel's fav.<br />We are live with Del<br />Curry in Washington for<br />a Denzel curry update.</td>
+</tr>
+</table>>];
+
+    # Combined counts
+    ccounts [shape=none label=<
+<table border="1" cellborder="0">
+<tr>
+  <td border="1" sides="b" colspan="2"><font face="Helvetica">Overall Counts</font></td>
+</tr>
+<tr>
+  <td port="p1" border="1" align="text" balign="left" sides="r">('according',1)<br />('allegedly',1)<br />('ate',1)<br />('big',1)<br />('bowl',1)<br />('curry',6)<br />('del',1)<br />('denzel',5)<br />('exclaimed',1)<br />('fav',2)<br />('friend',1)</td>
+  <td align="text" balign="left">('indeed',1)<br />('live',1)<br />('rubbed',1)<br />('said',1)<br />('steph',1)<br />('tasted',1)<br />('today',2)<br />('tum',1)<br />('update',1)<br />('washington',2)<br />('yum',4)</td>
+</tr>
+</table>>];
+    internet -> ccounts[label="Hash Table"];
+}
+```
+
+## If Everything *Doesn't* Fit on CPU...
+
+![From Cornell Virtual Workshop, <a href='https://cvw.cac.cornell.edu/gpu-architecture/gpu-characteristics/design' target='_blank'>"Understanding GPU Architecture"</a>](images/cpu_gpu.png){fig-align="center"}
+
+## Break Problem into *Chunks* for the Green Bois! {.smaller .crunch-title .title-10 .crunch-quarto-figure}
+
+```{dot}
+//| echo: false
+digraph G {
+    rankdir="LR";
+	edge [penwidth=1.2,arrowsize=0.85]
+    node [
+        shape=plaintext;
+        fontname="Courier";
+    ];
+    # Chunked
+    chunked [shape=none label=<
+<table border="1" cellborder="0">
+<tr>
+  <td border="1" sides="b"><font face="Helvetica">Chunked Document</font></td>
+</tr>
+<tr>
+  <td port="p1" border="1" align="text" balign="left" sides="b">Today Denzel Washington<br />ate a big bowl of Yum's<br />curry. Denzel allegedly<br />rubbed his tum and said</td>
+</tr>
+<tr>
+  <td port="p2" border="1" align="text" balign="left" sides="b">"yum yum yum" when he<br />tasted today's curry.<br />"Yum! It is me Denzel,<br />curry is my fav!", he</td>
+</tr>
+<tr>
+  <td port="p3" border="1" align="text" balign="left" sides="b">exclaimed. According to<br />his friend Steph, curry<br />is indeed Denzel's fav.<br />We are live with Del</td>
+</tr>
+<tr>
+  <td port="p4" align="text" balign="left">Curry in Washington for<br />a Denzel curry update.</td>
+</tr>
+</table>>];
+    // orig:p1 -> chunked:p1;
+    // orig:p2 -> chunked:p2;
+    // orig:p3 -> chunked:p3;
+    // orig:p4 -> chunked:p4;
+
+    # Chunked counts
+    chcounts [shape=none label=<
+<table border="1">
+<tr>
+  <td border="1" sides="b"><font face="Helvetica">Chunked Counts</font></td>
+</tr>
+<tr>
+  <td port="p1" border="1" align="text" balign="left" sides="b">('today',1)<br />('denzel',1)<br />...<br />('tum',1)<br />('said',1)</td>
+</tr>
+<tr>
+  <td port="p2" border="1" align="text" balign="left" sides="b">('yum',1)<br />('yum',1)<br />('yum',1)<br />...<br />('fav',1)</td>
+</tr>
+<tr>
+  <td port="p3" border="1" align="text" balign="left" sides="b">('exclaimed',1)<br />...<br />('del',1)</td>
+</tr>
+<tr>
+  <td port="p4" border="0" align="text" balign="left">('curry',1)<br />('washington',1)<br />('denzel',1)<br />('curry',1)<br />('update',1)</td>
+</tr>
+</table>>];
+    chunked:p1 -> chcounts:p1[label="O(n/4)"];
+    chunked:p2 -> chcounts:p2[label="O(n/4)"];
+    chunked:p3 -> chcounts:p3[label="O(n/4)"];
+    chunked:p4 -> chcounts:p4[label="O(n/4)"];
+
+    # Sorted counts
+    scounts [shape=none label=<
+<table border="1">
+<tr>
+  <td border="1" sides="b"><font face="Helvetica">Hashed Counts</font></td>
+</tr>
+<tr>
+  <td port="p1" border="1" align="text" balign="left" sides="b">('allegedly',1)<br />...<br />('curry',1)<br />('denzel',2)<br />...<br />('yum',1)</td>
+</tr>
+<tr>
+  <td port="p2" border="1" align="text" balign="left" sides="b">('curry',2)<br />('denzel',1)<br />...<br />('yum',4)</td>
+</tr>
+<tr>
+  <td port="p3" border="1" align="text" balign="left" sides="b">('according',1)<br />('curry',1)<br />('del',1)<br />('denzel',1)<br />...</td>
+</tr>
+<tr>
+  <td port="p4" border="0" align="text" balign="left">('curry',2)<br />('denzel',1)<br />('update',1)<br />('washington',1)</td>
+</tr>
+</table>>];
+    chcounts:p1 -> scounts:p1[label="O(n/4)"];
+    chcounts:p2 -> scounts:p2[label="O(n/4)"];
+    chcounts:p3 -> scounts:p3[label="O(n/4)"];
+    chcounts:p4 -> scounts:p4[label="O(n/4)"];
+
+    # Combined counts
+    ccounts [shape=none,label=<
+<table border="1" cellborder="0">
+<tr>
+  <td port="p0" border="1" sides="b"><font face="Helvetica">Overall Counts</font></td>
+</tr>
+<tr>
+  <td port="p1" align="text" balign="left">('according',1)<br />('allegedly',1)<br />('ate',1)<br />('big',1)<br />('bowl',1)<br />('curry',6)<br />('del',1)<br />('denzel',5)<br />('exclaimed',1)<br />('fav',2)<br />('friend',1)<br />('indeed',1)<br />('live',1)<br />('rubbed',1)<br />('said',1)<br />('steph',1)<br />('tasted',1)<br />('today',2)<br />('tum',1)<br />('update',1)<br />('washington',2)<br />('yum',4)</td>
+</tr>
+</table>>];
+    scounts:p1 -> ccounts:p1;
+    scounts:p2 -> ccounts:p1;
+    scounts:p3 -> ccounts:p1;
+    scounts:p4 -> ccounts:p1;
+    scounts:p2 -> ccounts[margin="5",labeldistance="4",penwidth="0",arrowsize="0.01",taillabel=<
+<table border="0" cellborder="0">
+<tr>
+  <td bgcolor="white" color="black"><font color="black">Merge in<br />O(n)</font></td>
+</tr>
+</table>
+    >,headlabel=" ",minlen="2"];
+}
+```
+
+* $\implies$ Total = $O(3n) = O(n)$
+* But **also** optimized in terms of constants, because of **sequential memory reads**
+
+## In-Class Demo 1 {.crunch-title .crunch-img .text-90}
+
+![](images/matvec2_img.png){fig-align="center"}
+
+[Map-Reduced **Matrix-Vector Multiplication** Demo](https://deepnote.com/workspace/Columbia-University-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-41367b13-4253-47c8-8ffe-0544456d6070/notebook/DSAN5500HW5-8b90a6af23d34d239b7da0111228614d?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=41367b13-4253-47c8-8ffe-0544456d6070)
+
+## In-Class Demo 2
+
+[Tennis. Swingin. Rackets. Scorin goals.](https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-Duplicate-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/DSAN5500HW5-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d)
+
+## Lab Time! {data-name="Lab 6"}
+
+## References
+
+::: {#refs}
+:::

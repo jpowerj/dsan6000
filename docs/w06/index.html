@@ -8,7 +8,7 @@
 
 <meta name="author" content="Amit Arora and Jeff Jacobs">
 
-<title>Week 6: Introduction to Spark, RDDs – DSAN 6000 Slide Hub</title>
+<title>Week 6: Introduction to Spark – DSAN 6000 Slide Hub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +21,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -75,6 +130,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><script src="../sidebar.js"></script><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../dsan-globals/jjstyles.css">
 </head>
@@ -409,20 +493,42 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2025-09-22, 04:52:59 PM</em></p>
+<p><em>Updated 2025-09-29, 03:25:13 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a-reminder-map-reduce-as-a-paradigm" id="toc-a-reminder-map-reduce-as-a-paradigm" class="nav-link active" data-scroll-target="#a-reminder-map-reduce-as-a-paradigm">A Reminder: Map-Reduce as a <em>Paradigm</em></a>
+  <ul class="collapse">
+  <li><a href="#what-happens-when-not-embarrassingly-parallel" id="toc-what-happens-when-not-embarrassingly-parallel" class="nav-link" data-scroll-target="#what-happens-when-not-embarrassingly-parallel">What Happens When <em>Not</em> Embarrassingly Parallel?</a></li>
+  <li><a href="#the-analogy-to-map-reduce" id="toc-the-analogy-to-map-reduce" class="nav-link" data-scroll-target="#the-analogy-to-map-reduce">The Analogy to Map-Reduce</a></li>
+  <li><a href="#factoring-into-embarrassing-and-non-embarrassing-pieces" id="toc-factoring-into-embarrassing-and-non-embarrassing-pieces" class="nav-link" data-scroll-target="#factoring-into-embarrassing-and-non-embarrassing-pieces">“Factoring” into Embarrassing and Non-Embarrassing Pieces</a></li>
+  </ul></li>
+  <li><a href="#but-why-is-all-this-weird-mapping-and-reducing-necessary" id="toc-but-why-is-all-this-weird-mapping-and-reducing-necessary" class="nav-link" data-scroll-target="#but-why-is-all-this-weird-mapping-and-reducing-necessary">But… Why is All This Weird Mapping and Reducing Necessary?</a>
+  <ul class="collapse">
+  <li><a href="#the-killer-application-matrix-multiplication" id="toc-the-killer-application-matrix-multiplication" class="nav-link" data-scroll-target="#the-killer-application-matrix-multiplication">The “Killer Application”: Matrix Multiplication</a></li>
+  <li><a href="#the-killer-way-to-learn-text-counts" id="toc-the-killer-way-to-learn-text-counts" class="nav-link" data-scroll-target="#the-killer-way-to-learn-text-counts">The Killer Way-To-Learn: Text Counts!</a></li>
+  <li><a href="#if-everything-doesnt-fit-on-cpu" id="toc-if-everything-doesnt-fit-on-cpu" class="nav-link" data-scroll-target="#if-everything-doesnt-fit-on-cpu">If Everything <em>Doesn’t</em> Fit on CPU…</a></li>
+  <li><a href="#break-problem-into-chunks-for-the-green-bois" id="toc-break-problem-into-chunks-for-the-green-bois" class="nav-link" data-scroll-target="#break-problem-into-chunks-for-the-green-bois">Break Problem into <em>Chunks</em> for the Green Bois!</a></li>
+  <li><a href="#in-class-demo-1" id="toc-in-class-demo-1" class="nav-link" data-scroll-target="#in-class-demo-1">In-Class Demo 1</a></li>
+  <li><a href="#in-class-demo-2" id="toc-in-class-demo-2" class="nav-link" data-scroll-target="#in-class-demo-2">In-Class Demo 2</a></li>
+  <li><a href="#lab-time" id="toc-lab-time" class="nav-link" data-scroll-target="#lab-time">Lab Time!</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w06/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 6: Introduction to Spark, RDDs</h1>
+<h1 class="title">Week 6: Introduction to Spark</h1>
 <p class="subtitle lead"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2025</p>
   <div class="quarto-categories">
     <div class="quarto-category">Class Sessions</div>
@@ -462,8 +568,447 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>The content for today is <strong>split</strong> between the following <strong>two resources</strong>:</p>
+<center class="mb-3">
+<a class="h2" href="https://gu-dsan.github.io/6000-fall-2025/slides/06-slides.html" target="_blank">Open <em>Spark</em> Slides from Main Site <i class="bi bi-box-arrow-up-right"></i></a>
+</center>
+<center class="mb-3">
+<a class="h2" href="./slides.html" target="_blank">Open <em>MapReduce</em> slides in new tab →</a>
+</center>
+<section id="a-reminder-map-reduce-as-a-paradigm" class="level1" data-stack-name="Map-Reduce">
+<h1 data-stack-name="Map-Reduce">A Reminder: Map-Reduce as a <em>Paradigm</em></h1>
+<section id="what-happens-when-not-embarrassingly-parallel" class="level2 smaller crunch-title crunch-math crunch-ul title-09">
+<h2 class="smaller crunch-title crunch-math crunch-ul title-09 anchored" data-anchor-id="what-happens-when-not-embarrassingly-parallel">What Happens When <em>Not</em> Embarrassingly Parallel?</h2>
+<ul>
+<li>Think of the difference between <strong>linear</strong> and <strong>quadratic equations</strong> in algebra:</li>
+<li><span class="math inline">\(3x - 1 = 0\)</span> is “embarrassingly” solvable, on its own: you can solve it directly, by adding 3 to both sides <span class="math inline">\(\implies x = \frac{1}{3}\)</span>. Same for <span class="math inline">\(2x + 3 = 0 \implies x = -\frac{3}{2}\)</span></li>
+<li>Now consider <span class="math inline">\(6x^2 + 7x - 3 = 0\)</span>: Harder to solve “directly”, so your instinct might be to turn to the laborious <strong>quadratic equation</strong>:</li>
+</ul>
+<p><span class="math display">\[
+\begin{align*}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)} = \frac{-7 \pm 11}{12} = \left\{\frac{1}{3},-\frac{3}{2}\right\}
+\end{align*}
+\]</span></p>
+<ul>
+<li>And yet, <span class="math inline">\(6x^2 + 7x - 3 = (3x - 1)(2x + 3)\)</span>, meaning that we could have <strong>split</strong> the problem into two “embarrassingly” solvable pieces, then <strong>multiplied</strong> to get result!</li>
+</ul>
+</section>
+<section id="the-analogy-to-map-reduce" class="level2 crunch-title title-09">
+<h2 class="crunch-title title-09 anchored" data-anchor-id="the-analogy-to-map-reduce">The Analogy to Map-Reduce</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 75%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\leadsto\)</span> If code is <strong>not</strong> embarrassingly parallel (instinctually requiring laborious serial execution),</td>
+<td style="text-align: center;"><span class="math inline">\(\underbrace{6x^2 + 7x - 3 = 0}_{\text{Solve using Quadratic Eqn}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">But can be <strong>split</strong> into…</td>
+<td style="text-align: center;"><span class="math inline">\((3x - 1)(2x + 3) = 0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Embarrassingly parallel <strong>pieces</strong> which <strong>combine</strong> to same result,</td>
+<td style="text-align: center;"><span class="math inline">\(\underbrace{3x - 1 = 0}_{\text{Solve directly}}, \underbrace{2x + 3 = 0}_{\text{Solve directly}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">We can use <strong>map-reduce</strong> to achieve ultra speedup (running “pieces” on <strong>GPU!</strong>)</td>
+<td style="text-align: center;"><span class="math inline">\(\underbrace{(3x-1)(2x+3) = 0}_{\text{Solutions satisfy this product}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="factoring-into-embarrassing-and-non-embarrassing-pieces" class="level2 smaller crunch-title crunch-details">
+<h2 class="smaller crunch-title crunch-details anchored" data-anchor-id="factoring-into-embarrassing-and-non-embarrassing-pieces">“Factoring” into Embarrassing and Non-Embarrassing Pieces</h2>
+<ul>
+<li>Problem from DSAN 5000/5100: Computing SSR (<strong>Sum of Squared Residuals</strong>)</li>
+<li><span class="math inline">\(y = (1,3,2), \widehat{y} = (2, 5, 0) \implies \text{SSR} = (1-2)^2 + (3-5)^2 + (2-0)^2 = 9\)</span></li>
+<li>Computing pieces separately:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">map</span>(do_something_with_piece, list_of_pieces)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="46d8cd4a" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_map <span class="op">=</span> <span class="bu">map</span>(<span class="kw">lambda</span> <span class="bu">input</span>: <span class="bu">input</span><span class="op">**</span><span class="dv">2</span>, [(<span class="dv">1</span><span class="op">-</span><span class="dv">2</span>), (<span class="dv">3</span><span class="op">-</span><span class="dv">5</span>), (<span class="dv">2</span><span class="op">-</span><span class="dv">0</span>)])</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>map_result <span class="op">=</span> <span class="bu">list</span>(my_map)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>map_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>[1, 4, 4]</code></pre>
+</div>
+</div>
+<ul>
+<li>Combining solved pieces</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">reduce</span>(how_to_combine_pair_of_pieces, pieces_to_combine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="08050e99" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>my_reduce <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span> piece1, piece2: piece1 <span class="op">+</span> piece2, map_result)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>my_reduce</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>9</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="but-why-is-all-this-weird-mapping-and-reducing-necessary" class="level1" data-stack-name="Map-Reduce Rationale">
+<h1 data-stack-name="Map-Reduce Rationale">But… Why is All This Weird Mapping and Reducing Necessary?</h1>
+<ul>
+<li>Without knowing a bit more of the <strong>internals</strong> of <strong>computing efficiency</strong>, it may seem like a huge cost in terms of overly-complicated overhead, not to mention learning curve…</li>
+</ul>
+<section id="the-killer-application-matrix-multiplication" class="level2 crunch-title smaller title-11">
+<h2 class="crunch-title smaller title-11 anchored" data-anchor-id="the-killer-application-matrix-multiplication">The “Killer Application”: Matrix Multiplication</h2>
+<ul>
+<li><em>(I learned from <a href="http://infolab.stanford.edu/~ullman/" target="_blank">Jeff Ullman</a>, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the <a href="http://web.stanford.edu/class/cs246/" target="_blank">class</a> did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)</em></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/map_reduce3.svg" class="img-fluid figure-img"></p>
+<figcaption>From <span class="citation" data-cites="leskovec_mining_2014">Leskovec, Rajaraman, and Ullman (<a href="#ref-leskovec_mining_2014" role="doc-biblioref">2014</a>)</span>, which is (legally) <a href="http://www.mmds.org/" target="_blank">free online</a>!</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-killer-way-to-learn-text-counts" class="level2 smaller crunch-title crunch-ul crunch-p title-12">
+<h2 class="smaller crunch-title crunch-ul crunch-p title-12 anchored" data-anchor-id="the-killer-way-to-learn-text-counts">The Killer Way-To-Learn: Text Counts!</h2>
+<ul>
+<li><span class="citation" data-cites="leskovec_mining_2014">(<a href="#ref-leskovec_mining_2014" role="doc-biblioref">2014</a>)</span>: Text counts (2.2) <span class="math inline">\(\rightarrow\)</span> Matrix multiplication (2.3) <span class="math inline">\(\rightarrow \cdots \rightarrow\)</span> PageRank (5.1)</li>
+<li><em>(And yall thought it was just busywork for HW3</em> 😏<em>)</em></li>
+<li>The goal: User searches <a href="https://www.youtube.com/watch?v=eqwiC93zmxI" target="_blank">“Denzel Curry”</a>… How <strong>relevant</strong> is a given webpage?</li>
+<li>Scenario 1: Entire internet fits on CPU <span class="math inline">\(\Rightarrow\)</span> Can just make a big big hash table:</li>
+</ul>
+<div class="cell" data-fig-height="4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="384" viewbox="0.00 0.00 621.14 285.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 281)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-281 617.14,-281 617.14,4 -4,4"></polygon>
+<!-- internet -->
+<g id="node1" class="node">
+<title>internet</title>
+<polyline fill="none" stroke="black" points="11.5,-247.5 208.5,-247.5 "></polyline>
+<text text-anchor="start" x="68.76" y="-253.9" font-family="Helvetica,sans-Serif" font-size="14.00">Scan in O(n):</text>
+<text text-anchor="start" x="13.5" y="-230.9" font-family="Courier,monospace" font-size="14.00">Today Denzel Washington</text>
+<text text-anchor="start" x="13.5" y="-214.1" font-family="Courier,monospace" font-size="14.00">ate a big bowl of Yum's</text>
+<text text-anchor="start" x="13.5" y="-197.3" font-family="Courier,monospace" font-size="14.00">curry. Denzel allegedly</text>
+<text text-anchor="start" x="13.5" y="-180.5" font-family="Courier,monospace" font-size="14.00">rubbed his tum and said</text>
+<text text-anchor="start" x="13.5" y="-163.7" font-family="Courier,monospace" font-size="14.00">"yum yum yum" when he</text>
+<text text-anchor="start" x="13.5" y="-146.9" font-family="Courier,monospace" font-size="14.00">tasted today's curry.</text>
+<text text-anchor="start" x="13.5" y="-130.1" font-family="Courier,monospace" font-size="14.00">"Yum! It is me Denzel,</text>
+<text text-anchor="start" x="13.5" y="-113.3" font-family="Courier,monospace" font-size="14.00">curry is my fav!", he</text>
+<text text-anchor="start" x="13.5" y="-96.5" font-family="Courier,monospace" font-size="14.00">exclaimed. According to</text>
+<text text-anchor="start" x="13.5" y="-79.7" font-family="Courier,monospace" font-size="14.00">his friend Steph, curry</text>
+<text text-anchor="start" x="13.5" y="-62.9" font-family="Courier,monospace" font-size="14.00">is indeed Denzel's fav.</text>
+<text text-anchor="start" x="13.5" y="-46.1" font-family="Courier,monospace" font-size="14.00">We are live with Del</text>
+<text text-anchor="start" x="13.5" y="-29.3" font-family="Courier,monospace" font-size="14.00">Curry in Washington for</text>
+<text text-anchor="start" x="13.5" y="-12.5" font-family="Courier,monospace" font-size="14.00">a Denzel curry update.</text>
+<polygon fill="none" stroke="black" points="8,-4 8,-273 211,-273 211,-4 8,-4"></polygon>
+</g>
+<!-- ccounts -->
+<g id="node2" class="node">
+<title>ccounts</title>
+<polyline fill="none" stroke="black" points="330.14,-223.5 602.14,-223.5 "></polyline>
+<text text-anchor="start" x="419.85" y="-229.9" font-family="Helvetica,sans-Serif" font-size="14.00">Overall Counts</text>
+<polyline fill="none" stroke="black" points="462.14,-31.5 462.14,-221.5 "></polyline>
+<text text-anchor="start" x="333.14" y="-205.9" font-family="Courier,monospace" font-size="14.00">('according',1)</text>
+<text text-anchor="start" x="333.14" y="-189.1" font-family="Courier,monospace" font-size="14.00">('allegedly',1)</text>
+<text text-anchor="start" x="333.14" y="-172.3" font-family="Courier,monospace" font-size="14.00">('ate',1)</text>
+<text text-anchor="start" x="333.14" y="-155.5" font-family="Courier,monospace" font-size="14.00">('big',1)</text>
+<text text-anchor="start" x="333.14" y="-138.7" font-family="Courier,monospace" font-size="14.00">('bowl',1)</text>
+<text text-anchor="start" x="333.14" y="-121.9" font-family="Courier,monospace" font-size="14.00">('curry',6)</text>
+<text text-anchor="start" x="333.14" y="-105.1" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
+<text text-anchor="start" x="333.14" y="-88.3" font-family="Courier,monospace" font-size="14.00">('denzel',5)</text>
+<text text-anchor="start" x="333.14" y="-71.5" font-family="Courier,monospace" font-size="14.00">('exclaimed',1)</text>
+<text text-anchor="start" x="333.14" y="-54.7" font-family="Courier,monospace" font-size="14.00">('fav',2)</text>
+<text text-anchor="start" x="333.14" y="-37.9" font-family="Courier,monospace" font-size="14.00">('friend',1)</text>
+<text text-anchor="start" x="466.14" y="-206.3" font-family="Courier,monospace" font-size="14.00">('indeed',1)</text>
+<text text-anchor="start" x="466.14" y="-189.5" font-family="Courier,monospace" font-size="14.00">('live',1)</text>
+<text text-anchor="start" x="466.14" y="-172.7" font-family="Courier,monospace" font-size="14.00">('rubbed',1)</text>
+<text text-anchor="start" x="466.14" y="-155.9" font-family="Courier,monospace" font-size="14.00">('said',1)</text>
+<text text-anchor="start" x="466.14" y="-139.1" font-family="Courier,monospace" font-size="14.00">('steph',1)</text>
+<text text-anchor="start" x="466.14" y="-122.3" font-family="Courier,monospace" font-size="14.00">('tasted',1)</text>
+<text text-anchor="start" x="466.14" y="-105.5" font-family="Courier,monospace" font-size="14.00">('today',2)</text>
+<text text-anchor="start" x="466.14" y="-88.7" font-family="Courier,monospace" font-size="14.00">('tum',1)</text>
+<text text-anchor="start" x="466.14" y="-71.9" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
+<text text-anchor="start" x="466.14" y="-55.1" font-family="Courier,monospace" font-size="14.00">('washington',2)</text>
+<text text-anchor="start" x="466.14" y="-38.3" font-family="Courier,monospace" font-size="14.00">('yum',4)</text>
+<polygon fill="none" stroke="black" points="327.14,-28.5 327.14,-248.5 605.14,-248.5 605.14,-28.5 327.14,-28.5"></polygon>
+</g>
+<!-- internet&#45;&gt;ccounts -->
+<g id="edge1" class="edge">
+<title>internet-&gt;ccounts</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M219.31,-138.5C248.07,-138.5 279.66,-138.5 310.34,-138.5"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="310.47,-141.48 318.97,-138.5 310.47,-135.53 310.47,-141.48"></polygon>
+<text text-anchor="middle" x="269.07" y="-142.7" font-family="Times,serif" font-size="14.00">Hash Table</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="if-everything-doesnt-fit-on-cpu" class="level2">
+<h2 class="anchored" data-anchor-id="if-everything-doesnt-fit-on-cpu">If Everything <em>Doesn’t</em> Fit on CPU…</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cpu_gpu.png" class="img-fluid figure-img"></p>
+<figcaption>From Cornell Virtual Workshop, <a href="https://cvw.cac.cornell.edu/gpu-architecture/gpu-characteristics/design" target="_blank">“Understanding GPU Architecture”</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="break-problem-into-chunks-for-the-green-bois" class="level2 smaller crunch-title title-10 crunch-quarto-figure">
+<h2 class="smaller crunch-title title-10 crunch-quarto-figure anchored" data-anchor-id="break-problem-into-chunks-for-the-green-bois">Break Problem into <em>Chunks</em> for the Green Bois!</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 930.65 419.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 415)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-415 926.65,-415 926.65,4 -4,4"></polygon>
+<!-- chunked -->
+<g id="node1" class="node">
+<title>chunked</title>
+<polyline fill="none" stroke="black" points="11.5,-339.5 210.5,-339.5 "></polyline>
+<text text-anchor="start" x="49.13" y="-345.9" font-family="Helvetica,sans-Serif" font-size="14.00">Chunked Document</text>
+<polyline fill="none" stroke="black" points="11.5,-264.5 210.5,-264.5 "></polyline>
+<text text-anchor="start" x="14.5" y="-321.9" font-family="Courier,monospace" font-size="14.00">Today Denzel Washington</text>
+<text text-anchor="start" x="14.5" y="-305.1" font-family="Courier,monospace" font-size="14.00">ate a big bowl of Yum's</text>
+<text text-anchor="start" x="14.5" y="-288.3" font-family="Courier,monospace" font-size="14.00">curry. Denzel allegedly</text>
+<text text-anchor="start" x="14.5" y="-271.5" font-family="Courier,monospace" font-size="14.00">rubbed his tum and said</text>
+<polyline fill="none" stroke="black" points="11.5,-189.5 210.5,-189.5 "></polyline>
+<text text-anchor="start" x="14.5" y="-246.9" font-family="Courier,monospace" font-size="14.00">"yum yum yum" when he</text>
+<text text-anchor="start" x="14.5" y="-230.1" font-family="Courier,monospace" font-size="14.00">tasted today's curry.</text>
+<text text-anchor="start" x="14.5" y="-213.3" font-family="Courier,monospace" font-size="14.00">"Yum! It is me Denzel,</text>
+<text text-anchor="start" x="14.5" y="-196.5" font-family="Courier,monospace" font-size="14.00">curry is my fav!", he</text>
+<polyline fill="none" stroke="black" points="11.5,-114.5 210.5,-114.5 "></polyline>
+<text text-anchor="start" x="14.5" y="-171.9" font-family="Courier,monospace" font-size="14.00">exclaimed. According to</text>
+<text text-anchor="start" x="14.5" y="-155.1" font-family="Courier,monospace" font-size="14.00">his friend Steph, curry</text>
+<text text-anchor="start" x="14.5" y="-138.3" font-family="Courier,monospace" font-size="14.00">is indeed Denzel's fav.</text>
+<text text-anchor="start" x="14.5" y="-121.5" font-family="Courier,monospace" font-size="14.00">We are live with Del</text>
+<text text-anchor="start" x="13.5" y="-97.9" font-family="Courier,monospace" font-size="14.00">Curry in Washington for</text>
+<text text-anchor="start" x="13.5" y="-81.1" font-family="Courier,monospace" font-size="14.00">a Denzel curry update.</text>
+<polygon fill="none" stroke="black" points="8,-72.5 8,-364.5 213,-364.5 213,-72.5 8,-72.5"></polygon>
+</g>
+<!-- chcounts -->
+<g id="node2" class="node">
+<title>chcounts</title>
+<polyline fill="none" stroke="black" points="305.32,-365.5 443.32,-365.5 "></polyline>
+<text text-anchor="start" x="322.18" y="-371.9" font-family="Helvetica,sans-Serif" font-size="14.00">Chunked Counts</text>
+<polyline fill="none" stroke="black" points="305.32,-273.5 443.32,-273.5 "></polyline>
+<text text-anchor="start" x="308.32" y="-347.9" font-family="Courier,monospace" font-size="14.00">('today',1)</text>
+<text text-anchor="start" x="308.32" y="-331.1" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="308.32" y="-314.3" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="308.32" y="-297.5" font-family="Courier,monospace" font-size="14.00">('tum',1)</text>
+<text text-anchor="start" x="308.32" y="-280.7" font-family="Courier,monospace" font-size="14.00">('said',1)</text>
+<polyline fill="none" stroke="black" points="305.32,-181.5 443.32,-181.5 "></polyline>
+<text text-anchor="start" x="308.32" y="-255.9" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
+<text text-anchor="start" x="308.32" y="-239.1" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
+<text text-anchor="start" x="308.32" y="-222.3" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
+<text text-anchor="start" x="308.32" y="-205.5" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="308.32" y="-188.7" font-family="Courier,monospace" font-size="14.00">('fav',1)</text>
+<polyline fill="none" stroke="black" points="305.32,-123.5 443.32,-123.5 "></polyline>
+<text text-anchor="start" x="308.32" y="-163.9" font-family="Courier,monospace" font-size="14.00">('exclaimed',1)</text>
+<text text-anchor="start" x="308.32" y="-147.1" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="308.32" y="-130.3" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
+<text text-anchor="start" x="307.32" y="-106.9" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
+<text text-anchor="start" x="307.32" y="-90.1" font-family="Courier,monospace" font-size="14.00">('washington',1)</text>
+<text text-anchor="start" x="307.32" y="-73.3" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="307.32" y="-56.5" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
+<text text-anchor="start" x="307.32" y="-39.7" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
+<polygon fill="none" stroke="black" points="302.32,-30.5 302.32,-390.5 446.32,-390.5 446.32,-30.5 302.32,-30.5"></polygon>
+</g>
+<!-- chunked&#45;&gt;chcounts -->
+<g id="edge1" class="edge">
+<title>chunked:p1-&gt;chcounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-301.5C250.33,-301.5 260.87,-316.07 295.5,-318.23"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="295.74,-321.22 304.32,-318.5 295.92,-315.27 295.74,-321.22"></polygon>
+<text text-anchor="middle" x="257.66" y="-318.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chunked&#45;&gt;chcounts -->
+<g id="edge2" class="edge">
+<title>chunked:p2-&gt;chcounts:p2</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-226.5C249.69,-226.5 261.37,-226.5 295.62,-226.5"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="295.82,-229.48 304.32,-226.5 295.82,-223.53 295.82,-229.48"></polygon>
+<text text-anchor="middle" x="257.66" y="-230.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chunked&#45;&gt;chcounts -->
+<g id="edge3" class="edge">
+<title>chunked:p3-&gt;chcounts:p3</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-150.5C249.7,-150.5 261.37,-151.36 295.62,-151.48"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="295.82,-154.46 304.32,-151.5 295.83,-148.51 295.82,-154.46"></polygon>
+<text text-anchor="middle" x="257.66" y="-154.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chunked&#45;&gt;chcounts -->
+<g id="edge4" class="edge">
+<title>chunked:p4-&gt;chcounts:p4</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-93.5C250.26,-93.5 260.93,-79.79 295.52,-77.75"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="295.91,-80.72 304.32,-77.5 295.74,-74.77 295.91,-80.72"></polygon>
+<text text-anchor="middle" x="257.66" y="-94.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- scounts -->
+<g id="node3" class="node">
+<title>scounts</title>
+<polyline fill="none" stroke="black" points="538.65,-376.5 676.65,-376.5 "></polyline>
+<text text-anchor="start" x="559.4" y="-382.9" font-family="Helvetica,sans-Serif" font-size="14.00">Hashed Counts</text>
+<polyline fill="none" stroke="black" points="538.65,-268.5 676.65,-268.5 "></polyline>
+<text text-anchor="start" x="541.65" y="-358.9" font-family="Courier,monospace" font-size="14.00">('allegedly',1)</text>
+<text text-anchor="start" x="541.65" y="-342.1" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="541.65" y="-325.3" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
+<text text-anchor="start" x="541.65" y="-308.5" font-family="Courier,monospace" font-size="14.00">('denzel',2)</text>
+<text text-anchor="start" x="541.65" y="-291.7" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="541.65" y="-274.9" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
+<polyline fill="none" stroke="black" points="538.65,-193.5 676.65,-193.5 "></polyline>
+<text text-anchor="start" x="541.65" y="-250.9" font-family="Courier,monospace" font-size="14.00">('curry',2)</text>
+<text text-anchor="start" x="541.65" y="-234.1" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="541.65" y="-217.3" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="541.65" y="-200.5" font-family="Courier,monospace" font-size="14.00">('yum',4)</text>
+<polyline fill="none" stroke="black" points="538.65,-101.5 676.65,-101.5 "></polyline>
+<text text-anchor="start" x="541.65" y="-175.9" font-family="Courier,monospace" font-size="14.00">('according',1)</text>
+<text text-anchor="start" x="541.65" y="-159.1" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
+<text text-anchor="start" x="541.65" y="-142.3" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
+<text text-anchor="start" x="541.65" y="-125.5" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="541.65" y="-108.7" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="540.65" y="-84.9" font-family="Courier,monospace" font-size="14.00">('curry',2)</text>
+<text text-anchor="start" x="540.65" y="-68.1" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="540.65" y="-51.3" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
+<text text-anchor="start" x="540.65" y="-34.5" font-family="Courier,monospace" font-size="14.00">('washington',1)</text>
+<polygon fill="none" stroke="black" points="535.65,-25.5 535.65,-401.5 679.65,-401.5 679.65,-25.5 535.65,-25.5"></polygon>
+</g>
+<!-- chcounts&#45;&gt;scounts -->
+<g id="edge5" class="edge">
+<title>chcounts:p1-&gt;scounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-318.5C482.74,-318.5 494.45,-321.07 528.9,-321.45"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="529.13,-324.43 537.65,-321.5 529.16,-318.48 529.13,-324.43"></polygon>
+<text text-anchor="middle" x="490.99" y="-324.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chcounts&#45;&gt;scounts -->
+<g id="edge6" class="edge">
+<title>chcounts:p2-&gt;scounts:p2</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-226.5C482.76,-226.5 494.43,-229.93 528.9,-230.44"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="529.13,-233.41 537.65,-230.5 529.17,-227.46 529.13,-233.41"></polygon>
+<text text-anchor="middle" x="490.99" y="-233.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chcounts&#45;&gt;scounts -->
+<g id="edge7" class="edge">
+<title>chcounts:p3-&gt;scounts:p3</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-151.5C482.78,-151.5 494.42,-147.21 528.89,-146.58"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="529.18,-149.55 537.65,-146.5 529.12,-143.6 529.18,-149.55"></polygon>
+<text text-anchor="middle" x="490.99" y="-154.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chcounts&#45;&gt;scounts -->
+<g id="edge8" class="edge">
+<title>chcounts:p4-&gt;scounts:p4</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-77.5C483.15,-77.5 494.13,-65.5 528.82,-63.72"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="529.23,-66.69 537.65,-63.5 529.08,-60.74 529.23,-66.69"></polygon>
+<text text-anchor="middle" x="490.99" y="-79.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- ccounts -->
+<g id="node4" class="node">
+<title>ccounts</title>
+<polyline fill="none" stroke="black" points="773.65,-381.5 911.65,-381.5 "></polyline>
+<text text-anchor="start" x="796.35" y="-387.9" font-family="Helvetica,sans-Serif" font-size="14.00">Overall Counts</text>
+<text text-anchor="start" x="775.65" y="-364.9" font-family="Courier,monospace" font-size="14.00">('according',1)</text>
+<text text-anchor="start" x="775.65" y="-348.1" font-family="Courier,monospace" font-size="14.00">('allegedly',1)</text>
+<text text-anchor="start" x="775.65" y="-331.3" font-family="Courier,monospace" font-size="14.00">('ate',1)</text>
+<text text-anchor="start" x="775.65" y="-314.5" font-family="Courier,monospace" font-size="14.00">('big',1)</text>
+<text text-anchor="start" x="775.65" y="-297.7" font-family="Courier,monospace" font-size="14.00">('bowl',1)</text>
+<text text-anchor="start" x="775.65" y="-280.9" font-family="Courier,monospace" font-size="14.00">('curry',6)</text>
+<text text-anchor="start" x="775.65" y="-264.1" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
+<text text-anchor="start" x="775.65" y="-247.3" font-family="Courier,monospace" font-size="14.00">('denzel',5)</text>
+<text text-anchor="start" x="775.65" y="-230.5" font-family="Courier,monospace" font-size="14.00">('exclaimed',1)</text>
+<text text-anchor="start" x="775.65" y="-213.7" font-family="Courier,monospace" font-size="14.00">('fav',2)</text>
+<text text-anchor="start" x="775.65" y="-196.9" font-family="Courier,monospace" font-size="14.00">('friend',1)</text>
+<text text-anchor="start" x="775.65" y="-180.1" font-family="Courier,monospace" font-size="14.00">('indeed',1)</text>
+<text text-anchor="start" x="775.65" y="-163.3" font-family="Courier,monospace" font-size="14.00">('live',1)</text>
+<text text-anchor="start" x="775.65" y="-146.5" font-family="Courier,monospace" font-size="14.00">('rubbed',1)</text>
+<text text-anchor="start" x="775.65" y="-129.7" font-family="Courier,monospace" font-size="14.00">('said',1)</text>
+<text text-anchor="start" x="775.65" y="-112.9" font-family="Courier,monospace" font-size="14.00">('steph',1)</text>
+<text text-anchor="start" x="775.65" y="-96.1" font-family="Courier,monospace" font-size="14.00">('tasted',1)</text>
+<text text-anchor="start" x="775.65" y="-79.3" font-family="Courier,monospace" font-size="14.00">('today',2)</text>
+<text text-anchor="start" x="775.65" y="-62.5" font-family="Courier,monospace" font-size="14.00">('tum',1)</text>
+<text text-anchor="start" x="775.65" y="-45.7" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
+<text text-anchor="start" x="775.65" y="-28.9" font-family="Courier,monospace" font-size="14.00">('washington',2)</text>
+<text text-anchor="start" x="775.65" y="-12.1" font-family="Courier,monospace" font-size="14.00">('yum',4)</text>
+<polygon fill="none" stroke="black" points="770.65,-4 770.65,-407 914.65,-407 914.65,-4 770.65,-4"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge9" class="edge">
+<title>scounts:p1-&gt;ccounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-321.5C723.01,-321.5 718.85,-281.81 744.65,-244.5 757.59,-225.78 749.4,-200.42 764.12,-194.02"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="764.8,-196.92 772.65,-192.5 763.76,-191.06 764.8,-196.92"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge10" class="edge">
+<title>scounts:p2-&gt;ccounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-230.5C691.56,-230.5 692.85,-221.97 705.65,-216.5 731.89,-205.29 739.57,-194.77 764.06,-192.82"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="764.27,-195.79 772.65,-192.5 764.04,-189.84 764.27,-195.79"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge11" class="edge">
+<title>scounts:p3-&gt;ccounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-146.5C721.44,-146.5 725.38,-186.59 763.88,-191.92"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="763.97,-194.91 772.65,-192.5 764.36,-188.97 763.97,-194.91"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge12" class="edge">
+<title>scounts:p4-&gt;ccounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-63.5C710.33,-63.5 733.06,-172.2 764.11,-190.04"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="763.66,-193 772.65,-192.5 765.31,-187.29 763.66,-193"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge13" class="edge">
+<title>scounts:p2-&gt;ccounts</title>
+<path fill="none" stroke="black" stroke-width="0" d="M677.65,-230.5C705.33,-230.5 735.35,-226.98 762.04,-222.57"></path>
+<polygon fill="black" stroke="black" stroke-width="0" points="762.26,-222.57 762.36,-222.52 762.25,-222.5 762.26,-222.57"></polygon>
+<text text-anchor="middle" x="729.34" y="-240.91" font-family="Times,serif" font-size="14.00"> </text>
+<polygon fill="white" stroke="transparent" points="686.69,-194.15 686.69,-231.15 740.69,-231.15 740.69,-194.15 686.69,-194.15"></polygon>
+<text text-anchor="start" x="688.23" y="-216.55" font-family="Times,serif" font-size="14.00">Merge in</text>
+<text text-anchor="start" x="700.47" y="-199.75" font-family="Times,serif" font-size="14.00">O(n)</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(\implies\)</span> Total = <span class="math inline">\(O(3n) = O(n)\)</span></li>
+<li>But <strong>also</strong> optimized in terms of constants, because of <strong>sequential memory reads</strong></li>
+</ul>
+</section>
+<section id="in-class-demo-1" class="level2 crunch-title crunch-img text-90">
+<h2 class="crunch-title crunch-img text-90 anchored" data-anchor-id="in-class-demo-1">In-Class Demo 1</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/matvec2_img.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p><a href="https://deepnote.com/workspace/Columbia-University-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-41367b13-4253-47c8-8ffe-0544456d6070/notebook/DSAN5500HW5-8b90a6af23d34d239b7da0111228614d?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=41367b13-4253-47c8-8ffe-0544456d6070">Map-Reduced <strong>Matrix-Vector Multiplication</strong> Demo</a></p>
+</section>
+<section id="in-class-demo-2" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-demo-2">In-Class Demo 2</h2>
+<p><a href="https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-Duplicate-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/DSAN5500HW5-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d">Tennis. Swingin. Rackets. Scorin goals.</a></p>
+</section>
+<section id="lab-time" class="level2" data-name="Lab 6">
+<h2 data-name="Lab 6" class="anchored" data-anchor-id="lab-time">Lab Time!</h2>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-leskovec_mining_2014" class="csl-entry" role="listitem">
+Leskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. <em>Mining of <span>Massive Datasets</span></em>. Cambridge University Press.
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -890,4 +1435,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w06/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w06/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

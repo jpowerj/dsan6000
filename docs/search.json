@@ -1417,7 +1417,7 @@
     "href": "index.html",
     "title": "DSAN 6000 Sections 01 and 02",
     "section": "",
-    "text": "This webpage just serves as a hub collecting Jeff’s slides for DSAN 6000: Big Data and Cloud Computing, Fall 2025 at Georgetown University. It is not a replacement for the main course webpage!\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 28\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 2\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 8\n\n\n\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\n\nSep 15\n\n\n\n\n\n\nWeek 5: Data Engineering\n\n\nSep 22\n\n\n\n\n\n\nWeek 6: Introduction to Spark, RDDs\n\n\nSep 29\n\n\n\n\n\n\nWeek 7: Spark DataFrames and Spark SQL\n\n\nOct 6\n\n\n\n\n\n\nWeek 8: Spark ML and Streaming\n\n\nOct 20\n\n\n\n\n\n\nWeek 9: Apache Iceberg, Table Formats\n\n\nOct 27\n\n\n\n\n\n\nWeek 10: Data Pipeline Orchestration with Airflow\n\n\nNov 3\n\n\n\n\n\n\nWeek 11: Vector Databases, RAG\n\n\nNov 10\n\n\n\n\n\n\nWeek 12: Modern Data Stack, Governance\n\n\nNov 17\n\n\n\n\n\n\nWeek 13: Serverless and Container Orchestration\n\n\nNov 24\n\n\n\n\n\n\nWeek 14: Final Topics, Review\n\n\nDec 1\n\n\n\n\n\n\nWeek 15: Final Project Presentations\n\n\nDec 8\n\n\n\n\n\n\nNo matching items"
+    "text": "This webpage just serves as a hub collecting Jeff’s slides for DSAN 6000: Big Data and Cloud Computing, Fall 2025 at Georgetown University. It is not a replacement for the main course webpage!\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 28\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 2\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 8\n\n\n\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\n\nSep 15\n\n\n\n\n\n\nWeek 5: Data Engineering\n\n\nSep 22\n\n\n\n\n\n\nWeek 6: Introduction to Spark\n\n\nSep 29\n\n\n\n\n\n\nWeek 7: Spark DataFrames and Spark SQL\n\n\nOct 6\n\n\n\n\n\n\nWeek 8: Spark ML and Streaming\n\n\nOct 20\n\n\n\n\n\n\nWeek 9: Apache Iceberg, Table Formats\n\n\nOct 27\n\n\n\n\n\n\nWeek 10: Data Pipeline Orchestration with Airflow\n\n\nNov 3\n\n\n\n\n\n\nWeek 11: Vector Databases, RAG\n\n\nNov 10\n\n\n\n\n\n\nWeek 12: Modern Data Stack, Governance\n\n\nNov 17\n\n\n\n\n\n\nWeek 13: Serverless and Container Orchestration\n\n\nNov 24\n\n\n\n\n\n\nWeek 14: Final Topics, Review\n\n\nDec 1\n\n\n\n\n\n\nWeek 15: Final Project Presentations\n\n\nDec 8\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "w02/slides.html#jeffs-favorite-big-data-definition",
@@ -2876,7 +2876,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9665 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.2650 s",
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9733 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.6965 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 8</span>"
     ]
@@ -3090,7 +3090,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9614 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.8256 s"
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9770 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1950 s"
   },
   {
     "objectID": "w03/slides.html#what-happens-when-not-embarrassingly-parallel",
@@ -3596,7 +3596,7 @@
     "href": "writeups/sql-guide/index.html#onto-duckdb",
     "title": "From Pandas to SQL",
     "section": "Onto DuckDB!",
-    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││        Total Time: 0.0003s        ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\n┌───────────────────────────┐\n│      RESULT_COLLECTOR     │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│           FILTER          │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 1           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│        PANDAS_SCAN        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 7           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             7             │\n│          (0.00s)          │\n└───────────────────────────┘                             \n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
+    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││        Total Time: 0.0002s        ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\n┌───────────────────────────┐\n│      RESULT_COLLECTOR     │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│           FILTER          │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 1           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│        PANDAS_SCAN        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 7           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             7             │\n│          (0.00s)          │\n└───────────────────────────┘                             \n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
   },
   {
     "objectID": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",
@@ -3604,5 +3604,202 @@
     "title": "From Pandas to SQL",
     "section": "Basic Pandas Operations in SQL",
     "text": "Basic Pandas Operations in SQL\nWith all that in mind, you can now move towards thinking through how you can carry out the above sequence of “translations” – from Pandas to Polars to DuckDB – for other common Pandas tasks you’re used to from e.g. DSAN 5000!\nTo nudge you in that direction, in this section we’ll conclude with a few examples of common Pandas pipelines and how they translate to SQL code.\n\nFiltering Rows\nThis is probably the most straightforward operation in SQL world, since SQL provides us with the WHERE operator which we can pair with a boolean condition to filter the rows of our DataFrame.\nSo, for example, if we wanted to select one specific row in our DataFrame on the basis of some value, we can do this using the general syntax SELECT * FROM df WHERE condition. The following code uses this syntax to select just the row containing data for Thursday:\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day = 'Friday'\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nFriday\n4.556042\n6.341836\n\n\n\n\n\n\n\nNotice how, since SQL is a “declarative” language, it avoids the confusion which comes up in Python between the single-equals-sign assignment operator = and the double-equals-sign equality operator ==. In SQL, you can actually use either of these in a boolean operator to indicate that you’d like to check for equality, though the single-equals-sign = used above is more common:\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day == 'Friday'\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nFriday\n4.556042\n6.341836\n\n\n\n\n\n\n\nYou may have noticed, however, that we didn’t use this = operator when filtering out weekend days above. Instead, we used the IN operator, along with the NOT operator for negation. The IN operator on its own works like:\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day IN ('Monday','Wednesday','Friday')\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n\n\n1\nWednesday\n5.393727\n6.011502\n\n\n2\nFriday\n4.556042\n6.341836\n\n\n\n\n\n\n\nAnd then we can use the NOT operator to obtain the exact opposite (the days which are not among the three listed days in the query):\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day NOT IN ('Monday','Wednesday','Friday')\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nTuesday\n7.912447\n8.747633\n\n\n1\nThursday\n4.347202\n7.318025\n\n\n2\nSaturday\n4.552443\n7.279092\n\n\n3\nSunday\n6.606959\n6.652768\n\n\n\n\n\n\n\n\n\nSelecting Columns\nNotice how, up until now, we’ve been using SELECT * at the beginning of our queries. That’s because our goal was to view the entire contents of the DataFrame, just with certain rows selected and others filtered out.\nIf we instead want to select certain columns, we can just replace the wildcard symbol * that we placed after SELECT with a specific list of columns:\n\n\nCode\ncon.execute(\"\"\"\nSELECT day, work_hrs FROM sleep_df\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nwork_hrs\n\n\n\n\n0\nMonday\n7.418997\n\n\n1\nTuesday\n8.747633\n\n\n2\nWednesday\n6.011502\n\n\n3\nThursday\n7.318025\n\n\n4\nFriday\n6.341836\n\n\n5\nSaturday\n7.279092\n\n\n6\nSunday\n6.652768\n\n\n\n\n\n\n\nImportantly, we can also match regular expression patterns in the names of columns, by using SELECT COLUMNS() rather than just SELECT. Here, for example, we use it to select all of the columns whose names end with hrs:\n\n\nCode\ncon.execute(\"\"\"\nSELECT COLUMNS('.+_hrs') FROM sleep_df\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nsleep_hrs\nwork_hrs\n\n\n\n\n0\n6.089095\n7.418997\n\n\n1\n7.912447\n8.747633\n\n\n2\n5.393727\n6.011502\n\n\n3\n4.347202\n7.318025\n\n\n4\n4.556042\n6.341836\n\n\n5\n4.552443\n7.279092\n\n\n6\n6.606959\n6.652768\n\n\n\n\n\n\n\nNote that this COLUMNS() syntax is specific to DuckDB’s “flavor” of SQL, and not standard in other implementations of SQL.\n\n\nDefining New Columns\nFinally, you may have noticed that the SELECT operator is basically doing double duty: not only did we use it in the previous section to request the three original columns in sleep_df (day, sleep_hrs, and work_hrs), but also to define a new column named ratio, by dividing work_hrs by sleep_hrs.\nThis is a general feature of SQL, and DuckDB (and the select() function in Polars)! We can SELECT the columns “as-is” by just including their names, or we can define new columns within the select statement. For example, if we wanted the squared values of our two numeric columns for some reason, we could do the following:\n\n\nCode\ncon.execute(\"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  sleep_hrs^2 AS sleep_squared,\n  work_hrs,\n  work_hrs^2 AS work_squared\nFROM sleep_df\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nsleep_squared\nwork_hrs\nwork_squared\n\n\n\n\n0\nMonday\n6.089095\n37.077083\n7.418997\n55.041509\n\n\n1\nTuesday\n7.912447\n62.606823\n8.747633\n76.521076\n\n\n2\nWednesday\n5.393727\n29.092288\n6.011502\n36.138152\n\n\n3\nThursday\n4.347202\n18.898161\n7.318025\n53.553486\n\n\n4\nFriday\n4.556042\n20.757516\n6.341836\n40.218888\n\n\n5\nSaturday\n4.552443\n20.724741\n7.279092\n52.985182\n\n\n6\nSunday\n6.606959\n43.651905\n6.652768\n44.259327\n\n\n\n\n\n\n\n\n\nCombining Operations\nTo bring everything together, let’s see how we can combine the above three tasks into a single query!\n\n\nCode\ncon.execute(\"\"\"\nSELECT\n  day,\n  work_hrs,\n  work_hrs^2 AS work_squared\nFROM sleep_df\nWHERE day = 'Tuesday'\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nwork_hrs\nwork_squared\n\n\n\n\n0\nTuesday\n8.747633\n76.521076"
+  },
+  {
+    "objectID": "w06/index.html",
+    "href": "w06/index.html",
+    "title": "Week 6: Introduction to Spark",
+    "section": "",
+    "text": "The content for today is split between the following two resources:",
+    "crumbs": [
+      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+    ]
+  },
+  {
+    "objectID": "w06/index.html#what-happens-when-not-embarrassingly-parallel",
+    "href": "w06/index.html#what-happens-when-not-embarrassingly-parallel",
+    "title": "Week 6: Introduction to Spark",
+    "section": "What Happens When Not Embarrassingly Parallel?",
+    "text": "What Happens When Not Embarrassingly Parallel?\n\nThink of the difference between linear and quadratic equations in algebra:\n\\(3x - 1 = 0\\) is “embarrassingly” solvable, on its own: you can solve it directly, by adding 3 to both sides \\(\\implies x = \\frac{1}{3}\\). Same for \\(2x + 3 = 0 \\implies x = -\\frac{3}{2}\\)\nNow consider \\(6x^2 + 7x - 3 = 0\\): Harder to solve “directly”, so your instinct might be to turn to the laborious quadratic equation:\n\n\\[\n\\begin{align*}\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} = \\frac{-7 \\pm \\sqrt{49 - 4(6)(-3)}}{2(6)} = \\frac{-7 \\pm 11}{12} = \\left\\{\\frac{1}{3},-\\frac{3}{2}\\right\\}\n\\end{align*}\n\\]\n\nAnd yet, \\(6x^2 + 7x - 3 = (3x - 1)(2x + 3)\\), meaning that we could have split the problem into two “embarrassingly” solvable pieces, then multiplied to get result!",
+    "crumbs": [
+      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+    ]
+  },
+  {
+    "objectID": "w06/index.html#the-analogy-to-map-reduce",
+    "href": "w06/index.html#the-analogy-to-map-reduce",
+    "title": "Week 6: Introduction to Spark",
+    "section": "The Analogy to Map-Reduce",
+    "text": "The Analogy to Map-Reduce\n\n\n\n\n\n\n\n\\(\\leadsto\\) If code is not embarrassingly parallel (instinctually requiring laborious serial execution),\n\\(\\underbrace{6x^2 + 7x - 3 = 0}_{\\text{Solve using Quadratic Eqn}}\\)\n\n\nBut can be split into…\n\\((3x - 1)(2x + 3) = 0\\)\n\n\nEmbarrassingly parallel pieces which combine to same result,\n\\(\\underbrace{3x - 1 = 0}_{\\text{Solve directly}}, \\underbrace{2x + 3 = 0}_{\\text{Solve directly}}\\)\n\n\nWe can use map-reduce to achieve ultra speedup (running “pieces” on GPU!)\n\\(\\underbrace{(3x-1)(2x+3) = 0}_{\\text{Solutions satisfy this product}}\\)",
+    "crumbs": [
+      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+    ]
+  },
+  {
+    "objectID": "w06/index.html#factoring-into-embarrassing-and-non-embarrassing-pieces",
+    "href": "w06/index.html#factoring-into-embarrassing-and-non-embarrassing-pieces",
+    "title": "Week 6: Introduction to Spark",
+    "section": "“Factoring” into Embarrassing and Non-Embarrassing Pieces",
+    "text": "“Factoring” into Embarrassing and Non-Embarrassing Pieces\n\nProblem from DSAN 5000/5100: Computing SSR (Sum of Squared Residuals)\n\\(y = (1,3,2), \\widehat{y} = (2, 5, 0) \\implies \\text{SSR} = (1-2)^2 + (3-5)^2 + (2-0)^2 = 9\\)\nComputing pieces separately:\n\nmap(do_something_with_piece, list_of_pieces)\n\nmy_map = map(lambda input: input**2, [(1-2), (3-5), (2-0)])\nmap_result = list(my_map)\nmap_result\n\n[1, 4, 4]\n\n\n\nCombining solved pieces\n\nreduce(how_to_combine_pair_of_pieces, pieces_to_combine)\n\nfrom functools import reduce\nmy_reduce = reduce(lambda piece1, piece2: piece1 + piece2, map_result)\nmy_reduce\n\n9",
+    "crumbs": [
+      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+    ]
+  },
+  {
+    "objectID": "w06/index.html#the-killer-application-matrix-multiplication",
+    "href": "w06/index.html#the-killer-application-matrix-multiplication",
+    "title": "Week 6: Introduction to Spark",
+    "section": "The “Killer Application”: Matrix Multiplication",
+    "text": "The “Killer Application”: Matrix Multiplication\n\n(I learned from Jeff Ullman, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the class did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)\n\n\n\n\nFrom Leskovec, Rajaraman, and Ullman (2014), which is (legally) free online!",
+    "crumbs": [
+      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+    ]
+  },
+  {
+    "objectID": "w06/index.html#the-killer-way-to-learn-text-counts",
+    "href": "w06/index.html#the-killer-way-to-learn-text-counts",
+    "title": "Week 6: Introduction to Spark",
+    "section": "The Killer Way-To-Learn: Text Counts!",
+    "text": "The Killer Way-To-Learn: Text Counts!\n\n(2014): Text counts (2.2) \\(\\rightarrow\\) Matrix multiplication (2.3) \\(\\rightarrow \\cdots \\rightarrow\\) PageRank (5.1)\n(And yall thought it was just busywork for HW3 😏)\nThe goal: User searches “Denzel Curry”… How relevant is a given webpage?\nScenario 1: Entire internet fits on CPU \\(\\Rightarrow\\) Can just make a big big hash table:\n\n\n\n\n\n\n\n\nG\n\n\n\ninternet\n\nScan in O(n):\nToday Denzel Washington\nate a big bowl of Yum's\ncurry. Denzel allegedly\nrubbed his tum and said\n\"yum yum yum\" when he\ntasted today's curry.\n\"Yum! It is me Denzel,\ncurry is my fav!\", he\nexclaimed. According to\nhis friend Steph, curry\nis indeed Denzel's fav.\nWe are live with Del\nCurry in Washington for\na Denzel curry update.\n\n\n\n\nccounts\n\nOverall Counts\n\n('according',1)\n('allegedly',1)\n('ate',1)\n('big',1)\n('bowl',1)\n('curry',6)\n('del',1)\n('denzel',5)\n('exclaimed',1)\n('fav',2)\n('friend',1)\n('indeed',1)\n('live',1)\n('rubbed',1)\n('said',1)\n('steph',1)\n('tasted',1)\n('today',2)\n('tum',1)\n('update',1)\n('washington',2)\n('yum',4)\n\n\n\n\ninternet-&gt;ccounts\n\n\nHash Table",
+    "crumbs": [
+      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+    ]
+  },
+  {
+    "objectID": "w06/index.html#if-everything-doesnt-fit-on-cpu",
+    "href": "w06/index.html#if-everything-doesnt-fit-on-cpu",
+    "title": "Week 6: Introduction to Spark",
+    "section": "If Everything Doesn’t Fit on CPU…",
+    "text": "If Everything Doesn’t Fit on CPU…\n\n\n\nFrom Cornell Virtual Workshop, “Understanding GPU Architecture”",
+    "crumbs": [
+      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+    ]
+  },
+  {
+    "objectID": "w06/index.html#break-problem-into-chunks-for-the-green-bois",
+    "href": "w06/index.html#break-problem-into-chunks-for-the-green-bois",
+    "title": "Week 6: Introduction to Spark",
+    "section": "Break Problem into Chunks for the Green Bois!",
+    "text": "Break Problem into Chunks for the Green Bois!\n\n\n\n\n\n\n\nG\n\n\n\nchunked\n\nChunked Document\n\nToday Denzel Washington\nate a big bowl of Yum's\ncurry. Denzel allegedly\nrubbed his tum and said\n\n\"yum yum yum\" when he\ntasted today's curry.\n\"Yum! It is me Denzel,\ncurry is my fav!\", he\n\nexclaimed. According to\nhis friend Steph, curry\nis indeed Denzel's fav.\nWe are live with Del\nCurry in Washington for\na Denzel curry update.\n\n\n\n\nchcounts\n\nChunked Counts\n\n('today',1)\n('denzel',1)\n...\n('tum',1)\n('said',1)\n\n('yum',1)\n('yum',1)\n('yum',1)\n...\n('fav',1)\n\n('exclaimed',1)\n...\n('del',1)\n('curry',1)\n('washington',1)\n('denzel',1)\n('curry',1)\n('update',1)\n\n\n\n\nchunked:p1-&gt;chcounts:p1\n\n\nO(n/4)\n\n\n\nchunked:p2-&gt;chcounts:p2\n\n\nO(n/4)\n\n\n\nchunked:p3-&gt;chcounts:p3\n\n\nO(n/4)\n\n\n\nchunked:p4-&gt;chcounts:p4\n\n\nO(n/4)\n\n\n\nscounts\n\nHashed Counts\n\n('allegedly',1)\n...\n('curry',1)\n('denzel',2)\n...\n('yum',1)\n\n('curry',2)\n('denzel',1)\n...\n('yum',4)\n\n('according',1)\n('curry',1)\n('del',1)\n('denzel',1)\n...\n('curry',2)\n('denzel',1)\n('update',1)\n('washington',1)\n\n\n\n\nchcounts:p1-&gt;scounts:p1\n\n\nO(n/4)\n\n\n\nchcounts:p2-&gt;scounts:p2\n\n\nO(n/4)\n\n\n\nchcounts:p3-&gt;scounts:p3\n\n\nO(n/4)\n\n\n\nchcounts:p4-&gt;scounts:p4\n\n\nO(n/4)\n\n\n\nccounts\n\nOverall Counts\n('according',1)\n('allegedly',1)\n('ate',1)\n('big',1)\n('bowl',1)\n('curry',6)\n('del',1)\n('denzel',5)\n('exclaimed',1)\n('fav',2)\n('friend',1)\n('indeed',1)\n('live',1)\n('rubbed',1)\n('said',1)\n('steph',1)\n('tasted',1)\n('today',2)\n('tum',1)\n('update',1)\n('washington',2)\n('yum',4)\n\n\n\n\nscounts:p1-&gt;ccounts:p1\n\n\n\n\n\nscounts:p2-&gt;ccounts:p1\n\n\n\n\n\nscounts:p3-&gt;ccounts:p1\n\n\n\n\n\nscounts:p4-&gt;ccounts:p1\n\n\n\n\n\nscounts:p2-&gt;ccounts\n\n\n \n\nMerge in\nO(n)\n\n\n\n\n\n\n\n\n\n\\(\\implies\\) Total = \\(O(3n) = O(n)\\)\nBut also optimized in terms of constants, because of sequential memory reads",
+    "crumbs": [
+      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+    ]
+  },
+  {
+    "objectID": "w06/index.html#in-class-demo-1",
+    "href": "w06/index.html#in-class-demo-1",
+    "title": "Week 6: Introduction to Spark",
+    "section": "In-Class Demo 1",
+    "text": "In-Class Demo 1\n\n\n\n\n\nMap-Reduced Matrix-Vector Multiplication Demo",
+    "crumbs": [
+      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+    ]
+  },
+  {
+    "objectID": "w06/index.html#in-class-demo-2",
+    "href": "w06/index.html#in-class-demo-2",
+    "title": "Week 6: Introduction to Spark",
+    "section": "In-Class Demo 2",
+    "text": "In-Class Demo 2\nTennis. Swingin. Rackets. Scorin goals.",
+    "crumbs": [
+      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+    ]
+  },
+  {
+    "objectID": "w06/index.html#lab-time",
+    "href": "w06/index.html#lab-time",
+    "title": "Week 6: Introduction to Spark",
+    "section": "Lab Time!",
+    "text": "Lab Time!",
+    "crumbs": [
+      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+    ]
+  },
+  {
+    "objectID": "w06/index.html#references",
+    "href": "w06/index.html#references",
+    "title": "Week 6: Introduction to Spark",
+    "section": "References",
+    "text": "References\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.",
+    "crumbs": [
+      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+    ]
+  },
+  {
+    "objectID": "w06/slides.html#what-happens-when-not-embarrassingly-parallel",
+    "href": "w06/slides.html#what-happens-when-not-embarrassingly-parallel",
+    "title": "Week 6: Introduction to Spark",
+    "section": "What Happens When Not Embarrassingly Parallel?",
+    "text": "What Happens When Not Embarrassingly Parallel?\n\nThink of the difference between linear and quadratic equations in algebra:\n\\(3x - 1 = 0\\) is “embarrassingly” solvable, on its own: you can solve it directly, by adding 3 to both sides \\(\\implies x = \\frac{1}{3}\\). Same for \\(2x + 3 = 0 \\implies x = -\\frac{3}{2}\\)\nNow consider \\(6x^2 + 7x - 3 = 0\\): Harder to solve “directly”, so your instinct might be to turn to the laborious quadratic equation:\n\n\\[\n\\begin{align*}\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} = \\frac{-7 \\pm \\sqrt{49 - 4(6)(-3)}}{2(6)} = \\frac{-7 \\pm 11}{12} = \\left\\{\\frac{1}{3},-\\frac{3}{2}\\right\\}\n\\end{align*}\n\\]\n\nAnd yet, \\(6x^2 + 7x - 3 = (3x - 1)(2x + 3)\\), meaning that we could have split the problem into two “embarrassingly” solvable pieces, then multiplied to get result!"
+  },
+  {
+    "objectID": "w06/slides.html#the-analogy-to-map-reduce",
+    "href": "w06/slides.html#the-analogy-to-map-reduce",
+    "title": "Week 6: Introduction to Spark",
+    "section": "The Analogy to Map-Reduce",
+    "text": "The Analogy to Map-Reduce\n\n\n\n\n\n\n\n\\(\\leadsto\\) If code is not embarrassingly parallel (instinctually requiring laborious serial execution),\n\\(\\underbrace{6x^2 + 7x - 3 = 0}_{\\text{Solve using Quadratic Eqn}}\\)\n\n\nBut can be split into…\n\\((3x - 1)(2x + 3) = 0\\)\n\n\nEmbarrassingly parallel pieces which combine to same result,\n\\(\\underbrace{3x - 1 = 0}_{\\text{Solve directly}}, \\underbrace{2x + 3 = 0}_{\\text{Solve directly}}\\)\n\n\nWe can use map-reduce to achieve ultra speedup (running “pieces” on GPU!)\n\\(\\underbrace{(3x-1)(2x+3) = 0}_{\\text{Solutions satisfy this product}}\\)"
+  },
+  {
+    "objectID": "w06/slides.html#factoring-into-embarrassing-and-non-embarrassing-pieces",
+    "href": "w06/slides.html#factoring-into-embarrassing-and-non-embarrassing-pieces",
+    "title": "Week 6: Introduction to Spark",
+    "section": "“Factoring” into Embarrassing and Non-Embarrassing Pieces",
+    "text": "“Factoring” into Embarrassing and Non-Embarrassing Pieces\n\nProblem from DSAN 5000/5100: Computing SSR (Sum of Squared Residuals)\n\\(y = (1,3,2), \\widehat{y} = (2, 5, 0) \\implies \\text{SSR} = (1-2)^2 + (3-5)^2 + (2-0)^2 = 9\\)\nComputing pieces separately:\n\nmap(do_something_with_piece, list_of_pieces)\n\n\n[1, 4, 4]\n\n\n\nCombining solved pieces\n\nreduce(how_to_combine_pair_of_pieces, pieces_to_combine)\n\n\n9"
+  },
+  {
+    "objectID": "w06/slides.html#the-killer-application-matrix-multiplication",
+    "href": "w06/slides.html#the-killer-application-matrix-multiplication",
+    "title": "Week 6: Introduction to Spark",
+    "section": "The “Killer Application”: Matrix Multiplication",
+    "text": "The “Killer Application”: Matrix Multiplication\n\n(I learned from Jeff Ullman, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the class did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)\n\n\nFrom Leskovec, Rajaraman, and Ullman (2014), which is (legally) free online!"
+  },
+  {
+    "objectID": "w06/slides.html#the-killer-way-to-learn-text-counts",
+    "href": "w06/slides.html#the-killer-way-to-learn-text-counts",
+    "title": "Week 6: Introduction to Spark",
+    "section": "The Killer Way-To-Learn: Text Counts!",
+    "text": "The Killer Way-To-Learn: Text Counts!\n\n(2014): Text counts (2.2) \\(\\rightarrow\\) Matrix multiplication (2.3) \\(\\rightarrow \\cdots \\rightarrow\\) PageRank (5.1)\n(And yall thought it was just busywork for HW3 😏)\nThe goal: User searches “Denzel Curry”… How relevant is a given webpage?\nScenario 1: Entire internet fits on CPU \\(\\Rightarrow\\) Can just make a big big hash table:\n\n\n\n\n\n\n\n\nG\n\n\n\ninternet\n\nScan in O(n):\nToday Denzel Washington\nate a big bowl of Yum's\ncurry. Denzel allegedly\nrubbed his tum and said\n\"yum yum yum\" when he\ntasted today's curry.\n\"Yum! It is me Denzel,\ncurry is my fav!\", he\nexclaimed. According to\nhis friend Steph, curry\nis indeed Denzel's fav.\nWe are live with Del\nCurry in Washington for\na Denzel curry update.\n\n\n\n\nccounts\n\nOverall Counts\n\n('according',1)\n('allegedly',1)\n('ate',1)\n('big',1)\n('bowl',1)\n('curry',6)\n('del',1)\n('denzel',5)\n('exclaimed',1)\n('fav',2)\n('friend',1)\n('indeed',1)\n('live',1)\n('rubbed',1)\n('said',1)\n('steph',1)\n('tasted',1)\n('today',2)\n('tum',1)\n('update',1)\n('washington',2)\n('yum',4)\n\n\n\n\ninternet-&gt;ccounts\n\n\nHash Table"
+  },
+  {
+    "objectID": "w06/slides.html#if-everything-doesnt-fit-on-cpu",
+    "href": "w06/slides.html#if-everything-doesnt-fit-on-cpu",
+    "title": "Week 6: Introduction to Spark",
+    "section": "If Everything Doesn’t Fit on CPU…",
+    "text": "If Everything Doesn’t Fit on CPU…\n\nFrom Cornell Virtual Workshop, “Understanding GPU Architecture”"
+  },
+  {
+    "objectID": "w06/slides.html#break-problem-into-chunks-for-the-green-bois",
+    "href": "w06/slides.html#break-problem-into-chunks-for-the-green-bois",
+    "title": "Week 6: Introduction to Spark",
+    "section": "Break Problem into Chunks for the Green Bois!",
+    "text": "Break Problem into Chunks for the Green Bois!\n\n\n\n\n\n\n\nG\n\n\n\nchunked\n\nChunked Document\n\nToday Denzel Washington\nate a big bowl of Yum's\ncurry. Denzel allegedly\nrubbed his tum and said\n\n\"yum yum yum\" when he\ntasted today's curry.\n\"Yum! It is me Denzel,\ncurry is my fav!\", he\n\nexclaimed. According to\nhis friend Steph, curry\nis indeed Denzel's fav.\nWe are live with Del\nCurry in Washington for\na Denzel curry update.\n\n\n\n\nchcounts\n\nChunked Counts\n\n('today',1)\n('denzel',1)\n...\n('tum',1)\n('said',1)\n\n('yum',1)\n('yum',1)\n('yum',1)\n...\n('fav',1)\n\n('exclaimed',1)\n...\n('del',1)\n('curry',1)\n('washington',1)\n('denzel',1)\n('curry',1)\n('update',1)\n\n\n\n\nchunked:p1-&gt;chcounts:p1\n\n\nO(n/4)\n\n\n\nchunked:p2-&gt;chcounts:p2\n\n\nO(n/4)\n\n\n\nchunked:p3-&gt;chcounts:p3\n\n\nO(n/4)\n\n\n\nchunked:p4-&gt;chcounts:p4\n\n\nO(n/4)\n\n\n\nscounts\n\nHashed Counts\n\n('allegedly',1)\n...\n('curry',1)\n('denzel',2)\n...\n('yum',1)\n\n('curry',2)\n('denzel',1)\n...\n('yum',4)\n\n('according',1)\n('curry',1)\n('del',1)\n('denzel',1)\n...\n('curry',2)\n('denzel',1)\n('update',1)\n('washington',1)\n\n\n\n\nchcounts:p1-&gt;scounts:p1\n\n\nO(n/4)\n\n\n\nchcounts:p2-&gt;scounts:p2\n\n\nO(n/4)\n\n\n\nchcounts:p3-&gt;scounts:p3\n\n\nO(n/4)\n\n\n\nchcounts:p4-&gt;scounts:p4\n\n\nO(n/4)\n\n\n\nccounts\n\nOverall Counts\n('according',1)\n('allegedly',1)\n('ate',1)\n('big',1)\n('bowl',1)\n('curry',6)\n('del',1)\n('denzel',5)\n('exclaimed',1)\n('fav',2)\n('friend',1)\n('indeed',1)\n('live',1)\n('rubbed',1)\n('said',1)\n('steph',1)\n('tasted',1)\n('today',2)\n('tum',1)\n('update',1)\n('washington',2)\n('yum',4)\n\n\n\n\nscounts:p1-&gt;ccounts:p1\n\n\n\n\n\nscounts:p2-&gt;ccounts:p1\n\n\n\n\n\nscounts:p3-&gt;ccounts:p1\n\n\n\n\n\nscounts:p4-&gt;ccounts:p1\n\n\n\n\n\nscounts:p2-&gt;ccounts\n\n\n \n\nMerge in\nO(n)\n\n\n\n\n\n\n\n\n\n\\(\\implies\\) Total = \\(O(3n) = O(n)\\)\nBut also optimized in terms of constants, because of sequential memory reads"
+  },
+  {
+    "objectID": "w06/slides.html#in-class-demo-1",
+    "href": "w06/slides.html#in-class-demo-1",
+    "title": "Week 6: Introduction to Spark",
+    "section": "In-Class Demo 1",
+    "text": "In-Class Demo 1\n\nMap-Reduced Matrix-Vector Multiplication Demo"
+  },
+  {
+    "objectID": "w06/slides.html#in-class-demo-2",
+    "href": "w06/slides.html#in-class-demo-2",
+    "title": "Week 6: Introduction to Spark",
+    "section": "In-Class Demo 2",
+    "text": "In-Class Demo 2\nTennis. Swingin. Rackets. Scorin goals."
+  },
+  {
+    "objectID": "w06/slides.html#lab-time",
+    "href": "w06/slides.html#lab-time",
+    "title": "Week 6: Introduction to Spark",
+    "section": "Lab Time!",
+    "text": "Lab Time!"
+  },
+  {
+    "objectID": "w06/slides.html#references",
+    "href": "w06/slides.html#references",
+    "title": "Week 6: Introduction to Spark",
+    "section": "References",
+    "text": "References\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press."
   }
 ]
