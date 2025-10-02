@@ -61,6 +61,16 @@ The content for today is **split** between the following **two resources**:
 
 :::
 
+# Highest-Level Overview (Roadmap!) {data-name="Roadmap" .smaller .title-12}
+
+* Week 3: **Map-Reduce**
+  * But, just the "plain", basic version **built into Python** (`map()`, `functools.reduce()`)
+* Last Week: **Athena** with **AWS Glue** under the hood
+  * "Automated" ETL Pipeline!
+* This Week: Hitting a wall with Athena... It **doesn't know in advance what [types of] queries you're going to make!**
+* If you're going to **group by** (e.g.) **state**, then rent **50 computers** to process one state each, Athena doesn't know to **place the Ohio data on the Ohio computer!**
+* We need a way to **"steer" Map-Reduce's choices**... Enter **Hadoop MapReduce!**
+
 # A Reminder: Map-Reduce as a *Paradigm* {data-stack-name="Map-Reduce"}
 
 ## What Happens When *Not* Embarrassingly Parallel? {.smaller .crunch-title .crunch-math .crunch-ul .title-09}
@@ -290,7 +300,22 @@ digraph G {
 
 [Map-Reduced **Matrix-Vector Multiplication** Demo](https://deepnote.com/workspace/Columbia-University-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-41367b13-4253-47c8-8ffe-0544456d6070/notebook/DSAN5500HW5-8b90a6af23d34d239b7da0111228614d?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=41367b13-4253-47c8-8ffe-0544456d6070)
 
-## In-Class Demo 2
+## In-Class Demo 2 {.crunch-title .crunch-img .text-90}
+
+![](images/cars.jpg){fig-align="center"}
+
+* [Cars! Driving!](
+https://colab.research.google.com/drive/1G894WS7ltIUTusWWmsCnF_zQhQqZCDOc)
+
+::: {.aside}
+
+Adapted from/almost identical to [Jacob Celestine's tutorial](https://jacobcelestine.com/knowledge_repo/colab_and_pyspark/)
+
+:::
+
+## In-Class Demo 3
+
+![](images/williams.jpg){fig-align="center"}
 
 [Tennis. Swingin. Rackets. Scorin goals.](https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-Duplicate-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/DSAN5500HW5-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d)
 

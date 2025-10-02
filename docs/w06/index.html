@@ -163,7 +163,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../dsan-globals/jjstyles.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -493,7 +493,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2025-09-29, 03:25:13 PM</em></p>
+<p><em>Updated 2025-10-02, 06:23:13 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -502,7 +502,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a-reminder-map-reduce-as-a-paradigm" id="toc-a-reminder-map-reduce-as-a-paradigm" class="nav-link active" data-scroll-target="#a-reminder-map-reduce-as-a-paradigm">A Reminder: Map-Reduce as a <em>Paradigm</em></a>
+  <li><a href="#highest-level-overview-roadmap" id="toc-highest-level-overview-roadmap" class="nav-link active" data-scroll-target="#highest-level-overview-roadmap">Highest-Level Overview (Roadmap!)</a></li>
+  <li><a href="#a-reminder-map-reduce-as-a-paradigm" id="toc-a-reminder-map-reduce-as-a-paradigm" class="nav-link" data-scroll-target="#a-reminder-map-reduce-as-a-paradigm">A Reminder: Map-Reduce as a <em>Paradigm</em></a>
   <ul class="collapse">
   <li><a href="#what-happens-when-not-embarrassingly-parallel" id="toc-what-happens-when-not-embarrassingly-parallel" class="nav-link" data-scroll-target="#what-happens-when-not-embarrassingly-parallel">What Happens When <em>Not</em> Embarrassingly Parallel?</a></li>
   <li><a href="#the-analogy-to-map-reduce" id="toc-the-analogy-to-map-reduce" class="nav-link" data-scroll-target="#the-analogy-to-map-reduce">The Analogy to Map-Reduce</a></li>
@@ -516,6 +517,7 @@ window.Quarto = {
   <li><a href="#break-problem-into-chunks-for-the-green-bois" id="toc-break-problem-into-chunks-for-the-green-bois" class="nav-link" data-scroll-target="#break-problem-into-chunks-for-the-green-bois">Break Problem into <em>Chunks</em> for the Green Bois!</a></li>
   <li><a href="#in-class-demo-1" id="toc-in-class-demo-1" class="nav-link" data-scroll-target="#in-class-demo-1">In-Class Demo 1</a></li>
   <li><a href="#in-class-demo-2" id="toc-in-class-demo-2" class="nav-link" data-scroll-target="#in-class-demo-2">In-Class Demo 2</a></li>
+  <li><a href="#in-class-demo-3" id="toc-in-class-demo-3" class="nav-link" data-scroll-target="#in-class-demo-3">In-Class Demo 3</a></li>
   <li><a href="#lab-time" id="toc-lab-time" class="nav-link" data-scroll-target="#lab-time">Lab Time!</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
@@ -523,7 +525,7 @@ window.Quarto = {
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w06/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -575,6 +577,22 @@ window.Quarto = {
 <center class="mb-3">
 <a class="h2" href="./slides.html" target="_blank">Open <em>MapReduce</em> slides in new tab →</a>
 </center>
+<section id="highest-level-overview-roadmap" class="level1 smaller title-12" data-name="Roadmap">
+<h1 class="smaller title-12" data-name="Roadmap">Highest-Level Overview (Roadmap!)</h1>
+<ul>
+<li>Week 3: <strong>Map-Reduce</strong>
+<ul>
+<li>But, just the “plain”, basic version <strong>built into Python</strong> (<code>map()</code>, <code>functools.reduce()</code>)</li>
+</ul></li>
+<li>Last Week: <strong>Athena</strong> with <strong>AWS Glue</strong> under the hood
+<ul>
+<li>“Automated” ETL Pipeline!</li>
+</ul></li>
+<li>This Week: Hitting a wall with Athena… It <strong>doesn’t know in advance what [types of] queries you’re going to make!</strong></li>
+<li>If you’re going to <strong>group by</strong> (e.g.) <strong>state</strong>, then rent <strong>50 computers</strong> to process one state each, Athena doesn’t know to <strong>place the Ohio data on the Ohio computer!</strong></li>
+<li>We need a way to <strong>“steer” Map-Reduce’s choices</strong>… Enter <strong>Hadoop MapReduce!</strong></li>
+</ul>
+</section>
 <section id="a-reminder-map-reduce-as-a-paradigm" class="level1" data-stack-name="Map-Reduce">
 <h1 data-stack-name="Map-Reduce">A Reminder: Map-Reduce as a <em>Paradigm</em></h1>
 <section id="what-happens-when-not-embarrassingly-parallel" class="level2 smaller crunch-title crunch-math crunch-ul title-09">
@@ -628,7 +646,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 <li>Computing pieces separately:</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">map</span>(do_something_with_piece, list_of_pieces)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="46d8cd4a" class="cell" data-execution_count="1">
+<div id="a75d50cb" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_map <span class="op">=</span> <span class="bu">map</span>(<span class="kw">lambda</span> <span class="bu">input</span>: <span class="bu">input</span><span class="op">**</span><span class="dv">2</span>, [(<span class="dv">1</span><span class="op">-</span><span class="dv">2</span>), (<span class="dv">3</span><span class="op">-</span><span class="dv">5</span>), (<span class="dv">2</span><span class="op">-</span><span class="dv">0</span>)])</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>map_result <span class="op">=</span> <span class="bu">list</span>(my_map)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>map_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -640,7 +658,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 <li>Combining solved pieces</li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">reduce</span>(how_to_combine_pair_of_pieces, pieces_to_combine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="08050e99" class="cell" data-execution_count="2">
+<div id="1b1f1610" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>my_reduce <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span> piece1, piece2: piece1 <span class="op">+</span> piece2, map_result)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>my_reduce</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -650,7 +668,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 </div>
 </section>
 </section>
-<section id="but-why-is-all-this-weird-mapping-and-reducing-necessary" class="level1" data-stack-name="Map-Reduce Rationale">
+<section id="but-why-is-all-this-weird-mapping-and-reducing-necessary" class="level1 page-columns page-full" data-stack-name="Map-Reduce Rationale">
 <h1 data-stack-name="Map-Reduce Rationale">But… Why is All This Weird Mapping and Reducing Necessary?</h1>
 <ul>
 <li>Without knowing a bit more of the <strong>internals</strong> of <strong>computing efficiency</strong>, it may seem like a huge cost in terms of overly-complicated overhead, not to mention learning curve…</li>
@@ -991,8 +1009,27 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 </div>
 <p><a href="https://deepnote.com/workspace/Columbia-University-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-41367b13-4253-47c8-8ffe-0544456d6070/notebook/DSAN5500HW5-8b90a6af23d34d239b7da0111228614d?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=41367b13-4253-47c8-8ffe-0544456d6070">Map-Reduced <strong>Matrix-Vector Multiplication</strong> Demo</a></p>
 </section>
-<section id="in-class-demo-2" class="level2">
-<h2 class="anchored" data-anchor-id="in-class-demo-2">In-Class Demo 2</h2>
+<section id="in-class-demo-2" class="level2 crunch-title crunch-img text-90 page-columns page-full">
+<h2 class="crunch-title crunch-img text-90 anchored" data-anchor-id="in-class-demo-2">In-Class Demo 2</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cars.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ul>
+<li><a href="https://colab.research.google.com/drive/1G894WS7ltIUTusWWmsCnF_zQhQqZCDOc">Cars! Driving!</a></li>
+</ul>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Adapted from/almost identical to <a href="https://jacobcelestine.com/knowledge_repo/colab_and_pyspark/">Jacob Celestine’s tutorial</a></p>
+</div></div></section>
+<section id="in-class-demo-3" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-demo-3">In-Class Demo 3</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/williams.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 <p><a href="https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-Duplicate-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/DSAN5500HW5-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d">Tennis. Swingin. Rackets. Scorin goals.</a></p>
 </section>
 <section id="lab-time" class="level2" data-name="Lab 6">
