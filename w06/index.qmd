@@ -313,11 +313,11 @@ Adapted from/almost identical to [Jacob Celestine's tutorial](https://jacobceles
 
 :::
 
-## In-Class Demo 3
+## In-Class Demo 3 {.crunch-title .crunch-img .text-90}
 
 ![](images/williams.jpg){fig-align="center"}
 
-[Tennis. Swingin. Rackets. Scorin goals.](https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-Duplicate-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/DSAN5500HW5-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d)
+[Tennis! Swingin rackets! Scorin goals!](https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-Duplicate-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/DSAN5500HW5-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d)
 
 ## Lab Time! {data-name="Lab 6"}
 
