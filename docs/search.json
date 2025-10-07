@@ -44,7 +44,7 @@
     "href": "resources.html#key-books-by-week",
     "title": "Resource Hub",
     "section": "Key Books By Week",
-    "text": "Key Books By Week\n\nWeek 1: Course Overview and Week 2: Cloud Computing\n\nThe Boar Book: Kleppmann (2017), Designing Data-Intensive Applications\n\n\n\nWeek 3: Parallel Concepts\n\nThe Wolohan MapReduce Book: Wolohan (2020), Mastering Large Datasets with Python\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\nThe Lynx Book: Janssens and Nieuwdorp (2025), Python Polars: The Definitive Guide\nThe I-Need-Ham, Hunger Book: Needham, Hunger, and Simons (2024), DuckDB in Action\n\n\n\nWeek 5: Data Warehousing\nTwo Packt Books:\n\nGeneral Data Engineering on AWS: Eagar (2021), Data Engineering with AWS\nData Engineering with Athena: Virtuoso et al. (2021), Serverless Analytics with Amazon Athena",
+    "text": "Key Books By Week\n\nWeek 1: Course Overview and Week 2: Cloud Computing\n\nThe Boar Book: Kleppmann (2017), Designing Data-Intensive Applications\n\n\n\nWeek 3: Parallel Concepts\n\nThe Wolohan MapReduce Book: Wolohan (2020), Mastering Large Datasets with Python\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\nThe Lynx Book: Janssens and Nieuwdorp (2025), Python Polars: The Definitive Guide\nThe I-Need-Ham, Hunger Book: Needham, Hunger, and Simons (2024), DuckDB in Action\n\n\n\nWeek 5: Data Warehousing\nTwo Packt Books:\n\nGeneral Data Engineering on AWS: Eagar (2021), Data Engineering with AWS\nData Engineering with Athena: Virtuoso et al. (2021), Serverless Analytics with Amazon Athena\n\n\n\nWeeks 6 and 7: Hadoop → PySpark\n\nThe Electric Eel Book: Damji et al. (2020), Learning Spark",
     "crumbs": [
       "Resources"
     ]
@@ -2876,7 +2876,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9937 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1435 s",
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9866 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1453 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 8</span>"
     ]
@@ -3090,7 +3090,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9870 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.2341 s"
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9807 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1215 s"
   },
   {
     "objectID": "w03/slides.html#what-happens-when-not-embarrassingly-parallel",

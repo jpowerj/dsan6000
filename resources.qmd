@@ -55,6 +55,10 @@ Two Packt Books:
 * **General Data Engineering on AWS**: @eagar_data_2021, *Data Engineering with AWS*
 * **Data Engineering with Athena**: @virtuoso_serverless_2021, *Serverless Analytics with Amazon Athena*
 
+### Weeks 6 and 7: Hadoop &rarr; PySpark
+
+* **The Electric Eel Book**: @damji_learning_2020, *Learning Spark*
+
 ## PDFs of Books
 
 The remainder of this page is auto-generated from all of the references across the slides for each week: click on the **name** of a reference to download the ebook version, if available!
