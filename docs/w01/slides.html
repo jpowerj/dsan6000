@@ -7,8 +7,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Amit Arora and Jeff Jacobs">
   <title>DSAN 6000 Slide Hub – Week 1: Course Overview</title>
@@ -96,7 +96,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f1a2fbe10646af64ab771edae1b2cadf.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-ce8148516b1c4df5a70485e5018382a5.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -937,7 +937,7 @@ Amit Arora and Jeff Jacobs
   font-style: normal;
 }
 </style>
-<table class="caption-top" data-quarto-postprocess="true">
+<table class="caption-top">
 <tbody>
 <tr class="odd">
 <td rowspan="2" width="15%" style="text-align: center; vertical-align: middle; border-bottom: 0px;">Can be <strong>processed</strong> on single machine?</td>
@@ -1325,7 +1325,7 @@ Amit Arora and Jeff Jacobs
 </section>
 <section id="the-prompt" class="slide level2">
 <h2>The Prompt</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">username@hostname:current_directory</span> $</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">username@hostname:current_directory</span> $</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>What do we learn from the prompt?</p>
 <ul>
 <li>Who you are - <strong><code>username</code></strong></li>
@@ -1336,13 +1336,13 @@ Amit Arora and Jeff Jacobs
 </section>
 <section id="syntax" class="slide level2 smaller crunch-title crunch-p crunch-li-7">
 <h2>Syntax</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">COMMAND</span> <span class="at">-F</span> <span class="at">--FLAG</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">COMMAND</span> <span class="at">-F</span> <span class="at">--FLAG</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>COMMAND</code> is the program, everything after that = arguments</li>
 <li><code>F</code> is a single letter flag, <code>FLAG</code> is a single word or words connected by dashes. A space breaks things into a new argument.</li>
 <li>Sometimes argument has single letter and long form versions (e.g.&nbsp;<code>F</code> and <code>FLAG</code>)</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">COMMAND</span> <span class="at">-F</span> <span class="at">--FILE</span> file1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">COMMAND</span> <span class="at">-F</span> <span class="at">--FILE</span> file1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Here we pass a text argument <code>"file1"</code> as the <strong>value</strong> for the <code>FILE</code> flag</li>
 <li><strong><code>-h</code></strong> flag is usually to get help. You can also run the <strong><code>man</code></strong> command and pass the name of the program as the argument to get the help page.</li>
@@ -1432,11 +1432,11 @@ Amit Arora and Jeff Jacobs
 <li><p>How many processes? <strong><code>whoami | xargs ps -u | wc -l</code></strong></p></li>
 <li><p>Hard to remember full command! Let’s make an <strong>alias</strong></p></li>
 <li><p>General syntax:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> alias_name=<span class="st">"command_to_run"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> alias_name=<span class="st">"command_to_run"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>For our case:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> nproc=<span class="st">"whoami | xargs ps -u | wc -l"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> nproc=<span class="st">"whoami | xargs ps -u | wc -l"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Now we need to put this alias into the .bashrc</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> nproc=<span class="st">"whoami | xargs ps -u | wc -l"</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> nproc=<span class="st">"whoami | xargs ps -u | wc -l"</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Your commands get saved in <strong><code>~/.bash_history</code></strong></p></li>
 </ul>
 </section>
@@ -1724,13 +1724,14 @@ Amit Arora and Jeff Jacobs
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
