@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg width="410pt" height="488pt" viewBox="0.00 0.00 410.00 488.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 484.2666)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-484.2666 406,-484.2666 406,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_workers</title>
+<polygon fill="none" stroke="#000000" points="8,-9 8,-355.2 192,-355.2 192,-9 8,-9"/>
+<text text-anchor="start" x="72.46" y="-337.8" font-family="Times,serif" text-decoration="underline" font-size="16.00" fill="#000000">Workers</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_inputs</title>
+<polygon fill="none" stroke="#000000" points="294,-8 294,-356.2 394,-356.2 394,-8 294,-8"/>
+<text text-anchor="start" x="324.0024" y="-338.8" font-family="Times,serif" text-decoration="underline" font-size="16.00" fill="#000000">Inputs</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_master</title>
+<polygon fill="none" stroke="#000000" points="108,-388.2 108,-472.2666 310,-472.2666 310,-388.2 108,-388.2"/>
+<text text-anchor="middle" x="209" y="-452.0666" font-family="Courier,monospace" font-size="18.00" fill="#000000">spark-master</text>
+</g>
+<!-- a0 -->
+<g id="node1" class="node">
+<title>a0</title>
+<text text-anchor="start" x="40.6099" y="-282.3" font-family="Courier,monospace" font-size="18.00" fill="#000000">spark-node1</text>
+<polygon fill="none" stroke="#000000" points="39,-253.5 39,-273.5 161,-273.5 161,-253.5 39,-253.5"/>
+<text text-anchor="start" x="46.009" y="-259.7" font-family="Courier,monospace" font-size="12.00" fill="#000000">factor_primes()</text>
+<polygon fill="none" stroke="#000000" points="39,-231.5 39,-251.5 161,-251.5 161,-231.5 39,-231.5"/>
+<text text-anchor="start" x="71.2048" y="-237.7" font-family="Courier,monospace" font-size="12.00" fill="#000000">b_vector</text>
+<polygon fill="none" stroke="#000000" points="36,-229 36,-304 164,-304 164,-229 36,-229"/>
+</g>
+<!-- a1 -->
+<g id="node2" class="node">
+<title>a1</title>
+<text text-anchor="start" x="40.6099" y="-184.3" font-family="Courier,monospace" font-size="18.00" fill="#000000">spark-node2</text>
+<polygon fill="none" stroke="#000000" points="39,-155.5 39,-175.5 161,-175.5 161,-155.5 39,-155.5"/>
+<text text-anchor="start" x="46.009" y="-161.7" font-family="Courier,monospace" font-size="12.00" fill="#000000">factor_primes()</text>
+<polygon fill="none" stroke="#000000" points="39,-133.5 39,-153.5 161,-153.5 161,-133.5 39,-133.5"/>
+<text text-anchor="start" x="71.2048" y="-139.7" font-family="Courier,monospace" font-size="12.00" fill="#000000">b_vector</text>
+<polygon fill="none" stroke="#000000" points="36,-131 36,-206 164,-206 164,-131 36,-131"/>
+</g>
+<!-- a0&#45;&gt;a1 -->
+<g id="edge1" class="edge">
+<title>a0-&gt;a1</title>
+<path fill="none" stroke="#000000" stroke-width="0" d="M100,-224.9392C100,-220.0354 100,-215.0299 100,-210.1252"/>
+</g>
+<!-- b0 -->
+<g id="node4" class="node">
+<title>b0</title>
+<text text-anchor="start" x="326.6024" y="-286.1" font-family="Courier,monospace" font-size="16.00" fill="#000000">500</text>
+<text text-anchor="start" x="326.6024" y="-261.1" font-family="Courier,monospace" font-size="16.00" fill="#000000">501</text>
+<text text-anchor="start" x="326.6024" y="-236.1" font-family="Courier,monospace" font-size="16.00" fill="#000000">502</text>
+</g>
+<!-- a0&#45;&gt;b0 -->
+<g id="edge7" class="edge">
+<title>a0-&gt;b0:p0</title>
+<path fill="none" stroke="#000000" d="M172.2248,-278.6338C216.2428,-285.0035 273.7097,-291.5 325,-291.5"/>
+</g>
+<!-- a2 -->
+<g id="node3" class="node">
+<title>a2</title>
+<text text-anchor="start" x="40.6099" y="-86.3" font-family="Courier,monospace" font-size="18.00" fill="#000000">spark-node3</text>
+<polygon fill="none" stroke="#000000" points="39,-57.5 39,-77.5 161,-77.5 161,-57.5 39,-57.5"/>
+<text text-anchor="start" x="46.009" y="-63.7" font-family="Courier,monospace" font-size="12.00" fill="#000000">factor_primes()</text>
+<polygon fill="none" stroke="#000000" points="39,-35.5 39,-55.5 161,-55.5 161,-35.5 39,-35.5"/>
+<text text-anchor="start" x="71.2048" y="-41.7" font-family="Courier,monospace" font-size="12.00" fill="#000000">b_vector</text>
+<polygon fill="none" stroke="#000000" points="36,-33 36,-108 164,-108 164,-33 36,-33"/>
+</g>
+<!-- a1&#45;&gt;a2 -->
+<g id="edge2" class="edge">
+<title>a1-&gt;a2</title>
+<path fill="none" stroke="#000000" stroke-width="0" d="M100,-126.9392C100,-122.0354 100,-117.0299 100,-112.1252"/>
+</g>
+<!-- a1&#45;&gt;b0 -->
+<g id="edge9" class="edge">
+<title>a1-&gt;b0:p1</title>
+<path fill="none" stroke="#000000" d="M172.0005,-206.9763C225.367,-234.0581 294.0005,-265.5 325,-265.5"/>
+</g>
+<!-- b0&#45;&gt;a0 -->
+<g id="edge8" class="edge">
+<title>b0:p0-&gt;a0</title>
+<path fill="none" stroke="#000000" d="M325,-291.5C277.5164,-291.5 224.739,-285.932 182.2399,-280.0515"/>
+<polygon fill="#000000" stroke="#000000" points="182.6167,-276.57 172.2248,-278.6338 181.6355,-283.5009 182.6167,-276.57"/>
+</g>
+<!-- b0&#45;&gt;a1 -->
+<g id="edge10" class="edge">
+<title>b0:p1-&gt;a1</title>
+<path fill="none" stroke="#000000" d="M325,-265.5C295.7563,-265.5 233.0211,-237.519 181.206,-211.6135"/>
+<polygon fill="#000000" stroke="#000000" points="182.506,-208.3495 172.0005,-206.9763 179.3568,-214.601 182.506,-208.3495"/>
+</g>
+<!-- b0&#45;&gt;a2 -->
+<g id="edge11" class="edge">
+<title>b0:p2-&gt;a2</title>
+<path fill="none" stroke="#000000" d="M325,-240.5C248.6341,-240.5 257.8512,-171.7904 196,-127 191.1836,-123.5121 186.1391,-120.0469 180.9909,-116.6494"/>
+<polygon fill="#000000" stroke="#000000" points="182.5497,-113.4896 172.2508,-111.0032 178.7513,-119.3694 182.5497,-113.4896"/>
+</g>
+<!-- b1 -->
+<g id="node5" class="node">
+<title>b1</title>
+<text text-anchor="middle" x="344" y="-161.3" font-family="Courier,monospace" font-size="24.00" fill="#000000">⋮</text>
+</g>
+<!-- b0&#45;&gt;b1 -->
+<g id="edge3" class="edge">
+<title>b0-&gt;b1</title>
+<path fill="none" stroke="#000000" stroke-width="0" d="M342.3071,-223.8009C342.7019,-210.9058 343.1147,-197.4189 343.4339,-186.9924"/>
+</g>
+<!-- b2 -->
+<g id="node6" class="node">
+<title>b2</title>
+<text text-anchor="start" x="329.6024" y="-90.1" font-family="Courier,monospace" font-size="16.00" fill="#000000">798</text>
+<text text-anchor="start" x="329.6024" y="-65.1" font-family="Courier,monospace" font-size="16.00" fill="#000000">799</text>
+<text text-anchor="start" x="329.6024" y="-40.1" font-family="Courier,monospace" font-size="16.00" fill="#000000">800</text>
+</g>
+<!-- b1&#45;&gt;b2 -->
+<g id="edge4" class="edge">
+<title>b1-&gt;b2</title>
+<path fill="none" stroke="#000000" stroke-width="0" d="M344,-150.0669C344,-139.6432 344,-126.1466 344,-113.2392"/>
+</g>
+<!-- start -->
+<g id="node7" class="node">
+<title>start</title>
+<ellipse fill="#d3d3d3" stroke="#000000" cx="209" cy="-415.4333" rx="92.5183" ry="19.4695"/>
+<text text-anchor="middle" x="209" y="-410.6333" font-family="Courier,monospace" font-size="16.00" fill="#000000">SparkSession</text>
+</g>
+<!-- start&#45;&gt;a0 -->
+<g id="edge5" class="edge">
+<title>start-&gt;a0:n</title>
+<path fill="none" stroke="#000000" d="M171.4884,-397.8204C156.1076,-389.1874 138.721,-377.4998 124.9456,-363.0222"/>
+<polygon fill="#000000" stroke="#000000" points="127.3196,-360.4202 118.1009,-355.1985 122.0512,-365.0294 127.3196,-360.4202"/>
+</g>
+<!-- start&#45;&gt;b0 -->
+<g id="edge6" class="edge">
+<title>start-&gt;b0:n</title>
+<path fill="none" stroke="#000000" d="M257.4024,-398.9818C276.766,-390.6402 298.3097,-378.9554 314.6767,-363.543"/>
+<polygon fill="#000000" stroke="#000000" points="317.3526,-365.8114 321.806,-356.1979 312.3296,-360.9359 317.3526,-365.8114"/>
+</g>
+</g>
+</svg>
