@@ -115,20 +115,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       //console.log(`${key}: ${value}`);
     }
     // Special code for updating sidebar zoom link
-    let s01ZoomUrl = sectionData['01']['.sec-zoom-link'];
-    let s02ZoomUrl = sectionData['02']['.sec-zoom-link'];
-    if (newStr == "01") {
-      // Find any sidebar link with S02 href and update
-      let s02LinkSelector = 'a[href="' + s02ZoomUrl + '"]';
-      let sidebarElt = $(s02LinkSelector);
-      // console.log(sidebarElt);
-      sidebarElt.attr('href', s01ZoomUrl);
-    } else {
-      let s01LinkSelector = 'a[href="' + s01ZoomUrl + '"]';
-      let sidebarElt = $(s01LinkSelector);
-      // console.log(sidebarElt);
-      sidebarElt.attr('href', s02ZoomUrl);
-    }
+    // let s01ZoomUrl = sectionData['01']['.sec-zoom-link'];
+    // let s02ZoomUrl = sectionData['02']['.sec-zoom-link'];
+    // if (newStr == "01") {
+    //   // Find any sidebar link with S02 href and update
+    //   let s02LinkSelector = 'a[href="' + s02ZoomUrl + '"]';
+    //   let sidebarElt = $(s02LinkSelector);
+    //   // console.log(sidebarElt);
+    //   sidebarElt.attr('href', s01ZoomUrl);
+    // } else {
+    //   let s01LinkSelector = 'a[href="' + s01ZoomUrl + '"]';
+    //   let sidebarElt = $(s01LinkSelector);
+    //   // console.log(sidebarElt);
+    //   sidebarElt.attr('href', s02ZoomUrl);
+    // }
     // A special one for the slides... Very janky
     const s01Replace = {
       // w02
@@ -142,7 +142,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       // w06
       'Wednesday, September 27, 2023': 'Tuesday, September 26, 2023',
       // w07
-      'Wednesday, October 4, 2023': 'Tuesday, October 3, 2023',
+      'Thursday, October 9, 2025': 'Monday, October 6, 2025',
       // w08
       'Wednesday, October 18, 2023': 'Tuesday, October 17, 2023',
       // w09
@@ -166,7 +166,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       // w06
       'Tuesday, September 26, 2023': 'Wednesday, September 27, 2023',
       // w07
-      'Tuesday, October 3, 2023': 'Wednesday, October 4, 2023',
+      'Monday, October 6, 2025': 'Thursday, October 9, 2025',
       // w08
       'Tuesday, October 17, 2023': 'Wednesday, October 18, 2023',
       // w09
