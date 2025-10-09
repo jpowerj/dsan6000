@@ -2876,7 +2876,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9640 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.2622 s",
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.1549 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.4551 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 8</span>"
     ]
@@ -3090,7 +3090,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9667 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1704 s"
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9726 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1983 s"
   },
   {
     "objectID": "w03/slides.html#what-happens-when-not-embarrassingly-parallel",
@@ -3596,7 +3596,7 @@
     "href": "writeups/sql-guide/index.html#onto-duckdb",
     "title": "From Pandas to SQL",
     "section": "Onto DuckDB!",
-    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││        Total Time: 0.0001s        ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\n┌───────────────────────────┐\n│      RESULT_COLLECTOR     │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│           FILTER          │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 1           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│        PANDAS_SCAN        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 7           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             7             │\n│          (0.00s)          │\n└───────────────────────────┘                             \n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
+    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││        Total Time: 0.0003s        ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\n┌───────────────────────────┐\n│      RESULT_COLLECTOR     │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│           FILTER          │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 1           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│        PANDAS_SCAN        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 7           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             7             │\n│          (0.00s)          │\n└───────────────────────────┘                             \n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
   },
   {
     "objectID": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",
@@ -3604,6 +3604,337 @@
     "title": "From Pandas to SQL",
     "section": "Basic Pandas Operations in SQL",
     "text": "Basic Pandas Operations in SQL\nWith all that in mind, you can now move towards thinking through how you can carry out the above sequence of “translations” – from Pandas to Polars to DuckDB – for other common Pandas tasks you’re used to from e.g. DSAN 5000!\nTo nudge you in that direction, in this section we’ll conclude with a few examples of common Pandas pipelines and how they translate to SQL code.\n\nFiltering Rows\nThis is probably the most straightforward operation in SQL world, since SQL provides us with the WHERE operator which we can pair with a boolean condition to filter the rows of our DataFrame.\nSo, for example, if we wanted to select one specific row in our DataFrame on the basis of some value, we can do this using the general syntax SELECT * FROM df WHERE condition. The following code uses this syntax to select just the row containing data for Thursday:\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day = 'Friday'\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nFriday\n4.556042\n6.341836\n\n\n\n\n\n\n\nNotice how, since SQL is a “declarative” language, it avoids the confusion which comes up in Python between the single-equals-sign assignment operator = and the double-equals-sign equality operator ==. In SQL, you can actually use either of these in a boolean operator to indicate that you’d like to check for equality, though the single-equals-sign = used above is more common:\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day == 'Friday'\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nFriday\n4.556042\n6.341836\n\n\n\n\n\n\n\nYou may have noticed, however, that we didn’t use this = operator when filtering out weekend days above. Instead, we used the IN operator, along with the NOT operator for negation. The IN operator on its own works like:\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day IN ('Monday','Wednesday','Friday')\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n\n\n1\nWednesday\n5.393727\n6.011502\n\n\n2\nFriday\n4.556042\n6.341836\n\n\n\n\n\n\n\nAnd then we can use the NOT operator to obtain the exact opposite (the days which are not among the three listed days in the query):\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day NOT IN ('Monday','Wednesday','Friday')\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nTuesday\n7.912447\n8.747633\n\n\n1\nThursday\n4.347202\n7.318025\n\n\n2\nSaturday\n4.552443\n7.279092\n\n\n3\nSunday\n6.606959\n6.652768\n\n\n\n\n\n\n\n\n\nSelecting Columns\nNotice how, up until now, we’ve been using SELECT * at the beginning of our queries. That’s because our goal was to view the entire contents of the DataFrame, just with certain rows selected and others filtered out.\nIf we instead want to select certain columns, we can just replace the wildcard symbol * that we placed after SELECT with a specific list of columns:\n\n\nCode\ncon.execute(\"\"\"\nSELECT day, work_hrs FROM sleep_df\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nwork_hrs\n\n\n\n\n0\nMonday\n7.418997\n\n\n1\nTuesday\n8.747633\n\n\n2\nWednesday\n6.011502\n\n\n3\nThursday\n7.318025\n\n\n4\nFriday\n6.341836\n\n\n5\nSaturday\n7.279092\n\n\n6\nSunday\n6.652768\n\n\n\n\n\n\n\nImportantly, we can also match regular expression patterns in the names of columns, by using SELECT COLUMNS() rather than just SELECT. Here, for example, we use it to select all of the columns whose names end with hrs:\n\n\nCode\ncon.execute(\"\"\"\nSELECT COLUMNS('.+_hrs') FROM sleep_df\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nsleep_hrs\nwork_hrs\n\n\n\n\n0\n6.089095\n7.418997\n\n\n1\n7.912447\n8.747633\n\n\n2\n5.393727\n6.011502\n\n\n3\n4.347202\n7.318025\n\n\n4\n4.556042\n6.341836\n\n\n5\n4.552443\n7.279092\n\n\n6\n6.606959\n6.652768\n\n\n\n\n\n\n\nNote that this COLUMNS() syntax is specific to DuckDB’s “flavor” of SQL, and not standard in other implementations of SQL.\n\n\nDefining New Columns\nFinally, you may have noticed that the SELECT operator is basically doing double duty: not only did we use it in the previous section to request the three original columns in sleep_df (day, sleep_hrs, and work_hrs), but also to define a new column named ratio, by dividing work_hrs by sleep_hrs.\nThis is a general feature of SQL, and DuckDB (and the select() function in Polars)! We can SELECT the columns “as-is” by just including their names, or we can define new columns within the select statement. For example, if we wanted the squared values of our two numeric columns for some reason, we could do the following:\n\n\nCode\ncon.execute(\"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  sleep_hrs^2 AS sleep_squared,\n  work_hrs,\n  work_hrs^2 AS work_squared\nFROM sleep_df\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nsleep_squared\nwork_hrs\nwork_squared\n\n\n\n\n0\nMonday\n6.089095\n37.077083\n7.418997\n55.041509\n\n\n1\nTuesday\n7.912447\n62.606823\n8.747633\n76.521076\n\n\n2\nWednesday\n5.393727\n29.092288\n6.011502\n36.138152\n\n\n3\nThursday\n4.347202\n18.898161\n7.318025\n53.553486\n\n\n4\nFriday\n4.556042\n20.757516\n6.341836\n40.218888\n\n\n5\nSaturday\n4.552443\n20.724741\n7.279092\n52.985182\n\n\n6\nSunday\n6.606959\n43.651905\n6.652768\n44.259327\n\n\n\n\n\n\n\n\n\nCombining Operations\nTo bring everything together, let’s see how we can combine the above three tasks into a single query!\n\n\nCode\ncon.execute(\"\"\"\nSELECT\n  day,\n  work_hrs,\n  work_hrs^2 AS work_squared\nFROM sleep_df\nWHERE day = 'Tuesday'\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nwork_hrs\nwork_squared\n\n\n\n\n0\nTuesday\n8.747633\n76.521076"
+  },
+  {
+    "objectID": "w07/index.html",
+    "href": "w07/index.html",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "",
+    "text": "https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PySpark_SQL_Cheat_Sheet_Python.pdf\n\n\n\n\n\n\n\n\n\n\n\n\nSpark Application UI shows important facts about you Spark job:\n\nEvent timeline for each stage of your work\nDirected acyclical graph (DAG) of your job\nSpark job history\nStatus of Spark executors\nPhysical / logical plans for any SQL queries\n\n\n\nAdapted from AWS Glue Spark UI docs and Spark UI docs",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#review-of-pysparksql-cheatsheet",
+    "href": "w07/index.html#review-of-pysparksql-cheatsheet",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "",
+    "text": "https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PySpark_SQL_Cheat_Sheet_Python.pdf",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#spark-diagnostic-ui-understanding-how-the-cluster-is-running-your-job",
+    "href": "w07/index.html#spark-diagnostic-ui-understanding-how-the-cluster-is-running-your-job",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "",
+    "text": "Spark Application UI shows important facts about you Spark job:\n\nEvent timeline for each stage of your work\nDirected acyclical graph (DAG) of your job\nSpark job history\nStatus of Spark executors\nPhysical / logical plans for any SQL queries\n\n\n\nAdapted from AWS Glue Spark UI docs and Spark UI docs",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#udf-workflow",
+    "href": "w07/index.html#udf-workflow",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "UDF Workflow",
+    "text": "UDF Workflow",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#udf-code-structure",
+    "href": "w07/index.html#udf-code-structure",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "UDF Code Structure",
+    "text": "UDF Code Structure\n\nClear input - a single row of data with one or more columns used\n\n\nFunction - some work written in python that process the input using python syntax. No PySpark needed!\n\n\nClear output - output with a scoped data type",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#udf-example",
+    "href": "w07/index.html#udf-example",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "UDF Example",
+    "text": "UDF Example\nProblem: make a new column with ages for adults-only\n+-------+--------------+\n|room_id|   guests_ages|\n+-------+--------------+\n|      1|  [18, 19, 17]|\n|      2|   [25, 27, 5]|\n|      3|[34, 38, 8, 7]|\n+-------+--------------+\nAdapted from UDFs in Spark",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#udf-code-solution",
+    "href": "w07/index.html#udf-code-solution",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "UDF Code Solution",
+    "text": "UDF Code Solution\n```{python}\nfrom pyspark.sql.functions import udf, col\n\n@udf(\"array&lt;integer&gt;\")\n   def filter_adults(elements):\n   return list(filter(lambda x: x &gt;= 18, elements))\n\n# alternatively\nfrom pyspark.sql.types IntegerType, ArrayType\n@udf(returnType=ArrayType(IntegerType()))\ndef filter_adults(elements):\n   return list(filter(lambda x: x &gt;= 18, elements))\n```\n+-------+----------------+------------+\n|room_id| guests_ages    | adults_ages|\n+-------+----------------+------------+\n| 1     | [18, 19, 17]   |    [18, 19]|\n| 2     | [25, 27, 5]    |    [25, 27]|\n| 3     | [34, 38, 8, 7] |    [34, 38]|\n| 4     |[56, 49, 18, 17]|[56, 49, 18]|\n+-------+----------------+------------+",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#alternative-to-spark-udf",
+    "href": "w07/index.html#alternative-to-spark-udf",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Alternative to Spark UDF",
+    "text": "Alternative to Spark UDF\n```{python}\n# Spark 3.1\nfrom pyspark.sql.functions import col, filter, lit\n\ndf.withColumn('adults_ages',\n              filter(col('guests_ages'), lambda x: x &gt;= lit(18))).show()\n```",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#another-udf-example",
+    "href": "w07/index.html#another-udf-example",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Another UDF Example",
+    "text": "Another UDF Example\n\nSeparate function definition form\n\n```{python}\nfrom pyspark.sql.functions import udf\nfrom pyspark.sql.types import LongType\n\n# define the function that can be tested locally\ndef squared(s):\n  return s * s\n\n# wrap the function in udf for spark and define the output type\nsquared_udf = udf(squared, LongType())\n\n# execute the udf\ndf = spark.table(\"test\")\ndisplay(df.select(\"id\", squared_udf(\"id\").alias(\"id_squared\")))\n```\n\nSingle function definition form\n\n```{python}\nfrom pyspark.sql.functions import udf\n@udf(\"long\")\ndef squared_udf(s):\n  return s * s\ndf = spark.table(\"test\")\ndisplay(df.select(\"id\", squared_udf(\"id\").alias(\"id_squared\")))\n```",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#can-also-refer-to-a-udf-in-sql",
+    "href": "w07/index.html#can-also-refer-to-a-udf-in-sql",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Can also refer to a UDF in SQL",
+    "text": "Can also refer to a UDF in SQL\n```{sql}\nspark.udf.register(\"squaredWithPython\", squared)\nselect id, squaredWithPython(id) as id_squared from test\n```\n\nConsider all the corner cases\nWhere could the data be null or an unexpected value\nLeverage python control structure to handle corner cases\n\nsource",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#udf-speed-comparison",
+    "href": "w07/index.html#udf-speed-comparison",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "UDF Speed Comparison",
+    "text": "UDF Speed Comparison\n\n\n\n\n\n\n\n\nCosts:\n\nSerialization/deserialization (think pickle files)\nData movement between JVM and Python\nLess Spark optimization possible\n\nOther ways to make your Spark jobs faster source:\n\nCache/persist your data into memory\nUsing Spark DataFrames over Spark RDDs\nUsing Spark SQL functions before jumping into UDFs\nSave to serialized data formats like Parquet",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#pandas-udf",
+    "href": "w07/index.html#pandas-udf",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Pandas UDF",
+    "text": "Pandas UDF\nFrom PySpark docs - Pandas UDFs are user defined functions that are executed by Spark using Arrow to transfer data and Pandas to work with the data, which allows vectorized operations. A Pandas UDF is defined using the pandas_udf as a decorator or to wrap the function, and no additional configuration is required. A Pandas UDF behaves as a regular PySpark function API in general.\n```{python}\n@pandas_udf(\"string\")\ndef to_upper(s: pd.Series) -&gt; pd.Series:\n    return s.str.upper()\n\ndf = spark.createDataFrame([(\"John Doe\",)], (\"name\",))\ndf.select(to_upper(\"name\")).show()\n+--------------+\n|to_upper(name)|\n+--------------+\n|      JOHN DOE|\n+--------------+\n```",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#another-example",
+    "href": "w07/index.html#another-example",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Another example",
+    "text": "Another example\n```{python}\n@pandas_udf(\"first string, last string\")\ndef split_expand(s: pd.Series) -&gt; pd.DataFrame:\n    return s.str.split(expand=True)\n\n\ndf = spark.createDataFrame([(\"John Doe\",)], (\"name\",))\ndf.select(split_expand(\"name\")).show()\n+------------------+\n|split_expand(name)|\n+------------------+\n|       [John, Doe]|\n+------------------+\n```\nhttps://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.pandas_udf.html",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#scalar-pandas-udfs",
+    "href": "w07/index.html#scalar-pandas-udfs",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Scalar Pandas UDFs",
+    "text": "Scalar Pandas UDFs\n\nVectorizing scalar operations - one plus one\nPandas UDF needs to have same size input and output series\n\n\nUDF Form\n```{python}\nfrom pyspark.sql.functions import udf\n\n# Use udf to define a row-at-a-time udf\n@udf('double')\n# Input/output are both a single double value\ndef plus_one(v):\n      return v + 1\n\ndf.withColumn('v2', plus_one(df.v))\n```\n\n\nPandas UDF Form - faster vectorized form\n```{python}\nfrom pyspark.sql.functions import pandas_udf, PandasUDFType\n\n# Use pandas_udf to define a Pandas UDF\n@pandas_udf('double', PandasUDFType.SCALAR)\n# Input/output are both a pandas.Series of doubles\n\ndef pandas_plus_one(v):\n    return v + 1\n\ndf.withColumn('v2', pandas_plus_one(df.v))\n```\nsource",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#grouped-map-pandas-udfs",
+    "href": "w07/index.html#grouped-map-pandas-udfs",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Grouped Map Pandas UDFs",
+    "text": "Grouped Map Pandas UDFs\n\nSplit, apply, combine using Pandas syntax\n\n```{python}\n@pandas_udf(df.schema, PandasUDFType.GROUPED_MAP)\n# Input/output are both a pandas.DataFrame\ndef subtract_mean(pdf):\n    return pdf.assign(v=pdf.v - pdf.v.mean())\n\ndf.groupby('id').apply(subtract_mean)\n```",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#comparison-of-scalar-and-grouped-map-pandas-udfs",
+    "href": "w07/index.html#comparison-of-scalar-and-grouped-map-pandas-udfs",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Comparison of Scalar and Grouped Map Pandas UDFs",
+    "text": "Comparison of Scalar and Grouped Map Pandas UDFs\n\n\n\nInput of the user-defined function:\n\nScalar: pandas.Series\nGrouped map: pandas.DataFrame\n\nOutput of the user-defined function:\n\nScalar: pandas.Series\nGrouped map: pandas.DataFrame\n\nGrouping semantics:\n\nScalar: no grouping semantics\nGrouped map: defined by “groupby” clause\n\nOutput size:\n\nScalar: same as input size\nGrouped map: any size",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/index.html#references",
+    "href": "w07/index.html#references",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "References",
+    "text": "References",
+    "crumbs": [
+      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+    ]
+  },
+  {
+    "objectID": "w07/slides.html#connected-and-extensible",
+    "href": "w07/slides.html#connected-and-extensible",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Connected and extensible",
+    "text": "Connected and extensible"
+  },
+  {
+    "objectID": "w07/slides.html#review-of-pysparksql-cheatsheet",
+    "href": "w07/slides.html#review-of-pysparksql-cheatsheet",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Review of PySparkSQL Cheatsheet",
+    "text": "Review of PySparkSQL Cheatsheet\nhttps://s3.amazonaws.com/assets.datacamp.com/blog_assets/PySpark_SQL_Cheat_Sheet_Python.pdf"
+  },
+  {
+    "objectID": "w07/slides.html#collect-caution",
+    "href": "w07/slides.html#collect-caution",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "collect CAUTION",
+    "text": "collect CAUTION"
+  },
+  {
+    "objectID": "w07/slides.html#spark-diagnostic-ui-understanding-how-the-cluster-is-running-your-job",
+    "href": "w07/slides.html#spark-diagnostic-ui-understanding-how-the-cluster-is-running-your-job",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Spark Diagnostic UI: Understanding how the cluster is running your job",
+    "text": "Spark Diagnostic UI: Understanding how the cluster is running your job\nSpark Application UI shows important facts about you Spark job:\n\nEvent timeline for each stage of your work\nDirected acyclical graph (DAG) of your job\nSpark job history\nStatus of Spark executors\nPhysical / logical plans for any SQL queries\n\nTool to confirm you are getting the horizontal scaling that you need!\nAdapted from AWS Glue Spark UI docs and Spark UI docs"
+  },
+  {
+    "objectID": "w07/slides.html#spark-ui---event-timeline",
+    "href": "w07/slides.html#spark-ui---event-timeline",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Spark UI - Event timeline",
+    "text": "Spark UI - Event timeline"
+  },
+  {
+    "objectID": "w07/slides.html#spark-ui---dag",
+    "href": "w07/slides.html#spark-ui---dag",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Spark UI - DAG",
+    "text": "Spark UI - DAG"
+  },
+  {
+    "objectID": "w07/slides.html#spark-ui---job-history",
+    "href": "w07/slides.html#spark-ui---job-history",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Spark UI - Job History",
+    "text": "Spark UI - Job History"
+  },
+  {
+    "objectID": "w07/slides.html#spark-ui---executors",
+    "href": "w07/slides.html#spark-ui---executors",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Spark UI - Executors",
+    "text": "Spark UI - Executors"
+  },
+  {
+    "objectID": "w07/slides.html#spark-ui---sql",
+    "href": "w07/slides.html#spark-ui---sql",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Spark UI - SQL",
+    "text": "Spark UI - SQL"
+  },
+  {
+    "objectID": "w07/slides.html#udf-workflow",
+    "href": "w07/slides.html#udf-workflow",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "UDF Workflow",
+    "text": "UDF Workflow"
+  },
+  {
+    "objectID": "w07/slides.html#udf-code-structure",
+    "href": "w07/slides.html#udf-code-structure",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "UDF Code Structure",
+    "text": "UDF Code Structure\nClear input - a single row of data with one or more columns used\nFunction - some work written in python that process the input using python syntax. No PySpark needed!\nClear output - output with a scoped data type"
+  },
+  {
+    "objectID": "w07/slides.html#udf-example",
+    "href": "w07/slides.html#udf-example",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "UDF Example",
+    "text": "UDF Example\nProblem: make a new column with ages for adults-only\n+-------+--------------+\n|room_id|   guests_ages|\n+-------+--------------+\n|      1|  [18, 19, 17]|\n|      2|   [25, 27, 5]|\n|      3|[34, 38, 8, 7]|\n+-------+--------------+\nAdapted from UDFs in Spark"
+  },
+  {
+    "objectID": "w07/slides.html#udf-code-solution",
+    "href": "w07/slides.html#udf-code-solution",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "UDF Code Solution",
+    "text": "UDF Code Solution\n```{python}\nfrom pyspark.sql.functions import udf, col\n\n@udf(\"array&lt;integer&gt;\")\n   def filter_adults(elements):\n   return list(filter(lambda x: x &gt;= 18, elements))\n\n# alternatively\nfrom pyspark.sql.types IntegerType, ArrayType\n@udf(returnType=ArrayType(IntegerType()))\ndef filter_adults(elements):\n   return list(filter(lambda x: x &gt;= 18, elements))\n```\n+-------+----------------+------------+\n|room_id| guests_ages    | adults_ages|\n+-------+----------------+------------+\n| 1     | [18, 19, 17]   |    [18, 19]|\n| 2     | [25, 27, 5]    |    [25, 27]|\n| 3     | [34, 38, 8, 7] |    [34, 38]|\n| 4     |[56, 49, 18, 17]|[56, 49, 18]|\n+-------+----------------+------------+"
+  },
+  {
+    "objectID": "w07/slides.html#alternative-to-spark-udf",
+    "href": "w07/slides.html#alternative-to-spark-udf",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Alternative to Spark UDF",
+    "text": "Alternative to Spark UDF\n```{python}\n# Spark 3.1\nfrom pyspark.sql.functions import col, filter, lit\n\ndf.withColumn('adults_ages',\n              filter(col('guests_ages'), lambda x: x &gt;= lit(18))).show()\n```"
+  },
+  {
+    "objectID": "w07/slides.html#another-udf-example",
+    "href": "w07/slides.html#another-udf-example",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Another UDF Example",
+    "text": "Another UDF Example\n\nSeparate function definition form\n\n```{python}\nfrom pyspark.sql.functions import udf\nfrom pyspark.sql.types import LongType\n\n# define the function that can be tested locally\ndef squared(s):\n  return s * s\n\n# wrap the function in udf for spark and define the output type\nsquared_udf = udf(squared, LongType())\n\n# execute the udf\ndf = spark.table(\"test\")\ndisplay(df.select(\"id\", squared_udf(\"id\").alias(\"id_squared\")))\n```\n\nSingle function definition form\n\n```{python}\nfrom pyspark.sql.functions import udf\n@udf(\"long\")\ndef squared_udf(s):\n  return s * s\ndf = spark.table(\"test\")\ndisplay(df.select(\"id\", squared_udf(\"id\").alias(\"id_squared\")))\n```"
+  },
+  {
+    "objectID": "w07/slides.html#can-also-refer-to-a-udf-in-sql",
+    "href": "w07/slides.html#can-also-refer-to-a-udf-in-sql",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Can also refer to a UDF in SQL",
+    "text": "Can also refer to a UDF in SQL\n```{sql}\nspark.udf.register(\"squaredWithPython\", squared)\nselect id, squaredWithPython(id) as id_squared from test\n```\n\nConsider all the corner cases\nWhere could the data be null or an unexpected value\nLeverage python control structure to handle corner cases\n\nsource"
+  },
+  {
+    "objectID": "w07/slides.html#udf-speed-comparison",
+    "href": "w07/slides.html#udf-speed-comparison",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "UDF Speed Comparison",
+    "text": "UDF Speed Comparison\n\n\n\n\n\n\n\n\nCosts:\n\nSerialization/deserialization (think pickle files)\nData movement between JVM and Python\nLess Spark optimization possible\n\nOther ways to make your Spark jobs faster source:\n\nCache/persist your data into memory\nUsing Spark DataFrames over Spark RDDs\nUsing Spark SQL functions before jumping into UDFs\nSave to serialized data formats like Parquet"
+  },
+  {
+    "objectID": "w07/slides.html#pandas-udf",
+    "href": "w07/slides.html#pandas-udf",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Pandas UDF",
+    "text": "Pandas UDF\nFrom PySpark docs - Pandas UDFs are user defined functions that are executed by Spark using Arrow to transfer data and Pandas to work with the data, which allows vectorized operations. A Pandas UDF is defined using the pandas_udf as a decorator or to wrap the function, and no additional configuration is required. A Pandas UDF behaves as a regular PySpark function API in general.\n```{python}\n@pandas_udf(\"string\")\ndef to_upper(s: pd.Series) -&gt; pd.Series:\n    return s.str.upper()\n\ndf = spark.createDataFrame([(\"John Doe\",)], (\"name\",))\ndf.select(to_upper(\"name\")).show()\n+--------------+\n|to_upper(name)|\n+--------------+\n|      JOHN DOE|\n+--------------+\n```"
+  },
+  {
+    "objectID": "w07/slides.html#another-example",
+    "href": "w07/slides.html#another-example",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Another example",
+    "text": "Another example\n```{python}\n@pandas_udf(\"first string, last string\")\ndef split_expand(s: pd.Series) -&gt; pd.DataFrame:\n    return s.str.split(expand=True)\n\n\ndf = spark.createDataFrame([(\"John Doe\",)], (\"name\",))\ndf.select(split_expand(\"name\")).show()\n+------------------+\n|split_expand(name)|\n+------------------+\n|       [John, Doe]|\n+------------------+\n```\nhttps://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.pandas_udf.html"
+  },
+  {
+    "objectID": "w07/slides.html#scalar-pandas-udfs",
+    "href": "w07/slides.html#scalar-pandas-udfs",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Scalar Pandas UDFs",
+    "text": "Scalar Pandas UDFs\n\nVectorizing scalar operations - one plus one\nPandas UDF needs to have same size input and output series\n\nUDF Form\n```{python}\nfrom pyspark.sql.functions import udf\n\n# Use udf to define a row-at-a-time udf\n@udf('double')\n# Input/output are both a single double value\ndef plus_one(v):\n      return v + 1\n\ndf.withColumn('v2', plus_one(df.v))\n```\nPandas UDF Form - faster vectorized form\n```{python}\nfrom pyspark.sql.functions import pandas_udf, PandasUDFType\n\n# Use pandas_udf to define a Pandas UDF\n@pandas_udf('double', PandasUDFType.SCALAR)\n# Input/output are both a pandas.Series of doubles\n\ndef pandas_plus_one(v):\n    return v + 1\n\ndf.withColumn('v2', pandas_plus_one(df.v))\n```\nsource"
+  },
+  {
+    "objectID": "w07/slides.html#grouped-map-pandas-udfs",
+    "href": "w07/slides.html#grouped-map-pandas-udfs",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Grouped Map Pandas UDFs",
+    "text": "Grouped Map Pandas UDFs\n\nSplit, apply, combine using Pandas syntax\n\n```{python}\n@pandas_udf(df.schema, PandasUDFType.GROUPED_MAP)\n# Input/output are both a pandas.DataFrame\ndef subtract_mean(pdf):\n    return pdf.assign(v=pdf.v - pdf.v.mean())\n\ndf.groupby('id').apply(subtract_mean)\n```"
+  },
+  {
+    "objectID": "w07/slides.html#comparison-of-scalar-and-grouped-map-pandas-udfs",
+    "href": "w07/slides.html#comparison-of-scalar-and-grouped-map-pandas-udfs",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "Comparison of Scalar and Grouped Map Pandas UDFs",
+    "text": "Comparison of Scalar and Grouped Map Pandas UDFs\n\n\n\nInput of the user-defined function:\n\nScalar: pandas.Series\nGrouped map: pandas.DataFrame\n\nOutput of the user-defined function:\n\nScalar: pandas.Series\nGrouped map: pandas.DataFrame\n\nGrouping semantics:\n\nScalar: no grouping semantics\nGrouped map: defined by “groupby” clause\n\nOutput size:\n\nScalar: same as input size\nGrouped map: any size"
+  },
+  {
+    "objectID": "w07/slides.html#references",
+    "href": "w07/slides.html#references",
+    "title": "Week 7: Spark DataFrames and Spark SQL",
+    "section": "References",
+    "text": "References"
   },
   {
     "objectID": "w06/index.html",

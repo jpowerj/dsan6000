@@ -29,7 +29,92 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-ce8148516b1c4df5a70485e5018382a5.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -147,11 +232,351 @@ Amit Arora and Jeff Jacobs
 
   <p class="date">Monday, October 6, 2025</p>
 </section>
-<section class="slide level2">
-
-
+<section>
+<section id="spark-a-unified-engine" class="title-slide slide level1 center" data-stack-name="Spark Connectors">
+<h1>Spark: a Unified Engine</h1>
 
 </section>
+<section id="connected-and-extensible" class="slide level2">
+<h2>Connected and extensible</h2>
+
+<!-- 
+## Caching and Persistence
+
+By default, RDDs are recomputed every time you run an action on them. This can be expensive (in time) if you need to use a dataset more than once.
+
+**Spark allows you to control what is cached in memory.**
+
+To tell spark to cache an object in memory, use `persist()` or `cache()`:
+
+* `cache():` is a shortcut for using default storage level, which is memory only
+* `persist():` can be customized to other ways to persist data (including both memory and/or disk)
+
+```cqnyftrylr
+# caches error RDD in memory, but only after an action is run
+errors = logs.filter(lambda x: "error" in x and "2019-12" in x).cache()
+``` -->
+<img data-src="images/spark-connectors.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="review-of-pysparksql-cheatsheet" class="slide level2">
+<h2>Review of PySparkSQL Cheatsheet</h2>
+<p><a href="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PySpark_SQL_Cheat_Sheet_Python.pdf">https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PySpark_SQL_Cheat_Sheet_Python.pdf</a></p>
+</section>
+<section id="collect-caution" class="slide level2">
+<h2><code>collect</code> <strong>CAUTION</strong></h2>
+<div class="imgcenter">
+<p><img src="images/collect-warning.png"></p>
+</div>
+<!-- ## Review of htop
+
+::: {.imgcenter}
+<img src="spark_udfs/img/htop.jpg">
+::: -->
+<!-- ## htop top section explanation
+
+::: {.imgcenter}
+<img src="spark_udfs/img/htop-top.jpg">
+::: -->
+<!-- ## htop bottom section explanation
+
+::: {.imgcenter}
+<img src="spark_udfs/img/htop-bottom.jpg">
+:::
+
+[https://codeahoy.com/2017/01/20/hhtop-explained-visually/](https://codeahoy.com/2017/01/20/hhtop-explained-visually/) -->
+</section>
+<section id="spark-diagnostic-ui-understanding-how-the-cluster-is-running-your-job" class="slide level2">
+<h2>Spark Diagnostic UI: Understanding how the cluster is running your job</h2>
+<p>Spark Application UI shows important facts about you Spark job:</p>
+<ul>
+<li>Event timeline for each stage of your work</li>
+<li>Directed acyclical graph (DAG) of your job</li>
+<li>Spark job history</li>
+<li>Status of Spark executors</li>
+<li>Physical / logical plans for any SQL queries</li>
+</ul>
+<h4 id="tool-to-confirm-you-are-getting-the-horizontal-scaling-that-you-need">Tool to confirm you are getting the horizontal scaling that you need!</h4>
+<p>Adapted from <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-spark-ui.html">AWS Glue Spark UI docs</a> and <a href="https://spark.apache.org/docs/latest/web-ui.html">Spark UI docs</a></p>
+</section>
+<section id="spark-ui---event-timeline" class="slide level2">
+<h2>Spark UI - Event timeline</h2>
+
+<img data-src="images/spark-ui-timeline.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="spark-ui---dag" class="slide level2">
+<h2>Spark UI - DAG</h2>
+
+<img data-src="images/spark-ui-dag.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="spark-ui---job-history" class="slide level2">
+<h2>Spark UI - Job History</h2>
+
+<img data-src="images/spark-ui-jobhistory.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="spark-ui---executors" class="slide level2">
+<h2>Spark UI - Executors</h2>
+
+<img data-src="images/spark-ui-executors.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="spark-ui---sql" class="slide level2">
+<h2>Spark UI - SQL</h2>
+
+<img data-src="images/spark-ui-sql.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+<section>
+<section id="pyspark-user-defined-functions" class="title-slide slide level1 center">
+<h1>PySpark User Defined Functions</h1>
+
+</section>
+<section id="udf-workflow" class="slide level2">
+<h2>UDF Workflow</h2>
+
+<img data-src="images/spark-udf.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="udf-code-structure" class="slide level2">
+<h2>UDF Code Structure</h2>
+<h3 id="clear-input---a-single-row-of-data-with-one-or-more-columns-used">Clear input - a single row of data with one or more columns used</h3>
+<h3 id="function---some-work-written-in-python-that-process-the-input-using-python-syntax.-no-pyspark-needed">Function - some work written in python that process the input using python syntax. No PySpark needed!</h3>
+<h3 id="clear-output---output-with-a-scoped-data-type">Clear output - output with a scoped data type</h3>
+</section>
+<section id="udf-example" class="slide level2">
+<h2>UDF Example</h2>
+<p>Problem: make a new column with ages for adults-only</p>
+<pre><code>+-------+--------------+
+|room_id|   guests_ages|
++-------+--------------+
+|      1|  [18, 19, 17]|
+|      2|   [25, 27, 5]|
+|      3|[34, 38, 8, 7]|
++-------+--------------+</code></pre>
+<p>Adapted from <a href="https://blog.damavis.com/en/avoiding-udfs-in-apache-spark/">UDFs in Spark</a></p>
+</section>
+<section id="udf-code-solution" class="slide level2">
+<h2>UDF Code Solution</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a><span class="in">```{python}</span></span>
+<span id="cb2-2"><a></a><span class="im">from</span> pyspark.sql.functions <span class="im">import</span> udf, col</span>
+<span id="cb2-3"><a></a></span>
+<span id="cb2-4"><a></a><span class="at">@udf</span>(<span class="st">"array&lt;integer&gt;"</span>)</span>
+<span id="cb2-5"><a></a>   <span class="kw">def</span> filter_adults(elements):</span>
+<span id="cb2-6"><a></a>   <span class="cf">return</span> <span class="bu">list</span>(<span class="bu">filter</span>(<span class="kw">lambda</span> x: x <span class="op">&gt;=</span> <span class="dv">18</span>, elements))</span>
+<span id="cb2-7"><a></a></span>
+<span id="cb2-8"><a></a><span class="co"># alternatively</span></span>
+<span id="cb2-9"><a></a><span class="im">from</span> pyspark.sql.types IntegerType, ArrayType</span>
+<span id="cb2-10"><a></a><span class="at">@udf</span>(returnType<span class="op">=</span>ArrayType(IntegerType()))</span>
+<span id="cb2-11"><a></a><span class="kw">def</span> filter_adults(elements):</span>
+<span id="cb2-12"><a></a>   <span class="cf">return</span> <span class="bu">list</span>(<span class="bu">filter</span>(<span class="kw">lambda</span> x: x <span class="op">&gt;=</span> <span class="dv">18</span>, elements))</span>
+<span id="cb2-13"><a></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>+-------+----------------+------------+
+|room_id| guests_ages    | adults_ages|
++-------+----------------+------------+
+| 1     | [18, 19, 17]   |    [18, 19]|
+| 2     | [25, 27, 5]    |    [25, 27]|
+| 3     | [34, 38, 8, 7] |    [34, 38]|
+| 4     |[56, 49, 18, 17]|[56, 49, 18]|
++-------+----------------+------------+</code></pre>
+</section>
+<section id="alternative-to-spark-udf" class="slide level2">
+<h2>Alternative to Spark UDF</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a></a><span class="in">```{python}</span></span>
+<span id="cb4-2"><a></a><span class="co"># Spark 3.1</span></span>
+<span id="cb4-3"><a></a><span class="im">from</span> pyspark.sql.functions <span class="im">import</span> col, <span class="bu">filter</span>, lit</span>
+<span id="cb4-4"><a></a></span>
+<span id="cb4-5"><a></a>df.withColumn(<span class="st">'adults_ages'</span>,</span>
+<span id="cb4-6"><a></a>              <span class="bu">filter</span>(col(<span class="st">'guests_ages'</span>), <span class="kw">lambda</span> x: x <span class="op">&gt;=</span> lit(<span class="dv">18</span>))).show()</span>
+<span id="cb4-7"><a></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="another-udf-example" class="slide level2">
+<h2>Another UDF Example</h2>
+<ul>
+<li>Separate function definition form</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a></a><span class="in">```{python}</span></span>
+<span id="cb5-2"><a></a><span class="im">from</span> pyspark.sql.functions <span class="im">import</span> udf</span>
+<span id="cb5-3"><a></a><span class="im">from</span> pyspark.sql.types <span class="im">import</span> LongType</span>
+<span id="cb5-4"><a></a></span>
+<span id="cb5-5"><a></a><span class="co"># define the function that can be tested locally</span></span>
+<span id="cb5-6"><a></a><span class="kw">def</span> squared(s):</span>
+<span id="cb5-7"><a></a>  <span class="cf">return</span> s <span class="op">*</span> s</span>
+<span id="cb5-8"><a></a></span>
+<span id="cb5-9"><a></a><span class="co"># wrap the function in udf for spark and define the output type</span></span>
+<span id="cb5-10"><a></a>squared_udf <span class="op">=</span> udf(squared, LongType())</span>
+<span id="cb5-11"><a></a></span>
+<span id="cb5-12"><a></a><span class="co"># execute the udf</span></span>
+<span id="cb5-13"><a></a>df <span class="op">=</span> spark.table(<span class="st">"test"</span>)</span>
+<span id="cb5-14"><a></a>display(df.select(<span class="st">"id"</span>, squared_udf(<span class="st">"id"</span>).alias(<span class="st">"id_squared"</span>)))</span>
+<span id="cb5-15"><a></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Single function definition form</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a></a><span class="in">```{python}</span></span>
+<span id="cb6-2"><a></a><span class="im">from</span> pyspark.sql.functions <span class="im">import</span> udf</span>
+<span id="cb6-3"><a></a><span class="at">@udf</span>(<span class="st">"long"</span>)</span>
+<span id="cb6-4"><a></a><span class="kw">def</span> squared_udf(s):</span>
+<span id="cb6-5"><a></a>  <span class="cf">return</span> s <span class="op">*</span> s</span>
+<span id="cb6-6"><a></a>df <span class="op">=</span> spark.table(<span class="st">"test"</span>)</span>
+<span id="cb6-7"><a></a>display(df.select(<span class="st">"id"</span>, squared_udf(<span class="st">"id"</span>).alias(<span class="st">"id_squared"</span>)))</span>
+<span id="cb6-8"><a></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="can-also-refer-to-a-udf-in-sql" class="slide level2">
+<h2>Can also refer to a UDF in SQL</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a></a><span class="in">```{sql}</span></span>
+<span id="cb7-2"><a></a>spark<span class="ch">.</span>udf<span class="ch">.</span>register(<span class="st">"squaredWithPython"</span>, squared)</span>
+<span id="cb7-3"><a></a><span class="kw">select</span> id, squaredWithPython(id) <span class="kw">as</span> id_squared <span class="kw">from</span> test</span>
+<span id="cb7-4"><a></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Consider all the corner cases</li>
+<li>Where could the data be null or an unexpected value</li>
+<li>Leverage python control structure to handle corner cases</li>
+</ul>
+<p><a href="https://docs.databricks.com/en/udf/python.html">source</a></p>
+</section>
+<section id="udf-speed-comparison" class="slide level2">
+<h2>UDF Speed Comparison</h2>
+<div class="columns">
+<div class="column" style="width:53%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/spark-udf-speed.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:45%;">
+<p>Costs:</p>
+<ul>
+<li>Serialization/deserialization (think pickle files)</li>
+<li>Data movement between JVM and Python</li>
+<li>Less Spark optimization possible</li>
+</ul>
+<p>Other ways to make your Spark jobs faster <a href="https://sparkbyexamples.com/spark/spark-performance-tuning/">source</a>:</p>
+<ul>
+<li>Cache/persist your data into memory</li>
+<li>Using Spark DataFrames over Spark RDDs</li>
+<li>Using Spark SQL functions before jumping into UDFs</li>
+<li>Save to serialized data formats like Parquet</li>
+</ul>
+</div></div>
+</section>
+<section id="pandas-udf" class="slide level2">
+<h2>Pandas UDF</h2>
+<p>From PySpark docs - Pandas UDFs are user defined functions that are executed by Spark using Arrow to transfer data and Pandas to work with the data, which allows vectorized operations. A Pandas UDF is defined using the pandas_udf as a decorator or to wrap the function, and no additional configuration is required. A Pandas UDF behaves as a regular PySpark function API in general.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a></a><span class="in">```{python}</span></span>
+<span id="cb8-2"><a></a><span class="at">@pandas_udf</span>(<span class="st">"string"</span>)</span>
+<span id="cb8-3"><a></a><span class="kw">def</span> to_upper(s: pd.Series) <span class="op">-&gt;</span> pd.Series:</span>
+<span id="cb8-4"><a></a>    <span class="cf">return</span> s.<span class="bu">str</span>.upper()</span>
+<span id="cb8-5"><a></a></span>
+<span id="cb8-6"><a></a>df <span class="op">=</span> spark.createDataFrame([(<span class="st">"John Doe"</span>,)], (<span class="st">"name"</span>,))</span>
+<span id="cb8-7"><a></a>df.select(to_upper(<span class="st">"name"</span>)).show()</span>
+<span id="cb8-8"><a></a><span class="op">+--------------+</span></span>
+<span id="cb8-9"><a></a><span class="op">|</span>to_upper(name)<span class="op">|</span></span>
+<span id="cb8-10"><a></a><span class="op">+--------------+</span></span>
+<span id="cb8-11"><a></a><span class="op">|</span>      JOHN DOE<span class="op">|</span></span>
+<span id="cb8-12"><a></a><span class="op">+--------------+</span></span>
+<span id="cb8-13"><a></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="another-example" class="slide level2">
+<h2>Another example</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a></a><span class="in">```{python}</span></span>
+<span id="cb9-2"><a></a><span class="at">@pandas_udf</span>(<span class="st">"first string, last string"</span>)</span>
+<span id="cb9-3"><a></a><span class="kw">def</span> split_expand(s: pd.Series) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb9-4"><a></a>    <span class="cf">return</span> s.<span class="bu">str</span>.split(expand<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-5"><a></a></span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a>df <span class="op">=</span> spark.createDataFrame([(<span class="st">"John Doe"</span>,)], (<span class="st">"name"</span>,))</span>
+<span id="cb9-8"><a></a>df.select(split_expand(<span class="st">"name"</span>)).show()</span>
+<span id="cb9-9"><a></a><span class="op">+------------------+</span></span>
+<span id="cb9-10"><a></a><span class="op">|</span>split_expand(name)<span class="op">|</span></span>
+<span id="cb9-11"><a></a><span class="op">+------------------+</span></span>
+<span id="cb9-12"><a></a><span class="op">|</span>       [John, Doe]<span class="op">|</span></span>
+<span id="cb9-13"><a></a><span class="op">+------------------+</span></span>
+<span id="cb9-14"><a></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.pandas_udf.html">https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.pandas_udf.html</a></p>
+</section>
+<section id="scalar-pandas-udfs" class="slide level2">
+<h2>Scalar Pandas UDFs</h2>
+<ul>
+<li>Vectorizing scalar operations - one plus one</li>
+<li>Pandas UDF needs to have same size input and output series</li>
+</ul>
+<h4 id="udf-form">UDF Form</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a></a><span class="in">```{python}</span></span>
+<span id="cb10-2"><a></a><span class="im">from</span> pyspark.sql.functions <span class="im">import</span> udf</span>
+<span id="cb10-3"><a></a></span>
+<span id="cb10-4"><a></a><span class="co"># Use udf to define a row-at-a-time udf</span></span>
+<span id="cb10-5"><a></a><span class="at">@udf</span>(<span class="st">'double'</span>)</span>
+<span id="cb10-6"><a></a><span class="co"># Input/output are both a single double value</span></span>
+<span id="cb10-7"><a></a><span class="kw">def</span> plus_one(v):</span>
+<span id="cb10-8"><a></a>      <span class="cf">return</span> v <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb10-9"><a></a></span>
+<span id="cb10-10"><a></a>df.withColumn(<span class="st">'v2'</span>, plus_one(df.v))</span>
+<span id="cb10-11"><a></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h4 id="pandas-udf-form---faster-vectorized-form">Pandas UDF Form - <strong>faster vectorized form</strong></h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a></a><span class="in">```{python}</span></span>
+<span id="cb11-2"><a></a><span class="im">from</span> pyspark.sql.functions <span class="im">import</span> pandas_udf, PandasUDFType</span>
+<span id="cb11-3"><a></a></span>
+<span id="cb11-4"><a></a><span class="co"># Use pandas_udf to define a Pandas UDF</span></span>
+<span id="cb11-5"><a></a><span class="at">@pandas_udf</span>(<span class="st">'double'</span>, PandasUDFType.SCALAR)</span>
+<span id="cb11-6"><a></a><span class="co"># Input/output are both a pandas.Series of doubles</span></span>
+<span id="cb11-7"><a></a></span>
+<span id="cb11-8"><a></a><span class="kw">def</span> pandas_plus_one(v):</span>
+<span id="cb11-9"><a></a>    <span class="cf">return</span> v <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb11-10"><a></a></span>
+<span id="cb11-11"><a></a>df.withColumn(<span class="st">'v2'</span>, pandas_plus_one(df.v))</span>
+<span id="cb11-12"><a></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><a href="https://www.databricks.com/blog/2017/10/30/introducing-vectorized-udfs-for-pyspark.html">source</a></p>
+</section>
+<section id="grouped-map-pandas-udfs" class="slide level2">
+<h2>Grouped Map Pandas UDFs</h2>
+<ul>
+<li>Split, apply, combine using Pandas syntax</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a></a><span class="in">```{python}</span></span>
+<span id="cb12-2"><a></a><span class="at">@pandas_udf</span>(df.schema, PandasUDFType.GROUPED_MAP)</span>
+<span id="cb12-3"><a></a><span class="co"># Input/output are both a pandas.DataFrame</span></span>
+<span id="cb12-4"><a></a><span class="kw">def</span> subtract_mean(pdf):</span>
+<span id="cb12-5"><a></a>    <span class="cf">return</span> pdf.assign(v<span class="op">=</span>pdf.v <span class="op">-</span> pdf.v.mean())</span>
+<span id="cb12-6"><a></a></span>
+<span id="cb12-7"><a></a>df.groupby(<span class="st">'id'</span>).<span class="bu">apply</span>(subtract_mean)</span>
+<span id="cb12-8"><a></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="comparison-of-scalar-and-grouped-map-pandas-udfs" class="slide level2">
+<h2>Comparison of Scalar and Grouped Map Pandas UDFs</h2>
+<div class="columns">
+<div class="column" style="width:53%;">
+<ul>
+<li><p>Input of the user-defined function:</p>
+<ul>
+<li>Scalar: pandas.Series</li>
+<li>Grouped map: pandas.DataFrame</li>
+</ul></li>
+<li><p>Output of the user-defined function:</p>
+<ul>
+<li>Scalar: pandas.Series</li>
+<li>Grouped map: pandas.DataFrame</li>
+</ul></li>
+<li><p>Grouping semantics:</p>
+<ul>
+<li>Scalar: no grouping semantics</li>
+<li>Grouped map: defined by “groupby” clause</li>
+</ul></li>
+<li><p>Output size:</p>
+<ul>
+<li>Scalar: same as input size</li>
+<li>Grouped map: any size</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/pandas-udf-comparison.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="lab-time" class="title-slide slide level1 center" data-stack-name="Lab">
+<h1>Lab Time!</h1>
+
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div id="refs" role="list">
+
+</div>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -52,7 +52,7 @@ format:
 The content for today is **split** between the following **two resources**:
 
 <center class='mb-3'>
-<a class="h2" href="https://gu-dsan.github.io/6000-fall-2025/slides/06-slides.html" target="_blank">Open *Spark* Slides from Main Site <i class='bi bi-box-arrow-up-right'></i></a>
+<a class="h2" href="https://gu-dsan.github.io/6000-fall-2025/slides/06-slides.html" target="_blank">Open *Spark* Slides from Main Site</a>
 </center>
 
 <center class='mb-3'>
