@@ -23,6 +23,7 @@ format:
 * [Week 4 DuckDB Demo (Colab)](https://colab.research.google.com/drive/1tPlayCjCJqS4D1TKXwtx93knBZhWxqOy?usp=sharing)
 * Week 6 Hadoop Demo (Deepnote): [Map-Reduced Matrix-Vector Multiplication](https://deepnote.com/workspace/Columbia-University-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-41367b13-4253-47c8-8ffe-0544456d6070/notebook/DSAN5500HW5-8b90a6af23d34d239b7da0111228614d?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=41367b13-4253-47c8-8ffe-0544456d6070)
 * Week 6 Hadoop &rarr; PySpark Demo (Deepnote): [Tennis Analytics with Hadoop and PySpark RDDs](https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/PySpark-Demo-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/PySparkTennis-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d)
+<!-- * [Week 7 M&M Counts Starter Code (Databricks Free Edition)](https://dbc-7c96f2b7-b70a.cloud.databricks.com/editor/notebooks/1614884783289922?o=3732734799398494) -->
 * [Week 7 PySpark DataFrames Demo (Colab)](https://colab.research.google.com/drive/17xglntdFVtGpgJRt_Y3fDELYt4Lycf96?usp=sharing)
   * (Adapted from [Jacob Celestine's PySpark on Colab demo](https://jacobcelestine.com/knowledge_repo/colab_and_pyspark/))
 
@@ -43,7 +44,7 @@ Access the [ZIP files here](https://jpj.georgetown.domains/dsan6000-zips/)
 
 ### Week 3: Parallel Concepts
 
-* **The Wolohan MapReduce Book**: @wolohan_mastering_2020, *Mastering Large Datasets with Python*
+* **The Wolohan MapReduce Book**: @wolohan_mastering_2020, *Mastering Large Datasets with Python*, Chapters 1-6
 
 ### Week 4: DuckDB, Polars, File Formats
 
@@ -58,6 +59,10 @@ Two Packt Books:
 * **Data Engineering with Athena**: @virtuoso_serverless_2021, *Serverless Analytics with Amazon Athena*
 
 ### Weeks 6 and 7: Hadoop &rarr; PySpark
+
+* * **The Wolohan MapReduce Book**: @wolohan_mastering_2020, *Mastering Large Datasets with Python*, Chapters 7-10
+
+### Weeks 8 and 9: Spark in Depth
 
 * **The Electric Eel Book**: @damji_learning_2020, *Learning Spark*
 

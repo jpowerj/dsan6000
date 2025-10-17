@@ -491,7 +491,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2025-10-09, 06:16:11 PM</em></p>
+<p><em>Updated 2025-10-17, 05:05:46 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -510,6 +510,7 @@ window.Quarto = {
   <li><a href="#week-4-duckdb-polars-file-formats" id="toc-week-4-duckdb-polars-file-formats" class="nav-link" data-scroll-target="#week-4-duckdb-polars-file-formats">Week 4: DuckDB, Polars, File Formats</a></li>
   <li><a href="#week-5-data-warehousing" id="toc-week-5-data-warehousing" class="nav-link" data-scroll-target="#week-5-data-warehousing">Week 5: Data Warehousing</a></li>
   <li><a href="#weeks-6-and-7-hadoop-pyspark" id="toc-weeks-6-and-7-hadoop-pyspark" class="nav-link" data-scroll-target="#weeks-6-and-7-hadoop-pyspark">Weeks 6 and 7: Hadoop → PySpark</a></li>
+  <li><a href="#weeks-8-and-9-spark-in-depth" id="toc-weeks-8-and-9-spark-in-depth" class="nav-link" data-scroll-target="#weeks-8-and-9-spark-in-depth">Weeks 8 and 9: Spark in Depth</a></li>
   </ul></li>
   <li><a href="#pdfs-of-books" id="toc-pdfs-of-books" class="nav-link" data-scroll-target="#pdfs-of-books">PDFs of Books</a></li>
   </ul>
@@ -544,7 +545,7 @@ window.Quarto = {
 <li><a href="https://colab.research.google.com/drive/1tS3nM7FJAqthDqdeXmqgxiOYMcRrFTZq?usp=sharing">Week 4 Polars Demo (Colab)</a></li>
 <li><a href="https://colab.research.google.com/drive/1tPlayCjCJqS4D1TKXwtx93knBZhWxqOy?usp=sharing">Week 4 DuckDB Demo (Colab)</a></li>
 <li>Week 6 Hadoop Demo (Deepnote): <a href="https://deepnote.com/workspace/Columbia-University-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-41367b13-4253-47c8-8ffe-0544456d6070/notebook/DSAN5500HW5-8b90a6af23d34d239b7da0111228614d?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=41367b13-4253-47c8-8ffe-0544456d6070">Map-Reduced Matrix-Vector Multiplication</a></li>
-<li>Week 6 Hadoop → PySpark Demo (Deepnote): <a href="https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/PySpark-Demo-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/PySparkTennis-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d">Tennis Analytics with Hadoop and PySpark RDDs</a></li>
+<li>Week 6 Hadoop → PySpark Demo (Deepnote): <a href="https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/PySpark-Demo-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/PySparkTennis-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d">Tennis Analytics with Hadoop and PySpark RDDs</a> <!-- * [Week 7 M&M Counts Starter Code (Databricks Free Edition)](https://dbc-7c96f2b7-b70a.cloud.databricks.com/editor/notebooks/1614884783289922?o=3732734799398494) --></li>
 <li><a href="https://colab.research.google.com/drive/17xglntdFVtGpgJRt_Y3fDELYt4Lycf96?usp=sharing">Week 7 PySpark DataFrames Demo (Colab)</a>
 <ul>
 <li>(Adapted from <a href="https://jacobcelestine.com/knowledge_repo/colab_and_pyspark/">Jacob Celestine’s PySpark on Colab demo</a>)</li>
@@ -582,7 +583,7 @@ Sep 20, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="RXh0cmElMjBXcml0ZXVwcw==" data-listing-date-sort="1759982400000" data-listing-file-modified-sort="1760048064989" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="420">
+<div class="g-col-1" data-index="1" data-categories="RXh0cmElMjBXcml0ZXVwcw==" data-listing-date-sort="1759982400000" data-listing-file-modified-sort="1760050649374" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="420">
 <a href="./writeups/manual-spark-cluster/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-body post-contents">
@@ -617,7 +618,7 @@ Oct 9, 2025
 <section id="week-3-parallel-concepts" class="level3">
 <h3 class="anchored" data-anchor-id="week-3-parallel-concepts">Week 3: Parallel Concepts</h3>
 <ul>
-<li><strong>The Wolohan MapReduce Book</strong>: <span class="citation" data-cites="wolohan_mastering_2020">Wolohan (<a href="#ref-wolohan_mastering_2020" role="doc-biblioref">2020</a>)</span>, <em>Mastering Large Datasets with Python</em></li>
+<li><strong>The Wolohan MapReduce Book</strong>: <span class="citation" data-cites="wolohan_mastering_2020">Wolohan (<a href="#ref-wolohan_mastering_2020" role="doc-biblioref">2020</a>)</span>, <em>Mastering Large Datasets with Python</em>, Chapters 1-6</li>
 </ul>
 </section>
 <section id="week-4-duckdb-polars-file-formats" class="level3">
@@ -637,6 +638,14 @@ Oct 9, 2025
 </section>
 <section id="weeks-6-and-7-hadoop-pyspark" class="level3">
 <h3 class="anchored" data-anchor-id="weeks-6-and-7-hadoop-pyspark">Weeks 6 and 7: Hadoop → PySpark</h3>
+<ul>
+<li><ul>
+<li><strong>The Wolohan MapReduce Book</strong>: <span class="citation" data-cites="wolohan_mastering_2020">Wolohan (<a href="#ref-wolohan_mastering_2020" role="doc-biblioref">2020</a>)</span>, <em>Mastering Large Datasets with Python</em>, Chapters 7-10</li>
+</ul></li>
+</ul>
+</section>
+<section id="weeks-8-and-9-spark-in-depth" class="level3">
+<h3 class="anchored" data-anchor-id="weeks-8-and-9-spark-in-depth">Weeks 8 and 9: Spark in Depth</h3>
 <ul>
 <li><strong>The Electric Eel Book</strong>: <span class="citation" data-cites="damji_learning_2020">Damji et al. (<a href="#ref-damji_learning_2020" role="doc-biblioref">2020</a>)</span>, <em>Learning Spark</em></li>
 </ul>
