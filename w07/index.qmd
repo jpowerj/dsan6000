@@ -36,6 +36,14 @@ format:
     df-print: kable
 ---
 
+::: {.content-visible unless-format="revealjs"}
+
+<center class='mb-3'>
+<a class="h2" href="./slides.html" target="_blank">Open slides in new tab &rarr;</a>
+</center>
+
+:::
+
 # Spark: a Unified Engine {data-stack-name="Spark Connectors"}
 
 ## Connected and extensible

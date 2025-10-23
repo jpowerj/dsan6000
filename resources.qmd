@@ -26,7 +26,7 @@ format:
 <!-- * [Week 7 M&M Counts Starter Code (Databricks Free Edition)](https://dbc-7c96f2b7-b70a.cloud.databricks.com/editor/notebooks/1614884783289922?o=3732734799398494) -->
 * [Week 7 PySpark DataFrames Demo (Colab)](https://colab.research.google.com/drive/17xglntdFVtGpgJRt_Y3fDELYt4Lycf96?usp=sharing)
   * (Adapted from [Jacob Celestine's PySpark on Colab demo](https://jacobcelestine.com/knowledge_repo/colab_and_pyspark/))
-* [Week 8 SparkNLP Demo](https://classroom.github.com/a/f4T20SVq)
+* [Week 8 SparkNLP Demo](https://colab.research.google.com/drive/1pTHqKyU0_-1-ylJgF2gG8KJQr24QKx0G?usp=sharing)
 
 ## Lab .zips
 
