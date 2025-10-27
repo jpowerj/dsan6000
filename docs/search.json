@@ -4,7 +4,7 @@
     "href": "resources.html",
     "title": "Resource Hub",
     "section": "",
-    "text": "Week 4 Polars Demo (Colab)\nWeek 4 DuckDB Demo (Colab)\nWeek 6 Hadoop Demo (Deepnote): Map-Reduced Matrix-Vector Multiplication\nWeek 6 Hadoop → PySpark Demo (Deepnote): Tennis Analytics with Hadoop and PySpark RDDs \nWeek 7 PySpark DataFrames Demo (Colab)\n\n(Adapted from Jacob Celestine’s PySpark on Colab demo)\n\nWeek 8 SparkNLP Demo",
+    "text": "Week 4 Polars Demo (Colab)\nWeek 4 DuckDB Demo (Colab)\nWeek 6 Hadoop Demo (Deepnote): Map-Reduced Matrix-Vector Multiplication\nWeek 6 Hadoop → PySpark Demo (Deepnote): Tennis Analytics with Hadoop and PySpark RDDs \nWeek 7 PySpark DataFrames Demo (Colab)\n\n(Adapted from Jacob Celestine’s PySpark on Colab demo)\n\nWeek 8 SparkNLP Demo\nWeek 9 Spark ML Demo",
     "crumbs": [
       "Resources"
     ]
@@ -14,7 +14,7 @@
     "href": "resources.html#in-class-demos",
     "title": "Resource Hub",
     "section": "",
-    "text": "Week 4 Polars Demo (Colab)\nWeek 4 DuckDB Demo (Colab)\nWeek 6 Hadoop Demo (Deepnote): Map-Reduced Matrix-Vector Multiplication\nWeek 6 Hadoop → PySpark Demo (Deepnote): Tennis Analytics with Hadoop and PySpark RDDs \nWeek 7 PySpark DataFrames Demo (Colab)\n\n(Adapted from Jacob Celestine’s PySpark on Colab demo)\n\nWeek 8 SparkNLP Demo",
+    "text": "Week 4 Polars Demo (Colab)\nWeek 4 DuckDB Demo (Colab)\nWeek 6 Hadoop Demo (Deepnote): Map-Reduced Matrix-Vector Multiplication\nWeek 6 Hadoop → PySpark Demo (Deepnote): Tennis Analytics with Hadoop and PySpark RDDs \nWeek 7 PySpark DataFrames Demo (Colab)\n\n(Adapted from Jacob Celestine’s PySpark on Colab demo)\n\nWeek 8 SparkNLP Demo\nWeek 9 Spark ML Demo",
     "crumbs": [
       "Resources"
     ]
