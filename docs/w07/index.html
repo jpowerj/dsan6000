@@ -466,7 +466,7 @@ div.csl-indent {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2025-10-20, 03:44:58 PM</em></p>
+<p><em>Updated 2025-10-30, 06:21:48 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -561,6 +561,9 @@ div.csl-indent {
 </header>
 
 
+<center class="mb-3">
+<a class="h2" href="./slides.html" target="_blank">Open slides in new tab →</a>
+</center>
 <section id="spark-a-unified-engine" class="level1" data-stack-name="Spark Connectors">
 <h1 data-stack-name="Spark Connectors">Spark: a Unified Engine</h1>
 <section id="connected-and-extensible" class="level2">
@@ -582,7 +585,7 @@ To tell spark to cache an object in memory, use `persist()` or `cache()`:
 * `cache():` is a shortcut for using default storage level, which is memory only
 * `persist():` can be customized to other ways to persist data (including both memory and/or disk)
 
-```acfrxtvrto
+```tecafdzexv
 # caches error RDD in memory, but only after an action is run
 errors = logs.filter(lambda x: "error" in x and "2019-12" in x).cache()
 ``` -->
