@@ -1417,7 +1417,7 @@
     "href": "index.html",
     "title": "DSAN 6000 Sections 01 and 02",
     "section": "",
-    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\nThis webpage just serves as a hub collecting Jeff’s slides for DSAN 6000: Big Data and Cloud Computing, Fall 2025 at Georgetown University. It is not a replacement for the main course webpage!\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 28\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 2\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 8\n\n\n\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\n\nSep 15\n\n\n\n\n\n\nWeek 5: Data Engineering\n\n\nSep 22\n\n\n\n\n\n\nWeek 6: Introduction to Spark\n\n\nSep 29\n\n\n\n\n\n\nWeek 7: Spark DataFrames and Spark SQL\n\n\nOct 6\n\n\n\n\n\n\nWeek 8: Spark ML and Streaming\n\n\nOct 20\n\n\n\n\n\n\nWeek 9: Apache Iceberg, Table Formats\n\n\nOct 27\n\n\n\n\n\n\nWeek 10: Data Pipeline Orchestration with Airflow\n\n\nNov 3\n\n\n\n\n\n\nWeek 11: Vector Databases, RAG\n\n\nNov 10\n\n\n\n\n\n\nWeek 12: Modern Data Stack, Governance\n\n\nNov 17\n\n\n\n\n\n\nWeek 13: Serverless and Container Orchestration\n\n\nNov 24\n\n\n\n\n\n\nWeek 14: Final Topics, Review\n\n\nDec 1\n\n\n\n\n\n\nWeek 15: Final Project Presentations\n\n\nDec 8\n\n\n\n\n\n\nNo matching items"
+    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\nThis webpage just serves as a hub collecting Jeff’s slides for DSAN 6000: Big Data and Cloud Computing, Fall 2025 at Georgetown University. It is not a replacement for the main course webpage!\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 28\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 2\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 8\n\n\n\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\n\nSep 15\n\n\n\n\n\n\nWeek 5: Data Engineering\n\n\nSep 22\n\n\n\n\n\n\nWeek 6: Introduction to Spark\n\n\nSep 29\n\n\n\n\n\n\nWeek 7: Spark DataFrames and Spark SQL\n\n\nOct 6\n\n\n\n\n\n\nWeek 8: Spark ML and Streaming\n\n\nOct 20\n\n\n\n\n\n\nWeek 9: Apache Iceberg, Table Formats\n\n\nOct 27\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Airflow\n\n\nNov 3\n\n\n\n\n\n\nWeek 11: Vector Databases, RAG\n\n\nNov 10\n\n\n\n\n\n\nWeek 12: Modern Data Stack, Governance\n\n\nNov 17\n\n\n\n\n\n\nWeek 13: Serverless and Container Orchestration\n\n\nNov 24\n\n\n\n\n\n\nWeek 14: Final Topics, Review\n\n\nDec 1\n\n\n\n\n\n\nWeek 15: Final Project Presentations\n\n\nDec 8\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "writeups/manual-spark-cluster/index.html",
@@ -1923,7 +1923,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9936 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.3530 s"
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9799 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1830 s"
   },
   {
     "objectID": "w03/slides.html#what-happens-when-not-embarrassingly-parallel",
@@ -2144,7 +2144,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9692 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.4205 s",
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9834 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.2736 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 8</span>"
     ]
@@ -3610,7 +3610,7 @@
     "href": "writeups/sql-guide/index.html#onto-duckdb",
     "title": "From Pandas to SQL",
     "section": "Onto DuckDB!",
-    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││        Total Time: 0.0002s        ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\n┌───────────────────────────┐\n│      RESULT_COLLECTOR     │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│           FILTER          │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 1           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│        PANDAS_SCAN        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 7           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             7             │\n│          (0.00s)          │\n└───────────────────────────┘                             \n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
+    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││        Total Time: 0.0003s        ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\n┌───────────────────────────┐\n│      RESULT_COLLECTOR     │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│           FILTER          │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 1           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│        PANDAS_SCAN        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 7           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             7             │\n│          (0.00s)          │\n└───────────────────────────┘                             \n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
   },
   {
     "objectID": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",
@@ -3618,6 +3618,186 @@
     "title": "From Pandas to SQL",
     "section": "Basic Pandas Operations in SQL",
     "text": "Basic Pandas Operations in SQL\nWith all that in mind, you can now move towards thinking through how you can carry out the above sequence of “translations” – from Pandas to Polars to DuckDB – for other common Pandas tasks you’re used to from e.g. DSAN 5000!\nTo nudge you in that direction, in this section we’ll conclude with a few examples of common Pandas pipelines and how they translate to SQL code.\n\nFiltering Rows\nThis is probably the most straightforward operation in SQL world, since SQL provides us with the WHERE operator which we can pair with a boolean condition to filter the rows of our DataFrame.\nSo, for example, if we wanted to select one specific row in our DataFrame on the basis of some value, we can do this using the general syntax SELECT * FROM df WHERE condition. The following code uses this syntax to select just the row containing data for Thursday:\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day = 'Friday'\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nFriday\n4.556042\n6.341836\n\n\n\n\n\n\n\nNotice how, since SQL is a “declarative” language, it avoids the confusion which comes up in Python between the single-equals-sign assignment operator = and the double-equals-sign equality operator ==. In SQL, you can actually use either of these in a boolean operator to indicate that you’d like to check for equality, though the single-equals-sign = used above is more common:\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day == 'Friday'\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nFriday\n4.556042\n6.341836\n\n\n\n\n\n\n\nYou may have noticed, however, that we didn’t use this = operator when filtering out weekend days above. Instead, we used the IN operator, along with the NOT operator for negation. The IN operator on its own works like:\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day IN ('Monday','Wednesday','Friday')\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n\n\n1\nWednesday\n5.393727\n6.011502\n\n\n2\nFriday\n4.556042\n6.341836\n\n\n\n\n\n\n\nAnd then we can use the NOT operator to obtain the exact opposite (the days which are not among the three listed days in the query):\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day NOT IN ('Monday','Wednesday','Friday')\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nTuesday\n7.912447\n8.747633\n\n\n1\nThursday\n4.347202\n7.318025\n\n\n2\nSaturday\n4.552443\n7.279092\n\n\n3\nSunday\n6.606959\n6.652768\n\n\n\n\n\n\n\n\n\nSelecting Columns\nNotice how, up until now, we’ve been using SELECT * at the beginning of our queries. That’s because our goal was to view the entire contents of the DataFrame, just with certain rows selected and others filtered out.\nIf we instead want to select certain columns, we can just replace the wildcard symbol * that we placed after SELECT with a specific list of columns:\n\n\nCode\ncon.execute(\"\"\"\nSELECT day, work_hrs FROM sleep_df\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nwork_hrs\n\n\n\n\n0\nMonday\n7.418997\n\n\n1\nTuesday\n8.747633\n\n\n2\nWednesday\n6.011502\n\n\n3\nThursday\n7.318025\n\n\n4\nFriday\n6.341836\n\n\n5\nSaturday\n7.279092\n\n\n6\nSunday\n6.652768\n\n\n\n\n\n\n\nImportantly, we can also match regular expression patterns in the names of columns, by using SELECT COLUMNS() rather than just SELECT. Here, for example, we use it to select all of the columns whose names end with hrs:\n\n\nCode\ncon.execute(\"\"\"\nSELECT COLUMNS('.+_hrs') FROM sleep_df\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nsleep_hrs\nwork_hrs\n\n\n\n\n0\n6.089095\n7.418997\n\n\n1\n7.912447\n8.747633\n\n\n2\n5.393727\n6.011502\n\n\n3\n4.347202\n7.318025\n\n\n4\n4.556042\n6.341836\n\n\n5\n4.552443\n7.279092\n\n\n6\n6.606959\n6.652768\n\n\n\n\n\n\n\nNote that this COLUMNS() syntax is specific to DuckDB’s “flavor” of SQL, and not standard in other implementations of SQL.\n\n\nDefining New Columns\nFinally, you may have noticed that the SELECT operator is basically doing double duty: not only did we use it in the previous section to request the three original columns in sleep_df (day, sleep_hrs, and work_hrs), but also to define a new column named ratio, by dividing work_hrs by sleep_hrs.\nThis is a general feature of SQL, and DuckDB (and the select() function in Polars)! We can SELECT the columns “as-is” by just including their names, or we can define new columns within the select statement. For example, if we wanted the squared values of our two numeric columns for some reason, we could do the following:\n\n\nCode\ncon.execute(\"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  sleep_hrs^2 AS sleep_squared,\n  work_hrs,\n  work_hrs^2 AS work_squared\nFROM sleep_df\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nsleep_squared\nwork_hrs\nwork_squared\n\n\n\n\n0\nMonday\n6.089095\n37.077083\n7.418997\n55.041509\n\n\n1\nTuesday\n7.912447\n62.606823\n8.747633\n76.521076\n\n\n2\nWednesday\n5.393727\n29.092288\n6.011502\n36.138152\n\n\n3\nThursday\n4.347202\n18.898161\n7.318025\n53.553486\n\n\n4\nFriday\n4.556042\n20.757516\n6.341836\n40.218888\n\n\n5\nSaturday\n4.552443\n20.724741\n7.279092\n52.985182\n\n\n6\nSunday\n6.606959\n43.651905\n6.652768\n44.259327\n\n\n\n\n\n\n\n\n\nCombining Operations\nTo bring everything together, let’s see how we can combine the above three tasks into a single query!\n\n\nCode\ncon.execute(\"\"\"\nSELECT\n  day,\n  work_hrs,\n  work_hrs^2 AS work_squared\nFROM sleep_df\nWHERE day = 'Tuesday'\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nwork_hrs\nwork_squared\n\n\n\n\n0\nTuesday\n8.747633\n76.521076"
+  },
+  {
+    "objectID": "w10/index.html",
+    "href": "w10/index.html",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "",
+    "text": "…HEY! WAKE UP! NEW DATA JUST CAME IN!\n\n\n\n\n\n\n\n\n\n\nYou before this week:\n\n\nSprint to your .ipynb and/or Spark cluster\nLoad, clean, process new data, manually, step-by-step\nEmail update to boss\n\n\n\n\n\n\n\n\n\n\nYou after this week:\n\n\nAsset-aware pipeline automatically triggered\nAirflow orchestrates loading, cleaning, processing\nEmailOperator sends update",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#pipelines-for-triggered-execution",
+    "href": "w10/index.html#pipelines-for-triggered-execution",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "",
+    "text": "…HEY! WAKE UP! NEW DATA JUST CAME IN!\n\n\n\n\n\n\n\n\n\n\nYou before this week:\n\n\nSprint to your .ipynb and/or Spark cluster\nLoad, clean, process new data, manually, step-by-step\nEmail update to boss\n\n\n\n\n\n\n\n\n\n\nYou after this week:\n\n\nAsset-aware pipeline automatically triggered\nAirflow orchestrates loading, cleaning, processing\nEmailOperator sends update",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#pipelines-vs.-pipeline-orchestration",
+    "href": "w10/index.html#pipelines-vs.-pipeline-orchestration",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Pipelines vs. Pipeline Orchestration",
+    "text": "Pipelines vs. Pipeline Orchestration\n\n\n\nFrom Astronomer Academy’s Airflow 101",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#key-airflow-specific-buzzwords",
+    "href": "w10/index.html#key-airflow-specific-buzzwords",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Key Airflow-Specific Buzzwords",
+    "text": "Key Airflow-Specific Buzzwords\n(Underlined words link to Airflow docs “Core Concepts” section)\n\nDirected Acyclic Graph (DAG): Your pipeline as a whole!\nDAGs consist of multiple tasks, which you “string together” using the control flow operators &gt;&gt; and &lt;&lt;\n[Ex ] second_task, third_task can’t start until first_task completes:\nfirst_task &gt;&gt; [second_task, third_task]\n# Equivalent to:\nfirst_task.set_downstream([second_task, third_task])\n[Ex ] fourth_task can’t start until third_task completes:\nfourth_task &lt;&lt; third_task\n# Equivalent to:\nfourth_task.set_upstream(third_task)\nWhat kinds of tasks can we create? Brings us to another concept…",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#operators-what-kind-of-task",
+    "href": "w10/index.html#operators-what-kind-of-task",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Operators: What Kind of task?",
+    "text": "Operators: What Kind of task?\n\n“Core” Operators: BashOperator and PythonOperator\n\n\n\n\n\n+ Hundreds of “community provider” Operators:\nHttpOperator\nS3FileTransformOperator\nSQLExecuteQueryOperator\nEmailOperator\nSlackAPIOperator\n\n\n\n+ Jinja templating for managing how data “passes” from one step to the next:",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#task-vs.-operator-a-sanity-preserving-more-than-technical-distinction",
+    "href": "w10/index.html#task-vs.-operator-a-sanity-preserving-more-than-technical-distinction",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Task vs. Operator: A Sanity-Preserving (More than Technical) Distinction",
+    "text": "Task vs. Operator: A Sanity-Preserving (More than Technical) Distinction\nFrom Operator docs:\n\nWhen we talk about a Task, we mean the generic “unit of execution” of a DAG; when we talk about an Operator, we mean a [specific] pre-made Task template, whose logic is all done for you and that just needs some arguments.\n\n\n\n\nTask:\n\n\n\n\n\n\n\n\nOperator:",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#concepts-leadsto-code",
+    "href": "w10/index.html#concepts-leadsto-code",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Concepts \\(\\leadsto\\) Code",
+    "text": "Concepts \\(\\leadsto\\) Code\nThe full Airflow “ecosystem” is running once you’ve started each piece via the following (bash) commands:\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#the-schedule-argument",
+    "href": "w10/index.html#the-schedule-argument",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "The schedule Argument",
+    "text": "The schedule Argument\n(Airflow uses pendulum under the hood, rather than datetime!)\n\n\ndag_scheduling.py\n\nfrom airflow.sdk import DAG\nimport pendulum\ndag = DAG(\"regular_interval_cron_example\", schedule=\"0 0 * * *\", ...)\ndag = DAG(\"regular_interval_cron_preset_example\", schedule=\"@daily\", ...)\ndag = DAG(\"regular_interval_timedelta_example\", schedule=pendulum.timedelta(days=1), ...)\n\nCron: Full-on scheduling language (used by computers since 1975!)\n\n\ncrontab.sh\n\n# ┌───────────── minute (0–59)\n# │ ┌───────────── hour (0–23)\n# │ │ ┌───────────── day of the month (1–31)\n# │ │ │ ┌───────────── month (1–12)\n# │ │ │ │ ┌───────────── day of the week (0–6) (Sunday to Saturday)\n# │ │ │ │ │\n# │ │ │ │ │\n# │ │ │ │ │\n# * * * * * &lt;command to execute&gt;\n\nCron Presets: None, \"@once\", \"@continuous\", \"@hourly\", \"@daily\", \"@weekly\"",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#external-service-integration",
+    "href": "w10/index.html#external-service-integration",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "External Service Integration",
+    "text": "External Service Integration\n\n\n\nService\nCommand\n\n\n\n\nAWS\npip install 'apache-airflow[amazon]'\n\n\nAzure\npip install 'apache-airflow[microsoft-azure]'\n\n\nDatabricks\npip install 'apache-airflow[databricks]'\n\n\nGitHub\npip install 'apache-airflow[github]'\n\n\nGoogle Cloud\npip install 'apache-airflow[google]'\n\n\nMongoDB\npip install 'apache-airflow[mongo]'\n\n\nOpenAI\npip install 'apache-airflow[openai]'\n\n\nSlack\npip install 'apache-airflow[slack]'\n\n\nSpark\npip install 'apache-airflow[apache-spark]'\n\n\nTableau\npip install 'apache-airflow[tableau]'\n\n\n\n(And many more:)",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#jinja-example",
+    "href": "w10/index.html#jinja-example",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Jinja Example",
+    "text": "Jinja Example\n\n\n\n\n\nhomepage.jinja\n\n&lt;h4&gt;{{ me['name'] }}'s Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n{%- for hobby in hobbies %}\n  &lt;li&gt;{{ hobby }}&lt;/li&gt;\n{%- endfor %}\n&lt;/ul&gt;\n\n\n\n\n+\n\n\n\n\n\nrender_jinja.py\n\nfrom jinja2 import Template\ntmpl = Template('homepage.jinja')\ntmpl.render(\n    me = {'name': 'Jeff'},\n    hobbies = [\n        'eat',\n        'sleep',\n        'attend to the proverbial bag'\n    ]\n)\n\n\n\n\n\n\n↓\n\n\n\n\n\n\n\nrendered.html\n\n&lt;h4&gt;Jeff's Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n  &lt;li&gt;eat&lt;/li&gt;\n  &lt;li&gt;sleep&lt;/li&gt;\n  &lt;li&gt;attend to the proverbial bag&lt;/li&gt;\n&lt;/ul&gt;\n\n\n\n\\(\\leadsto\\)\n\n\nJeff's Favorite Hobbies\n\n  eat\n  sleep\n  attend to the proverbial bag",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#lab-time",
+    "href": "w10/index.html#lab-time",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Lab Time!",
+    "text": "Lab Time!\nLab 10: ETL Pipeline Orchestration with Airflow",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/slides.html#pipelines-for-triggered-execution",
+    "href": "w10/slides.html#pipelines-for-triggered-execution",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Pipelines for Triggered Execution",
+    "text": "Pipelines for Triggered Execution\n\n\n\n\n\n\n…HEY! WAKE UP! NEW DATA JUST CAME IN!\n\n\n\n\n\n\n\n\nYou before this week:\n\n\nSprint to your .ipynb and/or Spark cluster\nLoad, clean, process new data, manually, step-by-step\nEmail update to boss\n\n\n\n\n\n\n\n\n\n\nYou after this week:\n\n\nAsset-aware pipeline automatically triggered\nAirflow orchestrates loading, cleaning, processing\nEmailOperator sends update"
+  },
+  {
+    "objectID": "w10/slides.html#pipelines-vs.-pipeline-orchestration",
+    "href": "w10/slides.html#pipelines-vs.-pipeline-orchestration",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Pipelines vs. Pipeline Orchestration",
+    "text": "Pipelines vs. Pipeline Orchestration\n\nFrom Astronomer Academy’s Airflow 101"
+  },
+  {
+    "objectID": "w10/slides.html#key-airflow-specific-buzzwords",
+    "href": "w10/slides.html#key-airflow-specific-buzzwords",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Key Airflow-Specific Buzzwords",
+    "text": "Key Airflow-Specific Buzzwords\n(Underlined words link to Airflow docs “Core Concepts” section)\n\nDirected Acyclic Graph (DAG): Your pipeline as a whole!\nDAGs consist of multiple tasks, which you “string together” using the control flow operators &gt;&gt; and &lt;&lt;\n[Ex ] second_task, third_task can’t start until first_task completes:\nfirst_task &gt;&gt; [second_task, third_task]\n# Equivalent to:\nfirst_task.set_downstream([second_task, third_task])\n[Ex ] fourth_task can’t start until third_task completes:\nfourth_task &lt;&lt; third_task\n# Equivalent to:\nfourth_task.set_upstream(third_task)\nWhat kinds of tasks can we create? Brings us to another concept…"
+  },
+  {
+    "objectID": "w10/slides.html#operators-what-kind-of-task",
+    "href": "w10/slides.html#operators-what-kind-of-task",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Operators: What Kind of task?",
+    "text": "Operators: What Kind of task?\n\n“Core” Operators: BashOperator and PythonOperator\n\n\n\n\n\n+ Hundreds of “community provider” Operators:\nHttpOperator\nS3FileTransformOperator\nSQLExecuteQueryOperator\nEmailOperator\nSlackAPIOperator\n\n\n+ Jinja templating for managing how data “passes” from one step to the next:"
+  },
+  {
+    "objectID": "w10/slides.html#task-vs.-operator-a-sanity-preserving-more-than-technical-distinction",
+    "href": "w10/slides.html#task-vs.-operator-a-sanity-preserving-more-than-technical-distinction",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Task vs. Operator: A Sanity-Preserving (More than Technical) Distinction",
+    "text": "Task vs. Operator: A Sanity-Preserving (More than Technical) Distinction\nFrom Operator docs:\n\nWhen we talk about a Task, we mean the generic “unit of execution” of a DAG; when we talk about an Operator, we mean a [specific] pre-made Task template, whose logic is all done for you and that just needs some arguments.\n\n\n\n\nTask:\n\n\n\n\n\n\n\n\nOperator:"
+  },
+  {
+    "objectID": "w10/slides.html#concepts-leadsto-code",
+    "href": "w10/slides.html#concepts-leadsto-code",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Concepts \\(\\leadsto\\) Code",
+    "text": "Concepts \\(\\leadsto\\) Code\nThe full Airflow “ecosystem” is running once you’ve started each piece via the following (bash) commands:\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer"
+  },
+  {
+    "objectID": "w10/slides.html#the-schedule-argument",
+    "href": "w10/slides.html#the-schedule-argument",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "The schedule Argument",
+    "text": "The schedule Argument\n(Airflow uses pendulum under the hood, rather than datetime!)\n\n\ndag_scheduling.py\n\nfrom airflow.sdk import DAG\nimport pendulum\ndag = DAG(\"regular_interval_cron_example\", schedule=\"0 0 * * *\", ...)\ndag = DAG(\"regular_interval_cron_preset_example\", schedule=\"@daily\", ...)\ndag = DAG(\"regular_interval_timedelta_example\", schedule=pendulum.timedelta(days=1), ...)\n\nCron: Full-on scheduling language (used by computers since 1975!)\n\n\ncrontab.sh\n\n# ┌───────────── minute (0–59)\n# │ ┌───────────── hour (0–23)\n# │ │ ┌───────────── day of the month (1–31)\n# │ │ │ ┌───────────── month (1–12)\n# │ │ │ │ ┌───────────── day of the week (0–6) (Sunday to Saturday)\n# │ │ │ │ │\n# │ │ │ │ │\n# │ │ │ │ │\n# * * * * * &lt;command to execute&gt;\n\nCron Presets: None, \"@once\", \"@continuous\", \"@hourly\", \"@daily\", \"@weekly\""
+  },
+  {
+    "objectID": "w10/slides.html#external-service-integration",
+    "href": "w10/slides.html#external-service-integration",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "External Service Integration",
+    "text": "External Service Integration\n\n\n\nService\nCommand\n\n\n\n\nAWS\npip install 'apache-airflow[amazon]'\n\n\nAzure\npip install 'apache-airflow[microsoft-azure]'\n\n\nDatabricks\npip install 'apache-airflow[databricks]'\n\n\nGitHub\npip install 'apache-airflow[github]'\n\n\nGoogle Cloud\npip install 'apache-airflow[google]'\n\n\nMongoDB\npip install 'apache-airflow[mongo]'\n\n\nOpenAI\npip install 'apache-airflow[openai]'\n\n\nSlack\npip install 'apache-airflow[slack]'\n\n\nSpark\npip install 'apache-airflow[apache-spark]'\n\n\nTableau\npip install 'apache-airflow[tableau]'\n\n\n\n(And many more:)"
+  },
+  {
+    "objectID": "w10/slides.html#jinja-example",
+    "href": "w10/slides.html#jinja-example",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Jinja Example",
+    "text": "Jinja Example\n\n\n\n\n\nhomepage.jinja\n\n&lt;h4&gt;{{ me['name'] }}'s Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n{%- for hobby in hobbies %}\n  &lt;li&gt;{{ hobby }}&lt;/li&gt;\n{%- endfor %}\n&lt;/ul&gt;\n\n\n\n+\n\n\n\n\nrender_jinja.py\n\nfrom jinja2 import Template\ntmpl = Template('homepage.jinja')\ntmpl.render(\n    me = {'name': 'Jeff'},\n    hobbies = [\n        'eat',\n        'sleep',\n        'attend to the proverbial bag'\n    ]\n)\n\n\n\n\n\n↓\n\n\n\n\n\n\n\nrendered.html\n\n&lt;h4&gt;Jeff's Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n  &lt;li&gt;eat&lt;/li&gt;\n  &lt;li&gt;sleep&lt;/li&gt;\n  &lt;li&gt;attend to the proverbial bag&lt;/li&gt;\n&lt;/ul&gt;\n\n\n\\(\\leadsto\\)\n\nJeff's Favorite Hobbies\n\n  eat\n  sleep\n  attend to the proverbial bag"
+  },
+  {
+    "objectID": "w10/slides.html#lab-time",
+    "href": "w10/slides.html#lab-time",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Lab Time!",
+    "text": "Lab Time!\nLab 10: ETL Pipeline Orchestration with Airflow"
   },
   {
     "objectID": "w07/index.html",

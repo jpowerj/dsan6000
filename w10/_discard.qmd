@@ -1,0 +1,7 @@
+
+
+* "Packaging" code as **`Deployments`** enables <a class='under' href='https://docs.prefect.io/latest/concepts/automations/' target='_blank'>**`Triggers`**</a>:
+  * On a particular <a href='https://docs.prefect.io/latest/concepts/schedules/' target='_blank' class='under'>**`Schedules`**</a>: every 4 hours, every day at noon, once per week, etc.
+  * When important <a class='under' href='https://docs.prefect.io/latest/concepts/automations/' target='_blank'>**`Events`**</a> happen: **pushes** to GitHub, **addition, removal, modification** of files in Dropbox, etc.
+* <a class='under' href='https://docs.prefect.io/latest/guides/logs/' target='_blank'>**`Logging`**</a>, <a class='under' href='https://docs.prefect.io/latest/guides/host/#notifications' target='_blank'>**`Notifications`**</a> (Slack, email, text messages)
+* <a class='under' href='https://docs.prefect.io/latest/concepts/results/' target='_blank'>**`Results`**</a> as natural-language explanations (produced by Prefect) or **custom summaries**, called <a class='under' href='https://docs.prefect.io/latest/concepts/artifacts/' target='_blank'>**`Artifacts`**</a>, that you define as part of your flows

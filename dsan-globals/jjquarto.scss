@@ -113,6 +113,10 @@ color: rgb(230, 159, 0) !important;
     color: #976464 !important;
 }
 
+.center-text {
+    text-align: center !important;
+}
+
 .code-90 code {
     font-size: 90% !important;
 }
@@ -214,6 +218,10 @@ margin-bottom: 0px !important;
 .crunch-li-first li:first-of-type {
     margin-top: 2px !important;
 }
+.li-even li {
+    margin-top: 0.2em !important;
+    margin-bottom: 0.2em !important;
+}
 
 .crunch-math mjx-container {
     margin-top: 10px !important;
@@ -284,12 +292,12 @@ details {
 }
 
 figcaption {
-text-align: center !important;
+    text-align: center !important;
 }
 
 /* fix mapview... */
 .fix-mapview .leaflet {
-height: 400px !important;
+    height: 400px !important;
 }
 .leaflet {
 width: 100% !important;
@@ -370,14 +378,14 @@ top: 0px !important;
     margin-right: auto;
 }
 .output-nowrap .cell-output pre code {
-word-break: normal !important;
-white-space: pre-wrap !important;
+    word-break: normal !important;
+    white-space: pre-wrap !important;
 }
 .output-90 .cell-output {
-font-size: 80% !important;
+    font-size: 80% !important;
 }
 .output-80 .cell-output {
-font-size: 80% !important;
+    font-size: 80% !important;
 }
 .output-75 .cell-output {
 font-size: 75% !important;
@@ -512,13 +520,13 @@ background-clip: padding-box;
 
 /* td centering */
 .tdc {
-vertical-align: middle !important;
-text-align: center !important;
+    vertical-align: middle !important;
+    text-align: center !important;
 }
 
 /* td vertical centering */
 .tdvc {
-vertical-align: middle !important;
+    vertical-align: middle !important;
 }
 
 /* td vertical top-align */
@@ -605,7 +613,7 @@ font-size: calc(0.9 * var(--r-heading2-size)) !important;
 }
 
 .title-center h2 {
-text-align: center !important;
+    text-align: center !important;
 }
 
 .title-right h2 {

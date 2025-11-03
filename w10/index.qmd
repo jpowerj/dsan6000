@@ -1,5 +1,5 @@
 ---
-title: "Week 10: Data Pipeline Orchestration with Airflow"
+title: "Week 10: ETL Pipeline Orchestration with Airflow"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
@@ -35,4 +35,317 @@ format:
     html-math-method: mathjax
     df-print: kable
 ---
+
+## Pipelines for *Triggered* Execution {.text-85 .crunch-title .crunch-quarto-layout-panel .crunch-quarto-layout-cell .crunch-p .crunch-ul .crunch-li-8 .crunch-img data-name="Key Concepts"}
+
+<!-- https://projects.verou.me/bubbly/ -->
+
+```{=html}
+<style>
+.speech-bubble {
+	position: relative;
+	background: #e69f00;
+	border-radius: .3em;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 24px solid transparent;
+	border-right-color: #e69f00;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -12px;
+	margin-left: -24px;
+}
+</style>
+```
+
+<center>
+
+:::: {layout="[90,10]" layout-valign="center"}
+::: {.column width="90%"}
+
+[***...HEY! WAKE UP! NEW DATA JUST CAME IN!***]{.speech-bubble style="float: right;"}
+
+:::
+::: {.column width="10%"}
+
+![](images/shocked-cat.jpg){width="90" style="float: left;"}
+
+:::
+::::
+
+</center>
+
+:::: {.columns}
+::: {.column width="50%"}
+
+<center>
+
+You before this week:
+
+</center>
+
+* Sprint to your `.ipynb` and/or Spark cluster
+* Load, clean, process new data, manually, step-by-step
+* Email update to boss
+
+<center>
+
+![](images/all_nighter_crop.jpg){width="44%" fig-align="center"}
+
+</center>
+
+:::
+::: {.column width="50%"}
+
+<center>
+
+You after this week:
+
+</center>
+
+* [Asset-aware](https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/asset-scheduling.html) pipeline automatically triggered
+* Airflow **orchestrates** loading, cleaning, processing
+* `EmailOperator` sends update
+
+<center>
+
+![](images/biko_2025-10-13_crop.jpg){width="50%" fig-align="center"}
+
+</center>
+
+:::
+::::
+
+## Pipelines vs. Pipeline *Orchestration*
+
+![From Astronomer Academy's [Airflow 101](https://academy.astronomer.io/path/airflow-101)](images/orchestration.jpeg){fig-align="center"}
+
+## Key Airflow-Specific Buzzwords {.text-75}
+
+*(Underlined words link to Airflow docs ["Core Concepts" section](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html))*
+
+* [**Directed Acyclic Graph (`DAG`)**](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html){.under}: Your pipeline as a whole!
+* `DAG`s consist of **multiple** [**`task`s**](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/tasks.html){.under}, which you "string together" using the [**control flow**](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html#control-flow) operators `>>` and `<<`
+* [Ex <i class='bi bi-1-circle' style='font-size: 90%;'></i>] `second_task`, `third_task` can't start until `first_task` completes:
+  ``` {.python}
+  first_task >> [second_task, third_task]
+  # Equivalent to:
+  first_task.set_downstream([second_task, third_task])
+  ```
+* [Ex <i class='bi bi-2-circle' style='font-size: 90%;'></i>] `fourth_task` can't start until `third_task` completes:
+  ``` {.python}
+  fourth_task << third_task
+  # Equivalent to:
+  fourth_task.set_upstream(third_task)
+  ```
+* What *kinds* of `task`s can we create? Brings us to another concept...
+
+## `Operator`s: What *Kind* of `task`? {.text-90 .crunch-ul .crunch-quarto-layout-panel .li-even}
+
+* "Core" `Operator`s: [`BashOperator`](https://airflow.apache.org/docs/apache-airflow-providers-standard/stable/_api/airflow/providers/standard/operators/bash/index.html#airflow.providers.standard.operators.bash.BashOperator) and [`PythonOperator`](https://airflow.apache.org/docs/apache-airflow-providers-standard/stable/_api/airflow/providers/standard/operators/python/index.html#airflow.providers.standard.operators.python.PythonOperator)
+
+:::: {layout="[1,1]" layout-valign="default"}
+::: {.column width="50%"}
+
+* \+ Hundreds of "community provider" `Operator`s:
+* `HttpOperator`
+* `S3FileTransformOperator`
+* `SQLExecuteQueryOperator`
+* `EmailOperator`
+* `SlackAPIOperator`
+
+:::
+::: {.column width="50%"}
+
+\+ [`Jinja` templating](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html#jinja-templating) for managing how data "passes" from one step to the next:
+
+![](images/jinja.svg){fig-align="center"}
+
+<!-- https://edotor.net/?engine=dot?engine=dot#digraph%20G%20%7B%0A%20%20%20%20rankdir%3D%22LR%22%3B%0A%09edge%20%5Bpenwidth%3D0.75%2Carrowsize%3D0.6%5D%0A%20%20%20%20%23%20results%0A%09csv%20%5Blabel%3D%22CSV%22%5D%3B%0A%09json%20%5Blabel%3D%22JSON%22%5D%3B%0A%09pl%20%5Blabel%3D%22Python%20lists%22%5D%3B%0A%20%20%20%20logs%20%5Blabel%3D%22Logged%20outputs%22%5D%3B%0A%20%20%20%20%23%20%3F%0A%20%20%20%20qm%20%5Blabel%3D%22%3F%3F%3F%22%5D%3B%0A%20%20%20%20%23%20summaries%0A%20%20%20%20email%20%5Blabel%3D%22Email%20%2F%20Text%20message%22%5D%0A%20%20%20%20slack%20%5Blabel%3D%22Slack%20message%22%5D%0A%09%23text%20%5Blabel%3D%22Text%20message%22%5D%0A%20%20%20%20reports%20%5Blabel%3D%22Markdown%20report%22%5D%0A%09subgraph%20cluster_G1%20%7B%0A%20%20%20%20%20%20%20%20style%3D%22dashed%22%3B%0A%09%09%09%09label%3D%22Messy%20Pipeline%20Results%22%0A%09%09%09%09csv%3B%0A%09%09%09%09json%3B%0A%09%09%09%09pl%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20logs%3B%0A%09%7D%0A%09subgraph%20cluster_G2%20%7B%0A%20%20%20%20%20%20%20%20style%3D%22dashed%22%3B%0A%09%09%09%09label%3D%22Clean%20Summaries%22%0A%09%09%09%09email%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20slack%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23text%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20reports%3B%0A%09%7D%0A%20%20%20%20csv%20-%3E%20qm%3B%0A%20%20%20%20json%20-%3E%20qm%3B%0A%20%20%20%20pl%20-%3E%20qm%3B%0A%20%20%20%20logs%20-%3E%20qm%3B%0A%20%20%20%20qm%20-%3E%20email%3B%0A%20%20%20%20qm%20-%3E%20slack%3B%0A%20%20%20%20%23qm%20-%3E%20text%3B%0A%20%20%20%20qm%20-%3E%20reports%3B%0A%7D%0A -->
+
+:::
+::::
+
+## `Task` vs. `Operator`: A Sanity-Preserving (More than Technical) Distinction {.title-08 .crunch-title .crunch-blockquote .text-90 .crunch-quarto-figure}
+
+*From [`Operator`](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html) docs:*
+
+> *When we talk about a `Task`, we mean the **generic** "unit of execution" of a `DAG`; when we talk about an `Operator`, we mean a **[specific] pre-made `Task` template**, whose logic is all done for you and that **just needs some arguments**.*
+
+:::: {.columns}
+::: {.column width="50%"}
+
+<center>
+
+`Task`:
+
+</center>
+
+![](images/black_box.svg){fig-align="center" width="90%"}
+
+:::
+::: {.column width="50%"}
+
+<center>
+
+`Operator`:
+
+</center>
+
+![](images/data-x-crop-2.jpeg){fig-align="center" width="70%"}
+
+:::
+::::
+
+## Concepts $\leadsto$ Code {.crunch-title .crunch-ul data-name="Airflow Components+UI"}
+
+The full Airflow "ecosystem" is running once you've started each piece via the following (`bash`) commands:
+
+``` {.bash filename="start-airflow.sh" code-line-numbers="|1|2|3|4|5"}
+airflow db migrate
+airflow api-server --port 8080
+airflow scheduler
+airflow dag-processor
+airflow triggerer
+```
+
+## The `schedule` Argument {.smaller .crunch-title .crunch-ul}
+
+*(Airflow uses [`pendulum`](https://pendulum.eustace.io/) under the hood, rather than `datetime`!)*
+
+``` {.python filename="dag_scheduling.py"}
+from airflow.sdk import DAG
+import pendulum
+dag = DAG("regular_interval_cron_example", schedule="0 0 * * *", ...)
+dag = DAG("regular_interval_cron_preset_example", schedule="@daily", ...)
+dag = DAG("regular_interval_timedelta_example", schedule=pendulum.timedelta(days=1), ...)
+```
+
+[**`Cron`**](https://crontab.guru/): Full-on scheduling language (used by computers since [1975](https://en.wikipedia.org/wiki/Cron)!)
+
+```bash {filename="crontab.sh"}
+# ┌───────────── minute (0–59)
+# │ ┌───────────── hour (0–23)
+# │ │ ┌───────────── day of the month (1–31)
+# │ │ │ ┌───────────── month (1–12)
+# │ │ │ │ ┌───────────── day of the week (0–6) (Sunday to Saturday)
+# │ │ │ │ │
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * * <command to execute>
+```
+
+[Cron Presets](https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/cron.html#cron-presets): `None`, `"@once"`, `"@continuous"`, `"@hourly"`, `"@daily"`, `"@weekly"`
+
+## External Service Integration {.smaller .crunch-title .crunch-ul}
+
+| Service | Command |
+| - | - |
+| AWS | `pip install 'apache-airflow[amazon]'` |
+| Azure | `pip install 'apache-airflow[microsoft-azure]'` |
+| Databricks | `pip install 'apache-airflow[databricks]'` |
+| GitHub | `pip install 'apache-airflow[github]'` |
+| Google Cloud | `pip install 'apache-airflow[google]'` |
+| MongoDB | `pip install 'apache-airflow[mongo]'` |
+| OpenAI | `pip install 'apache-airflow[openai]'` |
+| Slack | `pip install 'apache-airflow[slack]'` |
+| Spark | `pip install 'apache-airflow[apache-spark]'` |
+| Tableau | `pip install 'apache-airflow[tableau]'` |
+
+*(And [many more](https://airflow.apache.org/docs/apache-airflow/stable/extra-packages-ref.html#external-services-extras):)*
+
+## `Jinja` Example {.crunch-title .smaller .crunch-hr .crunch-ul}
+
+:::: {layout="[48,4,48]" layout-valign="center"}
+::: {.column width="48%"}
+
+```html {filename="homepage.jinja"}
+<h4>{{ me['name'] }}'s Favorite Hobbies</h4>
+<ul>
+{%- for hobby in hobbies %}
+  <li>{{ hobby }}</li>
+{%- endfor %}
+</ul>
+```
+
+:::
+::: {.column width="4%"}
+
+<center>
+\+
+</center>
+
+:::
+::: {.column width="48%"}
+
+```python {filename="render_jinja.py"}
+from jinja2 import Template
+tmpl = Template('homepage.jinja')
+tmpl.render(
+    me = {'name': 'Jeff'},
+    hobbies = [
+        'eat',
+        'sleep',
+        'attend to the proverbial bag'
+    ]
+)
+```
+
+:::
+::::
+
+<hr>
+
+<center>
+&darr;
+</center>
+
+<hr>
+
+:::: {layout="[48,4,48]" layout-valign="center"}
+::: {.column width="48%"}
+
+```html {filename="rendered.html"}
+<h4>Jeff's Favorite Hobbies</h4>
+<ul>
+  <li>eat</li>
+  <li>sleep</li>
+  <li>attend to the proverbial bag</li>
+</ul>
+```
+
+:::
+::: {.column width="4%"}
+
+$\leadsto$
+
+:::
+::: {.column width="48%"}
+
+```{=html}
+<h4>Jeff's Favorite Hobbies</h4>
+<ul>
+  <li>eat</li>
+  <li>sleep</li>
+  <li>attend to the proverbial bag</li>
+</ul>
+```
+
+:::
+::::
+
+## Lab Time! {data-name="Lab"}
+
+[Lab 10: ETL Pipeline Orchestration with Airflow](https://classroom.github.com/classrooms/34950344-georgetown-university-dsan6000-big-data-and-cloud-computing)
 
