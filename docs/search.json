@@ -54,7 +54,7 @@
     "href": "resources.html#pdfs-of-books",
     "title": "Resource Hub",
     "section": "PDFs of Books",
-    "text": "PDFs of Books\nThe remainder of this page is auto-generated from all of the references across the slides for each week: click on the name of a reference to download the ebook version, if available!\n\n\nBarber, David. 2012. Bayesian Reasoning and Machine Learning. Cambridge University Press.\n\n\nDamji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. Learning Spark. O’Reilly Media, Inc.\n\n\nEagar, Gareth. 2021. Data Engineering with AWS: Learn How to Design and Build Cloud-Based Data Transformation Pipelines Using AWS. Packt Publishing Ltd.\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nKleppmann, Martin. 2017. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. O’Reilly Media, Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.\n\n\nNeedham, Mark, Michael Hunger, and Michael Simons. 2024. DuckDB in Action. Simon and Schuster.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.\n\n\nVirtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. Serverless Analytics with Amazon Athena: Query Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure. Packt Publishing Ltd.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc.\n\n\nWolohan, John. 2020. Mastering Large Datasets with Python: Parallelize and Distribute Your Python Code. Simon and Schuster.",
+    "text": "PDFs of Books\nThe remainder of this page is auto-generated from all of the references across the slides for each week: click on the name of a reference to download the ebook version, if available!\n\n\nBarber, David. 2012. Bayesian Reasoning and Machine Learning. Cambridge University Press.\n\n\nDamji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. Learning Spark. O’Reilly Media, Inc.\n\n\nEagar, Gareth. 2021. Data Engineering with AWS: Learn How to Design and Build Cloud-Based Data Transformation Pipelines Using AWS. Packt Publishing Ltd.\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc.\n\n\nHarenslak, Bas P., and Julian de Ruiter. 2021. Data Pipelines with Apache Airflow. Simon and Schuster.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nKleppmann, Martin. 2017. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. O’Reilly Media, Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.\n\n\nNeedham, Mark, Michael Hunger, and Michael Simons. 2024. DuckDB in Action. Simon and Schuster.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc.\n\n\nRuiter, Julian de, Ismael Cabral, Kris Geusebroek, Daniel van der Ende, and Bas Harenslak. 2026. Data Pipelines with Apache Airflow, Second Edition. Simon and Schuster.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.\n\n\nVirtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. Serverless Analytics with Amazon Athena: Query Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure. Packt Publishing Ltd.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc.\n\n\nWolohan, John. 2020. Mastering Large Datasets with Python: Parallelize and Distribute Your Python Code. Simon and Schuster.",
     "crumbs": [
       "Resources"
     ]
@@ -1923,7 +1923,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9799 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1830 s"
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9785 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.3095 s"
   },
   {
     "objectID": "w03/slides.html#what-happens-when-not-embarrassingly-parallel",
@@ -2144,7 +2144,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9834 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.2736 s",
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9733 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.4014 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 8</span>"
     ]
@@ -3610,7 +3610,7 @@
     "href": "writeups/sql-guide/index.html#onto-duckdb",
     "title": "From Pandas to SQL",
     "section": "Onto DuckDB!",
-    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││        Total Time: 0.0003s        ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\n┌───────────────────────────┐\n│      RESULT_COLLECTOR     │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│           FILTER          │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 1           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│        PANDAS_SCAN        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 7           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             7             │\n│          (0.00s)          │\n└───────────────────────────┘                             \n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
+    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││        Total Time: 0.0004s        ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\n┌───────────────────────────┐\n│      RESULT_COLLECTOR     │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│           FILTER          │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 1           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│        PANDAS_SCAN        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 7           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             7             │\n│          (0.00s)          │\n└───────────────────────────┘                             \n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
   },
   {
     "objectID": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",
@@ -3670,11 +3670,11 @@
     ]
   },
   {
-    "objectID": "w10/index.html#task-vs.-operator-a-sanity-preserving-more-than-technical-distinction",
-    "href": "w10/index.html#task-vs.-operator-a-sanity-preserving-more-than-technical-distinction",
+    "objectID": "w10/index.html#task-vs.-operator-a-sanity-preserving-distinction",
+    "href": "w10/index.html#task-vs.-operator-a-sanity-preserving-distinction",
     "title": "Week 10: ETL Pipeline Orchestration with Airflow",
-    "section": "Task vs. Operator: A Sanity-Preserving (More than Technical) Distinction",
-    "text": "Task vs. Operator: A Sanity-Preserving (More than Technical) Distinction\nFrom Operator docs:\n\nWhen we talk about a Task, we mean the generic “unit of execution” of a DAG; when we talk about an Operator, we mean a [specific] pre-made Task template, whose logic is all done for you and that just needs some arguments.\n\n\n\n\nTask:\n\n\n\n\n\n\n\n\nOperator:",
+    "section": "Task vs. Operator: A Sanity-Preserving Distinction",
+    "text": "Task vs. Operator: A Sanity-Preserving Distinction\nFrom Operator docs:\n\nWhen we talk about a Task, we mean the generic “unit of execution” of a DAG; when we talk about an Operator, we mean a [specific] pre-made Task template, whose logic is all done for you and that just needs some arguments.\n\n\n\n\nTask:\n\n\n\n\n\n\n\n\nOperator:\n\n\n\n\n\n\n\n\n\n\n\nFrom Ruiter et al. (2026)",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 3</span>"
     ]
@@ -3684,7 +3684,47 @@
     "href": "w10/index.html#concepts-leadsto-code",
     "title": "Week 10: ETL Pipeline Orchestration with Airflow",
     "section": "Concepts \\(\\leadsto\\) Code",
-    "text": "Concepts \\(\\leadsto\\) Code\nThe full Airflow “ecosystem” is running once you’ve started each piece via the following (bash) commands:\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer",
+    "text": "Concepts \\(\\leadsto\\) Code\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\n\nFull Airflow “ecosystem” is running once you’ve started each piece via above (bash) commands!\nLet’s look at each in turn…",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#db-migrate-the-airflow-metastore",
+    "href": "w10/index.html#db-migrate-the-airflow-metastore",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "db migrate: The Airflow Metastore",
+    "text": "db migrate: The Airflow Metastore\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nGeneral info used by DAGs: variables, connections, XComs\nData about DAG and task runs (generated by scheduler)\nLogs / error information\n Not modified directly/manually! Managed by Airflow; To modify, use API Server →",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#api-server",
+    "href": "w10/index.html#api-server",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "API Server",
+    "text": "API Server\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\nWeb UI for managing Airflow (much more on this later!)\n\n\n\n\n\n\nWarning Default Login Info\n\n\n\nDefault db migrate generates admin password in ~/simple_auth_manager_passwords.json.generated",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#scheduler-executor",
+    "href": "w10/index.html#scheduler-executor",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Scheduler → Executor",
+    "text": "Scheduler → Executor\n\n\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nDefault: LocalExecutor\nFor scaling: EcsExecutor (AWS ECS), KubernetesExecutor\nSee also SparkSubmitOperator\n\n\n\n\n\nFrom Ruiter et al. (2026)",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#dag-processor",
+    "href": "w10/index.html#dag-processor",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "DAG Processor",
+    "text": "DAG Processor\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\n\nFrom Ruiter et al. (2026)",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 3</span>"
     ]
@@ -3720,11 +3760,141 @@
     ]
   },
   {
+    "objectID": "w10/index.html#airflow-ui-grid-view",
+    "href": "w10/index.html#airflow-ui-grid-view",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Airflow UI: Grid View",
+    "text": "Airflow UI: Grid View",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#airflow-ui-run-details",
+    "href": "w10/index.html#airflow-ui-run-details",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Airflow UI: Run Details",
+    "text": "Airflow UI: Run Details",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#airflow-ui-task-instance-details",
+    "href": "w10/index.html#airflow-ui-task-instance-details",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Airflow UI: Task Instance Details",
+    "text": "Airflow UI: Task Instance Details",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#tasks-task-groups",
+    "href": "w10/index.html#tasks-task-groups",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Tasks → Task Groups",
+    "text": "Tasks → Task Groups",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#graph-view",
+    "href": "w10/index.html#graph-view",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Graph View",
+    "text": "Graph View",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#calendar-view",
+    "href": "w10/index.html#calendar-view",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Calendar View",
+    "text": "Calendar View",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#gantt-view",
+    "href": "w10/index.html#gantt-view",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Gantt View",
+    "text": "Gantt View",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#new-book-up-to-date-airflow-3.0-demos",
+    "href": "w10/index.html#new-book-up-to-date-airflow-3.0-demos",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓",
+    "text": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓\n\n\n\n\n\n\nHarenslak and Ruiter (2021)\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\nRuiter et al. (2026)",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#conceptual-pipelines-leadsto-dags",
+    "href": "w10/index.html#conceptual-pipelines-leadsto-dags",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Conceptual Pipelines \\(\\leadsto\\) DAGs",
+    "text": "Conceptual Pipelines \\(\\leadsto\\) DAGs\nMain challenge: converting “intuitive” pipelines in our heads:\n\n\n\nFrom Ruiter et al. (2026)\n\n\nInto DAGs with concrete Tasks, dependencies, and triggers:\n\n\n\nAlso from Ruiter et al. (2026)",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#implementation-detail-1-backfilling",
+    "href": "w10/index.html#implementation-detail-1-backfilling",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Implementation Detail 1: Backfilling",
+    "text": "Implementation Detail 1: Backfilling",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#implementation-detail-2-training-model-after-backfill",
+    "href": "w10/index.html#implementation-detail-2-training-model-after-backfill",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Implementation Detail 2: Training Model After Backfill",
+    "text": "Implementation Detail 2: Training Model After Backfill\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n\n\n\n\n\n\n\nFig 1: Both figures from Ruiter et al. (2026)",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#implementation-detail-3-downstream-consumers",
+    "href": "w10/index.html#implementation-detail-3-downstream-consumers",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Implementation Detail 3: Downstream Consumers",
+    "text": "Implementation Detail 3: Downstream Consumers\n\n\n\nFrom Ruiter et al. (2026)",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
     "objectID": "w10/index.html#lab-time",
     "href": "w10/index.html#lab-time",
     "title": "Week 10: ETL Pipeline Orchestration with Airflow",
     "section": "Lab Time!",
     "text": "Lab Time!\nLab 10: ETL Pipeline Orchestration with Airflow",
+    "crumbs": [
+      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+    ]
+  },
+  {
+    "objectID": "w10/index.html#references",
+    "href": "w10/index.html#references",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "References",
+    "text": "References\n\n\nHarenslak, Bas P., and Julian de Ruiter. 2021. Data Pipelines with Apache Airflow. Simon and Schuster.\n\n\nRuiter, Julian de, Ismael Cabral, Kris Geusebroek, Daniel van der Ende, and Bas Harenslak. 2026. Data Pipelines with Apache Airflow, Second Edition. Simon and Schuster.",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 3</span>"
     ]
@@ -3758,18 +3928,46 @@
     "text": "Operators: What Kind of task?\n\n“Core” Operators: BashOperator and PythonOperator\n\n\n\n\n\n+ Hundreds of “community provider” Operators:\nHttpOperator\nS3FileTransformOperator\nSQLExecuteQueryOperator\nEmailOperator\nSlackAPIOperator\n\n\n+ Jinja templating for managing how data “passes” from one step to the next:"
   },
   {
-    "objectID": "w10/slides.html#task-vs.-operator-a-sanity-preserving-more-than-technical-distinction",
-    "href": "w10/slides.html#task-vs.-operator-a-sanity-preserving-more-than-technical-distinction",
+    "objectID": "w10/slides.html#task-vs.-operator-a-sanity-preserving-distinction",
+    "href": "w10/slides.html#task-vs.-operator-a-sanity-preserving-distinction",
     "title": "Week 10: ETL Pipeline Orchestration with Airflow",
-    "section": "Task vs. Operator: A Sanity-Preserving (More than Technical) Distinction",
-    "text": "Task vs. Operator: A Sanity-Preserving (More than Technical) Distinction\nFrom Operator docs:\n\nWhen we talk about a Task, we mean the generic “unit of execution” of a DAG; when we talk about an Operator, we mean a [specific] pre-made Task template, whose logic is all done for you and that just needs some arguments.\n\n\n\n\nTask:\n\n\n\n\n\n\n\n\nOperator:"
+    "section": "Task vs. Operator: A Sanity-Preserving Distinction",
+    "text": "Task vs. Operator: A Sanity-Preserving Distinction\nFrom Operator docs:\n\nWhen we talk about a Task, we mean the generic “unit of execution” of a DAG; when we talk about an Operator, we mean a [specific] pre-made Task template, whose logic is all done for you and that just needs some arguments.\n\n\n\n\nTask:\n\n\n\n\n\n\n\n\nOperator:\n\n\n\n\n\n\n\n\n\n\nFrom Ruiter et al. (2026)"
   },
   {
     "objectID": "w10/slides.html#concepts-leadsto-code",
     "href": "w10/slides.html#concepts-leadsto-code",
     "title": "Week 10: ETL Pipeline Orchestration with Airflow",
     "section": "Concepts \\(\\leadsto\\) Code",
-    "text": "Concepts \\(\\leadsto\\) Code\nThe full Airflow “ecosystem” is running once you’ve started each piece via the following (bash) commands:\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer"
+    "text": "Concepts \\(\\leadsto\\) Code\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\n\nFull Airflow “ecosystem” is running once you’ve started each piece via above (bash) commands!\nLet’s look at each in turn…"
+  },
+  {
+    "objectID": "w10/slides.html#db-migrate-the-airflow-metastore",
+    "href": "w10/slides.html#db-migrate-the-airflow-metastore",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "db migrate: The Airflow Metastore",
+    "text": "db migrate: The Airflow Metastore\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nGeneral info used by DAGs: variables, connections, XComs\nData about DAG and task runs (generated by scheduler)\nLogs / error information\n Not modified directly/manually! Managed by Airflow; To modify, use API Server →"
+  },
+  {
+    "objectID": "w10/slides.html#api-server",
+    "href": "w10/slides.html#api-server",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "API Server",
+    "text": "API Server\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\nWeb UI for managing Airflow (much more on this later!)\n\n\n\n\n\n\n\n Default Login Info\n\n\nDefault db migrate generates admin password in ~/simple_auth_manager_passwords.json.generated"
+  },
+  {
+    "objectID": "w10/slides.html#scheduler-executor",
+    "href": "w10/slides.html#scheduler-executor",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Scheduler → Executor",
+    "text": "Scheduler → Executor\n\n\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nDefault: LocalExecutor\nFor scaling: EcsExecutor (AWS ECS), KubernetesExecutor\nSee also SparkSubmitOperator\n\n\n\n\n\nFrom Ruiter et al. (2026)"
+  },
+  {
+    "objectID": "w10/slides.html#dag-processor",
+    "href": "w10/slides.html#dag-processor",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "DAG Processor",
+    "text": "DAG Processor\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nFrom Ruiter et al. (2026)"
   },
   {
     "objectID": "w10/slides.html#the-schedule-argument",
@@ -3793,11 +3991,102 @@
     "text": "Jinja Example\n\n\n\n\n\nhomepage.jinja\n\n&lt;h4&gt;{{ me['name'] }}'s Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n{%- for hobby in hobbies %}\n  &lt;li&gt;{{ hobby }}&lt;/li&gt;\n{%- endfor %}\n&lt;/ul&gt;\n\n\n\n+\n\n\n\n\nrender_jinja.py\n\nfrom jinja2 import Template\ntmpl = Template('homepage.jinja')\ntmpl.render(\n    me = {'name': 'Jeff'},\n    hobbies = [\n        'eat',\n        'sleep',\n        'attend to the proverbial bag'\n    ]\n)\n\n\n\n\n\n↓\n\n\n\n\n\n\n\nrendered.html\n\n&lt;h4&gt;Jeff's Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n  &lt;li&gt;eat&lt;/li&gt;\n  &lt;li&gt;sleep&lt;/li&gt;\n  &lt;li&gt;attend to the proverbial bag&lt;/li&gt;\n&lt;/ul&gt;\n\n\n\\(\\leadsto\\)\n\nJeff's Favorite Hobbies\n\n  eat\n  sleep\n  attend to the proverbial bag"
   },
   {
+    "objectID": "w10/slides.html#airflow-ui-grid-view",
+    "href": "w10/slides.html#airflow-ui-grid-view",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Airflow UI: Grid View",
+    "text": "Airflow UI: Grid View"
+  },
+  {
+    "objectID": "w10/slides.html#airflow-ui-run-details",
+    "href": "w10/slides.html#airflow-ui-run-details",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Airflow UI: Run Details",
+    "text": "Airflow UI: Run Details"
+  },
+  {
+    "objectID": "w10/slides.html#airflow-ui-task-instance-details",
+    "href": "w10/slides.html#airflow-ui-task-instance-details",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Airflow UI: Task Instance Details",
+    "text": "Airflow UI: Task Instance Details"
+  },
+  {
+    "objectID": "w10/slides.html#tasks-task-groups",
+    "href": "w10/slides.html#tasks-task-groups",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Tasks → Task Groups",
+    "text": "Tasks → Task Groups"
+  },
+  {
+    "objectID": "w10/slides.html#graph-view",
+    "href": "w10/slides.html#graph-view",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Graph View",
+    "text": "Graph View"
+  },
+  {
+    "objectID": "w10/slides.html#calendar-view",
+    "href": "w10/slides.html#calendar-view",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Calendar View",
+    "text": "Calendar View"
+  },
+  {
+    "objectID": "w10/slides.html#gantt-view",
+    "href": "w10/slides.html#gantt-view",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Gantt View",
+    "text": "Gantt View"
+  },
+  {
+    "objectID": "w10/slides.html#new-book-up-to-date-airflow-3.0-demos",
+    "href": "w10/slides.html#new-book-up-to-date-airflow-3.0-demos",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓",
+    "text": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓\n\n\n\n\n\n\nHarenslak and Ruiter (2021)\n\n\n\n\\(\\leadsto\\)\n\n\n\n\nRuiter et al. (2026)"
+  },
+  {
+    "objectID": "w10/slides.html#conceptual-pipelines-leadsto-dags",
+    "href": "w10/slides.html#conceptual-pipelines-leadsto-dags",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Conceptual Pipelines \\(\\leadsto\\) DAGs",
+    "text": "Conceptual Pipelines \\(\\leadsto\\) DAGs\nMain challenge: converting “intuitive” pipelines in our heads:\n\n\n\nFrom Ruiter et al. (2026)\n\n\nInto DAGs with concrete Tasks, dependencies, and triggers:\n\n\n\nAlso from Ruiter et al. (2026)"
+  },
+  {
+    "objectID": "w10/slides.html#implementation-detail-1-backfilling",
+    "href": "w10/slides.html#implementation-detail-1-backfilling",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Implementation Detail 1: Backfilling",
+    "text": "Implementation Detail 1: Backfilling"
+  },
+  {
+    "objectID": "w10/slides.html#implementation-detail-2-training-model-after-backfill",
+    "href": "w10/slides.html#implementation-detail-2-training-model-after-backfill",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Implementation Detail 2: Training Model After Backfill",
+    "text": "Implementation Detail 2: Training Model After Backfill\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n\n\n\n\n\nFig 1: Both figures from Ruiter et al. (2026)"
+  },
+  {
+    "objectID": "w10/slides.html#implementation-detail-3-downstream-consumers",
+    "href": "w10/slides.html#implementation-detail-3-downstream-consumers",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "Implementation Detail 3: Downstream Consumers",
+    "text": "Implementation Detail 3: Downstream Consumers\n\nFrom Ruiter et al. (2026)"
+  },
+  {
     "objectID": "w10/slides.html#lab-time",
     "href": "w10/slides.html#lab-time",
     "title": "Week 10: ETL Pipeline Orchestration with Airflow",
     "section": "Lab Time!",
     "text": "Lab Time!\nLab 10: ETL Pipeline Orchestration with Airflow"
+  },
+  {
+    "objectID": "w10/slides.html#references",
+    "href": "w10/slides.html#references",
+    "title": "Week 10: ETL Pipeline Orchestration with Airflow",
+    "section": "References",
+    "text": "References\n\n\nHarenslak, Bas P., and Julian de Ruiter. 2021. Data Pipelines with Apache Airflow. Simon and Schuster.\n\n\nRuiter, Julian de, Ismael Cabral, Kris Geusebroek, Daniel van der Ende, and Bas Harenslak. 2026. Data Pipelines with Apache Airflow, Second Edition. Simon and Schuster."
   },
   {
     "objectID": "w07/index.html",
