@@ -1,5 +1,5 @@
 ---
-title: "Week 11: Vector Databases, RAG"
+title: "Week 11: Vector Databases"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
@@ -11,6 +11,8 @@ categories:
 crossref:
   fig-title: Fig
 cache: true
+bibliography: "../_DSAN6000.bib"
+csl: "../chicago-17-no-url.csl"
 format:
   revealjs:
     output-file: "slides.html"
@@ -36,3 +38,294 @@ format:
     df-print: kable
 ---
 
+::: {.content-visible unless-format="revealjs"}
+
+<center class='mb-3'>
+<a class="h2" href="./slides.html" target="_blank">Open slides in new tab &rarr;</a>
+</center>
+
+:::
+
+# Vector Spaces: The Geometry of AI! {.not-title-slide .smaller .crunch-title .title-12 data-stack-name="Embeddings Overview"}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![[Image source](https://weaviate.io/blog/vector-search-explained)](images/vector-space-query.jpeg){fig-align="center"}
+
+:::
+::: {.column width="50%"}
+
+* Why **vector** spaces over **keyword** matching?
+* What if words have different **meanings** in different **contexts**?
+
+:::
+::::
+
+## Word Counts: Good Enough? {.smaller .crunch-title .title-12}
+
+Just four keywords per section:
+
+| Section | Keywords |
+|------|-------|
+| U.S. | `state`, `court`, `federal`, `republican` |
+| World | `government`, `country`, `officials`, `minister` |
+| Arts | `music`, `show`, `art`, `dance` |
+| Sports | `game`, `league`, `team`, `coach` |
+| Real Estate | `home`, `bedrooms`, `bathrooms`, `building` |
+
+For each article, vote for section with highest keyword count:
+
+| | Arts | Real Estate | Sports | U.S. News | World News | Total |
+|-|------|-------------|--------|-----------|------------|------|
+| Correct | 3020 | 690 | 4860 | 1330 | 1730 | **11630** |
+| Incorrect | 750 | 60 | 370 | 1100 | 590 | **2870** |
+| Accuracy | **0.801** | **0.920** | **0.929** | <span class="redbox">**0.547**</span> | <span class="redbox">**0.746**</span> | **0.802** |
+
+## What's Missing? Context! {.crunch-title}
+
+::: {.callout-note appearance="minimal"}
+
+*You shall know a word by the company it keeps.* [@firth_papers_1957]
+
+:::
+
+:::: {.columns style="font-size: 75%;"}
+::: {.column width="50%"}
+
+<center>
+
+**Article A** (World News):
+
+</center>
+
+<!-- President Vladimir V. Putin told Russia's natural gas monopoly, Gazprom, on Saturday to continue selling subsidized gas to Ukraine until the end of March if Ukraine agrees to pay market prices beginning in April. Mr. Putin's order, delivered on national television as Gazprom threatened to cut off gas exports for Ukraine beginning on Jan. 1, put Russia's president in the center of a dispute that has caused Europe to worry whether its gas supply will be disrupted in the January chill. Ukraine replied warily. The office of President Viktor A. Yushchenko noted that ''negotiations of the settlement of the gas problem have crossed into a new phase.'' A spokesman for Yury I. Yekhanurov, Ukraine's prime minister, was quoted by Interfax saying that Ukraine agreed to a transition to market prices, but the details require negotiations. Mr. Putin gave Ukraine until midnight Saturday to accept his terms. -->
+
+**President Bush** said he was trying to convince **President Vladimir Putin** of Russia that cooperation was "in Russia's security interests," even though Defense Secretary Robert M. Gates did not win Mr. Putin's support during a trip to Moscow last week.
+
+["Bush Steps Up Effort to Persuade Putin on Missile Defense Plan"](https://www.nytimes.com/2007/05/01/world/europe/01prexy.html), *NYTimes*, 1 May 2007.
+
+:::
+::: {.column width="50%"}
+
+<center>
+
+**Article B** (U.S. News):
+
+</center>
+
+**President Bush** began his day yesterday at dawn on the **golf** course. He began Saturday on the golf course, too. A weekend earlier, the president played two rounds of 18 holes on the course at Andrews Air Force Base just outside Washington.
+
+["White House Letter; Bush Makes Quick Work of Relaxing"](https://www.nytimes.com/2002/08/05/us/white-house-letter-bush-makes-quick-work-of-relaxing.html), *NYTimes*, 5 August 2002.
+
+:::
+::::
+
+
+## Basic Context Engineering {.smaller .text-65 .crunch-title .inline-90 .crunch-ul .crunch-li-8}
+
+* What exactly do we mean when we say **"context"**?
+* Different **training objectives** give different types of contexts!
+* Example: Closest vectors to **Turing**, trained on Wikipedia in two ways:
+
+<br>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th class="bb" width="25%">Dependency Tree</th>
+<th>5-Word Window</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="bb tb">Same category $\rightarrow$</td>
+<td class="ln tb bn">Pauling</td>
+<td class="rn bn lb">nondeterministic</td>
+<td class="bb">$\leftarrow$ Topically related</td>
+</tr>
+<tr>
+<td class="bn tdc">*(Paradigmatic)*</td>
+<td class="lb bn">Hotelling</td>
+<td class="rb bn">computability</td>
+<td class="bn tdc">*(Syntagmatic)*</td>
+</tr>
+<tr>
+<td class="bn"></td>
+<td class="lb bn">Lessing</td>
+<td class="rb bn">deterministic</td>
+<td class="bn"></td>
+</tr>
+<tr>
+<td></td>
+<td class="lb bb">Hamming</td>
+<td class="rb bb">finite-state</td>
+<td class="bn"></td>
+</tr>
+</tbody>
+<caption style='text-align: center; font-size: 90%;'>Example from Uber AI Labs' amazing [Piero Molina](https://w4nderlu.st/teaching/word-embeddings)</caption>
+</table>
+
+## Pretentious But Helpful Terms! {.smaller .crunch-title}
+
+* **Paradigmatic** $\approx$ Grammatical "substitutes", drawn from same category/type
+* **Syntagmatic** $\approx$ semantic relationships between words in a sentence
+
+<br>
+
+<style>
+.top-cb1 {
+  border-top: 3px solid #e69f00 !important;
+}
+.left-cb1 {
+  border-left: 3px solid #e69f00 !important;
+}
+.right-cb1 {
+  border-right: 3px solid #e69f00 !important;
+}
+.bottom-cb1 {
+  border-bottom: 3px solid #e69f00 !important;
+}
+.top-cb2 {
+  border-top: 3px solid #56b4e0 !important;
+}
+.left-cb2 {
+  border-left: 3px solid #56b4e0 !important;
+}
+.right-cb2 {
+  border-right: 3px solid #56b4e0 !important;
+}
+.bottom-cb2 {
+  border-bottom: 3px solid #56b4e0 !important;
+}
+.bg-mix {
+  background-color: #9EAA7550 !important;
+}
+.top-mix {
+  border-top: 3px solid #9EAA7590 !important;
+}
+.bottom-mix {
+  border-bottom: 3px solid #9EAA7590 !important;
+}
+.left-mix {
+  border-left: 3px solid #9EAA7590 !important;
+}
+.right-mix {
+  border-right: 3px solid #9EAA7590 !important;
+}
+.top-none {
+  border-top: 0px solid white !important;
+}
+.bottom-none {
+  border-bottom: 0px solid white !important;
+}
+.right-none {
+  border-right: 0px solid white !important;
+}
+.left-none {
+  border-left: 0px solid white !important;
+}
+</style>
+
+<table>
+<thead>
+<tr>
+  <th class='bottom-none'></th>
+  <th class='top-cb2 left-cb2 right-cb2 cb2a-bg' align="center">Paradigmatic<br>&darr;</th>
+  <th class='bottom-none'></th>
+  <th class='top-cb2 left-cb2 right-cb2 cb2a-bg' align="center">Paradigmatic<br>&darr;</th>
+  <th class='bottom-none'></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class='top-none bottom-none'></td>
+  <td class='tdc bg-mix top-cb1 left-cb1 bottom-cb1 right-mix'>`apples`</td>
+  <td class='tdc cb1a-bg top-cb1 bottom-cb1 right-none left-mix'>&larr; **Syntagmatic** &rarr;</td>
+  <td class='tdc bg-mix top-cb1 right-cb1 bottom-cb1 left-mix'>`sweet`</td>
+  <td class='bottom-none'></td>
+</tr>
+<tr>
+  <td class='top-none'></td>
+  <td class='tdc bg-mix left-cb1 bottom-cb1 top-cb1 right-mix'>`oranges`</td>
+  <td class='tdc cb1a-bg top-cb1 bottom-cb1 right-none left-none'>&larr; **Syntagmatic** &rarr;</td>
+  <td class='tdc bg-mix top-cb1 right-cb1 bottom-cb1 left-mix'>`sour`</td>
+  <td></td>
+</tr>
+<tr>
+  <td class='tdc' style='font-size: 150%;'>These</td>
+  <td class='tdc left-cb2 right-cb2 bottom-cb2' style='font-size: 150%;'>$\underline{\hspace{32mm}}$</td>
+  <td class='tdc' style='font-size: 150%;'>taste very</td>
+  <td class='tdc left-cb2 right-cb2 bottom-cb2' style='font-size: 150%;'>$\underline{\hspace{32mm}}$</td>
+  <td class='tdc' style='font-size: 150%;'>!</td>
+</tr>
+</tbody>
+<caption style='font-size: 90%; text-align: center;'><br>*(Both terms from @saussure_course_1916)*</caption>
+</table>
+
+
+## How Do We Actually *Get* These Vectors? {.smaller .crunch-title .crunch-ul .title-11 .inline-90}
+
+::: {.r-stretch}
+
+![](images/matrix_decomposition.svg){fig-align="center"}
+
+:::
+
+* *High-level goal*: **Retain** information about **word-context relationships** while **reducing** the $M$-dimensional representations of each word down to 3 dimensions.
+* *Low-level goal*: Generate **rank-$K$** matrix $\mathbf{W}$ which **best approximates** distances between words in $M$-dimensional space (rows in $\mathbf{X}$)
+
+# Now We Put These Embeddings (Vectors) into *Databases* {data-stack-name="Vector Databases"}
+
+* The goal: identify **similar** object as vectors "close to" the location (in vector space) of a given **query**
+
+## Vector Search Workflow
+
+![[Image Source](https://zilliz.com/learn/what-is-vector-database)](images/vector_search.png){fig-align="center"}
+
+## Unstructured Data $\leadsto$ Structured Geometric Query Space {.smaller .crunch-title .crunch-img}
+
+::: {#fig-embed-images}
+
+![](images/embedding_carrot.jpeg){fig-align="center" width="60%"}
+
+![](images/embedding_car.jpeg){fig-align="center" width="60%"}
+
+[Image Source](https://www.youtube.com/watch?v=ebMkbWzFCnA&t=80s)
+:::
+
+## More Data $\leadsto$ "Increasing Returns" {.smaller .crunch-title .crunch-img .crunch-quarto-figure}
+
+:::: {layout="[[1,1],[1]]" layout-valign="center"}
+
+::: {.cap-right}
+
+![Learn about **vehicles** from one dataset...](images/vector_space_cars.jpeg){fig-align="right" width="260"}
+
+:::
+
+::: {.cap-left}
+
+![Learn about **foods** from another dataset...](images/vector_space_food.jpeg){fig-align="left" width="274"}
+
+:::
+
+![Learn about **color** from both 🤯](images/vector_space_color.jpeg){fig-align="center" width="570"}
+
+::::
+
+## Queries Embedded via the *Same* Model! {.smaller .crunch-title .title-11}
+
+![](images/vector-db-query.jpeg){fig-align="center"}
+
+# Lab Time! {data-stack-name="Lab 11"}
+
+* Lab 11 on [Canvas](https://georgetown.instructure.com/courses/213755/assignments/1280778)
+* Lab 11 on [GitHub Classroom](https://classroom.github.com/a/Ek1Auxq3)
+
+## References
+
+::: {#refs}
+:::

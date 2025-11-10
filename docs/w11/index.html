@@ -8,7 +8,7 @@
 
 <meta name="author" content="Amit Arora and Jeff Jacobs">
 
-<title>Week 11: Vector Databases, RAG – DSAN 6000 Slide Hub</title>
+<title>Week 11: Vector Databases – DSAN 6000 Slide Hub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -76,6 +96,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><script src="../sidebar.js"></script><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../dsan-globals/jjstyles.css">
 </head>
@@ -412,20 +461,44 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2025-11-03, 03:25:40 PM</em></p>
+<p><em>Updated 2025-11-10, 04:25:01 AM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#vector-spaces-the-geometry-of-ai" id="toc-vector-spaces-the-geometry-of-ai" class="nav-link active" data-scroll-target="#vector-spaces-the-geometry-of-ai">Vector Spaces: The Geometry of AI!</a>
+  <ul class="collapse">
+  <li><a href="#word-counts-good-enough" id="toc-word-counts-good-enough" class="nav-link" data-scroll-target="#word-counts-good-enough">Word Counts: Good Enough?</a></li>
+  <li><a href="#whats-missing-context" id="toc-whats-missing-context" class="nav-link" data-scroll-target="#whats-missing-context">What’s Missing? Context!</a></li>
+  <li><a href="#basic-context-engineering" id="toc-basic-context-engineering" class="nav-link" data-scroll-target="#basic-context-engineering">Basic Context Engineering</a></li>
+  <li><a href="#pretentious-but-helpful-terms" id="toc-pretentious-but-helpful-terms" class="nav-link" data-scroll-target="#pretentious-but-helpful-terms">Pretentious But Helpful Terms!</a></li>
+  <li><a href="#how-do-we-actually-get-these-vectors" id="toc-how-do-we-actually-get-these-vectors" class="nav-link" data-scroll-target="#how-do-we-actually-get-these-vectors">How Do We Actually <em>Get</em> These Vectors?</a></li>
+  </ul></li>
+  <li><a href="#now-we-put-these-embeddings-vectors-into-databases" id="toc-now-we-put-these-embeddings-vectors-into-databases" class="nav-link" data-scroll-target="#now-we-put-these-embeddings-vectors-into-databases">Now We Put These Embeddings (Vectors) into <em>Databases</em></a>
+  <ul class="collapse">
+  <li><a href="#vector-search-workflow" id="toc-vector-search-workflow" class="nav-link" data-scroll-target="#vector-search-workflow">Vector Search Workflow</a></li>
+  <li><a href="#unstructured-data-leadsto-structured-geometric-query-space" id="toc-unstructured-data-leadsto-structured-geometric-query-space" class="nav-link" data-scroll-target="#unstructured-data-leadsto-structured-geometric-query-space">Unstructured Data <span class="math inline">\(\leadsto\)</span> Structured Geometric Query Space</a></li>
+  <li><a href="#more-data-leadsto-increasing-returns" id="toc-more-data-leadsto-increasing-returns" class="nav-link" data-scroll-target="#more-data-leadsto-increasing-returns">More Data <span class="math inline">\(\leadsto\)</span> “Increasing Returns”</a></li>
+  <li><a href="#queries-embedded-via-the-same-model" id="toc-queries-embedded-via-the-same-model" class="nav-link" data-scroll-target="#queries-embedded-via-the-same-model">Queries Embedded via the <em>Same</em> Model!</a></li>
+  </ul></li>
+  <li><a href="#lab-time" id="toc-lab-time" class="nav-link" data-scroll-target="#lab-time">Lab Time!</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w11/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 11: Vector Databases, RAG</h1>
+<h1 class="title">Week 11: Vector Databases</h1>
 <p class="subtitle lead"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2025</p>
   <div class="quarto-categories">
     <div class="quarto-category">Class Sessions</div>
@@ -465,8 +538,467 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<center class="mb-3">
+<a class="h2" href="./slides.html" target="_blank">Open slides in new tab →</a>
+</center>
+<section id="vector-spaces-the-geometry-of-ai" class="level1 not-title-slide smaller crunch-title title-12" data-stack-name="Embeddings Overview">
+<h1 class="not-title-slide smaller crunch-title title-12" data-stack-name="Embeddings Overview">Vector Spaces: The Geometry of AI!</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/vector-space-query.jpeg" class="img-fluid figure-img"></p>
+<figcaption><a href="https://weaviate.io/blog/vector-search-explained">Image source</a></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Why <strong>vector</strong> spaces over <strong>keyword</strong> matching?</li>
+<li>What if words have different <strong>meanings</strong> in different <strong>contexts</strong>?</li>
+</ul>
+</div>
+</div>
+<section id="word-counts-good-enough" class="level2 smaller crunch-title title-12">
+<h2 class="smaller crunch-title title-12 anchored" data-anchor-id="word-counts-good-enough">Word Counts: Good Enough?</h2>
+<p>Just four keywords per section:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Section</th>
+<th>Keywords</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>U.S.</td>
+<td><code>state</code>, <code>court</code>, <code>federal</code>, <code>republican</code></td>
+</tr>
+<tr class="even">
+<td>World</td>
+<td><code>government</code>, <code>country</code>, <code>officials</code>, <code>minister</code></td>
+</tr>
+<tr class="odd">
+<td>Arts</td>
+<td><code>music</code>, <code>show</code>, <code>art</code>, <code>dance</code></td>
+</tr>
+<tr class="even">
+<td>Sports</td>
+<td><code>game</code>, <code>league</code>, <code>team</code>, <code>coach</code></td>
+</tr>
+<tr class="odd">
+<td>Real Estate</td>
+<td><code>home</code>, <code>bedrooms</code>, <code>bathrooms</code>, <code>building</code></td>
+</tr>
+</tbody>
+</table>
+<p>For each article, vote for section with highest keyword count:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 1%">
+<col style="width: 10%">
+<col style="width: 22%">
+<col style="width: 14%">
+<col style="width: 19%">
+<col style="width: 21%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Arts</th>
+<th>Real Estate</th>
+<th>Sports</th>
+<th>U.S. News</th>
+<th>World News</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Correct</td>
+<td>3020</td>
+<td>690</td>
+<td>4860</td>
+<td>1330</td>
+<td>1730</td>
+<td><strong>11630</strong></td>
+</tr>
+<tr class="even">
+<td>Incorrect</td>
+<td>750</td>
+<td>60</td>
+<td>370</td>
+<td>1100</td>
+<td>590</td>
+<td><strong>2870</strong></td>
+</tr>
+<tr class="odd">
+<td>Accuracy</td>
+<td><strong>0.801</strong></td>
+<td><strong>0.920</strong></td>
+<td><strong>0.929</strong></td>
+<td><span class="redbox"><strong>0.547</strong></span></td>
+<td><span class="redbox"><strong>0.746</strong></span></td>
+<td><strong>0.802</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="whats-missing-context" class="level2 crunch-title">
+<h2 class="crunch-title anchored" data-anchor-id="whats-missing-context">What’s Missing? Context!</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>You shall know a word by the company it keeps.</em> <span class="citation" data-cites="firth_papers_1957">(<a href="#ref-firth_papers_1957" role="doc-biblioref">Firth 1957</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="columns" style="font-size: 75%;">
+<div class="column" style="width:50%;">
+<center>
+<p><strong>Article A</strong> (World News):</p>
+</center>
+<!-- President Vladimir V. Putin told Russia's natural gas monopoly, Gazprom, on Saturday to continue selling subsidized gas to Ukraine until the end of March if Ukraine agrees to pay market prices beginning in April. Mr. Putin's order, delivered on national television as Gazprom threatened to cut off gas exports for Ukraine beginning on Jan. 1, put Russia's president in the center of a dispute that has caused Europe to worry whether its gas supply will be disrupted in the January chill. Ukraine replied warily. The office of President Viktor A. Yushchenko noted that ''negotiations of the settlement of the gas problem have crossed into a new phase.'' A spokesman for Yury I. Yekhanurov, Ukraine's prime minister, was quoted by Interfax saying that Ukraine agreed to a transition to market prices, but the details require negotiations. Mr. Putin gave Ukraine until midnight Saturday to accept his terms. -->
+<p><strong>President Bush</strong> said he was trying to convince <strong>President Vladimir Putin</strong> of Russia that cooperation was “in Russia’s security interests,” even though Defense Secretary Robert M. Gates did not win Mr.&nbsp;Putin’s support during a trip to Moscow last week.</p>
+<p><a href="https://www.nytimes.com/2007/05/01/world/europe/01prexy.html">“Bush Steps Up Effort to Persuade Putin on Missile Defense Plan”</a>, <em>NYTimes</em>, 1 May 2007.</p>
+</div><div class="column" style="width:50%;">
+<center>
+<p><strong>Article B</strong> (U.S. News):</p>
+</center>
+<p><strong>President Bush</strong> began his day yesterday at dawn on the <strong>golf</strong> course. He began Saturday on the golf course, too. A weekend earlier, the president played two rounds of 18 holes on the course at Andrews Air Force Base just outside Washington.</p>
+<p><a href="https://www.nytimes.com/2002/08/05/us/white-house-letter-bush-makes-quick-work-of-relaxing.html">“White House Letter; Bush Makes Quick Work of Relaxing”</a>, <em>NYTimes</em>, 5 August 2002.</p>
+</div>
+</div>
+</section>
+<section id="basic-context-engineering" class="level2 smaller text-65 crunch-title inline-90 crunch-ul crunch-li-8">
+<h2 class="smaller text-65 crunch-title inline-90 crunch-ul crunch-li-8 anchored" data-anchor-id="basic-context-engineering">Basic Context Engineering</h2>
+<ul>
+<li>What exactly do we mean when we say <strong>“context”</strong>?</li>
+<li>Different <strong>training objectives</strong> give different types of contexts!</li>
+<li>Example: Closest vectors to <strong>Turing</strong>, trained on Wikipedia in two ways:</li>
+</ul>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>
+</th>
+<th class="bb" width="25%">
+Dependency Tree
+</th>
+<th>
+5-Word Window
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="bb tb">
+Same category <span class="math inline">\(\rightarrow\)</span>
+</td>
+<td class="ln tb bn">
+Pauling
+</td>
+<td class="rn bn lb">
+nondeterministic
+</td>
+<td class="bb">
+<span class="math inline">\(\leftarrow\)</span> Topically related
+</td>
+</tr>
+<tr>
+<td class="bn tdc">
+<em>(Paradigmatic)</em>
+</td>
+<td class="lb bn">
+Hotelling
+</td>
+<td class="rb bn">
+computability
+</td>
+<td class="bn tdc">
+<em>(Syntagmatic)</em>
+</td>
+</tr>
+<tr>
+<td class="bn">
+</td>
+<td class="lb bn">
+Lessing
+</td>
+<td class="rb bn">
+deterministic
+</td>
+<td class="bn">
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td class="lb bb">
+Hamming
+</td>
+<td class="rb bb">
+finite-state
+</td>
+<td class="bn">
+</td>
+</tr>
+</tbody>
+<caption style="text-align: center; font-size: 90%;">
+Example from Uber AI Labs’ amazing <a href="https://w4nderlu.st/teaching/word-embeddings">Piero Molina</a>
+</caption>
+</table>
+</section>
+<section id="pretentious-but-helpful-terms" class="level2 smaller crunch-title">
+<h2 class="smaller crunch-title anchored" data-anchor-id="pretentious-but-helpful-terms">Pretentious But Helpful Terms!</h2>
+<ul>
+<li><strong>Paradigmatic</strong> <span class="math inline">\(\approx\)</span> Grammatical “substitutes”, drawn from same category/type</li>
+<li><strong>Syntagmatic</strong> <span class="math inline">\(\approx\)</span> semantic relationships between words in a sentence</li>
+</ul>
+<p><br></p>
+<style>
+.top-cb1 {
+  border-top: 3px solid #e69f00 !important;
+}
+.left-cb1 {
+  border-left: 3px solid #e69f00 !important;
+}
+.right-cb1 {
+  border-right: 3px solid #e69f00 !important;
+}
+.bottom-cb1 {
+  border-bottom: 3px solid #e69f00 !important;
+}
+.top-cb2 {
+  border-top: 3px solid #56b4e0 !important;
+}
+.left-cb2 {
+  border-left: 3px solid #56b4e0 !important;
+}
+.right-cb2 {
+  border-right: 3px solid #56b4e0 !important;
+}
+.bottom-cb2 {
+  border-bottom: 3px solid #56b4e0 !important;
+}
+.bg-mix {
+  background-color: #9EAA7550 !important;
+}
+.top-mix {
+  border-top: 3px solid #9EAA7590 !important;
+}
+.bottom-mix {
+  border-bottom: 3px solid #9EAA7590 !important;
+}
+.left-mix {
+  border-left: 3px solid #9EAA7590 !important;
+}
+.right-mix {
+  border-right: 3px solid #9EAA7590 !important;
+}
+.top-none {
+  border-top: 0px solid white !important;
+}
+.bottom-none {
+  border-bottom: 0px solid white !important;
+}
+.right-none {
+  border-right: 0px solid white !important;
+}
+.left-none {
+  border-left: 0px solid white !important;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th class="bottom-none">
+</th>
+<th class="top-cb2 left-cb2 right-cb2 cb2a-bg" align="center">
+Paradigmatic<br>↓
+</th>
+<th class="bottom-none">
+</th>
+<th class="top-cb2 left-cb2 right-cb2 cb2a-bg" align="center">
+Paradigmatic<br>↓
+</th>
+<th class="bottom-none">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="top-none bottom-none">
+</td>
+<td class="tdc bg-mix top-cb1 left-cb1 bottom-cb1 right-mix">
+<code>apples</code>
+</td>
+<td class="tdc cb1a-bg top-cb1 bottom-cb1 right-none left-mix">
+← <strong>Syntagmatic</strong> →
+</td>
+<td class="tdc bg-mix top-cb1 right-cb1 bottom-cb1 left-mix">
+<code>sweet</code>
+</td>
+<td class="bottom-none">
+</td>
+</tr>
+<tr>
+<td class="top-none">
+</td>
+<td class="tdc bg-mix left-cb1 bottom-cb1 top-cb1 right-mix">
+<code>oranges</code>
+</td>
+<td class="tdc cb1a-bg top-cb1 bottom-cb1 right-none left-none">
+← <strong>Syntagmatic</strong> →
+</td>
+<td class="tdc bg-mix top-cb1 right-cb1 bottom-cb1 left-mix">
+<code>sour</code>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td class="tdc" style="font-size: 150%;">
+These
+</td>
+<td class="tdc left-cb2 right-cb2 bottom-cb2" style="font-size: 150%;">
+<span class="math inline">\(\underline{\hspace{32mm}}\)</span>
+</td>
+<td class="tdc" style="font-size: 150%;">
+taste very
+</td>
+<td class="tdc left-cb2 right-cb2 bottom-cb2" style="font-size: 150%;">
+<span class="math inline">\(\underline{\hspace{32mm}}\)</span>
+</td>
+<td class="tdc" style="font-size: 150%;">
+!
+</td>
+</tr>
+</tbody>
+<caption style="font-size: 90%; text-align: center;">
+<br><em>(Both terms from <span class="citation" data-cites="saussure_course_1916">Saussure (<a href="#ref-saussure_course_1916" role="doc-biblioref">1916</a>)</span>)</em>
+</caption>
+</table>
+</section>
+<section id="how-do-we-actually-get-these-vectors" class="level2 smaller crunch-title crunch-ul title-11 inline-90">
+<h2 class="smaller crunch-title crunch-ul title-11 inline-90 anchored" data-anchor-id="how-do-we-actually-get-these-vectors">How Do We Actually <em>Get</em> These Vectors?</h2>
+<div class="r-stretch">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/matrix_decomposition.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+<ul>
+<li><em>High-level goal</em>: <strong>Retain</strong> information about <strong>word-context relationships</strong> while <strong>reducing</strong> the <span class="math inline">\(M\)</span>-dimensional representations of each word down to 3 dimensions.</li>
+<li><em>Low-level goal</em>: Generate <strong>rank-<span class="math inline">\(K\)</span></strong> matrix <span class="math inline">\(\mathbf{W}\)</span> which <strong>best approximates</strong> distances between words in <span class="math inline">\(M\)</span>-dimensional space (rows in <span class="math inline">\(\mathbf{X}\)</span>)</li>
+</ul>
+</section>
+</section>
+<section id="now-we-put-these-embeddings-vectors-into-databases" class="level1" data-stack-name="Vector Databases">
+<h1 data-stack-name="Vector Databases">Now We Put These Embeddings (Vectors) into <em>Databases</em></h1>
+<ul>
+<li>The goal: identify <strong>similar</strong> object as vectors “close to” the location (in vector space) of a given <strong>query</strong></li>
+</ul>
+<section id="vector-search-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="vector-search-workflow">Vector Search Workflow</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/vector_search.png" class="img-fluid figure-img"></p>
+<figcaption><a href="https://zilliz.com/learn/what-is-vector-database">Image Source</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="unstructured-data-leadsto-structured-geometric-query-space" class="level2 smaller crunch-title crunch-img">
+<h2 class="smaller crunch-title crunch-img anchored" data-anchor-id="unstructured-data-leadsto-structured-geometric-query-space">Unstructured Data <span class="math inline">\(\leadsto\)</span> Structured Geometric Query Space</h2>
+<div id="fig-embed-images" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-embed-images-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/embedding_carrot.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/embedding_car.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-embed-images-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Fig&nbsp;1: <a href="https://www.youtube.com/watch?v=ebMkbWzFCnA&amp;t=80s">Image Source</a>
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="more-data-leadsto-increasing-returns" class="level2 smaller crunch-title crunch-img crunch-quarto-figure">
+<h2 class="smaller crunch-title crunch-img crunch-quarto-figure anchored" data-anchor-id="more-data-leadsto-increasing-returns">More Data <span class="math inline">\(\leadsto\)</span> “Increasing Returns”</h2>
+<div class="quarto-layout-panel" data-layout="[[1,1],[1]]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="cap-right quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-right">
+<figure class="figure">
+<p><img src="images/vector_space_cars.jpeg" class="img-fluid figure-img" width="260"></p>
+<figcaption>Learn about <strong>vehicles</strong> from one dataset…</figcaption>
+</figure>
+</div>
+</div>
+<div class="cap-left quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/vector_space_food.jpeg" class="img-fluid figure-img" width="274"></p>
+<figcaption>Learn about <strong>foods</strong> from another dataset…</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/vector_space_color.jpeg" class="img-fluid figure-img" width="570"></p>
+<figcaption>Learn about <strong>color</strong> from both 🤯</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="queries-embedded-via-the-same-model" class="level2 smaller crunch-title title-11">
+<h2 class="smaller crunch-title title-11 anchored" data-anchor-id="queries-embedded-via-the-same-model">Queries Embedded via the <em>Same</em> Model!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/vector-db-query.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="lab-time" class="level1" data-stack-name="Lab 11">
+<h1 data-stack-name="Lab 11">Lab Time!</h1>
+<ul>
+<li>Lab 11 on <a href="https://georgetown.instructure.com/courses/213755/assignments/1280778">Canvas</a></li>
+<li>Lab 11 on <a href="https://classroom.github.com/a/Ek1Auxq3">GitHub Classroom</a></li>
+</ul>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-firth_papers_1957" class="csl-entry" role="listitem">
+Firth, John Rupert. 1957. <em>Papers in <span>Linguistics</span>, 1934-1951</em>. Oxford University Press.
+</div>
+<div id="ref-saussure_course_1916" class="csl-entry" role="listitem">
+Saussure, Ferdinand de. 1916. <em>Course in <span>General Linguistics</span></em>. Open Court.
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -894,4 +1426,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w11/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w11/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

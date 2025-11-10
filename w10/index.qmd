@@ -38,6 +38,14 @@ format:
     df-print: kable
 ---
 
+::: {.content-visible unless-format="revealjs"}
+
+<center class='mb-3'>
+<a class="h2" href="./slides.html" target="_blank">Open slides in new tab &rarr;</a>
+</center>
+
+:::
+
 ## Pipelines for *Triggered* Execution {.text-85 .crunch-title .crunch-quarto-layout-panel .crunch-quarto-layout-cell .crunch-p .crunch-ul .crunch-li-8 .crunch-img data-name="Key Concepts"}
 
 <!-- https://projects.verou.me/bubbly/ -->
@@ -504,7 +512,7 @@ Into **`DAG`s** with concrete `Task`s, dependencies, and triggers:
 
 ![](images/backfill.png){fig-align="center"}
 
-## Implementation Detail 2: Training Model *After* Backfill {.smaller .title-09 .crunch-title .crunch-quarto-figure}
+## Implementation Detail 2: Train Model Only *After* Backfill {.smaller .title-09 .crunch-title .crunch-quarto-figure}
 
 ::::: {#fig-ml-deploy}
 
@@ -522,6 +530,8 @@ $\leadsto$
 ::: {.column width="48%"}
 
 ![](images/latestonly_grid.png){fig-align="center" width="400"}
+
+[`LatestOnlyOperator`](https://airflow.apache.org/docs/apache-airflow-providers-standard/stable/_api/airflow/providers/standard/operators/latest_only/index.html#module-contents){.under}
 
 :::
 ::::

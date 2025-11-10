@@ -55,20 +55,20 @@ weeks:
     date-md: "Oct 6"
   - weeknum: 8
     title: ""
-    footer: "DSAN 6000 Week 8"
-    date-md: "Oct 16"
+    footer: "DSAN 6000 Week 8: SparkNLP"
+    date-md: "Oct 20"
   - weeknum: 9
     title: ""
-    footer: "DSAN 6000 Week 9"
-    date-md: "Oct 23"
+    footer: "DSAN 6000 Week 9: SparkML"
+    date-md: "Oct 27"
   - weeknum: 10
     title: ""
-    footer: "DSAN 6000 Week 10"
-    date-md: "Oct 30"
+    footer: "DSAN 6000 Week 10: ETL Pipelines with Airflow"
+    date-md: "Nov 3"
   - weeknum: 11
     title: ""
-    footer: "DSAN 6000 Week 11"
-    date-md: "Nov 6"
+    footer: "DSAN 6000 Week 11: Vector Databases"
+    date-md: "Nov 10"
   - weeknum: 12
     title: ""
     footer: "DSAN 6000 Week 12"

@@ -165,8 +165,8 @@ margin-top: 0px !important;
 margin-bottom: 0px !important;
 }
 .crunch-figcaption figcaption {
-margin-top: 0px !important;
-margin-bottom: 0px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
 }
 
 .crunch-hr hr {
@@ -294,6 +294,12 @@ details {
 figcaption {
     text-align: center !important;
 }
+.cap-left figcaption {
+    text-align: left !important;
+}
+.cap-right figcaption {
+    text-align: right !important;
+}
 
 /* fix mapview... */
 .fix-mapview .leaflet {
@@ -408,6 +414,12 @@ font-size: 85% !important;
 }
 .p-90 p {
 font-size: 90% !important;
+}
+
+.redbox {
+  border: 2px solid red!important;
+  padding: 3px!important;
+  background-color: rgba(255,0,0,0.1)!important;
 }
 
 .sidebar-footer-item {
@@ -631,4 +643,31 @@ text-align: right !important;
 
 .valign-cols div.column {
     vertical-align: middle !important;
+}
+
+// Shortcuts for table borders:
+
+.lb {
+  border-left: 1px solid black !important;
+}
+
+.ln {
+  border-left: 0 !important;
+}
+
+.bn {
+  border-bottom: 0 !important;
+}
+
+.bb {
+  border-bottom: 1px solid black !important;
+}
+
+.rb {
+  border-left: 1px solid black !important;
+  border-right: 1px solid black !important;
+}
+
+.tb {
+  border-top: 1px solid black !important;
 }

@@ -1,5 +1,5 @@
 ---
-title: "Week 9: Apache Iceberg, Table Formats"
+title: "Week 9: SparkML"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"

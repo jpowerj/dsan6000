@@ -496,7 +496,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2025-11-03, 03:25:40 PM</em></p>
+<p><em>Updated 2025-11-10, 04:25:01 AM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -528,7 +528,7 @@ window.Quarto = {
   <li><a href="#new-book-up-to-date-airflow-3.0-demos" id="toc-new-book-up-to-date-airflow-3.0-demos" class="nav-link" data-scroll-target="#new-book-up-to-date-airflow-3.0-demos">New Book: Up-To-Date (Airflow 3.0) Demos 🤓</a></li>
   <li><a href="#conceptual-pipelines-leadsto-dags" id="toc-conceptual-pipelines-leadsto-dags" class="nav-link" data-scroll-target="#conceptual-pipelines-leadsto-dags">Conceptual Pipelines <span class="math inline">\(\leadsto\)</span> DAGs</a></li>
   <li><a href="#implementation-detail-1-backfilling" id="toc-implementation-detail-1-backfilling" class="nav-link" data-scroll-target="#implementation-detail-1-backfilling">Implementation Detail 1: Backfilling</a></li>
-  <li><a href="#implementation-detail-2-training-model-after-backfill" id="toc-implementation-detail-2-training-model-after-backfill" class="nav-link" data-scroll-target="#implementation-detail-2-training-model-after-backfill">Implementation Detail 2: Training Model <em>After</em> Backfill</a></li>
+  <li><a href="#implementation-detail-2-train-model-only-after-backfill" id="toc-implementation-detail-2-train-model-only-after-backfill" class="nav-link" data-scroll-target="#implementation-detail-2-train-model-only-after-backfill">Implementation Detail 2: Train Model Only <em>After</em> Backfill</a></li>
   <li><a href="#implementation-detail-3-downstream-consumers" id="toc-implementation-detail-3-downstream-consumers" class="nav-link" data-scroll-target="#implementation-detail-3-downstream-consumers">Implementation Detail 3: Downstream Consumers</a></li>
   <li><a href="#lab-time" id="toc-lab-time" class="nav-link" data-scroll-target="#lab-time">Lab Time!</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -581,6 +581,9 @@ window.Quarto = {
 </header>
 
 
+<center class="mb-3">
+<a class="h2" href="./slides.html" target="_blank">Open slides in new tab →</a>
+</center>
 <section id="pipelines-for-triggered-execution" class="level2 text-85 crunch-title crunch-quarto-layout-panel crunch-quarto-layout-cell crunch-p crunch-ul crunch-li-8 crunch-img" data-name="Key Concepts">
 <h2 class="text-85 crunch-title crunch-quarto-layout-panel crunch-quarto-layout-cell crunch-p crunch-ul crunch-li-8 crunch-img anchored" data-name="Key Concepts" data-anchor-id="pipelines-for-triggered-execution">Pipelines for <em>Triggered</em> Execution</h2>
 <!-- https://projects.verou.me/bubbly/ -->
@@ -1144,8 +1147,8 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-<section id="implementation-detail-2-training-model-after-backfill" class="level2 smaller title-09 crunch-title crunch-quarto-figure">
-<h2 class="smaller title-09 crunch-title crunch-quarto-figure anchored" data-anchor-id="implementation-detail-2-training-model-after-backfill">Implementation Detail 2: Training Model <em>After</em> Backfill</h2>
+<section id="implementation-detail-2-train-model-only-after-backfill" class="level2 smaller title-09 crunch-title crunch-quarto-figure">
+<h2 class="smaller title-09 crunch-title crunch-quarto-figure anchored" data-anchor-id="implementation-detail-2-train-model-only-after-backfill">Implementation Detail 2: Train Model Only <em>After</em> Backfill</h2>
 <div id="fig-ml-deploy" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ml-deploy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1167,6 +1170,7 @@ window.Quarto = {
 <p><img src="images/latestonly_grid.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
+<p><a href="https://airflow.apache.org/docs/apache-airflow-providers-standard/stable/_api/airflow/providers/standard/operators/latest_only/index.html#module-contents" class="under"><code>LatestOnlyOperator</code></a></p>
 </div>
 </div>
 </div>

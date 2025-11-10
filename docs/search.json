@@ -54,7 +54,7 @@
     "href": "resources.html#pdfs-of-books",
     "title": "Resource Hub",
     "section": "PDFs of Books",
-    "text": "PDFs of Books\nThe remainder of this page is auto-generated from all of the references across the slides for each week: click on the name of a reference to download the ebook version, if available!\n\n\nBarber, David. 2012. Bayesian Reasoning and Machine Learning. Cambridge University Press.\n\n\nDamji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. Learning Spark. O’Reilly Media, Inc.\n\n\nEagar, Gareth. 2021. Data Engineering with AWS: Learn How to Design and Build Cloud-Based Data Transformation Pipelines Using AWS. Packt Publishing Ltd.\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc.\n\n\nHarenslak, Bas P., and Julian de Ruiter. 2021. Data Pipelines with Apache Airflow. Simon and Schuster.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nKleppmann, Martin. 2017. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. O’Reilly Media, Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.\n\n\nNeedham, Mark, Michael Hunger, and Michael Simons. 2024. DuckDB in Action. Simon and Schuster.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc.\n\n\nRuiter, Julian de, Ismael Cabral, Kris Geusebroek, Daniel van der Ende, and Bas Harenslak. 2026. Data Pipelines with Apache Airflow, Second Edition. Simon and Schuster.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.\n\n\nVirtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. Serverless Analytics with Amazon Athena: Query Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure. Packt Publishing Ltd.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc.\n\n\nWolohan, John. 2020. Mastering Large Datasets with Python: Parallelize and Distribute Your Python Code. Simon and Schuster.",
+    "text": "PDFs of Books\nThe remainder of this page is auto-generated from all of the references across the slides for each week: click on the name of a reference to download the ebook version, if available!\n\n\nBarber, David. 2012. Bayesian Reasoning and Machine Learning. Cambridge University Press.\n\n\nDamji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. Learning Spark. O’Reilly Media, Inc.\n\n\nEagar, Gareth. 2021. Data Engineering with AWS: Learn How to Design and Build Cloud-Based Data Transformation Pipelines Using AWS. Packt Publishing Ltd.\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc.\n\n\nHarenslak, Bas P., and Julian de Ruiter. 2021. Data Pipelines with Apache Airflow. Simon and Schuster.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nKleppmann, Martin. 2017. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. O’Reilly Media, Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.\n\n\nNeedham, Mark, Michael Hunger, and Michael Simons. 2024. DuckDB in Action. Simon and Schuster.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc.\n\n\nRuiter, Julian de, Ismael Cabral, Kris Geusebroek, Daniel van der Ende, and Bas Harenslak. 2026. Data Pipelines with Apache Airflow, Second Edition. Simon and Schuster.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.\n\n\nVirtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. Serverless Analytics with Amazon Athena: Query Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure. Packt Publishing Ltd.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc.\n\n\nWolohan, John. 2020. Mastering Large Datasets with Python: Parallelize and Distribute Your Python Code. Simon and Schuster.",
     "crumbs": [
       "Resources"
     ]
@@ -1417,7 +1417,187 @@
     "href": "index.html",
     "title": "DSAN 6000 Sections 01 and 02",
     "section": "",
-    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\nThis webpage just serves as a hub collecting Jeff’s slides for DSAN 6000: Big Data and Cloud Computing, Fall 2025 at Georgetown University. It is not a replacement for the main course webpage!\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 28\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 2\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 8\n\n\n\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\n\nSep 15\n\n\n\n\n\n\nWeek 5: Data Engineering\n\n\nSep 22\n\n\n\n\n\n\nWeek 6: Introduction to Spark\n\n\nSep 29\n\n\n\n\n\n\nWeek 7: Spark DataFrames and Spark SQL\n\n\nOct 6\n\n\n\n\n\n\nWeek 8: Spark ML and Streaming\n\n\nOct 20\n\n\n\n\n\n\nWeek 9: Apache Iceberg, Table Formats\n\n\nOct 27\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Airflow\n\n\nNov 3\n\n\n\n\n\n\nWeek 11: Vector Databases, RAG\n\n\nNov 10\n\n\n\n\n\n\nWeek 12: Modern Data Stack, Governance\n\n\nNov 17\n\n\n\n\n\n\nWeek 13: Serverless and Container Orchestration\n\n\nNov 24\n\n\n\n\n\n\nWeek 14: Final Topics, Review\n\n\nDec 1\n\n\n\n\n\n\nWeek 15: Final Project Presentations\n\n\nDec 8\n\n\n\n\n\n\nNo matching items"
+    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\nThis webpage just serves as a hub collecting Jeff’s slides for DSAN 6000: Big Data and Cloud Computing, Fall 2025 at Georgetown University. It is not a replacement for the main course webpage!\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 28\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 2\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 8\n\n\n\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\n\nSep 15\n\n\n\n\n\n\nWeek 5: Data Engineering\n\n\nSep 22\n\n\n\n\n\n\nWeek 6: Introduction to Spark\n\n\nSep 29\n\n\n\n\n\n\nWeek 7: Spark DataFrames and Spark SQL\n\n\nOct 6\n\n\n\n\n\n\nWeek 8: SparkNLP\n\n\nOct 20\n\n\n\n\n\n\nWeek 9: SparkML\n\n\nOct 27\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Airflow\n\n\nNov 3\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 10\n\n\n\n\n\n\nWeek 12: Modern Data Stack, Governance\n\n\nNov 17\n\n\n\n\n\n\nWeek 13: Serverless and Container Orchestration\n\n\nNov 24\n\n\n\n\n\n\nWeek 14: Final Topics, Review\n\n\nDec 1\n\n\n\n\n\n\nWeek 15: Final Project Presentations\n\n\nDec 8\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "w11/slides.html#word-counts-good-enough",
+    "href": "w11/slides.html#word-counts-good-enough",
+    "title": "Week 11: Vector Databases",
+    "section": "Word Counts: Good Enough?",
+    "text": "Word Counts: Good Enough?\nJust four keywords per section:\n\n\n\nSection\nKeywords\n\n\n\n\nU.S.\nstate, court, federal, republican\n\n\nWorld\ngovernment, country, officials, minister\n\n\nArts\nmusic, show, art, dance\n\n\nSports\ngame, league, team, coach\n\n\nReal Estate\nhome, bedrooms, bathrooms, building\n\n\n\nFor each article, vote for section with highest keyword count:\n\n\n\n\n\n\n\n\n\n\n\n\n\nArts\nReal Estate\nSports\nU.S. News\nWorld News\nTotal\n\n\n\n\nCorrect\n3020\n690\n4860\n1330\n1730\n11630\n\n\nIncorrect\n750\n60\n370\n1100\n590\n2870\n\n\nAccuracy\n0.801\n0.920\n0.929\n0.547\n0.746\n0.802"
+  },
+  {
+    "objectID": "w11/slides.html#whats-missing-context",
+    "href": "w11/slides.html#whats-missing-context",
+    "title": "Week 11: Vector Databases",
+    "section": "What’s Missing? Context!",
+    "text": "What’s Missing? Context!\n\n\n\nYou shall know a word by the company it keeps. (Firth 1957)\n\n\n\n\n\n\nArticle A (World News):\n\n\nPresident Bush said he was trying to convince President Vladimir Putin of Russia that cooperation was “in Russia’s security interests,” even though Defense Secretary Robert M. Gates did not win Mr. Putin’s support during a trip to Moscow last week.\n“Bush Steps Up Effort to Persuade Putin on Missile Defense Plan”, NYTimes, 1 May 2007.\n\n\nArticle B (U.S. News):\n\nPresident Bush began his day yesterday at dawn on the golf course. He began Saturday on the golf course, too. A weekend earlier, the president played two rounds of 18 holes on the course at Andrews Air Force Base just outside Washington.\n“White House Letter; Bush Makes Quick Work of Relaxing”, NYTimes, 5 August 2002."
+  },
+  {
+    "objectID": "w11/slides.html#basic-context-engineering",
+    "href": "w11/slides.html#basic-context-engineering",
+    "title": "Week 11: Vector Databases",
+    "section": "Basic Context Engineering",
+    "text": "Basic Context Engineering\n\nWhat exactly do we mean when we say “context”?\nDifferent training objectives give different types of contexts!\nExample: Closest vectors to Turing, trained on Wikipedia in two ways:\n\n\n\n\n\n\n\n\nDependency Tree\n\n\n5-Word Window\n\n\n\n\n\n\n\n\nSame category \\(\\rightarrow\\)\n\n\nPauling\n\n\nnondeterministic\n\n\n\\(\\leftarrow\\) Topically related\n\n\n\n\n(Paradigmatic)\n\n\nHotelling\n\n\ncomputability\n\n\n(Syntagmatic)\n\n\n\n\n\n\nLessing\n\n\ndeterministic\n\n\n\n\n\n\n\n\nHamming\n\n\nfinite-state\n\n\n\n\n\n\nExample from Uber AI Labs’ amazing Piero Molina"
+  },
+  {
+    "objectID": "w11/slides.html#pretentious-but-helpful-terms",
+    "href": "w11/slides.html#pretentious-but-helpful-terms",
+    "title": "Week 11: Vector Databases",
+    "section": "Pretentious But Helpful Terms!",
+    "text": "Pretentious But Helpful Terms!\n\nParadigmatic \\(\\approx\\) Grammatical “substitutes”, drawn from same category/type\nSyntagmatic \\(\\approx\\) semantic relationships between words in a sentence\n\n\n\n\n\n\n\n\n\nParadigmatic↓\n\n\n\n\nParadigmatic↓\n\n\n\n\n\n\n\n\n\n\napples\n\n\n← Syntagmatic →\n\n\nsweet\n\n\n\n\n\n\n\n\noranges\n\n\n← Syntagmatic →\n\n\nsour\n\n\n\n\n\n\nThese\n\n\n\\(\\underline{\\hspace{32mm}}\\)\n\n\ntaste very\n\n\n\\(\\underline{\\hspace{32mm}}\\)\n\n\n!\n\n\n\n\n(Both terms from Saussure (1916))"
+  },
+  {
+    "objectID": "w11/slides.html#how-do-we-actually-get-these-vectors",
+    "href": "w11/slides.html#how-do-we-actually-get-these-vectors",
+    "title": "Week 11: Vector Databases",
+    "section": "How Do We Actually Get These Vectors?",
+    "text": "How Do We Actually Get These Vectors?\n\n\nHigh-level goal: Retain information about word-context relationships while reducing the \\(M\\)-dimensional representations of each word down to 3 dimensions.\nLow-level goal: Generate rank-\\(K\\) matrix \\(\\mathbf{W}\\) which best approximates distances between words in \\(M\\)-dimensional space (rows in \\(\\mathbf{X}\\))"
+  },
+  {
+    "objectID": "w11/slides.html#vector-search-workflow",
+    "href": "w11/slides.html#vector-search-workflow",
+    "title": "Week 11: Vector Databases",
+    "section": "Vector Search Workflow",
+    "text": "Vector Search Workflow\n\nImage Source"
+  },
+  {
+    "objectID": "w11/slides.html#unstructured-data-leadsto-structured-geometric-query-space",
+    "href": "w11/slides.html#unstructured-data-leadsto-structured-geometric-query-space",
+    "title": "Week 11: Vector Databases",
+    "section": "Unstructured Data \\(\\leadsto\\) Structured Geometric Query Space",
+    "text": "Unstructured Data \\(\\leadsto\\) Structured Geometric Query Space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFig 1: Image Source"
+  },
+  {
+    "objectID": "w11/slides.html#more-data-leadsto-increasing-returns",
+    "href": "w11/slides.html#more-data-leadsto-increasing-returns",
+    "title": "Week 11: Vector Databases",
+    "section": "More Data \\(\\leadsto\\) “Increasing Returns”",
+    "text": "More Data \\(\\leadsto\\) “Increasing Returns”\n\n\n\n\n\n\nLearn about vehicles from one dataset…\n\n\n\n\n\n\n\nLearn about foods from another dataset…\n\n\n\n\n\n\n\n\n\nLearn about color from both 🤯"
+  },
+  {
+    "objectID": "w11/slides.html#queries-embedded-via-the-same-model",
+    "href": "w11/slides.html#queries-embedded-via-the-same-model",
+    "title": "Week 11: Vector Databases",
+    "section": "Queries Embedded via the Same Model!",
+    "text": "Queries Embedded via the Same Model!"
+  },
+  {
+    "objectID": "w11/slides.html#references",
+    "href": "w11/slides.html#references",
+    "title": "Week 11: Vector Databases",
+    "section": "References",
+    "text": "References\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court."
+  },
+  {
+    "objectID": "w11/index.html",
+    "href": "w11/index.html",
+    "title": "Week 11: Vector Databases",
+    "section": "",
+    "text": "Open slides in new tab →",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#word-counts-good-enough",
+    "href": "w11/index.html#word-counts-good-enough",
+    "title": "Week 11: Vector Databases",
+    "section": "Word Counts: Good Enough?",
+    "text": "Word Counts: Good Enough?\nJust four keywords per section:\n\n\n\nSection\nKeywords\n\n\n\n\nU.S.\nstate, court, federal, republican\n\n\nWorld\ngovernment, country, officials, minister\n\n\nArts\nmusic, show, art, dance\n\n\nSports\ngame, league, team, coach\n\n\nReal Estate\nhome, bedrooms, bathrooms, building\n\n\n\nFor each article, vote for section with highest keyword count:\n\n\n\n\n\n\n\n\n\n\n\n\n\nArts\nReal Estate\nSports\nU.S. News\nWorld News\nTotal\n\n\n\n\nCorrect\n3020\n690\n4860\n1330\n1730\n11630\n\n\nIncorrect\n750\n60\n370\n1100\n590\n2870\n\n\nAccuracy\n0.801\n0.920\n0.929\n0.547\n0.746\n0.802",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#whats-missing-context",
+    "href": "w11/index.html#whats-missing-context",
+    "title": "Week 11: Vector Databases",
+    "section": "What’s Missing? Context!",
+    "text": "What’s Missing? Context!\n\n\n\n\n\n\nYou shall know a word by the company it keeps. (Firth 1957)\n\n\n\n\n\n\nArticle A (World News):\n\n\nPresident Bush said he was trying to convince President Vladimir Putin of Russia that cooperation was “in Russia’s security interests,” even though Defense Secretary Robert M. Gates did not win Mr. Putin’s support during a trip to Moscow last week.\n“Bush Steps Up Effort to Persuade Putin on Missile Defense Plan”, NYTimes, 1 May 2007.\n\n\nArticle B (U.S. News):\n\nPresident Bush began his day yesterday at dawn on the golf course. He began Saturday on the golf course, too. A weekend earlier, the president played two rounds of 18 holes on the course at Andrews Air Force Base just outside Washington.\n“White House Letter; Bush Makes Quick Work of Relaxing”, NYTimes, 5 August 2002.",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#basic-context-engineering",
+    "href": "w11/index.html#basic-context-engineering",
+    "title": "Week 11: Vector Databases",
+    "section": "Basic Context Engineering",
+    "text": "Basic Context Engineering\n\nWhat exactly do we mean when we say “context”?\nDifferent training objectives give different types of contexts!\nExample: Closest vectors to Turing, trained on Wikipedia in two ways:\n\n\n\n\n\n\n\n\nDependency Tree\n\n\n5-Word Window\n\n\n\n\n\n\n\n\nSame category \\(\\rightarrow\\)\n\n\nPauling\n\n\nnondeterministic\n\n\n\\(\\leftarrow\\) Topically related\n\n\n\n\n(Paradigmatic)\n\n\nHotelling\n\n\ncomputability\n\n\n(Syntagmatic)\n\n\n\n\n\n\nLessing\n\n\ndeterministic\n\n\n\n\n\n\n\n\nHamming\n\n\nfinite-state\n\n\n\n\n\n\nExample from Uber AI Labs’ amazing Piero Molina",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#pretentious-but-helpful-terms",
+    "href": "w11/index.html#pretentious-but-helpful-terms",
+    "title": "Week 11: Vector Databases",
+    "section": "Pretentious But Helpful Terms!",
+    "text": "Pretentious But Helpful Terms!\n\nParadigmatic \\(\\approx\\) Grammatical “substitutes”, drawn from same category/type\nSyntagmatic \\(\\approx\\) semantic relationships between words in a sentence\n\n\n\n\n\n\n\n\n\nParadigmatic↓\n\n\n\n\nParadigmatic↓\n\n\n\n\n\n\n\n\n\n\napples\n\n\n← Syntagmatic →\n\n\nsweet\n\n\n\n\n\n\n\n\noranges\n\n\n← Syntagmatic →\n\n\nsour\n\n\n\n\n\n\nThese\n\n\n\\(\\underline{\\hspace{32mm}}\\)\n\n\ntaste very\n\n\n\\(\\underline{\\hspace{32mm}}\\)\n\n\n!\n\n\n\n\n(Both terms from Saussure (1916))",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#how-do-we-actually-get-these-vectors",
+    "href": "w11/index.html#how-do-we-actually-get-these-vectors",
+    "title": "Week 11: Vector Databases",
+    "section": "How Do We Actually Get These Vectors?",
+    "text": "How Do We Actually Get These Vectors?\n\n\n\n\n\n\n\n\nHigh-level goal: Retain information about word-context relationships while reducing the \\(M\\)-dimensional representations of each word down to 3 dimensions.\nLow-level goal: Generate rank-\\(K\\) matrix \\(\\mathbf{W}\\) which best approximates distances between words in \\(M\\)-dimensional space (rows in \\(\\mathbf{X}\\))",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#vector-search-workflow",
+    "href": "w11/index.html#vector-search-workflow",
+    "title": "Week 11: Vector Databases",
+    "section": "Vector Search Workflow",
+    "text": "Vector Search Workflow\n\n\n\nImage Source",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#unstructured-data-leadsto-structured-geometric-query-space",
+    "href": "w11/index.html#unstructured-data-leadsto-structured-geometric-query-space",
+    "title": "Week 11: Vector Databases",
+    "section": "Unstructured Data \\(\\leadsto\\) Structured Geometric Query Space",
+    "text": "Unstructured Data \\(\\leadsto\\) Structured Geometric Query Space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFig 1: Image Source",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#more-data-leadsto-increasing-returns",
+    "href": "w11/index.html#more-data-leadsto-increasing-returns",
+    "title": "Week 11: Vector Databases",
+    "section": "More Data \\(\\leadsto\\) “Increasing Returns”",
+    "text": "More Data \\(\\leadsto\\) “Increasing Returns”\n\n\n\n\n\n\nLearn about vehicles from one dataset…\n\n\n\n\n\n\n\nLearn about foods from another dataset…\n\n\n\n\n\n\n\n\n\nLearn about color from both 🤯",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#queries-embedded-via-the-same-model",
+    "href": "w11/index.html#queries-embedded-via-the-same-model",
+    "title": "Week 11: Vector Databases",
+    "section": "Queries Embedded via the Same Model!",
+    "text": "Queries Embedded via the Same Model!",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#references",
+    "href": "w11/index.html#references",
+    "title": "Week 11: Vector Databases",
+    "section": "References",
+    "text": "References\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court.",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+    ]
   },
   {
     "objectID": "writeups/manual-spark-cluster/index.html",
@@ -1923,7 +2103,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9785 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.3095 s"
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9730 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1344 s"
   },
   {
     "objectID": "w03/slides.html#what-happens-when-not-embarrassingly-parallel",
@@ -2144,7 +2324,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9733 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.4014 s",
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9761 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.1946 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 8</span>"
     ]
@@ -3624,7 +3804,7 @@
     "href": "w10/index.html",
     "title": "Week 10: ETL Pipeline Orchestration with Airflow",
     "section": "",
-    "text": "…HEY! WAKE UP! NEW DATA JUST CAME IN!\n\n\n\n\n\n\n\n\n\n\nYou before this week:\n\n\nSprint to your .ipynb and/or Spark cluster\nLoad, clean, process new data, manually, step-by-step\nEmail update to boss\n\n\n\n\n\n\n\n\n\n\nYou after this week:\n\n\nAsset-aware pipeline automatically triggered\nAirflow orchestrates loading, cleaning, processing\nEmailOperator sends update",
+    "text": "Open slides in new tab →",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 3</span>"
     ]
@@ -3633,8 +3813,8 @@
     "objectID": "w10/index.html#pipelines-for-triggered-execution",
     "href": "w10/index.html#pipelines-for-triggered-execution",
     "title": "Week 10: ETL Pipeline Orchestration with Airflow",
-    "section": "",
-    "text": "…HEY! WAKE UP! NEW DATA JUST CAME IN!\n\n\n\n\n\n\n\n\n\n\nYou before this week:\n\n\nSprint to your .ipynb and/or Spark cluster\nLoad, clean, process new data, manually, step-by-step\nEmail update to boss\n\n\n\n\n\n\n\n\n\n\nYou after this week:\n\n\nAsset-aware pipeline automatically triggered\nAirflow orchestrates loading, cleaning, processing\nEmailOperator sends update",
+    "section": "Pipelines for Triggered Execution",
+    "text": "Pipelines for Triggered Execution\n\n\n\n\n\n\n…HEY! WAKE UP! NEW DATA JUST CAME IN!\n\n\n\n\n\n\n\n\n\n\nYou before this week:\n\n\nSprint to your .ipynb and/or Spark cluster\nLoad, clean, process new data, manually, step-by-step\nEmail update to boss\n\n\n\n\n\n\n\n\n\n\nYou after this week:\n\n\nAsset-aware pipeline automatically triggered\nAirflow orchestrates loading, cleaning, processing\nEmailOperator sends update",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 3</span>"
     ]
@@ -3860,11 +4040,11 @@
     ]
   },
   {
-    "objectID": "w10/index.html#implementation-detail-2-training-model-after-backfill",
-    "href": "w10/index.html#implementation-detail-2-training-model-after-backfill",
+    "objectID": "w10/index.html#implementation-detail-2-train-model-only-after-backfill",
+    "href": "w10/index.html#implementation-detail-2-train-model-only-after-backfill",
     "title": "Week 10: ETL Pipeline Orchestration with Airflow",
-    "section": "Implementation Detail 2: Training Model After Backfill",
-    "text": "Implementation Detail 2: Training Model After Backfill\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n\n\n\n\n\n\n\nFig 1: Both figures from Ruiter et al. (2026)",
+    "section": "Implementation Detail 2: Train Model Only After Backfill",
+    "text": "Implementation Detail 2: Train Model Only After Backfill\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n\n\nLatestOnlyOperator\n\n\n\n\n\nFig 1: Both figures from Ruiter et al. (2026)",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 3</span>"
     ]
@@ -4061,11 +4241,11 @@
     "text": "Implementation Detail 1: Backfilling"
   },
   {
-    "objectID": "w10/slides.html#implementation-detail-2-training-model-after-backfill",
-    "href": "w10/slides.html#implementation-detail-2-training-model-after-backfill",
+    "objectID": "w10/slides.html#implementation-detail-2-train-model-only-after-backfill",
+    "href": "w10/slides.html#implementation-detail-2-train-model-only-after-backfill",
     "title": "Week 10: ETL Pipeline Orchestration with Airflow",
-    "section": "Implementation Detail 2: Training Model After Backfill",
-    "text": "Implementation Detail 2: Training Model After Backfill\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n\n\n\n\n\nFig 1: Both figures from Ruiter et al. (2026)"
+    "section": "Implementation Detail 2: Train Model Only After Backfill",
+    "text": "Implementation Detail 2: Train Model Only After Backfill\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n\nLatestOnlyOperator\n\n\n\n\nFig 1: Both figures from Ruiter et al. (2026)"
   },
   {
     "objectID": "w10/slides.html#implementation-detail-3-downstream-consumers",
@@ -4492,7 +4672,7 @@
   {
     "objectID": "w08/index.html",
     "href": "w08/index.html",
-    "title": "Week 8: Spark ML and Streaming",
+    "title": "Week 8: SparkNLP",
     "section": "",
     "text": "Open slides in new tab →\n\n\nSparkML: Hopping Up Another Abstraction Layer!\n\n\n\nImage Source",
     "crumbs": [

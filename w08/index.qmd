@@ -1,5 +1,5 @@
 ---
-title: "Week 8: Spark ML and Streaming"
+title: "Week 8: SparkNLP"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
