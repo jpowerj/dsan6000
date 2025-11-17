@@ -1,5 +1,5 @@
 ---
-title: "Week 12: Modern Data Stack, Governance"
+title: "Week 12: In-Class Office Hours"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
