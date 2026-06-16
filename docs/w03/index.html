@@ -2,14 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.3">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Amit Arora and Jeff Jacobs">
 
-<title>Week 3: Parallelization Concepts – DSAN 6000 Slide Hub</title>
+<title>Week 3: Parallelization Concepts – DSAN 6000: Big Data and Cloud Computing</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -60,7 +63,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -89,19 +91,18 @@ div.csl-indent {
 <link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-fedc0afa5eed45b88079642ee2c6e752.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0d4a9d19931feb4fee1ddab4b2489000.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-45431c2918bd31147ddb3fa7038bb99f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-5685cd926c25366c96d9f1407e584118.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-45431c2918bd31147ddb3fa7038bb99f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
 <link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -134,7 +135,7 @@ div.csl-indent {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><script src="../sidebar.js"></script><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -350,9 +351,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">DSAN 6000 Slide Hub</a> 
         <div class="sidebar-tools-main">
@@ -370,7 +369,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="https://gu-dsan.github.io/6000-fall-2025/" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><i class="bi bi-arrow-left-short pe-1"></i> Main Course Page</span></a>
+ <span class="menu-text"><i class="bi bi-house"></i> Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -383,13 +382,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w01/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 1: Aug 28</span></a>
+ <span class="menu-text">Week 1: <span class="sec-w01-date">Aug 27</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w02/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 2: <span class="sec-w02-date">Sep 2</span></span></a>
+ <span class="menu-text">Week 2: <span class="sec-w02-date">Aug 31</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -401,92 +400,74 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w04/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 4: <span class="sec-w04-date">Sep 15</span></span></a>
+ <span class="menu-text">Week 4: <span class="sec-w04-date">Sep 14</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w05/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 5: <span class="sec-w05-date">Sep 22</span></span></a>
+ <span class="menu-text">Week 5: <span class="sec-w05-date">Sep 21</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w06/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 6: <span class="sec-w06-date">Sep 29</span></span></a>
+ <span class="menu-text">Week 6: <span class="sec-w06-date">Sep 28</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w07/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 7: <span class="sec-w07-date">Oct 6</span></span></a>
+ <span class="menu-text">Week 7: <span class="sec-w07-date">Oct 5</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w08/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 8: <span class="sec-w08-date">Oct 20</span></span></a>
+ <span class="menu-text">Week 8: <span class="sec-w08-date">Oct 19</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w09/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 9: <span class="sec-w09-date">Oct 27</span></span></a>
+ <span class="menu-text">Week 9: <span class="sec-w09-date">Oct 26</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w10/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 10: <span class="sec-w10-date">Nov 3</span></span></a>
+ <span class="menu-text">Week 10: <span class="sec-w10-date">Nov 2</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w11/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 11: <span class="sec-w11-date">Nov 10</span></span></a>
+ <span class="menu-text">Week 11: <span class="sec-w11-date">Nov 9</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w12/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 12: <span class="sec-w12-date">Nov 17</span></span></a>
+ <span class="menu-text">Week 12: <span class="sec-w12-date">Nov 16</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w13/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 13: <span class="sec-w13-date">Nov 24</span></span></a>
+ <span class="menu-text">Week 13: <span class="sec-w13-date">Nov 30</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w14/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 14: <span class="sec-w14-date">Dec 1</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../w15/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 15: <span class="sec-w15-date">Dec 8</span></span></a>
+ <span class="menu-text">Week 14: <span class="sec-w14-date">Dec 7-8</span></span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="https://georgetown.zoom.us/j/91628796534?pwd=BSnBpL4VeysAQMbUtbH4MmwOunglLh.1" class="sidebar-item-text sidebar-link" target="_blank">
- <span class="menu-text">S01 (Mon) Zoom Link <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://georgetown.zoom.us/j/92724737140?pwd=rIyVrsa3CDq9xCv4LGNX3Cq0o2J3An.1" class="sidebar-item-text sidebar-link" target="_blank">
- <span class="menu-text">S02 (Thu) Zoom Link <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="https://georgetown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9ebe4700-c41f-434a-bb78-b34801332737" class="sidebar-item-text sidebar-link" target="_blank">
- <span class="menu-text">Recordings <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+ <span class="menu-text">2025 Recordings <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -498,7 +479,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2025-11-17, 03:16:11 PM</em></p>
+<p><em>Updated 2026-06-16, 07:37:25 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -755,7 +736,7 @@ window.Quarto = {
 <li>Technical definition: tasks within pipeline can easily be parallelized bc <strong>no dependence</strong> and <strong>no need for communication</strong> (triple spatula!)</li>
 </ul>
 <center>
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" width="800" height="400" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="https://jpj.georgetown.domains/dsan6000-scratch/triple_spatula.mp4"></video></div>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" width="800" height="400" class="video-js vjs-default-skin vjs-big-play-centered " controls="" preload="auto" data-setup="{}" title=""><source src="https://jpj.georgetown.domains/dsan6000-scratch/triple_spatula.mp4"></video></div>
 </center>
 </section>
 <section id="parallelizing-non-embarrassingly-parallel-pipelines" class="level2 smaller title-10 crunch-title">
@@ -830,7 +811,7 @@ window.Quarto = {
 </section>
 <section id="in-action" class="level2 crunch-title crunch-details">
 <h2 class="crunch-title crunch-details anchored" data-anchor-id="in-action">In Action</h2>
-<div id="0bdadee7" class="cell" data-execution_count="1">
+<div id="580aef84" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.ntheory <span class="im">import</span> factorint</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> joblib <span class="im">import</span> Parallel, delayed</span>
@@ -843,7 +824,7 @@ window.Quarto = {
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="0a322cf7" class="cell" data-execution_count="2">
+<div id="e4d949c8" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>serial_start <span class="op">=</span> time.time()</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> [</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  (i,find_prime_factors(i))</span>
@@ -852,11 +833,11 @@ window.Quarto = {
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>serial_end <span class="op">=</span> time.time()</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>disp_time(serial_start, serial_end)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.9795 s</code></pre>
+<pre><code>0.9901 s</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="3448e9b7" class="cell" data-execution_count="3">
+<div id="350c6f77" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>par_start <span class="op">=</span> time.time()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> parallel_runner(</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  delayed(find_prime_factors)(i)</span>
@@ -865,7 +846,7 @@ window.Quarto = {
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>par_end <span class="op">=</span> time.time()</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>disp_time(par_start, par_end)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>2.3660 s</code></pre>
+<pre><code>0.6097 s</code></pre>
 </div>
 </div>
 </div>
@@ -924,7 +905,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 <li><p><span class="math inline">\(y = (1,3,2), \widehat{y} = (2, 5, 0) \implies \text{SSR} = (1-2)^2 + (3-5)^2 + (2-0)^2 = 9\)</span></p></li>
 <li><p>Computing pieces separately:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">map</span>(do_something_with_piece, list_of_pieces)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="c2ca49a8" class="cell" data-execution_count="4">
+<div id="182d6211" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_map <span class="op">=</span> <span class="bu">map</span>(<span class="kw">lambda</span> <span class="bu">input</span>: <span class="bu">input</span><span class="op">**</span><span class="dv">2</span>, [(<span class="dv">1</span><span class="op">-</span><span class="dv">2</span>), (<span class="dv">3</span><span class="op">-</span><span class="dv">5</span>), (<span class="dv">2</span><span class="op">-</span><span class="dv">0</span>)])</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>map_result <span class="op">=</span> <span class="bu">list</span>(my_map)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>map_result</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -934,7 +915,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 </div></li>
 <li><p>Combining solved pieces</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">reduce</span>(how_to_combine_pair_of_pieces, pieces_to_combine)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="8f306507" class="cell" data-execution_count="5">
+<div id="3127c3eb" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>my_reduce <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span> piece1, piece2: piece1 <span class="op">+</span> piece2, map_result)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>my_reduce</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -952,7 +933,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 <p>You may have noticed: <code>map()</code> and <code>reduce()</code> are “meta-functions”: functions that <strong>take other functions as inputs</strong></p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="4d1100a6" class="cell" data-execution_count="6">
+<div id="59196a13" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_5(num):</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> num <span class="op">+</span> <span class="dv">5</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>add_5(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -961,7 +942,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="93c4ac08" class="cell" data-execution_count="7">
+<div id="df6b57c6" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> apply_twice(fn, arg):</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> fn(fn(arg))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>apply_twice(add_5, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -972,7 +953,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 </div>
 </div>
 <p>In Python, functions <strong>can be used as</strong> vars (Hence <code class="sourceCode python"><span class="kw">lambda</span></code>):</p>
-<div id="a992a50b" class="cell" data-execution_count="8">
+<div id="4f9fa587" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>add_5 <span class="op">=</span> <span class="kw">lambda</span> num: num <span class="op">+</span> <span class="dv">5</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>apply_twice(add_5, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -1112,7 +1093,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/map_reduce_full.svg" class="img-fluid figure-img" width="500"></p>
-<figcaption>From <span class="citation" data-cites="leskovec_mining_2014">Leskovec, Rajaraman, and Ullman (<a href="#ref-leskovec_mining_2014" role="doc-biblioref">2014</a>)</span></figcaption>
+<figcaption>From <span class="citation" data-cites="leskovec_mining_2014">Leskovec et al. (<a href="#ref-leskovec_mining_2014" role="doc-biblioref">2014</a>)</span></figcaption>
 </figure>
 </div>
 <div class="notes">
@@ -1133,7 +1114,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/map_reduce3.svg" class="img-fluid figure-img"></p>
-<figcaption>From <span class="citation" data-cites="leskovec_mining_2014">Leskovec, Rajaraman, and Ullman (<a href="#ref-leskovec_mining_2014" role="doc-biblioref">2014</a>)</span>, which is (legally) <a href="http://www.mmds.org/" target="_blank">free online</a>!</figcaption>
+<figcaption>From <span class="citation" data-cites="leskovec_mining_2014">Leskovec et al. (<a href="#ref-leskovec_mining_2014" role="doc-biblioref">2014</a>)</span>, which is (legally) <a href="http://www.mmds.org/" target="_blank">free online</a>!</figcaption>
 </figure>
 </div>
 </section>
@@ -1457,7 +1438,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 <p><a href="https://gu-dsan.github.io/6000-fall-2025/labs/03-labs.html">Lab 3: Python’s <code>multiprocessing</code> library</a></p>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-leskovec_mining_2014" class="csl-entry" role="listitem">
 Leskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. <em>Mining of <span>Massive Datasets</span></em>. Cambridge University Press. <a href="http://infolab.stanford.edu/~ullman/mmds/book.pdf">http://infolab.stanford.edu/~ullman/mmds/book.pdf</a>.
 </div>

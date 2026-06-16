@@ -2,14 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.3">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Amit Arora and Jeff Jacobs">
 
-<title>Week 14: Final Topics, Review – DSAN 6000 Slide Hub</title>
+<title>Week 14: Final Topics, Review – DSAN 6000: Big Data and Cloud Computing</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -34,19 +37,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-fedc0afa5eed45b88079642ee2c6e752.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0d4a9d19931feb4fee1ddab4b2489000.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-45431c2918bd31147ddb3fa7038bb99f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-5685cd926c25366c96d9f1407e584118.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-45431c2918bd31147ddb3fa7038bb99f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -251,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../w14/index.html">Week 14: <span class="sec-w14-date">Dec 1</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../w14/index.html">Week 14: <span class="sec-w14-date">Dec 7-8</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -264,9 +266,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">DSAN 6000 Slide Hub</a> 
         <div class="sidebar-tools-main">
@@ -284,7 +284,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="https://gu-dsan.github.io/6000-fall-2025/" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><i class="bi bi-arrow-left-short pe-1"></i> Main Course Page</span></a>
+ <span class="menu-text"><i class="bi bi-house"></i> Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -297,13 +297,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w01/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 1: Aug 28</span></a>
+ <span class="menu-text">Week 1: <span class="sec-w01-date">Aug 27</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w02/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 2: <span class="sec-w02-date">Sep 2</span></span></a>
+ <span class="menu-text">Week 2: <span class="sec-w02-date">Aug 31</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -315,92 +315,74 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w04/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 4: <span class="sec-w04-date">Sep 15</span></span></a>
+ <span class="menu-text">Week 4: <span class="sec-w04-date">Sep 14</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w05/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 5: <span class="sec-w05-date">Sep 22</span></span></a>
+ <span class="menu-text">Week 5: <span class="sec-w05-date">Sep 21</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w06/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 6: <span class="sec-w06-date">Sep 29</span></span></a>
+ <span class="menu-text">Week 6: <span class="sec-w06-date">Sep 28</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w07/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 7: <span class="sec-w07-date">Oct 6</span></span></a>
+ <span class="menu-text">Week 7: <span class="sec-w07-date">Oct 5</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w08/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 8: <span class="sec-w08-date">Oct 20</span></span></a>
+ <span class="menu-text">Week 8: <span class="sec-w08-date">Oct 19</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w09/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 9: <span class="sec-w09-date">Oct 27</span></span></a>
+ <span class="menu-text">Week 9: <span class="sec-w09-date">Oct 26</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w10/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 10: <span class="sec-w10-date">Nov 3</span></span></a>
+ <span class="menu-text">Week 10: <span class="sec-w10-date">Nov 2</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w11/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 11: <span class="sec-w11-date">Nov 10</span></span></a>
+ <span class="menu-text">Week 11: <span class="sec-w11-date">Nov 9</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w12/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 12: <span class="sec-w12-date">Nov 17</span></span></a>
+ <span class="menu-text">Week 12: <span class="sec-w12-date">Nov 16</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w13/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 13: <span class="sec-w13-date">Nov 24</span></span></a>
+ <span class="menu-text">Week 13: <span class="sec-w13-date">Nov 30</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../w14/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Week 14: <span class="sec-w14-date">Dec 1</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../w15/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 15: <span class="sec-w15-date">Dec 8</span></span></a>
+ <span class="menu-text">Week 14: <span class="sec-w14-date">Dec 7-8</span></span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="https://georgetown.zoom.us/j/91628796534?pwd=BSnBpL4VeysAQMbUtbH4MmwOunglLh.1" class="sidebar-item-text sidebar-link" target="_blank">
- <span class="menu-text">S01 (Mon) Zoom Link <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://georgetown.zoom.us/j/92724737140?pwd=rIyVrsa3CDq9xCv4LGNX3Cq0o2J3An.1" class="sidebar-item-text sidebar-link" target="_blank">
- <span class="menu-text">S02 (Thu) Zoom Link <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="https://georgetown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9ebe4700-c41f-434a-bb78-b34801332737" class="sidebar-item-text sidebar-link" target="_blank">
- <span class="menu-text">Recordings <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+ <span class="menu-text">2025 Recordings <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -412,7 +394,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2025-11-17, 03:16:11 PM</em></p>
+<p><em>Updated 2026-06-16, 07:37:25 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->

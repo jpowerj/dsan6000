@@ -1,5 +1,6 @@
 ---
-title: "DSAN 6000 Sections 01 and 02"
+title: "DSAN 6000: Big Data and Cloud Computing"
+subtitle: "*Fall 2026, Georgetown University*"
 sidebar: mainnav
 listing:
   sort-ui: false
@@ -76,7 +77,21 @@ format:
 
 :::
 
-This webpage just serves as a hub collecting Jeff's slides for *DSAN 6000: Big Data and Cloud Computing*, Fall 2025 at Georgetown University. It is **not a replacement for the [main course webpage](https://gu-dsan.github.io/6000-fall-2025/)!**
+::: {.callout-note title="Irregular Lecture Days"}
 
-Section <span class='sec-num'>01</span> of the course takes place on **<span class='sec-day-full'>Wednesday</span>** from **<span class='sec-start'>3:30pm</span> to <span class='sec-end'>6:00pm</span>** in **<span class='sec-room'>Walsh 394</span>**.
+Please keep in mind the following "special" days, when course meetings will be shifted or skipped due to holidays:
+
+* **Thursday, August 27**: The **first week** of the course will be a **joint meeting** of both sections:
+  * Students in the Thursday section (Section 02) should attend in-person, in Walsh 394
+  * Students in the Monday section (Section 01) should attend via [this Zoom link](https://georgetown.zoom.us/j/94373215953?pwd=PWr04WbKeGPRAmpNdavBe2cOw9YFFP.1)
+* **Tuesday, September 8**: The **Week 2 meeting** for the Monday section (Section 01) falls on a **Tuesday**, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)
+* **Monday, October 12** and **Thursday, October 15**: No class due to Georgetown's Mid-Semester Holiday
+* **Monday, November 23** and **Thursday, November 26**: No class due to Georgetown's 2026 Fall Recess
+* **Monday, December 7** and **Tuesday, December 8**: This week, in place of lecture, your group will be assigned to a timeslot for **Final Project presentations** (in the Car Barn 1st Floor Lounge)
+
+:::
+
+Welcome! This webpage contains slides, resources, and lecture recordings for *DSAN 6000: Big Data and Cloud Computing*, Fall 2026 at Georgetown University.
+
+Section <span class='sec-num'>01</span> of the course takes place on **<span class='sec-day-full'>Wednesday</span>** from **<span class='sec-start'>3:30pm</span> to <span class='sec-end'>6:00pm</span>** in **<span class='sec-room'>Walsh 394</span>**. Use the links in the sidebar, or in the table below, to explore the content for a particular week.
 

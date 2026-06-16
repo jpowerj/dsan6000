@@ -66,7 +66,7 @@
     "section": "",
     "text": "Open slides in new tab →",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -76,7 +76,7 @@
     "section": "Agenda for today’s session",
     "text": "Agenda for today’s session\n\nCourse and syllabus overview\nBig Data Concepts\n\nDefinition\nChallenges\nApproaches\n\nData Engineering\nIntroduction to bash\n\nLab: Linux command line",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -86,7 +86,7 @@
     "section": "Bookmark these links!",
     "text": "Bookmark these links!\n\nCourse website: https://gu-dsan.github.io/6000-fall-2025/\nGitHub Organization for your deliverables: https://github.com/gu-dsan/\nGitHub Classroom: https://classroom.github.com/classrooms/34950344-georgetown-university-dsan6000-big-data-and-cloud-computing\nSlack Workspace: DSAN6000 Fall 2025 - https://dsan6000fall2025.slack.com\n\nJoin link: https://join.slack.com/t/dsan6000fall2025/shared_invite/zt-3b22qhque-GagQykwYYNiEzli9UXJn4w\n\nInstructors email: dsan-Fall-2025@georgetown.edu\nCanvas: https://georgetown.instructure.com/courses/TBA-2025\n\n\n\n\n\n\n\nThese are also pinned on the Slack main channel",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -96,7 +96,7 @@
     "section": "Instructional Team - Professors",
     "text": "Instructional Team - Professors\n\nAmit Arora, aa1603@georgetown.edu\nJeff Jacobs, jj1088@georgetown.edu",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -106,7 +106,7 @@
     "section": "Amit Arora, aa1603@georgetown.edu",
     "text": "Amit Arora, aa1603@georgetown.edu\n\n\n\nPrincipal Solutions Architect - AI/ML at AWS\nAdjunct Professor at Georgetown University\nMultiple patents in telecommunications and applications of ML in telecommunications\n\nFun Facts\n\n\n\n\n\nI am a self-published author https://blueberriesinmysalad.com/\nMy book “Blueberries in my salad: my forever journey towards fitness & strength” is written as code in R and Markdown\nI love to read books about health and human performance, productivity, philosophy and Mathematics for ML. My reading list is online!",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -116,7 +116,7 @@
     "section": "Jeff Jacobs, jj1088@georgetown.edu",
     "text": "Jeff Jacobs, jj1088@georgetown.edu\n\n\n\nFull-time Professor at Georgetown (DSAN and Public Policy)\nBackground in Computational Social Science (Comp Sci MS → Political Economy PhD → Labor Econ Postdoc)\n\nFun Facts\n\nUsed Apache Airflow daily for PhD projects! (Example)\n\n\n\n\n\n\nServer admin for lab server → lab AWS account at Columbia (2015-2023) → new DSAN server (!) (2025-)\nPassion project 1: Code for Palestine (2015-2022) → YouthCode-Gaza (2023) → Ukraine Ministry of Digital Transformation (2024)\nPassion projects 2+3 [🤓]: Sample-based music production, web app frameworks\nSleep disorder means lots of reading – mainly history! – at night\nAlso teaching PPOL6805 / DSAN 6750: GIS for Spatial Data Science this semester",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -126,7 +126,7 @@
     "section": "Instructional Team - Teaching Assistants",
     "text": "Instructional Team - Teaching Assistants\n\nBinhui Chen, bc928@georgetown.edu\nPranav Sudhir Patil, pp755@georgetown.edu\nOfure Udabor, au195@georgetown.edu\nYifei Wu, yw924@georgetown.edu\nNaomi Yamaguchi, ny159@georgetown.edu\nLeqi Ying, ly290@georgetown.edu\nXinyue (Monica) Zhang, xz646@georgetown.edu",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -136,7 +136,7 @@
     "section": "Binhui Chen, bc928@georgetown.edu",
     "text": "Binhui Chen, bc928@georgetown.edu\n(Lead TA for the course!)",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -146,7 +146,7 @@
     "section": "Pranav Sudhir Patil, pp755@georgetown.edu",
     "text": "Pranav Sudhir Patil, pp755@georgetown.edu",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -156,7 +156,7 @@
     "section": "Ofure Udabor, au195@georgetown.edu",
     "text": "Ofure Udabor, au195@georgetown.edu",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -166,7 +166,7 @@
     "section": "Yifei Wu, yw924@georgetown.edu",
     "text": "Yifei Wu, yw924@georgetown.edu",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -176,7 +176,7 @@
     "section": "Naomi Yamaguchi, ny159@georgetown.edu",
     "text": "Naomi Yamaguchi, ny159@georgetown.edu",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -186,7 +186,7 @@
     "section": "Leqi Ying, ly290@georgetown.edu",
     "text": "Leqi Ying, ly290@georgetown.edu",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -196,7 +196,7 @@
     "section": "Xinyue (Monica) Zhang, xz646@georgetown.edu",
     "text": "Xinyue (Monica) Zhang, xz646@georgetown.edu",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -206,7 +206,7 @@
     "section": "Course Description",
     "text": "Course Description\n\nData is everywhere! Many times, it’s just too big to work with traditional tools. This is a hands-on, practical workshop style course about using cloud computing resources to do analysis and manipulation of datasets that are too large to fit on a single machine and/or analyzed with traditional tools. The course will focus on Spark, MapReduce, the Hadoop Ecosystem and other tools.\nYou will understand how to acquire and/or ingest the data, and then massage, clean, transform, analyze, and model it within the context of big data analytics. You will be able to think more programmatically and logically about your big data needs, tools and issues.\n\nAlways refer to the syllabus and calendar in the course website for class policies.",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -216,7 +216,7 @@
     "section": "Learning Objectives",
     "text": "Learning Objectives\n\nSetup, operate and manage big data tools and cloud infrastructure, including Spark, DuckDB, Polars, Athena, Snowflake, and orchestration tools like Airflow on Amazon Web Services\nUse ancillary tools that support big data processing, including git and the Linux command line\nExecute a big data analytics exercise from start to finish: ingest, wrangle, clean, analyze, store, and present\nDevelop strategies to break down large problems and datasets into manageable pieces\nIdentify broad spectrum resources and documentation to remain current with big data tools and developments\nCommunicate and interpret the big data analytics results through written and verbal methods",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -226,7 +226,7 @@
     "section": "Evaluation",
     "text": "Evaluation\n\nGroup project : 40%\nAssignments : 30%\nLab completions : 20%\nQuizzes : 10%",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -236,7 +236,7 @@
     "section": "Course Materials",
     "text": "Course Materials\n\nSlides/labs/assignment on Website/GitHub\nQuizzes and readings in Canvas",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -246,7 +246,7 @@
     "section": "Communication",
     "text": "Communication\n\nSlack is the primary form of communication\nInstructional team email: dsan-Fall-2025@georgetown.edu",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -256,7 +256,7 @@
     "section": "Slack rules",
     "text": "Slack rules\n\nPost any question/comment about the course, assignments or any technical issue.\nDMs are to be used sparingly\nYou may not DM multiple people in the instructional team at the same time for the same issue\nKeep an eye on the questions posted in Slack. Use the search function. It’s very possible that we have already answered a questions\nYou may DM us back only if we DM you first on a given issue\nLab/assignment/project questions will only be answered up to 6 hours before something is due (i.e. 6pm on Mondays)",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -266,7 +266,7 @@
     "section": "Midterm Project (NEW!)",
     "text": "Midterm Project (NEW!)\n\nIndividual assignment (not team-based)\nTiming: Around Week 5-6\nWeight: Equivalent to 2 homework assignments\nFormat:\n\nWe provide the dataset and problem statement\nYou apply big data tools and techniques learned in class\nEnd-to-end data pipeline implementation\n\nDetails: TBD (will be announced in Week 4)",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -276,7 +276,7 @@
     "section": "Final Project",
     "text": "Final Project\n\nGroups of 3-4 students\nUse an archive of Reddit data, augmented with external data\nExploratory analysis\nNLP\nMachine Learning\nWriteup\n\nData sourcing and ingesting\nExploratory analysis\nModeling\nChallenges and Learnings\nConclusions\nFuture work",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -286,7 +286,7 @@
     "section": "In one minute of time (2018)",
     "text": "In one minute of time (2018)",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -296,7 +296,7 @@
     "section": "In one minute of time (2019)",
     "text": "In one minute of time (2019)",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -306,7 +306,7 @@
     "section": "In one minute of time (2020)",
     "text": "In one minute of time (2020)",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -316,7 +316,7 @@
     "section": "In one minute of time (2021)",
     "text": "In one minute of time (2021)",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -326,7 +326,7 @@
     "section": "In one minute of time (2025)",
     "text": "In one minute of time (2025)\nEvery 60 seconds in 2025:\n\nChatGPT serves millions of requests (exact numbers proprietary)\n500 hours of video uploaded to YouTube\n1.04 million Slack messages sent\n362,000 hours watched on Netflix\n5.9-11.4 million Google searches\n$443,000 spent on Amazon\nAI-generated images created at massive scale (metrics not publicly available)\n347,200 posts on X (formerly Twitter)\n231-250 million emails sent",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -336,7 +336,7 @@
     "section": "A lot of it is hapenning online.",
     "text": "A lot of it is hapenning online.\n\n\nWe can record every:\n\nclick\nad impression\nbilling event\nvideo interaction\nserver request\ntransaction\nnetwork message\nfault\n…",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -346,7 +346,7 @@
     "section": "It can also be user-generated content:",
     "text": "It can also be user-generated content:\n\n\n\n\nInstagram posts & Reels\nX (Twitter) posts & Threads\nTikTok videos\nYouTube Shorts\nReddit discussions\nDiscord conversations\nAI-generated content (text, images, code)\n…",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -356,7 +356,7 @@
     "section": "But health and scientific computing create a lot too!",
     "text": "But health and scientific computing create a lot too!",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -366,7 +366,7 @@
     "section": "There’s lots of graph data too",
     "text": "There’s lots of graph data too\n\n\n\nMany interesting datasets have a graph structure:\n\nSocial networks\nGoogle’s knowledge graph\nTelecom networks\nComputer networks\nRoad networks\nCollaboration/relationships\n\nSome of these are HUGE",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -376,7 +376,7 @@
     "section": "Apache (web server) log files",
     "text": "Apache (web server) log files",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -386,7 +386,7 @@
     "section": "System log files",
     "text": "System log files",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -396,7 +396,7 @@
     "section": "Internet of Things (IoT) in 2025",
     "text": "Internet of Things (IoT) in 2025\n75 billion connected devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nConnected vehicles & self-driving cars\nIndustrial IoT sensors\n\n\n\n\nSmart city infrastructure\nMedical devices & remote patient monitoring",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -406,7 +406,7 @@
     "section": "Smartphone Location Data",
     "text": "Smartphone Location Data",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -416,7 +416,7 @@
     "section": "Where else?",
     "text": "Where else?\n\nThe Internet\nTransactions\nDatabases\nExcel\nPDF Files\nAnything digital (music, movies, apps)\nSome old floppy disk lying around the house",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -426,7 +426,7 @@
     "section": "Typical Real-World Scenarios in 2025",
     "text": "Typical Real-World Scenarios in 2025\nScenario 1: Traditional Big Data\nYou have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. What do you do?\nScenario 2: AI/ML Pipeline\nYour company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. How do you architect this?\nScenario 3: Real-Time Analytics\nYou need to process 1 million events/second from IoT devices and provide real-time dashboards with &lt;1s latency. What’s your stack?",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -436,7 +436,7 @@
     "section": "Let’s discuss!",
     "text": "Let’s discuss!\n\n\n\nExponential data growth",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -446,7 +446,7 @@
     "section": "Big Data Definitions",
     "text": "Big Data Definitions\nWikipedia\n“A collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis”\nO’Reilly\n“Big data is when the size of the data itself becomes part of the problem”",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -456,7 +456,7 @@
     "section": "Frameworks for Thinking About Big Data",
     "text": "Frameworks for Thinking About Big Data\nIBM (The 3 V’s)\n\nVolume (Gigabytes → Exabytes → Zettabytes)\nVelocity (Batch → Streaming → Real-time AI inference)\nVariety (Structured, Unstructured, Embeddings)\n\nAdditional V’s for 2025\n\n\n\nVariability\nVeracity\nVisualization\n\n\n\nValue\nVectors (embeddings for AI/ML)\nVersatility (multi-modal data)",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -466,7 +466,7 @@
     "section": "Data “Size”",
     "text": "Data “Size”\n\\[\n\\text{``Size''} = f(\\text{Processing Ability}, \\text{Storage Space})\n\\]\n\nCan you analyze/process your data on a single machine?\nCan you store (or is it stored) on a single machine?\nCan you serve it fast enough for real-time AI applications?\n\nIf any of of the answers is no then you have a big-ish data problem!",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -476,7 +476,7 @@
     "section": "The New Data Landscape (2025)",
     "text": "The New Data Landscape (2025)\nTraining Foundation Models\n\nGPT-4: Trained on about 13 trillion tokens\nLlama 3: 15 trillion tokens\nGoogle Gemini: Multi-modal training (text, images, video)\nEach iteration requires petabytes of curated data\n\nData Requirements Have Exploded\n\n2020: BERT trained on 3.3 billion words\n2023: GPT-4 trained on ~13 trillion tokens\n2024: Llama 3 trained on 15+ trillion tokens",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -486,7 +486,7 @@
     "section": "Big Data Infrastructure: Data Lakes, Warehouses",
     "text": "Big Data Infrastructure: Data Lakes, Warehouses\nTraditional Use Cases:\n\nBusiness intelligence\nAnalytics & reporting\nHistorical data storage\n\nModern AI Use Cases:\n\nTraining data repositories\nVector embeddings storage\nRAG (Retrieval-Augmented Generation) context\nFine-tuning datasets\nEvaluation & benchmark data",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -496,7 +496,7 @@
     "section": "RAG and Context Engineering: The New Data Pipeline",
     "text": "RAG and Context Engineering: The New Data Pipeline\n\n\n\n\n\n\n\nG\n\n\n\nraw\n\nRaw Data\n\n\n\nlake\n\nData Lake\n\n\n\nraw-&gt;lake\n\n\n\n\n\nproc\n\nProcessing\n\n\n\nlake-&gt;proc\n\n\n\n\n\nvec\n\nVector DB\n\n\n\nproc-&gt;vec\n\n\n\n\n\ncontext\n\nLLM Context\n\n\n\nvec-&gt;context\n\n\n\n\n\n\n\n\n\n\nKey Components:\n\nData Lakes (S3, Azure Data Lake): Store massive unstructured data\nData Warehouses (Snowflake, BigQuery): Structured data for context\nVector Databases (Pinecone, Weaviate, Qdrant): Semantic search\nEmbedding Models: Convert data to vectors\nOrchestration (Airflow, Prefect): Manage the pipeline",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -506,7 +506,7 @@
     "section": "MCP Servers & Agentic AI",
     "text": "MCP Servers & Agentic AI\nModel Context Protocol (MCP)\n\nOpen protocol for connecting AI assistants to data sources\nStandardized way to expose tools and data to LLMs\nEnables “agentic” behavior - AI that can act autonomously\n\nMCP in Production\n\n\n\n\n\n\n\nG\n\n\n\nware\n\nData Warehouse\n\n\n\nmcp\n\nMCP Server\n\n\n\nware-&gt;mcp\n\n\n\n\n\nagent\n\nAI Agent\n\n\n\nmcp-&gt;agent\n\n\n\n\n\naction\n\nAction\n\n\n\nagent-&gt;action\n\n\n\n\n\n\n\n\n\n\nExamples:\n\nAI agents querying Snowflake for real-time analytics\nAutonomous systems updating data lakes based on predictions\nMulti-agent systems coordinating through shared data contexts",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -516,7 +516,7 @@
     "section": "Data Quality for AI",
     "text": "Data Quality for AI\n(Why Data Quality Matters More Than Ever)\nGarbage In, Garbage Out - Amplified:\n\nBad training data → Biased models\nIncorrect RAG data → Hallucinations\nPoor data governance → Compliance issues\n\nData Quality Challenges in 2025\n\nScale: Validating trillions of tokens\nDiversity: Multi-modal, multi-lingual data\nVelocity: Real-time data for online learning\nVeracity: Detecting AI-generated synthetic data",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -526,7 +526,7 @@
     "section": "Real-World Big Data / AI Examples",
     "text": "Real-World Big Data / AI Examples\nNetflix\n\nData Scale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\nUber\n\nData Scale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\nOpenAI\n\nData Scale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -536,7 +536,7 @@
     "section": "Emerging Trends (2025-2027)",
     "text": "Emerging Trends (2025-2027)\nUnified Platforms:\n\nData lakes becoming “AI lakes”\nIntegrated vector + relational databases\nOne-stop shops for data + AI (Databricks, Snowflake Cortex)\n\nEdge Computing + AI:\n\nProcessing at the data source\nFederated learning across devices\n5G enabling real-time edge AI\n\nSynthetic Data:\n\nAI generating training data for AI\nPrivacy-preserving synthetic datasets",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -546,7 +546,7 @@
     "section": "Relative Data Sizes",
     "text": "Relative Data Sizes\n \n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -556,7 +556,7 @@
     "section": "What You’ll Learn in This Course",
     "text": "What You’ll Learn in This Course\nModern Big Data Stack (2025)\n\n\n\nQuery Engines:\n\nDuckDB - In-process analytical database\nPolars - Lightning-fast DataFrame library\n\nSpark - Distributed processing at scale\n\nData Warehouses & Lakes:\n\nSnowflake - Cloud-native data warehouse\nAthena - Serverless SQL on S3\nIceberg - Open table format\n\n\n\nAI/ML Integration:\n\nVector databases for embeddings\nRAG implementation patterns\nStreaming with Spark Structured Streaming\n\nOrchestration:\n\nAirflow for pipeline management\nServerless with AWS Lambda",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -566,7 +566,7 @@
     "section": "Data Types",
     "text": "Data Types\n\nStructured\nUnstructured\nNatural language\nMachine-generated\nGraph-based\nAudio, video, and images\nStreaming",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -576,7 +576,7 @@
     "section": "Big Data vs. Small Data I",
     "text": "Big Data vs. Small Data I\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nGoals\ngathered for a specific goal\nmay have a goal in mind when it’s first started, but things can evolve or take unexpected directions\n\n\nLocation\nin one place, and often in a single computer file\ncan be in multiple files in multiple servers on computers in different geographic locations\n\n\nStructure/Contents\nhighly structured like an Excel spreadsheet, and it’s got rows and columns of data\ncan be unstructured, it can have many formats in files involved across disciplines, and may link to other resources\n\n\nPreparation\nprepared by the end user for their own purposes\nis often prepared by one group of people, analyzed by a second group of people, and then used by a third group of people, and they may have different purposes, and they may have different disciplines",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -586,7 +586,7 @@
     "section": "Big Data vs. Small Data II",
     "text": "Big Data vs. Small Data II\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nLongevity\nkept for a specific amount of time after the project is over because there’s a clear ending point. In the academic world it’s maybe five or seven years and then you can throw it away\ncontains data that must be stored in perpetuity. Many big data projects extend into the past and future\n\n\nMeasurements\nmeasured with a single protocol using set units and it’s usually done at the same time\nis collected and measured using many sources, protocols, units, etc\n\n\nReproducibility\nbe reproduced in their entirety if something goes wrong in the process\nreplication is seldom feasible\n\n\nStakes\nif things go wrong the costs are limited, it’s not an enormous problem\ncan have high costs of failure in terms of money, time and labor\n\n\nAccess\nidentified by a location specified in a row/column\nunless it is exceptionally well designed, the organization can be inscrutable\n\n\nAnalysis\nanalyzed together, all at once\nis ordinarily analyzed in incremental steps",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -596,7 +596,7 @@
     "section": "Challenges of Working with Large Datasets",
     "text": "Challenges of Working with Large Datasets\n\n\n\nThe V\nThe Challenge\n\n\n\n\nVolume\ndata scale\n\n\nValue\ndata usefulness in decision making\n\n\nVelocity\ndata processing: batch or stream\n\n\nViscosity\ndata complexity\n\n\nVariability\ndata flow inconsistency\n\n\nVolatility\ndata durability\n\n\nViability\ndata activeness\n\n\nValidity\ndata properly understandable\n\n\nVariety\ndata heterogeneity",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -606,7 +606,7 @@
     "section": "Thinking About Big Data Workflows",
     "text": "Thinking About Big Data Workflows\nWilliam Cohen (Director, Research Engineering, Google):\n\nWorking with big data is not about…\n\nCode optimization\nLearning the details of today’s hardware/software (they are evolving…)\n\nWorking with big data is about understanding:\n\nThe cost of what you want to do\nWhat the tools that are available offer\nHow much can be accomplished with linear or nearly-linear operations\nHow to organize your computations so that they effectively use whatever’s fast\nHow to test/debug/verify with large data\n\nRecall that traditional tools like R and Python are single threaded (by default)",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -616,7 +616,7 @@
     "section": "Tools at-a-glance",
     "text": "Tools at-a-glance\n\n\n\nLanguages, libraries, and projects\n\nPython\n\npandas\npolars\nPySpark\nduckdb\ndask\nray\n\nApache Arrow\nApache Spark\nSQL\nApache Hadoop (briefly)\n\n\n\n\nCloud Services\n\nAmazon Web Services (AWS)\n\nAWS Sagemaker\nAmazon S3\n\nAzure\n\nAzure Blob\nAzure Machine Learning\n\n\nOther:\n\nAWS Elastic MapReduce (EMR)",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -626,7 +626,7 @@
     "section": "Additional links of interest",
     "text": "Additional links of interest\n\nMatt Turck’s Machine Learning, Artificial Intelligence & Data Landscape (MAD)\n\nArticle\nInteractive Landscape\n\nIs there life after Hadoop?\n10 Best Big Data Tools for 2023",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -636,7 +636,7 @@
     "section": "Data Scientist vs. Data Engineer",
     "text": "Data Scientist vs. Data Engineer\nIn this course, you’ll augment your data scientist skills with data engineering skills!",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -646,7 +646,7 @@
     "section": "Data Engineer Responsibilities",
     "text": "Data Engineer Responsibilities",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -656,7 +656,7 @@
     "section": "Data Engineering: Levels 2 and 3",
     "text": "Data Engineering: Levels 2 and 3",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -666,7 +666,7 @@
     "section": "Architecture",
     "text": "Architecture",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -676,7 +676,7 @@
     "section": "Storage",
     "text": "Storage",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -686,7 +686,7 @@
     "section": "Source control",
     "text": "Source control",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -696,7 +696,7 @@
     "section": "Orchestration",
     "text": "Orchestration",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -706,7 +706,7 @@
     "section": "Processing",
     "text": "Processing",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -716,7 +716,7 @@
     "section": "Analytics",
     "text": "Analytics",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -726,7 +726,7 @@
     "section": "Machine Learning",
     "text": "Machine Learning",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -736,7 +736,7 @@
     "section": "Governance",
     "text": "Governance",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -746,7 +746,7 @@
     "section": "The Terminal",
     "text": "The Terminal\n\n\n\n\nTerminal access was THE ONLY way to do programming\nNo GUIs! No Spyder, Jupyter, RStudio, etc.\nCoding is still more powerful than graphical interfaces for complex jobs\nCoding makes work repeatable",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -756,7 +756,7 @@
     "section": "BASH",
     "text": "BASH\n\n\n\n\nCreated in 1989 by Brian Fox: “Bourne-Again Shell”\nBrian Fox also built the first online interactive banking software\nBASH is a command processor\nConnection between you and the machine language and hardware",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -766,7 +766,7 @@
     "section": "The Prompt",
     "text": "The Prompt\nusername@hostname:current_directory $\nWhat do we learn from the prompt?\n\nWho you are - username\nThe machine where your code is running - hostname\nThe directory where your code is running - current_directory\nThe shell type - $ - this symbol means BA$H",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -776,7 +776,7 @@
     "section": "Syntax",
     "text": "Syntax\nCOMMAND -F --FLAG\n\nCOMMAND is the program, everything after that = arguments\nF is a single letter flag, FLAG is a single word or words connected by dashes. A space breaks things into a new argument.\nSometimes argument has single letter and long form versions (e.g. F and FLAG)\n\nCOMMAND -F --FILE file1\n\nHere we pass a text argument \"file1\" as the value for the FILE flag\n-h flag is usually to get help. You can also run the man command and pass the name of the program as the argument to get the help page.\n\nLet’s try basic commands:\n\ndate to get the current date\nwhoami to get your user name\necho \"Hello World\" to print to the console",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -786,7 +786,7 @@
     "section": "Examining Files",
     "text": "Examining Files\n\nFind out your Present Working Directory pwd\nExamine the contents of files and folders using ls\nMake new files from scratch using touch\nGlob: “Mini-language” for selecting files with wildcards\n\n\\* for wild card any number of characters\n\\? for wild card for a single character\n[] for one of many character options\n! for exclusion\n[:alpha:], [:alnum:], [:digit:], [:lower:], [:upper:]\n\n\nReference material: Shell Lesson 1,2,4,5",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -796,7 +796,7 @@
     "section": "Navigating Directories",
     "text": "Navigating Directories\n\nKnowing where your terminal is executing code ensures you are working with the right inputs/outputs.\nUse pwd to determine the Present Working Directory.\nChange to a folder called “git-repo” with cd git-repo.\n. refers to the current directory, such as ./git-repo\n.. can be used to move up one level (cd ..), and can be combined to move up multiple levels (cd ../../my_folder)\n/ is the root of the filesystem: contains core folders (system, users)\n~ is the home directory. Move to folders referenced relative to this path by including it at the start of your path, for example ~/projects.\nTo visualize the structure of your working directory, use tree\n\nReference link",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -806,7 +806,7 @@
     "section": "Interacting with Files",
     "text": "Interacting with Files\nNow that we know how to navigate through directories, we need commands for interacting with files…\n\nmv to move files from one location to another\n\nCan use glob here - ?, *, [], …\n\ncp to copy files instead of moving\n\nCan use glob here - ?, *, [], …\n\nmkdir to make a directory\nrm to remove files\nrmdir to remove directories\nrm -rf to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -816,7 +816,7 @@
     "section": "Using BASH for Data Exploration",
     "text": "Using BASH for Data Exploration\n\nhead FILENAME / tail FILENAME - glimpsing the first / last few rows of data\nmore FILENAME / less FILENAME - viewing the data with basic up / (up & down) controls\ncat FILENAME - print entire file contents into terminal\nvim FILENAME - open (or edit!) the file in vim editor\ngrep FILENAME - search for lines within a file that match a regex expression\nwc FILENAME - count the number of lines (-l flag) or number of words (-w flag)\n\nReference material: Text Lesson 8,9,15,16",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -826,7 +826,7 @@
     "section": "Pipes and Arrows",
     "text": "Pipes and Arrows\n\n| sends the stdout to another command (is the most powerful symbol in BASH!)\n&gt; sends stdout to a file and overwrites anything that was there before\n&gt;&gt; appends the stdout to the end of a file (or starts a new file from scratch if one does not exist yet)\n&lt; sends stdin into the command on the left\n\nReference material: Text Lesson 1,2,3,4,5",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -836,7 +836,7 @@
     "section": "Alias and User Files",
     "text": "Alias and User Files\n\n/.bashrc is where your shell settings are located\nHow many processes? whoami | xargs ps -u | wc -l\nHard to remember full command! Let’s make an alias\nGeneral syntax:\nalias alias_name=\"command_to_run\"\nFor our case:\nalias nproc=\"whoami | xargs ps -u | wc -l\"\nNow we need to put this alias into the .bashrc\nalias nproc=\"whoami | xargs ps -u | wc -l\" &gt;&gt; ~/.bashrc\nYour commands get saved in ~/.bash_history",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -846,7 +846,7 @@
     "section": "Process Management",
     "text": "Process Management\n\nUse ps to see your running processes\nUse top or even better htop to see all running processes\nInstall htop via sudo yum install htop -y\nTo kill a broken process: first find the process ID (PID)\nThen use kill [PID NUM] to “ask” the process to terminate. If things get really bad: kill -9 [PID NUM]\nTo kill a command in the terminal window it is running in, try using Ctrl + C or Ctrl + /\nRun cat on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.\n\nReference material: Text Lesson 1,2,3,7,9,10",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -856,7 +856,7 @@
     "section": "Try playing a Linux game!",
     "text": "Try playing a Linux game!\nBash crawl is a game to help you practice your navigation and file access skills. Click on the binder link in this repo to launch a jupyter lab session and explore!",
     "crumbs": [
-      "Week 1: Aug 28"
+      "Week 1: <span class='sec-w01-date'>Aug 27</span>"
     ]
   },
   {
@@ -1415,9 +1415,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "DSAN 6000 Sections 01 and 02",
+    "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "",
-    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\nThis webpage just serves as a hub collecting Jeff’s slides for DSAN 6000: Big Data and Cloud Computing, Fall 2025 at Georgetown University. It is not a replacement for the main course webpage!\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 28\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 2\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 8\n\n\n\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\n\nSep 15\n\n\n\n\n\n\nWeek 5: Data Engineering\n\n\nSep 22\n\n\n\n\n\n\nWeek 6: Introduction to Spark\n\n\nSep 29\n\n\n\n\n\n\nWeek 7: Spark DataFrames and Spark SQL\n\n\nOct 6\n\n\n\n\n\n\nWeek 8: SparkNLP\n\n\nOct 20\n\n\n\n\n\n\nWeek 9: SparkML\n\n\nOct 27\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Airflow\n\n\nNov 3\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 10\n\n\n\n\n\n\nWeek 12: In-Class Office Hours\n\n\nNov 17\n\n\n\n\n\n\nWeek 13: Serverless and Container Orchestration\n\n\nNov 24\n\n\n\n\n\n\nWeek 14: Final Topics, Review\n\n\nDec 1\n\n\n\n\n\n\nWeek 15: Final Project Presentations\n\n\nDec 8\n\n\n\n\n\n\nNo matching items"
+    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\n\n\n\n\n\n\nNoteIrregular Lecture Days\n\n\n\nPlease keep in mind the following “special” days, when course meetings will be shifted or skipped due to holidays:\n\nThursday, August 27: The first week of the course will be a joint meeting of both sections:\n\nStudents in the Thursday section (Section 02) should attend in-person, in Walsh 394\nStudents in the Monday section (Section 01) should attend via this Zoom link\n\nTuesday, September 8: The Week 2 meeting for the Monday section (Section 01) falls on a Tuesday, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)\nMonday, October 12 and Thursday, October 15: No class due to Georgetown’s Mid-Semester Holiday\nMonday, November 23 and Thursday, November 26: No class due to Georgetown’s 2026 Fall Recess\nMonday, December 7 and Tuesday, December 8: This week, in place of lecture, your group will be assigned to a timeslot for Final Project presentations (in the Car Barn 1st Floor Lounge)\n\n\n\nWelcome! This webpage contains slides, resources, and lecture recordings for DSAN 6000: Big Data and Cloud Computing, Fall 2026 at Georgetown University.\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394. Use the links in the sidebar, or in the table below, to explore the content for a particular week.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 28\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 2\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 8\n\n\n\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\n\nSep 15\n\n\n\n\n\n\nWeek 5: Data Engineering\n\n\nSep 22\n\n\n\n\n\n\nWeek 6: Introduction to Spark\n\n\nSep 29\n\n\n\n\n\n\nWeek 7: Spark DataFrames and Spark SQL\n\n\nOct 6\n\n\n\n\n\n\nWeek 8: SparkNLP\n\n\nOct 20\n\n\n\n\n\n\nWeek 9: SparkML\n\n\nOct 27\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Airflow\n\n\nNov 3\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 10\n\n\n\n\n\n\nWeek 12: In-Class Office Hours\n\n\nNov 17\n\n\n\n\n\n\nWeek 13: Serverless and Container Orchestration\n\n\nNov 24\n\n\n\n\n\n\nWeek 14: Final Topics, Review\n\n\nDec 1\n\n\n\n\n\n\nWeek 15: Final Project Presentations\n\n\nDec 8\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "w11/slides.html#word-counts-good-enough",
@@ -1496,7 +1496,7 @@
     "section": "",
     "text": "Open slides in new tab →",
     "crumbs": [
-      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+      "Week 11: <span class='sec-w11-date'>Nov 9</span>"
     ]
   },
   {
@@ -1506,7 +1506,7 @@
     "section": "Word Counts: Good Enough?",
     "text": "Word Counts: Good Enough?\nJust four keywords per section:\n\n\n\nSection\nKeywords\n\n\n\n\nU.S.\nstate, court, federal, republican\n\n\nWorld\ngovernment, country, officials, minister\n\n\nArts\nmusic, show, art, dance\n\n\nSports\ngame, league, team, coach\n\n\nReal Estate\nhome, bedrooms, bathrooms, building\n\n\n\nFor each article, vote for section with highest keyword count:\n\n\n\n\n\n\n\n\n\n\n\n\n\nArts\nReal Estate\nSports\nU.S. News\nWorld News\nTotal\n\n\n\n\nCorrect\n3020\n690\n4860\n1330\n1730\n11630\n\n\nIncorrect\n750\n60\n370\n1100\n590\n2870\n\n\nAccuracy\n0.801\n0.920\n0.929\n0.547\n0.746\n0.802",
     "crumbs": [
-      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+      "Week 11: <span class='sec-w11-date'>Nov 9</span>"
     ]
   },
   {
@@ -1516,7 +1516,7 @@
     "section": "What’s Missing? Context!",
     "text": "What’s Missing? Context!\n\n\n\n\n\n\nYou shall know a word by the company it keeps. (Firth 1957)\n\n\n\n\n\n\nArticle A (World News):\n\n\nPresident Bush said he was trying to convince President Vladimir Putin of Russia that cooperation was “in Russia’s security interests,” even though Defense Secretary Robert M. Gates did not win Mr. Putin’s support during a trip to Moscow last week.\n“Bush Steps Up Effort to Persuade Putin on Missile Defense Plan”, NYTimes, 1 May 2007.\n\n\nArticle B (U.S. News):\n\nPresident Bush began his day yesterday at dawn on the golf course. He began Saturday on the golf course, too. A weekend earlier, the president played two rounds of 18 holes on the course at Andrews Air Force Base just outside Washington.\n“White House Letter; Bush Makes Quick Work of Relaxing”, NYTimes, 5 August 2002.",
     "crumbs": [
-      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+      "Week 11: <span class='sec-w11-date'>Nov 9</span>"
     ]
   },
   {
@@ -1526,7 +1526,7 @@
     "section": "Basic Context Engineering",
     "text": "Basic Context Engineering\n\nWhat exactly do we mean when we say “context”?\nDifferent training objectives give different types of contexts!\nExample: Closest vectors to Turing, trained on Wikipedia in two ways:\n\n\n\n\n\n\n\n\nDependency Tree\n\n\n5-Word Window\n\n\n\n\n\n\n\n\nSame category \\(\\rightarrow\\)\n\n\nPauling\n\n\nnondeterministic\n\n\n\\(\\leftarrow\\) Topically related\n\n\n\n\n(Paradigmatic)\n\n\nHotelling\n\n\ncomputability\n\n\n(Syntagmatic)\n\n\n\n\n\n\nLessing\n\n\ndeterministic\n\n\n\n\n\n\n\n\nHamming\n\n\nfinite-state\n\n\n\n\n\n\nExample from Uber AI Labs’ amazing Piero Molina",
     "crumbs": [
-      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+      "Week 11: <span class='sec-w11-date'>Nov 9</span>"
     ]
   },
   {
@@ -1536,7 +1536,7 @@
     "section": "Pretentious But Helpful Terms!",
     "text": "Pretentious But Helpful Terms!\n\nParadigmatic \\(\\approx\\) Grammatical “substitutes”, drawn from same category/type\nSyntagmatic \\(\\approx\\) semantic relationships between words in a sentence\n\n\n\n\n\n\n\n\n\nParadigmatic↓\n\n\n\n\nParadigmatic↓\n\n\n\n\n\n\n\n\n\n\napples\n\n\n← Syntagmatic →\n\n\nsweet\n\n\n\n\n\n\n\n\noranges\n\n\n← Syntagmatic →\n\n\nsour\n\n\n\n\n\n\nThese\n\n\n\\(\\underline{\\hspace{32mm}}\\)\n\n\ntaste very\n\n\n\\(\\underline{\\hspace{32mm}}\\)\n\n\n!\n\n\n\n\n(Both terms from Saussure (1916))",
     "crumbs": [
-      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+      "Week 11: <span class='sec-w11-date'>Nov 9</span>"
     ]
   },
   {
@@ -1546,7 +1546,7 @@
     "section": "How Do We Actually Get These Vectors?",
     "text": "How Do We Actually Get These Vectors?\n\n\n\n\n\n\n\n\nHigh-level goal: Retain information about word-context relationships while reducing the \\(M\\)-dimensional representations of each word down to 3 dimensions.\nLow-level goal: Generate rank-\\(K\\) matrix \\(\\mathbf{W}\\) which best approximates distances between words in \\(M\\)-dimensional space (rows in \\(\\mathbf{X}\\))",
     "crumbs": [
-      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+      "Week 11: <span class='sec-w11-date'>Nov 9</span>"
     ]
   },
   {
@@ -1556,7 +1556,7 @@
     "section": "Vector Search Workflow",
     "text": "Vector Search Workflow\n\n\n\nImage Source",
     "crumbs": [
-      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+      "Week 11: <span class='sec-w11-date'>Nov 9</span>"
     ]
   },
   {
@@ -1566,7 +1566,7 @@
     "section": "Unstructured Data \\(\\leadsto\\) Structured Geometric Query Space",
     "text": "Unstructured Data \\(\\leadsto\\) Structured Geometric Query Space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFig 1: Image Source",
     "crumbs": [
-      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+      "Week 11: <span class='sec-w11-date'>Nov 9</span>"
     ]
   },
   {
@@ -1576,7 +1576,7 @@
     "section": "More Data \\(\\leadsto\\) “Increasing Returns”",
     "text": "More Data \\(\\leadsto\\) “Increasing Returns”\n\n\n\n\n\n\nLearn about vehicles from one dataset…\n\n\n\n\n\n\n\nLearn about foods from another dataset…\n\n\n\n\n\n\n\n\n\nLearn about color from both 🤯",
     "crumbs": [
-      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+      "Week 11: <span class='sec-w11-date'>Nov 9</span>"
     ]
   },
   {
@@ -1586,7 +1586,7 @@
     "section": "Queries Embedded via the Same Model!",
     "text": "Queries Embedded via the Same Model!",
     "crumbs": [
-      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+      "Week 11: <span class='sec-w11-date'>Nov 9</span>"
     ]
   },
   {
@@ -1596,7 +1596,7 @@
     "section": "References",
     "text": "References\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court.",
     "crumbs": [
-      "Week 11: <span class='sec-w11-date'>Nov 10</span>"
+      "Week 11: <span class='sec-w11-date'>Nov 9</span>"
     ]
   },
   {
@@ -1781,7 +1781,7 @@
     "section": "",
     "text": "Open slides in new tab →",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1791,7 +1791,7 @@
     "section": "Agenda",
     "text": "Agenda\n\n\nLooking Back\n\nIntroduction to cloud\nPython Multiprocessing\nDuckDB, Polars\n\n\n\nFuture\n\nProject introduction\nSpark dataframe, ML, NLP\n\n\n\n\n\nToday\n\nData Engineering\n\nData Lakes, Warehouses\nNoSQL Databases\n\nLab:\n\nAthena\nEC2",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1801,7 +1801,7 @@
     "section": "What is Data Engineering?",
     "text": "What is Data Engineering?\nAs the scale of the data grew, the existing ETL processes alone were not sufficient, a separate discipline was needed for:\n\nCollecting data\nManaging storage\nCataloging\nMaking it available for applications such as analytics & machine learning)\nSecurity\nLifecycle management\nAnd more…\n\n\nFrom Wikipedia: Data engineering refers to the building of systems to enable the collection and usage of data. This data is usually used to enable subsequent analysis and data science; which often involves machine learning. Making the data usable usually involves substantial compute and storage, as well as data processing and cleaning.",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1811,7 +1811,7 @@
     "section": "What do Data Engineers do?",
     "text": "What do Data Engineers do?\nData engineers build systems that collect data from different sources and make this data available for analytics and ML application. This usually involves the following:\n\nAcquisition: Finding all the different datasets around the business.\n\nThese could be availble in databases, shared drives, ingested directly from IoT devices, external datasets, and more.\n\nCleaning: The raw data usually cannot be used as is, it needs to be cleaned.\nConversion: Since the data is coming from different sources, it would probably in different formats (database tables, CSV, JSON, custom). Needs to be converted into a common format (such as parquet) before it becomes usable.\n\nMultiple datasets need to be joined together to answer a business question.",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1821,7 +1821,7 @@
     "section": "What do Data Engineers do (contd.)?",
     "text": "What do Data Engineers do (contd.)?\n\nDisambiguation: How to interpret what the data means? Use a data catalog and then with the help of subject matter experts (often called Data Stewards) add meaningful description to the datasets.\nDeduplication: Having a single source of truth!\nData Governance: for how long to store the data, how to enforce access controls (Principle of least privilege) etc.\n\nOnce this is done, data may be stored in a central repository such as a data lake or data lakehouse. Data engineers may also copy and move subsets of data into a data warehouse.",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1831,7 +1831,7 @@
     "section": "Data Engineering Tools and Technologies",
     "text": "Data Engineering Tools and Technologies\nData engineers work with a variety of tools and technologies, including:\n\nETL Tools: ETL (extract, transform, load) tools move data between systems. They access data, then apply rules to “transform” the data through steps that make it more suitable for analysis.\nSQL: Structured Query Language (SQL) is the standard language for querying relational databases.\nPython: Python is a general programming language. Data engineers may choose to use Python for ETL tasks. Spark (pyspark) for Big Data, Apache Flink for streaming data.\nCloud Data Storage: Including Amazon S3, Azure Data Lake Storage (ADLS), Google Cloud Storage, etc.\nCloud Data Warehouses: Data ready for use by data scientists and analysts is stored in data warehouses, such as Amazon Redshift, Google BigQuery, Azure Data Warehouse, Snowflake etc.",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1841,7 +1841,7 @@
     "section": "Popular Data engineering tools",
     "text": "Popular Data engineering tools\n\n\n\nSource",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1851,7 +1851,7 @@
     "section": "Wikipedia Definition",
     "text": "Wikipedia Definition\n\nFrom Wikipedia: A data lake is a system or repository of data stored in its natural/raw format, usually object blobs or files. A data lake is usually a single store of data including raw copies of source system data, sensor data, social data etc., and transformed data used for tasks such as reporting, visualization, advanced analytics and machine learning. A data lake can include structured data from relational databases (rows and columns), semi-structured data (CSV, logs, XML, JSON), unstructured data (emails, documents, PDFs) and binary data (images, audio, video).",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1861,7 +1861,7 @@
     "section": "Cloud Provider Definitions",
     "text": "Cloud Provider Definitions\nDefinitions in the wild (emphasis mine).\n\n\nAWS\nA data lake is a centralized repository that allows you to store all your structured and unstructured data at any scale. You can store your data as-is, without having to first structure the data, and run different types of analytics—from dashboards and visualizations to big data processing, real-time analytics, and machine learning to guide better decisions.\n\nGCP\nA data lake provides a scalable and secure platform that allows enterprises to: ingest any data from any system at any speed—even if the data comes from on-premises, cloud, or edge-computing systems; store any type or volume of data in full fidelity; process data in real time or batch mode; and analyze data using SQL, Python, R, or any other language, third-party data, or analytics application.\n\nAzure\nAzure Data Lake includes all the capabilities required to make it easy for developers, data scientists, and analysts to store data of any size, shape, and speed, and do all types of processing and analytics across platforms and languages.\n\nDataBricks\nA data lake is a central location that holds a large amount of data in its native, raw format. Compared to a hierarchical data warehouse, which stores data in files or folders, a data lake uses a flat architecture and object storage to store the data.‍",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1871,7 +1871,7 @@
     "section": "Working with a Cloud Data Lake",
     "text": "Working with a Cloud Data Lake\nA cloud data lake is setup using the cloud provider’s object store (S3, GCS, Azure Blob Storage).\n\nThe object stores are extremely scalable, for context, the maximum size of an object in S3 is 5 TB and there is no limit to number of objects in an S3 bucket.\nThey are extremely duarable, 99.999999999%. Provide strong consistency (read-after-write, listing buckets and objects, granting permissions etc.).\nCost effective, with multiple storage classes.\nIntegration with data processing tools such as Spark, machine learning tools such as SageMaker, data warehouses such as RedShift and data cataloging tools.\nThey provide Fine Grained Access Control to the data.",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1881,7 +1881,7 @@
     "section": "Data Warehouses",
     "text": "Data Warehouses\n\n\nFrom Wikipedia: In computing, a data warehouse (DW or DWH), also known as an enterprise data warehouse (EDW), is a system used for reporting and data analysis and is considered a core component of business intelligence. DWs are central repositories of integrated data from one or more disparate sources. They store current and historical data in one single place that are used for creating analytical reports for workers throughout the enterprise.",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1891,7 +1891,7 @@
     "section": "Data Warehouse (Cloud Provider Definitions)",
     "text": "Data Warehouse (Cloud Provider Definitions)\nDefinitions in the wild (emphasis mine).\n\n\nAWS\nA data warehouse is a central repository of information that can be analyzed to make more informed decisions. Data flows into a data warehouse from transactional systems, relational databases, and other sources, typically on a regular cadence. Business analysts, data engineers, data scientists, and decision makers access the data through business intelligence (BI) tools, SQL clients, and other analytics applications.\nAzure\nA data warehouse is a centralized repository of integrated data from one or more disparate sources. Data warehouses store current and historical data and are used for reporting and analysis of the data.\n\nGCP\nA data warehouse is an enterprise system used for the analysis and reporting of structured and semi-structured data from multiple sources, such as point-of-sale transactions, marketing automation, customer relationship management, and more.\nSnowflake\nA data warehouse (DW) is a relational database that is designed for analytical rather than transactional work. It collects and aggregates data from one or many sources so it can be analyzed to produce business insights.",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1901,7 +1901,7 @@
     "section": "Working with a Cloud Data Warehouse",
     "text": "Working with a Cloud Data Warehouse\nAll cloud providers provide a data warehouse solution that works in conjunction with their data lake solution.\n\nAWS has Redshift, Azure has Synapse Analytics. GCP has BigQuery and then there is Snowflake.\nIn a data warehouse, Online analytical processing (OLAP) allows for fast querying and analysis of data from different perspectives. It also helps in pre-aggregating and pre-calculating the information available in the archive.\nData warehouses are Peta Byte scale (Amazon RedShift, Google BigQuery, Azure Synapse Analytics).\nData warehouses can have dedicated compute provisioned or be serverless (BigQuery is serverless, Redshift allows both options now).\nData warehouses now offer integrated ML capabilities, you can build models with SQL and use them in queries (Amazon RedShift ML, Google BigQuery ML, Azure Synapse Analytics ML).\nIntegration with reporting and dashboarding tools such as Tableau, Grafana, Looker etc. and data analytics tools such as Spark and data cataloging tools.\nThey provide Fine Grained Access Control to the data.",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1911,7 +1911,7 @@
     "section": "Combining Data Lakes and Data Warehouses",
     "text": "Combining Data Lakes and Data Warehouses\nCombine the flexibility, cost-efficiency, and scale of data lakes with the data management and ACID transactions of data warehouses to provide a single architecture that can enable business intelligence and machine learning on all data.\n\nBuild a lakehouse architecture on AWS\nThe Databricks lakehouse platform\nOpen data lakehouse on Google Cloud\nThe data lakehouse, the data warehouse and a modern data platform on Azure",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1921,7 +1921,7 @@
     "section": "NoSQL Databases",
     "text": "NoSQL Databases\nAt some point we needed to think beyond relation databases, because:\n\nData became more and more complex (not all data is tabular, thinkin JSON data emitted by an IoT device).\nCost of storage decreased (everything did not need to be stored in the 3rd normal form)\nMore data on the cloud meant data needed to be placed across different servers (scale-out)\nData needed to be placed intelligently in geo locations of interest\nAnd more…\n\n\nFrom Wikipedia: A NoSQL (originally referring to “non-SQL” or “non-relational”) database provides a mechanism for storage and retrieval of data that is modeled in means other than the tabular relations used in relational databases. Such databases have existed since the late 1960s, but the name “NoSQL” was only coined in the early 21st century, triggered by the needs of Web 2.0 companies. NoSQL databases are increasingly used in big data and real-time web applications. NoSQL systems are also sometimes called Not only SQL to emphasize that they may support SQL-like query languages or sit alongside SQL databases in polyglot-persistent architectures.",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1931,7 +1931,7 @@
     "section": "Types of NoSQL Databases",
     "text": "Types of NoSQL Databases\nOver time, four major types of NoSQL databases emerged: document databases, key-value databases, wide-column stores, and graph databases.\n\nDocument databases store data in documents similar to JSON (JavaScript Object Notation) objects. Each document contains pairs of fields and values. The values can typically be a variety of types including things like strings, numbers, booleans, arrays, or objects.\nKey-value databases are a simpler type of database where each item contains keys and values.\nWide-column stores store data in tables, rows, and dynamic columns.\nGraph databases store data in nodes and edges. Nodes typically store information about people, places, and things, while edges store information about the relationships between the nodes.",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1941,7 +1941,7 @@
     "section": "Examples of NoSQL Databases",
     "text": "Examples of NoSQL Databases\n\n\n\n\n\n\n\nNOSQL Database Type\nExamples\n\n\n\n\nDocument Database\nAmazon DocumentDB, MongoDB, Cosmos DB, ArangoDB, Couchbase Server, CouchDB\n\n\nKey-value Database\nAmazon DynamoDB, Couchbase, Memcached, Redis\n\n\nWide-column datastores\nAmazon DynamoDB, Apache Cassandra, Google Bigtable, Azure Tables\n\n\nGraph databases\nAmazon Neptune, Neo4j\n\n\n\nAs a data scientist you would work with a NoSQL database through an SDK/API. Several programming languages are supported including Python, Java, Go, C++ etc.",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1951,7 +1951,7 @@
     "section": "Example of documents in a document database",
     "text": "Example of documents in a document database\nHere is an example of a document inserted in a key-value/document database such as MongoDB.\n{\n   \"name\" : \"IS 350\",\n   \"year\" : \"2015\",\n   \"make\" : \"Lexus\",\n   \"colors\" : [\"black\",\"white\",\"grey\"],\n   \"spec\" : {\n      \"engine\" : \"V6\",\n      \"wheelbase\" : \"110.2 in\",\n      \"length\" : \"183.7 in\"\n   }\n}\nThe same example can be inserted in an Amazon DynamoDB table called (say) Cars.\ndatabase = boto3.resource('dynamodb')\ntable = database.Table('cars')\nitem = {\n   \"name\" : \"IS 350\",\n   \"year\" : \"2015\",\n   \"make\" : \"Lexus\",\n   \"colors\" : [\"black\",\"white\",\"grey\"],\n   \"spec\" : {\n      \"engine\" : \"V6\",\n      \"wheelbase\" : \"110.2 in\",\n      \"length\" : \"183.7 in\"\n   }\n}\ntable.put_item(Item = item)",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1961,7 +1961,7 @@
     "section": "Other Data Stores to Know About",
     "text": "Other Data Stores to Know About\nBesides the general concepts about data lkakes, warehouses, different types of databases, there are some purpose built databases that are good to know about.\n\nSplunk\nElasticsearch\nDuckDB\nMany many more…",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1971,7 +1971,7 @@
     "section": "Further Reading",
     "text": "Further Reading\nPlease lookup these topics on Google for further reading. Not providing specific links here because they all point to vendor specific products.\n\nData Catalog\nData Governance\nData Mesh\nData Fabric",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1981,7 +1981,7 @@
     "section": "Boar Book Time!",
     "text": "Boar Book Time!\n\n\nKleppmann (2017), pages 69-95",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -1991,7 +1991,7 @@
     "section": "Telemetry → Analytics",
     "text": "Telemetry → Analytics\nRecall how many tiny bits of information are streaming into a given app’s servers at any given time!\n\nDatabase administrators therefore closely guard their OLTP databases. They are usually reluctant to let business analysts run ad hoc analytic queries on an OLTP database, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions.",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -2001,7 +2001,7 @@
     "section": "What is the Quickest Possible Way to Explore Data in S3?",
     "text": "What is the Quickest Possible Way to Explore Data in S3?\n\n\n\nFrom this video",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -2011,7 +2011,7 @@
     "section": "Lab: Analyzing NYC Taxi dataset with Athena",
     "text": "Lab: Analyzing NYC Taxi dataset with Athena\n\nA simple example of using DuckDB and Apache Arrow using NYC Taxi dataset\nThis notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.\n\nGitHub Classroom Link for Lab 5\nGitHub Classroom Link for Assignment 5",
     "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 22</span>"
+      "Week 5: <span class='sec-w05-date'>Sep 21</span>"
     ]
   },
   {
@@ -2103,7 +2103,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9613 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.3134 s"
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9677 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.5908 s"
   },
   {
     "objectID": "w03/slides.html#what-happens-when-not-embarrassingly-parallel",
@@ -2152,14 +2152,14 @@
     "href": "w03/slides.html#if-its-so-useful-why-doesnt-everyone-do-it",
     "title": "Week 3: Parallelization Concepts",
     "section": "If It’s So Useful, Why Doesn’t Everyone Do It?",
-    "text": "If It’s So Useful, Why Doesn’t Everyone Do It?\n\nTrapped in imperative (sequential) coding mode: Path dependency / QWERTY\nWe need to start thinking like this bc, 1000x harder to debug parallel code! So we need to be less ad hoc in how we write+debug, from here on out! 🙇‍♂️🙏\n\n\nFrom Leskovec, Rajaraman, and Ullman (2014)\nThe title relates to a classic Economics joke (the best kind of joke): “An economist and a CEO are walking down the street, when the CEO points at the ground and tells the economist, ‘look! A $20 bill on the ground!’ The economist keeps on walking, scoffing at the CEO: ‘don’t be silly, if there was a $20 bill on the ground, somebody would have picked it up already’.”"
+    "text": "If It’s So Useful, Why Doesn’t Everyone Do It?\n\nTrapped in imperative (sequential) coding mode: Path dependency / QWERTY\nWe need to start thinking like this bc, 1000x harder to debug parallel code! So we need to be less ad hoc in how we write+debug, from here on out! 🙇‍♂️🙏\n\n\nFrom Leskovec et al. (2014)\nThe title relates to a classic Economics joke (the best kind of joke): “An economist and a CEO are walking down the street, when the CEO points at the ground and tells the economist, ‘look! A $20 bill on the ground!’ The economist keeps on walking, scoffing at the CEO: ‘don’t be silly, if there was a $20 bill on the ground, somebody would have picked it up already’.”"
   },
   {
     "objectID": "w03/slides.html#the-killer-application-matrix-multiplication",
     "href": "w03/slides.html#the-killer-application-matrix-multiplication",
     "title": "Week 3: Parallelization Concepts",
     "section": "The “Killer Application”: Matrix Multiplication",
-    "text": "The “Killer Application”: Matrix Multiplication\n\n(I learned from Jeff Ullman, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the class did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)\n\n\nFrom Leskovec, Rajaraman, and Ullman (2014), which is (legally) free online!"
+    "text": "The “Killer Application”: Matrix Multiplication\n\n(I learned from Jeff Ullman, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the class did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)\n\n\nFrom Leskovec et al. (2014), which is (legally) free online!"
   },
   {
     "objectID": "w03/slides.html#the-killer-way-to-learn-text-counts",
@@ -2324,7 +2324,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9795 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n2.3660 s",
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9901 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.6097 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 8</span>"
     ]
@@ -2394,7 +2394,7 @@
     "href": "w03/index.html#if-its-so-useful-why-doesnt-everyone-do-it",
     "title": "Week 3: Parallelization Concepts",
     "section": "If It’s So Useful, Why Doesn’t Everyone Do It?",
-    "text": "If It’s So Useful, Why Doesn’t Everyone Do It?\n\nTrapped in imperative (sequential) coding mode: Path dependency / QWERTY\nWe need to start thinking like this bc, 1000x harder to debug parallel code! So we need to be less ad hoc in how we write+debug, from here on out! 🙇‍♂️🙏\n\n\n\n\nFrom Leskovec, Rajaraman, and Ullman (2014)\n\n\n\nThe title relates to a classic Economics joke (the best kind of joke): “An economist and a CEO are walking down the street, when the CEO points at the ground and tells the economist, ‘look! A $20 bill on the ground!’ The economist keeps on walking, scoffing at the CEO: ‘don’t be silly, if there was a $20 bill on the ground, somebody would have picked it up already’.”",
+    "text": "If It’s So Useful, Why Doesn’t Everyone Do It?\n\nTrapped in imperative (sequential) coding mode: Path dependency / QWERTY\nWe need to start thinking like this bc, 1000x harder to debug parallel code! So we need to be less ad hoc in how we write+debug, from here on out! 🙇‍♂️🙏\n\n\n\n\nFrom Leskovec et al. (2014)\n\n\n\nThe title relates to a classic Economics joke (the best kind of joke): “An economist and a CEO are walking down the street, when the CEO points at the ground and tells the economist, ‘look! A $20 bill on the ground!’ The economist keeps on walking, scoffing at the CEO: ‘don’t be silly, if there was a $20 bill on the ground, somebody would have picked it up already’.”",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 8</span>"
     ]
@@ -2404,7 +2404,7 @@
     "href": "w03/index.html#the-killer-application-matrix-multiplication",
     "title": "Week 3: Parallelization Concepts",
     "section": "The “Killer Application”: Matrix Multiplication",
-    "text": "The “Killer Application”: Matrix Multiplication\n\n(I learned from Jeff Ullman, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the class did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)\n\n\n\n\nFrom Leskovec, Rajaraman, and Ullman (2014), which is (legally) free online!",
+    "text": "The “Killer Application”: Matrix Multiplication\n\n(I learned from Jeff Ullman, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the class did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)\n\n\n\n\nFrom Leskovec et al. (2014), which is (legally) free online!",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 8</span>"
     ]
@@ -2456,7 +2456,7 @@
     "section": "",
     "text": "Open slides in new tab →",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2466,7 +2466,7 @@
     "section": "Agenda and Goals for Today",
     "text": "Agenda and Goals for Today\n\n\n\nLecture\n\nDistributed file systems\nModern file types\nWorking with large tabular data on a single node\n\nDuckDB\nPolars\n\n\n\n\n\nLab\n\nRun a similar task with Pandas, polars and duckdb",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2476,7 +2476,7 @@
     "section": "Logistics and Review",
     "text": "Logistics and Review\n\n\nDeadlines\n\nAssignment 1: Python Skills Due Sept 5 11:59pm\nLab 2: Cloud Tooling Due Sept 5 6pm\nAssignment 2: Shell & Linux Due Sept 11 11:59pm\nLab 3: Parallel Computing Due Sept 12 6pm\nAssignment 3: Parallelization Due Sept 18 11:59pm\nLab 4: Docker and Lambda Due Sept 19 6pm\nAssignment 4: Containers Due Sept 25 11:59pm\nLab 5: DuckDB & Polars Due Sept 26 6pm\n\n\nLook back and ahead\n\nContinue to use Slack for questions!\nDocker (containerization)\nLambda functions\nComing up: Spark and project",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2486,7 +2486,7 @@
     "section": "Raw Ingredients of Storage Systems",
     "text": "Raw Ingredients of Storage Systems\n\n\n\nDisk drives (magnetic HDDs or SSDs)\nRAM\nNetworking and CPU\nSerialization\nCompression\nCaching\n\n\n\n\n\nFrom Reis and Housley (2022)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2496,7 +2496,7 @@
     "section": "Single-Machine vs. Distributed Storage",
     "text": "Single-Machine vs. Distributed Storage\n\n\n\nFrom Reis and Housley (2022)\n\n\n\n\n\nSingle-Machine\n\n\nThey are commonly used for storing operating system files, application files, and user data files.\nFilesystems are also used in databases to store data files, transaction logs, and backups.\n\n\n\nDistributed Storage\n\n\nA distributed filesystem is a type of filesystem that spans multiple computers.\nIt provides a unified view of files across all the computers in the system.\nHave existed before cloud",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2506,7 +2506,7 @@
     "section": "File Storage Types",
     "text": "File Storage Types\n\n\n\nLocal Disk\n\n\nOS-managed filesystems on local disk partition:\nNTFS (Windows)\nHFS+ (MacOS)\next4 (Linux)() on a local disk partition of SSD or magnetic disk\n\n\n\nNetwork-Attached (NAS)\n\n\nAccessed by clients over a network\nRedundancy and reliability, fine-grained control of resources, storage pooling across multiple disks for large virtual volumes, and file sharing across multiple machines\n\n\nCloud Filesystems\n\nNot object store (more on that later)\nNot the virtual hard drive attached to a virtual machine\nFully managed: Takes care of networking, managing disk clusters, failures, and configuration (Azure Files, Amazon Elastic Filesystem)\nBacked by Object Store\n\n\n\nBased on Reis and Housley (2022)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2516,7 +2516,7 @@
     "section": "Object Stores",
     "text": "Object Stores\n\nSomewhat confusing because object has several meanings in computer science.\nIn this context, we’re talking about a specialized file-like construct. It could be any type of file: TXT, CSV, JSON, images, videos, audio\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nContains objects of all shapes and sizes: each gets a unique identifier\nObjects are immutable: cannot be modified in place (unlike local FS)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2526,7 +2526,7 @@
     "section": "Distributed FS vs Object Store",
     "text": "Distributed FS vs Object Store\n\n\n\n\n\n\n\n\n\nDistributed File System\nObject Storage\n\n\n\n\nOrganization\nFiles in hierarchical directories\nFlat organization (though there can be overlays to provide hierarchical files structure)\n\n\nMethod\nPOSIX File Operations\nREST API\n\n\nImmutability\nNone: Random writes anywhere in file\nImmutable: need to replace/append entire object\n\n\nPerformance\nPerforms best for smaller files\nPerforms best for large files\n\n\nScalability\nMillions of files\nBillions of objects\n\n\n\nBoth provide:\n\nFault tolerance\nAvailability and consistency",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2536,7 +2536,7 @@
     "section": "Before: Data locality (for Hadoop)",
     "text": "Before: Data locality (for Hadoop)\n\n\n\nFrom White (2015)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2546,7 +2546,7 @@
     "section": "Today: De-Coupling Storage from Compute",
     "text": "Today: De-Coupling Storage from Compute\n\n\n\nFrom Gopalan (2022)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2556,7 +2556,7 @@
     "section": "Data-on-Disk Formats",
     "text": "Data-on-Disk Formats\n\nPlain Text (CSV, TSV, FWF)\nJSON\nBinary Files",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2566,7 +2566,7 @@
     "section": "Plain Text (CSV, TSV, FWF)",
     "text": "Plain Text (CSV, TSV, FWF)\n\n\n\n\n\n\nPay attention to encodings!\nLines end in linefeed, carriage-return, or both together depending on the OS that generated\nTypically, a single line of text contains a single record",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2576,7 +2576,7 @@
     "section": "JSON",
     "text": "JSON\n\n\n\n\n\n\nWarning\n\n\n\nJSON files have two flavors: JSON Lines vs. JSON. Typically when we say data is in JSON format, we imply it’s JSON Lines which means that there is a single JSON object per line, and there are multiple lines.\n\n\n\n\nJSON Lines\n4 records, one per line, no end comma\n{\"id\":1, \"name\":\"marck\", \"last_name\":\"vaisman\"}\n{\"id\":2, \"name\":\"anderson\", \"last_name\":\"monken\"}\n{\"id\":3, \"name\":\"amit\", \"last_name\":\"arora\"}\n{\"id\":4, \"name\":\"abhijit\", \"last_name\":\"dasgupta\"}\n\nJSON\n4 records enclosed in 1 JSON Array\n[\n  {\"id\":1, \"name\":\"marck\", \"last_name\":\"vaisman\"},\n  {\"id\":2, \"name\":\"anderson\", \"last_name\":\"monken\"},\n  {\"id\":3, \"name\":\"amit\", \"last_name\":\"arora\"},\n  {\"id\":4, \"name\":\"abhijit\", \"last_name\":\"dasgupta\"},\n]",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2586,7 +2586,7 @@
     "section": "Binary Files",
     "text": "Binary Files",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2596,7 +2596,7 @@
     "section": "Issues with Common File Formats (Especially CSV)",
     "text": "Issues with Common File Formats (Especially CSV)\n\nUbiquitous but highly error-prone\nDefault delimiter: familiar character in English, the comma\nAmbiguities:\n\nDelimiter (comma, tab, semi-colon, custom)\nQuote characters (single or doble quote)\nEscaping to appropriately handle string data\n\nDoesn’t natively encode schema information\nNo direct support for nested structures\nEncoding+schema must be configured on target system to ensure ingestion\nAutodetection provided in many cloud environments but is inappropriate for production ingestion (can be painfully slow)\nData engineers often forced to work with CSV data and then build robust exception handling and error detection to ensure data quality (Pydantic!)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2606,7 +2606,7 @@
     "section": "Introducing Apache Parquet",
     "text": "Introducing Apache Parquet\n\nFree, open-source, column-oriented data storage format created by Twitter and Cloudera (v1.0 released July 2013)\nData stored in columnar format (as opposed to row format), designed for read and write performance\nBuilds in schema information and natively supports nested data\nSupported by R and Python through Apache Arrow (more coming up!)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2616,7 +2616,7 @@
     "section": "Traditional Row-Store",
     "text": "Traditional Row-Store\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuery: “How many balls did we sell?\nThe engine must scan each and every row until the end!",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2626,7 +2626,7 @@
     "section": "Column-Store",
     "text": "Column-Store\n\n\n\n\n\n\n\nParquet file format, everything you need to know",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2636,7 +2636,7 @@
     "section": "Row Groups",
     "text": "Row Groups\n\n\n\nData is stored in row groups!\n\n\n\nOnly required fields",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2646,7 +2646,7 @@
     "section": "Metadata, compression, and dictionary encoding",
     "text": "Metadata, compression, and dictionary encoding",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2656,7 +2656,7 @@
     "section": "Apache Arrow for In-Memory Analytics",
     "text": "Apache Arrow for In-Memory Analytics\n\nApache Arrow is a development platform for in-memory analytics. It contains a set of technologies that enable big data systems to process and move data fast. It specifies a standardized language-independent columnar memory format for flat and hierarchical data, organized for efficient analytic operations on modern hardware. (Topol and McKinney 2024)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2666,7 +2666,7 @@
     "section": "Before Arrow",
     "text": "Before Arrow\n\n\n\nTopol and McKinney (2024)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2676,7 +2676,7 @@
     "section": "After Arrow",
     "text": "After Arrow\n\n\n\nTopol and McKinney (2024)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2686,7 +2686,7 @@
     "section": "Arrow Compatibility",
     "text": "Arrow Compatibility\n\n\n\nTopol and McKinney (2024)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2696,7 +2696,7 @@
     "section": "Arrow Performance",
     "text": "Arrow Performance\n\n\n\n\n\nTopol and McKinney (2024)\n\n\n\n\n\n\nTopol and McKinney (2024)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2706,7 +2706,7 @@
     "section": "Using Arrow with CSV and Parquet",
     "text": "Using Arrow with CSV and Parquet\n\n\n\nPython\n\npyarrow or from pandas\nimport pandas as pd\npd.read_csv(engine = 'pyarrow')\npd.read_parquet()\n\nimport pyarrow.csv\npyarrow.csv.read_csv()\n\nimport pyarrow.parquet\npyarrow.parquet.read_table()\n\n\nR\n\nUse the arrow package\nlibrary(arrow)\n\nread_csv_arrow()\nread_parquet()\nread_json_arrow()\n\nwrite_csv_arrow()\nwrite_parquet()\n\n\nRecommendation: save your intermediate and analytical datasets as Parquet!",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2716,7 +2716,7 @@
     "section": "Before We Begin…",
     "text": "Before We Begin…\n\nPandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.\n\nPandas is slow, but less slow if you use it the right way!\n\nApache Arrow and the “10 Things I Hate About pandas” (A 2017 post from the creator of Pandas…))\n50x faster data loading in Pandas: no problem (an old 2019 article…)\nIs Pandas really that slow?\nPandas 2.0 and the arrow revolution",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2726,7 +2726,7 @@
     "section": "Polars",
     "text": "Polars",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2736,7 +2736,7 @@
     "section": "Why is Polars Faster than Pandas?",
     "text": "Why is Polars Faster than Pandas?\n\nPolars is written in Rust. Rust is compiled; Python is interpreted\n\nCompiled language: you generate the machine code only once then run it, subsequent runs do not need the compilation step.\nInterpreted language: code has to be parsed, interpreted and converted into machine code every single time.\n\nParallelization: Vectorized operations can be executed in parallel on multiple cores\nLazy evaluation: Polars supports two APIs lazy as well as eager evaluation (used by pandas). In lazy evaluation, a query is executed only when required. While in eager evaluation, a query is executed immediately.\nPolars uses Arrow for in-memory data representation. Similar to how pandas uses NumPy (Pandas 2 allows using Arrow as backend)\nPolars \\(\\approx\\) in-memory DataFrame library + query optimizer\n\n\n\n[Excerpt from this post from Ritchie Vink, author of Polars] Arrow provides the efficient data structures and some compute kernels, like a SUM, a FILTER, a MAX etc. Arrow is not a query engine. Polars is a DataFrame library on top of arrow that has implemented efficient algorithms for JOINS, GROUPBY, PIVOTs, MELTs, QUERY OPTIMIZATION, etc. (the things you expect from a DF lib).",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2746,7 +2746,7 @@
     "section": "Ease of Use",
     "text": "Ease of Use\n\nFamiliar API for users of Pandas: differences in syntax but still a Dataframe API making it straightforward to perform common operations such as filtering, aggregating, and joining data\nSee Migrating from Pandas\nReading data\n# must install s3fs -&gt; \"pip install s3fs\"\n# Using Polars\nimport polars as pl\npolars_df = pl.read_parquet(\"s3://nyc-tlc/trip data/yellow_tripdata_2023-06.parquet\")\n\n# using Pandas\nimport pandas as pd\npandas_df = pd.read_parquet(\"s3://nyc-tlc/trip data/yellow_tripdata_2023-06.parquet\")\nSelecting columns (see Pushdown optimization)\n# Using Polars\nselected_columns_polars = polars_df[['column1', 'column2']]\n\n# Using Pandas\nselected_columns_pandas = pandas_df[['column1', 'column2']]",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2756,7 +2756,7 @@
     "section": "Ease of Use (contd.)",
     "text": "Ease of Use (contd.)\n\nFiltering data\n# Using Polars\nfiltered_polars = polars_df[polars_df['column1'] &gt; 10]\n\n# Using Pandas\nfiltered_pandas = pandas_df[pandas_df['column1'] &gt; 10]\nThough you can write Polars code that looks like Pandas, better to write idiomatic Polars code that takes advantage of Polars’ features\nMigrating from Apache Spark: Whereas Spark DataFrame is a collection of rows, Polars DataFrame is closer to a collection of columns",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2766,7 +2766,7 @@
     "section": "Installation, Data Loading, and Basic Operations",
     "text": "Installation, Data Loading, and Basic Operations\nInstall via pip:\npip install polars\nImport polars in your Python code and read data as usual:\nimport polars as pl\ndf = pl.read_parquet(\"s3://nyc-tlc/trip data/yellow_tripdata_2023-06.parquet\")\ndf.head()\n\nshape: (5, 19)\n┌──────────┬────────────┬──────────────┬──────────────┬─────┬──────────────┬──────────────┬──────────────┬─────────────┐\n│ VendorID ┆ tpep_picku ┆ tpep_dropoff ┆ passenger_co ┆ ... ┆ improvement_ ┆ total_amount ┆ congestion_s ┆ Airport_fee │\n│ ---      ┆ p_datetime ┆ _datetime    ┆ unt          ┆     ┆ surcharge    ┆ ---          ┆ urcharge     ┆ ---         │\n│ i32      ┆ ---        ┆ ---          ┆ ---          ┆     ┆ ---          ┆ f64          ┆ ---          ┆ f64         │\n│          ┆ datetime[n ┆ datetime[ns] ┆ i64          ┆     ┆ f64          ┆              ┆ f64          ┆             │\n│          ┆ s]         ┆              ┆              ┆     ┆              ┆              ┆              ┆             │\n╞══════════╪════════════╪══════════════╪══════════════╪═════╪══════════════╪══════════════╪══════════════╪═════════════╡\n│ 1        ┆ 2023-06-01 ┆ 2023-06-01   ┆ 1            ┆ ... ┆ 1.0          ┆ 33.6         ┆ 2.5          ┆ 0.0         │\n│          ┆ 00:08:48   ┆ 00:29:41     ┆              ┆     ┆              ┆              ┆              ┆             │\n│ 1        ┆ 2023-06-01 ┆ 2023-06-01   ┆ 0            ┆ ... ┆ 1.0          ┆ 23.6         ┆ 2.5          ┆ 0.0         │\n│          ┆ 00:15:04   ┆ 00:25:18     ┆              ┆     ┆              ┆              ┆              ┆             │\n│ 1        ┆ 2023-06-01 ┆ 2023-06-01   ┆ 1            ┆ ... ┆ 1.0          ┆ 60.05        ┆ 0.0          ┆ 1.75        │\n└──────────┴────────────┴──────────────┴──────────────┴─────┴──────────────┴──────────────┴──────────────┴─────────────┘",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2776,7 +2776,7 @@
     "section": "Polars Pipeline Example",
     "text": "Polars Pipeline Example\nWe’ll run this as part of the lab in a little bit; think how you might code this in Pandas…\n\n\n\nPolars pipeline",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2786,7 +2786,7 @@
     "section": "Further reading",
     "text": "Further reading\n\nPolars\nUser guide ← MUST READ\nPolars GitHub repo\nPandas Vs Polars: a syntax and speed comparison\nTips & tricks for working with strings in Polars",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2796,7 +2796,7 @@
     "section": "DuckDB",
     "text": "DuckDB\n\nDuckDB is an in-process SQL OLAP DB management system\nLike sqlite, but for analytics. What does this mean? It means that your database runs inside your process, there are no servers to manage, no remote system to connect to. Easy to experiment with SQL-like syntax.\nVectorized processing: Loads chunks of data into memory (tries to keep everything in the CPU’s L1 and L2 cache) and is thus able to handle datasets bigger than the amount of RAM available.\nSupports Python, R and a host of other languages\nImportant paper on DuckDB: Raasveldt and Mühleisen (2019)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2806,7 +2806,7 @@
     "section": "Key Features",
     "text": "Key Features\n\nColumnar Storage, Vectorized Query Processing: DuckDB contains a columnar-vectorized query execution engine, where queries are run on a large batch of values (a “vector”) in one operation\n\nMost analytical queries (think group by and summarize) or even data retrieval for training ML models require retrieving a subset of columns and now the entire row, columnar storage make this faster\n\nIn-Memory Processing: All data needed for processing is brought within the process memory (recall that columnar storage format helps with this) making queries run faster (no DB call over the network)\nSQL Support: highly Postgres-compatible version of SQL1.\nACID Compliance: Transactional guarantees (ACID properties) through bulk-optimized Multi-Version Concurrency Control (MVCC).",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2816,7 +2816,7 @@
     "section": "Use Cases for DuckDB",
     "text": "Use Cases for DuckDB\n\nData Warehousing\nBusiness Intelligence\nReal-Time Analytics\nIoT Data Processing\n\nDuckDB in the Wild\n\nHow We Silently Switched Mode’s In-Memory Data Engine to DuckDB To Boost Visual Data Exploration Speed\nWhy we built Rill with DuckDB\nLeveraging DuckDB for enhanced performance in dbt projects",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2826,7 +2826,7 @@
     "section": "DuckDB: DIY",
     "text": "DuckDB: DIY\n\n\n\nDatalake and DuckDB\n\n\nUsing DuckDB in AWS Lambda",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2836,7 +2836,7 @@
     "section": "DuckDB: Fully-Managed",
     "text": "DuckDB: Fully-Managed\n\n\n\nMotherDuck Architecture\n\n\n\nArchitecture and capabilities\nSeamlessly analyze data, whether it sits on your laptop, in the cloud or split between.\nHybrid execution automatically plans each part of your query and determines where it’s best computed\nDuckDB Vs MotherDuck",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2846,7 +2846,7 @@
     "section": "Setting Up DuckDB",
     "text": "Setting Up DuckDB\nConfiguration and Initialization: DuckDB is integrated into Python and R for efficient interactive data analysis (APIs for Java, C, C++, Julia, Swift, and others)\npip install duckdb\nConnecting to DuckDB\nimport duckdb\n# directly query a Pandas DataFrame\nimport pandas as pd\ndata_url = \"https://raw.githubusercontent.com/anly503/datasets/main/EconomistData.csv\"\ndf = pd.read_csv(data_url)\nduckdb.sql('SELECT * FROM df')",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2856,7 +2856,7 @@
     "section": "Setting Up DuckDB (contd.)",
     "text": "Setting Up DuckDB (contd.)\nSupported data formats: DuckDB can ingest data from a wide variety of formats – both on-disk and in-memory. See the data ingestion page for more information.\nimport duckdb\nduckdb.read_csv('example.csv')                # read a CSV file into a Relation\nduckdb.read_parquet('example.parquet')        # read a Parquet file into a Relation\nduckdb.read_json('example.json')              # read a JSON file into a Relation\n\nduckdb.sql('SELECT * FROM \"example.csv\"')     # directly query a CSV file\nduckdb.sql('SELECT * FROM \"example.parquet\"') # directly query a Parquet file\nduckdb.sql('SELECT * FROM \"example.json\"')    # directly query a JSON file",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2866,7 +2866,7 @@
     "section": "Querying DuckDB",
     "text": "Querying DuckDB\nEssential Reading\n\nFriendlier SQL with DuckDB\nSQL Introduction\n\nBasic SQL Queries\nimport duckdb\nimport pandas as pd\nbabynames = pd.read_parquet(\"https://github.com/anly503/datasets/raw/main/babynames.parquet.zstd\")\nduckdb.sql(\"select count(*)  from babynames where Name='John'\")\nAggregations and Grouping\nduckdb.sql(\"select State, Name, count(*) as count  from babynames group by State, Name order by State desc, count desc\")",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2876,7 +2876,7 @@
     "section": "Querying DuckDB (contd.)",
     "text": "Querying DuckDB (contd.)\nEssential reading: FROM and JOIN clauses\nJoins and Subqueries\n# Join two tables together\nduckdb.sql(\"SELECT * FROM table_name JOIN other_table ON (table_name.key = other_table.key\")\nWindow Functions\npowerplants = pd.read_csv(\"https://raw.githubusercontent.com/anly503/datasets/main/powerplants.csv\", parse_dates=[\"date\"])\nq = \"\"\"\nSELECT \"plant\", \"date\",\n    AVG(\"MWh\") OVER (\n        PARTITION BY \"plant\"\n        ORDER BY \"date\" ASC\n        RANGE BETWEEN INTERVAL 3 DAYS PRECEDING\n                  AND INTERVAL 3 DAYS FOLLOWING)\n        AS \"MWh 7-day Moving Average\"\nFROM powerplants\nORDER BY 1, 2;\n\"\"\"\nduckdb.sql(q)",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2886,7 +2886,7 @@
     "section": "Using the DuckDB CLI and Shell",
     "text": "Using the DuckDB CLI and Shell\n\nInstall DuckDB CLI or use in browser via shell.duckdb.org for data exploration via SQL; Once installed, import a local file into the shell and run queries\nYou can download powerplants.csv here\nC:\\Users\\&lt;username&gt;\\Downloads\\duckdb_cli-windows-amd64&gt; duckdb\nv0.8.1 6536a77232\nEnter \".help\" for usage hints.\nConnected to a transient in-memory database.\nUse \".open FILENAME\" to reopen on a persistent database.\nD CREATE TABLE powerplants AS SELECT * FROM read_csv_auto('powerplants.csv');\nD DESCRIBE powerplants;\n┌─────────────┬─────────────┬─────────┬─────────┬─────────┬───────┐\n│ column_name │ column_type │  null   │   key   │ default │ extra │\n│   varchar   │   varchar   │ varchar │ varchar │ varchar │ int32 │\n├─────────────┼─────────────┼─────────┼─────────┼─────────┼───────┤\n│ plant       │ VARCHAR     │ YES     │         │         │       │\n│ date        │ DATE        │ YES     │         │         │       │\n│ MWh         │ BIGINT      │ YES     │         │         │       │\n└─────────────┴─────────────┴─────────┴─────────┴─────────┴───────┘\nD  SELECT * from powerplants where plant='Boston' and date='2019-01-02';\n┌─────────┬────────────┬────────┐\n│  plant  │    date    │  MWh   │\n│ varchar │    date    │ int64  │\n├─────────┼────────────┼────────┤\n│ Boston  │ 2019-01-02 │ 564337 │\n└─────────┴────────────┴────────┘",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2896,7 +2896,7 @@
     "section": "Profiling in DuckDB",
     "text": "Profiling in DuckDB\nQuery Optimization: Use EXPLAIN and ANALYZE keywords to understand how your query is being executed and the time being spent in individual steps\nD EXPLAIN ANALYZE SELECT * from powerplants where plant='Boston' and date='2019-01-02';\nDuckDB will use all the cores available on the underlying compute, but you can adjust this (Full configuration details here)\nD select current_setting('threads');\n┌────────────────────────────┐\n│ current_setting('threads') │\n│           int64            │\n├────────────────────────────┤\n│                          8 │\n└────────────────────────────┘\nD SET threads=4;\nD select current_setting('threads');\n┌────────────────────────────┐\n│ current_setting('threads') │\n│           int64            │\n├────────────────────────────┤\n│                          4 │\n└────────────────────────────┘",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2906,7 +2906,7 @@
     "section": "Benchmarks and Comparisons",
     "text": "Benchmarks and Comparisons\n\n\n\n\nTricky topic! Can make your chosen solution look better by focusing on metrics on which it provides better results\nIn general, TPC-H and TPC-DS are considered the standard benchmarks for data processing.\n\n\n\n\n\n\nTPC-DS Homepage",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2916,7 +2916,7 @@
     "section": "Further Reading on DuckDB",
     "text": "Further Reading on DuckDB\n\nParallel Grouped Aggregation in DuckDB\nMeta queries\nProfiling queries in DuckDB\nDuckDB tutorial for beginners\nDuckDB CLI API\nUsing DuckDB in AWS Lambda\nRevisiting the Poor Man’s Data Lake with MotherDuck\nSupercharge your data processing with DuckDB\nFriendlier SQL with DuckDB\nBuilding and deploying data apps with DuckDB and Streamlit",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2924,9 +2924,9 @@
     "href": "w04/index.html#references",
     "title": "Week 4: DuckDB, Polars, File Formats",
     "section": "References",
-    "text": "References\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&dl=1.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery. https://doi.org/10.1145/3299869.3320212.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&dl=1.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd. https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&dl=1.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/j25hdcdr81bautbywm8yl/Tom-White-Hadoop-The-Definitive-Guide.pdf?rlkey=n91jivtd72nb0yjwfkhudxpes&dl=1.",
+    "text": "References\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&dl=1.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” Proceedings of the 2019 International Conference on Management of Data (New York, NY, USA), SIGMOD ’19, June, 1981–84. https://doi.org/10.1145/3299869.3320212.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&dl=1.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd. https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&dl=1.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/j25hdcdr81bautbywm8yl/Tom-White-Hadoop-The-Definitive-Guide.pdf?rlkey=n91jivtd72nb0yjwfkhudxpes&dl=1.",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -2936,7 +2936,7 @@
     "section": "Footnotes",
     "text": "Footnotes\n\n\nFriendlier SQL with DuckDB↩︎",
     "crumbs": [
-      "Week 4: <span class='sec-w04-date'>Sep 15</span>"
+      "Week 4: <span class='sec-w04-date'>Sep 14</span>"
     ]
   },
   {
@@ -3266,7 +3266,7 @@
     "href": "w04/slides.html#references",
     "title": "Week 4: DuckDB, Polars, File Formats",
     "section": "References",
-    "text": "References\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&dl=1.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery. https://doi.org/10.1145/3299869.3320212.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&dl=1.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd. https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&dl=1.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/j25hdcdr81bautbywm8yl/Tom-White-Hadoop-The-Definitive-Guide.pdf?rlkey=n91jivtd72nb0yjwfkhudxpes&dl=1."
+    "text": "References\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&dl=1.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” Proceedings of the 2019 International Conference on Management of Data (New York, NY, USA), SIGMOD ’19, June, 1981–84. https://doi.org/10.1145/3299869.3320212.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&dl=1.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd. https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&dl=1.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/j25hdcdr81bautbywm8yl/Tom-White-Hadoop-The-Definitive-Guide.pdf?rlkey=n91jivtd72nb0yjwfkhudxpes&dl=1."
   },
   {
     "objectID": "w02/index.html",
@@ -3275,7 +3275,7 @@
     "section": "",
     "text": "Open slides in new tab →",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3285,7 +3285,7 @@
     "section": "Jeff’s Favorite “Big Data” Definition",
     "text": "Jeff’s Favorite “Big Data” Definition\n \n\nBig data is when the size of the data itself becomes part of the problem (Loukides 2010)\n\n\nIn other words: Your problem becomes a “big data problem” when you hit one or both of the walls!",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3295,7 +3295,7 @@
     "section": "You vs. Your Opps",
     "text": "You vs. Your Opps",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3305,7 +3305,7 @@
     "section": "So you find yourself smashed against a wall…",
     "text": "So you find yourself smashed against a wall…\n(Some of yall would fold in this scenario)",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3315,7 +3315,7 @@
     "section": "The “Pre-Cloud” Approach: Make The One Computer Faster and Faster",
     "text": "The “Pre-Cloud” Approach: Make The One Computer Faster and Faster",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3325,7 +3325,7 @@
     "section": "It Worked For… Many Decades!",
     "text": "It Worked For… Many Decades!",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3335,7 +3335,7 @@
     "section": "Is Moore’s Law Dead?",
     "text": "Is Moore’s Law Dead?\n\n…Kind of?\nFocus nowadays: specialized hardware / compute architectures hyper-optimized for particular tasks\n\n[If you took DSAN 5500] Think of BLAS\n\nGraphic Processing Units (GPUs)\nField Programmable Gate Arrays (FPGAs)\nData Processing Units (DPUs)\nGoogle’s Tensor Processing Units (TPUs)",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3345,7 +3345,7 @@
     "section": "So, even upgrading our hardware didn’t help 😭 now what do we do?",
     "text": "So, even upgrading our hardware didn’t help 😭 now what do we do?\n\nWe distribute!\nMore CPUs, more memory, more storage!",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3355,7 +3355,7 @@
     "section": "My Favorite Example Ever",
     "text": "My Favorite Example Ever\n\nSpongebob is cooking Krabby Patties too slowly to satisfy ravenous customers…\nShould he upgrade his one spatula? How bout just many simple spatulas at once!",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3365,7 +3365,7 @@
     "section": "How Do We Achieve This? …That’s Exactly What The Cloud is For!",
     "text": "How Do We Achieve This? …That’s Exactly What The Cloud is For!",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3375,7 +3375,7 @@
     "section": "Benefits",
     "text": "Benefits\n\n\n\n\nProvides access to low-cost computing\nCosts are decreasing every year\nElastic\nPaaS works!\nMany other benefits…",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3385,7 +3385,7 @@
     "section": "Q: What is The Cloud?",
     "text": "Q: What is The Cloud?\n\nA: Using someone else’s computers",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3395,7 +3395,7 @@
     "section": "NIST Definition",
     "text": "NIST Definition\n\n\n\n\n\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3405,7 +3405,7 @@
     "section": "Service Models",
     "text": "Service Models",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3415,7 +3415,7 @@
     "section": "Hotel Analogy",
     "text": "Hotel Analogy",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3425,7 +3425,7 @@
     "section": "Infrastructure as a Service (IaaS)",
     "text": "Infrastructure as a Service (IaaS)\n\nVirtualized computing resources delivered over the internet\nProvider manages: Physical hardware, virtualization, networking, storage\nYou manage: Operating systems, applications, runtime, data, middleware\n\nExamples and Use Cases\n\nAmazon EC2, Microsoft Azure VMs, Google Compute Engine\nPerfect for: Development environments, web hosting, backup & recovery\nBenefits: Rapid scaling, pay-as-you-go, global availability\n\n# Launch a virtual machine in seconds\naws ec2 run-instances --image-id ami-12345 --instance-type t3.xlarge",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3435,7 +3435,7 @@
     "section": "Platform as a Service (PaaS)",
     "text": "Platform as a Service (PaaS)\n\nWhat is PaaS?\n\nComplete development and deployment environment in the cloud\nProvider manages: Infrastructure, operating systems, runtime environments\nYou manage: Applications and data\n\nExamples and Use Cases\n\nAWS Elastic Beanstalk, Google App Engine, Microsoft Azure App Service\nPerfect for: Web applications, API development, microservices\nBenefits: Faster development, automatic scaling, integrated DevOps\n\n# Deploy your app with minimal configuration\ngit push heroku main  # App automatically deployed and scaled",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3445,7 +3445,7 @@
     "section": "Software as a Service (SaaS)",
     "text": "Software as a Service (SaaS)\n\nComplete applications delivered over the internet\nProvider manages: Everything (infrastructure, platform, software)\nYou manage: Your data and user access\n\nExamples and Use Cases\n\nGmail, Salesforce, Microsoft 365, Slack, Zoom\nPerfect for: Business applications, collaboration tools, CRM\nBenefits: No installation, automatic updates, accessible anywhere\n\nThe SaaS Revolution\n\n80% of companies use SaaS applications\n$195 billion market size (2023)",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3455,7 +3455,7 @@
     "section": "Cloud Infrastructure and the AI Revolution",
     "text": "Cloud Infrastructure and the AI Revolution\n\nMassive Computational Requirements\n\nTraining large language models requires thousands of GPUs\nCloud provides elastic access to specialized hardware\n\nData Storage and Processing\n\nAI models need petabytes of training data\nCloud offers unlimited, globally distributed storage\n\nCost Efficiency\n\nPay-per-use model for expensive AI hardware\nNo upfront investment in GPU clusters",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3465,7 +3465,7 @@
     "section": "GPU Infrastructure: The AI Powerhouse",
     "text": "GPU Infrastructure: The AI Powerhouse\nFrom Gaming to AI\n\nOriginally: Graphics processing for video games\nNow: Parallel processing powerhouse for AI/ML workloads\nArchitecture: Thousands of cores vs. CPUs 8-64 cores\n\nCloud GPU Offerings\n# AWS GPU instances for different AI workloads\np4d.24xlarge   # 8x NVIDIA A100 (40GB) - $32/hour\np3.16xlarge    # 8x NVIDIA V100 (16GB) - $24/hour\ng4dn.xlarge    # 1x NVIDIA T4 (16GB)   - $0.50/hour\nThe Scale Challenge\n\nGPT-4 training: Estimated 25,000 A100 GPUs for 6 months\nMeta’s AI infrastructure: 350,000+ NVIDIA H100 chips\nCost: Single AI training run can cost $100M+",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3475,7 +3475,7 @@
     "section": "Distributed Computing and Large Clusters",
     "text": "Distributed Computing and Large Clusters\nModern AI Requires Massive Clusters\n\nModel parallelism: Split models across multiple GPUs\nData parallelism: Process different data batches simultaneously\n\nPipeline parallelism: Different layers on different GPUs\n\nTechnologies Enabling Scale\n\nKubernetes: Container orchestration for microservices\nApache Spark: Distributed data processing framework\nRay: Distributed AI/ML framework for Python\n\n# Distributed training with Ray\nimport ray\nfrom ray import tune\n# Scale across 1000+ machines automatically\ntune.run(train_model, resources_per_trial={\"gpu\": 8})",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3485,7 +3485,7 @@
     "section": "Data Storage Evolution",
     "text": "Data Storage Evolution\nThe Data Tsunami\n\n2025 projection: 181 zettabytes of data globally\nAI training datasets: CommonCrawl (800TB), ImageNet (150GB)\nReal-time requirements: 1-10ms latency for inference (some cases sub-millisecond)\n\nStorage Technologies\n\nObject Storage: Amazon S3, Google Cloud Storage (petabyte scale)\nHigh-performance: NVMe SSDs, persistent memory\nDistributed filesystems: HDFS, GlusterFS, Ceph\n\nThe Economics of Data\n\nStorage costs: Dropped 99.9% since 1980\nTransfer costs: Still significant for large datasets\nEdge computing: Bringing compute closer to data sources",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3495,7 +3495,7 @@
     "section": "Evolution of the Cloud",
     "text": "Evolution of the Cloud\n\n\n\n\n\n\n\n\nYesterday\nToday\nTomorrow\n\n\n\n\nLimited number of tools and vendors\nMany tools and vendors to work with\nIntegrated tools and vendors\n\n\nOne platform - few devices\nMultiple platforms - many devices\nConnected platforms and devices\n\n\nData is scarce but manageable\nOverabundance of data\nData is used for important business decisions\n\n\nIT has major influence and control\nIT has limited influence and control\nIT is strategic to the business\n\n\nPeople only work when they are at work\nPeople work wherever they want\nPeople have access to what they need wherever they are",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3505,7 +3505,7 @@
     "section": "What Does the Cloud Look Like? Microsoft Azure Data Center",
     "text": "What Does the Cloud Look Like? Microsoft Azure Data Center",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3515,7 +3515,7 @@
     "section": "Loudon County, VA: “CLoudon”",
     "text": "Loudon County, VA: “CLoudon”\n\n70% of the world’s internet traffic passes through Loudon\nHow data centers power VA’s Loudon County\nThe heart of “The Cloud” is in Virginia\nCBS Sunday Morning Visits the Home of the Internet in Loudoun County",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3525,7 +3525,7 @@
     "section": "Further Reading: SaaS and Cloud Computing",
     "text": "Further Reading: SaaS and Cloud Computing\nSaaS and Cloud Computing Statistics:\n\n1. Zylo: 111 Unmissable SaaS Statistics for 2025\n2. Spendesk: 60+ eye-opening SaaS statistics (2025)\n3. Substly: The 28 most important SaaS statistics in 2023\n4. Harpa AI: SaaS Industry Key Statistics 2023\n5. Content Beta: 110+ SaaS Statistics and Trends\n6. Statista: Average number of SaaS apps used in the U.S. 2024\n7. Meetanshi: SaaS Statistics for 2025: Market Size, Growth, Trends & More",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3535,7 +3535,7 @@
     "section": "Data Storage and AI Infrastructure",
     "text": "Data Storage and AI Infrastructure\n\n2025 global data volume (181 zettabytes)\n\nrivery.io\nExplodingTopics.com\nPIT.edu\nForbes\n\nCommonCrawl and ImageNet dataset sizes\nAI inference latency and storage tech:\n\nIBM\nRCR Wireless",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3545,7 +3545,7 @@
     "section": "Storage Economics and Technology",
     "text": "Storage Economics and Technology\n\nStorage cost declines\n\nHumanProgress.org\nOur World In Data\n\nOngoing significance of transfer (egress) costs\nEdge computing trends",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3555,7 +3555,7 @@
     "section": "GPU Infrastructure and AI Training Costs",
     "text": "GPU Infrastructure and AI Training Costs\n\nGPT-4 GPU count and training duration\n\nGenspark.ai\nklu.ai\nacorn.io\n\nMeta’s NVIDIA H100 GPUs\nAI training cost estimates\n\nGenspark.ai\nacorn.io",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3563,9 +3563,9 @@
     "href": "w02/index.html#references",
     "title": "Week 2: Cloud Computing",
     "section": "References",
-    "text": "References\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. https://www.oreilly.com/radar/what-is-data-science/.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf.",
+    "text": "References\n\n\nLoukides, Mike. 2010. “What Is Data Science?” In O’Reilly Media. https://www.oreilly.com/radar/what-is-data-science/.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf.",
     "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 2</span>"
+      "Week 2: <span class='sec-w02-date'>Aug 31</span>"
     ]
   },
   {
@@ -3769,7 +3769,7 @@
     "href": "w02/slides.html#references",
     "title": "Week 2: Cloud Computing",
     "section": "References",
-    "text": "References\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. https://www.oreilly.com/radar/what-is-data-science/.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf."
+    "text": "References\n\n\nLoukides, Mike. 2010. “What Is Data Science?” In O’Reilly Media. https://www.oreilly.com/radar/what-is-data-science/.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf."
   },
   {
     "objectID": "writeups/sql-guide/index.html",
@@ -3783,14 +3783,14 @@
     "href": "writeups/sql-guide/index.html#eager-vs.-lazy-evaluation",
     "title": "From Pandas to SQL",
     "section": "Eager vs. Lazy Evaluation",
-    "text": "Eager vs. Lazy Evaluation\nAs a final note before we “zoom in” and focus on SQL, though: keep in mind that this move from code to queries is part of our endeavor in this class to start decoupling data from computation! In an eager-evaluation setting like Pandas code, when we write a data-processing pipeline, the steps are immediately evaluated, line-by-line (like any other Python code). Consider the following example, where the goal of the pipeline is to figure out our average ratio of sleep hours to work hours on weekdays:\n\n\nCode\nimport pandas as pd\nimport numpy as np\nrng = np.random.default_rng(seed=6000)\nimport calendar\nlist(calendar.day_name)\nsleep_df = pd.DataFrame({\n  'day': list(calendar.day_name),\n  'sleep_hrs': rng.uniform(3, 8, size=7),\n  'work_hrs': rng.uniform(6, 10, size=7),\n})\ndisplay(sleep_df)\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n\n\n1\nTuesday\n7.912447\n8.747633\n\n\n2\nWednesday\n5.393727\n6.011502\n\n\n3\nThursday\n4.347202\n7.318025\n\n\n4\nFriday\n4.556042\n6.341836\n\n\n5\nSaturday\n4.552443\n7.279092\n\n\n6\nSunday\n6.606959\n6.652768\n\n\n\n\n\n\n\n\n\nCode\n# Step 1: Compute ratios\nratio_df = sleep_df.copy()\nratio_df['ratio'] = ratio_df['work_hrs'] / ratio_df['sleep_hrs']\ndisplay(ratio_df)\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n5\nSaturday\n4.552443\n7.279092\n1.598942\n\n\n6\nSunday\n6.606959\n6.652768\n1.006934\n\n\n\n\n\n\n\n\n\nCode\n# Step 2: Filter to just weekdays\nweekend_days = ['Saturday', 'Sunday']\nweekday_df = ratio_df[~ratio_df['day'].isin(weekend_days)]\ndisplay(weekday_df)\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\n\n\nCode\n# Step 3: Compute mean ratio over the weekdays\nweekday_df['ratio'].mean()\n\n\n1.3027691063719424\n\n\nNotice here, however, that we are carrying out unnecessary computations in Step 1! Since we’re going to drop the weekend rows in Step 2 anyways, there is no need to compute the ratio for these two days. Since Python (and thus Pandas) is evaluated line-by-line, however, Pandas has no way of knowing that these two ratios don’t need to be computed. It simply does what it is told, dutifully computing all 7 ratios.\nThere is an alternative approach here: we could instead write out our “plan” for this pipeline in advance, in the form of a query, before actually running any code! We can then utilize a query optimization engine like Polars, which can scan over our query and figure out that we don’t need to compute ratios for weekend days, since they would be dropped in Step 2! Here is the same pipeline re-written using Polars’ LazyFrame in place of a Pandas DataFrame:\n\n\nCode\nimport polars as pl\nsleep_pl = pl.LazyFrame(sleep_df)\ncompute_ratio_expr = pl.col('work_hrs') / pl.col('sleep_hrs')\ncompute_ratios_expr = (\n  sleep_pl.with_columns(\n    compute_ratio_expr.alias('ratio')\n  ).filter(~pl.col('day').is_in(weekend_days))\n)\n\n\nNote that no computation has actually taken place yet! We have just written out our plan for the computation, in the form of Polars expressions (which don’t actually run until they’re paired with a context).\nBecause of this, we can see Polars’ query optimization engine in action. First, we can use the optimized=False argument to show_graph() to see what our pipeline looks like without any optimizations (that is, running line-by-line as written, as our Pandas code did above):\n\n\nCode\ncompute_ratios_expr.show_graph(optimized=False)\n\n\n\n\n\n\n\n\n\nRemember that these query plans should be read from bottom to top. Now, compare that with the following graph, which shows our query after Polars scans over our instructions, detecting points where it can re-arrange our pipeline for greater efficiency:\n\n\nCode\ncompute_ratios_expr.show_graph()\n\n\n\n\n\n\n\n\n\nNotice the difference in the ordering of steps: Polars has successfully figured out that it should filter out the weekend days before carrying out the calculations!"
+    "text": "Eager vs. Lazy Evaluation\nAs a final note before we “zoom in” and focus on SQL, though: keep in mind that this move from code to queries is part of our endeavor in this class to start decoupling data from computation! In an eager-evaluation setting like Pandas code, when we write a data-processing pipeline, the steps are immediately evaluated, line-by-line (like any other Python code). Consider the following example, where the goal of the pipeline is to figure out our average ratio of sleep hours to work hours on weekdays:\n\n\nCode\nimport pandas as pd\nimport numpy as np\nrng = np.random.default_rng(seed=6000)\nimport calendar\nlist(calendar.day_name)\nsleep_df = pd.DataFrame({\n  'day': list(calendar.day_name),\n  'sleep_hrs': rng.uniform(3, 8, size=7),\n  'work_hrs': rng.uniform(6, 10, size=7),\n})\ndisplay(sleep_df)\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n\n\n1\nTuesday\n7.912447\n8.747633\n\n\n2\nWednesday\n5.393727\n6.011502\n\n\n3\nThursday\n4.347202\n7.318025\n\n\n4\nFriday\n4.556042\n6.341836\n\n\n5\nSaturday\n4.552443\n7.279092\n\n\n6\nSunday\n6.606959\n6.652768\n\n\n\n\n\n\n\n\n\nCode\n# Step 1: Compute ratios\nratio_df = sleep_df.copy()\nratio_df['ratio'] = ratio_df['work_hrs'] / ratio_df['sleep_hrs']\ndisplay(ratio_df)\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n5\nSaturday\n4.552443\n7.279092\n1.598942\n\n\n6\nSunday\n6.606959\n6.652768\n1.006934\n\n\n\n\n\n\n\n\n\nCode\n# Step 2: Filter to just weekdays\nweekend_days = ['Saturday', 'Sunday']\nweekday_df = ratio_df[~ratio_df['day'].isin(weekend_days)]\ndisplay(weekday_df)\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\n\n\nCode\n# Step 3: Compute mean ratio over the weekdays\nweekday_df['ratio'].mean()\n\n\nnp.float64(1.3027691063719424)\n\n\nNotice here, however, that we are carrying out unnecessary computations in Step 1! Since we’re going to drop the weekend rows in Step 2 anyways, there is no need to compute the ratio for these two days. Since Python (and thus Pandas) is evaluated line-by-line, however, Pandas has no way of knowing that these two ratios don’t need to be computed. It simply does what it is told, dutifully computing all 7 ratios.\nThere is an alternative approach here: we could instead write out our “plan” for this pipeline in advance, in the form of a query, before actually running any code! We can then utilize a query optimization engine like Polars, which can scan over our query and figure out that we don’t need to compute ratios for weekend days, since they would be dropped in Step 2! Here is the same pipeline re-written using Polars’ LazyFrame in place of a Pandas DataFrame:\n\n\nCode\nimport polars as pl\nsleep_pl = pl.LazyFrame(sleep_df)\ncompute_ratio_expr = pl.col('work_hrs') / pl.col('sleep_hrs')\ncompute_ratios_expr = (\n  sleep_pl.with_columns(\n    compute_ratio_expr.alias('ratio')\n  ).filter(~pl.col('day').is_in(weekend_days))\n)\n\n\nNote that no computation has actually taken place yet! We have just written out our plan for the computation, in the form of Polars expressions (which don’t actually run until they’re paired with a context).\nBecause of this, we can see Polars’ query optimization engine in action. First, we can use the optimized=False argument to show_graph() to see what our pipeline looks like without any optimizations (that is, running line-by-line as written, as our Pandas code did above):\n\n\nCode\ncompute_ratios_expr.show_graph(optimized=False)\n\n\n\n\n\n\n\n\n\nRemember that these query plans should be read from bottom to top. Now, compare that with the following graph, which shows our query after Polars scans over our instructions, detecting points where it can re-arrange our pipeline for greater efficiency:\n\n\nCode\ncompute_ratios_expr.show_graph()\n\n\n\n\n\n\n\n\n\nNotice the difference in the ordering of steps: Polars has successfully figured out that it should filter out the weekend days before carrying out the calculations!"
   },
   {
     "objectID": "writeups/sql-guide/index.html#onto-duckdb",
     "href": "writeups/sql-guide/index.html#onto-duckdb",
     "title": "From Pandas to SQL",
     "section": "Onto DuckDB!",
-    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││        Total Time: 0.0004s        ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\n┌───────────────────────────┐\n│      RESULT_COLLECTOR     │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             0             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│           FILTER          │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 1           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             5             │\n│          (0.00s)          │\n└─────────────┬─────────────┘                             \n┌─────────────┴─────────────┐\n│        PANDAS_SCAN        │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│           EC: 7           │\n│   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   │\n│             7             │\n│          (0.00s)          │\n└───────────────────────────┘                             \n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
+    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌────────────────────────────────────────────────┐\n│┌──────────────────────────────────────────────┐│\n││              Total Time: 0.0037s             ││\n│└──────────────────────────────────────────────┘│\n└────────────────────────────────────────────────┘\n┌───────────────────────────┐\n│           QUERY           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│    ────────────────────   │\n│                           │\n│           0 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│    ────────────────────   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│           FILTER          │\n│    ────────────────────   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         TABLE_SCAN        │\n│    ────────────────────   │\n│   Function: PANDAS_SCAN   │\n│                           │\n│        Projections:       │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│                           │\n│                           │\n│                           │\n│           7 rows          │\n│           0.00s           │\n└───────────────────────────┘\n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
   },
   {
     "objectID": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",
@@ -3806,7 +3806,7 @@
     "section": "",
     "text": "Open slides in new tab →",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3816,7 +3816,7 @@
     "section": "Pipelines for Triggered Execution",
     "text": "Pipelines for Triggered Execution\n\n\n\n\n\n\n…HEY! WAKE UP! NEW DATA JUST CAME IN!\n\n\n\n\n\n\n\n\n\n\nYou before this week:\n\n\nSprint to your .ipynb and/or Spark cluster\nLoad, clean, process new data, manually, step-by-step\nEmail update to boss\n\n\n\n\n\n\n\n\n\n\nYou after this week:\n\n\nAsset-aware pipeline automatically triggered\nAirflow orchestrates loading, cleaning, processing\nEmailOperator sends update",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3826,7 +3826,7 @@
     "section": "Pipelines vs. Pipeline Orchestration",
     "text": "Pipelines vs. Pipeline Orchestration\n\n\n\nFrom Astronomer Academy’s Airflow 101",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3836,7 +3836,7 @@
     "section": "Key Airflow-Specific Buzzwords",
     "text": "Key Airflow-Specific Buzzwords\n(Underlined words link to Airflow docs “Core Concepts” section)\n\nDirected Acyclic Graph (DAG): Your pipeline as a whole!\nDAGs consist of multiple tasks, which you “string together” using the control flow operators &gt;&gt; and &lt;&lt;\n[Ex ] second_task, third_task can’t start until first_task completes:\nfirst_task &gt;&gt; [second_task, third_task]\n# Equivalent to:\nfirst_task.set_downstream([second_task, third_task])\n[Ex ] fourth_task can’t start until third_task completes:\nfourth_task &lt;&lt; third_task\n# Equivalent to:\nfourth_task.set_upstream(third_task)\nWhat kinds of tasks can we create? Brings us to another concept…",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3846,7 +3846,7 @@
     "section": "Operators: What Kind of task?",
     "text": "Operators: What Kind of task?\n\n“Core” Operators: BashOperator and PythonOperator\n\n\n\n\n\n+ Hundreds of “community provider” Operators:\nHttpOperator\nS3FileTransformOperator\nSQLExecuteQueryOperator\nEmailOperator\nSlackAPIOperator\n\n\n\n+ Jinja templating for managing how data “passes” from one step to the next:",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3856,7 +3856,7 @@
     "section": "Task vs. Operator: A Sanity-Preserving Distinction",
     "text": "Task vs. Operator: A Sanity-Preserving Distinction\nFrom Operator docs:\n\nWhen we talk about a Task, we mean the generic “unit of execution” of a DAG; when we talk about an Operator, we mean a [specific] pre-made Task template, whose logic is all done for you and that just needs some arguments.\n\n\n\n\nTask:\n\n\n\n\n\n\n\n\nOperator:\n\n\n\n\n\n\n\n\n\n\n\nFrom Ruiter et al. (2026)",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3866,7 +3866,7 @@
     "section": "Concepts \\(\\leadsto\\) Code",
     "text": "Concepts \\(\\leadsto\\) Code\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\n\nFull Airflow “ecosystem” is running once you’ve started each piece via above (bash) commands!\nLet’s look at each in turn…",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3876,7 +3876,7 @@
     "section": "db migrate: The Airflow Metastore",
     "text": "db migrate: The Airflow Metastore\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nGeneral info used by DAGs: variables, connections, XComs\nData about DAG and task runs (generated by scheduler)\nLogs / error information\n Not modified directly/manually! Managed by Airflow; To modify, use API Server →",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3886,7 +3886,7 @@
     "section": "API Server",
     "text": "API Server\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\nWeb UI for managing Airflow (much more on this later!)\n\n\n\n\n\n\nWarning Default Login Info\n\n\n\nDefault db migrate generates admin password in ~/simple_auth_manager_passwords.json.generated",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3896,7 +3896,7 @@
     "section": "Scheduler → Executor",
     "text": "Scheduler → Executor\n\n\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nDefault: LocalExecutor\nFor scaling: EcsExecutor (AWS ECS), KubernetesExecutor\nSee also SparkSubmitOperator\n\n\n\n\n\nFrom Ruiter et al. (2026)",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3906,7 +3906,7 @@
     "section": "DAG Processor",
     "text": "DAG Processor\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\n\nFrom Ruiter et al. (2026)",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3916,7 +3916,7 @@
     "section": "The schedule Argument",
     "text": "The schedule Argument\n(Airflow uses pendulum under the hood, rather than datetime!)\n\n\ndag_scheduling.py\n\nfrom airflow.sdk import DAG\nimport pendulum\ndag = DAG(\"regular_interval_cron_example\", schedule=\"0 0 * * *\", ...)\ndag = DAG(\"regular_interval_cron_preset_example\", schedule=\"@daily\", ...)\ndag = DAG(\"regular_interval_timedelta_example\", schedule=pendulum.timedelta(days=1), ...)\n\nCron: Full-on scheduling language (used by computers since 1975!)\n\n\ncrontab.sh\n\n# ┌───────────── minute (0–59)\n# │ ┌───────────── hour (0–23)\n# │ │ ┌───────────── day of the month (1–31)\n# │ │ │ ┌───────────── month (1–12)\n# │ │ │ │ ┌───────────── day of the week (0–6) (Sunday to Saturday)\n# │ │ │ │ │\n# │ │ │ │ │\n# │ │ │ │ │\n# * * * * * &lt;command to execute&gt;\n\nCron Presets: None, \"@once\", \"@continuous\", \"@hourly\", \"@daily\", \"@weekly\"",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3926,7 +3926,7 @@
     "section": "External Service Integration",
     "text": "External Service Integration\n\n\n\nService\nCommand\n\n\n\n\nAWS\npip install 'apache-airflow[amazon]'\n\n\nAzure\npip install 'apache-airflow[microsoft-azure]'\n\n\nDatabricks\npip install 'apache-airflow[databricks]'\n\n\nGitHub\npip install 'apache-airflow[github]'\n\n\nGoogle Cloud\npip install 'apache-airflow[google]'\n\n\nMongoDB\npip install 'apache-airflow[mongo]'\n\n\nOpenAI\npip install 'apache-airflow[openai]'\n\n\nSlack\npip install 'apache-airflow[slack]'\n\n\nSpark\npip install 'apache-airflow[apache-spark]'\n\n\nTableau\npip install 'apache-airflow[tableau]'\n\n\n\n(And many more:)",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3936,7 +3936,7 @@
     "section": "Jinja Example",
     "text": "Jinja Example\n\n\n\n\n\nhomepage.jinja\n\n&lt;h4&gt;{{ me['name'] }}'s Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n{%- for hobby in hobbies %}\n  &lt;li&gt;{{ hobby }}&lt;/li&gt;\n{%- endfor %}\n&lt;/ul&gt;\n\n\n\n\n+\n\n\n\n\n\nrender_jinja.py\n\nfrom jinja2 import Template\ntmpl = Template('homepage.jinja')\ntmpl.render(\n    me = {'name': 'Jeff'},\n    hobbies = [\n        'eat',\n        'sleep',\n        'attend to the proverbial bag'\n    ]\n)\n\n\n\n\n\n\n↓\n\n\n\n\n\n\n\nrendered.html\n\n&lt;h4&gt;Jeff's Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n  &lt;li&gt;eat&lt;/li&gt;\n  &lt;li&gt;sleep&lt;/li&gt;\n  &lt;li&gt;attend to the proverbial bag&lt;/li&gt;\n&lt;/ul&gt;\n\n\n\n\\(\\leadsto\\)\n\n\nJeff's Favorite Hobbies\n\n  eat\n  sleep\n  attend to the proverbial bag",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3946,7 +3946,7 @@
     "section": "Airflow UI: Grid View",
     "text": "Airflow UI: Grid View",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3956,7 +3956,7 @@
     "section": "Airflow UI: Run Details",
     "text": "Airflow UI: Run Details",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3966,7 +3966,7 @@
     "section": "Airflow UI: Task Instance Details",
     "text": "Airflow UI: Task Instance Details",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3976,7 +3976,7 @@
     "section": "Tasks → Task Groups",
     "text": "Tasks → Task Groups",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3986,7 +3986,7 @@
     "section": "Graph View",
     "text": "Graph View",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -3996,7 +3996,7 @@
     "section": "Calendar View",
     "text": "Calendar View",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -4006,7 +4006,7 @@
     "section": "Gantt View",
     "text": "Gantt View",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -4016,7 +4016,7 @@
     "section": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓",
     "text": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓\n\n\n\n\n\n\nHarenslak and Ruiter (2021)\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\nRuiter et al. (2026)",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -4026,7 +4026,7 @@
     "section": "Conceptual Pipelines \\(\\leadsto\\) DAGs",
     "text": "Conceptual Pipelines \\(\\leadsto\\) DAGs\nMain challenge: converting “intuitive” pipelines in our heads:\n\n\n\nFrom Ruiter et al. (2026)\n\n\nInto DAGs with concrete Tasks, dependencies, and triggers:\n\n\n\nAlso from Ruiter et al. (2026)",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -4036,7 +4036,7 @@
     "section": "Implementation Detail 1: Backfilling",
     "text": "Implementation Detail 1: Backfilling",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -4046,7 +4046,7 @@
     "section": "Implementation Detail 2: Train Model Only After Backfill",
     "text": "Implementation Detail 2: Train Model Only After Backfill\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n\n\nLatestOnlyOperator\n\n\n\n\n\nFig 1: Both figures from Ruiter et al. (2026)",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -4056,7 +4056,7 @@
     "section": "Implementation Detail 3: Downstream Consumers",
     "text": "Implementation Detail 3: Downstream Consumers\n\n\n\nFrom Ruiter et al. (2026)",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -4066,7 +4066,7 @@
     "section": "Lab Time!",
     "text": "Lab Time!\nLab 10: ETL Pipeline Orchestration with Airflow",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -4076,7 +4076,7 @@
     "section": "References",
     "text": "References\n\n\nHarenslak, Bas P., and Julian de Ruiter. 2021. Data Pipelines with Apache Airflow. Simon and Schuster.\n\n\nRuiter, Julian de, Ismael Cabral, Kris Geusebroek, Daniel van der Ende, and Bas Harenslak. 2026. Data Pipelines with Apache Airflow, Second Edition. Simon and Schuster.",
     "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 3</span>"
+      "Week 10: <span class='sec-w10-date'>Nov 2</span>"
     ]
   },
   {
@@ -4275,7 +4275,7 @@
     "section": "",
     "text": "Open slides in new tab →",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4285,7 +4285,7 @@
     "section": "Connected and extensible",
     "text": "Connected and extensible",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4295,7 +4295,7 @@
     "section": "Review of PySparkSQL Cheatsheet",
     "text": "Review of PySparkSQL Cheatsheet\nhttps://s3.amazonaws.com/assets.datacamp.com/blog_assets/PySpark_SQL_Cheat_Sheet_Python.pdf",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4305,7 +4305,7 @@
     "section": "collect CAUTION",
     "text": "collect CAUTION",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4315,7 +4315,7 @@
     "section": "Spark Diagnostic UI: Understanding how the cluster is running your job",
     "text": "Spark Diagnostic UI: Understanding how the cluster is running your job\nSpark Application UI shows important facts about you Spark job:\n\nEvent timeline for each stage of your work\nDirected acyclical graph (DAG) of your job\nSpark job history\nStatus of Spark executors\nPhysical / logical plans for any SQL queries\n\n\nTool to confirm you are getting the horizontal scaling that you need!\nAdapted from AWS Glue Spark UI docs and Spark UI docs",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4325,7 +4325,7 @@
     "section": "Spark UI - Event timeline",
     "text": "Spark UI - Event timeline",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4335,7 +4335,7 @@
     "section": "Spark UI - DAG",
     "text": "Spark UI - DAG",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4345,7 +4345,7 @@
     "section": "Spark UI - Job History",
     "text": "Spark UI - Job History",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4355,7 +4355,7 @@
     "section": "Spark UI - Executors",
     "text": "Spark UI - Executors",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4365,7 +4365,7 @@
     "section": "Spark UI - SQL",
     "text": "Spark UI - SQL",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4375,7 +4375,7 @@
     "section": "UDF Workflow",
     "text": "UDF Workflow",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4385,7 +4385,7 @@
     "section": "UDF Code Structure",
     "text": "UDF Code Structure\n\nClear input - a single row of data with one or more columns used\n\n\nFunction - some work written in python that process the input using python syntax. No PySpark needed!\n\n\nClear output - output with a scoped data type",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4395,7 +4395,7 @@
     "section": "UDF Example",
     "text": "UDF Example\nProblem: make a new column with ages for adults-only\n+-------+--------------+\n|room_id|   guests_ages|\n+-------+--------------+\n|      1|  [18, 19, 17]|\n|      2|   [25, 27, 5]|\n|      3|[34, 38, 8, 7]|\n+-------+--------------+\nAdapted from UDFs in Spark",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4405,7 +4405,7 @@
     "section": "UDF Code Solution",
     "text": "UDF Code Solution\n```{python}\nfrom pyspark.sql.functions import udf, col\n\n@udf(\"array&lt;integer&gt;\")\n   def filter_adults(elements):\n   return list(filter(lambda x: x &gt;= 18, elements))\n\n# alternatively\nfrom pyspark.sql.types IntegerType, ArrayType\n@udf(returnType=ArrayType(IntegerType()))\ndef filter_adults(elements):\n   return list(filter(lambda x: x &gt;= 18, elements))\n```\n+-------+----------------+------------+\n|room_id| guests_ages    | adults_ages|\n+-------+----------------+------------+\n| 1     | [18, 19, 17]   |    [18, 19]|\n| 2     | [25, 27, 5]    |    [25, 27]|\n| 3     | [34, 38, 8, 7] |    [34, 38]|\n| 4     |[56, 49, 18, 17]|[56, 49, 18]|\n+-------+----------------+------------+",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4415,7 +4415,7 @@
     "section": "Alternative to Spark UDF",
     "text": "Alternative to Spark UDF\n```{python}\n# Spark 3.1\nfrom pyspark.sql.functions import col, filter, lit\n\ndf.withColumn('adults_ages',\n              filter(col('guests_ages'), lambda x: x &gt;= lit(18))).show()\n```",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4425,7 +4425,7 @@
     "section": "Another UDF Example",
     "text": "Another UDF Example\n\nSeparate function definition form\n\n```{python}\nfrom pyspark.sql.functions import udf\nfrom pyspark.sql.types import LongType\n\n# define the function that can be tested locally\ndef squared(s):\n  return s * s\n\n# wrap the function in udf for spark and define the output type\nsquared_udf = udf(squared, LongType())\n\n# execute the udf\ndf = spark.table(\"test\")\ndisplay(df.select(\"id\", squared_udf(\"id\").alias(\"id_squared\")))\n```\n\nSingle function definition form\n\n```{python}\nfrom pyspark.sql.functions import udf\n@udf(\"long\")\ndef squared_udf(s):\n  return s * s\ndf = spark.table(\"test\")\ndisplay(df.select(\"id\", squared_udf(\"id\").alias(\"id_squared\")))\n```",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4435,7 +4435,7 @@
     "section": "Can also refer to a UDF in SQL",
     "text": "Can also refer to a UDF in SQL\n```{sql}\nspark.udf.register(\"squaredWithPython\", squared)\nselect id, squaredWithPython(id) as id_squared from test\n```\n\nConsider all the corner cases\nWhere could the data be null or an unexpected value\nLeverage python control structure to handle corner cases\n\nsource",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4445,7 +4445,7 @@
     "section": "UDF Speed Comparison",
     "text": "UDF Speed Comparison\n\n\n\n\n\n\n\n\nCosts:\n\nSerialization/deserialization (think pickle files)\nData movement between JVM and Python\nLess Spark optimization possible\n\nOther ways to make your Spark jobs faster source:\n\nCache/persist your data into memory\nUsing Spark DataFrames over Spark RDDs\nUsing Spark SQL functions before jumping into UDFs\nSave to serialized data formats like Parquet",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4455,7 +4455,7 @@
     "section": "Pandas UDF",
     "text": "Pandas UDF\nFrom PySpark docs - Pandas UDFs are user defined functions that are executed by Spark using Arrow to transfer data and Pandas to work with the data, which allows vectorized operations. A Pandas UDF is defined using the pandas_udf as a decorator or to wrap the function, and no additional configuration is required. A Pandas UDF behaves as a regular PySpark function API in general.\n```{python}\n@pandas_udf(\"string\")\ndef to_upper(s: pd.Series) -&gt; pd.Series:\n    return s.str.upper()\n\ndf = spark.createDataFrame([(\"John Doe\",)], (\"name\",))\ndf.select(to_upper(\"name\")).show()\n+--------------+\n|to_upper(name)|\n+--------------+\n|      JOHN DOE|\n+--------------+\n```",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4465,7 +4465,7 @@
     "section": "Another example",
     "text": "Another example\n```{python}\n@pandas_udf(\"first string, last string\")\ndef split_expand(s: pd.Series) -&gt; pd.DataFrame:\n    return s.str.split(expand=True)\n\n\ndf = spark.createDataFrame([(\"John Doe\",)], (\"name\",))\ndf.select(split_expand(\"name\")).show()\n+------------------+\n|split_expand(name)|\n+------------------+\n|       [John, Doe]|\n+------------------+\n```\nhttps://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.functions.pandas_udf.html",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4475,7 +4475,7 @@
     "section": "Scalar Pandas UDFs",
     "text": "Scalar Pandas UDFs\n\nVectorizing scalar operations - one plus one\nPandas UDF needs to have same size input and output series\n\n\nUDF Form\n```{python}\nfrom pyspark.sql.functions import udf\n\n# Use udf to define a row-at-a-time udf\n@udf('double')\n# Input/output are both a single double value\ndef plus_one(v):\n      return v + 1\n\ndf.withColumn('v2', plus_one(df.v))\n```\n\n\nPandas UDF Form - faster vectorized form\n```{python}\nfrom pyspark.sql.functions import pandas_udf, PandasUDFType\n\n# Use pandas_udf to define a Pandas UDF\n@pandas_udf('double', PandasUDFType.SCALAR)\n# Input/output are both a pandas.Series of doubles\n\ndef pandas_plus_one(v):\n    return v + 1\n\ndf.withColumn('v2', pandas_plus_one(df.v))\n```\nsource",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4485,7 +4485,7 @@
     "section": "Grouped Map Pandas UDFs",
     "text": "Grouped Map Pandas UDFs\n\nSplit, apply, combine using Pandas syntax\n\n```{python}\n@pandas_udf(df.schema, PandasUDFType.GROUPED_MAP)\n# Input/output are both a pandas.DataFrame\ndef subtract_mean(pdf):\n    return pdf.assign(v=pdf.v - pdf.v.mean())\n\ndf.groupby('id').apply(subtract_mean)\n```",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4495,7 +4495,7 @@
     "section": "Comparison of Scalar and Grouped Map Pandas UDFs",
     "text": "Comparison of Scalar and Grouped Map Pandas UDFs\n\n\n\nInput of the user-defined function:\n\nScalar: pandas.Series\nGrouped map: pandas.DataFrame\n\nOutput of the user-defined function:\n\nScalar: pandas.Series\nGrouped map: pandas.DataFrame\n\nGrouping semantics:\n\nScalar: no grouping semantics\nGrouped map: defined by “groupby” clause\n\nOutput size:\n\nScalar: same as input size\nGrouped map: any size",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4505,7 +4505,7 @@
     "section": "References",
     "text": "References",
     "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 6</span>"
+      "Week 7: <span class='sec-w07-date'>Oct 5</span>"
     ]
   },
   {
@@ -4676,7 +4676,7 @@
     "section": "",
     "text": "Open slides in new tab →\n\n\nSparkML: Hopping Up Another Abstraction Layer!\n\n\n\nImage Source",
     "crumbs": [
-      "Week 8: <span class='sec-w08-date'>Oct 20</span>"
+      "Week 8: <span class='sec-w08-date'>Oct 19</span>"
     ]
   },
   {
@@ -4686,7 +4686,7 @@
     "section": "",
     "text": "The content for today is split between the following two resources:",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4696,7 +4696,7 @@
     "section": "What Happens When Not Embarrassingly Parallel?",
     "text": "What Happens When Not Embarrassingly Parallel?\n\nThink of the difference between linear and quadratic equations in algebra:\n\\(3x - 1 = 0\\) is “embarrassingly” solvable, on its own: you can solve it directly, by adding 3 to both sides \\(\\implies x = \\frac{1}{3}\\). Same for \\(2x + 3 = 0 \\implies x = -\\frac{3}{2}\\)\nNow consider \\(6x^2 + 7x - 3 = 0\\): Harder to solve “directly”, so your instinct might be to turn to the laborious quadratic equation:\n\n\\[\n\\begin{align*}\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} = \\frac{-7 \\pm \\sqrt{49 - 4(6)(-3)}}{2(6)} = \\frac{-7 \\pm 11}{12} = \\left\\{\\frac{1}{3},-\\frac{3}{2}\\right\\}\n\\end{align*}\n\\]\n\nAnd yet, \\(6x^2 + 7x - 3 = (3x - 1)(2x + 3)\\), meaning that we could have split the problem into two “embarrassingly” solvable pieces, then multiplied to get result!",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4706,7 +4706,7 @@
     "section": "The Analogy to Map-Reduce",
     "text": "The Analogy to Map-Reduce\n\n\n\n\n\n\n\n\\(\\leadsto\\) If code is not embarrassingly parallel (instinctually requiring laborious serial execution),\n\\(\\underbrace{6x^2 + 7x - 3 = 0}_{\\text{Solve using Quadratic Eqn}}\\)\n\n\nBut can be split into…\n\\((3x - 1)(2x + 3) = 0\\)\n\n\nEmbarrassingly parallel pieces which combine to same result,\n\\(\\underbrace{3x - 1 = 0}_{\\text{Solve directly}}, \\underbrace{2x + 3 = 0}_{\\text{Solve directly}}\\)\n\n\nWe can use map-reduce to achieve ultra speedup (running “pieces” on GPU!)\n\\(\\underbrace{(3x-1)(2x+3) = 0}_{\\text{Solutions satisfy this product}}\\)",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4716,7 +4716,7 @@
     "section": "“Factoring” into Embarrassing and Non-Embarrassing Pieces",
     "text": "“Factoring” into Embarrassing and Non-Embarrassing Pieces\n\nProblem from DSAN 5000/5100: Computing SSR (Sum of Squared Residuals)\n\\(y = (1,3,2), \\widehat{y} = (2, 5, 0) \\implies \\text{SSR} = (1-2)^2 + (3-5)^2 + (2-0)^2 = 9\\)\nComputing pieces separately:\n\nmap(do_something_with_piece, list_of_pieces)\n\nmy_map = map(lambda input: input**2, [(1-2), (3-5), (2-0)])\nmap_result = list(my_map)\nmap_result\n\n[1, 4, 4]\n\n\n\nCombining solved pieces\n\nreduce(how_to_combine_pair_of_pieces, pieces_to_combine)\n\nfrom functools import reduce\nmy_reduce = reduce(lambda piece1, piece2: piece1 + piece2, map_result)\nmy_reduce\n\n9",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4724,9 +4724,9 @@
     "href": "w06/index.html#the-killer-application-matrix-multiplication",
     "title": "Week 6: Introduction to Spark",
     "section": "The “Killer Application”: Matrix Multiplication",
-    "text": "The “Killer Application”: Matrix Multiplication\n\n(I learned from Jeff Ullman, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the class did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)\n\n\n\n\nFrom Leskovec, Rajaraman, and Ullman (2014), which is (legally) free online!",
+    "text": "The “Killer Application”: Matrix Multiplication\n\n(I learned from Jeff Ullman, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the class did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)\n\n\n\n\nFrom Leskovec et al. (2014), which is (legally) free online!",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4736,7 +4736,7 @@
     "section": "The Killer Way-To-Learn: Text Counts!",
     "text": "The Killer Way-To-Learn: Text Counts!\n\n(2014): Text counts (2.2) \\(\\rightarrow\\) Matrix multiplication (2.3) \\(\\rightarrow \\cdots \\rightarrow\\) PageRank (5.1)\n(And yall thought it was just busywork for HW3 😏)\nThe goal: User searches “Denzel Curry”… How relevant is a given webpage?\nScenario 1: Entire internet fits on CPU \\(\\Rightarrow\\) Can just make a big big hash table:\n\n\n\n\n\n\n\n\nG\n\n\n\ninternet\n\nScan in O(n):\nToday Denzel Washington\nate a big bowl of Yum's\ncurry. Denzel allegedly\nrubbed his tum and said\n\"yum yum yum\" when he\ntasted today's curry.\n\"Yum! It is me Denzel,\ncurry is my fav!\", he\nexclaimed. According to\nhis friend Steph, curry\nis indeed Denzel's fav.\nWe are live with Del\nCurry in Washington for\na Denzel curry update.\n\n\n\n\nccounts\n\nOverall Counts\n\n('according',1)\n('allegedly',1)\n('ate',1)\n('big',1)\n('bowl',1)\n('curry',6)\n('del',1)\n('denzel',5)\n('exclaimed',1)\n('fav',2)\n('friend',1)\n('indeed',1)\n('live',1)\n('rubbed',1)\n('said',1)\n('steph',1)\n('tasted',1)\n('today',2)\n('tum',1)\n('update',1)\n('washington',2)\n('yum',4)\n\n\n\n\ninternet-&gt;ccounts\n\n\nHash Table",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4746,7 +4746,7 @@
     "section": "If Everything Doesn’t Fit on CPU…",
     "text": "If Everything Doesn’t Fit on CPU…\n\n\n\nFrom Cornell Virtual Workshop, “Understanding GPU Architecture”",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4756,7 +4756,7 @@
     "section": "Break Problem into Chunks for the Green Bois!",
     "text": "Break Problem into Chunks for the Green Bois!\n\n\n\n\n\n\n\nG\n\n\n\nchunked\n\nChunked Document\n\nToday Denzel Washington\nate a big bowl of Yum's\ncurry. Denzel allegedly\nrubbed his tum and said\n\n\"yum yum yum\" when he\ntasted today's curry.\n\"Yum! It is me Denzel,\ncurry is my fav!\", he\n\nexclaimed. According to\nhis friend Steph, curry\nis indeed Denzel's fav.\nWe are live with Del\nCurry in Washington for\na Denzel curry update.\n\n\n\n\nchcounts\n\nChunked Counts\n\n('today',1)\n('denzel',1)\n...\n('tum',1)\n('said',1)\n\n('yum',1)\n('yum',1)\n('yum',1)\n...\n('fav',1)\n\n('exclaimed',1)\n...\n('del',1)\n('curry',1)\n('washington',1)\n('denzel',1)\n('curry',1)\n('update',1)\n\n\n\n\nchunked:p1-&gt;chcounts:p1\n\n\nO(n/4)\n\n\n\nchunked:p2-&gt;chcounts:p2\n\n\nO(n/4)\n\n\n\nchunked:p3-&gt;chcounts:p3\n\n\nO(n/4)\n\n\n\nchunked:p4-&gt;chcounts:p4\n\n\nO(n/4)\n\n\n\nscounts\n\nHashed Counts\n\n('allegedly',1)\n...\n('curry',1)\n('denzel',2)\n...\n('yum',1)\n\n('curry',2)\n('denzel',1)\n...\n('yum',4)\n\n('according',1)\n('curry',1)\n('del',1)\n('denzel',1)\n...\n('curry',2)\n('denzel',1)\n('update',1)\n('washington',1)\n\n\n\n\nchcounts:p1-&gt;scounts:p1\n\n\nO(n/4)\n\n\n\nchcounts:p2-&gt;scounts:p2\n\n\nO(n/4)\n\n\n\nchcounts:p3-&gt;scounts:p3\n\n\nO(n/4)\n\n\n\nchcounts:p4-&gt;scounts:p4\n\n\nO(n/4)\n\n\n\nccounts\n\nOverall Counts\n('according',1)\n('allegedly',1)\n('ate',1)\n('big',1)\n('bowl',1)\n('curry',6)\n('del',1)\n('denzel',5)\n('exclaimed',1)\n('fav',2)\n('friend',1)\n('indeed',1)\n('live',1)\n('rubbed',1)\n('said',1)\n('steph',1)\n('tasted',1)\n('today',2)\n('tum',1)\n('update',1)\n('washington',2)\n('yum',4)\n\n\n\n\nscounts:p1-&gt;ccounts:p1\n\n\n\n\n\nscounts:p2-&gt;ccounts:p1\n\n\n\n\n\nscounts:p3-&gt;ccounts:p1\n\n\n\n\n\nscounts:p4-&gt;ccounts:p1\n\n\n\n\n\nscounts:p2-&gt;ccounts\n\n\n \n\nMerge in\nO(n)\n\n\n\n\n\n\n\n\n\n\\(\\implies\\) Total = \\(O(3n) = O(n)\\)\nBut also optimized in terms of constants, because of sequential memory reads",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4766,7 +4766,7 @@
     "section": "In-Class Demo 1",
     "text": "In-Class Demo 1\n\n\n\n\n\nMap-Reduced Matrix-Vector Multiplication Demo",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4776,7 +4776,7 @@
     "section": "In-Class Demo 2",
     "text": "In-Class Demo 2\n\n\n\n\n\n\nCars! Driving!\n\n\n\nAdapted from/almost identical to Jacob Celestine’s tutorial",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4786,7 +4786,7 @@
     "section": "In-Class Demo 3",
     "text": "In-Class Demo 3\n\n\n\n\n\nTennis! Swingin rackets! Scorin goals!",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4796,7 +4796,7 @@
     "section": "Lab Time!",
     "text": "Lab Time!",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4806,7 +4806,7 @@
     "section": "References",
     "text": "References\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press. http://infolab.stanford.edu/~ullman/mmds/book.pdf.",
     "crumbs": [
-      "Week 6: <span class='sec-w06-date'>Sep 29</span>"
+      "Week 6: <span class='sec-w06-date'>Sep 28</span>"
     ]
   },
   {
@@ -4835,7 +4835,7 @@
     "href": "w06/slides.html#the-killer-application-matrix-multiplication",
     "title": "Week 6: Introduction to Spark",
     "section": "The “Killer Application”: Matrix Multiplication",
-    "text": "The “Killer Application”: Matrix Multiplication\n\n(I learned from Jeff Ullman, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the class did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)\n\n\nFrom Leskovec, Rajaraman, and Ullman (2014), which is (legally) free online!"
+    "text": "The “Killer Application”: Matrix Multiplication\n\n(I learned from Jeff Ullman, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the class did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)\n\n\nFrom Leskovec et al. (2014), which is (legally) free online!"
   },
   {
     "objectID": "w06/slides.html#the-killer-way-to-learn-text-counts",
