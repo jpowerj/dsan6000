@@ -129,52 +129,60 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // }
     // A special one for the slides... Very janky
     const s01Replace = {
+      // w01
+      'Thursday, August 27, 2026': 'Thursday, August 27, 2026',
       // w02
-      'Thursday, September 4, 2025': 'Tuesday, September 2, 2025',
+      'Thursday, September 3, 2026': 'Monday, August 31, 2026',
       // w03
-      'Wednesday, September 6, 2023': 'Tuesday, September 5, 2023',
+      'Thursday, September 10, 2026': 'Tuesday, September 8, 2026',
       // w04
-      'Wednesday, September 13, 2023': 'Tuesday, September 12, 2023',
+      'Thursday, September 17, 2026': 'Monday, September 14, 2026',
       // w05
-      'Wednesday, September 20, 2023': 'Tuesday, September 19, 2023',
+      'Thursday, September 24, 2026': 'Monday, September 21, 2026',
       // w06
-      'Wednesday, September 27, 2023': 'Tuesday, September 26, 2023',
+      'Thursday, October 1, 2026': 'Monday, September 28, 2026',
       // w07
-      'Thursday, October 9, 2025': 'Monday, October 6, 2025',
+      'Thursday, October 8, 2026': 'Monday, October 5, 2026',
       // w08
-      'Wednesday, October 18, 2023': 'Tuesday, October 17, 2023',
+      'Thursday, October 22, 2026': 'Monday, October 19, 2026',
       // w09
-      'Wednesday, October 25, 2023': 'Tuesday, October 24, 2023',
+      'Thursday, October 29, 2026': 'Monday, October 26, 2026',
       // w10
-      'Wednesday, November 1, 2023': 'Tuesday, October 31, 2023',
+      'Thursday, November 5, 2026': 'Monday, November 2, 2026',
       // w11
-      'Wednesday, November 8, 2023': 'Tuesday, November 7, 2023',
+      'Thursday, November 12, 2026': 'Monday, November 9, 2026',
       // w12
-      'Wednesday, November 15, 2023': 'Tuesday, November 14, 2023'
+      'Thursday, November 19, 2026': 'Monday, November 16, 2026',
+      // w13
+      'Thursday, December 3, 2026': 'Monday, November 30, 2026',
     };
     const s02Replace = {
+      // w01
+      'Thursday, August 27, 2026': 'Thursday, August 27, 2026',
       // w02
-      'Tuesday, September 2, 2025': 'Thursday, September 4, 2025',
+      'Monday, August 31, 2026': 'Thursday, September 3, 2026',
       // w03
-      'Tuesday, September 5, 2023': 'Wednesday, September 6, 2023',
+      'Tuesday, September 8, 2026': 'Thursday, September 10, 2026',
       // w04
-      'Tuesday, September 12, 2023': 'Wednesday, September 13, 2023',
+      'Monday, September 14, 2026': 'Thursday, September 17, 2026',
       // w05
-      'Tuesday, September 19, 2023': 'Wednesday, September 20, 2023',
+      'Monday, September 21, 2026': 'Thursday, September 24, 2026',
       // w06
-      'Tuesday, September 26, 2023': 'Wednesday, September 27, 2023',
+      'Monday, September 28, 2026': 'Thursday, October 1, 2026',
       // w07
-      'Monday, October 6, 2025': 'Thursday, October 9, 2025',
+      'Monday, October 5, 2026': 'Thursday, October 8, 2026',
       // w08
-      'Tuesday, October 17, 2023': 'Wednesday, October 18, 2023',
+      'Monday, October 19, 2026': 'Thursday, October 22, 2026',
       // w09
-      'Tuesday, October 24, 2023': 'Wednesday, October 25, 2023',
+      'Monday, October 26, 2026': 'Thursday, October 29, 2026',
       // w10
-      'Tuesday, October 31, 2023': 'Wednesday, November 1, 2023',
+      'Monday, November 2, 2026': 'Thursday, November 5, 2026',
       // w11
-      'Tuesday, November 7, 2023': 'Wednesday, November 8, 2023',
+      'Monday, November 9, 2026': 'Thursday, November 12, 2026',
       // w12
-      'Tuesday, November 14, 2023': 'Wednesday, November 15, 2023'
+      'Monday, November 16, 2026': 'Thursday, November 19, 2026',
+      // w13
+      'Monday, November 30, 2026': 'Thursday, December 3, 2026',
     };
     let shownDate = $('p.date').text();
     console.log("shownDate:");
