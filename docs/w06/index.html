@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Amit Arora and Jeff Jacobs">
+
+<title>Week 6: Introduction to Spark – DSAN 6000 Slide Hub</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-0d4a9d19931feb4fee1ddab4b2489000.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><script src="../sidebar.js"></script><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../dsan-globals/jjstyles.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../w06/index.html">Week 6: <span class="sec-w06-date">Sep 29</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">DSAN 6000 Slide Hub</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://gu-dsan.github.io/6000-fall-2025/" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><i class="bi bi-arrow-left-short pe-1"></i> Main Course Page</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1: Aug 28</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2: <span class="sec-w02-date">Sep 2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3: <span class="sec-w03-date">Sep 8</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4: <span class="sec-w04-date">Sep 15</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5: <span class="sec-w05-date">Sep 22</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w06/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 6: <span class="sec-w06-date">Sep 29</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w07/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7: <span class="sec-w07-date">Oct 6</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w08/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8: <span class="sec-w08-date">Oct 20</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w09/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9: <span class="sec-w09-date">Oct 27</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w10/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10: <span class="sec-w10-date">Nov 3</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w11/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11: <span class="sec-w11-date">Nov 10</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w12/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12: <span class="sec-w12-date">Nov 17</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w13/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 13: <span class="sec-w13-date">Nov 24</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w14/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 14: <span class="sec-w14-date">Dec 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w15/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 15: <span class="sec-w15-date">Dec 8</span></span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://georgetown.zoom.us/j/91628796534?pwd=BSnBpL4VeysAQMbUtbH4MmwOunglLh.1" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">S01 (Mon) Zoom Link <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://georgetown.zoom.us/j/92724737140?pwd=rIyVrsa3CDq9xCv4LGNX3Cq0o2J3An.1" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">S02 (Thu) Zoom Link <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://georgetown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9ebe4700-c41f-434a-bb78-b34801332737" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Recordings <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://jjacobs.me/meet" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Book Office Hour <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p><em>Updated 2025-11-17, 03:16:11 PM</em></p>
+</div></div></nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#highest-level-overview-roadmap" id="toc-highest-level-overview-roadmap" class="nav-link active" data-scroll-target="#highest-level-overview-roadmap">Highest-Level Overview (Roadmap!)</a></li>
+  <li><a href="#a-reminder-map-reduce-as-a-paradigm" id="toc-a-reminder-map-reduce-as-a-paradigm" class="nav-link" data-scroll-target="#a-reminder-map-reduce-as-a-paradigm">A Reminder: Map-Reduce as a <em>Paradigm</em></a>
+  <ul class="collapse">
+  <li><a href="#what-happens-when-not-embarrassingly-parallel" id="toc-what-happens-when-not-embarrassingly-parallel" class="nav-link" data-scroll-target="#what-happens-when-not-embarrassingly-parallel">What Happens When <em>Not</em> Embarrassingly Parallel?</a></li>
+  <li><a href="#the-analogy-to-map-reduce" id="toc-the-analogy-to-map-reduce" class="nav-link" data-scroll-target="#the-analogy-to-map-reduce">The Analogy to Map-Reduce</a></li>
+  <li><a href="#factoring-into-embarrassing-and-non-embarrassing-pieces" id="toc-factoring-into-embarrassing-and-non-embarrassing-pieces" class="nav-link" data-scroll-target="#factoring-into-embarrassing-and-non-embarrassing-pieces">“Factoring” into Embarrassing and Non-Embarrassing Pieces</a></li>
+  </ul></li>
+  <li><a href="#but-why-is-all-this-weird-mapping-and-reducing-necessary" id="toc-but-why-is-all-this-weird-mapping-and-reducing-necessary" class="nav-link" data-scroll-target="#but-why-is-all-this-weird-mapping-and-reducing-necessary">But… Why is All This Weird Mapping and Reducing Necessary?</a>
+  <ul class="collapse">
+  <li><a href="#the-killer-application-matrix-multiplication" id="toc-the-killer-application-matrix-multiplication" class="nav-link" data-scroll-target="#the-killer-application-matrix-multiplication">The “Killer Application”: Matrix Multiplication</a></li>
+  <li><a href="#the-killer-way-to-learn-text-counts" id="toc-the-killer-way-to-learn-text-counts" class="nav-link" data-scroll-target="#the-killer-way-to-learn-text-counts">The Killer Way-To-Learn: Text Counts!</a></li>
+  <li><a href="#if-everything-doesnt-fit-on-cpu" id="toc-if-everything-doesnt-fit-on-cpu" class="nav-link" data-scroll-target="#if-everything-doesnt-fit-on-cpu">If Everything <em>Doesn’t</em> Fit on CPU…</a></li>
+  <li><a href="#break-problem-into-chunks-for-the-green-bois" id="toc-break-problem-into-chunks-for-the-green-bois" class="nav-link" data-scroll-target="#break-problem-into-chunks-for-the-green-bois">Break Problem into <em>Chunks</em> for the Green Bois!</a></li>
+  <li><a href="#in-class-demo-1" id="toc-in-class-demo-1" class="nav-link" data-scroll-target="#in-class-demo-1">In-Class Demo 1</a></li>
+  <li><a href="#in-class-demo-2" id="toc-in-class-demo-2" class="nav-link" data-scroll-target="#in-class-demo-2">In-Class Demo 2</a></li>
+  <li><a href="#in-class-demo-3" id="toc-in-class-demo-3" class="nav-link" data-scroll-target="#in-class-demo-3">In-Class Demo 3</a></li>
+  <li><a href="#lab-time" id="toc-lab-time" class="nav-link" data-scroll-target="#lab-time">Lab Time!</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w06/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 6: Introduction to Spark</h1>
+<p class="subtitle lead"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2025</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Class Sessions</div>
+  </div>
+  </div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Amit Arora and Jeff Jacobs </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="mailto:jj1088@georgetown.edu" target="_blank"><code>jj1088@georgetown.edu</code></a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Monday, September 29, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The content for today is <strong>split</strong> between the following <strong>two resources</strong>:</p>
+<center class="mb-3">
+<a class="h2" href="https://gu-dsan.github.io/6000-fall-2025/slides/06-slides.html" target="_blank">Open <em>Spark</em> Slides from Main Site</a>
+</center>
+<center class="mb-3">
+<a class="h2" href="./slides.html" target="_blank">Open <em>MapReduce</em> slides in new tab →</a>
+</center>
+<section id="highest-level-overview-roadmap" class="level1 smaller title-12" data-name="Roadmap">
+<h1 class="smaller title-12" data-name="Roadmap">Highest-Level Overview (Roadmap!)</h1>
+<ul>
+<li>Week 3: <strong>Map-Reduce</strong>
+<ul>
+<li>But, just the “plain”, basic version <strong>built into Python</strong> (<code>map()</code>, <code>functools.reduce()</code>)</li>
+</ul></li>
+<li>Last Week: <strong>Athena</strong> with <strong>AWS Glue</strong> under the hood
+<ul>
+<li>“Automated” ETL Pipeline!</li>
+</ul></li>
+<li>This Week: Hitting a wall with Athena… It <strong>doesn’t know in advance what [types of] queries you’re going to make!</strong></li>
+<li>If you’re going to <strong>group by</strong> (e.g.) <strong>state</strong>, then rent <strong>50 computers</strong> to process one state each, Athena doesn’t know to <strong>place the Ohio data on the Ohio computer!</strong></li>
+<li>We need a way to <strong>“steer” Map-Reduce’s choices</strong>… Enter <strong>Hadoop MapReduce!</strong></li>
+</ul>
+</section>
+<section id="a-reminder-map-reduce-as-a-paradigm" class="level1" data-stack-name="Map-Reduce">
+<h1 data-stack-name="Map-Reduce">A Reminder: Map-Reduce as a <em>Paradigm</em></h1>
+<section id="what-happens-when-not-embarrassingly-parallel" class="level2 smaller crunch-title crunch-math crunch-ul title-09">
+<h2 class="smaller crunch-title crunch-math crunch-ul title-09 anchored" data-anchor-id="what-happens-when-not-embarrassingly-parallel">What Happens When <em>Not</em> Embarrassingly Parallel?</h2>
+<ul>
+<li>Think of the difference between <strong>linear</strong> and <strong>quadratic equations</strong> in algebra:</li>
+<li><span class="math inline">\(3x - 1 = 0\)</span> is “embarrassingly” solvable, on its own: you can solve it directly, by adding 3 to both sides <span class="math inline">\(\implies x = \frac{1}{3}\)</span>. Same for <span class="math inline">\(2x + 3 = 0 \implies x = -\frac{3}{2}\)</span></li>
+<li>Now consider <span class="math inline">\(6x^2 + 7x - 3 = 0\)</span>: Harder to solve “directly”, so your instinct might be to turn to the laborious <strong>quadratic equation</strong>:</li>
+</ul>
+<p><span class="math display">\[
+\begin{align*}
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)} = \frac{-7 \pm 11}{12} = \left\{\frac{1}{3},-\frac{3}{2}\right\}
+\end{align*}
+\]</span></p>
+<ul>
+<li>And yet, <span class="math inline">\(6x^2 + 7x - 3 = (3x - 1)(2x + 3)\)</span>, meaning that we could have <strong>split</strong> the problem into two “embarrassingly” solvable pieces, then <strong>multiplied</strong> to get result!</li>
+</ul>
+</section>
+<section id="the-analogy-to-map-reduce" class="level2 crunch-title title-09">
+<h2 class="crunch-title title-09 anchored" data-anchor-id="the-analogy-to-map-reduce">The Analogy to Map-Reduce</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 75%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\leadsto\)</span> If code is <strong>not</strong> embarrassingly parallel (instinctually requiring laborious serial execution),</td>
+<td style="text-align: center;"><span class="math inline">\(\underbrace{6x^2 + 7x - 3 = 0}_{\text{Solve using Quadratic Eqn}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">But can be <strong>split</strong> into…</td>
+<td style="text-align: center;"><span class="math inline">\((3x - 1)(2x + 3) = 0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Embarrassingly parallel <strong>pieces</strong> which <strong>combine</strong> to same result,</td>
+<td style="text-align: center;"><span class="math inline">\(\underbrace{3x - 1 = 0}_{\text{Solve directly}}, \underbrace{2x + 3 = 0}_{\text{Solve directly}}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">We can use <strong>map-reduce</strong> to achieve ultra speedup (running “pieces” on <strong>GPU!</strong>)</td>
+<td style="text-align: center;"><span class="math inline">\(\underbrace{(3x-1)(2x+3) = 0}_{\text{Solutions satisfy this product}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="factoring-into-embarrassing-and-non-embarrassing-pieces" class="level2 smaller crunch-title crunch-details">
+<h2 class="smaller crunch-title crunch-details anchored" data-anchor-id="factoring-into-embarrassing-and-non-embarrassing-pieces">“Factoring” into Embarrassing and Non-Embarrassing Pieces</h2>
+<ul>
+<li>Problem from DSAN 5000/5100: Computing SSR (<strong>Sum of Squared Residuals</strong>)</li>
+<li><span class="math inline">\(y = (1,3,2), \widehat{y} = (2, 5, 0) \implies \text{SSR} = (1-2)^2 + (3-5)^2 + (2-0)^2 = 9\)</span></li>
+<li>Computing pieces separately:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">map</span>(do_something_with_piece, list_of_pieces)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="18a54b90" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_map <span class="op">=</span> <span class="bu">map</span>(<span class="kw">lambda</span> <span class="bu">input</span>: <span class="bu">input</span><span class="op">**</span><span class="dv">2</span>, [(<span class="dv">1</span><span class="op">-</span><span class="dv">2</span>), (<span class="dv">3</span><span class="op">-</span><span class="dv">5</span>), (<span class="dv">2</span><span class="op">-</span><span class="dv">0</span>)])</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>map_result <span class="op">=</span> <span class="bu">list</span>(my_map)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>map_result</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>[1, 4, 4]</code></pre>
+</div>
+</div>
+<ul>
+<li>Combining solved pieces</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">reduce</span>(how_to_combine_pair_of_pieces, pieces_to_combine)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="838480bc" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>my_reduce <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span> piece1, piece2: piece1 <span class="op">+</span> piece2, map_result)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>my_reduce</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>9</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="but-why-is-all-this-weird-mapping-and-reducing-necessary" class="level1 page-columns page-full" data-stack-name="Map-Reduce Rationale">
+<h1 data-stack-name="Map-Reduce Rationale">But… Why is All This Weird Mapping and Reducing Necessary?</h1>
+<ul>
+<li>Without knowing a bit more of the <strong>internals</strong> of <strong>computing efficiency</strong>, it may seem like a huge cost in terms of overly-complicated overhead, not to mention learning curve…</li>
+</ul>
+<section id="the-killer-application-matrix-multiplication" class="level2 crunch-title smaller title-11">
+<h2 class="crunch-title smaller title-11 anchored" data-anchor-id="the-killer-application-matrix-multiplication">The “Killer Application”: Matrix Multiplication</h2>
+<ul>
+<li><em>(I learned from <a href="http://infolab.stanford.edu/~ullman/" target="_blank">Jeff Ullman</a>, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the <a href="http://web.stanford.edu/class/cs246/" target="_blank">class</a> did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)</em></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/map_reduce3.svg" class="img-fluid figure-img"></p>
+<figcaption>From <span class="citation" data-cites="leskovec_mining_2014">Leskovec, Rajaraman, and Ullman (<a href="#ref-leskovec_mining_2014" role="doc-biblioref">2014</a>)</span>, which is (legally) <a href="http://www.mmds.org/" target="_blank">free online</a>!</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-killer-way-to-learn-text-counts" class="level2 smaller crunch-title crunch-ul crunch-p title-12">
+<h2 class="smaller crunch-title crunch-ul crunch-p title-12 anchored" data-anchor-id="the-killer-way-to-learn-text-counts">The Killer Way-To-Learn: Text Counts!</h2>
+<ul>
+<li><span class="citation" data-cites="leskovec_mining_2014">(<a href="#ref-leskovec_mining_2014" role="doc-biblioref">2014</a>)</span>: Text counts (2.2) <span class="math inline">\(\rightarrow\)</span> Matrix multiplication (2.3) <span class="math inline">\(\rightarrow \cdots \rightarrow\)</span> PageRank (5.1)</li>
+<li><em>(And yall thought it was just busywork for HW3</em> 😏<em>)</em></li>
+<li>The goal: User searches <a href="https://www.youtube.com/watch?v=eqwiC93zmxI" target="_blank">“Denzel Curry”</a>… How <strong>relevant</strong> is a given webpage?</li>
+<li>Scenario 1: Entire internet fits on CPU <span class="math inline">\(\Rightarrow\)</span> Can just make a big big hash table:</li>
+</ul>
+<div class="cell" data-fig-height="4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="384" viewbox="0.00 0.00 621.14 285.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 281)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-281 617.14,-281 617.14,4 -4,4"></polygon>
+<!-- internet -->
+<g id="node1" class="node">
+<title>internet</title>
+<polyline fill="none" stroke="black" points="11.5,-247.5 208.5,-247.5 "></polyline>
+<text text-anchor="start" x="68.76" y="-253.9" font-family="Helvetica,sans-Serif" font-size="14.00">Scan in O(n):</text>
+<text text-anchor="start" x="13.5" y="-230.9" font-family="Courier,monospace" font-size="14.00">Today Denzel Washington</text>
+<text text-anchor="start" x="13.5" y="-214.1" font-family="Courier,monospace" font-size="14.00">ate a big bowl of Yum's</text>
+<text text-anchor="start" x="13.5" y="-197.3" font-family="Courier,monospace" font-size="14.00">curry. Denzel allegedly</text>
+<text text-anchor="start" x="13.5" y="-180.5" font-family="Courier,monospace" font-size="14.00">rubbed his tum and said</text>
+<text text-anchor="start" x="13.5" y="-163.7" font-family="Courier,monospace" font-size="14.00">"yum yum yum" when he</text>
+<text text-anchor="start" x="13.5" y="-146.9" font-family="Courier,monospace" font-size="14.00">tasted today's curry.</text>
+<text text-anchor="start" x="13.5" y="-130.1" font-family="Courier,monospace" font-size="14.00">"Yum! It is me Denzel,</text>
+<text text-anchor="start" x="13.5" y="-113.3" font-family="Courier,monospace" font-size="14.00">curry is my fav!", he</text>
+<text text-anchor="start" x="13.5" y="-96.5" font-family="Courier,monospace" font-size="14.00">exclaimed. According to</text>
+<text text-anchor="start" x="13.5" y="-79.7" font-family="Courier,monospace" font-size="14.00">his friend Steph, curry</text>
+<text text-anchor="start" x="13.5" y="-62.9" font-family="Courier,monospace" font-size="14.00">is indeed Denzel's fav.</text>
+<text text-anchor="start" x="13.5" y="-46.1" font-family="Courier,monospace" font-size="14.00">We are live with Del</text>
+<text text-anchor="start" x="13.5" y="-29.3" font-family="Courier,monospace" font-size="14.00">Curry in Washington for</text>
+<text text-anchor="start" x="13.5" y="-12.5" font-family="Courier,monospace" font-size="14.00">a Denzel curry update.</text>
+<polygon fill="none" stroke="black" points="8,-4 8,-273 211,-273 211,-4 8,-4"></polygon>
+</g>
+<!-- ccounts -->
+<g id="node2" class="node">
+<title>ccounts</title>
+<polyline fill="none" stroke="black" points="330.14,-223.5 602.14,-223.5 "></polyline>
+<text text-anchor="start" x="419.85" y="-229.9" font-family="Helvetica,sans-Serif" font-size="14.00">Overall Counts</text>
+<polyline fill="none" stroke="black" points="462.14,-31.5 462.14,-221.5 "></polyline>
+<text text-anchor="start" x="333.14" y="-205.9" font-family="Courier,monospace" font-size="14.00">('according',1)</text>
+<text text-anchor="start" x="333.14" y="-189.1" font-family="Courier,monospace" font-size="14.00">('allegedly',1)</text>
+<text text-anchor="start" x="333.14" y="-172.3" font-family="Courier,monospace" font-size="14.00">('ate',1)</text>
+<text text-anchor="start" x="333.14" y="-155.5" font-family="Courier,monospace" font-size="14.00">('big',1)</text>
+<text text-anchor="start" x="333.14" y="-138.7" font-family="Courier,monospace" font-size="14.00">('bowl',1)</text>
+<text text-anchor="start" x="333.14" y="-121.9" font-family="Courier,monospace" font-size="14.00">('curry',6)</text>
+<text text-anchor="start" x="333.14" y="-105.1" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
+<text text-anchor="start" x="333.14" y="-88.3" font-family="Courier,monospace" font-size="14.00">('denzel',5)</text>
+<text text-anchor="start" x="333.14" y="-71.5" font-family="Courier,monospace" font-size="14.00">('exclaimed',1)</text>
+<text text-anchor="start" x="333.14" y="-54.7" font-family="Courier,monospace" font-size="14.00">('fav',2)</text>
+<text text-anchor="start" x="333.14" y="-37.9" font-family="Courier,monospace" font-size="14.00">('friend',1)</text>
+<text text-anchor="start" x="466.14" y="-206.3" font-family="Courier,monospace" font-size="14.00">('indeed',1)</text>
+<text text-anchor="start" x="466.14" y="-189.5" font-family="Courier,monospace" font-size="14.00">('live',1)</text>
+<text text-anchor="start" x="466.14" y="-172.7" font-family="Courier,monospace" font-size="14.00">('rubbed',1)</text>
+<text text-anchor="start" x="466.14" y="-155.9" font-family="Courier,monospace" font-size="14.00">('said',1)</text>
+<text text-anchor="start" x="466.14" y="-139.1" font-family="Courier,monospace" font-size="14.00">('steph',1)</text>
+<text text-anchor="start" x="466.14" y="-122.3" font-family="Courier,monospace" font-size="14.00">('tasted',1)</text>
+<text text-anchor="start" x="466.14" y="-105.5" font-family="Courier,monospace" font-size="14.00">('today',2)</text>
+<text text-anchor="start" x="466.14" y="-88.7" font-family="Courier,monospace" font-size="14.00">('tum',1)</text>
+<text text-anchor="start" x="466.14" y="-71.9" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
+<text text-anchor="start" x="466.14" y="-55.1" font-family="Courier,monospace" font-size="14.00">('washington',2)</text>
+<text text-anchor="start" x="466.14" y="-38.3" font-family="Courier,monospace" font-size="14.00">('yum',4)</text>
+<polygon fill="none" stroke="black" points="327.14,-28.5 327.14,-248.5 605.14,-248.5 605.14,-28.5 327.14,-28.5"></polygon>
+</g>
+<!-- internet&#45;&gt;ccounts -->
+<g id="edge1" class="edge">
+<title>internet-&gt;ccounts</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M219.31,-138.5C248.07,-138.5 279.66,-138.5 310.34,-138.5"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="310.47,-141.48 318.97,-138.5 310.47,-135.53 310.47,-141.48"></polygon>
+<text text-anchor="middle" x="269.07" y="-142.7" font-family="Times,serif" font-size="14.00">Hash Table</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="if-everything-doesnt-fit-on-cpu" class="level2">
+<h2 class="anchored" data-anchor-id="if-everything-doesnt-fit-on-cpu">If Everything <em>Doesn’t</em> Fit on CPU…</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cpu_gpu.png" class="img-fluid figure-img"></p>
+<figcaption>From Cornell Virtual Workshop, <a href="https://cvw.cac.cornell.edu/gpu-architecture/gpu-characteristics/design" target="_blank">“Understanding GPU Architecture”</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="break-problem-into-chunks-for-the-green-bois" class="level2 smaller crunch-title title-10 crunch-quarto-figure">
+<h2 class="smaller crunch-title title-10 crunch-quarto-figure anchored" data-anchor-id="break-problem-into-chunks-for-the-green-bois">Break Problem into <em>Chunks</em> for the Green Bois!</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 930.65 419.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 415)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-415 926.65,-415 926.65,4 -4,4"></polygon>
+<!-- chunked -->
+<g id="node1" class="node">
+<title>chunked</title>
+<polyline fill="none" stroke="black" points="11.5,-339.5 210.5,-339.5 "></polyline>
+<text text-anchor="start" x="49.13" y="-345.9" font-family="Helvetica,sans-Serif" font-size="14.00">Chunked Document</text>
+<polyline fill="none" stroke="black" points="11.5,-264.5 210.5,-264.5 "></polyline>
+<text text-anchor="start" x="14.5" y="-321.9" font-family="Courier,monospace" font-size="14.00">Today Denzel Washington</text>
+<text text-anchor="start" x="14.5" y="-305.1" font-family="Courier,monospace" font-size="14.00">ate a big bowl of Yum's</text>
+<text text-anchor="start" x="14.5" y="-288.3" font-family="Courier,monospace" font-size="14.00">curry. Denzel allegedly</text>
+<text text-anchor="start" x="14.5" y="-271.5" font-family="Courier,monospace" font-size="14.00">rubbed his tum and said</text>
+<polyline fill="none" stroke="black" points="11.5,-189.5 210.5,-189.5 "></polyline>
+<text text-anchor="start" x="14.5" y="-246.9" font-family="Courier,monospace" font-size="14.00">"yum yum yum" when he</text>
+<text text-anchor="start" x="14.5" y="-230.1" font-family="Courier,monospace" font-size="14.00">tasted today's curry.</text>
+<text text-anchor="start" x="14.5" y="-213.3" font-family="Courier,monospace" font-size="14.00">"Yum! It is me Denzel,</text>
+<text text-anchor="start" x="14.5" y="-196.5" font-family="Courier,monospace" font-size="14.00">curry is my fav!", he</text>
+<polyline fill="none" stroke="black" points="11.5,-114.5 210.5,-114.5 "></polyline>
+<text text-anchor="start" x="14.5" y="-171.9" font-family="Courier,monospace" font-size="14.00">exclaimed. According to</text>
+<text text-anchor="start" x="14.5" y="-155.1" font-family="Courier,monospace" font-size="14.00">his friend Steph, curry</text>
+<text text-anchor="start" x="14.5" y="-138.3" font-family="Courier,monospace" font-size="14.00">is indeed Denzel's fav.</text>
+<text text-anchor="start" x="14.5" y="-121.5" font-family="Courier,monospace" font-size="14.00">We are live with Del</text>
+<text text-anchor="start" x="13.5" y="-97.9" font-family="Courier,monospace" font-size="14.00">Curry in Washington for</text>
+<text text-anchor="start" x="13.5" y="-81.1" font-family="Courier,monospace" font-size="14.00">a Denzel curry update.</text>
+<polygon fill="none" stroke="black" points="8,-72.5 8,-364.5 213,-364.5 213,-72.5 8,-72.5"></polygon>
+</g>
+<!-- chcounts -->
+<g id="node2" class="node">
+<title>chcounts</title>
+<polyline fill="none" stroke="black" points="305.32,-365.5 443.32,-365.5 "></polyline>
+<text text-anchor="start" x="322.18" y="-371.9" font-family="Helvetica,sans-Serif" font-size="14.00">Chunked Counts</text>
+<polyline fill="none" stroke="black" points="305.32,-273.5 443.32,-273.5 "></polyline>
+<text text-anchor="start" x="308.32" y="-347.9" font-family="Courier,monospace" font-size="14.00">('today',1)</text>
+<text text-anchor="start" x="308.32" y="-331.1" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="308.32" y="-314.3" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="308.32" y="-297.5" font-family="Courier,monospace" font-size="14.00">('tum',1)</text>
+<text text-anchor="start" x="308.32" y="-280.7" font-family="Courier,monospace" font-size="14.00">('said',1)</text>
+<polyline fill="none" stroke="black" points="305.32,-181.5 443.32,-181.5 "></polyline>
+<text text-anchor="start" x="308.32" y="-255.9" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
+<text text-anchor="start" x="308.32" y="-239.1" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
+<text text-anchor="start" x="308.32" y="-222.3" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
+<text text-anchor="start" x="308.32" y="-205.5" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="308.32" y="-188.7" font-family="Courier,monospace" font-size="14.00">('fav',1)</text>
+<polyline fill="none" stroke="black" points="305.32,-123.5 443.32,-123.5 "></polyline>
+<text text-anchor="start" x="308.32" y="-163.9" font-family="Courier,monospace" font-size="14.00">('exclaimed',1)</text>
+<text text-anchor="start" x="308.32" y="-147.1" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="308.32" y="-130.3" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
+<text text-anchor="start" x="307.32" y="-106.9" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
+<text text-anchor="start" x="307.32" y="-90.1" font-family="Courier,monospace" font-size="14.00">('washington',1)</text>
+<text text-anchor="start" x="307.32" y="-73.3" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="307.32" y="-56.5" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
+<text text-anchor="start" x="307.32" y="-39.7" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
+<polygon fill="none" stroke="black" points="302.32,-30.5 302.32,-390.5 446.32,-390.5 446.32,-30.5 302.32,-30.5"></polygon>
+</g>
+<!-- chunked&#45;&gt;chcounts -->
+<g id="edge1" class="edge">
+<title>chunked:p1-&gt;chcounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-301.5C250.33,-301.5 260.87,-316.07 295.5,-318.23"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="295.74,-321.22 304.32,-318.5 295.92,-315.27 295.74,-321.22"></polygon>
+<text text-anchor="middle" x="257.66" y="-318.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chunked&#45;&gt;chcounts -->
+<g id="edge2" class="edge">
+<title>chunked:p2-&gt;chcounts:p2</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-226.5C249.69,-226.5 261.37,-226.5 295.62,-226.5"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="295.82,-229.48 304.32,-226.5 295.82,-223.53 295.82,-229.48"></polygon>
+<text text-anchor="middle" x="257.66" y="-230.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chunked&#45;&gt;chcounts -->
+<g id="edge3" class="edge">
+<title>chunked:p3-&gt;chcounts:p3</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-150.5C249.7,-150.5 261.37,-151.36 295.62,-151.48"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="295.82,-154.46 304.32,-151.5 295.83,-148.51 295.82,-154.46"></polygon>
+<text text-anchor="middle" x="257.66" y="-154.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chunked&#45;&gt;chcounts -->
+<g id="edge4" class="edge">
+<title>chunked:p4-&gt;chcounts:p4</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-93.5C250.26,-93.5 260.93,-79.79 295.52,-77.75"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="295.91,-80.72 304.32,-77.5 295.74,-74.77 295.91,-80.72"></polygon>
+<text text-anchor="middle" x="257.66" y="-94.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- scounts -->
+<g id="node3" class="node">
+<title>scounts</title>
+<polyline fill="none" stroke="black" points="538.65,-376.5 676.65,-376.5 "></polyline>
+<text text-anchor="start" x="559.4" y="-382.9" font-family="Helvetica,sans-Serif" font-size="14.00">Hashed Counts</text>
+<polyline fill="none" stroke="black" points="538.65,-268.5 676.65,-268.5 "></polyline>
+<text text-anchor="start" x="541.65" y="-358.9" font-family="Courier,monospace" font-size="14.00">('allegedly',1)</text>
+<text text-anchor="start" x="541.65" y="-342.1" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="541.65" y="-325.3" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
+<text text-anchor="start" x="541.65" y="-308.5" font-family="Courier,monospace" font-size="14.00">('denzel',2)</text>
+<text text-anchor="start" x="541.65" y="-291.7" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="541.65" y="-274.9" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
+<polyline fill="none" stroke="black" points="538.65,-193.5 676.65,-193.5 "></polyline>
+<text text-anchor="start" x="541.65" y="-250.9" font-family="Courier,monospace" font-size="14.00">('curry',2)</text>
+<text text-anchor="start" x="541.65" y="-234.1" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="541.65" y="-217.3" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="541.65" y="-200.5" font-family="Courier,monospace" font-size="14.00">('yum',4)</text>
+<polyline fill="none" stroke="black" points="538.65,-101.5 676.65,-101.5 "></polyline>
+<text text-anchor="start" x="541.65" y="-175.9" font-family="Courier,monospace" font-size="14.00">('according',1)</text>
+<text text-anchor="start" x="541.65" y="-159.1" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
+<text text-anchor="start" x="541.65" y="-142.3" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
+<text text-anchor="start" x="541.65" y="-125.5" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="541.65" y="-108.7" font-family="Courier,monospace" font-size="14.00">...</text>
+<text text-anchor="start" x="540.65" y="-84.9" font-family="Courier,monospace" font-size="14.00">('curry',2)</text>
+<text text-anchor="start" x="540.65" y="-68.1" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
+<text text-anchor="start" x="540.65" y="-51.3" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
+<text text-anchor="start" x="540.65" y="-34.5" font-family="Courier,monospace" font-size="14.00">('washington',1)</text>
+<polygon fill="none" stroke="black" points="535.65,-25.5 535.65,-401.5 679.65,-401.5 679.65,-25.5 535.65,-25.5"></polygon>
+</g>
+<!-- chcounts&#45;&gt;scounts -->
+<g id="edge5" class="edge">
+<title>chcounts:p1-&gt;scounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-318.5C482.74,-318.5 494.45,-321.07 528.9,-321.45"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="529.13,-324.43 537.65,-321.5 529.16,-318.48 529.13,-324.43"></polygon>
+<text text-anchor="middle" x="490.99" y="-324.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chcounts&#45;&gt;scounts -->
+<g id="edge6" class="edge">
+<title>chcounts:p2-&gt;scounts:p2</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-226.5C482.76,-226.5 494.43,-229.93 528.9,-230.44"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="529.13,-233.41 537.65,-230.5 529.17,-227.46 529.13,-233.41"></polygon>
+<text text-anchor="middle" x="490.99" y="-233.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chcounts&#45;&gt;scounts -->
+<g id="edge7" class="edge">
+<title>chcounts:p3-&gt;scounts:p3</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-151.5C482.78,-151.5 494.42,-147.21 528.89,-146.58"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="529.18,-149.55 537.65,-146.5 529.12,-143.6 529.18,-149.55"></polygon>
+<text text-anchor="middle" x="490.99" y="-154.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- chcounts&#45;&gt;scounts -->
+<g id="edge8" class="edge">
+<title>chcounts:p4-&gt;scounts:p4</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-77.5C483.15,-77.5 494.13,-65.5 528.82,-63.72"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="529.23,-66.69 537.65,-63.5 529.08,-60.74 529.23,-66.69"></polygon>
+<text text-anchor="middle" x="490.99" y="-79.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
+</g>
+<!-- ccounts -->
+<g id="node4" class="node">
+<title>ccounts</title>
+<polyline fill="none" stroke="black" points="773.65,-381.5 911.65,-381.5 "></polyline>
+<text text-anchor="start" x="796.35" y="-387.9" font-family="Helvetica,sans-Serif" font-size="14.00">Overall Counts</text>
+<text text-anchor="start" x="775.65" y="-364.9" font-family="Courier,monospace" font-size="14.00">('according',1)</text>
+<text text-anchor="start" x="775.65" y="-348.1" font-family="Courier,monospace" font-size="14.00">('allegedly',1)</text>
+<text text-anchor="start" x="775.65" y="-331.3" font-family="Courier,monospace" font-size="14.00">('ate',1)</text>
+<text text-anchor="start" x="775.65" y="-314.5" font-family="Courier,monospace" font-size="14.00">('big',1)</text>
+<text text-anchor="start" x="775.65" y="-297.7" font-family="Courier,monospace" font-size="14.00">('bowl',1)</text>
+<text text-anchor="start" x="775.65" y="-280.9" font-family="Courier,monospace" font-size="14.00">('curry',6)</text>
+<text text-anchor="start" x="775.65" y="-264.1" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
+<text text-anchor="start" x="775.65" y="-247.3" font-family="Courier,monospace" font-size="14.00">('denzel',5)</text>
+<text text-anchor="start" x="775.65" y="-230.5" font-family="Courier,monospace" font-size="14.00">('exclaimed',1)</text>
+<text text-anchor="start" x="775.65" y="-213.7" font-family="Courier,monospace" font-size="14.00">('fav',2)</text>
+<text text-anchor="start" x="775.65" y="-196.9" font-family="Courier,monospace" font-size="14.00">('friend',1)</text>
+<text text-anchor="start" x="775.65" y="-180.1" font-family="Courier,monospace" font-size="14.00">('indeed',1)</text>
+<text text-anchor="start" x="775.65" y="-163.3" font-family="Courier,monospace" font-size="14.00">('live',1)</text>
+<text text-anchor="start" x="775.65" y="-146.5" font-family="Courier,monospace" font-size="14.00">('rubbed',1)</text>
+<text text-anchor="start" x="775.65" y="-129.7" font-family="Courier,monospace" font-size="14.00">('said',1)</text>
+<text text-anchor="start" x="775.65" y="-112.9" font-family="Courier,monospace" font-size="14.00">('steph',1)</text>
+<text text-anchor="start" x="775.65" y="-96.1" font-family="Courier,monospace" font-size="14.00">('tasted',1)</text>
+<text text-anchor="start" x="775.65" y="-79.3" font-family="Courier,monospace" font-size="14.00">('today',2)</text>
+<text text-anchor="start" x="775.65" y="-62.5" font-family="Courier,monospace" font-size="14.00">('tum',1)</text>
+<text text-anchor="start" x="775.65" y="-45.7" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
+<text text-anchor="start" x="775.65" y="-28.9" font-family="Courier,monospace" font-size="14.00">('washington',2)</text>
+<text text-anchor="start" x="775.65" y="-12.1" font-family="Courier,monospace" font-size="14.00">('yum',4)</text>
+<polygon fill="none" stroke="black" points="770.65,-4 770.65,-407 914.65,-407 914.65,-4 770.65,-4"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge9" class="edge">
+<title>scounts:p1-&gt;ccounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-321.5C723.01,-321.5 718.85,-281.81 744.65,-244.5 757.59,-225.78 749.4,-200.42 764.12,-194.02"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="764.8,-196.92 772.65,-192.5 763.76,-191.06 764.8,-196.92"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge10" class="edge">
+<title>scounts:p2-&gt;ccounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-230.5C691.56,-230.5 692.85,-221.97 705.65,-216.5 731.89,-205.29 739.57,-194.77 764.06,-192.82"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="764.27,-195.79 772.65,-192.5 764.04,-189.84 764.27,-195.79"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge11" class="edge">
+<title>scounts:p3-&gt;ccounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-146.5C721.44,-146.5 725.38,-186.59 763.88,-191.92"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="763.97,-194.91 772.65,-192.5 764.36,-188.97 763.97,-194.91"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge12" class="edge">
+<title>scounts:p4-&gt;ccounts:p1</title>
+<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-63.5C710.33,-63.5 733.06,-172.2 764.11,-190.04"></path>
+<polygon fill="black" stroke="black" stroke-width="1.2" points="763.66,-193 772.65,-192.5 765.31,-187.29 763.66,-193"></polygon>
+</g>
+<!-- scounts&#45;&gt;ccounts -->
+<g id="edge13" class="edge">
+<title>scounts:p2-&gt;ccounts</title>
+<path fill="none" stroke="black" stroke-width="0" d="M677.65,-230.5C705.33,-230.5 735.35,-226.98 762.04,-222.57"></path>
+<polygon fill="black" stroke="black" stroke-width="0" points="762.26,-222.57 762.36,-222.52 762.25,-222.5 762.26,-222.57"></polygon>
+<text text-anchor="middle" x="729.34" y="-240.91" font-family="Times,serif" font-size="14.00"> </text>
+<polygon fill="white" stroke="transparent" points="686.69,-194.15 686.69,-231.15 740.69,-231.15 740.69,-194.15 686.69,-194.15"></polygon>
+<text text-anchor="start" x="688.23" y="-216.55" font-family="Times,serif" font-size="14.00">Merge in</text>
+<text text-anchor="start" x="700.47" y="-199.75" font-family="Times,serif" font-size="14.00">O(n)</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(\implies\)</span> Total = <span class="math inline">\(O(3n) = O(n)\)</span></li>
+<li>But <strong>also</strong> optimized in terms of constants, because of <strong>sequential memory reads</strong></li>
+</ul>
+</section>
+<section id="in-class-demo-1" class="level2 crunch-title crunch-img text-90">
+<h2 class="crunch-title crunch-img text-90 anchored" data-anchor-id="in-class-demo-1">In-Class Demo 1</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/matvec2_img.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p><a href="https://deepnote.com/workspace/Columbia-University-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-41367b13-4253-47c8-8ffe-0544456d6070/notebook/DSAN5500HW5-8b90a6af23d34d239b7da0111228614d?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=41367b13-4253-47c8-8ffe-0544456d6070">Map-Reduced <strong>Matrix-Vector Multiplication</strong> Demo</a></p>
+</section>
+<section id="in-class-demo-2" class="level2 crunch-title crunch-img text-90 page-columns page-full">
+<h2 class="crunch-title crunch-img text-90 anchored" data-anchor-id="in-class-demo-2">In-Class Demo 2</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cars.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ul>
+<li><a href="https://colab.research.google.com/drive/1G894WS7ltIUTusWWmsCnF_zQhQqZCDOc">Cars! Driving!</a></li>
+</ul>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Adapted from/almost identical to <a href="https://jacobcelestine.com/knowledge_repo/colab_and_pyspark/">Jacob Celestine’s tutorial</a></p>
+</div></div></section>
+<section id="in-class-demo-3" class="level2 crunch-title crunch-img text-90">
+<h2 class="crunch-title crunch-img text-90 anchored" data-anchor-id="in-class-demo-3">In-Class Demo 3</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/williams.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p><a href="https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-Duplicate-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/DSAN5500HW5-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d">Tennis! Swingin rackets! Scorin goals!</a></p>
+</section>
+<section id="lab-time" class="level2" data-name="Lab 6">
+<h2 data-name="Lab 6" class="anchored" data-anchor-id="lab-time">Lab Time!</h2>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-leskovec_mining_2014" class="csl-entry" role="listitem">
+Leskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. <em>Mining of <span>Massive Datasets</span></em>. Cambridge University Press. <a href="http://infolab.stanford.edu/~ullman/mmds/book.pdf">http://infolab.stanford.edu/~ullman/mmds/book.pdf</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w06/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

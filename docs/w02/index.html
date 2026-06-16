@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Amit Arora and Jeff Jacobs">
+
+<title>Week 2: Cloud Computing – DSAN 6000 Slide Hub</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-0d4a9d19931feb4fee1ddab4b2489000.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><script src="../sidebar.js"></script><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../dsan-globals/jjstyles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../w02/index.html">Week 2: <span class="sec-w02-date">Sep 2</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">DSAN 6000 Slide Hub</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://gu-dsan.github.io/6000-fall-2025/" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><i class="bi bi-arrow-left-short pe-1"></i> Main Course Page</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1: Aug 28</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w02/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 2: <span class="sec-w02-date">Sep 2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3: <span class="sec-w03-date">Sep 8</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4: <span class="sec-w04-date">Sep 15</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5: <span class="sec-w05-date">Sep 22</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w06/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6: <span class="sec-w06-date">Sep 29</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w07/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7: <span class="sec-w07-date">Oct 6</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w08/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8: <span class="sec-w08-date">Oct 20</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w09/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9: <span class="sec-w09-date">Oct 27</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w10/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10: <span class="sec-w10-date">Nov 3</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w11/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11: <span class="sec-w11-date">Nov 10</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w12/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12: <span class="sec-w12-date">Nov 17</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w13/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 13: <span class="sec-w13-date">Nov 24</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w14/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 14: <span class="sec-w14-date">Dec 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w15/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 15: <span class="sec-w15-date">Dec 8</span></span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://georgetown.zoom.us/j/91628796534?pwd=BSnBpL4VeysAQMbUtbH4MmwOunglLh.1" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">S01 (Mon) Zoom Link <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://georgetown.zoom.us/j/92724737140?pwd=rIyVrsa3CDq9xCv4LGNX3Cq0o2J3An.1" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">S02 (Thu) Zoom Link <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://georgetown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9ebe4700-c41f-434a-bb78-b34801332737" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Recordings <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://jjacobs.me/meet" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Book Office Hour <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p><em>Updated 2025-11-17, 03:16:11 PM</em></p>
+</div></div></nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#so-youve-hit-a-data-related-wall-what-now" id="toc-so-youve-hit-a-data-related-wall-what-now" class="nav-link active" data-scroll-target="#so-youve-hit-a-data-related-wall-what-now">So You’ve Hit A Data-Related Wall… What Now?</a>
+  <ul class="collapse">
+  <li><a href="#jeffs-favorite-big-data-definition" id="toc-jeffs-favorite-big-data-definition" class="nav-link" data-scroll-target="#jeffs-favorite-big-data-definition">Jeff’s Favorite “Big Data” Definition</a></li>
+  <li><a href="#you-vs.-your-opps" id="toc-you-vs.-your-opps" class="nav-link" data-scroll-target="#you-vs.-your-opps">You vs.&nbsp;Your Opps</a></li>
+  <li><a href="#so-you-find-yourself-smashed-against-a-wall" id="toc-so-you-find-yourself-smashed-against-a-wall" class="nav-link" data-scroll-target="#so-you-find-yourself-smashed-against-a-wall">So you find yourself smashed against a wall…</a></li>
+  <li><a href="#the-pre-cloud-approach-make-the-one-computer-faster-and-faster" id="toc-the-pre-cloud-approach-make-the-one-computer-faster-and-faster" class="nav-link" data-scroll-target="#the-pre-cloud-approach-make-the-one-computer-faster-and-faster">The “Pre-Cloud” Approach: Make The One Computer Faster and Faster</a></li>
+  <li><a href="#it-worked-for-many-decades" id="toc-it-worked-for-many-decades" class="nav-link" data-scroll-target="#it-worked-for-many-decades">It Worked For… Many Decades!</a></li>
+  <li><a href="#is-moores-law-dead" id="toc-is-moores-law-dead" class="nav-link" data-scroll-target="#is-moores-law-dead">Is Moore’s Law Dead?</a></li>
+  <li><a href="#so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do" id="toc-so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do" class="nav-link" data-scroll-target="#so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do">So, even upgrading our hardware didn’t help 😭 <em>now</em> what do we do?</a></li>
+  <li><a href="#my-favorite-example-ever" id="toc-my-favorite-example-ever" class="nav-link" data-scroll-target="#my-favorite-example-ever">My Favorite Example Ever</a></li>
+  <li><a href="#how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for" id="toc-how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for" class="nav-link" data-scroll-target="#how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for">How Do We Achieve This? …That’s Exactly What <em>The Cloud</em> is For!</a></li>
+  <li><a href="#benefits" id="toc-benefits" class="nav-link" data-scroll-target="#benefits">Benefits</a></li>
+  <li><a href="#q-what-is-the-cloud" id="toc-q-what-is-the-cloud" class="nav-link" data-scroll-target="#q-what-is-the-cloud">Q: What is The Cloud?</a></li>
+  <li><a href="#nist-definition" id="toc-nist-definition" class="nav-link" data-scroll-target="#nist-definition">NIST Definition</a></li>
+  <li><a href="#service-models" id="toc-service-models" class="nav-link" data-scroll-target="#service-models">Service Models</a></li>
+  <li><a href="#hotel-analogy" id="toc-hotel-analogy" class="nav-link" data-scroll-target="#hotel-analogy">Hotel Analogy</a></li>
+  <li><a href="#infrastructure-as-a-service-iaas" id="toc-infrastructure-as-a-service-iaas" class="nav-link" data-scroll-target="#infrastructure-as-a-service-iaas">Infrastructure as a Service (IaaS)</a></li>
+  <li><a href="#platform-as-a-service-paas" id="toc-platform-as-a-service-paas" class="nav-link" data-scroll-target="#platform-as-a-service-paas">Platform as a Service (PaaS)</a>
+  <ul class="collapse">
+  <li><a href="#what-is-paas" id="toc-what-is-paas" class="nav-link" data-scroll-target="#what-is-paas">What is PaaS?</a></li>
+  </ul></li>
+  <li><a href="#software-as-a-service-saas" id="toc-software-as-a-service-saas" class="nav-link" data-scroll-target="#software-as-a-service-saas">Software as a Service (SaaS)</a></li>
+  <li><a href="#cloud-infrastructure-and-the-ai-revolution" id="toc-cloud-infrastructure-and-the-ai-revolution" class="nav-link" data-scroll-target="#cloud-infrastructure-and-the-ai-revolution">Cloud Infrastructure and the AI Revolution</a></li>
+  <li><a href="#gpu-infrastructure-the-ai-powerhouse" id="toc-gpu-infrastructure-the-ai-powerhouse" class="nav-link" data-scroll-target="#gpu-infrastructure-the-ai-powerhouse">GPU Infrastructure: The AI Powerhouse</a></li>
+  <li><a href="#distributed-computing-and-large-clusters" id="toc-distributed-computing-and-large-clusters" class="nav-link" data-scroll-target="#distributed-computing-and-large-clusters">Distributed Computing and Large Clusters</a></li>
+  <li><a href="#data-storage-evolution" id="toc-data-storage-evolution" class="nav-link" data-scroll-target="#data-storage-evolution">Data Storage Evolution</a></li>
+  <li><a href="#evolution-of-the-cloud" id="toc-evolution-of-the-cloud" class="nav-link" data-scroll-target="#evolution-of-the-cloud">Evolution of the Cloud</a></li>
+  <li><a href="#what-does-the-cloud-look-like-microsoft-azure-data-center" id="toc-what-does-the-cloud-look-like-microsoft-azure-data-center" class="nav-link" data-scroll-target="#what-does-the-cloud-look-like-microsoft-azure-data-center">What Does the Cloud Look Like? Microsoft Azure Data Center</a></li>
+  <li><a href="#loudon-county-va-cloudon" id="toc-loudon-county-va-cloudon" class="nav-link" data-scroll-target="#loudon-county-va-cloudon">Loudon County, VA: “CLoudon”</a></li>
+  </ul></li>
+  <li><a href="#further-reading-rabbitholes" id="toc-further-reading-rabbitholes" class="nav-link" data-scroll-target="#further-reading-rabbitholes">Further Reading (Rabbitholes!)</a>
+  <ul class="collapse">
+  <li><a href="#further-reading-saas-and-cloud-computing" id="toc-further-reading-saas-and-cloud-computing" class="nav-link" data-scroll-target="#further-reading-saas-and-cloud-computing">Further Reading: SaaS and Cloud Computing</a></li>
+  <li><a href="#data-storage-and-ai-infrastructure" id="toc-data-storage-and-ai-infrastructure" class="nav-link" data-scroll-target="#data-storage-and-ai-infrastructure">Data Storage and AI Infrastructure</a></li>
+  <li><a href="#storage-economics-and-technology" id="toc-storage-economics-and-technology" class="nav-link" data-scroll-target="#storage-economics-and-technology">Storage Economics and Technology</a></li>
+  <li><a href="#gpu-infrastructure-and-ai-training-costs" id="toc-gpu-infrastructure-and-ai-training-costs" class="nav-link" data-scroll-target="#gpu-infrastructure-and-ai-training-costs">GPU Infrastructure and AI Training Costs</a></li>
+  </ul></li>
+  <li><a href="#lab-ec2-s3" id="toc-lab-ec2-s3" class="nav-link" data-scroll-target="#lab-ec2-s3">Lab: EC2 🤝 S3</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w02/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 2: Cloud Computing</h1>
+<p class="subtitle lead"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2025</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Class Sessions</div>
+  </div>
+  </div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Amit Arora and Jeff Jacobs </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="mailto:jj1088@georgetown.edu" target="_blank"><code>jj1088@georgetown.edu</code></a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Tuesday, September 2, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<center class="mb-3">
+<a class="h2" href="./slides.html" target="_blank">Open slides in new tab →</a>
+</center>
+<section id="so-youve-hit-a-data-related-wall-what-now" class="level1 smaller title-12" data-stack-name="[Thing]-as-a-Service">
+<h1 class="smaller title-12" data-stack-name="[Thing]-as-a-Service">So You’ve Hit A Data-Related Wall… What Now?</h1>
+<style>
+.honk-honk {
+  font-size: 200% !important;
+  /* font-family: "Bungee Spice", sans-serif; */
+  font-family: "Honk", sans-serif;
+  /* font-optical-sizing: auto; */
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td rowspan="2" width="15%" style="text-align: center; vertical-align: middle; border-bottom: 0px;">Can be <strong>processed</strong> on single machine?</td>
+<td width="5%" style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><em>No</em></td>
+<td width="40%" style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-top: 2px solid #909090; background-color: #FF991C90;"><strong>Medium</strong><br>(<em>Parallel Processing</em>)</td>
+<td width="40%" style="text-align: center; background-color: #FF991C90; vertical-align: middle; border-top: 2px solid #909090; border-right: 2px solid #909090;"><span class="honk-honk">Big!</span><br>Parallel + Distributed Processing</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><em>Yes</em></td>
+<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090;">Small<br>(<em>Your Laptop</em>)</td>
+<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; background-color: #FF991C90;"><strong>Medium</strong><br>(<em>Data Streaming</em>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; border-bottom: 0px;"></td>
+<td style="text-align: center; border-bottom: 0px solid #909090;"></td>
+<td style="text-align: center; vertical-align: middle; border-bottom: 0px solid #909090;"><em>Yes</em></td>
+<td style="text-align: center; vertical-align: middle; border-bottom: 0px solid #909090;"><em>No</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td colspan="2" style="text-align: center;">Can be <strong>stored</strong> on single machine?</td>
+</tr>
+</tbody>
+</table>
+<section id="jeffs-favorite-big-data-definition" class="level2 title-09">
+<h2 class="title-09 anchored" data-anchor-id="jeffs-favorite-big-data-definition">Jeff’s Favorite “Big Data” Definition</h2>
+<p>&nbsp;<br></p>
+<blockquote class="blockquote">
+<p><em>Big data is when <strong>the size of the data itself</strong> becomes <strong>part of the problem</strong></em> <span class="citation" data-cites="loukides_what_2010">(<a href="#ref-loukides_what_2010" role="doc-biblioref">Loukides 2010</a>)</span></p>
+</blockquote>
+<ul>
+<li>In other words: Your problem becomes a “big data problem” when you <strong>hit one or both of the walls!</strong></li>
+</ul>
+</section>
+<section id="you-vs.-your-opps" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="you-vs.-your-opps">You vs.&nbsp;Your Opps</h2>
+<center>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" width="800" height="500" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="https://jpj.georgetown.domains/dsan6000-scratch/Coyote.mp4"></video></div>
+</center>
+</section>
+<section id="so-you-find-yourself-smashed-against-a-wall" class="level2 smaller title-11">
+<h2 class="smaller title-11 anchored" data-anchor-id="so-you-find-yourself-smashed-against-a-wall">So you find yourself smashed against a wall…</h2>
+<p><em>(Some of yall would fold in this scenario)</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/fear.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="the-pre-cloud-approach-make-the-one-computer-faster-and-faster" class="level2 smaller title-10">
+<h2 class="smaller title-10 anchored" data-anchor-id="the-pre-cloud-approach-make-the-one-computer-faster-and-faster">The “Pre-Cloud” Approach: Make The One Computer Faster and Faster</h2>
+<center>
+<div class="quarto-video"><video id="video_shortcode_videojs_video2" width="800" height="500" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="https://jpj.georgetown.domains/dsan6000-scratch/nerf.mp4"></video></div>
+</center>
+</section>
+<section id="it-worked-for-many-decades" class="level2">
+<h2 class="anchored" data-anchor-id="it-worked-for-many-decades">It Worked For… Many Decades!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/moores.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="is-moores-law-dead" class="level2">
+<h2 class="anchored" data-anchor-id="is-moores-law-dead">Is Moore’s Law Dead?</h2>
+<ul>
+<li>…Kind of?</li>
+<li>Focus nowadays: <strong>specialized hardware / compute architectures</strong> hyper-optimized for <strong>particular tasks</strong>
+<ul>
+<li>[If you took DSAN 5500] Think of <strong>BLAS</strong></li>
+</ul></li>
+<li>Graphic Processing Units (GPUs)</li>
+<li>Field Programmable Gate Arrays (FPGAs)</li>
+<li>Data Processing Units (DPUs)</li>
+<li>Google’s <strong>Tensor Processing Units (TPUs)</strong></li>
+</ul>
+</section>
+<section id="so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do" class="level2">
+<h2 class="anchored" data-anchor-id="so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do">So, even upgrading our hardware didn’t help 😭 <em>now</em> what do we do?</h2>
+<ul>
+<li>We <span class="honk-honk">distribute!</span></li>
+<li>More CPUs, more memory, more storage!</li>
+</ul>
+</section>
+<section id="my-favorite-example-ever" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="my-favorite-example-ever">My Favorite Example Ever</h2>
+<ul>
+<li>Spongebob is cooking Krabby Patties too slowly to satisfy ravenous customers…</li>
+<li>Should he <strong>upgrade his one spatula?</strong> How bout just <strong>many simple spatulas at once!</strong></li>
+</ul>
+<center>
+<div class="quarto-video"><video id="video_shortcode_videojs_video3" width="800" height="400" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="https://jpj.georgetown.domains/dsan6000-scratch/triple_spatula.mp4"></video></div>
+</center>
+</section>
+<section id="how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for" class="level2 smaller title-12">
+<h2 class="smaller title-12 anchored" data-anchor-id="how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for">How Do We Achieve This? …That’s Exactly What <em>The Cloud</em> is For!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/cloud-providers.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="benefits" class="level2">
+<h2 class="anchored" data-anchor-id="benefits">Benefits</h2>
+<div class="quarto-layout-panel" data-layout="[1,1]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div id="benefits-text" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Provides access to low-cost computing</li>
+<li>Costs are decreasing every year</li>
+<li>Elastic</li>
+<li>PaaS works!</li>
+<li>Many other benefits…</li>
+</ul>
+</div>
+<div id="benefits-img" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/scale-up-scale-out.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="q-what-is-the-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="q-what-is-the-cloud">Q: What is The Cloud?</h2>
+<ul>
+<li>A: <strong>Using someone else’s computers</strong></li>
+</ul>
+</section>
+<section id="nist-definition" class="level2 crunch-title smaller title-12 crunch-quarto-layout-panel crunch-img crunch-p">
+<h2 class="crunch-title smaller title-12 crunch-quarto-layout-panel crunch-img crunch-p anchored" data-anchor-id="nist-definition">NIST Definition</h2>
+<div class="quarto-layout-panel" data-layout="[96,4]">
+<div class="quarto-layout-row">
+<div id="nist-img" class="quarto-layout-cell" style="flex-basis: 96.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/cloud-nist.png" class="img-fluid figure-img"></p>
+<figcaption>Based on <span class="citation" data-cites="mell_nist_2011">Mell and Grance (<a href="#ref-mell_nist_2011" role="doc-biblioref">2011</a>)</span> (The “official” NIST definition of “Cloud Computing”)</figcaption>
+</figure>
+</div>
+</div>
+<div id="nist-card" class="quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
+<p><img src="img/nist_card.jpg" class="img-fluid" width="30"> <img src="img/nist_door.jpg" class="img-fluid" width="30"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="service-models" class="level2">
+<h2 class="anchored" data-anchor-id="service-models">Service Models</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/cloud-service-models-traditional.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="hotel-analogy" class="level2">
+<h2 class="anchored" data-anchor-id="hotel-analogy">Hotel Analogy</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/cloud-service-models-hotel.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="infrastructure-as-a-service-iaas" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="infrastructure-as-a-service-iaas">Infrastructure as a Service (IaaS)</h2>
+<ul>
+<li><strong>Virtualized computing resources</strong> delivered over the internet</li>
+<li>Provider manages: Physical hardware, virtualization, networking, storage</li>
+<li>You manage: Operating systems, applications, runtime, data, middleware</li>
+</ul>
+<p><strong>Examples and Use Cases</strong></p>
+<ul>
+<li><strong>Amazon EC2</strong>, Microsoft Azure VMs, Google Compute Engine</li>
+<li><strong>Perfect for:</strong> Development environments, web hosting, backup &amp; recovery</li>
+<li><strong>Benefits:</strong> Rapid scaling, pay-as-you-go, global availability</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Launch a virtual machine in seconds</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> ec2 run-instances <span class="at">--image-id</span> ami-12345 <span class="at">--instance-type</span> t3.xlarge</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="platform-as-a-service-paas" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="platform-as-a-service-paas">Platform as a Service (PaaS)</h2>
+<section id="what-is-paas" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-paas">What is PaaS?</h3>
+<ul>
+<li><strong>Complete development and deployment environment</strong> in the cloud</li>
+<li>Provider manages: Infrastructure, operating systems, runtime environments</li>
+<li>You manage: Applications and data</li>
+</ul>
+<p><strong>Examples and Use Cases</strong></p>
+<ul>
+<li><strong>AWS Elastic Beanstalk</strong>, Google App Engine, Microsoft Azure App Service</li>
+<li><strong>Perfect for:</strong> Web applications, API development, microservices</li>
+<li><strong>Benefits:</strong> Faster development, automatic scaling, integrated DevOps</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Deploy your app with minimal configuration</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push heroku main  <span class="co"># App automatically deployed and scaled</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="software-as-a-service-saas" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="software-as-a-service-saas">Software as a Service (SaaS)</h2>
+<ul>
+<li><strong>Complete applications</strong> delivered over the internet</li>
+<li>Provider manages: Everything (infrastructure, platform, software)</li>
+<li>You manage: Your data and user access</li>
+</ul>
+<p><strong>Examples and Use Cases</strong></p>
+<ul>
+<li><strong>Gmail</strong>, Salesforce, Microsoft 365, Slack, Zoom</li>
+<li><strong>Perfect for:</strong> Business applications, collaboration tools, CRM</li>
+<li><strong>Benefits:</strong> No installation, automatic updates, accessible anywhere</li>
+</ul>
+<p><strong>The SaaS Revolution</strong></p>
+<ul>
+<li>80% of companies use SaaS applications</li>
+<li>$195 billion market size (2023)</li>
+</ul>
+</section>
+<section id="cloud-infrastructure-and-the-ai-revolution" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="cloud-infrastructure-and-the-ai-revolution">Cloud Infrastructure and the AI Revolution</h2>
+<ul>
+<li><strong>Massive Computational Requirements</strong>
+<ul>
+<li>Training large language models requires thousands of GPUs</li>
+<li>Cloud provides elastic access to specialized hardware</li>
+</ul></li>
+<li><strong>Data Storage and Processing</strong>
+<ul>
+<li>AI models need petabytes of training data</li>
+<li>Cloud offers unlimited, globally distributed storage</li>
+</ul></li>
+<li><strong>Cost Efficiency</strong>
+<ul>
+<li>Pay-per-use model for expensive AI hardware</li>
+<li>No upfront investment in GPU clusters</li>
+</ul></li>
+</ul>
+</section>
+<section id="gpu-infrastructure-the-ai-powerhouse" class="level2 smaller title-11">
+<h2 class="smaller title-11 anchored" data-anchor-id="gpu-infrastructure-the-ai-powerhouse">GPU Infrastructure: The AI Powerhouse</h2>
+<p><strong>From Gaming to AI</strong></p>
+<ul>
+<li><strong>Originally</strong>: Graphics processing for video games</li>
+<li><strong>Now</strong>: Parallel processing powerhouse for AI/ML workloads</li>
+<li><strong>Architecture</strong>: Thousands of cores vs.&nbsp;CPUs 8-64 cores</li>
+</ul>
+<p><strong>Cloud GPU Offerings</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AWS GPU instances for different AI workloads</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">p4d.24xlarge</span>   <span class="co"># 8x NVIDIA A100 (40GB) - $32/hour</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">p3.16xlarge</span>    <span class="co"># 8x NVIDIA V100 (16GB) - $24/hour</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">g4dn.xlarge</span>    <span class="co"># 1x NVIDIA T4 (16GB)   - $0.50/hour</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>The Scale Challenge</strong></p>
+<ul>
+<li><strong>GPT-4 training</strong>: Estimated 25,000 A100 GPUs for 6 months</li>
+<li><strong>Meta’s AI infrastructure</strong>: 350,000+ NVIDIA H100 chips</li>
+<li><strong>Cost</strong>: Single AI training run can cost $100M+</li>
+</ul>
+</section>
+<section id="distributed-computing-and-large-clusters" class="level2 smaller title-11 crunch-ul">
+<h2 class="smaller title-11 crunch-ul anchored" data-anchor-id="distributed-computing-and-large-clusters">Distributed Computing and Large Clusters</h2>
+<p><strong>Modern AI Requires Massive Clusters</strong></p>
+<ul>
+<li><strong>Model parallelism</strong>: Split models across multiple GPUs</li>
+<li><strong>Data parallelism</strong>: Process different data batches simultaneously<br>
+</li>
+<li><strong>Pipeline parallelism</strong>: Different layers on different GPUs</li>
+</ul>
+<p><strong>Technologies Enabling Scale</strong></p>
+<ul>
+<li><strong>Kubernetes</strong>: Container orchestration for microservices</li>
+<li><strong>Apache Spark</strong>: Distributed data processing framework</li>
+<li><strong>Ray</strong>: Distributed AI/ML framework for Python</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distributed training with Ray</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ray</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ray <span class="im">import</span> tune</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Scale across 1000+ machines automatically</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>tune.run(train_model, resources_per_trial<span class="op">=</span>{<span class="st">"gpu"</span>: <span class="dv">8</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="data-storage-evolution" class="level2 smaller crunch-title crunch-p text-65">
+<h2 class="smaller crunch-title crunch-p text-65 anchored" data-anchor-id="data-storage-evolution">Data Storage Evolution</h2>
+<p><strong>The Data Tsunami</strong></p>
+<ul>
+<li><strong>2025 projection</strong>: 181 zettabytes of data globally</li>
+<li><strong>AI training datasets</strong>: CommonCrawl (800TB), ImageNet (150GB)</li>
+<li><strong>Real-time requirements</strong>: 1-10ms latency for inference (some cases sub-millisecond)</li>
+</ul>
+<p><strong>Storage Technologies</strong></p>
+<ul>
+<li><strong>Object Storage</strong>: Amazon S3, Google Cloud Storage (petabyte scale)</li>
+<li><strong>High-performance</strong>: NVMe SSDs, persistent memory</li>
+<li><strong>Distributed filesystems</strong>: HDFS, GlusterFS, Ceph</li>
+</ul>
+<p><strong>The Economics of Data</strong></p>
+<ul>
+<li><strong>Storage costs</strong>: Dropped 99.9% since 1980</li>
+<li><strong>Transfer costs</strong>: Still significant for large datasets</li>
+<li><strong>Edge computing</strong>: Bringing compute closer to data sources</li>
+</ul>
+</section>
+<section id="evolution-of-the-cloud" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="evolution-of-the-cloud">Evolution of the Cloud</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Yesterday</th>
+<th>Today</th>
+<th>Tomorrow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Limited number of tools and vendors</td>
+<td>Many tools and vendors to work with</td>
+<td>Integrated tools and vendors</td>
+</tr>
+<tr class="even">
+<td>One platform - few devices</td>
+<td>Multiple platforms - many devices</td>
+<td>Connected platforms and devices</td>
+</tr>
+<tr class="odd">
+<td>Data is scarce but manageable</td>
+<td>Overabundance of data</td>
+<td>Data is used for important business decisions</td>
+</tr>
+<tr class="even">
+<td>IT has major influence and control</td>
+<td>IT has limited influence and control</td>
+<td>IT is strategic to the business</td>
+</tr>
+<tr class="odd">
+<td>People only work when they are at work</td>
+<td>People work wherever they want</td>
+<td>People have access to what they need wherever they are</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-does-the-cloud-look-like-microsoft-azure-data-center" class="level2 smaller title-08">
+<h2 class="smaller title-08 anchored" data-anchor-id="what-does-the-cloud-look-like-microsoft-azure-data-center">What Does the Cloud Look Like? Microsoft Azure Data Center</h2>
+<center>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/80aK2_iwMOs" width="800" height="500" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</center>
+</section>
+<section id="loudon-county-va-cloudon" class="level2">
+<h2 class="anchored" data-anchor-id="loudon-county-va-cloudon">Loudon County, VA: “CLoudon”</h2>
+<ul>
+<li>70% of the world’s internet traffic passes through Loudon</li>
+<li><a href="https://gcn.com/articles/2018/10/12/loudoun-county-data-centers.aspx">How data centers power VA’s Loudon County</a></li>
+<li><a href="https://www.cbsnews.com/news/cloud-computing-loudoun-county-virginia/">The heart of “The Cloud” is in Virginia</a></li>
+<li><a href="https://biz.loudoun.gov/2017/10/30/cbs-sunday-morning-visits-loudoun/">CBS Sunday Morning Visits the Home of the Internet in Loudoun County</a></li>
+</ul>
+</section>
+</section>
+<section id="further-reading-rabbitholes" class="level1" data-stack-name="Further Reading">
+<h1 data-stack-name="Further Reading">Further Reading (Rabbitholes!)</h1>
+<section id="further-reading-saas-and-cloud-computing" class="level2 smaller title-11">
+<h2 class="smaller title-11 anchored" data-anchor-id="further-reading-saas-and-cloud-computing">Further Reading: SaaS and Cloud Computing</h2>
+<p><strong>SaaS and Cloud Computing Statistics:</strong></p>
+<ul>
+<li><a href="https://zylo.com/blog/saas-statistics/">1. Zylo: 111 Unmissable SaaS Statistics for 2025</a></li>
+<li><a href="https://www.spendesk.com/blog/saas-statistics/">2. Spendesk: 60+ eye-opening SaaS statistics (2025)</a></li>
+<li><a href="https://www.substly.com/en/blog/the-28-most-important-saas-statistics-in-2023">3. Substly: The 28 most important SaaS statistics in 2023</a></li>
+<li><a href="https://harpa.ai/blog/saas-industry-key-statistics-2023">4. Harpa AI: SaaS Industry Key Statistics 2023</a></li>
+<li><a href="https://www.contentbeta.com/blog/saas-video-statistics/">5. Content Beta: 110+ SaaS Statistics and Trends</a></li>
+<li><a href="https://www.statista.com/statistics/1233538/average-number-saas-apps-yearly/">6. Statista: Average number of SaaS apps used in the U.S. 2024</a></li>
+<li><a href="https://meetanshi.com/blog/saas-statistics/">7. Meetanshi: SaaS Statistics for 2025: Market Size, Growth, Trends &amp; More</a></li>
+</ul>
+</section>
+<section id="data-storage-and-ai-infrastructure" class="level2 smaller title-11">
+<h2 class="smaller title-11 anchored" data-anchor-id="data-storage-and-ai-infrastructure">Data Storage and AI Infrastructure</h2>
+<ul>
+<li><strong>2025 global data volume (181 zettabytes)</strong>
+<ul>
+<li><a href="https://rivery.io/blog/big-data-statistics-how-much-data-is-there-in-the-world/">rivery.io</a></li>
+<li><a href="https://explodingtopics.com/blog/data-generated-per-day">ExplodingTopics.com</a></li>
+<li><a href="https://www.pit.edu/news/data-analytics-statistics-and-trends-for-2025/">PIT.edu</a></li>
+<li><a href="https://www.forbes.com/councils/forbestechcouncil/2024/03/04/from-5mb-hard-drives-to-180-zettabytes-the-data-migration-challenge/">Forbes</a></li>
+</ul></li>
+<li><a href="https://www.ibm.com/think/topics/ai-data-center">CommonCrawl and ImageNet dataset sizes</a></li>
+<li>AI inference latency and storage tech:
+<ul>
+<li><a href="https://www.ibm.com/think/topics/ai-data-center">IBM</a></li>
+<li><a href="https://www.rcrwireless.com/20250407/fundamentals/ai-optimized-data-center">RCR Wireless</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="storage-economics-and-technology" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="storage-economics-and-technology">Storage Economics and Technology</h2>
+<ul>
+<li><strong>Storage cost declines</strong>
+<ul>
+<li><a href="https://humanprogress.org/trends/vastly-cheaper-computation/">HumanProgress.org</a></li>
+<li><a href="https://ourworldindata.org/data-insights/the-price-of-computer-storage-has-fallen-exponentially-since-the-1950s">Our World In Data</a></li>
+</ul></li>
+<li><a href="https://lightedge.com/the-data-explosion-and-hidden-data-storage-costs-in-the-cloud-could-object-storage-be-the-answer/">Ongoing significance of transfer (egress) costs</a></li>
+<li><a href="https://mondo.com/insights/evolution-data-storage-tapes-cloud-computing/">Edge computing trends</a></li>
+</ul>
+</section>
+<section id="gpu-infrastructure-and-ai-training-costs" class="level2 smaller title-11">
+<h2 class="smaller title-11 anchored" data-anchor-id="gpu-infrastructure-and-ai-training-costs">GPU Infrastructure and AI Training Costs</h2>
+<ul>
+<li>GPT-4 GPU count and training duration
+<ul>
+<li><a href="https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33">Genspark.ai</a></li>
+<li><a href="https://klu.ai/blog/gpt-4-llm">klu.ai</a></li>
+<li><a href="https://www.acorn.io/resources/learning-center/openai/">acorn.io</a></li>
+</ul></li>
+<li><a href="https://www.reddit.com/r/singularity/comments/1bi8rme/jensen_huang_just_gave_us_some_numbers_for_the/">Meta’s NVIDIA H100 GPUs</a></li>
+<li>AI training cost estimates
+<ul>
+<li><a href="https://www.genspark.ai/spark/how-many-gpus-are-needed-to-train-gpt4-o/56c3b449-f206-495f-bc9b-d06812bf4a33">Genspark.ai</a></li>
+<li><a href="https://www.acorn.io/resources/learning-center/openai/">acorn.io</a></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="lab-ec2-s3" class="level1" data-stack-name="AWS Lab">
+<h1 data-stack-name="AWS Lab">Lab: EC2 🤝 S3</h1>
+<p><a href="https://gu-dsan.github.io/6000-fall-2025/labs/02-labs.html">Click to Open Lab 2</a></p>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-loukides_what_2010" class="csl-entry" role="listitem">
+Loukides, Mike. 2010. <span>“What Is Data Science?”</span> <em>O’Reilly Media</em>. <a href="https://www.oreilly.com/radar/what-is-data-science/">https://www.oreilly.com/radar/what-is-data-science/</a>.
+</div>
+<div id="ref-mell_nist_2011" class="csl-entry" role="listitem">
+Mell, Peter, and Timothy Grance. 2011. <span>“The <span>NIST Definition</span> of <span>Cloud Computing</span>.”</span> <em>National Institute of Standards and Technology, Special Publication</em> 800 (2011): 145. <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf">https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf</a>.
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w02/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer><script>videojs(video_shortcode_videojs_video1);</script>
+<script>videojs(video_shortcode_videojs_video2);</script>
+<script>videojs(video_shortcode_videojs_video3);</script>
+
+
+
+
+</body></html>

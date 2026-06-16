@@ -1,0 +1,2346 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Amit Arora and Jeff Jacobs">
+
+<title>Week 1: Course Overview – DSAN 6000 Slide Hub</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-0d4a9d19931feb4fee1ddab4b2489000.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-ff63373b1067ca6f91cf1456aa1f00a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><script src="../sidebar.js"></script><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../dsan-globals/jjstyles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../w01/index.html">Week 1: Aug 28</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">DSAN 6000 Slide Hub</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://gu-dsan.github.io/6000-fall-2025/" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><i class="bi bi-arrow-left-short pe-1"></i> Main Course Page</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w01/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 1: Aug 28</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2: <span class="sec-w02-date">Sep 2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3: <span class="sec-w03-date">Sep 8</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4: <span class="sec-w04-date">Sep 15</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5: <span class="sec-w05-date">Sep 22</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w06/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6: <span class="sec-w06-date">Sep 29</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w07/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7: <span class="sec-w07-date">Oct 6</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w08/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8: <span class="sec-w08-date">Oct 20</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w09/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9: <span class="sec-w09-date">Oct 27</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w10/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10: <span class="sec-w10-date">Nov 3</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w11/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11: <span class="sec-w11-date">Nov 10</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w12/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12: <span class="sec-w12-date">Nov 17</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w13/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 13: <span class="sec-w13-date">Nov 24</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w14/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 14: <span class="sec-w14-date">Dec 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../w15/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 15: <span class="sec-w15-date">Dec 8</span></span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://georgetown.zoom.us/j/91628796534?pwd=BSnBpL4VeysAQMbUtbH4MmwOunglLh.1" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">S01 (Mon) Zoom Link <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://georgetown.zoom.us/j/92724737140?pwd=rIyVrsa3CDq9xCv4LGNX3Cq0o2J3An.1" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">S02 (Thu) Zoom Link <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://georgetown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9ebe4700-c41f-434a-bb78-b34801332737" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Recordings <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://jjacobs.me/meet" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Book Office Hour <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p><em>Updated 2025-11-17, 03:16:11 PM</em></p>
+</div></div></nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#agenda-for-todays-session" id="toc-agenda-for-todays-session" class="nav-link active" data-scroll-target="#agenda-for-todays-session">Agenda for today’s session</a></li>
+  <li><a href="#course-overview" id="toc-course-overview" class="nav-link" data-scroll-target="#course-overview">Course Overview</a>
+  <ul class="collapse">
+  <li><a href="#bookmark-these-links" id="toc-bookmark-these-links" class="nav-link" data-scroll-target="#bookmark-these-links">Bookmark these links!</a></li>
+  <li><a href="#instructional-team---professors" id="toc-instructional-team---professors" class="nav-link" data-scroll-target="#instructional-team---professors">Instructional Team - Professors</a></li>
+  <li><a href="#amit-arora-aa1603georgetown.edu" id="toc-amit-arora-aa1603georgetown.edu" class="nav-link" data-scroll-target="#amit-arora-aa1603georgetown.edu">Amit Arora, <code>aa1603@georgetown.edu</code></a></li>
+  <li><a href="#jeff-jacobs-jj1088georgetown.edu" id="toc-jeff-jacobs-jj1088georgetown.edu" class="nav-link" data-scroll-target="#jeff-jacobs-jj1088georgetown.edu">Jeff Jacobs, <code>jj1088@georgetown.edu</code></a></li>
+  <li><a href="#instructional-team---teaching-assistants" id="toc-instructional-team---teaching-assistants" class="nav-link" data-scroll-target="#instructional-team---teaching-assistants">Instructional Team - Teaching Assistants</a></li>
+  <li><a href="#binhui-chen-bc928georgetown.edu" id="toc-binhui-chen-bc928georgetown.edu" class="nav-link" data-scroll-target="#binhui-chen-bc928georgetown.edu">Binhui Chen, <code>bc928@georgetown.edu</code></a></li>
+  <li><a href="#pranav-sudhir-patil-pp755georgetown.edu" id="toc-pranav-sudhir-patil-pp755georgetown.edu" class="nav-link" data-scroll-target="#pranav-sudhir-patil-pp755georgetown.edu">Pranav Sudhir Patil, <code>pp755@georgetown.edu</code></a></li>
+  <li><a href="#ofure-udabor-au195georgetown.edu" id="toc-ofure-udabor-au195georgetown.edu" class="nav-link" data-scroll-target="#ofure-udabor-au195georgetown.edu">Ofure Udabor, <code>au195@georgetown.edu</code></a></li>
+  <li><a href="#yifei-wu-yw924georgetown.edu" id="toc-yifei-wu-yw924georgetown.edu" class="nav-link" data-scroll-target="#yifei-wu-yw924georgetown.edu">Yifei Wu, <code>yw924@georgetown.edu</code></a></li>
+  <li><a href="#naomi-yamaguchi-ny159georgetown.edu" id="toc-naomi-yamaguchi-ny159georgetown.edu" class="nav-link" data-scroll-target="#naomi-yamaguchi-ny159georgetown.edu">Naomi Yamaguchi, <code>ny159@georgetown.edu</code></a></li>
+  <li><a href="#leqi-ying-ly290georgetown.edu" id="toc-leqi-ying-ly290georgetown.edu" class="nav-link" data-scroll-target="#leqi-ying-ly290georgetown.edu">Leqi Ying, <code>ly290@georgetown.edu</code></a></li>
+  <li><a href="#xinyue-monica-zhang-xz646georgetown.edu" id="toc-xinyue-monica-zhang-xz646georgetown.edu" class="nav-link" data-scroll-target="#xinyue-monica-zhang-xz646georgetown.edu">Xinyue (Monica) Zhang, <code>xz646@georgetown.edu</code></a></li>
+  <li><a href="#course-description" id="toc-course-description" class="nav-link" data-scroll-target="#course-description">Course Description</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">Evaluation</a></li>
+  <li><a href="#course-materials" id="toc-course-materials" class="nav-link" data-scroll-target="#course-materials">Course Materials</a></li>
+  <li><a href="#communication" id="toc-communication" class="nav-link" data-scroll-target="#communication">Communication</a></li>
+  <li><a href="#slack-rules" id="toc-slack-rules" class="nav-link" data-scroll-target="#slack-rules">Slack rules</a></li>
+  <li><a href="#midterm-project-new" id="toc-midterm-project-new" class="nav-link" data-scroll-target="#midterm-project-new">Midterm Project (NEW!)</a></li>
+  <li><a href="#final-project" id="toc-final-project" class="nav-link" data-scroll-target="#final-project">Final Project</a></li>
+  </ul></li>
+  <li><a href="#big-data" id="toc-big-data" class="nav-link" data-scroll-target="#big-data">BIG DATA</a>
+  <ul class="collapse">
+  <li><a href="#in-one-minute-of-time-2018" id="toc-in-one-minute-of-time-2018" class="nav-link" data-scroll-target="#in-one-minute-of-time-2018">In one minute of time (2018)</a></li>
+  <li><a href="#in-one-minute-of-time-2019" id="toc-in-one-minute-of-time-2019" class="nav-link" data-scroll-target="#in-one-minute-of-time-2019">In one minute of time (2019)</a></li>
+  <li><a href="#in-one-minute-of-time-2020" id="toc-in-one-minute-of-time-2020" class="nav-link" data-scroll-target="#in-one-minute-of-time-2020">In one minute of time (2020)</a></li>
+  <li><a href="#in-one-minute-of-time-2021" id="toc-in-one-minute-of-time-2021" class="nav-link" data-scroll-target="#in-one-minute-of-time-2021">In one minute of time (2021)</a></li>
+  <li><a href="#in-one-minute-of-time-2025" id="toc-in-one-minute-of-time-2025" class="nav-link" data-scroll-target="#in-one-minute-of-time-2025">In one minute of time (2025)</a></li>
+  <li><a href="#a-lot-of-it-is-hapenning-online." id="toc-a-lot-of-it-is-hapenning-online." class="nav-link" data-scroll-target="#a-lot-of-it-is-hapenning-online."><em>A lot</em> of it is hapenning online.</a></li>
+  <li><a href="#it-can-also-be-user-generated-content" id="toc-it-can-also-be-user-generated-content" class="nav-link" data-scroll-target="#it-can-also-be-user-generated-content">It can also be user-generated content:</a></li>
+  <li><a href="#but-health-and-scientific-computing-create-a-lot-too" id="toc-but-health-and-scientific-computing-create-a-lot-too" class="nav-link" data-scroll-target="#but-health-and-scientific-computing-create-a-lot-too">But health and scientific computing create a lot too!</a></li>
+  <li><a href="#theres-lots-of-graph-data-too" id="toc-theres-lots-of-graph-data-too" class="nav-link" data-scroll-target="#theres-lots-of-graph-data-too">There’s lots of <strong>graph</strong> data too</a></li>
+  <li><a href="#apache-web-server-log-files" id="toc-apache-web-server-log-files" class="nav-link" data-scroll-target="#apache-web-server-log-files">Apache (web server) log files</a></li>
+  <li><a href="#system-log-files" id="toc-system-log-files" class="nav-link" data-scroll-target="#system-log-files">System log files</a></li>
+  <li><a href="#internet-of-things-iot-in-2025" id="toc-internet-of-things-iot-in-2025" class="nav-link" data-scroll-target="#internet-of-things-iot-in-2025">Internet of Things (IoT) in 2025</a></li>
+  <li><a href="#smartphone-location-data" id="toc-smartphone-location-data" class="nav-link" data-scroll-target="#smartphone-location-data">Smartphone Location Data</a></li>
+  <li><a href="#where-else" id="toc-where-else" class="nav-link" data-scroll-target="#where-else">Where else?</a></li>
+  <li><a href="#typical-real-world-scenarios-in-2025" id="toc-typical-real-world-scenarios-in-2025" class="nav-link" data-scroll-target="#typical-real-world-scenarios-in-2025">Typical Real-World Scenarios in 2025</a></li>
+  </ul></li>
+  <li><a href="#what-is-big-data" id="toc-what-is-big-data" class="nav-link" data-scroll-target="#what-is-big-data">What is Big Data?</a>
+  <ul class="collapse">
+  <li><a href="#lets-discuss" id="toc-lets-discuss" class="nav-link" data-scroll-target="#lets-discuss">Let’s discuss!</a></li>
+  <li><a href="#big-data-definitions" id="toc-big-data-definitions" class="nav-link" data-scroll-target="#big-data-definitions">Big Data Definitions</a></li>
+  <li><a href="#frameworks-for-thinking-about-big-data" id="toc-frameworks-for-thinking-about-big-data" class="nav-link" data-scroll-target="#frameworks-for-thinking-about-big-data">Frameworks for Thinking About Big Data</a></li>
+  <li><a href="#data-size" id="toc-data-size" class="nav-link" data-scroll-target="#data-size">Data “Size”</a></li>
+  </ul></li>
+  <li><a href="#big-data-in-the-age-of-generative-ai" id="toc-big-data-in-the-age-of-generative-ai" class="nav-link" data-scroll-target="#big-data-in-the-age-of-generative-ai">Big Data in the Age of Generative AI</a>
+  <ul class="collapse">
+  <li><a href="#the-new-data-landscape-2025" id="toc-the-new-data-landscape-2025" class="nav-link" data-scroll-target="#the-new-data-landscape-2025">The New Data Landscape (2025)</a></li>
+  <li><a href="#big-data-infrastructure-data-lakes-warehouses" id="toc-big-data-infrastructure-data-lakes-warehouses" class="nav-link" data-scroll-target="#big-data-infrastructure-data-lakes-warehouses">Big Data Infrastructure: Data Lakes, Warehouses</a></li>
+  <li><a href="#rag-and-context-engineering-the-new-data-pipeline" id="toc-rag-and-context-engineering-the-new-data-pipeline" class="nav-link" data-scroll-target="#rag-and-context-engineering-the-new-data-pipeline">RAG and Context Engineering: The New Data Pipeline</a></li>
+  <li><a href="#mcp-servers-agentic-ai" id="toc-mcp-servers-agentic-ai" class="nav-link" data-scroll-target="#mcp-servers-agentic-ai">MCP Servers &amp; Agentic AI</a></li>
+  <li><a href="#data-quality-for-ai" id="toc-data-quality-for-ai" class="nav-link" data-scroll-target="#data-quality-for-ai">Data Quality for AI</a></li>
+  <li><a href="#real-world-big-data-ai-examples" id="toc-real-world-big-data-ai-examples" class="nav-link" data-scroll-target="#real-world-big-data-ai-examples">Real-World Big Data / AI Examples</a></li>
+  <li><a href="#emerging-trends-2025-2027" id="toc-emerging-trends-2025-2027" class="nav-link" data-scroll-target="#emerging-trends-2025-2027">Emerging Trends (2025-2027)</a></li>
+  <li><a href="#relative-data-sizes" id="toc-relative-data-sizes" class="nav-link" data-scroll-target="#relative-data-sizes">Relative Data Sizes</a></li>
+  <li><a href="#what-youll-learn-in-this-course" id="toc-what-youll-learn-in-this-course" class="nav-link" data-scroll-target="#what-youll-learn-in-this-course">What You’ll Learn in This Course</a></li>
+  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data Types</a></li>
+  <li><a href="#big-data-vs.-small-data-i" id="toc-big-data-vs.-small-data-i" class="nav-link" data-scroll-target="#big-data-vs.-small-data-i">Big Data vs.&nbsp;Small Data I</a></li>
+  <li><a href="#big-data-vs.-small-data-ii" id="toc-big-data-vs.-small-data-ii" class="nav-link" data-scroll-target="#big-data-vs.-small-data-ii">Big Data vs.&nbsp;Small Data II</a></li>
+  <li><a href="#challenges-of-working-with-large-datasets" id="toc-challenges-of-working-with-large-datasets" class="nav-link" data-scroll-target="#challenges-of-working-with-large-datasets">Challenges of Working with Large Datasets</a></li>
+  <li><a href="#thinking-about-big-data-workflows" id="toc-thinking-about-big-data-workflows" class="nav-link" data-scroll-target="#thinking-about-big-data-workflows">Thinking About Big Data Workflows</a></li>
+  <li><a href="#tools-at-a-glance" id="toc-tools-at-a-glance" class="nav-link" data-scroll-target="#tools-at-a-glance">Tools at-a-glance</a></li>
+  <li><a href="#additional-links-of-interest" id="toc-additional-links-of-interest" class="nav-link" data-scroll-target="#additional-links-of-interest">Additional links of interest</a></li>
+  </ul></li>
+  <li><a href="#data-engineering" id="toc-data-engineering" class="nav-link" data-scroll-target="#data-engineering">Data Engineering</a>
+  <ul class="collapse">
+  <li><a href="#data-scientist-vs.-data-engineer" id="toc-data-scientist-vs.-data-engineer" class="nav-link" data-scroll-target="#data-scientist-vs.-data-engineer">Data Scientist vs.&nbsp;Data Engineer</a></li>
+  <li><a href="#data-engineer-responsibilities" id="toc-data-engineer-responsibilities" class="nav-link" data-scroll-target="#data-engineer-responsibilities">Data Engineer Responsibilities</a></li>
+  <li><a href="#data-engineering-levels-2-and-3" id="toc-data-engineering-levels-2-and-3" class="nav-link" data-scroll-target="#data-engineering-levels-2-and-3">Data Engineering: Levels 2 and 3</a></li>
+  </ul></li>
+  <li><a href="#modern-data-architecture" id="toc-modern-data-architecture" class="nav-link" data-scroll-target="#modern-data-architecture">Modern Data Architecture</a>
+  <ul class="collapse">
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">Architecture</a></li>
+  <li><a href="#storage" id="toc-storage" class="nav-link" data-scroll-target="#storage">Storage</a></li>
+  <li><a href="#source-control" id="toc-source-control" class="nav-link" data-scroll-target="#source-control">Source control</a></li>
+  <li><a href="#orchestration" id="toc-orchestration" class="nav-link" data-scroll-target="#orchestration">Orchestration</a></li>
+  <li><a href="#processing" id="toc-processing" class="nav-link" data-scroll-target="#processing">Processing</a></li>
+  <li><a href="#analytics" id="toc-analytics" class="nav-link" data-scroll-target="#analytics">Analytics</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
+  <li><a href="#governance" id="toc-governance" class="nav-link" data-scroll-target="#governance">Governance</a></li>
+  </ul></li>
+  <li><a href="#time-for-lab-linux-command-line" id="toc-time-for-lab-linux-command-line" class="nav-link" data-scroll-target="#time-for-lab-linux-command-line">Time for Lab! Linux Command Line</a>
+  <ul class="collapse">
+  <li><a href="#the-terminal" id="toc-the-terminal" class="nav-link" data-scroll-target="#the-terminal">The Terminal</a></li>
+  <li><a href="#bash" id="toc-bash" class="nav-link" data-scroll-target="#bash">BASH</a></li>
+  <li><a href="#the-prompt" id="toc-the-prompt" class="nav-link" data-scroll-target="#the-prompt">The Prompt</a></li>
+  <li><a href="#syntax" id="toc-syntax" class="nav-link" data-scroll-target="#syntax">Syntax</a></li>
+  <li><a href="#examining-files" id="toc-examining-files" class="nav-link" data-scroll-target="#examining-files">Examining Files</a></li>
+  <li><a href="#navigating-directories" id="toc-navigating-directories" class="nav-link" data-scroll-target="#navigating-directories">Navigating Directories</a></li>
+  <li><a href="#interacting-with-files" id="toc-interacting-with-files" class="nav-link" data-scroll-target="#interacting-with-files">Interacting with Files</a></li>
+  <li><a href="#using-bash-for-data-exploration" id="toc-using-bash-for-data-exploration" class="nav-link" data-scroll-target="#using-bash-for-data-exploration">Using BASH for Data Exploration</a></li>
+  <li><a href="#pipes-and-arrows" id="toc-pipes-and-arrows" class="nav-link" data-scroll-target="#pipes-and-arrows">Pipes and Arrows</a></li>
+  <li><a href="#alias-and-user-files" id="toc-alias-and-user-files" class="nav-link" data-scroll-target="#alias-and-user-files">Alias and User Files</a></li>
+  <li><a href="#process-management" id="toc-process-management" class="nav-link" data-scroll-target="#process-management">Process Management</a></li>
+  <li><a href="#try-playing-a-linux-game" id="toc-try-playing-a-linux-game" class="nav-link" data-scroll-target="#try-playing-a-linux-game">Try playing a Linux game!</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w01/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 1: Course Overview</h1>
+<p class="subtitle lead"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2025</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Class Sessions</div>
+  </div>
+  </div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Amit Arora and Jeff Jacobs </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="mailto:jj1088@georgetown.edu" target="_blank"><code>jj1088@georgetown.edu</code></a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Thursday, August 28, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<center class="mb-3">
+<a class="h2" href="./slides.html" target="_blank">Open slides in new tab →</a>
+</center>
+<section id="agenda-for-todays-session" class="level2">
+<h2 class="anchored" data-anchor-id="agenda-for-todays-session">Agenda for today’s session</h2>
+<ol type="1">
+<li><p>Course and syllabus overview</p></li>
+<li><p>Big Data Concepts</p>
+<ol type="1">
+<li>Definition</li>
+<li>Challenges</li>
+<li>Approaches</li>
+</ol></li>
+<li><p>Data Engineering</p></li>
+<li><p>Introduction to <code>bash</code></p>
+<ol type="1">
+<li>Lab: Linux command line</li>
+</ol></li>
+</ol>
+</section>
+<section id="course-overview" class="level1" data-stack-name="Course Overview">
+<h1 data-stack-name="Course Overview">Course Overview</h1>
+<section id="bookmark-these-links" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="bookmark-these-links">Bookmark these links!</h2>
+<ul>
+<li>Course website: <a href="https://gu-dsan.github.io/6000-fall-2025/">https://gu-dsan.github.io/6000-fall-2025/</a></li>
+<li>GitHub Organization for your deliverables: <a href="https://github.com/gu-dsan/">https://github.com/gu-dsan/</a></li>
+<li>GitHub Classroom: <a href="https://classroom.github.com/classrooms/34950344-georgetown-university-dsan6000-big-data-and-cloud-computing">https://classroom.github.com/classrooms/34950344-georgetown-university-dsan6000-big-data-and-cloud-computing</a></li>
+<li>Slack Workspace: <strong>DSAN6000 Fall 2025</strong> - <a href="https://dsan6000fall2025.slack.com">https://dsan6000fall2025.slack.com</a>
+<ul>
+<li>Join link: <a href="https://join.slack.com/t/dsan6000fall2025/shared_invite/zt-3b22qhque-GagQykwYYNiEzli9UXJn4w">https://join.slack.com/t/dsan6000fall2025/shared_invite/zt-3b22qhque-GagQykwYYNiEzli9UXJn4w</a></li>
+</ul></li>
+<li>Instructors email: <a href="mailto::dsan-Fall-2025@georgetown.edu">dsan-Fall-2025@georgetown.edu</a></li>
+<li>Canvas: <a href="https://georgetown.instructure.com/courses/TBA-2025">https://georgetown.instructure.com/courses/TBA-2025</a></li>
+</ul>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>These are also pinned on the Slack <code>main</code> channel</p>
+</div>
+</div>
+</div>
+</section>
+<section id="instructional-team---professors" class="level2">
+<h2 class="anchored" data-anchor-id="instructional-team---professors">Instructional Team - Professors</h2>
+<ul>
+<li>Amit Arora, <a href="mailto:aa1603@georgetown.edu"><code>aa1603@georgetown.edu</code></a></li>
+<li>Jeff Jacobs, <a href="mailto:jj1088@georgetown.edu"><code>jj1088@georgetown.edu</code></a></li>
+</ul>
+</section>
+<section id="amit-arora-aa1603georgetown.edu" class="level2 smaller title-12">
+<h2 class="smaller title-12 anchored" data-anchor-id="amit-arora-aa1603georgetown.edu">Amit Arora, <a href="mailto:aa1603@georgetown.edu"><code>aa1603@georgetown.edu</code></a></h2>
+<div class="columns">
+<div class="column" style="width:75%;">
+<ul>
+<li>Principal Solutions Architect - AI/ML at AWS</li>
+<li>Adjunct Professor at Georgetown University</li>
+<li>Multiple patents in telecommunications and applications of ML in telecommunications</li>
+</ul>
+<p>Fun Facts</p>
+</div><div class="column" style="width:25%;">
+<p><img src="./img/amit.jpeg" title="Amit Arora" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>I am a self-published author https://blueberriesinmysalad.com/</li>
+<li>My book “Blueberries in my salad: my forever journey towards fitness &amp; strength” is written as code in R and Markdown</li>
+<li>I love to read books about health and human performance, productivity, philosophy and <i>Mathematics for ML</i>. My reading list is <a href="https://aarora79.github.io/my-reading-list/">online</a>!</li>
+</ul>
+</section>
+<section id="jeff-jacobs-jj1088georgetown.edu" class="level2 smaller title-12 crunch-ul crunch-img crunch-title">
+<h2 class="smaller title-12 crunch-ul crunch-img crunch-title anchored" data-anchor-id="jeff-jacobs-jj1088georgetown.edu">Jeff Jacobs, <a href="mailto:jj1088@georgetown.edu"><code>jj1088@georgetown.edu</code></a></h2>
+<div class="columns">
+<div class="column" style="width:75%;">
+<ul>
+<li>Full-time Professor at Georgetown (DSAN and Public Policy)</li>
+<li>Background in Computational Social Science (Comp Sci MS → Political Economy PhD → Labor Econ Postdoc)</li>
+</ul>
+<p>Fun Facts</p>
+<ul>
+<li>Used Apache Airflow daily for PhD projects! <a href="https://ieeexplore.ieee.org/document/9346539">(Example)</a></li>
+</ul>
+</div><div class="column" style="width:25%;">
+<p><img src="./img/jeff.jpg" title="Jeff Jacobs" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>Server admin for lab server → lab AWS account at Columbia (2015-2023) → new DSAN server (!) (2025-)</li>
+<li>Passion project 1: <a href="https://www.codedotx.org/code-for-palestine">Code for Palestine (2015-2022)</a> → <a href="https://www.codedotx.org/youthcode-gaza">YouthCode-Gaza (2023)</a> → <a href="https://jjacobs.me/data-ethics-cdto/#/title-slide">Ukraine Ministry of Digital Transformation (2024)</a></li>
+<li>Passion projects 2+3 [🤓]: <a href="https://open.spotify.com/track/43HqrCcK5FCkZG3mAQFmch?si=c6afba6dff394fe6">Sample-based music production</a>, <a href="https://dbtskills.io/">web app frameworks</a></li>
+<li>Sleep disorder means lots of <a href="https://app.thestorygraph.com/profile/jpowerj">reading</a> – mainly history! – at night</li>
+<li>Also teaching <em>PPOL6805 / DSAN 6750: GIS for Spatial Data Science</em> this semester</li>
+</ul>
+</section>
+<section id="instructional-team---teaching-assistants" class="level2 smaller title-12">
+<h2 class="smaller title-12 anchored" data-anchor-id="instructional-team---teaching-assistants">Instructional Team - Teaching Assistants</h2>
+<ul>
+<li>Binhui Chen, <a href="mailto:bc928@georgetown.edu"><code>bc928@georgetown.edu</code></a></li>
+<li>Pranav Sudhir Patil, <a href="mailto:pp755@georgetown.edu"><code>pp755@georgetown.edu</code></a></li>
+<li>Ofure Udabor, <a href="mailto:au195@georgetown.edu"><code>au195@georgetown.edu</code></a></li>
+<li>Yifei Wu, <a href="mailto:yw924@georgetown.edu"><code>yw924@georgetown.edu</code></a></li>
+<li>Naomi Yamaguchi, <a href="mailto:ny159@georgetown.edu"><code>ny159@georgetown.edu</code></a></li>
+<li>Leqi Ying, <a href="mailto:ly290@georgetown.edu"><code>ly290@georgetown.edu</code></a></li>
+<li>Xinyue (Monica) Zhang, <a href="mailto:xz646@georgetown.edu"><code>xz646@georgetown.edu</code></a></li>
+</ul>
+</section>
+<section id="binhui-chen-bc928georgetown.edu" class="level2 smaller title-12">
+<h2 class="smaller title-12 anchored" data-anchor-id="binhui-chen-bc928georgetown.edu">Binhui Chen, <a href="mailto:bc928@georgetown.edu"><code>bc928@georgetown.edu</code></a></h2>
+<p><em>(Lead TA for the course!)</em></p>
+<center>
+<p><img src="img/binhui.jpg" class="img-fluid"></p>
+</center>
+</section>
+<section id="pranav-sudhir-patil-pp755georgetown.edu" class="level2 smaller title-11">
+<h2 class="smaller title-11 anchored" data-anchor-id="pranav-sudhir-patil-pp755georgetown.edu">Pranav Sudhir Patil, <a href="mailto:pp755@georgetown.edu"><code>pp755@georgetown.edu</code></a></h2>
+<center>
+<p><img src="img/pranav.jpg" class="img-fluid"></p>
+</center>
+</section>
+<section id="ofure-udabor-au195georgetown.edu" class="level2 smaller title-12">
+<h2 class="smaller title-12 anchored" data-anchor-id="ofure-udabor-au195georgetown.edu">Ofure Udabor, <a href="mailto:au195@georgetown.edu"><code>au195@georgetown.edu</code></a></h2>
+<center>
+<p><img src="img/ofure2.jpg" class="img-fluid" style="width:35.0%"></p>
+</center>
+</section>
+<section id="yifei-wu-yw924georgetown.edu" class="level2 smaller title-12">
+<h2 class="smaller title-12 anchored" data-anchor-id="yifei-wu-yw924georgetown.edu">Yifei Wu, <a href="mailto:yw924@georgetown.edu"><code>yw924@georgetown.edu</code></a></h2>
+<center>
+<p><img src="img/yifei.jpg" class="img-fluid"></p>
+</center>
+</section>
+<section id="naomi-yamaguchi-ny159georgetown.edu" class="level2 smaller title-11">
+<h2 class="smaller title-11 anchored" data-anchor-id="naomi-yamaguchi-ny159georgetown.edu">Naomi Yamaguchi, <a href="mailto:ny159@georgetown.edu"><code>ny159@georgetown.edu</code></a></h2>
+<center>
+<p><img src="img/naomi.jpg" class="img-fluid"></p>
+</center>
+</section>
+<section id="leqi-ying-ly290georgetown.edu" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="leqi-ying-ly290georgetown.edu">Leqi Ying, <a href="mailto:ly290@georgetown.edu"><code>ly290@georgetown.edu</code></a></h2>
+<center>
+<p><img src="img/leqi.jpg" class="img-fluid"></p>
+</center>
+</section>
+<section id="xinyue-monica-zhang-xz646georgetown.edu" class="level2 smaller title-10">
+<h2 class="smaller title-10 anchored" data-anchor-id="xinyue-monica-zhang-xz646georgetown.edu">Xinyue (Monica) Zhang, <a href="mailto:xz646@georgetown.edu"><code>xz646@georgetown.edu</code></a></h2>
+<center>
+<p><img src="img/xinyue.jpg" class="img-fluid"></p>
+</center>
+</section>
+<section id="course-description" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="course-description">Course Description</h2>
+<ul>
+<li><p>Data is everywhere! Many times, it’s just too big to work with traditional tools. This is a hands-on, practical workshop style course about using cloud computing resources to do analysis and manipulation of datasets that are too large to fit on a single machine and/or analyzed with traditional tools. The course will focus on Spark, MapReduce, the Hadoop Ecosystem and other tools.</p></li>
+<li><p>You will understand how to acquire and/or ingest the data, and then massage, clean, transform, analyze, and model it within the context of big data analytics. You will be able to think more programmatically and logically about your big data needs, tools and issues.</p></li>
+</ul>
+<p>Always refer to the <a href="../syllabus.html">syllabus</a> and <a href="../schedule.html">calendar</a> in the <a href="https://gu-dsan.github.io/6000-fall-2025/">course website</a> for class policies.</p>
+</section>
+<section id="learning-objectives" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<ul>
+<li>Setup, operate and manage big data tools and cloud infrastructure, including Spark, DuckDB, Polars, Athena, Snowflake, and orchestration tools like Airflow on Amazon Web Services</li>
+<li>Use ancillary tools that support big data processing, including git and the Linux command line</li>
+<li>Execute a big data analytics exercise from start to finish: ingest, wrangle, clean, analyze, store, and present</li>
+<li>Develop strategies to break down large problems and datasets into manageable pieces</li>
+<li>Identify broad spectrum resources and documentation to remain current with big data tools and developments</li>
+<li>Communicate and interpret the big data analytics results through written and verbal methods</li>
+</ul>
+</section>
+<section id="evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation">Evaluation</h2>
+<ul>
+<li>Group project : 40%</li>
+<li>Assignments : 30%</li>
+<li>Lab completions : 20%</li>
+<li>Quizzes : 10%</li>
+</ul>
+</section>
+<section id="course-materials" class="level2">
+<h2 class="anchored" data-anchor-id="course-materials">Course Materials</h2>
+<ul>
+<li>Slides/labs/assignment on Website/GitHub</li>
+<li>Quizzes and readings in Canvas</li>
+</ul>
+</section>
+<section id="communication" class="level2">
+<h2 class="anchored" data-anchor-id="communication">Communication</h2>
+<ul>
+<li><strong>Slack is the primary form of communication</strong></li>
+<li><a href="mailto:dsan-Fall-2025@georgetown.edu">Instructional team email:</a> <code>dsan-Fall-2025@georgetown.edu</code></li>
+</ul>
+</section>
+<section id="slack-rules" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="slack-rules">Slack rules</h2>
+<ul>
+<li>Post any question/comment about the course, assignments or any technical issue.</li>
+<li>DMs are to be used sparingly</li>
+<li>You may not DM multiple people in the instructional team at the same time for the same issue</li>
+<li>Keep an eye on the questions posted in Slack. Use the search function. It’s very possible that we have already answered a questions</li>
+<li>You may DM us back only if we DM you first on a given issue</li>
+<li>Lab/assignment/project questions will only be answered up to 6 hours before something is due (i.e.&nbsp;6pm on Mondays)</li>
+</ul>
+</section>
+<section id="midterm-project-new" class="level2 crunch-title crunch-ul">
+<h2 class="crunch-title crunch-ul anchored" data-anchor-id="midterm-project-new">Midterm Project (NEW!)</h2>
+<ul>
+<li><strong>Individual assignment</strong> (not team-based)</li>
+<li><strong>Timing</strong>: Around Week 5-6</li>
+<li><strong>Weight</strong>: Equivalent to 2 homework assignments</li>
+<li><strong>Format</strong>:
+<ul>
+<li>We provide the dataset and problem statement</li>
+<li>You apply big data tools and techniques learned in class</li>
+<li>End-to-end data pipeline implementation</li>
+</ul></li>
+<li><strong>Details</strong>: TBD (will be announced in Week 4)</li>
+</ul>
+</section>
+<section id="final-project" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="final-project">Final Project</h2>
+<ul>
+<li>Groups of 3-4 students</li>
+<li>Use an archive of Reddit data, augmented with external data</li>
+<li>Exploratory analysis</li>
+<li>NLP</li>
+<li>Machine Learning</li>
+<li>Writeup
+<ul>
+<li>Data sourcing and ingesting</li>
+<li>Exploratory analysis</li>
+<li>Modeling</li>
+<li>Challenges and Learnings</li>
+<li>Conclusions</li>
+<li>Future work</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="big-data" class="level1" data-stack-name="Big Data">
+<h1 data-stack-name="Big Data">BIG DATA</h1>
+<p><strong>Where does it come from?</strong></p>
+<p><strong>How is it being created?</strong></p>
+<section id="in-one-minute-of-time-2018" class="level2">
+<h2 class="anchored" data-anchor-id="in-one-minute-of-time-2018">In one minute of time (2018)</h2>
+<center>
+<img src="img/data-never-sleeps-2018.png" width="50%">
+</center>
+</section>
+<section id="in-one-minute-of-time-2019" class="level2">
+<h2 class="anchored" data-anchor-id="in-one-minute-of-time-2019">In one minute of time (2019)</h2>
+<center>
+<img src="img/data-never-sleeps-2019.jpg" width="50%">
+</center>
+</section>
+<section id="in-one-minute-of-time-2020" class="level2">
+<h2 class="anchored" data-anchor-id="in-one-minute-of-time-2020">In one minute of time (2020)</h2>
+<center>
+<img src="img/data-never-sleeps-2020.jpg" width="50%">
+</center>
+</section>
+<section id="in-one-minute-of-time-2021" class="level2">
+<h2 class="anchored" data-anchor-id="in-one-minute-of-time-2021">In one minute of time (2021)</h2>
+<center>
+<img src="img/data-never-sleeps-2021.png" width="50%">
+</center>
+</section>
+<section id="in-one-minute-of-time-2025" class="level2 crunch-title text-80 crunch-p crunch-ul">
+<h2 class="crunch-title text-80 crunch-p crunch-ul anchored" data-anchor-id="in-one-minute-of-time-2025">In one minute of time (2025)</h2>
+<p><strong>Every 60 seconds in 2025:</strong></p>
+<ul>
+<li>ChatGPT serves <strong>millions</strong> of requests (exact numbers proprietary)</li>
+<li><strong>500 hours</strong> of video uploaded to YouTube</li>
+<li><strong>1.04 million</strong> Slack messages sent</li>
+<li><strong>362,000 hours</strong> watched on Netflix</li>
+<li><strong>5.9-11.4 million</strong> Google searches</li>
+<li><strong>$443,000</strong> spent on Amazon</li>
+<li>AI-generated images created at <strong>massive scale</strong> (metrics not publicly available)</li>
+<li><strong>347,200</strong> posts on X (formerly Twitter)</li>
+<li><strong>231-250 million</strong> emails sent</li>
+</ul>
+</section>
+<section id="a-lot-of-it-is-hapenning-online." class="level2 crunch-title crunch-ul text-80">
+<h2 class="crunch-title crunch-ul text-80 anchored" data-anchor-id="a-lot-of-it-is-hapenning-online."><em>A lot</em> of it is hapenning online.</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>We can record every:</strong></p>
+<ul>
+<li>click</li>
+<li>ad impression</li>
+<li>billing event</li>
+<li>video interaction</li>
+<li>server request</li>
+<li>transaction</li>
+<li>network message</li>
+<li>fault</li>
+<li>…</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img src="img/iceberg.jpg"></p>
+</div>
+</div>
+</section>
+<section id="it-can-also-be-user-generated-content" class="level2 crunch-title crunch-ul text-90">
+<h2 class="crunch-title crunch-ul text-90 anchored" data-anchor-id="it-can-also-be-user-generated-content">It can also be user-generated content:</h2>
+<div class="quarto-layout-panel" data-layout="[1,1]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div id="user-generated-text" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Instagram posts &amp; Reels</li>
+<li>X (Twitter) posts &amp; Threads</li>
+<li>TikTok videos</li>
+<li>YouTube Shorts</li>
+<li>Reddit discussions</li>
+<li>Discord conversations</li>
+<li>AI-generated content (text, images, code)</li>
+<li>…</li>
+</ul>
+</div>
+<div id="user-generated-img" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><img src="img/people.jpg"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="but-health-and-scientific-computing-create-a-lot-too" class="level2">
+<h2 class="anchored" data-anchor-id="but-health-and-scientific-computing-create-a-lot-too">But health and scientific computing create a lot too!</h2>
+<center>
+<img src="img/scientific.png">
+</center>
+</section>
+<section id="theres-lots-of-graph-data-too" class="level2 crunch-title text-90">
+<h2 class="crunch-title text-90 anchored" data-anchor-id="theres-lots-of-graph-data-too">There’s lots of <strong>graph</strong> data too</h2>
+<div class="quarto-layout-panel" data-layout="[1,1]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div id="graph-text" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Many interesting datasets have a graph structure:</p>
+<ul>
+<li>Social networks</li>
+<li>Google’s knowledge graph</li>
+<li>Telecom networks</li>
+<li>Computer networks</li>
+<li>Road networks</li>
+<li>Collaboration/relationships</li>
+</ul>
+<p>Some of these are <strong>HUGE</strong></p>
+</div>
+<div id="graph-img" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><img src="img/big-graph.jpg"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="apache-web-server-log-files" class="level2">
+<h2 class="anchored" data-anchor-id="apache-web-server-log-files">Apache (web server) log files</h2>
+<p><img src="img/apache-server-log.jpg" width="600"></p>
+</section>
+<section id="system-log-files" class="level2">
+<h2 class="anchored" data-anchor-id="system-log-files">System log files</h2>
+<p><img src="img/syslog-file.jpg" width="600"></p>
+</section>
+<section id="internet-of-things-iot-in-2025" class="level2 crunch-title crunch-p crunch-ul crunch-img">
+<h2 class="crunch-title crunch-p crunch-ul crunch-img anchored" data-anchor-id="internet-of-things-iot-in-2025">Internet of Things (IoT) in 2025</h2>
+<p><strong>75 billion connected devices generating data:</strong></p>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div id="iot-text" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Smart home devices (Alexa, Google Home, Apple HomePod)</li>
+<li>Wearables (Apple Watch, Fitbit, Oura rings)</li>
+<li>Connected vehicles &amp; self-driving cars</li>
+<li>Industrial IoT sensors</li>
+</ul>
+</div>
+<div id="iot-img" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Smart city infrastructure</li>
+<li>Medical devices &amp; remote patient monitoring</li>
+</ul>
+<p><img src="img/sensors-everywhere.jpg" width="600"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="smartphone-location-data" class="level2">
+<h2 class="anchored" data-anchor-id="smartphone-location-data">Smartphone Location Data</h2>
+<p><img src="img/smartphone.jpg"></p>
+</section>
+<section id="where-else" class="level2">
+<h2 class="anchored" data-anchor-id="where-else">Where else?</h2>
+<ul>
+<li><p>The Internet</p></li>
+<li><p>Transactions</p></li>
+<li><p>Databases</p></li>
+<li><p>Excel</p></li>
+<li><p>PDF Files</p></li>
+<li><p>Anything digital (music, movies, apps)</p></li>
+<li><p>Some old floppy disk lying around the house</p></li>
+</ul>
+</section>
+<section id="typical-real-world-scenarios-in-2025" class="level2 text-90">
+<h2 class="text-90 anchored" data-anchor-id="typical-real-world-scenarios-in-2025">Typical Real-World Scenarios in 2025</h2>
+<p><strong>Scenario 1: Traditional Big Data</strong></p>
+<p>You have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. <strong>What do you do?</strong></p>
+<p><strong>Scenario 2: AI/ML Pipeline</strong></p>
+<p>Your company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. <strong>How do you architect this?</strong></p>
+<p><strong>Scenario 3: Real-Time Analytics</strong></p>
+<p>You need to process 1 million events/second from IoT devices and provide real-time dashboards with &lt;1s latency. <strong>What’s your stack?</strong></p>
+</section>
+</section>
+<section id="what-is-big-data" class="level1">
+<h1>What is Big Data?</h1>
+<section id="lets-discuss" class="level2">
+<h2 class="anchored" data-anchor-id="lets-discuss">Let’s discuss!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/data-exp-growth-statista.png" class="img-fluid figure-img"></p>
+<figcaption>Exponential data growth</figcaption>
+</figure>
+</div>
+</section>
+<section id="big-data-definitions" class="level2">
+<h2 class="anchored" data-anchor-id="big-data-definitions">Big Data Definitions</h2>
+<p><strong>Wikipedia</strong></p>
+<p><em>“A collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis”</em></p>
+<p><strong>O’Reilly</strong></p>
+<p><em>“Big data is when <strong>the size of the data itself</strong> becomes <strong>part of the problem</strong>”</em></p>
+</section>
+<section id="frameworks-for-thinking-about-big-data" class="level2 crunch-title title-08">
+<h2 class="crunch-title title-08 anchored" data-anchor-id="frameworks-for-thinking-about-big-data">Frameworks for Thinking About Big Data</h2>
+<p><strong>IBM (The 3 V’s)</strong></p>
+<ul>
+<li><strong>Volume</strong> (Gigabytes → Exabytes → Zettabytes)</li>
+<li><strong>Velocity</strong> (Batch → Streaming → Real-time AI inference)</li>
+<li><strong>Variety</strong> (Structured, Unstructured, Embeddings)</li>
+</ul>
+<p><strong>Additional V’s for 2025</strong></p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<ul>
+<li>Variability</li>
+<li>Veracity</li>
+<li>Visualization</li>
+</ul>
+</div><div class="column" style="width:65%;">
+<ul>
+<li>Value</li>
+<li><strong>Vectors</strong> (embeddings for AI/ML)</li>
+<li><strong>Versatility</strong> (multi-modal data)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="data-size" class="level2">
+<h2 class="anchored" data-anchor-id="data-size">Data “Size”</h2>
+<p><span class="math display">\[
+\text{``Size''} = f(\text{Processing Ability}, \text{Storage Space})
+\]</span></p>
+<ul>
+<li>Can you analyze/process your data on a single machine?</li>
+<li>Can you store (or is it stored) on a single machine?</li>
+<li>Can you serve it fast enough for real-time AI applications?</li>
+</ul>
+<p>If any of of the answers is <em><strong>no</strong></em> then you have a big-ish data problem!</p>
+</section>
+</section>
+<section id="big-data-in-the-age-of-generative-ai" class="level1">
+<h1>Big Data in the Age of Generative AI</h1>
+<section id="the-new-data-landscape-2025" class="level2 crunch-ul">
+<h2 class="crunch-ul anchored" data-anchor-id="the-new-data-landscape-2025">The New Data Landscape (2025)</h2>
+<p><strong>Training Foundation Models</strong></p>
+<ul>
+<li>GPT-4: Trained on about 13 trillion tokens</li>
+<li>Llama 3: 15 trillion tokens</li>
+<li>Google Gemini: Multi-modal training (text, images, video)</li>
+<li>Each iteration requires <strong>petabytes</strong> of curated data</li>
+</ul>
+<p><strong>Data Requirements Have Exploded</strong></p>
+<ul>
+<li>2020: BERT trained on 3.3 billion words</li>
+<li>2023: GPT-4 trained on ~13 trillion tokens</li>
+<li>2024: Llama 3 trained on 15+ trillion tokens</li>
+</ul>
+</section>
+<section id="big-data-infrastructure-data-lakes-warehouses" class="level2 title-09 text-80">
+<h2 class="title-09 text-80 anchored" data-anchor-id="big-data-infrastructure-data-lakes-warehouses">Big Data Infrastructure: Data Lakes, Warehouses</h2>
+<p><strong>Traditional Use Cases:</strong></p>
+<ul>
+<li>Business intelligence</li>
+<li>Analytics &amp; reporting</li>
+<li>Historical data storage</li>
+</ul>
+<p><strong>Modern AI Use Cases:</strong></p>
+<ul>
+<li>Training data repositories</li>
+<li>Vector embeddings storage</li>
+<li>RAG (Retrieval-Augmented Generation) context</li>
+<li>Fine-tuning datasets</li>
+<li>Evaluation &amp; benchmark data</li>
+</ul>
+</section>
+<section id="rag-and-context-engineering-the-new-data-pipeline" class="level2 text-80 crunch-title crunch-p">
+<h2 class="text-80 crunch-title crunch-p anchored" data-anchor-id="rag-and-context-engineering-the-new-data-pipeline">RAG and Context Engineering: The New Data Pipeline</h2>
+<div class="cell" data-fig-height="1" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="96" viewbox="0.00 0.00 693.59 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 689.59,-40 689.59,4 -4,4"></polygon>
+<!-- raw -->
+<g id="node1" class="node">
+<title>raw</title>
+<ellipse fill="none" stroke="black" cx="49.38" cy="-18" rx="49.26" ry="18"></ellipse>
+<text text-anchor="middle" x="49.38" y="-13.8" font-family="Times,serif" font-size="14.00">Raw Data</text>
+</g>
+<!-- lake -->
+<g id="node2" class="node">
+<title>lake</title>
+<ellipse fill="none" stroke="black" cx="185.74" cy="-18" rx="50.96" ry="18"></ellipse>
+<text text-anchor="middle" x="185.74" y="-13.8" font-family="Times,serif" font-size="14.00">Data Lake</text>
+</g>
+<!-- raw&#45;&gt;lake -->
+<g id="edge1" class="edge">
+<title>raw-&gt;lake</title>
+<path fill="none" stroke="black" d="M98.89,-18C107.12,-18 115.75,-18 124.25,-18"></path>
+<polygon fill="black" stroke="black" points="124.5,-21.5 134.5,-18 124.5,-14.5 124.5,-21.5"></polygon>
+</g>
+<!-- proc -->
+<g id="node3" class="node">
+<title>proc</title>
+<ellipse fill="none" stroke="black" cx="325.6" cy="-18" rx="52.76" ry="18"></ellipse>
+<text text-anchor="middle" x="325.6" y="-13.8" font-family="Times,serif" font-size="14.00">Processing</text>
+</g>
+<!-- lake&#45;&gt;proc -->
+<g id="edge2" class="edge">
+<title>lake-&gt;proc</title>
+<path fill="none" stroke="black" d="M236.9,-18C245.11,-18 253.71,-18 262.17,-18"></path>
+<polygon fill="black" stroke="black" points="262.39,-21.5 272.39,-18 262.39,-14.5 262.39,-21.5"></polygon>
+</g>
+<!-- vec -->
+<g id="node4" class="node">
+<title>vec</title>
+<ellipse fill="none" stroke="black" cx="467.62" cy="-18" rx="53.28" ry="18"></ellipse>
+<text text-anchor="middle" x="467.62" y="-13.8" font-family="Times,serif" font-size="14.00">Vector DB</text>
+</g>
+<!-- proc&#45;&gt;vec -->
+<g id="edge3" class="edge">
+<title>proc-&gt;vec</title>
+<path fill="none" stroke="black" d="M378.74,-18C387.03,-18 395.68,-18 404.18,-18"></path>
+<polygon fill="black" stroke="black" points="404.44,-21.5 414.44,-18 404.44,-14.5 404.44,-21.5"></polygon>
+</g>
+<!-- context -->
+<g id="node5" class="node">
+<title>context</title>
+<ellipse fill="none" stroke="black" cx="621.18" cy="-18" rx="64.33" ry="18"></ellipse>
+<text text-anchor="middle" x="621.18" y="-13.8" font-family="Times,serif" font-size="14.00">LLM Context</text>
+</g>
+<!-- vec&#45;&gt;context -->
+<g id="edge4" class="edge">
+<title>vec-&gt;context</title>
+<path fill="none" stroke="black" d="M520.78,-18C529.09,-18 537.82,-18 546.51,-18"></path>
+<polygon fill="black" stroke="black" points="546.67,-21.5 556.67,-18 546.67,-14.5 546.67,-21.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Key Components:</strong></p>
+<ul>
+<li><strong>Data Lakes</strong> (S3, Azure Data Lake): Store massive unstructured data</li>
+<li><strong>Data Warehouses</strong> (Snowflake, BigQuery): Structured data for context</li>
+<li><strong>Vector Databases</strong> (Pinecone, Weaviate, Qdrant): Semantic search</li>
+<li><strong>Embedding Models</strong>: Convert data to vectors</li>
+<li><strong>Orchestration</strong> (Airflow, Prefect): Manage the pipeline</li>
+</ul>
+</section>
+<section id="mcp-servers-agentic-ai" class="level2 smaller crunch-title crunch-ul crunch-p">
+<h2 class="smaller crunch-title crunch-ul crunch-p anchored" data-anchor-id="mcp-servers-agentic-ai">MCP Servers &amp; Agentic AI</h2>
+<p><strong>Model Context Protocol (MCP)</strong></p>
+<ul>
+<li>Open protocol for connecting AI assistants to data sources</li>
+<li>Standardized way to expose tools and data to LLMs</li>
+<li>Enables “agentic” behavior - AI that can act autonomously</li>
+</ul>
+<p><strong>MCP in Production</strong></p>
+<div class="cell" data-fig-height="1" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="96" viewbox="0.00 0.00 553.45 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 549.45,-40 549.45,4 -4,4"></polygon>
+<!-- ware -->
+<g id="node1" class="node">
+<title>ware</title>
+<ellipse fill="none" stroke="black" cx="75.11" cy="-18" rx="75.23" ry="18"></ellipse>
+<text text-anchor="middle" x="75.11" y="-13.8" font-family="Times,serif" font-size="14.00">Data Warehouse</text>
+</g>
+<!-- mcp -->
+<g id="node2" class="node">
+<title>mcp</title>
+<ellipse fill="none" stroke="black" cx="245.28" cy="-18" rx="59.1" ry="18"></ellipse>
+<text text-anchor="middle" x="245.28" y="-13.8" font-family="Times,serif" font-size="14.00">MCP Server</text>
+</g>
+<!-- ware&#45;&gt;mcp -->
+<g id="edge1" class="edge">
+<title>ware-&gt;mcp</title>
+<path fill="none" stroke="black" d="M150.36,-18C158.87,-18 167.51,-18 175.94,-18"></path>
+<polygon fill="black" stroke="black" points="176.08,-21.5 186.08,-18 176.08,-14.5 176.08,-21.5"></polygon>
+</g>
+<!-- agent -->
+<g id="node3" class="node">
+<title>agent</title>
+<ellipse fill="none" stroke="black" cx="387.57" cy="-18" rx="47.48" ry="18"></ellipse>
+<text text-anchor="middle" x="387.57" y="-13.8" font-family="Times,serif" font-size="14.00">AI Agent</text>
+</g>
+<!-- mcp&#45;&gt;agent -->
+<g id="edge2" class="edge">
+<title>mcp-&gt;agent</title>
+<path fill="none" stroke="black" d="M304.56,-18C313.01,-18 321.71,-18 330.13,-18"></path>
+<polygon fill="black" stroke="black" points="330.23,-21.5 340.23,-18 330.23,-14.5 330.23,-21.5"></polygon>
+</g>
+<!-- action -->
+<g id="node4" class="node">
+<title>action</title>
+<ellipse fill="none" stroke="black" cx="508.13" cy="-18" rx="37.14" ry="18"></ellipse>
+<text text-anchor="middle" x="508.13" y="-13.8" font-family="Times,serif" font-size="14.00">Action</text>
+</g>
+<!-- agent&#45;&gt;action -->
+<g id="edge3" class="edge">
+<title>agent-&gt;action</title>
+<path fill="none" stroke="black" d="M435.09,-18C443.48,-18 452.24,-18 460.63,-18"></path>
+<polygon fill="black" stroke="black" points="460.64,-21.5 470.64,-18 460.64,-14.5 460.64,-21.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>AI agents querying Snowflake for real-time analytics</li>
+<li>Autonomous systems updating data lakes based on predictions</li>
+<li>Multi-agent systems coordinating through shared data contexts</li>
+</ul>
+</section>
+<section id="data-quality-for-ai" class="level2 text-85 crunch-p crunch-ul">
+<h2 class="text-85 crunch-p crunch-ul anchored" data-anchor-id="data-quality-for-ai">Data Quality for AI</h2>
+<p><em>(Why Data Quality Matters More Than Ever)</em></p>
+<p><strong>Garbage In, Garbage Out - Amplified:</strong></p>
+<ul>
+<li>Bad training data → Biased models</li>
+<li>Incorrect RAG data → Hallucinations</li>
+<li>Poor data governance → Compliance issues</li>
+</ul>
+<p><strong>Data Quality Challenges in 2025</strong></p>
+<ul>
+<li><strong>Scale</strong>: Validating trillions of tokens</li>
+<li><strong>Diversity</strong>: Multi-modal, multi-lingual data</li>
+<li><strong>Velocity</strong>: Real-time data for online learning</li>
+<li><strong>Veracity</strong>: Detecting AI-generated synthetic data</li>
+</ul>
+</section>
+<section id="real-world-big-data-ai-examples" class="level2 crunch-title smaller title-11 crunch-ul crunch-p">
+<h2 class="crunch-title smaller title-11 crunch-ul crunch-p anchored" data-anchor-id="real-world-big-data-ai-examples">Real-World Big Data / AI Examples</h2>
+<p><strong>Netflix</strong></p>
+<ul>
+<li><strong>Data Scale</strong>: 260+ million subscribers generating 100+ billion events/day</li>
+<li><strong>AI Use</strong>: Personalization, content recommendations, thumbnail generation</li>
+<li><strong>Stack</strong>: S3 → Spark → Iceberg → ML models → Real-time serving</li>
+</ul>
+<p><strong>Uber</strong></p>
+<ul>
+<li><strong>Data Scale</strong>: 35+ million trips per day, petabytes of location data</li>
+<li><strong>AI Use</strong>: ETA prediction, surge pricing, driver-rider matching</li>
+<li><strong>Stack</strong>: Kafka → Spark Streaming → Feature Store → ML Platform</li>
+</ul>
+<p><strong>OpenAI</strong></p>
+<ul>
+<li><strong>Data Scale</strong>: Trillions of tokens for training, millions of queries/day</li>
+<li><strong>AI Use</strong>: GPT models, DALL-E, embeddings</li>
+<li><strong>Stack</strong>: Distributed training → Vector DBs → Inference clusters</li>
+</ul>
+</section>
+<section id="emerging-trends-2025-2027" class="level2 smaller crunch-ul crunch-p">
+<h2 class="smaller crunch-ul crunch-p anchored" data-anchor-id="emerging-trends-2025-2027">Emerging Trends (2025-2027)</h2>
+<p><strong>Unified Platforms:</strong></p>
+<ul>
+<li>Data lakes becoming “AI lakes”</li>
+<li>Integrated vector + relational databases</li>
+<li>One-stop shops for data + AI (Databricks, Snowflake Cortex)</li>
+</ul>
+<p><strong>Edge Computing + AI:</strong></p>
+<ul>
+<li>Processing at the data source</li>
+<li>Federated learning across devices</li>
+<li>5G enabling real-time edge AI</li>
+</ul>
+<p><strong>Synthetic Data:</strong></p>
+<ul>
+<li>AI generating training data for AI</li>
+<li>Privacy-preserving synthetic datasets</li>
+</ul>
+</section>
+<section id="relative-data-sizes" class="level2 text-90 crunch-title">
+<h2 class="text-90 crunch-title anchored" data-anchor-id="relative-data-sizes">Relative Data Sizes</h2>
+<p>&nbsp;<br></p>
+<style>
+.honk-honk {
+  font-size: 200% !important;
+  /* font-family: "Bungee Spice", sans-serif; */
+  font-family: "Honk", sans-serif;
+  /* font-optical-sizing: auto; */
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td rowspan="2" width="15%" style="text-align: center; vertical-align: middle; border-bottom: 0px;">Can be <strong>processed</strong> on single machine?</td>
+<td width="5%" style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><em>No</em></td>
+<td width="40%" style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-top: 2px solid #909090; background-color: #FF991C90;"><strong>Medium</strong><br>(<em>Parallel Processing</em>)</td>
+<td width="40%" style="text-align: center; background-color: #FF991C90; vertical-align: middle; border-top: 2px solid #909090; border-right: 2px solid #909090;"><span class="honk-honk">Big!</span><br>Parallel + Distributed Processing</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><em>Yes</em></td>
+<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090;">Small<br>(<em>Your Laptop</em>)</td>
+<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; background-color: #FF991C90;"><strong>Medium</strong><br>(<em>Data Streaming</em>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center; border-bottom: 0px;"></td>
+<td style="text-align: center; border-bottom: 0px solid #909090;"></td>
+<td style="text-align: center; vertical-align: middle; border-bottom: 0px solid #909090;"><em>Yes</em></td>
+<td style="text-align: center; vertical-align: middle; border-bottom: 0px solid #909090;"><em>No</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td colspan="2" style="text-align: center;">Can be <strong>stored</strong> on single machine?</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-youll-learn-in-this-course" class="level2 crunch-title smaller">
+<h2 class="crunch-title smaller anchored" data-anchor-id="what-youll-learn-in-this-course">What You’ll Learn in This Course</h2>
+<p><em>Modern Big Data Stack (2025)</em></p>
+<div class="quarto-layout-panel" data-layout="[1,1]">
+<div class="quarto-layout-row">
+<div id="bd-stack-left" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>Query Engines:</strong></p>
+<ul>
+<li>DuckDB - In-process analytical database</li>
+<li>Polars - Lightning-fast DataFrame library<br>
+</li>
+<li>Spark - Distributed processing at scale</li>
+</ul>
+<p><strong>Data Warehouses &amp; Lakes:</strong></p>
+<ul>
+<li>Snowflake - Cloud-native data warehouse</li>
+<li>Athena - Serverless SQL on S3</li>
+<li>Iceberg - Open table format</li>
+</ul>
+</div>
+<div id="bd-stack-right" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>AI/ML Integration:</strong></p>
+<ul>
+<li>Vector databases for embeddings</li>
+<li>RAG implementation patterns</li>
+<li>Streaming with Spark Structured Streaming</li>
+</ul>
+<p><strong>Orchestration:</strong></p>
+<ul>
+<li>Airflow for pipeline management</li>
+<li>Serverless with AWS Lambda</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="data-types" class="level2">
+<h2 class="anchored" data-anchor-id="data-types">Data Types</h2>
+<ul>
+<li>Structured</li>
+<li>Unstructured</li>
+<li>Natural language</li>
+<li>Machine-generated</li>
+<li>Graph-based</li>
+<li>Audio, video, and images</li>
+<li>Streaming</li>
+</ul>
+</section>
+<section id="big-data-vs.-small-data-i" class="level2 smaller crunch-title text-60">
+<h2 class="smaller crunch-title text-60 anchored" data-anchor-id="big-data-vs.-small-data-i">Big Data vs.&nbsp;Small Data I</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Small Data is usually…</th>
+<th>On the other hand, Big Data…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Goals</strong></td>
+<td>gathered for a specific goal</td>
+<td>may have a goal in mind when it’s first started, but things can evolve or take unexpected directions</td>
+</tr>
+<tr class="even">
+<td><strong>Location</strong></td>
+<td>in one place, and often in a single computer file</td>
+<td>can be in multiple files in multiple servers on computers in different geographic locations</td>
+</tr>
+<tr class="odd">
+<td><strong>Structure/Contents</strong></td>
+<td>highly structured like an Excel spreadsheet, and it’s got rows and columns of data</td>
+<td>can be unstructured, it can have many formats in files involved across disciplines, and may link to other resources</td>
+</tr>
+<tr class="even">
+<td><strong>Preparation</strong></td>
+<td>prepared by the end user for their own purposes</td>
+<td>is often prepared by one group of people, analyzed by a second group of people, and then used by a third group of people, and they may have different purposes, and they may have different disciplines</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="big-data-vs.-small-data-ii" class="level2 smaller crunch-title text-60">
+<h2 class="smaller crunch-title text-60 anchored" data-anchor-id="big-data-vs.-small-data-ii">Big Data vs.&nbsp;Small Data II</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Small Data is usually…</th>
+<th>On the other hand, Big Data…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Longevity</strong></td>
+<td>kept for a specific amount of time after the project is over because there’s a clear ending point. In the academic world it’s maybe five or seven years and then you can throw it away</td>
+<td>contains data that must be stored in perpetuity. Many big data projects extend into the past and future</td>
+</tr>
+<tr class="even">
+<td><strong>Measurements</strong></td>
+<td>measured with a single protocol using set units and it’s usually done at the same time</td>
+<td>is collected and measured using many sources, protocols, units, etc</td>
+</tr>
+<tr class="odd">
+<td><strong>Reproducibility</strong></td>
+<td>be reproduced in their entirety if something goes wrong in the process</td>
+<td>replication is seldom feasible</td>
+</tr>
+<tr class="even">
+<td><strong>Stakes</strong></td>
+<td>if things go wrong the costs are limited, it’s not an enormous problem</td>
+<td>can have high costs of failure in terms of money, time and labor</td>
+</tr>
+<tr class="odd">
+<td><strong>Access</strong></td>
+<td>identified by a location specified in a row/column</td>
+<td>unless it is exceptionally well designed, the organization can be inscrutable</td>
+</tr>
+<tr class="even">
+<td><strong>Analysis</strong></td>
+<td>analyzed together, all at once</td>
+<td>is ordinarily analyzed in incremental steps</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="challenges-of-working-with-large-datasets" class="level2 text-85 title-09">
+<h2 class="text-85 title-09 anchored" data-anchor-id="challenges-of-working-with-large-datasets">Challenges of Working with Large Datasets</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>The V</th>
+<th>The Challenge</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Volume</strong></td>
+<td>data scale</td>
+</tr>
+<tr class="even">
+<td><strong>Value</strong></td>
+<td>data usefulness in decision making</td>
+</tr>
+<tr class="odd">
+<td><strong>Velocity</strong></td>
+<td>data processing: batch or stream</td>
+</tr>
+<tr class="even">
+<td><strong>Viscosity</strong></td>
+<td>data complexity</td>
+</tr>
+<tr class="odd">
+<td><strong>Variability</strong></td>
+<td>data flow inconsistency</td>
+</tr>
+<tr class="even">
+<td><strong>Volatility</strong></td>
+<td>data durability</td>
+</tr>
+<tr class="odd">
+<td><strong>Viability</strong></td>
+<td>data activeness</td>
+</tr>
+<tr class="even">
+<td><strong>Validity</strong></td>
+<td>data properly understandable</td>
+</tr>
+<tr class="odd">
+<td><strong>Variety</strong></td>
+<td>data heterogeneity</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="thinking-about-big-data-workflows" class="level2 smaller crunch-title title-12">
+<h2 class="smaller crunch-title title-12 anchored" data-anchor-id="thinking-about-big-data-workflows">Thinking About Big Data Workflows</h2>
+<p><a href="http://www.cs.cmu.edu/~wcohen/">William Cohen</a> (Director, Research Engineering, Google):</p>
+<ul>
+<li>Working with big data is <em>not</em> about…
+<ul>
+<li>Code optimization</li>
+<li>Learning the details of today’s hardware/software (they are evolving…)</li>
+</ul></li>
+<li>Working with big data <em>is</em> about <strong>understanding</strong>:
+<ul>
+<li>The cost of what you want to do</li>
+<li>What the tools that are available offer</li>
+<li>How much can be accomplished with linear or nearly-linear operations</li>
+<li>How to organize your computations so that they effectively use whatever’s fast</li>
+<li>How to test/debug/verify with large data</li>
+</ul></li>
+<li>Recall that traditional tools like <code>R</code> and <code>Python</code> are <strong>single threaded</strong> (by default)</li>
+</ul>
+</section>
+<section id="tools-at-a-glance" class="level2">
+<h2 class="anchored" data-anchor-id="tools-at-a-glance">Tools at-a-glance</h2>
+<div class="columns">
+<div class="column r-fit-text" style="width:50%;">
+<section id="languages-libraries-and-projects" class="level3">
+<h3 class="anchored" data-anchor-id="languages-libraries-and-projects">Languages, libraries, and projects</h3>
+<ul>
+<li><a href="https://www.python.org/">Python</a>
+<ul>
+<li><a href="https://pandas.pydata.org/"><code>pandas</code></a></li>
+<li><a href="https://www.pola.rs/"><code>polars</code></a></li>
+<li><a href="https://spark.apache.org/docs/latest/api/python/index.html"><code>PySpark</code></a></li>
+<li><a href="https://duckdb.org/docs/api/python/overview.html"><code>duckdb</code></a></li>
+<li><a href="https://www.dask.org/"><code>dask</code></a></li>
+<li><a href="https://www.ray.io/"><code>ray</code></a></li>
+</ul></li>
+<li><a href="https://arrow.apache.org/">Apache Arrow</a></li>
+<li><a href="https://spark.apache.org/">Apache Spark</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SQL">SQL</a></li>
+<li><a href="https://hadoop.apache.org/">Apache Hadoop</a> (briefly)</li>
+</ul>
+</section>
+</div><div class="column r-fit-text" style="width:50%;">
+<section id="cloud-services" class="level3">
+<h3 class="anchored" data-anchor-id="cloud-services">Cloud Services</h3>
+<ul>
+<li>Amazon Web Services (AWS)
+<ul>
+<li><a href="https://aws.amazon.com/pm/sagemaker/">AWS Sagemaker</a></li>
+<li><a href="https://aws.amazon.com/s3/">Amazon S3</a></li>
+</ul></li>
+<li>Azure
+<ul>
+<li><a href="https://azure.microsoft.com/en-us/products/storage/blobs/">Azure Blob</a></li>
+<li><a href="https://azure.microsoft.com/en-us/products/machine-learning/">Azure Machine Learning</a></li>
+</ul></li>
+</ul>
+<p>Other:</p>
+<ul>
+<li><a href="https://aws.amazon.com/emr/">AWS Elastic MapReduce (EMR)</a></li>
+</ul>
+</section>
+</div>
+</div>
+</section>
+<section id="additional-links-of-interest" class="level2">
+<h2 class="anchored" data-anchor-id="additional-links-of-interest">Additional links of interest</h2>
+<ul>
+<li><p>Matt Turck’s Machine Learning, Artificial Intelligence &amp; Data Landscape (MAD)</p>
+<ul>
+<li><a href="https://mattturck.com/mad2023/">Article</a></li>
+<li><a href="https://mad.firstmarkcap.com/">Interactive Landscape</a></li>
+</ul></li>
+<li><p><a href="https://www.cio.com/article/188940/is-there-life-after-hadoop-the-answer-is-a-resounding-yes.html">Is there life after Hadoop?</a></p></li>
+<li><p><a href="https://jelvix.com/blog/top-5-big-data-frameworks">10 Best Big Data Tools for 2023</a></p></li>
+</ul>
+</section>
+</section>
+<section id="data-engineering" class="level1" data-stack-name="Data Engineering">
+<h1 data-stack-name="Data Engineering">Data Engineering</h1>
+<section id="data-scientist-vs.-data-engineer" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="data-scientist-vs.-data-engineer">Data Scientist vs.&nbsp;Data Engineer</h2>
+<p>In this course, you’ll <strong>augment</strong> your data scientist skills with data engineering skills!</p>
+<center>
+<p><img src="img/bdi-core-competencies-deng-and-dsci.png" width="60%"></p>
+</center>
+</section>
+<section id="data-engineer-responsibilities" class="level2">
+<h2 class="anchored" data-anchor-id="data-engineer-responsibilities">Data Engineer Responsibilities</h2>
+<center>
+<p><img src="img/datacamp-3.png" width="600"></p>
+</center>
+</section>
+<section id="data-engineering-levels-2-and-3" class="level2">
+<h2 class="anchored" data-anchor-id="data-engineering-levels-2-and-3">Data Engineering: Levels 2 and 3</h2>
+<center>
+<p><img src="img/rogati.png" width="600"></p>
+</center>
+</section>
+</section>
+<section id="modern-data-architecture" class="level1">
+<h1>Modern Data Architecture</h1>
+<section id="architecture" class="level2">
+<h2 class="anchored" data-anchor-id="architecture">Architecture</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/01-data-platform-anatomy.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="storage" class="level2">
+<h2 class="anchored" data-anchor-id="storage">Storage</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/02-data-platform-storage.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="source-control" class="level2">
+<h2 class="anchored" data-anchor-id="source-control">Source control</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/03-data-platform-source-control.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="orchestration" class="level2">
+<h2 class="anchored" data-anchor-id="orchestration">Orchestration</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/04-data-platform-orchestration.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="processing" class="level2">
+<h2 class="anchored" data-anchor-id="processing">Processing</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/05-data-platform-processing.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="analytics" class="level2">
+<h2 class="anchored" data-anchor-id="analytics">Analytics</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/06-data-platform-analytics.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/07-data-platform-ml.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="governance" class="level2">
+<h2 class="anchored" data-anchor-id="governance">Governance</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/08-data-platform-governance.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="time-for-lab-linux-command-line" class="level1" data-stack-name="Linux Lab">
+<h1 data-stack-name="Linux Lab">Time for Lab! Linux Command Line</h1>
+<section id="the-terminal" class="level2 crunch-title text-90">
+<h2 class="crunch-title text-90 anchored" data-anchor-id="the-terminal">The Terminal</h2>
+<div class="quarto-layout-panel" data-layout="[1,1]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div id="terminal-text" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Terminal access was <strong>THE ONLY</strong> way to do programming</li>
+<li>No GUIs! No Spyder, Jupyter, RStudio, etc.</li>
+<li>Coding is still more powerful than graphical interfaces for complex jobs</li>
+<li>Coding makes work repeatable</li>
+</ul>
+</div>
+<div id="terminal-img" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/terminal_old_computer.jpg" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="bash" class="level2 crunch-title">
+<h2 class="crunch-title anchored" data-anchor-id="bash">BASH</h2>
+<div class="quarto-layout-panel" data-layout="[60,40]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div id="bash-text" class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
+<ul>
+<li>Created in 1989 by Brian Fox: “<strong>B</strong>ourne-<strong>A</strong>gain <strong>Sh</strong>ell”</li>
+<li>Brian Fox also built the first online interactive banking software</li>
+<li>BASH is a command processor</li>
+<li>Connection between you and the machine language and hardware</li>
+</ul>
+</div>
+<div id="bash-img" class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
+<p><img src="img/bash.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-prompt" class="level2">
+<h2 class="anchored" data-anchor-id="the-prompt">The Prompt</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">username@hostname:current_directory</span> $</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>What do we learn from the prompt?</p>
+<ul>
+<li>Who you are - <strong><code>username</code></strong></li>
+<li>The machine where your code is running - <strong><code>hostname</code></strong></li>
+<li>The directory where your code is running - <strong><code>current_directory</code></strong></li>
+<li>The shell type - <strong><code>$</code></strong> - this symbol means BA$H</li>
+</ul>
+</section>
+<section id="syntax" class="level2 smaller crunch-title crunch-p crunch-li-7">
+<h2 class="smaller crunch-title crunch-p crunch-li-7 anchored" data-anchor-id="syntax">Syntax</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">COMMAND</span> <span class="at">-F</span> <span class="at">--FLAG</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>COMMAND</code> is the program, everything after that = arguments</li>
+<li><code>F</code> is a single letter flag, <code>FLAG</code> is a single word or words connected by dashes. A space breaks things into a new argument.</li>
+<li>Sometimes argument has single letter and long form versions (e.g.&nbsp;<code>F</code> and <code>FLAG</code>)</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">COMMAND</span> <span class="at">-F</span> <span class="at">--FILE</span> file1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Here we pass a text argument <code>"file1"</code> as the <strong>value</strong> for the <code>FILE</code> flag</li>
+<li><strong><code>-h</code></strong> flag is usually to get help. You can also run the <strong><code>man</code></strong> command and pass the name of the program as the argument to get the help page.</li>
+</ul>
+<p>Let’s try basic commands:</p>
+<ul>
+<li><strong><code>date</code></strong> to get the current date</li>
+<li><strong><code>whoami</code></strong> to get your user name</li>
+<li><strong><code>echo "Hello World"</code></strong> to print to the console</li>
+</ul>
+</section>
+<section id="examining-files" class="level2 crunch-title text-85 crunch-ul crunch-li-8">
+<h2 class="crunch-title text-85 crunch-ul crunch-li-8 anchored" data-anchor-id="examining-files">Examining Files</h2>
+<ul>
+<li>Find out your <strong>P</strong>resent <strong>W</strong>orking <strong>D</strong>irectory <strong><code>pwd</code></strong></li>
+<li>Examine the contents of files and folders using <strong><code>ls</code></strong></li>
+<li>Make new files from scratch using <strong><code>touch</code></strong></li>
+<li><strong>Glob</strong>: “Mini-language” for selecting files with wildcards
+<ul>
+<li><strong><code>\*</code></strong> for wild card any number of characters</li>
+<li><strong><code>\?</code></strong> for wild card for a single character</li>
+<li><strong><code>[]</code></strong> for one of many character options</li>
+<li><strong><code>!</code></strong> for exclusion</li>
+<li><strong><code>[:alpha:]</code></strong>, <strong><code>[:alnum:]</code></strong>, <strong><code>[:digit:]</code></strong>, <strong><code>[:lower:]</code></strong>, <strong><code>[:upper:]</code></strong></li>
+</ul></li>
+</ul>
+<p><a href="https://linuxjourney.com/lesson/the-shell">Reference material: Shell Lesson 1,2,4,5</a></p>
+</section>
+<section id="navigating-directories" class="level2 crunch-title text-80 crunch-ul crunch-p crunch-li-8">
+<h2 class="crunch-title text-80 crunch-ul crunch-p crunch-li-8 anchored" data-anchor-id="navigating-directories">Navigating Directories</h2>
+<ul>
+<li>Knowing <strong>where your terminal is executing code</strong> ensures you are working with the right inputs/outputs.</li>
+<li>Use <code>pwd</code> to determine the Present Working Directory.</li>
+<li>Change to a folder called “git-repo” with <code>cd git-repo</code>.</li>
+<li><strong><code>.</code></strong> refers to the current directory, such as <strong><code>./git-repo</code></strong></li>
+<li><strong><code>..</code></strong> can be used to move up one level (<strong><code>cd ..</code></strong>), and can be combined to move up multiple levels (<strong><code>cd ../../my_folder</code></strong>)</li>
+<li><strong><code>/</code></strong> is the <strong>root</strong> of the filesystem: contains core folders (system, users)</li>
+<li><strong><code>~</code></strong> is the <strong>home directory</strong>. Move to folders referenced relative to this path by including it at the start of your path, for example <strong><code>~/projects</code></strong>.</li>
+<li>To <strong>visualize the structure</strong> of your working directory, use <strong><code>tree</code></strong></li>
+</ul>
+<p><a href="https://www.freecodecamp.org/news/linux-command-line-bash-tutorial/">Reference link</a></p>
+</section>
+<section id="interacting-with-files" class="level2 crunch-title crunch-ul text-85 crunch-p crunch-li-8">
+<h2 class="crunch-title crunch-ul text-85 crunch-p crunch-li-8 anchored" data-anchor-id="interacting-with-files">Interacting with Files</h2>
+<p>Now that we know how to navigate through <strong>directories</strong>, we need commands for interacting with <strong>files</strong>…</p>
+<ul>
+<li><strong><code>mv</code></strong> to move files from one location to another
+<ul>
+<li>Can use glob here - <code>?</code>, <code>*</code>, <code>[]</code>, …</li>
+</ul></li>
+<li><strong><code>cp</code></strong> to copy files instead of moving
+<ul>
+<li>Can use glob here - <code>?</code>, <code>*</code>, <code>[]</code>, …</li>
+</ul></li>
+<li><strong><code>mkdir</code></strong> to make a directory</li>
+<li><strong><code>rm</code></strong> to remove files</li>
+<li><strong><code>rmdir</code></strong> to remove directories</li>
+<li><strong><code>rm -rf</code></strong> to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING</li>
+</ul>
+</section>
+<section id="using-bash-for-data-exploration" class="level2 crunch-title crunch-ul text-90 crunch-li-8">
+<h2 class="crunch-title crunch-ul text-90 crunch-li-8 anchored" data-anchor-id="using-bash-for-data-exploration">Using BASH for Data Exploration</h2>
+<ul>
+<li><strong><code>head FILENAME</code></strong> / <strong><code>tail FILENAME</code></strong> - glimpsing the first / last few rows of data</li>
+<li><strong><code>more FILENAME</code></strong> / <strong><code>less FILENAME</code></strong> - viewing the data with basic up / (up &amp; down) controls</li>
+<li><strong><code>cat FILENAME</code></strong> - print entire file contents into terminal</li>
+<li><strong><code>vim FILENAME</code></strong> - open (or edit!) the file in vim editor</li>
+<li><strong><code>grep FILENAME</code></strong> - search for lines within a file that match a regex expression</li>
+<li><strong><code>wc FILENAME</code></strong> - count the number of lines (<strong><code>-l</code></strong> flag) or number of words (<strong><code>-w</code></strong> flag)</li>
+</ul>
+<p><a href="https://linuxjourney.com/lesson/stdout-standard-out-redirect">Reference material: Text Lesson 8,9,15,16</a></p>
+</section>
+<section id="pipes-and-arrows" class="level2">
+<h2 class="anchored" data-anchor-id="pipes-and-arrows">Pipes and Arrows</h2>
+<ul>
+<li><strong><code>|</code></strong> sends the stdout to another command (is the most powerful symbol in BASH!)</li>
+<li><strong><code>&gt;</code></strong> sends stdout to a file and overwrites anything that was there before</li>
+<li><strong><code>&gt;&gt;</code></strong> appends the stdout to the end of a file (or starts a new file from scratch if one does not exist yet)</li>
+<li><strong><code>&lt;</code></strong> sends stdin into the command on the left</li>
+</ul>
+<p><a href="https://linuxjourney.com/lesson/stdout-standard-out-redirect">Reference material: Text Lesson 1,2,3,4,5</a></p>
+</section>
+<section id="alias-and-user-files" class="level2 crunch-title text-85">
+<h2 class="crunch-title text-85 anchored" data-anchor-id="alias-and-user-files">Alias and User Files</h2>
+<ul>
+<li><p><code>/.bashrc</code> is where your shell settings are located</p></li>
+<li><p>How many processes? <strong><code>whoami | xargs ps -u | wc -l</code></strong></p></li>
+<li><p>Hard to remember full command! Let’s make an <strong>alias</strong></p></li>
+<li><p>General syntax:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> alias_name=<span class="st">"command_to_run"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>For our case:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> nproc=<span class="st">"whoami | xargs ps -u | wc -l"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Now we need to put this alias into the .bashrc</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> nproc=<span class="st">"whoami | xargs ps -u | wc -l"</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Your commands get saved in <strong><code>~/.bash_history</code></strong></p></li>
+</ul>
+</section>
+<section id="process-management" class="level2 crunch-title text-90 crunch-ul crunch-p crunch-li-8">
+<h2 class="crunch-title text-90 crunch-ul crunch-p crunch-li-8 anchored" data-anchor-id="process-management">Process Management</h2>
+<ul>
+<li>Use <strong><code>ps</code></strong> to see your running processes</li>
+<li>Use <strong><code>top</code></strong> or even better <strong><code>htop</code></strong> to see all running processes</li>
+<li>Install <strong>htop</strong> via <strong><code>sudo yum install htop -y</code></strong></li>
+<li>To kill a broken process: first find the <strong>process ID (PID)</strong></li>
+<li>Then use <strong><code>kill [PID NUM]</code></strong> to “ask” the process to terminate. If things get really bad: <strong><code>kill -9 [PID NUM]</code></strong></li>
+<li>To kill a command in the terminal window it is running in, try using <strong>Ctrl + C</strong> or <strong>Ctrl + /</strong></li>
+<li>Run <strong><code>cat</code></strong> on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.</li>
+</ul>
+<p><a href="https://linuxjourney.com/lesson/monitor-processes-ps-command">Reference material: Text Lesson 1,2,3,7,9,10</a></p>
+</section>
+<section id="try-playing-a-linux-game" class="level2">
+<h2 class="anchored" data-anchor-id="try-playing-a-linux-game">Try playing a Linux game!</h2>
+<p><a href="https://gitlab.com/slackermedia/bashcrawl">Bash crawl</a> is a game to help you practice your navigation and file access skills. Click on the <strong>binder</strong> link in this repo to launch a jupyter lab session and explore!</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w01/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
