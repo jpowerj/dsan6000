@@ -41,6 +41,7 @@ You can add a submodule to a repository like this:
 
     git submodule add git@github.com:path_to/submodule.git path-to-submodule
     git submodule add https://github.com/jpowerj/dsan-globals.git dsan-globals
+
 With default configuration, this will check out the **code** of the
 `submodule.git` repository to the `path-to-submodule` directory, and
 will **add information to the main repository** about this submodule,
