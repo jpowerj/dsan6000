@@ -13,7 +13,7 @@ website:
   repo-link-target: "_blank"
   sidebar:
     id: mainnav
-    title: "DSAN 6000 Slide Hub"
+    title: "DSAN 6000: Big Data and Cloud Computing"
     footer: "*Updated {{< env DSAN6000_LAST_UPDATED \"2026-08-28\" >}}*"
     contents:
       - href: "https://gu-dsan.github.io/6000-fall-2025/"
