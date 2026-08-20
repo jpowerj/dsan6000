@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.3">
 
-  <meta name="author" content="Amit Arora and Jeff Jacobs">
+  <meta name="author" content="Jeff Jacobs">
   <title>DSAN 6000: Big Data and Cloud Computing – Week 7: Spark DataFrames and Spark SQL</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -118,7 +118,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-cc73f9f598193b9d7180e5e5cb91499e.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-36854a48c3d1c202e8301ecbc8f3b7b8.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -220,12 +220,12 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Week 7: Spark DataFrames and Spark SQL</h1>
-  <p class="subtitle"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2025</p>
+  <p class="subtitle"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2026</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Amit Arora and Jeff Jacobs 
+Jeff Jacobs 
 </div>
         <p class="quarto-title-affiliation">
             <a href="mailto:jj1088@georgetown.edu" target="_blank"><code>jj1088@georgetown.edu</code></a>
@@ -255,7 +255,7 @@ To tell spark to cache an object in memory, use `persist()` or `cache()`:
 * `cache():` is a shortcut for using default storage level, which is memory only
 * `persist():` can be customized to other ways to persist data (including both memory and/or disk)
 
-```cdsatbxffu
+```gdrtvxgksz
 # caches error RDD in memory, but only after an action is run
 errors = logs.filter(lambda x: "error" in x and "2019-12" in x).cache()
 ``` -->

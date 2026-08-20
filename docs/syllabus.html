@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jeff Jacobs">
 
-<title>DSAN 6000: Big Data and Cloud Computing</title>
+<title>DSAN 6000 – DSAN 6000: Big Data and Cloud Computing</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,7 +24,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -34,8 +54,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -77,71 +95,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><script src="./sidebar.js"></script><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="./dsan-globals/jjstyles.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -306,161 +266,31 @@ window.Quarto = {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      DSAN 6000: Big Data and Cloud Computing
-      </li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">DSAN 6000: Big Data and Cloud Computing</a> 
-        <div class="sidebar-tools-main">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://gu-dsan.github.io/6000-fall-2025/" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><i class="bi bi-house"></i> Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Resources</span></a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w01/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 1: <span class="sec-w01-date">Aug 27</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w02/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 2: <span class="sec-w02-date">Aug 31</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w03/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 3: <span class="sec-w03-date">Sep 8</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w04/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 4: <span class="sec-w04-date">Sep 14</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w05/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 5: <span class="sec-w05-date">Sep 21</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w06/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 6: <span class="sec-w06-date">Sep 28</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w07/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 7: <span class="sec-w07-date">Oct 5</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w08/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 8: <span class="sec-w08-date">Oct 19</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w09/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 9: <span class="sec-w09-date">Oct 26</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w10/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 10: <span class="sec-w10-date">Nov 2</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w11/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 11: <span class="sec-w11-date">Nov 9</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w12/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 12: <span class="sec-w12-date">Nov 16</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w13/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 13: <span class="sec-w13-date">Nov 30</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./w14/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 14: <span class="sec-w14-date">Dec 7-8</span></span></a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://georgetown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9ebe4700-c41f-434a-bb78-b34801332737" class="sidebar-item-text sidebar-link" target="_blank">
- <span class="menu-text">2025 Recordings <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://jjacobs.me/meet" class="sidebar-item-text sidebar-link" target="_blank">
- <span class="menu-text">Book Office Hour <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-08-20, 05:02:28 PM</em></p>
-</div></div></nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#course-staff-and-office-hours" id="toc-course-staff-and-office-hours" class="nav-link active" data-scroll-target="#course-staff-and-office-hours">Course Staff and Office Hours</a></li>
+  <li><a href="#course-description" id="toc-course-description" class="nav-link" data-scroll-target="#course-description">Course Description</a></li>
+  <li><a href="#assignment-structure" id="toc-assignment-structure" class="nav-link" data-scroll-target="#assignment-structure">Assignment Structure</a></li>
+  <li><a href="#course-topics-calendar" id="toc-course-topics-calendar" class="nav-link" data-scroll-target="#course-topics-calendar">Course Topics / Calendar</a></li>
+  <li><a href="#assignment-distribution-submission-and-grading" id="toc-assignment-distribution-submission-and-grading" class="nav-link" data-scroll-target="#assignment-distribution-submission-and-grading">Assignment Distribution, Submission, and Grading</a></li>
+  <li><a href="#late-policy" id="toc-late-policy" class="nav-link" data-scroll-target="#late-policy">Late Policy</a></li>
+  <li><a href="#final-letter-grade-determination" id="toc-final-letter-grade-determination" class="nav-link" data-scroll-target="#final-letter-grade-determination">Final Letter Grade Determination</a></li>
+  <li><a href="#title-ixsexual-misconduct-statement" id="toc-title-ixsexual-misconduct-statement" class="nav-link" data-scroll-target="#title-ixsexual-misconduct-statement">Title IX/Sexual Misconduct Statement</a></li>
+  <li><a href="#gsas-and-mccourt-resources-and-policies" id="toc-gsas-and-mccourt-resources-and-policies" class="nav-link" data-scroll-target="#gsas-and-mccourt-resources-and-policies">GSAS and McCourt Resources and Policies</a>
+  <ul class="collapse">
+  <li><a href="#mccourt-academic-integrity-policy" id="toc-mccourt-academic-integrity-policy" class="nav-link" data-scroll-target="#mccourt-academic-integrity-policy">McCourt Academic Integrity Policy</a></li>
+  <li><a href="#mccourt-policy-writing-center-mpwc" id="toc-mccourt-policy-writing-center-mpwc" class="nav-link" data-scroll-target="#mccourt-policy-writing-center-mpwc">McCourt Policy-Writing Center (MPWC)</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/syllabus.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="PPOL6805_Fall_2026_Syllabus.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -468,14 +298,20 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">DSAN 6000: Big Data and Cloud Computing</h1>
-<p class="subtitle lead"><em>Fall 2026, Georgetown University</em></p>
+<h1 class="title">DSAN 6000</h1>
+<p class="subtitle lead">Big Data and Cloud Computing</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeff Jacobs </p>
+          </div>
+  </div>
     
   
     
@@ -486,272 +322,325 @@ window.Quarto = {
 </header>
 
 
-<style>
-.honk-honk {
-  font-size: 200% !important;
-  /* font-family: "Bungee Spice", sans-serif; */
-  font-family: "Honk", sans-serif;
-  /* font-optical-sizing: auto; */
-  font-weight: 400;
-  font-style: normal;
-}
-.header-table table {
-  border: 0px;
-}
-.header-table > td {
-  border-bottom: 0px;
-}
-</style>
-<div class="header-table">
-<div style="border: 1px solid black; padding-left: 12px; padding-right: 12px; padding-top: 6px; margin-bottom: 10px; border-radius: 20px;">
-<center>
-<b>Big Data: "When the <i>size</i> of the data itself becomes part of the engineering problem"</b>
-</center>
-
-<table class="caption-top table">
-<tbody>
-<tr class="odd">
-<td rowspan="2" width="15%" style="text-align: center; vertical-align: middle; border-bottom: 0px; border-top: 0px;">Can be <strong>processed</strong> on single machine?</td>
-<td width="5%" style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><em>No</em></td>
-<td width="40%" style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-top: 2px solid #909090; background-color: #FF991C90;"><strong>Medium</strong><br>(<em>Parallel Processing</em>)</td>
-<td width="40%" style="text-align: center; background-color: #FF991C90; vertical-align: middle; border-top: 2px solid #909090; border-right: 2px solid #909090;"><span class="honk-honk">Big!</span><br>Parallel + Distributed Processing</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><em>Yes</em></td>
-<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090;">Small<br>(<em>Your Laptop</em>)</td>
-<td style="text-align: center; vertical-align: middle; border-right: 2px solid #909090; background-color: #FF991C90;"><strong>Medium</strong><br>(<em>Data Streaming</em>)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center; border-bottom: 0px;"></td>
-<td style="text-align: center; border-bottom: 0px solid #909090;"></td>
-<td style="text-align: center; vertical-align: middle; border-bottom: 0px solid #909090; padding-bottom: 0px;"><em>Yes</em></td>
-<td style="text-align: center; vertical-align: middle; border-bottom: 0px solid #909090; padding-bottom: 0px;"><em>No</em></td>
-</tr>
-<tr class="even">
-<td style="text-align: center; border-bottom: 0px;"></td>
-<td style="text-align: center; border-bottom: 0px;"></td>
-<td colspan="2" style="text-align: center; border-bottom: 0px; padding-bottom: 0px;">Can be <strong>stored</strong> on single machine?</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled" title="Irregular Lecture Days">
+<p>Welcome to the Fall 2026 version of <strong>Geographic Information Systems (GIS) for Spatial Data Science</strong> at Georgetown University! Please note that the most up-to-date version of this syllabus will always be available at <a href="https://jjacobs.me/ppol6805" target="_blank">jjacobs.me/ppol6805</a></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Course Numbering">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Irregular Lecture Days
+<span class="screen-reader-only">Note</span>Course Numbering
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please keep in mind the following “special” days, when course meetings will be shifted or skipped due to holidays:</p>
 <ul>
-<li><strong>Thursday, August 27</strong>: The <strong>first week</strong> of the course will be a <strong>joint meeting</strong> of both sections:
-<ul>
-<li>Students in the Thursday section (Section 02) should attend in-person, in Walsh 394</li>
-<li>Students in the Monday section (Section 01) should attend via <a href="https://georgetown.zoom.us/j/94373215953?pwd=PWr04WbKeGPRAmpNdavBe2cOw9YFFP.1">this Zoom link</a></li>
-</ul></li>
-<li><strong>Tuesday, September 8</strong>: The <strong>Week 3 meeting</strong> for the Monday section (Section 01) falls on a <strong>Tuesday</strong>, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)</li>
-<li><strong>Monday, October 12</strong> and <strong>Thursday, October 15</strong>: No class due to Georgetown’s Mid-Semester Holiday</li>
-<li><strong>Monday, November 23</strong> and <strong>Thursday, November 26</strong>: No class due to Georgetown’s 2026 Fall Recess</li>
+<li>For <em>Public Policy</em> students (McCourt): the course number is <strong>PPOL 6805</strong></li>
+<li>For <em>Data Science and Analytics</em> students: the course number is <strong>DSAN 6750</strong></li>
 </ul>
 </div>
 </div>
-<p>Welcome! This webpage contains slides, resources, and lecture recordings for <em>DSAN 6000: Big Data and Cloud Computing</em>, Fall 2026 at Georgetown University.</p>
-<p>Section <span class="sec-num">01</span> of the course takes place on <strong><span class="sec-day-full">Wednesday</span></strong> from <strong><span class="sec-start">3:30pm</span> to <span class="sec-end">6:00pm</span></strong> in <strong><span class="sec-room">Walsh 394</span></strong>. Use the links in the sidebar, or in the table below, to explore the content for a particular week.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table table-hover">
+<section id="course-staff-and-office-hours" class="level2">
+<h2 class="anchored" data-anchor-id="course-staff-and-office-hours">Course Staff and Office Hours</h2>
+<ul>
+<li><strong>Prof.&nbsp;Jeff Jacobs</strong>, <a href="mailto:jj1088@georgetown.edu" target="_blank"><code>jj1088@georgetown.edu</code></a>:<br> <em>Schedule office hours at <a href="https://jjacobs.me/meet" target="_blank"><code>jjacobs.me/meet</code></a></em>
+<ul>
+<li>Tues 4:30-7:00pm, Weds 3-4pm, Thurs 3-4pm</li>
+<li><em>(Please try to schedule at least 8 hours in advance, and let me know briefly in the “Additional Info” portion of the signup form what you’d like to discuss, so I have time to prepare!)</em></li>
+</ul></li>
+<li><strong>TA Jackson Howes (Data Science and Analytics)</strong>, <a href="mailto:jh2787@georgetown.edu" target="_blank"><code>jh2787@georgetown.edu</code></a>
+<ul>
+<li>Office hours by appointment</li>
+</ul></li>
+<li><strong>TA Hermine Wilhelmsen (McCourt School of Public Policy)</strong>, <a href="mailto:hw623@georgetown.edu" target="_blank"><code>hw623@georgetown.edu</code></a>
+<ul>
+<li>Office hours by appointment</li>
+</ul></li>
+</ul>
+</section>
+<section id="course-description" class="level2">
+<h2 class="anchored" data-anchor-id="course-description">Course Description</h2>
+<p>This course provides students with an overview of Geographic Information Systems (GIS), encompassing both general principles of geospatial data analysis and their applications for studying important issues of climate change, international conflict, economic development, and urban planning, among other areas of application.</p>
+<p>The beginning of the course emphasizes fundamentals of GIS design and use, such as projection systems, raster and vector data, and efficient representation and storage of geospatial data. As students become more comfortable with these foundations, the course will shift to a greater emphasis on applications during the second half of the semester. Particular emphasis will be placed on effective visualization of spatial data, through creation of static publication-quality maps as well as interactive maps for web applications and data dashboards.</p>
+<p>The course will utilize libraries from R, Python, Stata, and JavaScript as needed, so experience using any of these languages will be helpful, but is not required.</p>
+</section>
+<section id="assignment-structure" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-structure">Assignment Structure</h2>
+<p>On the basis of the guidelines we’ve developed for courses offered through DSAN, this course will have one in-class midterm but <strong>no</strong> final exam! Instead, you will work on a final project throughout the second half of the course. Each of the four units will involve a homework assignment, and final grades will be determined using the following weighting scheme:</p>
+<table class="caption-top table">
 <thead>
-<tr>
-
-<th>
-Title
-</th>
-
-<th>
-Date
-</th>
-
+<tr class="header">
+<th data-quarto-table-cell-role="th">Category</th>
+<th data-quarto-table-cell-role="th">Percent of Final Grade</th>
 </tr>
 </thead>
-<tbody class="list">
-
-<tr data-index="0" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1787803200000" data-listing-file-modified-sort="1787258512443" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3892" data-listing-title-sort="Week 1: Course Overview" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w01/index.html" class="title listing-title">Week 1: Course Overview</a>
-</td>
-<td>
-<span class="listing-date">Aug 27</span>
-</td>
-
+<tbody>
+<tr class="odd">
+<td>In-Class Midterm (<strong>?var:midterm.date-md</strong>)</td>
+<td>25%</td>
 </tr>
-
-<tr data-index="1" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1756785600000" data-listing-file-modified-sort="1756877901168" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1331" data-listing-title-sort="Week 2: Cloud Computing" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w02/index.html" class="title listing-title">Week 2: Cloud Computing</a>
-</td>
-<td>
-<span class="listing-date">Sep 2</span>
-</td>
-
+<tr class="even">
+<td>Final Project</td>
+<td>30%</td>
 </tr>
-
-<tr data-index="2" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1757304000000" data-listing-file-modified-sort="1757359458579" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2741" data-listing-title-sort="Week 3: Parallelization Concepts" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w03/index.html" class="title listing-title">Week 3: Parallelization Concepts</a>
-</td>
-<td>
-<span class="listing-date">Sep 8</span>
-</td>
-
+<tr class="odd">
+<td>Homeworks</td>
+<td>45%</td>
 </tr>
-
-<tr data-index="3" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1757908800000" data-listing-file-modified-sort="1757831306148" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3576" data-listing-title-sort="Week 4: DuckDB, Polars, File Formats" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w04/index.html" class="title listing-title">Week 4: DuckDB, Polars, File Formats</a>
-</td>
-<td>
-<span class="listing-date">Sep 15</span>
-</td>
-
+<tr class="even">
+<td><i class="bi bi-arrow-return-right pe-1"></i><strong>HW1</strong>: <strong>?var:hw.1.title</strong></td>
+<td><i class="bi bi-arrow-return-right pe-1"></i><strong>?var:hw.1.pct</strong>%</td>
 </tr>
-
-<tr data-index="4" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1758513600000" data-listing-file-modified-sort="1758574375648" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2232" data-listing-title-sort="Week 5: Data Engineering" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w05/index.html" class="title listing-title">Week 5: Data Engineering</a>
-</td>
-<td>
-<span class="listing-date">Sep 22</span>
-</td>
-
+<tr class="odd">
+<td><i class="bi bi-arrow-return-right pe-1"></i><strong>HW2</strong>: <strong>?var:hw.2.title</strong></td>
+<td><i class="bi bi-arrow-return-right pe-1"></i><strong>?var:hw.2.pct</strong>%</td>
 </tr>
-
-<tr data-index="5" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1759118400000" data-listing-file-modified-sort="1760032809105" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1267" data-listing-title-sort="Week 6: Introduction to Spark" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w06/index.html" class="title listing-title">Week 6: Introduction to Spark</a>
-</td>
-<td>
-<span class="listing-date">Sep 29</span>
-</td>
-
+<tr class="even">
+<td><i class="bi bi-arrow-return-right pe-1"></i><strong>HW3</strong>: <strong>?var:hw.3.title</strong></td>
+<td><i class="bi bi-arrow-return-right pe-1"></i><strong>?var:hw.3.pct</strong>%</td>
 </tr>
-
-<tr data-index="6" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1759723200000" data-listing-file-modified-sort="1761000384302" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="937" data-listing-title-sort="Week 7: Spark DataFrames and Spark SQL" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w07/index.html" class="title listing-title">Week 7: Spark DataFrames and Spark SQL</a>
-</td>
-<td>
-<span class="listing-date">Oct 6</span>
-</td>
-
+<tr class="odd">
+<td><i class="bi bi-arrow-return-right pe-1"></i><strong>HW4</strong>: <strong>?var:hw.4.title</strong></td>
+<td><i class="bi bi-arrow-return-right pe-1"></i><strong>?var:hw.4.pct</strong>%</td>
 </tr>
-
-<tr data-index="7" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1760932800000" data-listing-file-modified-sort="1762744646101" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="13" data-listing-title-sort="Week 8: SparkNLP" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w08/index.html" class="title listing-title">Week 8: SparkNLP</a>
-</td>
-<td>
-<span class="listing-date">Oct 20</span>
-</td>
-
+<tr class="even">
+<td><i class="bi bi-arrow-return-right pe-1"></i><strong>HW5</strong>: <strong>?var:hw.5.title</strong></td>
+<td><i class="bi bi-arrow-return-right pe-1"></i><strong>?var:hw.5.pct</strong>%</td>
 </tr>
-
-<tr data-index="8" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1761537600000" data-listing-file-modified-sort="1762744639983" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Week 9: SparkML" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w09/index.html" class="title listing-title">Week 9: SparkML</a>
-</td>
-<td>
-<span class="listing-date">Oct 27</span>
-</td>
-
-</tr>
-
-<tr data-index="9" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1762146000000" data-listing-file-modified-sort="1762744656626" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="932" data-listing-title-sort="Week 10: ETL Pipeline Orchestration with Airflow" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w10/index.html" class="title listing-title">Week 10: ETL Pipeline Orchestration with Airflow</a>
-</td>
-<td>
-<span class="listing-date">Nov 3</span>
-</td>
-
-</tr>
-
-<tr data-index="10" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1762750800000" data-listing-file-modified-sort="1762766640978" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="936" data-listing-title-sort="Week 11: Vector Databases" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w11/index.html" class="title listing-title">Week 11: Vector Databases</a>
-</td>
-<td>
-<span class="listing-date">Nov 10</span>
-</td>
-
-</tr>
-
-<tr data-index="11" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1763355600000" data-listing-file-modified-sort="1763410323313" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Week 12: In-Class Office Hours" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w12/index.html" class="title listing-title">Week 12: In-Class Office Hours</a>
-</td>
-<td>
-<span class="listing-date">Nov 17</span>
-</td>
-
-</tr>
-
-<tr data-index="12" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1763960400000" data-listing-file-modified-sort="1756411161558" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Week 13: Serverless and Container Orchestration" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w13/index.html" class="title listing-title">Week 13: Serverless and Container Orchestration</a>
-</td>
-<td>
-<span class="listing-date">Nov 24</span>
-</td>
-
-</tr>
-
-<tr data-index="13" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1764565200000" data-listing-file-modified-sort="1756411136742" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Week 14: Final Topics, Review" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w14/index.html" class="title listing-title">Week 14: Final Topics, Review</a>
-</td>
-<td>
-<span class="listing-date">Dec 1</span>
-</td>
-
-</tr>
-
-<tr data-index="14" data-categories="Q2xhc3MlMjBTZXNzaW9ucw==" data-listing-date-sort="1765170000000" data-listing-file-modified-sort="1756411102758" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Week 15: Final Project Presentations" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="./w15/index.html" class="title listing-title">Week 15: Final Project Presentations</a>
-</td>
-<td>
-<span class="listing-date">Dec 8</span>
-</td>
-
-</tr>
-
 </tbody>
 </table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+<p>The course does not have any “official” prerequisites, but a general comfort with <strong>R</strong> and/or <strong>Python</strong> is helpful: most of the code shown on slides is in R, but we will also discuss equivalent Python libraries you can use if you prefer!</p>
+<p>If you have never used R or Python before, however (or if you haven’t used it in a while and feel like your skills are rusty), you can:</p>
+<ul>
+<li>First <strong>browse the materials on the <a href="./resources.html">Resources page</a></strong>, and then</li>
+<li>Attend the weekly <a href="https://hchristy.georgetown.domains/_site"><strong>coding workshops</strong></a>!</li>
+</ul>
+</section>
+<section id="course-topics-calendar" class="level2">
+<h2 class="anchored" data-anchor-id="course-topics-calendar">Course Topics / Calendar</h2>
+<p>The following is a rough map of what we will work through together throughout the semester; given that <strong>everyone learns at a different pace</strong>, my aim is to leave us with a good amount of <strong>flexibility</strong> in terms of how much time we spend on each topic.</p>
+<p>If I find that it takes me longer than a week to convey a certain topic in sufficient depth, for example, then I view it as a strength rather than a weakness of the course that we can then rearrange the calendar below by adding an extra week on that particular topic! Similarly, if it seems like I am spending too much time on a topic, to the point that students seem bored or impatient to move onto the next topic, we can move a topic intended for the next week to the current week.</p>
+<p>Nonetheless, if you are able to do the recommended readings listed below <em>before</em> the start of each week’s lecture, this will be a good indication that you are “on pace”, relative to the overall set of topics I aim to cover by the end of the semester.</p>
+<p><em>If you find any discrepancies between this schedule and Georgetown’s <a href="https://registrar.georgetown.edu/academic-calendar/maincampus/">official calendar</a>, let us know!</em></p>
+<table class="sticky-table caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 10%">
+<col style="width: 20%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="sticky-head header">
+<th data-quarto-table-cell-role="th">Unit</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Week</th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Unit 1</strong>: GIS Concepts</td>
+<td style="text-align: left;">1</td>
+<td>Aug 28</td>
+<td><a href="./w01/">Course Overview</a></td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">2</td>
+<td>Sep 2</td>
+<td><a href="./w02/">Cloud Computing</a></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">3</td>
+<td>Sep 8</td>
+<td><a href="./w03/">Parallelization Concepts</a></td>
+</tr>
+<tr class="new-unit even">
+<td><strong>Unit 2:</strong> Geospatial Operations</td>
+<td style="text-align: left;">4</td>
+<td>Sep 15</td>
+<td><a href="./w04/">DuckDB, Polars, and File Formats</a></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">5</td>
+<td>Sep 22</td>
+<td><a href="./w05/">Data Engineering</a></td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">6</td>
+<td>Sep 29</td>
+<td><a href="./w06/">Introduction to Spark</a></td>
+</tr>
+<tr class="new-unit odd">
+<td style="border-bottom: 0px"><strong>Unit 3:</strong> Spatial Data Science I: Foundations</td>
+<td style="text-align: left; border-bottom: 0px;">7</td>
+<td style="border-bottom: 0px">Oct 6</td>
+<td style="border-bottom: 0px"><a href="./w07/"></a></td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">8</td>
+<td>Oct 20</td>
+<td><a href="./w08/"></a></td>
+</tr>
+<tr class="new-unit odd">
+<td><strong>Unit 4:</strong> Spatial Data Science II: Methods</td>
+<td style="text-align: left;">9</td>
+<td>Oct 27</td>
+<td><a href="./w09/"></a></td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;">10</td>
+<td>Nov 3</td>
+<td><a href="./w10/"></a></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">11</td>
+<td>Nov 10</td>
+<td><a href="./w11/"></a></td>
+</tr>
+<tr class="new-unit even">
+<td><strong>Unit 5</strong>: Final Projects</td>
+<td style="text-align: left;">12</td>
+<td>Nov 13</td>
+<td><a href="./w12/"></a></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">13</td>
+<td>Nov 20</td>
+<td><a href="./w13/"></a></td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: left;"></td>
+<td><em>Nov 26</em></td>
+<td><em>No Class (Fall Break)</em></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: left;">14</td>
+<td>Dec 4</td>
+<td><a href="./w14/"></a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="assignment-distribution-submission-and-grading" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-distribution-submission-and-grading">Assignment Distribution, Submission, and Grading</h2>
+<p>The programming assignments for the course will be managed through a <a href="?var:course.hub_url">JupyterHub server</a>, which you will connect to in order to work on assignments with more computing power than is possible on your laptops (and with the necessary GIS libraries pre-installed)! This means that, to work on and submit the assignments, you will use the workflow described in the <a href="./writeups/positron/index.qmd">Positron connection guide</a>, which you can always find within the <a href="./writeups/index.qmd">“Writeups” section</a> linked in the sidebar.</p>
+</section>
+<section id="late-policy" class="level2">
+<h2 class="anchored" data-anchor-id="late-policy">Late Policy</h2>
+<p>After the due date, for each <strong>homework</strong> assignment, you will have a grace period of 24 hours to submit the assignment without a lateness penalty. After this 24 hour grace period, late penalties will be applied up until 66 hours after the due date. Specifically, late penalties will be applied based on the following scale (unless you obtain an excused lateness from one of the instructional staff!):</p>
+<ul>
+<li><strong>0 to 24 hours</strong> after due date: no penalty</li>
+<li><strong>24 to 30 hours</strong> after due date: 2.5% penalty</li>
+<li><strong>30 to 42 hours</strong> after due date: 5% penalty</li>
+<li><strong>42 to 54 hours</strong> after due date: 10% penalty</li>
+<li><strong>54 to 66 hours</strong> after due date: 20% penalty</li>
+<li><strong>More than 66 hours</strong> after due date: Assignment submissions no longer accepted (without instructor approval)</li>
+</ul>
+<p>Excused lateness exceptions will be grounded in a policy where you can “pause” the class (due-date-wise, but also just, expectation-of-progress-wise more generally) to take the time you need to handle things happening in your life. Then, you can “resume” work once you feel more centered/once you find yourself back on stable ground. The <a href="https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs">“Maslow’s hierarchy”</a> model from psychology (<a href="#fig-maslow" class="quarto-xref">Figure&nbsp;1</a>) provides a straightforward way to think about this approach.</p>
+<div id="fig-maslow" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-maslow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/maslow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-maslow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Maslow’s Hierarchy of Needs, from <a href="https://commons.wikimedia.org/wiki/File:Maslow%27s_Hierarchy_of_Needs_Pyramid_(original_five-level_model).png">Wikimedia</a>
+</figcaption>
+</figure>
+</div>
+<p>Learning GIS is way up there in the blue triangle, so, it’s important that you feel like the first four levels are solidified before you turn your focus back to classwork. And, it’s a win-win, because it means that once you’re back in action you can be more engaged and receptive to new topics, rather than being forced to “simulate” being in the blue triangle while in reality struggling in other spots!</p>
+</section>
+<section id="final-letter-grade-determination" class="level2">
+<h2 class="anchored" data-anchor-id="final-letter-grade-determination">Final Letter Grade Determination</h2>
+<p>Once all assignments have been graded, we will compute your final <strong>numeric grade</strong> according to the above weighting, rounded to two decimal places. The <strong>letter grade</strong> that we report to Georgetown on the basis of this numeric grade will then follow the DSAN letter grade policy (updated Fall 2026) as follows, where start and end points for each range are <strong>inclusive</strong>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">Range Start</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Range End</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Letter Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">93.50</td>
+<td style="text-align: right;">100.00</td>
+<td style="text-align: left;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">89.50</td>
+<td style="text-align: right;">93.49</td>
+<td style="text-align: left;">A-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">88.00</td>
+<td style="text-align: right;">89.49</td>
+<td style="text-align: left;">B+</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">81.50</td>
+<td style="text-align: right;">87.99</td>
+<td style="text-align: left;">B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">79.50</td>
+<td style="text-align: right;">81.49</td>
+<td style="text-align: left;">B-</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">60.00</td>
+<td style="text-align: right;">79.49</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">59.99</td>
+<td style="text-align: left;">F</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="title-ixsexual-misconduct-statement" class="level2">
+<h2 class="anchored" data-anchor-id="title-ixsexual-misconduct-statement">Title IX/Sexual Misconduct Statement</h2>
+<p>Georgetown University and its faculty are committed to supporting survivors and those impacted by sexual misconduct, which includes sexual assault, sexual harassment, relationship violence, and stalking. Georgetown requires faculty members, unless otherwise designated as confidential, to report all disclosures of sexual misconduct to the University Title IX Coordinator or a Deputy Title IX Coordinator.</p>
+<p>If you disclose an incident of sexual misconduct to a professor in or outside of the classroom (with the exception of disclosures in papers), that faculty member must report the incident to the Title IX Coordinator, or Deputy Title IX Coordinator. The coordinator will, in turn, reach out to the student to provide support, resources, and the option to meet. [Please note that the student is not required to meet with the Title IX coordinator.]. More information about reporting options and resources can be found in the <a href="https://sexualassault.georgetown.edu/get-help/resourcecenter/#">Sexual Misconduct Resource Center</a>.</p>
+<p>If you would prefer to speak to someone confidentially, Georgetown has a number of fully confidential professional resources that can provide support and assistance. These resources include:</p>
+<ul>
+<li><em>Health Education Services for Sexual Assault Response and Prevention</em>: Confidential email <a href="mailto:sarp@georgetown.edu"><code>sarp@georgetown.edu</code></a></li>
+<li><em>Counseling and Psychiatric Services (CAPS)</em>: 202-687-6985 [After hours you can call 833-960-3006 to reach Fonemed, a telehealth service, and ask for the on-call CAPS clinician]</li>
+</ul>
+</section>
+<section id="gsas-and-mccourt-resources-and-policies" class="level2">
+<h2 class="anchored" data-anchor-id="gsas-and-mccourt-resources-and-policies">GSAS and McCourt Resources and Policies</h2>
+<p>You can find a collection of relevant resources and policies for students on the <a href="https://grad.georgetown.edu/academics/current-students/">GSAS website</a>, and the Provost’s policy on accommodating students’ religious observances on the <a href="https://campusministry.georgetown.edu/faith-traditions/religious_holy_days/#">Campus Ministry website</a>.</p>
+<p>You can also make use of the <a href="http://academicsupport.georgetown.edu/">Student Academic Resource Center</a>. In particular, within the Resource Center there is a link to Georgetown’s <a href="http://academicsupport.georgetown.edu/disability/">Disability Support page</a>. If you believe you have a disability, you can contact the Academic Resource Center (<a href="mailto:arc@georgetown.edu"><code>arc@georgetown.edu</code></a>) for further information. The ARC is located in the Leavey Center, Suite 335 (202-687-8354), and it is the campus office responsible for reviewing documentation provided by students with disabilities and for determining reasonable accommodations in accordance with the Americans with Disabilities Act (ADA) and University policies.</p>
+<section id="mccourt-academic-integrity-policy" class="level3">
+<h3 class="anchored" data-anchor-id="mccourt-academic-integrity-policy">McCourt Academic Integrity Policy</h3>
+<p>McCourt School students are expected to uphold the academic policies set forth by Georgetown University and the Graduate School of Arts and Sciences. Students should therefore familiarize themselves with all the rules, regulations, and procedures relevant to their pursuit of a Graduate School degree. The relevant policies are listed at <a href="https://sites.google.com/a/georgetown.edu/gsas-graduate-bulletin/vi-academic-integrity-policies-procedures">this link</a>.</p>
+</section>
+<section id="mccourt-policy-writing-center-mpwc" class="level3">
+<h3 class="anchored" data-anchor-id="mccourt-policy-writing-center-mpwc">McCourt Policy-Writing Center (MPWC)</h3>
+<p>The McCourt Policy-Writing Center (MPWC) offers services and resources for students to help improve policy-writing skills. These include workshops, peer review facilitation, open houses, lectures, online modules, and <a href="https://mccourt.georgetown.edu/life-at-mccourt/student-resources/writingcenter/services/">individual appointments</a>. Click <a href="https://mccourt.georgetown.edu/news-events/">here</a> for the full calendar of events, and email <a href="mailto:mpwc@georgetown.edu" target="_blank"><code>mpwc@georgetown.edu</code></a> for general inquiries.</p>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" role="list">
+
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1177,4 +1066,4 @@ Date
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/syllabus.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
