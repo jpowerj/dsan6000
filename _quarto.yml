@@ -16,8 +16,10 @@ website:
     title: "DSAN 6000: Big Data and Cloud Computing"
     footer: "*Updated {{< env DSAN6000_LAST_UPDATED \"2026-08-28\" >}}*"
     contents:
-      - href: "https://gu-dsan.github.io/6000-fall-2025/"
+      - href: index.qmd
         text: "<i class='bi bi-house'></i> Home"
+      - href: syllabus.qmd
+        text: "Syllabus"
       - href: resources.qmd
         text: "Resources"
       - "---"
