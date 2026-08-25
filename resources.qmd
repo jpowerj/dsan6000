@@ -17,6 +17,37 @@ format:
     df-print: kable
 ---
 
+## Key Books By Week
+
+### Week 1: Course Overview / Week 2: Cloud Computing
+
+* **The Boar Book**: @kleppmann_designing_2026, *Designing Data-Intensive Applications (2nd Edition)*
+
+### Week 3: Parallel Concepts
+
+* **The Wolohan MapReduce Book**: @wolohan_mastering_2020, *Mastering Large Datasets with Python*, Chapters 1-6
+
+### Week 4: SQL, DuckDB, Polars
+
+* **The SQL Bird Book**: @tanimura_sql_2021, *SQL for Data Analysis: Advanced Techniques for Transforming Data into Insights*
+* **The Lynx Book**: @janssens_python_2025, *Python Polars: The Definitive Guide*
+* **The I-Need-Ham, Hunger Book**: @needham_duckdb_2024, *DuckDB in Action*
+
+### Week 5: Data Warehousing
+
+Two Packt Books:
+
+* **General Data Engineering on AWS**: @eagar_data_2021, *Data Engineering with AWS*
+* **Data Engineering with Athena**: @virtuoso_serverless_2021, *Serverless Analytics with Amazon Athena*
+
+### Weeks 6 and 7: Hadoop &rarr; PySpark
+
+* **The Wolohan MapReduce Book**: @wolohan_mastering_2020, *Mastering Large Datasets with Python*, Chapters 7-10
+
+### Weeks 8 and 9: Spark in Depth
+
+* **The Electric Eel Book**: @damji_learning_2020, *Learning Spark*
+
 ## In-Class Demos
 
 * [Week 4 Polars Demo (Colab)](https://colab.research.google.com/drive/1tS3nM7FJAqthDqdeXmqgxiOYMcRrFTZq?usp=sharing)
@@ -30,44 +61,10 @@ format:
 * [Week 9 Spark ML Demo (Colab)](https://colab.research.google.com/drive/1HpdPjTNAbIYzvlyK9YoxVb6MaXmcDyQs?usp=sharing)
 * [Week 9 MLFlow Demo (GitHub)](https://github.com/jpowerj/mlflow-demo)
 
-## Lab .zips
-
-Access the [ZIP files here](https://jpj.georgetown.domains/dsan6000-zips/)
-
 ## Extra Writeups
 
 ::: {#writeups}
 :::
-
-## Key Books By Week
-
-### Week 1: Course Overview and Week 2: Cloud Computing
-
-* **The Boar Book**: @kleppmann_designing_2017, *Designing Data-Intensive Applications*
-
-### Week 3: Parallel Concepts
-
-* **The Wolohan MapReduce Book**: @wolohan_mastering_2020, *Mastering Large Datasets with Python*, Chapters 1-6
-
-### Week 4: DuckDB, Polars, File Formats
-
-* **The Lynx Book**: @janssens_python_2025, *Python Polars: The Definitive Guide*
-* **The I-Need-Ham, Hunger Book**: @needham_duckdb_2024, *DuckDB in Action*
-
-### Week 5: Data Warehousing
-
-Two Packt Books:
-
-* **General Data Engineering on AWS**: @eagar_data_2021, *Data Engineering with AWS*
-* **Data Engineering with Athena**: @virtuoso_serverless_2021, *Serverless Analytics with Amazon Athena*
-
-### Weeks 6 and 7: Hadoop &rarr; PySpark
-
-* * **The Wolohan MapReduce Book**: @wolohan_mastering_2020, *Mastering Large Datasets with Python*, Chapters 7-10
-
-### Weeks 8 and 9: Spark in Depth
-
-* **The Electric Eel Book**: @damji_learning_2020, *Learning Spark*
 
 ## PDFs of Books
 
