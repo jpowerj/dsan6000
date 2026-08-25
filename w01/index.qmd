@@ -3,7 +3,7 @@ title: "Week 1: Course Overview"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
-date: 2026-08-27
+date: 2026-08-31
 date-format: full
 lecnum: 1
 categories:
@@ -13,10 +13,6 @@ crossref:
 # bibliography: "../_PPOL6805.bib"
 cache: true
 format:
-  html:
-    output-file: "index.html"
-    html-math-method: mathjax
-    df-print: kable
   revealjs:
     output-file: "slides.html"
     html-math-method: mathjax
@@ -25,7 +21,10 @@ format:
     link-external-icon: true
     link-external-newwindow: true
     footer: "{{< var weeks.1.footer >}}"
-    theme: [default, "../dsan-globals/jjquarto.scss"]
+    theme:
+      - default
+      - "../dsan-globals/jjquarto.scss"
+      - "../dsan-globals/jjquarto-light.scss"
     revealjs-plugins:
       - simplemenu
     simplemenu:
@@ -33,6 +32,10 @@ format:
       barhtml:
         header: "<div class='menubar'><span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span><ul class='menu'></ul></div>"
       scale: 0.5
+  html:
+    output-file: "index.html"
+    html-math-method: mathjax
+    df-print: kable
 ---
 
 ::: {.content-visible unless-format="revealjs"}
@@ -42,7 +45,6 @@ format:
 </center>
 
 :::
-
 
 ## Agenda for today's session
 
@@ -60,47 +62,21 @@ format:
 
 # Course Overview {data-stack-name="Course Overview"}
 
-## Bookmark these links! {.smaller}
+## Course Webpage {.smaller .crunch-p}
 
-* Course website: [{{< var course.url >}}]({{< var course.url >}})
-* GitHub Organization for your deliverables: [{{< var course.github_org >}}]({{< var course.github_org >}})
+<center style='margin-bottom: 20px;'>
+
+[**`https://jjacobs.me/dsan6000`**](https://jjacobs.me/dsan6000){.boxed-cb target='_blank'}
+
+</center>
+
+Links to these additional resources are in the sidebar:
+
+* [Canvas page](https://georgetown.instructure.com/courses/234516){target='_blank'}
+* [Google Space](https://chat.google.com/room/AAQAfu8NheM?cls=1)
 * GitHub Classroom: [{{< var course.github_classroom >}}]({{< var course.github_classroom >}})
-* Slack Workspace: **DSAN6000 Fall 2025** - [{{< var course.slack >}}]({{< var course.slack >}})
-  * Join link: [{{< var course.slack_join >}}]({{< var course.slack_join >}})
 * Instructors email: [{{< var course.email >}}](mailto::{{< var course.email >}})
 * {{< var university.lms >}}: [{{< var course.lms_course_url >}}]({{< var course.lms_course_url >}})
-
-
-::: {.callout-tip appearance="simple" icon=true }
-These are also pinned on the Slack `main` channel
-:::
-
-## Instructional Team - Professors
-
-* Amit Arora, [`aa1603@georgetown.edu`](mailto:aa1603@georgetown.edu)
-* Jeff Jacobs, [`jj1088@georgetown.edu`](mailto:jj1088@georgetown.edu)
-
-## Amit Arora, [`aa1603@georgetown.edu`](mailto:aa1603@georgetown.edu) {.smaller .title-12}
-
-:::: {.columns} 
-::: {.column width="75%"}
-
-* Principal Solutions Architect - AI/ML at AWS
-* Adjunct Professor at Georgetown University
-* Multiple patents in telecommunications and applications of ML in telecommunications
-
-Fun Facts
-
-:::
-
-::: {.column width="25%"}
-![](./img/amit.jpeg 'Amit Arora')
-:::
-::::
-
-* I am a self-published author https://blueberriesinmysalad.com/
-* My book "Blueberries in my salad: my forever journey towards fitness & strength" is written as code in R and Markdown
-* I love to read books about health and human performance, productivity, philosophy and <i>Mathematics for ML</i>. My reading list is [online](https://aarora79.github.io/my-reading-list/)!
 
 ## Jeff Jacobs, [`jj1088@georgetown.edu`](mailto:jj1088@georgetown.edu) {.smaller .title-12 .crunch-ul .crunch-img .crunch-title}
 
@@ -123,75 +99,37 @@ Fun Facts
 
 * Server admin for lab server &rarr; lab AWS account at Columbia (2015-2023) &rarr; new DSAN server (!) (2025-)
 * Passion project 1: [Code for Palestine (2015-2022)](https://www.codedotx.org/code-for-palestine) &rarr; [YouthCode-Gaza (2023)](https://www.codedotx.org/youthcode-gaza) &rarr; [Ukraine Ministry of Digital Transformation (2024)](https://jjacobs.me/data-ethics-cdto/#/title-slide)
-* Passion projects 2+3 [🤓]: [Sample-based music production](https://open.spotify.com/track/43HqrCcK5FCkZG3mAQFmch?si=c6afba6dff394fe6), [web app frameworks](https://dbtskills.io/)
+* Passion projects 2+3 [🤓]: [web app frameworks](https://dbtskills.io/)
 * Sleep disorder means lots of [reading](https://app.thestorygraph.com/profile/jpowerj) -- mainly history! -- at night
 * Also teaching *PPOL6805 / DSAN 6750: GIS for Spatial Data Science* this semester
 
 ## Instructional Team - Teaching Assistants {.smaller .title-12}
 
-* Binhui Chen, [`bc928@georgetown.edu`](mailto:bc928@georgetown.edu)
-* Pranav Sudhir Patil, [`pp755@georgetown.edu`](mailto:pp755@georgetown.edu)
-* Ofure Udabor, [`au195@georgetown.edu`](mailto:au195@georgetown.edu)
-* Yifei Wu, [`yw924@georgetown.edu`](mailto:yw924@georgetown.edu)
-* Naomi Yamaguchi, [`ny159@georgetown.edu`](mailto:ny159@georgetown.edu)
-* Leqi Ying, [`ly290@georgetown.edu`](mailto:ly290@georgetown.edu)
-* Xinyue (Monica) Zhang, [`xz646@georgetown.edu`](mailto:xz646@georgetown.edu)
+* Samyu Vakkalanka, [`spv15@georgetown.edu`](mailto:spv15@georgetown.edu)
+* Fangzhou Wang, [`fw256@georgetown.edu`](mailto:fw256@georgetown.edu)
+* Siru Wu, [`sw1430@georgetown.edu`](mailto:sw1430@georgetown.edu)
 
-## Binhui Chen, [`bc928@georgetown.edu`](mailto:bc928@georgetown.edu) {.smaller .title-12}
-
-*(Lead TA for the course!)*
+## Samyu Vakkalanka, [`spv15@georgetown.edu`](mailto:spv15@georgetown.edu) {.smaller .title-12}
 
 <center>
 
-![](img/binhui.jpg)
+Image
 
 </center>
 
-## Pranav Sudhir Patil, [`pp755@georgetown.edu`](mailto:pp755@georgetown.edu) {.smaller .title-11}
+## Fangzhou Wang, [`fw256@georgetown.edu`](mailto:fw256@georgetown.edu) {.smaller .title-11}
 
 <center>
 
-![](img/pranav.jpg)
+Image
 
 </center>
 
-## Ofure Udabor, [`au195@georgetown.edu`](mailto:au195@georgetown.edu) {.smaller .title-12}
+## Siru Wu, [`sw1430@georgetown.edu`](mailto:sw1430@georgetown.edu) {.smaller .title-12}
 
 <center>
 
-![](img/ofure2.jpg){width="35%"}
-
-</center>
-
-## Yifei Wu, [`yw924@georgetown.edu`](mailto:yw924@georgetown.edu) {.smaller .title-12}
-
-<center>
-
-![](img/yifei.jpg)
-
-</center>
-
-## Naomi Yamaguchi, [`ny159@georgetown.edu`](mailto:ny159@georgetown.edu) {.smaller .title-11}
-
-<center>
-
-![](img/naomi.jpg)
-
-</center>
-
-## Leqi Ying, [`ly290@georgetown.edu`](mailto:ly290@georgetown.edu) {.smaller}
-
-<center>
-
-![](img/leqi.jpg)
-
-</center>
-
-## Xinyue (Monica) Zhang, [`xz646@georgetown.edu`](mailto:xz646@georgetown.edu) {.smaller .title-10}
-
-<center>
-
-![](img/xinyue.jpg)
+Image
 
 </center>
 
@@ -219,34 +157,21 @@ Always refer to the [syllabus](/syllabus.html) and [calendar](/schedule.html) in
 - Quizzes : 10%
 
 ## Course Materials
+
 * Slides/labs/assignment on Website/GitHub
 * Quizzes and readings in Canvas
 
 ## Communication
 
-- **Slack is the primary form of communication** 
-- [Instructional team email:](mailto:{{< var course.email >}})  `{{< var course.email >}}` 
+* The [Google Space]({{< var gspace_url >}}){target='_blank'} is the primary form of communication for **general questions**
+* You can email the instructional team with private questions (e.g., about your AWS allocation) at [`dsan6000@georgetown.edu`](mailto:dsan6000@georgetown.edu){target='_blank'}
+* (But, consider the GSpace first: most questions last year were issues faced by multiple students!)
 
+## In-Class Midterm {.crunch-title .crunch-ul}
 
-## Slack rules {.smaller}
-
-- Post any question/comment about the course, assignments or any technical issue.
-- DMs are to be used sparingly
-- You may not DM multiple people in the instructional team at the same time for the same issue
--  Keep an eye on the questions posted in Slack. Use the search function. It's very possible that we have already answered a questions
-- You may DM us back only if we DM you first on a given issue
-- Lab/assignment/project questions will only be answered up to 6 hours before something is due (i.e. 6pm on Mondays)
-
-## Midterm Project (NEW!) {.crunch-title .crunch-ul}
-
-* **Individual assignment** (not team-based)
-* **Timing**: Around Week 5-6
-* **Weight**: Equivalent to 2 homework assignments
-* **Format**: 
-  * We provide the dataset and problem statement
-  * You apply big data tools and techniques learned in class
-  * End-to-end data pipeline implementation
-* **Details**: TBD (will be announced in Week 4)
+* The gist: You will be given **specifications** for an app/pipeline/infrastructure (hypothetical, but based on real-world!): goals, budgets, etc.
+* Your job will be to use what you've learned in weeks 1-6 to **write out the implementation details** of how you would meet these specifications
+* Will make more sense by end of lecture today with **X.com** example
 
 ## Final Project {.smaller}
 
@@ -262,7 +187,6 @@ Always refer to the [syllabus](/syllabus.html) and [calendar](/schedule.html) in
   * Challenges and Learnings
   * Conclusions 
   * Future work
-  
 
 # BIG DATA {data-stack-name="Big Data"}
 
@@ -310,9 +234,6 @@ Always refer to the [syllabus](/syllabus.html) and [calendar](/schedule.html) in
 
 ## _A lot_ of it is hapenning online. {.crunch-title .crunch-ul .text-80}
 
-:::: {.columns}
-::: {.column width="50%"}
-
 **We can record every:**
 
 * click
@@ -324,14 +245,6 @@ Always refer to the [syllabus](/syllabus.html) and [calendar](/schedule.html) in
 * network message
 * fault
 * ...
-
-:::
-::: {.column width="50%"}
-
-<img src="img/iceberg.jpg">
-
-:::
-::::
 
 ## It can also be user-generated content: {.crunch-title .crunch-ul .text-90}
 
@@ -1086,6 +999,3 @@ Now that we know how to navigate through **directories**, we need commands for i
 
 [Reference material: Text Lesson 1,2,3,7,9,10](https://linuxjourney.com/lesson/monitor-processes-ps-command)
 
-## Try playing a Linux game!
-
-[Bash crawl](https://gitlab.com/slackermedia/bashcrawl) is a game to help you practice your navigation and file access skills. Click on the **binder** link in this repo to launch a jupyter lab session and explore!

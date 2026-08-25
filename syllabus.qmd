@@ -32,6 +32,12 @@ format:
 
 \vspace{-8mm}
 
+::: {.callout-warning title="Under Construction"}
+
+The homepage and syllabus for this course are still under construction, and will be finalized by the **first day of lecture, Monday August 31**
+
+:::
+
 Welcome to the Fall 2026 version of **Big Data and Cloud Computing** at Georgetown University! Please note that the most up-to-date version of this syllabus will always be available at [jjacobs.me/dsan6000](https://jjacobs.me/dsan6000){target='_blank'}
 
 ## Course Staff and Office Hours

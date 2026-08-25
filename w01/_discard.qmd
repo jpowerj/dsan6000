@@ -1,0 +1,27 @@
+## Amit Arora, [`aa1603@georgetown.edu`](mailto:aa1603@georgetown.edu) {.smaller .title-12}
+
+:::: {.columns} 
+::: {.column width="75%"}
+
+* Principal Solutions Architect - AI/ML at AWS
+* Adjunct Professor at Georgetown University
+* Multiple patents in telecommunications and applications of ML in telecommunications
+
+Fun Facts
+
+:::
+
+::: {.column width="25%"}
+![](./img/amit.jpeg 'Amit Arora')
+:::
+::::
+
+* I am a self-published author https://blueberriesinmysalad.com/
+* My book "Blueberries in my salad: my forever journey towards fitness & strength" is written as code in R and Markdown
+* I love to read books about health and human performance, productivity, philosophy and <i>Mathematics for ML</i>. My reading list is [online](https://aarora79.github.io/my-reading-list/)!
+
+---
+
+## Try playing a Linux game!
+
+[Bash crawl](https://gitlab.com/slackermedia/bashcrawl) is a game to help you practice your navigation and file access skills. Click on the **binder** link in this repo to launch a jupyter lab session and explore!

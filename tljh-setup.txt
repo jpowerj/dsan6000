@@ -1,0 +1,1 @@
+curl -L https://tljh.jupyter.org/bootstrap.py | sudo -E python3 - --admin exouser

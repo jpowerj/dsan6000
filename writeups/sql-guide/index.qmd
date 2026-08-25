@@ -13,7 +13,6 @@ format:
     html-math-method: mathjax
     link-external-newwindow: true
     link-external-icon: true
-    css: "../../dsan-globals/jjwriteups.css"
 ---
 
 At some point during [Week 4](../../w04/index.qmd), you may have noticed a somewhat-jarring shift in our approach to data analytics...
