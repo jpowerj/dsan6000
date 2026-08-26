@@ -482,7 +482,7 @@ Section 02: Th 6:30-9pm, Walsh 394</p>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The homepage and syllabus for this course are still under construction, and will be finalized by the <strong>first day of lecture, Monday August 31</strong></p>
+<p>The homepage and syllabus for this course are still under construction, and will be finalized by the <strong>first day of Section <span class="sec-num">01</span> lecture, <span class="sec-w01-date-full">Monday, August 31</span></strong></p>
 </div>
 </div>
 <p>Welcome to the Fall 2026 version of <strong>Big Data and Cloud Computing</strong> at Georgetown University! Please note that the most up-to-date version of this syllabus will always be available at <a href="https://jjacobs.me/dsan6000" target="_blank">jjacobs.me/dsan6000</a></p>
@@ -561,7 +561,7 @@ Section 02: Th 6:30-9pm, Walsh 394</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Unit 1</strong>: GIS Concepts</td>
+<td><strong>Unit 1</strong>: Core Concepts</td>
 <td style="text-align: left;">1</td>
 <td>Aug 31</td>
 <td><a href="./w01/">Course Overview</a></td>
@@ -579,7 +579,7 @@ Section 02: Th 6:30-9pm, Walsh 394</p>
 <td><a href="./w03/">Parallelization Concepts</a></td>
 </tr>
 <tr class="new-unit even">
-<td><strong>Unit 2:</strong> Geospatial Operations</td>
+<td><strong>Unit 2:</strong> Scaling Pandas</td>
 <td style="text-align: left;">4</td>
 <td>Sep 21</td>
 <td><a href="./w04/">DuckDB, Polars, and File Formats</a></td>
@@ -597,7 +597,7 @@ Section 02: Th 6:30-9pm, Walsh 394</p>
 <td><a href="./w06/">Introduction to Spark</a></td>
 </tr>
 <tr class="new-unit odd">
-<td style="border-bottom: 0px"><strong>Unit 3:</strong> Spatial Data Science I: Foundations</td>
+<td style="border-bottom: 0px"><strong>Unit 3:</strong> Distributed Computing with Spark</td>
 <td style="text-align: left; border-bottom: 0px;">7</td>
 <td style="border-bottom: 0px">Oct 19</td>
 <td style="border-bottom: 0px"><a href="./w07/"></a></td>
@@ -609,7 +609,7 @@ Section 02: Th 6:30-9pm, Walsh 394</p>
 <td><a href="./w08/"></a></td>
 </tr>
 <tr class="new-unit odd">
-<td><strong>Unit 4:</strong> Spatial Data Science II: Methods</td>
+<td><strong>Unit 4:</strong> ETL for Vector DBs</td>
 <td style="text-align: left;">9</td>
 <td>Nov 2</td>
 <td><a href="./w09/"></a></td>
@@ -627,7 +627,7 @@ Section 02: Th 6:30-9pm, Walsh 394</p>
 <td><a href="./w11/"></a></td>
 </tr>
 <tr class="new-unit even">
-<td><strong>Unit 5</strong>: Final Projects</td>
+<td><strong>Unit 5</strong>: Final Project Prep</td>
 <td style="text-align: left;">12</td>
 <td>Nov 23</td>
 <td><a href="./w12/"></a></td>
@@ -655,7 +655,13 @@ Section 02: Th 6:30-9pm, Walsh 394</p>
 </section>
 <section id="assignment-distribution-submission-and-grading" class="level2">
 <h2 class="anchored" data-anchor-id="assignment-distribution-submission-and-grading">Assignment Distribution, Submission, and Grading</h2>
-<p>The programming assignments for the course will be managed through a <a href="?var:course.hub_url">JupyterHub server</a>, which you will connect to in order to work on assignments with more computing power than is possible on your laptops (and with the necessary GIS libraries pre-installed)! This means that, to work on and submit the assignments, you will use the workflow described in the <a href="./writeups/positron/index.qmd">Positron connection guide</a>, which you can always find within the <a href="./writeups/index.qmd">“Writeups” section</a> linked in the sidebar.</p>
+<p>Each weekly programming assignment for the course will be distributed as a GitHub Repository Template, which will be linked to on Canvas. Since (nearly) all assignments will require you to use your AWS Academy account (to work on assignments with more computing power than is possible on your laptops), your standard workflow for assignments will be to</p>
+<ol type="1">
+<li>Click on the link to the GitHub Template in Canvas,</li>
+<li>Click the green <strong>“Use This Template”</strong> button in the upper-right corner of the Template, then</li>
+<li>Clone the resulting Repository to your “main” <strong>EC2 Instance</strong></li>
+</ol>
+<p>We will dive much more deeply into this workflow in Week 1 of the course!</p>
 </section>
 <section id="late-policy" class="level2">
 <h2 class="anchored" data-anchor-id="late-policy">Late Policy</h2>

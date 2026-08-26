@@ -34,7 +34,7 @@ format:
 
 ::: {.callout-warning title="Under Construction"}
 
-The homepage and syllabus for this course are still under construction, and will be finalized by the **first day of lecture, Monday August 31**
+The homepage and syllabus for this course are still under construction, and will be finalized by the **first day of Section <span class='sec-num'>01</span> lecture, <span class='sec-w01-date-full'>Monday, August 31</span>**
 
 :::
 
@@ -115,7 +115,7 @@ Nonetheless, if you are able to do the recommended readings listed below *before
 </thead>
 <tbody>
 <tr>
-    <td><span data-qmd="**Unit 1**: GIS Concepts"></span></td>
+    <td><span data-qmd="**Unit 1**: Core Concepts"></span></td>
     <td align="left">1</td>
     <td><span data-qmd="{{< var weeks.1.date-md >}}"></span></td>
     <td><span data-qmd="[{{< var weeks.1.title >}}](./w01/)"></span></td>
@@ -138,7 +138,7 @@ Nonetheless, if you are able to do the recommended readings listed below *before
     </td>
 </tr>
 <tr class='new-unit'>
-    <td><span data-qmd="**Unit 2:** Geospatial Operations"></span></td>
+    <td><span data-qmd="**Unit 2:** Scaling Pandas"></span></td>
     <td>4</td>
     <td><span data-qmd="{{< var weeks.4.date-md >}}"></span></td>
     <td>
@@ -162,7 +162,7 @@ Nonetheless, if you are able to do the recommended readings listed below *before
     </td>
 </tr>
 <tr class='new-unit'>
-    <td style='border-bottom: 0px;'><span data-qmd="**Unit 3:** Spatial Data Science I: Foundations"></span></td>
+    <td style='border-bottom: 0px;'><span data-qmd="**Unit 3:** Distributed Computing with Spark"></span></td>
     <td style='border-bottom: 0px;'>7</td>
     <td style='border-bottom: 0px;'><span data-qmd="{{< var weeks.7.date-md >}}"></span></td>
     <td style='border-bottom: 0px;'>
@@ -177,7 +177,7 @@ Nonetheless, if you are able to do the recommended readings listed below *before
 </tr>
 <tr class='new-unit'>
     <td>
-        <span data-qmd="**Unit 4:** Spatial Data Science II: Methods"></span>
+        <span data-qmd="**Unit 4:** ETL for Vector DBs"></span>
     </td>
     <td>9</td>
     <td><span data-qmd="{{< var weeks.9.date-md >}}"></span></td>
@@ -202,7 +202,7 @@ Nonetheless, if you are able to do the recommended readings listed below *before
     </td>
 </tr>
 <tr class='new-unit'>
-    <td><span data-qmd="**Unit 5**: Final Projects"></span></td>
+    <td><span data-qmd="**Unit 5**: Final Project Prep"></span></td>
     <td>12</td>
     <td><span data-qmd="{{< var weeks.12.date-md >}}"></span></td>
     <td><span data-qmd="[{{< var weeks.12.title >}}](./w12/)"></span></td>
@@ -233,7 +233,13 @@ Nonetheless, if you are able to do the recommended readings listed below *before
 
 ## Assignment Distribution, Submission, and Grading
 
-The programming assignments for the course will be managed through a [JupyterHub server]({{< var course.hub_url >}}), which you will connect to in order to work on assignments with more computing power than is possible on your laptops (and with the necessary GIS libraries pre-installed)! This means that, to work on and submit the assignments, you will use the workflow described in the [Positron connection guide](./writeups/positron/index.qmd), which you can always find within the ["Writeups" section](./writeups/index.qmd) linked in the sidebar.
+Each weekly programming assignment for the course will be distributed as a GitHub Repository Template, which will be linked to on Canvas. Since (nearly) all assignments will require you to use your AWS Academy account (to work on assignments with more computing power than is possible on your laptops), your standard workflow for assignments will be to
+
+1.  Click on the link to the GitHub Template in Canvas,
+1.  Click the green **"Use This Template"** button in the upper-right corner of the Template, then
+1.  Clone the resulting Repository to your "main" **EC2 Instance**
+
+We will dive much more deeply into this workflow in Week 1 of the course!
 
 ## Late Policy
 

@@ -4765,7 +4765,7 @@
     "href": "syllabus.html",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "",
-    "text": "WarningUnder Construction\n\n\n\nThe homepage and syllabus for this course are still under construction, and will be finalized by the first day of lecture, Monday August 31\nWelcome to the Fall 2026 version of Big Data and Cloud Computing at Georgetown University! Please note that the most up-to-date version of this syllabus will always be available at jjacobs.me/dsan6000",
+    "text": "WarningUnder Construction\n\n\n\nThe homepage and syllabus for this course are still under construction, and will be finalized by the first day of Section 01 lecture, Monday, August 31\nWelcome to the Fall 2026 version of Big Data and Cloud Computing at Georgetown University! Please note that the most up-to-date version of this syllabus will always be available at jjacobs.me/dsan6000",
     "crumbs": [
       "Syllabus"
     ]
@@ -4805,7 +4805,7 @@
     "href": "syllabus.html#course-topics-calendar",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "Course Topics / Calendar",
-    "text": "Course Topics / Calendar\nThe following is a rough map of what we will work through together throughout the semester; given that everyone learns at a different pace, my aim is to leave us with a good amount of flexibility in terms of how much time we spend on each topic.\nNonetheless, if you are able to do the recommended readings listed below before the start of each week’s lecture, this will be a good indication that you are “on pace”, relative to the overall set of topics I aim to cover by the end of the semester.\nIf you find any discrepancies between this schedule and Georgetown’s official calendar, please let us know!\n\n\n\n\n\n\n\n\n\nUnit\nWeek\nDate\nTopic\n\n\n\n\nUnit 1: GIS Concepts\n1\nAug 31\nCourse Overview\n\n\n\n2\nSep 8\nCloud Computing\n\n\n\n3\nSep 14\nParallelization Concepts\n\n\nUnit 2: Geospatial Operations\n4\nSep 21\nDuckDB, Polars, and File Formats\n\n\n\n5\nSep 28\nData Engineering\n\n\n\n6\nOct 5\nIntroduction to Spark\n\n\nUnit 3: Spatial Data Science I: Foundations\n7\nOct 19\n\n\n\n\n8\nOct 26\n\n\n\nUnit 4: Spatial Data Science II: Methods\n9\nNov 2\n\n\n\n\n10\nNov 9\n\n\n\n\n11\nNov 16\n\n\n\nUnit 5: Final Projects\n12\nNov 23\n\n\n\n\n13\nNov 30\n\n\n\n\n\nNov 26\nNo Class (Fall Break)\n\n\n\n14\nDec 7",
+    "text": "Course Topics / Calendar\nThe following is a rough map of what we will work through together throughout the semester; given that everyone learns at a different pace, my aim is to leave us with a good amount of flexibility in terms of how much time we spend on each topic.\nNonetheless, if you are able to do the recommended readings listed below before the start of each week’s lecture, this will be a good indication that you are “on pace”, relative to the overall set of topics I aim to cover by the end of the semester.\nIf you find any discrepancies between this schedule and Georgetown’s official calendar, please let us know!\n\n\n\n\n\n\n\n\n\nUnit\nWeek\nDate\nTopic\n\n\n\n\nUnit 1: Core Concepts\n1\nAug 31\nCourse Overview\n\n\n\n2\nSep 8\nCloud Computing\n\n\n\n3\nSep 14\nParallelization Concepts\n\n\nUnit 2: Scaling Pandas\n4\nSep 21\nDuckDB, Polars, and File Formats\n\n\n\n5\nSep 28\nData Engineering\n\n\n\n6\nOct 5\nIntroduction to Spark\n\n\nUnit 3: Distributed Computing with Spark\n7\nOct 19\n\n\n\n\n8\nOct 26\n\n\n\nUnit 4: ETL for Vector DBs\n9\nNov 2\n\n\n\n\n10\nNov 9\n\n\n\n\n11\nNov 16\n\n\n\nUnit 5: Final Project Prep\n12\nNov 23\n\n\n\n\n13\nNov 30\n\n\n\n\n\nNov 26\nNo Class (Fall Break)\n\n\n\n14\nDec 7",
     "crumbs": [
       "Syllabus"
     ]
@@ -4815,7 +4815,7 @@
     "href": "syllabus.html#assignment-distribution-submission-and-grading",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "Assignment Distribution, Submission, and Grading",
-    "text": "Assignment Distribution, Submission, and Grading\nThe programming assignments for the course will be managed through a JupyterHub server, which you will connect to in order to work on assignments with more computing power than is possible on your laptops (and with the necessary GIS libraries pre-installed)! This means that, to work on and submit the assignments, you will use the workflow described in the Positron connection guide, which you can always find within the “Writeups” section linked in the sidebar.",
+    "text": "Assignment Distribution, Submission, and Grading\nEach weekly programming assignment for the course will be distributed as a GitHub Repository Template, which will be linked to on Canvas. Since (nearly) all assignments will require you to use your AWS Academy account (to work on assignments with more computing power than is possible on your laptops), your standard workflow for assignments will be to\n\nClick on the link to the GitHub Template in Canvas,\nClick the green “Use This Template” button in the upper-right corner of the Template, then\nClone the resulting Repository to your “main” EC2 Instance\n\nWe will dive much more deeply into this workflow in Week 1 of the course!",
     "crumbs": [
       "Syllabus"
     ]
