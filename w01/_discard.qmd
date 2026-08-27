@@ -25,3 +25,177 @@ Fun Facts
 ## Try playing a Linux game!
 
 [Bash crawl](https://gitlab.com/slackermedia/bashcrawl) is a game to help you practice your navigation and file access skills. Click on the **binder** link in this repo to launch a jupyter lab session and explore!
+
+---
+
+# Modern Data Architecture
+
+## Architecture
+
+![](img/01-data-platform-anatomy.png){fig-align="center"}
+
+## Storage
+
+![](img/02-data-platform-storage.png){fig-align="center"}
+
+## Source control
+
+![](img/03-data-platform-source-control.png){fig-align="center"}
+
+## Orchestration
+
+![](img/04-data-platform-orchestration.png){fig-align="center"}
+
+## Processing
+
+![](img/05-data-platform-processing.png){fig-align="center"}
+
+## Analytics
+
+![](img/06-data-platform-analytics.png){fig-align="center"}
+
+## Machine Learning
+
+![](img/07-data-platform-ml.png){fig-align="center"}
+
+## Governance
+
+![](img/08-data-platform-governance.png){fig-align="center"}
+
+---
+
+## In one minute of time (2018)
+
+<center>
+<img src="img/data-never-sleeps-2018.png" width="50%">
+</center>
+
+## In one minute of time (2019)
+
+<center>
+<img src="img/data-never-sleeps-2019.jpg" width="50%">
+</center>
+
+## In one minute of time (2020)
+
+<center>
+<img src="img/data-never-sleeps-2020.jpg" width="50%">
+</center>
+
+## In one minute of time (2021)
+
+<center>
+<img src="img/data-never-sleeps-2021.png" width="50%">
+</center>
+
+---
+
+## It can also be user-generated content: {.crunch-title .crunch-ul .text-90}
+
+:::: {layout="[1,1]" layout-valign="center"}
+::: {#user-generated-text}
+
+* Instagram posts & Reels
+* X (Twitter) posts & Threads
+* TikTok videos
+* YouTube Shorts
+* Reddit discussions
+* Discord conversations
+* AI-generated content (text, images, code)
+* ...
+
+:::
+::: {#user-generated-img}
+
+<img src="img/people.jpg">
+
+:::
+::::
+
+---
+
+## Where else?
+
+* The Internet
+* Transactions
+* Databases
+* Excel
+* PDF Files
+* Anything digital (music, movies, apps)
+* Some old floppy disk lying around the house
+
+---
+
+## Frameworks for Thinking About Big Data {.crunch-title .title-08}
+
+**IBM (The 3 V's)**
+
+* **Volume** (Gigabytes &rarr; Exabytes &rarr; Zettabytes)
+* **Velocity** (Batch &rarr; Streaming &rarr; Real-time AI inference)
+* **Variety** (Structured, Unstructured, Embeddings)
+
+**Additional V's for 2025**
+
+:::: {.columns}
+::: {.column width="35%"}
+
+* Variability
+* Veracity
+* Visualization
+
+:::
+::: {.column width="65%"}
+
+* Value
+* **Vectors** (embeddings for AI/ML)
+* **Versatility** (multi-modal data)
+
+:::
+::::
+
+---
+
+## Let's discuss!
+
+![Exponential data growth](img/data-exp-growth-statista.png)
+
+---
+
+## Data "Size"
+
+$$
+\text{``Size''} = f(\text{Processing Ability}, \text{Storage Space})
+$$
+
+* Can you analyze/process your data on a single machine?
+* Can you store (or is it stored) on a single machine?
+* Can you serve it fast enough for real-time AI applications?
+
+If any of of the answers is _**no**_ then you have a big-ish data problem!
+
+---
+
+## Challenges of Working with Large Datasets {.text-85 .title-09}
+
+| The V | The Challenge |
+|---|---|
+| **Volume** | data scale |
+| **Value** | data usefulness in decision making |
+| **Velocity** | data processing: batch or stream |
+| **Viscosity** | data complexity |
+| **Variability** | data flow inconsistency |
+| **Volatility** | data durability |
+| **Viability** | data activeness |
+| **Validity** | data properly understandable |
+| **Variety** | data heterogeneity |
+
+---
+
+## Learning Objectives {.smaller}
+
+-   Setup, operate and manage big data tools and cloud infrastructure, including Spark, DuckDB, Polars, Athena, Snowflake, and orchestration tools like Airflow on Amazon Web Services
+-   Use ancillary tools that support big data processing, including git and the Linux command line
+-   Execute a big data analytics exercise from start to finish: ingest, wrangle, clean, analyze, store, and present
+-   Develop strategies to break down large problems and datasets into manageable pieces
+-   Identify broad spectrum resources and documentation to remain current with big data tools and developments
+-   Communicate and interpret the big data analytics results through written and verbal methods

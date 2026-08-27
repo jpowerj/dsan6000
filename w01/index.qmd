@@ -1,6 +1,6 @@
 ---
 title: "Week 1: Course Overview"
-subtitle: "{{< var course.slides-subtitle >}}"
+subtitle: "*DSAN 6000: Big Data and Cloud Computing*"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
 date: 2026-08-31
@@ -74,9 +74,7 @@ Links to these additional resources are in the sidebar:
 
 * [Canvas page](https://georgetown.instructure.com/courses/234516){target='_blank'}
 * [Google Space](https://chat.google.com/room/AAQAfu8NheM?cls=1)
-* GitHub Classroom: [{{< var course.github_classroom >}}]({{< var course.github_classroom >}})
-* Instructors email: [{{< var course.email >}}](mailto::{{< var course.email >}})
-* {{< var university.lms >}}: [{{< var course.lms_course_url >}}]({{< var course.lms_course_url >}})
+* Instructors email: [`dsan6000@georgetown.edu`](mailto:dsan6000@georgetown.edu)
 
 ## Jeff Jacobs, [`jj1088@georgetown.edu`](mailto:jj1088@georgetown.edu) {.smaller .title-12 .crunch-ul .crunch-img .crunch-title}
 
@@ -103,17 +101,17 @@ Fun Facts
 * Sleep disorder means lots of [reading](https://app.thestorygraph.com/profile/jpowerj) -- mainly history! -- at night
 * Also teaching *PPOL6805 / DSAN 6750: GIS for Spatial Data Science* this semester
 
-## Instructional Team - Teaching Assistants {.smaller .title-12}
+## Instructional Team: Teaching Assistants {.smaller .title-12}
 
 * Samyu Vakkalanka, [`spv15@georgetown.edu`](mailto:spv15@georgetown.edu)
 * Fangzhou Wang, [`fw256@georgetown.edu`](mailto:fw256@georgetown.edu)
 * Siru Wu, [`sw1430@georgetown.edu`](mailto:sw1430@georgetown.edu)
 
-## Samyu Vakkalanka, [`spv15@georgetown.edu`](mailto:spv15@georgetown.edu) {.smaller .title-12}
+## Samyu Vakkalanka, [`spv15@georgetown.edu`](mailto:spv15@georgetown.edu) {.smaller .title-11}
 
 <center>
 
-Image
+![](images/samyu.jpg){align="center"}
 
 </center>
 
@@ -121,7 +119,7 @@ Image
 
 <center>
 
-Image
+![](images/fangzhou.jpg){align="center"}
 
 </center>
 
@@ -129,43 +127,22 @@ Image
 
 <center>
 
-Image
+![](images/siru.jpg){align="center"}
 
 </center>
 
-## Course Description {.smaller}
-
-* Data is everywhere! Many times, it's just too big to work with traditional tools. This is a hands-on, practical workshop style course about using cloud computing resources to do analysis and manipulation of datasets that are too large to fit on a single machine and/or analyzed with traditional tools. The course will focus on Spark, MapReduce, the Hadoop Ecosystem and other tools.
-
-* You will understand how to acquire and/or ingest the data, and then massage, clean, transform, analyze, and model it within the context of big data analytics. You will be able to think more programmatically and logically about your big data needs, tools and issues.
-
-Always refer to the [syllabus](/syllabus.html) and [calendar](/schedule.html) in the [course website]({{< var course.url >}}) for class policies.
-
-## Learning Objectives {.smaller}
-
--   Setup, operate and manage big data tools and cloud infrastructure, including Spark, DuckDB, Polars, Athena, Snowflake, and orchestration tools like Airflow on Amazon Web Services
--   Use ancillary tools that support big data processing, including git and the Linux command line
--   Execute a big data analytics exercise from start to finish: ingest, wrangle, clean, analyze, store, and present
--   Develop strategies to break down large problems and datasets into manageable pieces
--   Identify broad spectrum resources and documentation to remain current with big data tools and developments
--   Communicate and interpret the big data analytics results through written and verbal methods
-
 ## Evaluation
+
 - Group project : 40%
 - Assignments : 30%
 - Lab completions : 20%
 - Quizzes : 10%
 
-## Course Materials
-
-* Slides/labs/assignment on Website/GitHub
-* Quizzes and readings in Canvas
-
 ## Communication
 
-* The [Google Space]({{< var gspace_url >}}){target='_blank'} is the primary form of communication for **general questions**
+* The [Google Space]({{< var course.gspace_url >}}){target='_blank'} is the primary form of communication for **general questions**
 * You can email the instructional team with private questions (e.g., about your AWS allocation) at [`dsan6000@georgetown.edu`](mailto:dsan6000@georgetown.edu){target='_blank'}
-* (But, consider the GSpace first: most questions last year were issues faced by multiple students!)
+* (But, consider using the Google Space first: most questions last year were issues faced by multiple students!)
 
 ## In-Class Midterm {.crunch-title .crunch-ul}
 
@@ -173,100 +150,71 @@ Always refer to the [syllabus](/syllabus.html) and [calendar](/schedule.html) in
 * Your job will be to use what you've learned in weeks 1-6 to **write out the implementation details** of how you would meet these specifications
 * Will make more sense by end of lecture today with **X.com** example
 
-## Final Project {.smaller}
+# What Makes Data "Big"? Why Do We Need "The Cloud" to Work With It? {data-stack-name="Big Data"}
 
-* Groups of 3-4 students
-* Use an archive of Reddit data, augmented with external data
-* Exploratory analysis
-* NLP
-* Machine Learning
-* Writeup
-  * Data sourcing and ingesting
-  * Exploratory analysis
-  * Modeling
-  * Challenges and Learnings
-  * Conclusions 
-  * Future work
+## Telemetry: Brain-Hurting Levels of Tracking {.title-11 .smaller}
 
-# BIG DATA {data-stack-name="Big Data"}
+*(See [TheMarkup.org's Blacklight Tool](https://themarkup.org/blacklight/2020/09/22/how-we-built-a-real-time-privacy-inspector#survey) or [OpenTelemetry](https://opentelemetry.io/docs/what-is-opentelemetry/) for more examples)*
 
-**Where does it come from?**
+```{=html}
+<table>
+<colgroup>
+<col style='width: 16%;'>
+<col style='width: 24%;'>
+<col style='width: 8%;'>
+<col style='width: 28%;'>
+<col style='width: 8%;'>
+<col style='width: 24%;'>
+</colgroup>
+<thead>
+<tr>
+  <th class='tdvc'>Tracking Level</th>
+  <th class='tdvc'>Example Transaction</th>
+  <th class='text-80 tdc tdvc'>&rarr;<br><i>(instant)</i></th>
+  <th class='tdvc'>OLTP (Transaction DB)</th>
+  <th class='text-80 tdc tdvc'><span data-qmd="$\leadsto$<br>*(nightly)*"></span></th>
+  <th>OLAP (Analytics)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class='tdvc'><span data-qmd="***General Telemetry***"></span></td>
+  <td class='tdvc'><span data-qmd="User $i$ visited page $y$ at time $t$"></span></td>
+  <td class='tdvc tdc'>&rarr;</td>
+  <td class='text-65 tdvc'><div data-qmd="`{'user_id': 123,`<br>`'page': '/login',`<br>`'ts': '20260831_153000'}`"></div></td>
+  <td class='tdvc tdc'><span data-qmd="$\leadsto$"></span></td>
+  <td class='tdvc text-90'><span data-qmd='*"50% more users on weekends"*'></span></td>
+</tr>
+<tr>
+  <td class='tdvc'><span data-qmd="***Key Logging***"></span></td>
+  <td class='tdvc'><span data-qmd="User $i$ typed letter $\ell$ into textbox $y$ at time $t$"></span></td>
+  <td class='tdc tdvc'>&rarr;</td>
+  <td class='text-65 tdvc'><div data-qmd="`{'user_id': 123,`<br>`'page': '/new-message',`<br>`'focus': 'email-subject',`<br>`'key': '<backspace>',`<br>`'ts': '20260831_153000'}`"></div></td>
+  <td class='tdc tdvc'><span data-qmd="$\leadsto$"></span></td>
+  <td class='tdvc text-90'><span data-qmd='*"On average, users rewrite 20% of email before send"*'></span></td>
+</tr>
+<tr>
+  <td class='tdvc'><span data-qmd="***Session Recording***"></span></td>
+  <td class='tdvc'><span data-qmd="User $i$'s mouse was at $(x,y)$ at time $t$"></span></td>
+  <td class='tdc tdvc'>&rarr;</td>
+  <td class='text-65 tdvc'><div data-qmd="`{'user_id': 123,`<br>`'page': '/view-post/10',`<br>`'cursor': [100, 350],`<br>`'scroll_pos': '5%'`<br>`'ts': '20260831_153000'}`"></div></td>
+  <td class='tdc tdvc'><span data-qmd="$\leadsto$"></span></td>
+  <td class='text-90'><span data-qmd='*"Only 30% of users scroll to ad below fold"*'></span></td>
+</tr>
+</tbody>
+</table>
+```
 
-**How is it being created?**
+## Every 60 Seconds (2026) {.crunch-title .text-80 .crunch-p .crunch-ul}
 
-## In one minute of time (2018)
-
-<center>
-<img src="img/data-never-sleeps-2018.png" width="50%">
-</center>
-
-## In one minute of time (2019)
-
-<center>
-<img src="img/data-never-sleeps-2019.jpg" width="50%">
-</center>
-
-## In one minute of time (2020)
-
-<center>
-<img src="img/data-never-sleeps-2020.jpg" width="50%">
-</center>
-
-## In one minute of time (2021)
-
-<center>
-<img src="img/data-never-sleeps-2021.png" width="50%">
-</center>
-
-## In one minute of time (2025) {.crunch-title .text-80 .crunch-p .crunch-ul}
-
-**Every 60 seconds in 2025:**
-
-* ChatGPT serves **millions** of requests (exact numbers proprietary)
+* AI things serve **millions** of requests (exact numbers proprietary)
 * **500 hours** of video uploaded to YouTube
 * **1.04 million** Slack messages sent
 * **362,000 hours** watched on Netflix
 * **5.9-11.4 million** Google searches
 * **$443,000** spent on Amazon
-* AI-generated images created at **massive scale** (metrics not publicly available)
 * **347,200** posts on X (formerly Twitter)
 * **231-250 million** emails sent
-
-## _A lot_ of it is hapenning online. {.crunch-title .crunch-ul .text-80}
-
-**We can record every:**
-
-* click
-* ad impression
-* billing event
-* video interaction
-* server request
-* transaction
-* network message
-* fault
-* ...
-
-## It can also be user-generated content: {.crunch-title .crunch-ul .text-90}
-
-:::: {layout="[1,1]" layout-valign="center"}
-::: {#user-generated-text}
-
-* Instagram posts & Reels
-* X (Twitter) posts & Threads
-* TikTok videos
-* YouTube Shorts
-* Reddit discussions
-* Discord conversations
-* AI-generated content (text, images, code)
-* ...
-
-:::
-::: {#user-generated-img}
-
-<img src="img/people.jpg">
-
-:::
-::::
 
 ## But health and scientific computing create a lot too!
 
@@ -305,7 +253,7 @@ Some of these are **HUGE**
 
 <img src="img/syslog-file.jpg" width=600>
 
-## Internet of Things (IoT) in 2025 {.crunch-title .crunch-p .crunch-ul .crunch-img}
+## Internet of Things (IoT) {.crunch-title .crunch-p .crunch-ul .crunch-img}
 
 **75 billion connected devices generating data:**
 
@@ -332,27 +280,6 @@ Some of these are **HUGE**
 
 <img src="img/smartphone.jpg">
 
-## Where else?
-
-* The Internet
-
-* Transactions
-
-
-* Databases
-
-
-* Excel
-
-* PDF Files
-
-
-* Anything digital (music, movies, apps)
-
-
-* Some old floppy disk lying around the house
-
-
 ## Typical Real-World Scenarios in 2025 {.text-90}
 
 **Scenario 1: Traditional Big Data**
@@ -365,64 +292,50 @@ Your company wants to build a RAG system using 10TB of internal documents. You n
 
 **Scenario 3: Real-Time Analytics**
 
-You need to process 1 million events/second from IoT devices and provide real-time dashboards with <1s latency. **What's your stack?** 
+You need to process 1 million events/second from IoT devices and provide real-time dashboards with <1s latency. **What's your stack?**
 
-# What is Big Data?
+## Big Data Definition For This Class(!) {.smaller .title-12}
 
-## Let's discuss!
+<div style="border: 1px solid black; padding-left: 12px; padding-right: 12px; padding-top: 6px; margin-bottom: 10px; border-radius: 20px;">
 
-![Exponential data growth](img/data-exp-growth-statista.png)
+<center class='text-90'>
 
-## Big Data Definitions
+**Big Data: "When the *size* of the data itself becomes part of the engineering problem"**
 
-**Wikipedia**
+</center>
 
-_"A collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis"_
+```{=html}
+<table>
+<thead>
+</thead>
+<tbody>
+<tr>
+  <td align="center" rowspan="2" width="15%" style="vertical-align: middle; border-bottom: 0px; border-top: 0px;">Can be <b>processed</b> on single machine?</td>
+  <td align="center" width="5%" style="vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><i>No</i></td>
+  <td align="center" width="40%" style="vertical-align: middle; border-right: 2px solid #909090; border-top: 2px solid #909090; background-color: #FF991C90;"><span data-qmd="**Medium**<br>(*Parallel Processing*)"></span></td>
+  <td align="center" width="40%" style="background-color: #FF991C90; vertical-align: middle; border-top: 2px solid #909090; border-right: 2px solid #909090;"><span data-qmd="[Big!]{.honk-honk}<br>Parallel + Distributed Processing"></span></td>
+</tr>
+<tr>
+  <td align="center" style="vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><i>Yes</i></td>
+  <td align="center" style="vertical-align: middle; border-right: 2px solid #909090;"><span data-qmd="Small<br>(*Your Laptop*)"></span></td>
+  <td align="center" style="vertical-align: middle; border-right: 2px solid #909090; background-color: #FF991C90;"><span data-qmd="**Medium**<br>(*Data Streaming*)"></span></td>
+</tr>
+<tr>
+  <td style="border-bottom: 0px;"></td>
+  <td style="border-bottom: 0px solid #909090;"></td>
+  <td align="center" style="vertical-align: middle; border-bottom: 0px solid #909090; padding-bottom: 0px;"><i>Yes</i></td>
+  <td align="center" style="vertical-align: middle; border-bottom: 0px solid #909090; padding-bottom: 0px;"><i>No</i></td>
+</tr>
+<tr>
+  <td style="border-bottom: 0px;"></td>
+  <td style="border-bottom: 0px;"></td>
+  <td align="center" colspan="2" style="border-bottom: 0px; padding-bottom: 0px;">Can be <b>stored</b> on single machine?</td>
+</tr>
+</tbody>
+</table>
+```
 
-
-**O'Reilly**
-
-_"Big data is when **the size of the data itself** becomes **part of the problem**"_
-
-
-## Frameworks for Thinking About Big Data {.crunch-title .title-08}
-
-**IBM (The 3 V's)**
-
-* **Volume** (Gigabytes &rarr; Exabytes &rarr; Zettabytes)
-* **Velocity** (Batch &rarr; Streaming &rarr; Real-time AI inference)
-* **Variety** (Structured, Unstructured, Embeddings)
-
-**Additional V's for 2025**
-
-:::: {.columns}
-::: {.column width="35%"}
-
-* Variability
-* Veracity
-* Visualization
-
-:::
-::: {.column width="65%"}
-
-* Value
-* **Vectors** (embeddings for AI/ML)
-* **Versatility** (multi-modal data)
-
-:::
-::::
-
-## Data "Size"
-
-$$
-\text{``Size''} = f(\text{Processing Ability}, \text{Storage Space})
-$$
-
-* Can you analyze/process your data on a single machine?
-* Can you store (or is it stored) on a single machine?
-* Can you serve it fast enough for real-time AI applications?
-
-If any of of the answers is _**no**_ then you have a big-ish data problem!
+</div>
 
 # Big Data in the Age of Generative AI
 
@@ -567,55 +480,6 @@ digraph G {
 * AI generating training data for AI
 * Privacy-preserving synthetic datasets
 
-## Relative Data Sizes {.text-90 .crunch-title}
-
-&nbsp;<br>
-
-```{=html}
-<style>
-.honk-honk {
-  font-size: 200% !important;
-  /* font-family: "Bungee Spice", sans-serif; */
-  font-family: "Honk", sans-serif;
-  /* font-optical-sizing: auto; */
-  font-weight: 400;
-  font-style: normal;
-}
-</style>
-```
-
-```{=html}
-<table>
-<thead>
-</thead>
-<tbody>
-<tr>
-  <td align="center" rowspan="2" width="15%" style="vertical-align: middle; border-bottom: 0px;">Can be <b>processed</b> on single machine?</td>
-  <td align="center" width="5%" style="vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><i>No</i></td>
-  <td align="center" width="40%" style="vertical-align: middle; border-right: 2px solid #909090; border-top: 2px solid #909090; background-color: #FF991C90;"><span data-qmd="**Medium**<br>(*Parallel Processing*)"></span></td>
-  <td align="center" width="40%" style="background-color: #FF991C90; vertical-align: middle; border-top: 2px solid #909090; border-right: 2px solid #909090;"><span data-qmd="[Big!]{.honk-honk}<br>Parallel + Distributed Processing"></span></td>
-</tr>
-<tr>
-  <td align="center" style="vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090;"><i>Yes</i></td>
-  <td align="center" style="vertical-align: middle; border-right: 2px solid #909090;"><span data-qmd="Small<br>(*Your Laptop*)"></span></td>
-  <td align="center" style="vertical-align: middle; border-right: 2px solid #909090; background-color: #FF991C90;"><span data-qmd="**Medium**<br>(*Data Streaming*)"></span></td>
-</tr>
-<tr>
-  <td style="border-bottom: 0px;"></td>
-  <td style="border-bottom: 0px solid #909090;"></td>
-  <td align="center" style="vertical-align: middle; border-bottom: 0px solid #909090;"><i>Yes</i></td>
-  <td align="center" style="vertical-align: middle; border-bottom: 0px solid #909090;"><i>No</i></td>
-</tr>
-<tr>
-  <td></td>
-  <td></td>
-  <td align="center" colspan="2">Can be <b>stored</b> on single machine?</td>
-</tr>
-</tbody>
-</table>
-```
-
-
 ## What You'll Learn in This Course {.crunch-title .smaller}
 
 *Modern Big Data Stack (2025)*
@@ -687,21 +551,6 @@ digraph G {
 
 : {tbl-colwidths="[20, 40, 40]"}
 
-## Challenges of Working with Large Datasets {.text-85 .title-09}
-
-| The V | The Challenge |
-|---|---|
-| **Volume** | data scale |
-| **Value** | data usefulness in decision making |
-| **Velocity** | data processing: batch or stream |
-| **Viscosity** | data complexity |
-| **Variability** | data flow inconsistency |
-| **Volatility** | data durability |
-| **Viability** | data activeness |
-| **Validity** | data properly understandable |
-| **Variety** | data heterogeneity |
-
-
 ## Thinking About Big Data Workflows {.smaller .crunch-title .title-12}
 
 [William Cohen](http://www.cs.cmu.edu/~wcohen/) (Director, Research Engineering, Google):
@@ -754,16 +603,11 @@ Other:
 :::
 :::: 
 
-## Additional links of interest
+## Additional Links of Interest
 
-- Matt Turck's Machine Learning, Artificial Intelligence & Data Landscape (MAD)
-    - [Article](https://mattturck.com/mad2023/)
-    - [Interactive Landscape](https://mad.firstmarkcap.com/)
-
-- [Is there life after Hadoop?](https://www.cio.com/article/188940/is-there-life-after-hadoop-the-answer-is-a-resounding-yes.html)
-
-- [10 Best Big Data Tools for 2023](https://jelvix.com/blog/top-5-big-data-frameworks) 
-
+* Matt Turck's Machine Learning, Artificial Intelligence & Data Landscape (MAD)
+  * [Article](https://mattturck.com/mad2023/)
+  * [Interactive Landscape](https://mad.firstmarkcap.com/)
 
 # Data Engineering {data-stack-name="Data Engineering"}
 
@@ -793,40 +637,6 @@ In this course, you'll **augment** your data scientist skills with data engineer
 <img src="img/rogati.png" width=600>
 
 </center>
-
-# Modern Data Architecture
-
-## Architecture
-
-![](img/01-data-platform-anatomy.png){fig-align="center"}
-
-## Storage
-
-![](img/02-data-platform-storage.png){fig-align="center"}
-
-## Source control
-
-![](img/03-data-platform-source-control.png){fig-align="center"}
-
-## Orchestration
-
-![](img/04-data-platform-orchestration.png){fig-align="center"}
-
-## Processing
-
-![](img/05-data-platform-processing.png){fig-align="center"}
-
-## Analytics
-
-![](img/06-data-platform-analytics.png){fig-align="center"}
-
-## Machine Learning
-
-![](img/07-data-platform-ml.png){fig-align="center"}
-
-## Governance
-
-![](img/08-data-platform-governance.png){fig-align="center"}
 
 # Time for Lab! Linux Command Line {data-stack-name="Linux Lab"}
 

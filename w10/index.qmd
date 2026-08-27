@@ -3,7 +3,7 @@ title: "Week 10: ETL Pipeline Orchestration with Airflow"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
-date: 2025-11-03
+date: 2026-11-09
 date-format: full
 lecnum: 10
 bibliography: "../_DSAN6000.bib"

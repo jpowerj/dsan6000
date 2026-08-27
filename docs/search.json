@@ -10,6 +10,16 @@
     ]
   },
   {
+    "objectID": "resources.html#key-books-by-week",
+    "href": "resources.html#key-books-by-week",
+    "title": "Resource Hub",
+    "section": "",
+    "text": "The Boar Book: Kleppmann and Riccomini (2026), Designing Data-Intensive Applications (2nd Edition)\n\n\n\n\n\nThe Wolohan MapReduce Book: Wolohan (2020), Mastering Large Datasets with Python, Chapters 1-6\n\n\n\n\n\nThe SQL Bird Book: Tanimura (2021), SQL for Data Analysis: Advanced Techniques for Transforming Data into Insights\nThe Lynx Book: Janssens and Nieuwdorp (2025), Python Polars: The Definitive Guide\nThe I-Need-Ham, Hunger Book: Needham, Hunger, and Simons (2024), DuckDB in Action\n\n\n\n\nTwo Packt Books:\n\nGeneral Data Engineering on AWS: Eagar (2021), Data Engineering with AWS\nData Engineering with Athena: Virtuoso et al. (2021), Serverless Analytics with Amazon Athena\n\n\n\n\n\nThe Wolohan MapReduce Book: Wolohan (2020), Mastering Large Datasets with Python, Chapters 7-10\n\n\n\n\n\nThe Electric Eel Book: Damji et al. (2020), Learning Spark",
+    "crumbs": [
+      "Resources"
+    ]
+  },
+  {
     "objectID": "resources.html#in-class-demos",
     "href": "resources.html#in-class-demos",
     "title": "Resource Hub",
@@ -20,31 +30,11 @@
     ]
   },
   {
-    "objectID": "resources.html#lab-.zips",
-    "href": "resources.html#lab-.zips",
-    "title": "Resource Hub",
-    "section": "Lab .zips",
-    "text": "Lab .zips\nAccess the ZIP files here",
-    "crumbs": [
-      "Resources"
-    ]
-  },
-  {
     "objectID": "resources.html#extra-writeups",
     "href": "resources.html#extra-writeups",
     "title": "Resource Hub",
     "section": "Extra Writeups",
-    "text": "Extra Writeups\n\n\n\n\n\n\n\nFrom Pandas to SQL\n\n\nConverting Code into Queries\n\n\n\nExtra Writeups\n\n\n\n\nSep 20, 2026\n\n\n\n\n\n\n\n\n\n\nSetting Up a Spark Cluster “Manually”\n\n\n\nExtra Writeups\n\n\n\n\nOct 9, 2025\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Resources"
-    ]
-  },
-  {
-    "objectID": "resources.html#key-books-by-week",
-    "href": "resources.html#key-books-by-week",
-    "title": "Resource Hub",
-    "section": "",
-    "text": "The Boar Book: Kleppmann and Riccomini (2026), Designing Data-Intensive Applications (2nd Edition)\n\n\n\n\n\nThe Wolohan MapReduce Book: Wolohan (2020), Mastering Large Datasets with Python, Chapters 1-6\n\n\n\n\n\nThe SQL Bird Book: Tanimura (2021), SQL for Data Analysis: Advanced Techniques for Transforming Data into Insights\nThe Lynx Book: Janssens and Nieuwdorp (2025), Python Polars: The Definitive Guide\nThe I-Need-Ham, Hunger Book: Needham, Hunger, and Simons (2024), DuckDB in Action\n\n\n\n\nTwo Packt Books:\n\nGeneral Data Engineering on AWS: Eagar (2021), Data Engineering with AWS\nData Engineering with Athena: Virtuoso et al. (2021), Serverless Analytics with Amazon Athena\n\n\n\n\n\nThe Wolohan MapReduce Book: Wolohan (2020), Mastering Large Datasets with Python, Chapters 7-10\n\n\n\n\n\nThe Electric Eel Book: Damji et al. (2020), Learning Spark",
+    "text": "Extra Writeups\n\n\n\n\nNo matching items",
     "crumbs": [
       "Resources"
     ]
@@ -1154,34 +1144,6 @@
     ]
   },
   {
-    "objectID": "writeups/sql-guide/index.html",
-    "href": "writeups/sql-guide/index.html",
-    "title": "From Pandas to SQL",
-    "section": "",
-    "text": "At some point during Week 4, you may have noticed a somewhat-jarring shift in our approach to data analytics…\nSpecifically, you may have noticed that:\nSo, given that your work in DSAN courses like DSAN 5000 and DSAN 5300 has been primarily oriented around Pandas syntax and coding patterns, the goal of this writeup is to get you up-to-speed with how you can “translate” the types of things you’re used to doing with Pandas code into equivalent SQL queries."
-  },
-  {
-    "objectID": "writeups/sql-guide/index.html#eager-vs.-lazy-evaluation",
-    "href": "writeups/sql-guide/index.html#eager-vs.-lazy-evaluation",
-    "title": "From Pandas to SQL",
-    "section": "Eager vs. Lazy Evaluation",
-    "text": "Eager vs. Lazy Evaluation\nAs a final note before we “zoom in” and focus on SQL, though: keep in mind that this move from code to queries is part of our endeavor in this class to start decoupling data from computation! In an eager-evaluation setting like Pandas code, when we write a data-processing pipeline, the steps are immediately evaluated, line-by-line (like any other Python code). Consider the following example, where the goal of the pipeline is to figure out our average ratio of sleep hours to work hours on weekdays:\n\n\nCode\nimport pandas as pd\nimport numpy as np\nrng = np.random.default_rng(seed=6000)\nimport calendar\nlist(calendar.day_name)\nsleep_df = pd.DataFrame({\n  'day': list(calendar.day_name),\n  'sleep_hrs': rng.uniform(3, 8, size=7),\n  'work_hrs': rng.uniform(6, 10, size=7),\n})\ndisplay(sleep_df)\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n\n\n1\nTuesday\n7.912447\n8.747633\n\n\n2\nWednesday\n5.393727\n6.011502\n\n\n3\nThursday\n4.347202\n7.318025\n\n\n4\nFriday\n4.556042\n6.341836\n\n\n5\nSaturday\n4.552443\n7.279092\n\n\n6\nSunday\n6.606959\n6.652768\n\n\n\n\n\n\n\n\n\nCode\n# Step 1: Compute ratios\nratio_df = sleep_df.copy()\nratio_df['ratio'] = ratio_df['work_hrs'] / ratio_df['sleep_hrs']\ndisplay(ratio_df)\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n5\nSaturday\n4.552443\n7.279092\n1.598942\n\n\n6\nSunday\n6.606959\n6.652768\n1.006934\n\n\n\n\n\n\n\n\n\nCode\n# Step 2: Filter to just weekdays\nweekend_days = ['Saturday', 'Sunday']\nweekday_df = ratio_df[~ratio_df['day'].isin(weekend_days)]\ndisplay(weekday_df)\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\n\n\nCode\n# Step 3: Compute mean ratio over the weekdays\nweekday_df['ratio'].mean()\n\n\nnp.float64(1.3027691063719424)\n\n\nNotice here, however, that we are carrying out unnecessary computations in Step 1! Since we’re going to drop the weekend rows in Step 2 anyways, there is no need to compute the ratio for these two days. Since Python (and thus Pandas) is evaluated line-by-line, however, Pandas has no way of knowing that these two ratios don’t need to be computed. It simply does what it is told, dutifully computing all 7 ratios.\nThere is an alternative approach here: we could instead write out our “plan” for this pipeline in advance, in the form of a query, before actually running any code! We can then utilize a query optimization engine like Polars, which can scan over our query and figure out that we don’t need to compute ratios for weekend days, since they would be dropped in Step 2! Here is the same pipeline re-written using Polars’ LazyFrame in place of a Pandas DataFrame:\n\n\nCode\nimport polars as pl\nsleep_pl = pl.LazyFrame(sleep_df)\ncompute_ratio_expr = pl.col('work_hrs') / pl.col('sleep_hrs')\ncompute_ratios_expr = (\n  sleep_pl.with_columns(\n    compute_ratio_expr.alias('ratio')\n  ).filter(~pl.col('day').is_in(weekend_days))\n)\n\n\nNote that no computation has actually taken place yet! We have just written out our plan for the computation, in the form of Polars expressions (which don’t actually run until they’re paired with a context).\nBecause of this, we can see Polars’ query optimization engine in action. First, we can use the optimized=False argument to show_graph() to see what our pipeline looks like without any optimizations (that is, running line-by-line as written, as our Pandas code did above):\n\n\nCode\ncompute_ratios_expr.show_graph(optimized=False)\n\n\n\n\n\n\n\n\n\nRemember that these query plans should be read from bottom to top. Now, compare that with the following graph, which shows our query after Polars scans over our instructions, detecting points where it can re-arrange our pipeline for greater efficiency:\n\n\nCode\ncompute_ratios_expr.show_graph()\n\n\n\n\n\n\n\n\n\nNotice the difference in the ordering of steps: Polars has successfully figured out that it should filter out the weekend days before carrying out the calculations!"
-  },
-  {
-    "objectID": "writeups/sql-guide/index.html#onto-duckdb",
-    "href": "writeups/sql-guide/index.html#onto-duckdb",
-    "title": "From Pandas to SQL",
-    "section": "Onto DuckDB!",
-    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌────────────────────────────────────────────────┐\n│┌──────────────────────────────────────────────┐│\n││              Total Time: 0.0015s             ││\n│└──────────────────────────────────────────────┘│\n└────────────────────────────────────────────────┘\n┌───────────────────────────┐\n│           QUERY           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│    ────────────────────   │\n│                           │\n│           0 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│    ────────────────────   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│           FILTER          │\n│    ────────────────────   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         TABLE_SCAN        │\n│    ────────────────────   │\n│   Function: PANDAS_SCAN   │\n│                           │\n│        Projections:       │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│                           │\n│                           │\n│                           │\n│           7 rows          │\n│           0.00s           │\n└───────────────────────────┘\n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
-  },
-  {
-    "objectID": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",
-    "href": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",
-    "title": "From Pandas to SQL",
-    "section": "Basic Pandas Operations in SQL",
-    "text": "Basic Pandas Operations in SQL\nWith all that in mind, you can now move towards thinking through how you can carry out the above sequence of “translations” – from Pandas to Polars to DuckDB – for other common Pandas tasks you’re used to from e.g. DSAN 5000!\nTo nudge you in that direction, in this section we’ll conclude with a few examples of common Pandas pipelines and how they translate to SQL code.\n\nFiltering Rows\nThis is probably the most straightforward operation in SQL world, since SQL provides us with the WHERE operator which we can pair with a boolean condition to filter the rows of our DataFrame.\nSo, for example, if we wanted to select one specific row in our DataFrame on the basis of some value, we can do this using the general syntax SELECT * FROM df WHERE condition. The following code uses this syntax to select just the row containing data for Thursday:\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day = 'Friday'\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nFriday\n4.556042\n6.341836\n\n\n\n\n\n\n\nNotice how, since SQL is a “declarative” language, it avoids the confusion which comes up in Python between the single-equals-sign assignment operator = and the double-equals-sign equality operator ==. In SQL, you can actually use either of these in a boolean operator to indicate that you’d like to check for equality, though the single-equals-sign = used above is more common:\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day == 'Friday'\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nFriday\n4.556042\n6.341836\n\n\n\n\n\n\n\nYou may have noticed, however, that we didn’t use this = operator when filtering out weekend days above. Instead, we used the IN operator, along with the NOT operator for negation. The IN operator on its own works like:\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day IN ('Monday','Wednesday','Friday')\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n\n\n1\nWednesday\n5.393727\n6.011502\n\n\n2\nFriday\n4.556042\n6.341836\n\n\n\n\n\n\n\nAnd then we can use the NOT operator to obtain the exact opposite (the days which are not among the three listed days in the query):\n\n\nCode\ncon.execute(\"\"\"\nSELECT * FROM sleep_df\nWHERE day NOT IN ('Monday','Wednesday','Friday')\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\n\n\n\n\n0\nTuesday\n7.912447\n8.747633\n\n\n1\nThursday\n4.347202\n7.318025\n\n\n2\nSaturday\n4.552443\n7.279092\n\n\n3\nSunday\n6.606959\n6.652768\n\n\n\n\n\n\n\n\n\nSelecting Columns\nNotice how, up until now, we’ve been using SELECT * at the beginning of our queries. That’s because our goal was to view the entire contents of the DataFrame, just with certain rows selected and others filtered out.\nIf we instead want to select certain columns, we can just replace the wildcard symbol * that we placed after SELECT with a specific list of columns:\n\n\nCode\ncon.execute(\"\"\"\nSELECT day, work_hrs FROM sleep_df\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nwork_hrs\n\n\n\n\n0\nMonday\n7.418997\n\n\n1\nTuesday\n8.747633\n\n\n2\nWednesday\n6.011502\n\n\n3\nThursday\n7.318025\n\n\n4\nFriday\n6.341836\n\n\n5\nSaturday\n7.279092\n\n\n6\nSunday\n6.652768\n\n\n\n\n\n\n\nImportantly, we can also match regular expression patterns in the names of columns, by using SELECT COLUMNS() rather than just SELECT. Here, for example, we use it to select all of the columns whose names end with hrs:\n\n\nCode\ncon.execute(\"\"\"\nSELECT COLUMNS('.+_hrs') FROM sleep_df\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nsleep_hrs\nwork_hrs\n\n\n\n\n0\n6.089095\n7.418997\n\n\n1\n7.912447\n8.747633\n\n\n2\n5.393727\n6.011502\n\n\n3\n4.347202\n7.318025\n\n\n4\n4.556042\n6.341836\n\n\n5\n4.552443\n7.279092\n\n\n6\n6.606959\n6.652768\n\n\n\n\n\n\n\nNote that this COLUMNS() syntax is specific to DuckDB’s “flavor” of SQL, and not standard in other implementations of SQL.\n\n\nDefining New Columns\nFinally, you may have noticed that the SELECT operator is basically doing double duty: not only did we use it in the previous section to request the three original columns in sleep_df (day, sleep_hrs, and work_hrs), but also to define a new column named ratio, by dividing work_hrs by sleep_hrs.\nThis is a general feature of SQL, and DuckDB (and the select() function in Polars)! We can SELECT the columns “as-is” by just including their names, or we can define new columns within the select statement. For example, if we wanted the squared values of our two numeric columns for some reason, we could do the following:\n\n\nCode\ncon.execute(\"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  sleep_hrs^2 AS sleep_squared,\n  work_hrs,\n  work_hrs^2 AS work_squared\nFROM sleep_df\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nsleep_squared\nwork_hrs\nwork_squared\n\n\n\n\n0\nMonday\n6.089095\n37.077083\n7.418997\n55.041509\n\n\n1\nTuesday\n7.912447\n62.606823\n8.747633\n76.521076\n\n\n2\nWednesday\n5.393727\n29.092288\n6.011502\n36.138152\n\n\n3\nThursday\n4.347202\n18.898161\n7.318025\n53.553486\n\n\n4\nFriday\n4.556042\n20.757516\n6.341836\n40.218888\n\n\n5\nSaturday\n4.552443\n20.724741\n7.279092\n52.985182\n\n\n6\nSunday\n6.606959\n43.651905\n6.652768\n44.259327\n\n\n\n\n\n\n\n\n\nCombining Operations\nTo bring everything together, let’s see how we can combine the above three tasks into a single query!\n\n\nCode\ncon.execute(\"\"\"\nSELECT\n  day,\n  work_hrs,\n  work_hrs^2 AS work_squared\nFROM sleep_df\nWHERE day = 'Tuesday'\n\"\"\").df()\n\n\n\n\n\n\n\n\n\nday\nwork_hrs\nwork_squared\n\n\n\n\n0\nTuesday\n8.747633\n76.521076"
-  },
-  {
     "objectID": "w02/slides.html#jeffs-favorite-big-data-definition",
     "href": "w02/slides.html#jeffs-favorite-big-data-definition",
     "title": "Week 2: Cloud Computing",
@@ -1382,7 +1344,7 @@
     "href": "w02/slides.html#references",
     "title": "Week 2: Cloud Computing",
     "section": "References",
-    "text": "References\n\n\nLoukides, Mike. 2010. “What Is Data Science?” In O’Reilly Media. https://www.oreilly.com/radar/what-is-data-science/.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf."
+    "text": "References\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media, June 2. https://www.oreilly.com/radar/what-is-data-science/.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf."
   },
   {
     "objectID": "w02/index.html",
@@ -1679,7 +1641,7 @@
     "href": "w02/index.html#references",
     "title": "Week 2: Cloud Computing",
     "section": "References",
-    "text": "References\n\n\nLoukides, Mike. 2010. “What Is Data Science?” In O’Reilly Media. https://www.oreilly.com/radar/what-is-data-science/.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf.",
+    "text": "References\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media, June 2. https://www.oreilly.com/radar/what-is-data-science/.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf.",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 8</span>"
     ]
@@ -2011,7 +1973,7 @@
     "href": "w04/slides.html#references",
     "title": "Week 4: DuckDB, Polars, File Formats",
     "section": "References",
-    "text": "References\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&dl=1.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” Proceedings of the 2019 International Conference on Management of Data (New York, NY, USA), SIGMOD ’19, June, 1981–84. https://doi.org/10.1145/3299869.3320212.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&dl=1.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd. https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&dl=1.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/j25hdcdr81bautbywm8yl/Tom-White-Hadoop-The-Definitive-Guide.pdf?rlkey=n91jivtd72nb0yjwfkhudxpes&dl=1."
+    "text": "References\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&dl=1.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” Proceedings of the 2019 International Conference on Management of Data (New York, NY, USA), SIGMOD ’19, June 25, 1981–84. https://doi.org/10.1145/3299869.3320212.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&dl=1.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd. https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&dl=1.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/j25hdcdr81bautbywm8yl/Tom-White-Hadoop-The-Definitive-Guide.pdf?rlkey=n91jivtd72nb0yjwfkhudxpes&dl=1."
   },
   {
     "objectID": "w04/index.html",
@@ -2488,7 +2450,7 @@
     "href": "w04/index.html#references",
     "title": "Week 4: DuckDB, Polars, File Formats",
     "section": "References",
-    "text": "References\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&dl=1.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” Proceedings of the 2019 International Conference on Management of Data (New York, NY, USA), SIGMOD ’19, June, 1981–84. https://doi.org/10.1145/3299869.3320212.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&dl=1.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd. https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&dl=1.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/j25hdcdr81bautbywm8yl/Tom-White-Hadoop-The-Definitive-Guide.pdf?rlkey=n91jivtd72nb0yjwfkhudxpes&dl=1.",
+    "text": "References\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&dl=1.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” Proceedings of the 2019 International Conference on Management of Data (New York, NY, USA), SIGMOD ’19, June 25, 1981–84. https://doi.org/10.1145/3299869.3320212.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&dl=1.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd. https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&dl=1.\n\n\nWhite, Tom E. 2015. Hadoop: The Definitive Guide. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/j25hdcdr81bautbywm8yl/Tom-White-Hadoop-The-Definitive-Guide.pdf?rlkey=n91jivtd72nb0yjwfkhudxpes&dl=1.",
     "crumbs": [
       "Week 4: <span class='sec-w04-date'>Sep 21</span>"
     ]
@@ -2638,7 +2600,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9800 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.6413 s",
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9767 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.6342 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 14</span>"
     ]
@@ -2852,7 +2814,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9687 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.6408 s"
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9881 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.6396 s"
   },
   {
     "objectID": "w03/slides.html#what-happens-when-not-embarrassingly-parallel",
@@ -3340,20 +3302,6 @@
     "text": "Lab: Analyzing NYC Taxi dataset with Athena\n\nA simple example of using DuckDB and Apache Arrow using NYC Taxi dataset\nThis notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.\n\nGitHub Classroom Link for Lab 5\nGitHub Classroom Link for Assignment 5\n\n\n\n\n\nKleppmann, Martin. 2017. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/42hm32h6qz8mrj5bm5eet/DesigningData-IntensiveApplications_TheBigIdeasBehind-Kleppmann-Martin.pdf?rlkey=nournir9s213rsmegi3eo0zn3&dl=1."
   },
   {
-    "objectID": "writeups/manual-spark-cluster/index.html",
-    "href": "writeups/manual-spark-cluster/index.html",
-    "title": "Setting Up a Spark Cluster “Manually”",
-    "section": "",
-    "text": "In my head, there are two important levels of abstraction we’ve been working within as we’ve explored Spark thus far:\nIt’s exactly by taking this latter approach that we’re able to overcome the “wall” we hit when working with Athena: it doesn’t know in advance what types of queries we’re going to run on the data, so it has no way of optimizing the data-splitting in advance.\nBut, unlike Athena, we may know in advance what types of queries we’re going to run on the data! And so, we can use this knowledge when working from the “lower-level” infrastructure perspective to ensure that the data that a particular computer \\(X\\) is going to process is actually on (or at least, easily accessible from) computer \\(X\\)!\nIt can be hard to wrap our heads around this in the abstract – for me, it didn’t exactly “click” fully until I could think of it as me sending concrete pieces of data to concrete computers existing somewhere physically in the world! So, if that’s you as well, here I will walk through the more tedious [but rewarding, imo!] process of literally setting up four individual computers, each running the Spark software, so that you can have a [sort of] physical, concrete mental picture of what exactly Spark is doing when it “just handles” our higher-level DataFrame-based work."
-  },
-  {
-    "objectID": "writeups/manual-spark-cluster/index.html#setting-up-the-instances",
-    "href": "writeups/manual-spark-cluster/index.html#setting-up-the-instances",
-    "title": "Setting Up a Spark Cluster “Manually”",
-    "section": "Setting Up the Instances",
-    "text": "Setting Up the Instances\nHere, using the NSF’s Jetstream interface, I set up four new computers, using the lowest possible setting in terms of computational resources: g3.medium, which on Jetstream corresponds to a computer with 8 CPU cores, 30GB of RAM, and a 60GB HDD. The first one is named spark-master, while the other three are named spark-worker1, spark-worker2, and spark-worker3. This naming setup exactly corresponds to individual pieces of this type of diagram that I’ve drawn on the board over the past 2 weeks to illustrate parallel processing in general and Map-Reduce approach to parallel processing specifically:"
-  },
-  {
     "objectID": "w11/index.html",
     "href": "w11/index.html",
     "title": "Week 11: Vector Databases",
@@ -3538,7 +3486,7 @@
     "href": "index.html",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "",
-    "text": "WarningUnder Construction\n\n\n\nThe homepage and syllabus for this course are still under construction, and will be finalized by the first day of Section 01 lecture, Monday, August 31\n\n\n\n\n\n\nBig Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\n\n\n\n\n\n\nNoteIrregular Lecture Days\n\n\n\nPlease keep in mind the following “special” days, when course meetings will be shifted or skipped due to holidays:\n\nTuesday, September 8: The Week 2 meeting for the Monday section (Section 01) falls on a Tuesday, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)\nMonday, October 12 and Thursday, October 15: No class due to Georgetown’s Mid-Semester Holiday\nMonday, November 23 and Thursday, November 26: No class due to Georgetown’s 2026 Fall Recess\n\n\n\nWelcome! This webpage contains slides, resources, and lecture recordings for DSAN 6000: Big Data and Cloud Computing, Fall 2026 at Georgetown University.\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394. Use the links in the sidebar, or in the table below, to explore the content for a particular week.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 31\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 8\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 15\n\n\n\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\n\nSep 22\n\n\n\n\n\n\nWeek 5: Data Engineering\n\n\nSep 29\n\n\n\n\n\n\nWeek 6: Introduction to Spark\n\n\nOct 5\n\n\n\n\n\n\nWeek 7: Spark DataFrames and Spark SQL\n\n\nOct 6\n\n\n\n\n\n\nWeek 8: SparkNLP\n\n\nOct 20\n\n\n\n\n\n\nWeek 9: SparkML\n\n\nOct 27\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Airflow\n\n\nNov 3\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 10\n\n\n\n\n\n\nWeek 12: In-Class Office Hours\n\n\nNov 17\n\n\n\n\n\n\nWeek 13: Serverless and Container Orchestration\n\n\nNov 24\n\n\n\n\n\n\nWeek 14: Final Topics, Review\n\n\nDec 1\n\n\n\n\n\n\nWeek 15: Final Project Presentations\n\n\nDec 8\n\n\n\n\n\n\nNo matching items",
+    "text": "WarningUnder Construction\n\n\n\nThe homepage and syllabus for this course are still under construction, and will be finalized by the first day of Section 01 lecture, Monday, August 31\n\n\n\n\n\n\nBig Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\n\n\n\n\n\n\nNoteIrregular Lecture Days\n\n\n\nPlease keep in mind the following “special” days, when course meetings will be shifted or skipped due to holidays:\n\nTuesday, September 8: The Week 2 meeting for the Monday section (Section 01) falls on a Tuesday, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)\nMonday, October 12 and Thursday, October 15: No class due to Georgetown’s Mid-Semester Holiday\nMonday, November 23 and Thursday, November 26: No class due to Georgetown’s 2026 Fall Recess\n\n\n\nWelcome! This webpage contains slides, resources, and lecture recordings for DSAN 6000: Big Data and Cloud Computing, Fall 2026 at Georgetown University.\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394. Use the links in the sidebar, or in the table below, to explore the content for a particular week.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 31\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 8\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 15\n\n\n\n\n\n\nWeek 4: DuckDB, Polars, File Formats\n\n\nSep 22\n\n\n\n\n\n\nWeek 5: Data Engineering\n\n\nSep 29\n\n\n\n\n\n\nWeek 6: Introduction to Spark\n\n\nOct 5\n\n\n\n\n\n\nWeek 7: Spark DataFrames and Spark SQL\n\n\nOct 19\n\n\n\n\n\n\nWeek 8: SparkNLP\n\n\nOct 26\n\n\n\n\n\n\nWeek 9: SparkML\n\n\nNov 2\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Airflow\n\n\nNov 9\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 16\n\n\n\n\n\n\nWeek 12: In-Class Office Hours\n\n\nNov 30\n\n\n\n\n\n\nWeek 13: Serverless and Container Orchestration\n\n\nDec 7\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "<i class='bi bi-house'></i> Home"
     ]
@@ -3568,7 +3516,7 @@
     "href": "w01/index.html#course-webpage",
     "title": "Week 1: Course Overview",
     "section": "Course Webpage",
-    "text": "Course Webpage\n\nhttps://jjacobs.me/dsan6000\n\nLinks to these additional resources are in the sidebar:\n\nCanvas page\nGoogle Space\nGitHub Classroom: ?var:course.github_classroom\nInstructors email: ?var:course.email\n?var:university.lms: ?var:course.lms_course_url",
+    "text": "Course Webpage\n\nhttps://jjacobs.me/dsan6000\n\nLinks to these additional resources are in the sidebar:\n\nCanvas page\nGoogle Space\nInstructors email: dsan6000@georgetown.edu",
     "crumbs": [
       "Week 1: <span class='sec-w01-date'>Aug 31</span>"
     ]
@@ -3584,11 +3532,11 @@
     ]
   },
   {
-    "objectID": "w01/index.html#instructional-team---teaching-assistants",
-    "href": "w01/index.html#instructional-team---teaching-assistants",
+    "objectID": "w01/index.html#instructional-team-teaching-assistants",
+    "href": "w01/index.html#instructional-team-teaching-assistants",
     "title": "Week 1: Course Overview",
-    "section": "Instructional Team - Teaching Assistants",
-    "text": "Instructional Team - Teaching Assistants\n\nSamyu Vakkalanka, spv15@georgetown.edu\nFangzhou Wang, fw256@georgetown.edu\nSiru Wu, sw1430@georgetown.edu",
+    "section": "Instructional Team: Teaching Assistants",
+    "text": "Instructional Team: Teaching Assistants\n\nSamyu Vakkalanka, spv15@georgetown.edu\nFangzhou Wang, fw256@georgetown.edu\nSiru Wu, sw1430@georgetown.edu",
     "crumbs": [
       "Week 1: <span class='sec-w01-date'>Aug 31</span>"
     ]
@@ -3598,7 +3546,7 @@
     "href": "w01/index.html#samyu-vakkalanka-spv15georgetown.edu",
     "title": "Week 1: Course Overview",
     "section": "Samyu Vakkalanka, spv15@georgetown.edu",
-    "text": "Samyu Vakkalanka, spv15@georgetown.edu\n\nImage",
+    "text": "Samyu Vakkalanka, spv15@georgetown.edu",
     "crumbs": [
       "Week 1: <span class='sec-w01-date'>Aug 31</span>"
     ]
@@ -3608,7 +3556,7 @@
     "href": "w01/index.html#fangzhou-wang-fw256georgetown.edu",
     "title": "Week 1: Course Overview",
     "section": "Fangzhou Wang, fw256@georgetown.edu",
-    "text": "Fangzhou Wang, fw256@georgetown.edu\n\nImage",
+    "text": "Fangzhou Wang, fw256@georgetown.edu",
     "crumbs": [
       "Week 1: <span class='sec-w01-date'>Aug 31</span>"
     ]
@@ -3618,27 +3566,7 @@
     "href": "w01/index.html#siru-wu-sw1430georgetown.edu",
     "title": "Week 1: Course Overview",
     "section": "Siru Wu, sw1430@georgetown.edu",
-    "text": "Siru Wu, sw1430@georgetown.edu\n\nImage",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#course-description",
-    "href": "w01/index.html#course-description",
-    "title": "Week 1: Course Overview",
-    "section": "Course Description",
-    "text": "Course Description\n\nData is everywhere! Many times, it’s just too big to work with traditional tools. This is a hands-on, practical workshop style course about using cloud computing resources to do analysis and manipulation of datasets that are too large to fit on a single machine and/or analyzed with traditional tools. The course will focus on Spark, MapReduce, the Hadoop Ecosystem and other tools.\nYou will understand how to acquire and/or ingest the data, and then massage, clean, transform, analyze, and model it within the context of big data analytics. You will be able to think more programmatically and logically about your big data needs, tools and issues.\n\nAlways refer to the syllabus and calendar in the course website for class policies.",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#learning-objectives",
-    "href": "w01/index.html#learning-objectives",
-    "title": "Week 1: Course Overview",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nSetup, operate and manage big data tools and cloud infrastructure, including Spark, DuckDB, Polars, Athena, Snowflake, and orchestration tools like Airflow on Amazon Web Services\nUse ancillary tools that support big data processing, including git and the Linux command line\nExecute a big data analytics exercise from start to finish: ingest, wrangle, clean, analyze, store, and present\nDevelop strategies to break down large problems and datasets into manageable pieces\nIdentify broad spectrum resources and documentation to remain current with big data tools and developments\nCommunicate and interpret the big data analytics results through written and verbal methods",
+    "text": "Siru Wu, sw1430@georgetown.edu",
     "crumbs": [
       "Week 1: <span class='sec-w01-date'>Aug 31</span>"
     ]
@@ -3654,21 +3582,11 @@
     ]
   },
   {
-    "objectID": "w01/index.html#course-materials",
-    "href": "w01/index.html#course-materials",
-    "title": "Week 1: Course Overview",
-    "section": "Course Materials",
-    "text": "Course Materials\n\nSlides/labs/assignment on Website/GitHub\nQuizzes and readings in Canvas",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
     "objectID": "w01/index.html#communication",
     "href": "w01/index.html#communication",
     "title": "Week 1: Course Overview",
     "section": "Communication",
-    "text": "Communication\n\nThe Google Space is the primary form of communication for general questions\nYou can email the instructional team with private questions (e.g., about your AWS allocation) at dsan6000@georgetown.edu\n(But, consider the GSpace first: most questions last year were issues faced by multiple students!)",
+    "text": "Communication\n\nThe Google Space is the primary form of communication for general questions\nYou can email the instructional team with private questions (e.g., about your AWS allocation) at dsan6000@georgetown.edu\n(But, consider using the Google Space first: most questions last year were issues faced by multiple students!)",
     "crumbs": [
       "Week 1: <span class='sec-w01-date'>Aug 31</span>"
     ]
@@ -3684,81 +3602,21 @@
     ]
   },
   {
-    "objectID": "w01/index.html#final-project",
-    "href": "w01/index.html#final-project",
+    "objectID": "w01/index.html#telemetry-brain-hurting-levels-of-tracking",
+    "href": "w01/index.html#telemetry-brain-hurting-levels-of-tracking",
     "title": "Week 1: Course Overview",
-    "section": "Final Project",
-    "text": "Final Project\n\nGroups of 3-4 students\nUse an archive of Reddit data, augmented with external data\nExploratory analysis\nNLP\nMachine Learning\nWriteup\n\nData sourcing and ingesting\nExploratory analysis\nModeling\nChallenges and Learnings\nConclusions\nFuture work",
+    "section": "Telemetry: Brain-Hurting Levels of Tracking",
+    "text": "Telemetry: Brain-Hurting Levels of Tracking\n(See TheMarkup.org’s Blacklight Tool or OpenTelemetry for more examples)\n\n\n\n\n\n\n\n\n\n\n\nTracking Level\nExample Transaction\n→\n(instant)\nOLTP (Transaction DB)\n\\(\\leadsto\\)(nightly)\nOLAP (Analytics)\n\n\n\n\nGeneral Telemetry\nUser \\(i\\) visited page \\(y\\) at time \\(t\\)\n→\n{'user_id': 123,'page': '/login','ts': '20260831_153000'}\n\\(\\leadsto\\)\n“50% more users on weekends”\n\n\nKey Logging\nUser \\(i\\) typed letter \\(\\ell\\) into textbox \\(y\\) at time \\(t\\)\n→\n{'user_id': 123,'page': '/new-message','focus': 'email-subject','key': '&lt;backspace&gt;','ts': '20260831_153000'}\n\\(\\leadsto\\)\n“On average, users rewrite 20% of email before send”\n\n\nSession Recording\nUser \\(i\\)’s mouse was at \\((x,y)\\) at time \\(t\\)\n→\n{'user_id': 123,'page': '/view-post/10','cursor': [100, 350],'scroll_pos': '5%''ts': '20260831_153000'}\n\\(\\leadsto\\)\n“Only 30% of users scroll to ad below fold”",
     "crumbs": [
       "Week 1: <span class='sec-w01-date'>Aug 31</span>"
     ]
   },
   {
-    "objectID": "w01/index.html#in-one-minute-of-time-2018",
-    "href": "w01/index.html#in-one-minute-of-time-2018",
+    "objectID": "w01/index.html#every-60-seconds-2026",
+    "href": "w01/index.html#every-60-seconds-2026",
     "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2018)",
-    "text": "In one minute of time (2018)",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#in-one-minute-of-time-2019",
-    "href": "w01/index.html#in-one-minute-of-time-2019",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2019)",
-    "text": "In one minute of time (2019)",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#in-one-minute-of-time-2020",
-    "href": "w01/index.html#in-one-minute-of-time-2020",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2020)",
-    "text": "In one minute of time (2020)",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#in-one-minute-of-time-2021",
-    "href": "w01/index.html#in-one-minute-of-time-2021",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2021)",
-    "text": "In one minute of time (2021)",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#in-one-minute-of-time-2025",
-    "href": "w01/index.html#in-one-minute-of-time-2025",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2025)",
-    "text": "In one minute of time (2025)\nEvery 60 seconds in 2025:\n\nChatGPT serves millions of requests (exact numbers proprietary)\n500 hours of video uploaded to YouTube\n1.04 million Slack messages sent\n362,000 hours watched on Netflix\n5.9-11.4 million Google searches\n$443,000 spent on Amazon\nAI-generated images created at massive scale (metrics not publicly available)\n347,200 posts on X (formerly Twitter)\n231-250 million emails sent",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#a-lot-of-it-is-hapenning-online.",
-    "href": "w01/index.html#a-lot-of-it-is-hapenning-online.",
-    "title": "Week 1: Course Overview",
-    "section": "A lot of it is hapenning online.",
-    "text": "A lot of it is hapenning online.\nWe can record every:\n\nclick\nad impression\nbilling event\nvideo interaction\nserver request\ntransaction\nnetwork message\nfault\n…",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#it-can-also-be-user-generated-content",
-    "href": "w01/index.html#it-can-also-be-user-generated-content",
-    "title": "Week 1: Course Overview",
-    "section": "It can also be user-generated content:",
-    "text": "It can also be user-generated content:\n\n\n\n\nInstagram posts & Reels\nX (Twitter) posts & Threads\nTikTok videos\nYouTube Shorts\nReddit discussions\nDiscord conversations\nAI-generated content (text, images, code)\n…",
+    "section": "Every 60 Seconds (2026)",
+    "text": "Every 60 Seconds (2026)\n\nAI things serve millions of requests (exact numbers proprietary)\n500 hours of video uploaded to YouTube\n1.04 million Slack messages sent\n362,000 hours watched on Netflix\n5.9-11.4 million Google searches\n$443,000 spent on Amazon\n347,200 posts on X (formerly Twitter)\n231-250 million emails sent",
     "crumbs": [
       "Week 1: <span class='sec-w01-date'>Aug 31</span>"
     ]
@@ -3804,11 +3662,11 @@
     ]
   },
   {
-    "objectID": "w01/index.html#internet-of-things-iot-in-2025",
-    "href": "w01/index.html#internet-of-things-iot-in-2025",
+    "objectID": "w01/index.html#internet-of-things-iot",
+    "href": "w01/index.html#internet-of-things-iot",
     "title": "Week 1: Course Overview",
-    "section": "Internet of Things (IoT) in 2025",
-    "text": "Internet of Things (IoT) in 2025\n75 billion connected devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nConnected vehicles & self-driving cars\nIndustrial IoT sensors\n\n\n\n\nSmart city infrastructure\nMedical devices & remote patient monitoring",
+    "section": "Internet of Things (IoT)",
+    "text": "Internet of Things (IoT)\n75 billion connected devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nConnected vehicles & self-driving cars\nIndustrial IoT sensors\n\n\n\n\nSmart city infrastructure\nMedical devices & remote patient monitoring",
     "crumbs": [
       "Week 1: <span class='sec-w01-date'>Aug 31</span>"
     ]
@@ -3824,16 +3682,6 @@
     ]
   },
   {
-    "objectID": "w01/index.html#where-else",
-    "href": "w01/index.html#where-else",
-    "title": "Week 1: Course Overview",
-    "section": "Where else?",
-    "text": "Where else?\n\nThe Internet\nTransactions\nDatabases\nExcel\nPDF Files\nAnything digital (music, movies, apps)\nSome old floppy disk lying around the house",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
     "objectID": "w01/index.html#typical-real-world-scenarios-in-2025",
     "href": "w01/index.html#typical-real-world-scenarios-in-2025",
     "title": "Week 1: Course Overview",
@@ -3844,41 +3692,11 @@
     ]
   },
   {
-    "objectID": "w01/index.html#lets-discuss",
-    "href": "w01/index.html#lets-discuss",
+    "objectID": "w01/index.html#big-data-definition-for-this-class",
+    "href": "w01/index.html#big-data-definition-for-this-class",
     "title": "Week 1: Course Overview",
-    "section": "Let’s discuss!",
-    "text": "Let’s discuss!\n\n\n\nExponential data growth",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#big-data-definitions",
-    "href": "w01/index.html#big-data-definitions",
-    "title": "Week 1: Course Overview",
-    "section": "Big Data Definitions",
-    "text": "Big Data Definitions\nWikipedia\n“A collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis”\nO’Reilly\n“Big data is when the size of the data itself becomes part of the problem”",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#frameworks-for-thinking-about-big-data",
-    "href": "w01/index.html#frameworks-for-thinking-about-big-data",
-    "title": "Week 1: Course Overview",
-    "section": "Frameworks for Thinking About Big Data",
-    "text": "Frameworks for Thinking About Big Data\nIBM (The 3 V’s)\n\nVolume (Gigabytes → Exabytes → Zettabytes)\nVelocity (Batch → Streaming → Real-time AI inference)\nVariety (Structured, Unstructured, Embeddings)\n\nAdditional V’s for 2025\n\n\n\nVariability\nVeracity\nVisualization\n\n\n\nValue\nVectors (embeddings for AI/ML)\nVersatility (multi-modal data)",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#data-size",
-    "href": "w01/index.html#data-size",
-    "title": "Week 1: Course Overview",
-    "section": "Data “Size”",
-    "text": "Data “Size”\n\\[\n\\text{``Size''} = f(\\text{Processing Ability}, \\text{Storage Space})\n\\]\n\nCan you analyze/process your data on a single machine?\nCan you store (or is it stored) on a single machine?\nCan you serve it fast enough for real-time AI applications?\n\nIf any of of the answers is no then you have a big-ish data problem!",
+    "section": "Big Data Definition For This Class(!)",
+    "text": "Big Data Definition For This Class(!)\n\n\nBig Data: “When the size of the data itself becomes part of the engineering problem”\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?",
     "crumbs": [
       "Week 1: <span class='sec-w01-date'>Aug 31</span>"
     ]
@@ -3954,16 +3772,6 @@
     ]
   },
   {
-    "objectID": "w01/index.html#relative-data-sizes",
-    "href": "w01/index.html#relative-data-sizes",
-    "title": "Week 1: Course Overview",
-    "section": "Relative Data Sizes",
-    "text": "Relative Data Sizes\n \n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
     "objectID": "w01/index.html#what-youll-learn-in-this-course",
     "href": "w01/index.html#what-youll-learn-in-this-course",
     "title": "Week 1: Course Overview",
@@ -4004,16 +3812,6 @@
     ]
   },
   {
-    "objectID": "w01/index.html#challenges-of-working-with-large-datasets",
-    "href": "w01/index.html#challenges-of-working-with-large-datasets",
-    "title": "Week 1: Course Overview",
-    "section": "Challenges of Working with Large Datasets",
-    "text": "Challenges of Working with Large Datasets\n\n\n\nThe V\nThe Challenge\n\n\n\n\nVolume\ndata scale\n\n\nValue\ndata usefulness in decision making\n\n\nVelocity\ndata processing: batch or stream\n\n\nViscosity\ndata complexity\n\n\nVariability\ndata flow inconsistency\n\n\nVolatility\ndata durability\n\n\nViability\ndata activeness\n\n\nValidity\ndata properly understandable\n\n\nVariety\ndata heterogeneity",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
     "objectID": "w01/index.html#thinking-about-big-data-workflows",
     "href": "w01/index.html#thinking-about-big-data-workflows",
     "title": "Week 1: Course Overview",
@@ -4037,8 +3835,8 @@
     "objectID": "w01/index.html#additional-links-of-interest",
     "href": "w01/index.html#additional-links-of-interest",
     "title": "Week 1: Course Overview",
-    "section": "Additional links of interest",
-    "text": "Additional links of interest\n\nMatt Turck’s Machine Learning, Artificial Intelligence & Data Landscape (MAD)\n\nArticle\nInteractive Landscape\n\nIs there life after Hadoop?\n10 Best Big Data Tools for 2023",
+    "section": "Additional Links of Interest",
+    "text": "Additional Links of Interest\n\nMatt Turck’s Machine Learning, Artificial Intelligence & Data Landscape (MAD)\n\nArticle\nInteractive Landscape",
     "crumbs": [
       "Week 1: <span class='sec-w01-date'>Aug 31</span>"
     ]
@@ -4069,86 +3867,6 @@
     "title": "Week 1: Course Overview",
     "section": "Data Engineering: Levels 2 and 3",
     "text": "Data Engineering: Levels 2 and 3",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#architecture",
-    "href": "w01/index.html#architecture",
-    "title": "Week 1: Course Overview",
-    "section": "Architecture",
-    "text": "Architecture",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#storage",
-    "href": "w01/index.html#storage",
-    "title": "Week 1: Course Overview",
-    "section": "Storage",
-    "text": "Storage",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#source-control",
-    "href": "w01/index.html#source-control",
-    "title": "Week 1: Course Overview",
-    "section": "Source control",
-    "text": "Source control",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#orchestration",
-    "href": "w01/index.html#orchestration",
-    "title": "Week 1: Course Overview",
-    "section": "Orchestration",
-    "text": "Orchestration",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#processing",
-    "href": "w01/index.html#processing",
-    "title": "Week 1: Course Overview",
-    "section": "Processing",
-    "text": "Processing",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#analytics",
-    "href": "w01/index.html#analytics",
-    "title": "Week 1: Course Overview",
-    "section": "Analytics",
-    "text": "Analytics",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#machine-learning",
-    "href": "w01/index.html#machine-learning",
-    "title": "Week 1: Course Overview",
-    "section": "Machine Learning",
-    "text": "Machine Learning",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#governance",
-    "href": "w01/index.html#governance",
-    "title": "Week 1: Course Overview",
-    "section": "Governance",
-    "text": "Governance",
     "crumbs": [
       "Week 1: <span class='sec-w01-date'>Aug 31</span>"
     ]
@@ -4275,7 +3993,7 @@
     "href": "w01/slides.html#course-webpage",
     "title": "Week 1: Course Overview",
     "section": "Course Webpage",
-    "text": "Course Webpage\n\nhttps://jjacobs.me/dsan6000\n\nLinks to these additional resources are in the sidebar:\n\nCanvas page\nGoogle Space\nGitHub Classroom: ?var:course.github_classroom\nInstructors email: ?var:course.email\n?var:university.lms: ?var:course.lms_course_url"
+    "text": "Course Webpage\n\nhttps://jjacobs.me/dsan6000\n\nLinks to these additional resources are in the sidebar:\n\nCanvas page\nGoogle Space\nInstructors email: dsan6000@georgetown.edu"
   },
   {
     "objectID": "w01/slides.html#jeff-jacobs-jj1088georgetown.edu",
@@ -4285,46 +4003,32 @@
     "text": "Jeff Jacobs, jj1088@georgetown.edu\n\n\n\nFull-time Professor at Georgetown (DSAN and Public Policy)\nBackground in Computational Social Science (Comp Sci MS → Political Economy PhD → Labor Econ Postdoc)\n\nFun Facts\n\nUsed Apache Airflow daily for PhD projects! (Example)\n\n\n\n\n\nServer admin for lab server → lab AWS account at Columbia (2015-2023) → new DSAN server (!) (2025-)\nPassion project 1: Code for Palestine (2015-2022) → YouthCode-Gaza (2023) → Ukraine Ministry of Digital Transformation (2024)\nPassion projects 2+3 [🤓]: web app frameworks\nSleep disorder means lots of reading – mainly history! – at night\nAlso teaching PPOL6805 / DSAN 6750: GIS for Spatial Data Science this semester"
   },
   {
-    "objectID": "w01/slides.html#instructional-team---teaching-assistants",
-    "href": "w01/slides.html#instructional-team---teaching-assistants",
+    "objectID": "w01/slides.html#instructional-team-teaching-assistants",
+    "href": "w01/slides.html#instructional-team-teaching-assistants",
     "title": "Week 1: Course Overview",
-    "section": "Instructional Team - Teaching Assistants",
-    "text": "Instructional Team - Teaching Assistants\n\nSamyu Vakkalanka, spv15@georgetown.edu\nFangzhou Wang, fw256@georgetown.edu\nSiru Wu, sw1430@georgetown.edu"
+    "section": "Instructional Team: Teaching Assistants",
+    "text": "Instructional Team: Teaching Assistants\n\nSamyu Vakkalanka, spv15@georgetown.edu\nFangzhou Wang, fw256@georgetown.edu\nSiru Wu, sw1430@georgetown.edu"
   },
   {
     "objectID": "w01/slides.html#samyu-vakkalanka-spv15georgetown.edu",
     "href": "w01/slides.html#samyu-vakkalanka-spv15georgetown.edu",
     "title": "Week 1: Course Overview",
     "section": "Samyu Vakkalanka, spv15@georgetown.edu",
-    "text": "Samyu Vakkalanka, spv15@georgetown.edu\n\nImage"
+    "text": "Samyu Vakkalanka, spv15@georgetown.edu"
   },
   {
     "objectID": "w01/slides.html#fangzhou-wang-fw256georgetown.edu",
     "href": "w01/slides.html#fangzhou-wang-fw256georgetown.edu",
     "title": "Week 1: Course Overview",
     "section": "Fangzhou Wang, fw256@georgetown.edu",
-    "text": "Fangzhou Wang, fw256@georgetown.edu\n\nImage"
+    "text": "Fangzhou Wang, fw256@georgetown.edu"
   },
   {
     "objectID": "w01/slides.html#siru-wu-sw1430georgetown.edu",
     "href": "w01/slides.html#siru-wu-sw1430georgetown.edu",
     "title": "Week 1: Course Overview",
     "section": "Siru Wu, sw1430@georgetown.edu",
-    "text": "Siru Wu, sw1430@georgetown.edu\n\nImage"
-  },
-  {
-    "objectID": "w01/slides.html#course-description",
-    "href": "w01/slides.html#course-description",
-    "title": "Week 1: Course Overview",
-    "section": "Course Description",
-    "text": "Course Description\n\nData is everywhere! Many times, it’s just too big to work with traditional tools. This is a hands-on, practical workshop style course about using cloud computing resources to do analysis and manipulation of datasets that are too large to fit on a single machine and/or analyzed with traditional tools. The course will focus on Spark, MapReduce, the Hadoop Ecosystem and other tools.\nYou will understand how to acquire and/or ingest the data, and then massage, clean, transform, analyze, and model it within the context of big data analytics. You will be able to think more programmatically and logically about your big data needs, tools and issues.\n\nAlways refer to the syllabus and calendar in the course website for class policies."
-  },
-  {
-    "objectID": "w01/slides.html#learning-objectives",
-    "href": "w01/slides.html#learning-objectives",
-    "title": "Week 1: Course Overview",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nSetup, operate and manage big data tools and cloud infrastructure, including Spark, DuckDB, Polars, Athena, Snowflake, and orchestration tools like Airflow on Amazon Web Services\nUse ancillary tools that support big data processing, including git and the Linux command line\nExecute a big data analytics exercise from start to finish: ingest, wrangle, clean, analyze, store, and present\nDevelop strategies to break down large problems and datasets into manageable pieces\nIdentify broad spectrum resources and documentation to remain current with big data tools and developments\nCommunicate and interpret the big data analytics results through written and verbal methods"
+    "text": "Siru Wu, sw1430@georgetown.edu"
   },
   {
     "objectID": "w01/slides.html#evaluation",
@@ -4334,18 +4038,11 @@
     "text": "Evaluation\n\nGroup project : 40%\nAssignments : 30%\nLab completions : 20%\nQuizzes : 10%"
   },
   {
-    "objectID": "w01/slides.html#course-materials",
-    "href": "w01/slides.html#course-materials",
-    "title": "Week 1: Course Overview",
-    "section": "Course Materials",
-    "text": "Course Materials\n\nSlides/labs/assignment on Website/GitHub\nQuizzes and readings in Canvas"
-  },
-  {
     "objectID": "w01/slides.html#communication",
     "href": "w01/slides.html#communication",
     "title": "Week 1: Course Overview",
     "section": "Communication",
-    "text": "Communication\n\nThe Google Space is the primary form of communication for general questions\nYou can email the instructional team with private questions (e.g., about your AWS allocation) at dsan6000@georgetown.edu\n(But, consider the GSpace first: most questions last year were issues faced by multiple students!)"
+    "text": "Communication\n\nThe Google Space is the primary form of communication for general questions\nYou can email the instructional team with private questions (e.g., about your AWS allocation) at dsan6000@georgetown.edu\n(But, consider using the Google Space first: most questions last year were issues faced by multiple students!)"
   },
   {
     "objectID": "w01/slides.html#in-class-midterm",
@@ -4355,60 +4052,18 @@
     "text": "In-Class Midterm\n\nThe gist: You will be given specifications for an app/pipeline/infrastructure (hypothetical, but based on real-world!): goals, budgets, etc.\nYour job will be to use what you’ve learned in weeks 1-6 to write out the implementation details of how you would meet these specifications\nWill make more sense by end of lecture today with X.com example"
   },
   {
-    "objectID": "w01/slides.html#final-project",
-    "href": "w01/slides.html#final-project",
+    "objectID": "w01/slides.html#telemetry-brain-hurting-levels-of-tracking",
+    "href": "w01/slides.html#telemetry-brain-hurting-levels-of-tracking",
     "title": "Week 1: Course Overview",
-    "section": "Final Project",
-    "text": "Final Project\n\nGroups of 3-4 students\nUse an archive of Reddit data, augmented with external data\nExploratory analysis\nNLP\nMachine Learning\nWriteup\n\nData sourcing and ingesting\nExploratory analysis\nModeling\nChallenges and Learnings\nConclusions\nFuture work"
+    "section": "Telemetry: Brain-Hurting Levels of Tracking",
+    "text": "Telemetry: Brain-Hurting Levels of Tracking\n(See TheMarkup.org’s Blacklight Tool or OpenTelemetry for more examples)\n\n\n\n\n\n\n\n\n\n\n\nTracking Level\nExample Transaction\n→\n(instant)\nOLTP (Transaction DB)\n\\(\\leadsto\\)(nightly)\nOLAP (Analytics)\n\n\n\n\nGeneral Telemetry\nUser \\(i\\) visited page \\(y\\) at time \\(t\\)\n→\n{'user_id': 123,'page': '/login','ts': '20260831_153000'}\n\\(\\leadsto\\)\n“50% more users on weekends”\n\n\nKey Logging\nUser \\(i\\) typed letter \\(\\ell\\) into textbox \\(y\\) at time \\(t\\)\n→\n{'user_id': 123,'page': '/new-message','focus': 'email-subject','key': '&lt;backspace&gt;','ts': '20260831_153000'}\n\\(\\leadsto\\)\n“On average, users rewrite 20% of email before send”\n\n\nSession Recording\nUser \\(i\\)’s mouse was at \\((x,y)\\) at time \\(t\\)\n→\n{'user_id': 123,'page': '/view-post/10','cursor': [100, 350],'scroll_pos': '5%''ts': '20260831_153000'}\n\\(\\leadsto\\)\n“Only 30% of users scroll to ad below fold”"
   },
   {
-    "objectID": "w01/slides.html#in-one-minute-of-time-2018",
-    "href": "w01/slides.html#in-one-minute-of-time-2018",
+    "objectID": "w01/slides.html#every-60-seconds-2026",
+    "href": "w01/slides.html#every-60-seconds-2026",
     "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2018)",
-    "text": "In one minute of time (2018)"
-  },
-  {
-    "objectID": "w01/slides.html#in-one-minute-of-time-2019",
-    "href": "w01/slides.html#in-one-minute-of-time-2019",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2019)",
-    "text": "In one minute of time (2019)"
-  },
-  {
-    "objectID": "w01/slides.html#in-one-minute-of-time-2020",
-    "href": "w01/slides.html#in-one-minute-of-time-2020",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2020)",
-    "text": "In one minute of time (2020)"
-  },
-  {
-    "objectID": "w01/slides.html#in-one-minute-of-time-2021",
-    "href": "w01/slides.html#in-one-minute-of-time-2021",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2021)",
-    "text": "In one minute of time (2021)"
-  },
-  {
-    "objectID": "w01/slides.html#in-one-minute-of-time-2025",
-    "href": "w01/slides.html#in-one-minute-of-time-2025",
-    "title": "Week 1: Course Overview",
-    "section": "In one minute of time (2025)",
-    "text": "In one minute of time (2025)\nEvery 60 seconds in 2025:\n\nChatGPT serves millions of requests (exact numbers proprietary)\n500 hours of video uploaded to YouTube\n1.04 million Slack messages sent\n362,000 hours watched on Netflix\n5.9-11.4 million Google searches\n$443,000 spent on Amazon\nAI-generated images created at massive scale (metrics not publicly available)\n347,200 posts on X (formerly Twitter)\n231-250 million emails sent"
-  },
-  {
-    "objectID": "w01/slides.html#a-lot-of-it-is-hapenning-online.",
-    "href": "w01/slides.html#a-lot-of-it-is-hapenning-online.",
-    "title": "Week 1: Course Overview",
-    "section": "A lot of it is hapenning online.",
-    "text": "A lot of it is hapenning online.\nWe can record every:\n\nclick\nad impression\nbilling event\nvideo interaction\nserver request\ntransaction\nnetwork message\nfault\n…"
-  },
-  {
-    "objectID": "w01/slides.html#it-can-also-be-user-generated-content",
-    "href": "w01/slides.html#it-can-also-be-user-generated-content",
-    "title": "Week 1: Course Overview",
-    "section": "It can also be user-generated content:",
-    "text": "It can also be user-generated content:\n\n\n\n\nInstagram posts & Reels\nX (Twitter) posts & Threads\nTikTok videos\nYouTube Shorts\nReddit discussions\nDiscord conversations\nAI-generated content (text, images, code)\n…"
+    "section": "Every 60 Seconds (2026)",
+    "text": "Every 60 Seconds (2026)\n\nAI things serve millions of requests (exact numbers proprietary)\n500 hours of video uploaded to YouTube\n1.04 million Slack messages sent\n362,000 hours watched on Netflix\n5.9-11.4 million Google searches\n$443,000 spent on Amazon\n347,200 posts on X (formerly Twitter)\n231-250 million emails sent"
   },
   {
     "objectID": "w01/slides.html#but-health-and-scientific-computing-create-a-lot-too",
@@ -4439,11 +4094,11 @@
     "text": "System log files"
   },
   {
-    "objectID": "w01/slides.html#internet-of-things-iot-in-2025",
-    "href": "w01/slides.html#internet-of-things-iot-in-2025",
+    "objectID": "w01/slides.html#internet-of-things-iot",
+    "href": "w01/slides.html#internet-of-things-iot",
     "title": "Week 1: Course Overview",
-    "section": "Internet of Things (IoT) in 2025",
-    "text": "Internet of Things (IoT) in 2025\n75 billion connected devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nConnected vehicles & self-driving cars\nIndustrial IoT sensors\n\n\n\n\nSmart city infrastructure\nMedical devices & remote patient monitoring"
+    "section": "Internet of Things (IoT)",
+    "text": "Internet of Things (IoT)\n75 billion connected devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nConnected vehicles & self-driving cars\nIndustrial IoT sensors\n\n\n\n\nSmart city infrastructure\nMedical devices & remote patient monitoring"
   },
   {
     "objectID": "w01/slides.html#smartphone-location-data",
@@ -4453,13 +4108,6 @@
     "text": "Smartphone Location Data"
   },
   {
-    "objectID": "w01/slides.html#where-else",
-    "href": "w01/slides.html#where-else",
-    "title": "Week 1: Course Overview",
-    "section": "Where else?",
-    "text": "Where else?\n\nThe Internet\nTransactions\nDatabases\nExcel\nPDF Files\nAnything digital (music, movies, apps)\nSome old floppy disk lying around the house"
-  },
-  {
     "objectID": "w01/slides.html#typical-real-world-scenarios-in-2025",
     "href": "w01/slides.html#typical-real-world-scenarios-in-2025",
     "title": "Week 1: Course Overview",
@@ -4467,32 +4115,11 @@
     "text": "Typical Real-World Scenarios in 2025\nScenario 1: Traditional Big Data\nYou have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. What do you do?\nScenario 2: AI/ML Pipeline\nYour company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. How do you architect this?\nScenario 3: Real-Time Analytics\nYou need to process 1 million events/second from IoT devices and provide real-time dashboards with &lt;1s latency. What’s your stack?"
   },
   {
-    "objectID": "w01/slides.html#lets-discuss",
-    "href": "w01/slides.html#lets-discuss",
+    "objectID": "w01/slides.html#big-data-definition-for-this-class",
+    "href": "w01/slides.html#big-data-definition-for-this-class",
     "title": "Week 1: Course Overview",
-    "section": "Let’s discuss!",
-    "text": "Let’s discuss!\n\nExponential data growth"
-  },
-  {
-    "objectID": "w01/slides.html#big-data-definitions",
-    "href": "w01/slides.html#big-data-definitions",
-    "title": "Week 1: Course Overview",
-    "section": "Big Data Definitions",
-    "text": "Big Data Definitions\nWikipedia\n“A collection of datasets so large and complex that it becomes difficult to process using traditional tools and applications. Big Data technologies describe a new generation of technologies and architectures designed to economically extract value from very large volumes of a wide variety of data, by enabling high-velocity capture, discover and/or analysis”\nO’Reilly\n“Big data is when the size of the data itself becomes part of the problem”"
-  },
-  {
-    "objectID": "w01/slides.html#frameworks-for-thinking-about-big-data",
-    "href": "w01/slides.html#frameworks-for-thinking-about-big-data",
-    "title": "Week 1: Course Overview",
-    "section": "Frameworks for Thinking About Big Data",
-    "text": "Frameworks for Thinking About Big Data\nIBM (The 3 V’s)\n\nVolume (Gigabytes → Exabytes → Zettabytes)\nVelocity (Batch → Streaming → Real-time AI inference)\nVariety (Structured, Unstructured, Embeddings)\n\nAdditional V’s for 2025\n\n\n\nVariability\nVeracity\nVisualization\n\n\n\nValue\nVectors (embeddings for AI/ML)\nVersatility (multi-modal data)"
-  },
-  {
-    "objectID": "w01/slides.html#data-size",
-    "href": "w01/slides.html#data-size",
-    "title": "Week 1: Course Overview",
-    "section": "Data “Size”",
-    "text": "Data “Size”\n\\[\n\\text{``Size''} = f(\\text{Processing Ability}, \\text{Storage Space})\n\\]\n\nCan you analyze/process your data on a single machine?\nCan you store (or is it stored) on a single machine?\nCan you serve it fast enough for real-time AI applications?\n\nIf any of of the answers is no then you have a big-ish data problem!"
+    "section": "Big Data Definition For This Class(!)",
+    "text": "Big Data Definition For This Class(!)\n\n\nBig Data: “When the size of the data itself becomes part of the engineering problem”\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?"
   },
   {
     "objectID": "w01/slides.html#the-new-data-landscape-2025",
@@ -4544,13 +4171,6 @@
     "text": "Emerging Trends (2025-2027)\nUnified Platforms:\n\nData lakes becoming “AI lakes”\nIntegrated vector + relational databases\nOne-stop shops for data + AI (Databricks, Snowflake Cortex)\n\nEdge Computing + AI:\n\nProcessing at the data source\nFederated learning across devices\n5G enabling real-time edge AI\n\nSynthetic Data:\n\nAI generating training data for AI\nPrivacy-preserving synthetic datasets"
   },
   {
-    "objectID": "w01/slides.html#relative-data-sizes",
-    "href": "w01/slides.html#relative-data-sizes",
-    "title": "Week 1: Course Overview",
-    "section": "Relative Data Sizes",
-    "text": "Relative Data Sizes\n \n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?"
-  },
-  {
     "objectID": "w01/slides.html#what-youll-learn-in-this-course",
     "href": "w01/slides.html#what-youll-learn-in-this-course",
     "title": "Week 1: Course Overview",
@@ -4579,13 +4199,6 @@
     "text": "Big Data vs. Small Data II\n\n\n\n\n\n\n\n\n\nSmall Data is usually…\nOn the other hand, Big Data…\n\n\n\n\nLongevity\nkept for a specific amount of time after the project is over because there’s a clear ending point. In the academic world it’s maybe five or seven years and then you can throw it away\ncontains data that must be stored in perpetuity. Many big data projects extend into the past and future\n\n\nMeasurements\nmeasured with a single protocol using set units and it’s usually done at the same time\nis collected and measured using many sources, protocols, units, etc\n\n\nReproducibility\nbe reproduced in their entirety if something goes wrong in the process\nreplication is seldom feasible\n\n\nStakes\nif things go wrong the costs are limited, it’s not an enormous problem\ncan have high costs of failure in terms of money, time and labor\n\n\nAccess\nidentified by a location specified in a row/column\nunless it is exceptionally well designed, the organization can be inscrutable\n\n\nAnalysis\nanalyzed together, all at once\nis ordinarily analyzed in incremental steps"
   },
   {
-    "objectID": "w01/slides.html#challenges-of-working-with-large-datasets",
-    "href": "w01/slides.html#challenges-of-working-with-large-datasets",
-    "title": "Week 1: Course Overview",
-    "section": "Challenges of Working with Large Datasets",
-    "text": "Challenges of Working with Large Datasets\n\n\n\nThe V\nThe Challenge\n\n\n\n\nVolume\ndata scale\n\n\nValue\ndata usefulness in decision making\n\n\nVelocity\ndata processing: batch or stream\n\n\nViscosity\ndata complexity\n\n\nVariability\ndata flow inconsistency\n\n\nVolatility\ndata durability\n\n\nViability\ndata activeness\n\n\nValidity\ndata properly understandable\n\n\nVariety\ndata heterogeneity"
-  },
-  {
     "objectID": "w01/slides.html#thinking-about-big-data-workflows",
     "href": "w01/slides.html#thinking-about-big-data-workflows",
     "title": "Week 1: Course Overview",
@@ -4603,8 +4216,8 @@
     "objectID": "w01/slides.html#additional-links-of-interest",
     "href": "w01/slides.html#additional-links-of-interest",
     "title": "Week 1: Course Overview",
-    "section": "Additional links of interest",
-    "text": "Additional links of interest\n\nMatt Turck’s Machine Learning, Artificial Intelligence & Data Landscape (MAD)\n\nArticle\nInteractive Landscape\n\nIs there life after Hadoop?\n10 Best Big Data Tools for 2023"
+    "section": "Additional Links of Interest",
+    "text": "Additional Links of Interest\n\nMatt Turck’s Machine Learning, Artificial Intelligence & Data Landscape (MAD)\n\nArticle\nInteractive Landscape"
   },
   {
     "objectID": "w01/slides.html#data-scientist-vs.-data-engineer",
@@ -4626,62 +4239,6 @@
     "title": "Week 1: Course Overview",
     "section": "Data Engineering: Levels 2 and 3",
     "text": "Data Engineering: Levels 2 and 3"
-  },
-  {
-    "objectID": "w01/slides.html#architecture",
-    "href": "w01/slides.html#architecture",
-    "title": "Week 1: Course Overview",
-    "section": "Architecture",
-    "text": "Architecture"
-  },
-  {
-    "objectID": "w01/slides.html#storage",
-    "href": "w01/slides.html#storage",
-    "title": "Week 1: Course Overview",
-    "section": "Storage",
-    "text": "Storage"
-  },
-  {
-    "objectID": "w01/slides.html#source-control",
-    "href": "w01/slides.html#source-control",
-    "title": "Week 1: Course Overview",
-    "section": "Source control",
-    "text": "Source control"
-  },
-  {
-    "objectID": "w01/slides.html#orchestration",
-    "href": "w01/slides.html#orchestration",
-    "title": "Week 1: Course Overview",
-    "section": "Orchestration",
-    "text": "Orchestration"
-  },
-  {
-    "objectID": "w01/slides.html#processing",
-    "href": "w01/slides.html#processing",
-    "title": "Week 1: Course Overview",
-    "section": "Processing",
-    "text": "Processing"
-  },
-  {
-    "objectID": "w01/slides.html#analytics",
-    "href": "w01/slides.html#analytics",
-    "title": "Week 1: Course Overview",
-    "section": "Analytics",
-    "text": "Analytics"
-  },
-  {
-    "objectID": "w01/slides.html#machine-learning",
-    "href": "w01/slides.html#machine-learning",
-    "title": "Week 1: Course Overview",
-    "section": "Machine Learning",
-    "text": "Machine Learning"
-  },
-  {
-    "objectID": "w01/slides.html#governance",
-    "href": "w01/slides.html#governance",
-    "title": "Week 1: Course Overview",
-    "section": "Governance",
-    "text": "Governance"
   },
   {
     "objectID": "w01/slides.html#the-terminal",
@@ -4805,7 +4362,7 @@
     "href": "syllabus.html#course-topics-calendar",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "Course Topics / Calendar",
-    "text": "Course Topics / Calendar\nThe following is a rough map of what we will work through together throughout the semester; given that everyone learns at a different pace, my aim is to leave us with a good amount of flexibility in terms of how much time we spend on each topic.\nNonetheless, if you are able to do the recommended readings listed below before the start of each week’s lecture, this will be a good indication that you are “on pace”, relative to the overall set of topics I aim to cover by the end of the semester.\nIf you find any discrepancies between this schedule and Georgetown’s official calendar, please let us know!\n\n\n\n\n\n\n\n\n\nUnit\nWeek\nDate\nTopic\n\n\n\n\nUnit 1: Core Concepts\n1\nAug 31\nCourse Overview\n\n\n\n2\nSep 8\nCloud Computing\n\n\n\n3\nSep 14\nParallelization Concepts\n\n\nUnit 2: Scaling Pandas\n4\nSep 21\nDuckDB, Polars, and File Formats\n\n\n\n5\nSep 28\nData Engineering\n\n\n\n6\nOct 5\nIntroduction to Spark\n\n\nUnit 3: Distributed Computing with Spark\n7\nOct 19\n\n\n\n\n8\nOct 26\n\n\n\nUnit 4: ETL for Vector DBs\n9\nNov 2\n\n\n\n\n10\nNov 9\n\n\n\n\n11\nNov 16\n\n\n\nUnit 5: Final Project Prep\n12\nNov 23\n\n\n\n\n13\nNov 30\n\n\n\n\n\nNov 26\nNo Class (Fall Break)\n\n\n\n14\nDec 7",
+    "text": "Course Topics / Calendar\nThe following is a rough map of what we will work through together throughout the semester; given that everyone learns at a different pace, my aim is to leave us with a good amount of flexibility in terms of how much time we spend on each topic.\nNonetheless, if you are able to do the recommended readings listed below before the start of each week’s lecture, this will be a good indication that you are “on pace”, relative to the overall set of topics I aim to cover by the end of the semester.\nIf you find any discrepancies between this schedule and Georgetown’s official calendar, please let us know!\n\n\n\n\n\n\n\n\n\nUnit\nWeek\nDate\nTopic\n\n\n\n\nUnit 1: Core Concepts\n1\nAug 31\nCourse Overview\n\n\n\n2\nSep 8\nCloud Computing\n\n\n\n3\nSep 14\nParallelization Concepts\n\n\nUnit 2: Scaling Pandas\n4\nSep 21\nDuckDB, Polars, and File Formats\n\n\n\n5\nSep 28\nData Engineering\n\n\n\n6\nOct 5\nIntroduction to Spark\n\n\nUnit 3: Distributed Computing with Spark\n7\nOct 19\n\n\n\n\n8\nOct 26\n\n\n\nUnit 4: ETL for Vector DBs\n9\nNov 2\n\n\n\n\n10\nNov 9\n\n\n\n\n11\nNov 16\n\n\n\nUnit 5: Final Project Prep\n12\nNov 30\n\n\n\n\n13\nDec 7\nFinal Presentations\n\n\n\n\nNov 26\nNo Class (Fall Break)\n\n\n\n14\n?var:weeks.14.date-md\n?var:weeks.14.title",
     "crumbs": [
       "Syllabus"
     ]

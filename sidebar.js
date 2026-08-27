@@ -112,76 +112,56 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       //console.log(`${key}: ${value}`);
     }
-    // Special code for updating sidebar zoom link
-    // let s01ZoomUrl = sectionData['01']['.sec-zoom-link'];
-    // let s02ZoomUrl = sectionData['02']['.sec-zoom-link'];
-    // if (newStr == "01") {
-    //   // Find any sidebar link with S02 href and update
-    //   let s02LinkSelector = 'a[href="' + s02ZoomUrl + '"]';
-    //   let sidebarElt = $(s02LinkSelector);
-    //   // console.log(sidebarElt);
-    //   sidebarElt.attr('href', s01ZoomUrl);
-    // } else {
-    //   let s01LinkSelector = 'a[href="' + s01ZoomUrl + '"]';
-    //   let sidebarElt = $(s01LinkSelector);
-    //   // console.log(sidebarElt);
-    //   sidebarElt.attr('href', s02ZoomUrl);
-    // }
-    // A special one for the slides... Very janky
     const s01Replace = {
       // w01
-      'Thursday, August 27, 2026': 'Thursday, August 27, 2026',
-      // w02
       'Thursday, September 3, 2026': 'Monday, August 31, 2026',
-      // w03
+      // w02
       'Thursday, September 10, 2026': 'Tuesday, September 8, 2026',
-      // w04
+      // w03
       'Thursday, September 17, 2026': 'Monday, September 14, 2026',
-      // w05
+      // w04
       'Thursday, September 24, 2026': 'Monday, September 21, 2026',
-      // w06
+      // w05
       'Thursday, October 1, 2026': 'Monday, September 28, 2026',
-      // w07
+      // w06
       'Thursday, October 8, 2026': 'Monday, October 5, 2026',
-      // w08
+      // w07
       'Thursday, October 22, 2026': 'Monday, October 19, 2026',
-      // w09
+      // w08
       'Thursday, October 29, 2026': 'Monday, October 26, 2026',
-      // w10
+      // w09
       'Thursday, November 5, 2026': 'Monday, November 2, 2026',
-      // w11
+      // w10
       'Thursday, November 12, 2026': 'Monday, November 9, 2026',
-      // w12
+      // w11
       'Thursday, November 19, 2026': 'Monday, November 16, 2026',
-      // w13
+      // w12
       'Thursday, December 3, 2026': 'Monday, November 30, 2026',
     };
     const s02Replace = {
       // w01
-      'Thursday, August 27, 2026': 'Thursday, August 27, 2026',
-      // w02
       'Monday, August 31, 2026': 'Thursday, September 3, 2026',
-      // w03
+      // w02
       'Tuesday, September 8, 2026': 'Thursday, September 10, 2026',
-      // w04
+      // w03
       'Monday, September 14, 2026': 'Thursday, September 17, 2026',
-      // w05
+      // w04
       'Monday, September 21, 2026': 'Thursday, September 24, 2026',
-      // w06
+      // w05
       'Monday, September 28, 2026': 'Thursday, October 1, 2026',
-      // w07
+      // w06
       'Monday, October 5, 2026': 'Thursday, October 8, 2026',
-      // w08
+      // w07
       'Monday, October 19, 2026': 'Thursday, October 22, 2026',
-      // w09
+      // w08
       'Monday, October 26, 2026': 'Thursday, October 29, 2026',
-      // w10
+      // w09
       'Monday, November 2, 2026': 'Thursday, November 5, 2026',
-      // w11
+      // w10
       'Monday, November 9, 2026': 'Thursday, November 12, 2026',
-      // w12
+      // w11
       'Monday, November 16, 2026': 'Thursday, November 19, 2026',
-      // w13
+      // w12
       'Monday, November 30, 2026': 'Thursday, December 3, 2026',
     };
     let shownDate = $('p.date').text();

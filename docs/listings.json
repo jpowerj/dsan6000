@@ -1,10 +1,7 @@
 [
   {
     "listing": "/resources.html",
-    "items": [
-      "/writeups/sql-guide/index.html",
-      "/writeups/manual-spark-cluster/index.html"
-    ]
+    "items": []
   },
   {
     "listing": "/index.html",
@@ -21,9 +18,7 @@
       "/w10/index.html",
       "/w11/index.html",
       "/w12/index.html",
-      "/w13/index.html",
-      "/w14/index.html",
-      "/w15/index.html"
+      "/w13/index.html"
     ]
   }
 ]
