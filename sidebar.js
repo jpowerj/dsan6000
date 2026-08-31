@@ -1,29 +1,31 @@
 window.document.addEventListener("DOMContentLoaded", function (event) {
-  let sectionToggleHtml= `<span class='btn-group section-toggle' role='group' aria-label='Basic radio toggle button group' style='display: inline-flex !important; margin-top: 4px !important; width: 100% !important;'><input type='radio' class='btn-check pt-5' name='btnradio' id='btn-radio-01' autocomplete='off' onclick=\"window.toggleSectionClicked('01');\"><label class='btn btn-outline-secondary btn-sm' for='btn-radio-01' id='btn-label-01'>Sec 01</label><input type='radio' class='btn-check' name='btnradio' id='btn-radio-02' autocomplete='off' onclick=\"window.toggleSectionClicked('02');\"><label class='btn btn-outline-secondary btn-sm' for='btn-radio-02' id='btn-label-02'>Sec 02</label></span><br><span class='section-info sidebar-subtitle'><span class='sec-day'>M</span> <span class='sec-time'>3:30-6pm</span>, <span class='sec-room'>Walsh 394</span>`;
-  var termHtml = "<span class='sidebar-subtitle'>Georgetown Fall 2026</span>";
-  var emailHtml = "<span class='sidebar-subtitle w-100'>Prof. Jeff Jacobs&nbsp;<a href='mailto:jj1088@georgetown.edu' target='_blank'><i class='bi bi-envelope-at ps-1 pe-1'></i></a></span>";
-  var subtitleDiv = $(`${sectionToggleHtml}<br>${termHtml}<br>${emailHtml}`);
-  $('.sidebar-title').append(subtitleDiv);
+  const sectionToggleHtml = `<span class='btn-group section-toggle' role='group' aria-label='Basic radio toggle button group' style='display: inline-flex !important; margin-top: 4px !important; width: 100% !important;'><input type='radio' class='btn-check pt-5' name='btnradio' id='btn-radio-01' autocomplete='off' onclick=\"window.toggleSectionClicked('01');\"><label class='btn btn-outline-secondary btn-sm' for='btn-radio-01' id='btn-label-01'>Sec 01</label><input type='radio' class='btn-check' name='btnradio' id='btn-radio-02' autocomplete='off' onclick=\"window.toggleSectionClicked('02');\"><label class='btn btn-outline-secondary btn-sm' for='btn-radio-02' id='btn-label-02'>Sec 02</label></span><br><span class='section-info sidebar-subtitle'><span class='sec-day'>M</span> <span class='sec-time'>3:30-6pm</span>, <span class='sec-room'>Walsh 394</span>`
+  const termHtml = "<span class='sidebar-subtitle'>Georgetown Fall 2026</span>"
+  const emailHtml = "<span class='sidebar-subtitle w-100'>Prof. Jeff Jacobs&nbsp;<a href='mailto:jj1088@georgetown.edu' target='_blank'><i class='bi bi-envelope-at ps-1 pe-1'></i></a></span>"
+
+  // Add to Sidebar
+  const subtitleDiv = $(`${sectionToggleHtml}<br>${termHtml}<br>${emailHtml}`)
+  $('.sidebar-title').append(subtitleDiv)
   
   // And once the sidebar is set up we can do this stuff...
-  console.log("Obtaining section key");
-  const sectionKey = 'dsan6000-section';
+  console.log("Obtaining section key")
+  const sectionKey = 'dsan6000-section'
   window.toggleSectionClicked = (sectionStr) => {
-    console.log("window.toggleSectionClicked: " + sectionStr);
-    applyToggleSection(sectionStr);
-  };
+    console.log("window.toggleSectionClicked: " + sectionStr)
+    applyToggleSection(sectionStr)
+  }
   window.toggleIconClicked = () => {
-    console.log("window.toggleIconClicked()");
+    console.log("window.toggleIconClicked()")
     // Figure out the current section
-    let curSectionStr = getSection();
+    let curSectionStr = getSection()
     // Find its inverse
-    let newSectionStr = invertSection(curSectionStr);
+    let newSectionStr = invertSection(curSectionStr)
     // And apply that
-    applyToggleSection(newSectionStr);
-  };
-  const defaultSection = "01";
+    applyToggleSection(newSectionStr)
+  }
+  const defaultSection = "01"
   const getSection = () => {
-    console.log("getSection()");
+    console.log("getSection()")
     if (localStorage.getItem(sectionKey) === null) {
       console.log("section was null");
       setSection(defaultSection);
@@ -37,11 +39,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       console.log("section was the string 'undefined'");
       setSection(defaultSection);
     }
-    return localStorage.getItem(sectionKey);
-  };
+    return localStorage.getItem(sectionKey)
+  }
   const setSection = (secStr) => {
     localStorage.setItem(sectionKey, secStr);
-  };
+  }
   const invertSection = (secStr) => {
     return(secStr == "01" ? "02" : "01");
   }
@@ -68,6 +70,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       '.sec-w12-date': 'Nov 30',
       '.sec-w13-date': 'Dec 7-8',
       '.sec-start': '3:30pm',
+      '.sec-p30': '4:00pm',
+      '.sec-p60': '4:30pm',
+      '.sec-p90': '5:00pm',
+      '.sec-p120': '5:30pm',
       '.sec-end': '6:00pm',
     },
     '02': {
@@ -92,25 +98,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       '.sec-w12-date': 'Dec 3',
       '.sec-w13-date': 'Dec 7-8',
       '.sec-start': '6:30pm',
+      '.sec-p30': '7:00pm',
+      '.sec-p60': '7:30pm',
+      '.sec-p90': '8:00pm',
+      '.sec-p120': '8:30pm',
       '.sec-end': '9:00pm',
     }
-  };
+  }
   const applyToggleSection = (newStr) => {
-    console.log("Changing to " + newStr);
-    setSection(newStr);
+    console.log("Changing section to " + newStr)
+    setSection(newStr)
     // First, if we're on slides, change the toggle
     // icon accordingly
-    updateToggleIcon(newStr);
-    let sData = sectionData[newStr];
+    updateToggleIcon(newStr)
+    let sData = sectionData[newStr]
     for (const [sKey, sVal] of Object.entries(sData)) {
-      if (sKey.startsWith(".rec-link")) {
-        $(sKey).attr('href', sVal);
-      } else if (sKey == ".sec-zoom-link") {
-        $(sKey).attr('href', sVal);
-      } else {
-        $(sKey).text(sVal);
-      }
-      //console.log(`${key}: ${value}`);
+      (sKey).text(sVal);
     }
     const s01Replace = {
       // w01
@@ -163,25 +166,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       'Monday, November 16, 2026': 'Thursday, November 19, 2026',
       // w12
       'Monday, November 30, 2026': 'Thursday, December 3, 2026',
-    };
-    let shownDate = $('p.date').text();
-    console.log("shownDate:");
-    console.log(shownDate);
+    }
+    const shownDate = $('p.date').text()
+    console.log(`shownDate: ${shownDate}`)
     if (newStr == "02" && (s02Replace.hasOwnProperty(shownDate))) {
       console.log("Replacing with s02 date");
-      let replaceWith = s02Replace[shownDate];
-      console.log("Replacement should be: " + replaceWith);
-      $('p.date').text(replaceWith);
+      const replaceWith = s02Replace[shownDate];
+      console.log(`Replacement should be: ${replaceWith}`)
+      $('p.date').text(replaceWith)
     }
     if (newStr == "01" && (s01Replace.hasOwnProperty(shownDate))) {
       console.log("Replacing with s01 date");
-      let replaceWith = s01Replace[shownDate];
+      const replaceWith = s01Replace[shownDate];
       $('p.date').text(replaceWith);
     }
-  };
+  }
   const updateToggleIcon = (newSection) => {
     // Check for the toggle button
-    let toggleSelector = '#section-toggle-icon';
+    let toggleSelector = '#section-toggle-icon'
     let toggleElt = $(toggleSelector);
     if (toggleElt.length && newSection == "02") {
       toggleElt.removeClass("bi-toggle-off");
@@ -201,8 +203,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       let newLabelElt = $('#toggle-01-label');
       newLabelElt.css('font-weight', 'bolder');
     }
-  };
-  let localStorageChecked = false;
+  }
+  let localStorageChecked = false
   if (!localStorageChecked) {
     let curSection = getSection();
     //console.log("Detected section:");

@@ -5,11 +5,18 @@ title: "DSAN 6000: Big Data and Cloud Computing"
 subtitle: "Section 01: M 3:30-6pm, Walsh 394\n\nSection 02: Th 6:30-9pm, Walsh 394"
 author: "Jeff Jacobs"
 email: "jj1088@georgetown.edu"
+institute: "Georgetown University"
 term: "Fall 2026, Georgetown University"
 bibliography: "_DSAN6000.bib"
 csl: "chicago-17-no-url.csl"
 # latex-auto-install: false
 format:
+  html:
+    output-file: "syllabus.html"
+    df-print: kable
+    html-math-method: mathjax
+    link-external-icon: true
+    link-external-newwindow: true
   pdf:
     output-file: "PPOL6805_Fall_2026_Syllabus.pdf"
     template-partials:
@@ -22,12 +29,6 @@ format:
       text: |
         \usepackage{fullpage}
         \usepackage{lmodern}
-  html:
-    output-file: "syllabus.html"
-    df-print: kable
-    html-math-method: mathjax
-    link-external-icon: true
-    link-external-newwindow: true
 ---
 
 \vspace{-8mm}
@@ -175,18 +176,18 @@ Nonetheless, if you are able to do the recommended readings listed below *before
     <td><span data-qmd="{{< var weeks.8.date-md >}}"></span></td>
     <td><span data-qmd="[{{< var weeks.8.title >}}](./w08/)"></span></td>
 </tr>
-<tr class='new-unit'>
-    <td>
-        <span data-qmd="**Unit 4:** ETL for Vector DBs"></span>
-    </td>
+<tr>
+    <td></td>
     <td>9</td>
     <td><span data-qmd="{{< var weeks.9.date-md >}}"></span></td>
     <td>
         <span data-qmd="[{{< var weeks.9.title >}}](./w09/)"></span>
     </td>
 </tr>
-<tr>
-    <td></td>
+<tr class='new-unit'>
+    <td>
+        <span data-qmd="**Unit 4:** ETL for Vector DBs"></span>
+    </td>
     <td>10</td>
     <td><span data-qmd="{{< var weeks.10.date-md >}}"></span></td>
     <td>
@@ -201,8 +202,14 @@ Nonetheless, if you are able to do the recommended readings listed below *before
         <span data-qmd="[{{< var weeks.11.title >}}](./w11/)"></span>
     </td>
 </tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td><span data-qmd="*Nov 23*"></span></td>
+    <td><span data-qmd="*No Class (Fall Break)*"></span></td>
+</tr>
 <tr class='new-unit'>
-    <td><span data-qmd="**Unit 5**: Final Project Prep"></span></td>
+    <td><span data-qmd="**Unit 5**: Final Projects"></span></td>
     <td>12</td>
     <td><span data-qmd="{{< var weeks.12.date-md >}}"></span></td>
     <td><span data-qmd="[{{< var weeks.12.title >}}](./w12/)"></span></td>
@@ -214,18 +221,6 @@ Nonetheless, if you are able to do the recommended readings listed below *before
     <td>
         <span data-qmd="[{{< var weeks.13.title >}}](./w13/)"></span>
     </td>
-</tr>
-<tr>
-    <td></td>
-    <td></td>
-    <td><span data-qmd="*Nov 26*"></span></td>
-    <td><span data-qmd="*No Class (Fall Break)*"></span></td>
-</tr>
-<tr>
-    <td></td>
-    <td>14</td>
-    <td><span data-qmd="{{< var weeks.14.date-md >}}"></span></td>
-    <td><span data-qmd="[{{< var weeks.14.title >}}](./w14/)"></span></td>
 </tr>
 </tbody>
 </table>

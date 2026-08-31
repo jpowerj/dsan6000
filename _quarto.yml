@@ -22,8 +22,8 @@ website:
         text: "Syllabus"
       - href: resources.qmd
         text: "Resources"
-      # - href: writeups/index.qmd
-      #   text: "Writeups"
+      - href: writeups/index.qmd
+        text: "Writeups"
       - "---"
       - href: w01/index.qmd
         text: "Week 1: <span class='sec-w01-date'>Aug 31</span>"
@@ -70,6 +70,8 @@ format:
       text: |
         <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'>
         <link rel='stylesheet' type='text/css' href='//cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'>
+        <link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='' crossorigin='anonymous' referrerpolicy='no-referrer'></script>
         <script src='../sidebar.js'></script>
         <link rel='preconnect' href='//fonts.gstatic.com' crossorigin>
         <link href='//fonts.googleapis.com/css2?family=Honk&display=swap' rel='stylesheet'>
@@ -83,7 +85,6 @@ format:
           font-style: normal;
         }
         </style>
-        <script src='https://cdn.tailwindcss.com'></script>
   html:
     theme:
       light:
@@ -94,10 +95,14 @@ format:
         - darkly
         - "./dsan-globals/jjquarto.scss"
         - "./dsan-globals/jjquarto-dark.scss"
-    css: "/dsan-globals/jjstyles.css"
     toc: true
     link-external-newwindow: true
     link-external-icon: true
     include-in-header:
-      text: "<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='' crossorigin='anonymous' referrerpolicy='no-referrer'></script><link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'><script src='/sidebar.js'></script><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link href='https://fonts.googleapis.com/css2?family=Honk&display=swap' rel='stylesheet'>"
+      text: |
+        <link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='' crossorigin='anonymous' referrerpolicy='no-referrer'></script>
+        <script src='/sidebar.js'></script>
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+        <link href='https://fonts.googleapis.com/css2?family=Honk&display=swap' rel='stylesheet'>
 

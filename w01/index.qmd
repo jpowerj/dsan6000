@@ -25,12 +25,39 @@ format:
       - default
       - "../dsan-globals/jjquarto.scss"
       - "../dsan-globals/jjquarto-light.scss"
+    include-in-header:
+      text: |
+        <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'>
+        <link rel='stylesheet' type='text/css' href='//cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'>
+        <link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='' crossorigin='anonymous' referrerpolicy='no-referrer'></script>
+        <script src='../sidebar.js'></script>
+        <script src='oltp-demo.js'></script>
+        <link rel='preconnect' href='//fonts.gstatic.com' crossorigin>
+        <link href='//fonts.googleapis.com/css2?family=Honk&display=swap' rel='stylesheet'>
+        <style>
+        .honk-honk {
+          font-size: 200% !important;
+          font-family: "Honk", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+        </style>
     revealjs-plugins:
       - simplemenu
     simplemenu:
       flat: true
-      barhtml:
-        header: "<div class='menubar'><span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span><ul class='menu'></ul></div>"
+      header: >
+          <div class='menubar'>
+            <span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span>
+            
+            <span style='position: absolute; right: 0; padding-right: 8px; z-index: 10; display: inline-flex !important;'>
+              <a id='toggle-01-label' href='#' onclick="window.toggleSectionClicked('01'); return(false);" class='no-decoration'>01 </a>
+              <a href='#' onclick="window.toggleIconClicked(); return(false);" class='no-decoration'><i id='section-toggle-icon' class='bi bi-toggle-off pt-0 ps-1 pe-1'></i></a>
+              <a id='toggle-02-label' href='#' onclick="window.toggleSectionClicked('02'); return(false);" class='no-decoration'> 02</a>
+            </span>
+            <ul class='menu'></ul>
+          </div>
       scale: 0.5
   html:
     output-file: "index.html"
@@ -46,19 +73,19 @@ format:
 
 :::
 
-## Agenda for today's session
+# Schedule {.smaller .crunch-title .crunch-callout .code-90}
 
-1. Course and syllabus overview
+Today's Planned Schedule:
 
-1. Big Data Concepts
-    1. Definition
-    1. Challenges
-    1. Approaches
+| | Start | End | Topic |
+|:- |:- |:- |:- |
+| **Lecture** | <span class='sec-start'>3:30pm</span> | 4:00pm | [HW1 Questions and Concerns &rarr;](#hw1-questions-andor-concerns)
+| | 7:00pm | 7:30pm | [Motivating Examples: Causal Inference &rarr;](#motivation-ii-causal-inference) |
+| | 7:30pm | 7:45pm | [Your First Probabilistic Graphical Model! &rarr;](#your-first-probabilistic-graphical-model)
+| **Break!** | 7:45pm | 8:00pm | |
+| | 8:00pm | 9:00pm | [PGM "Lab" &rarr;](#hidden-markov-models-(hmms-are-our-ur-pgms))
 
-1. Data Engineering
-
-1. Introduction to `bash`
-    1. Lab: Linux command line
+: {tbl-colwidths="[12,12,12,64]"}
 
 # Course Overview {data-stack-name="Course Overview"}
 
@@ -76,60 +103,36 @@ Links to these additional resources are in the sidebar:
 * [Google Space](https://chat.google.com/room/AAQAfu8NheM?cls=1)
 * Instructors email: [`dsan6000@georgetown.edu`](mailto:dsan6000@georgetown.edu)
 
-## Jeff Jacobs, [`jj1088@georgetown.edu`](mailto:jj1088@georgetown.edu) {.smaller .title-12 .crunch-ul .crunch-img .crunch-title}
+## Jeff Jacobs, [`jj1088@georgetown.edu`](mailto:jj1088@georgetown.edu) {.smaller .title-12 .crunch-ul .crunch-img .crunch-title .ul-block}
 
-:::: {.columns} 
-::: {.column width="75%"}
+::: {style="float: right; padding: 8px;"}
 
-* Full-time Professor at Georgetown (DSAN and Public Policy)
+![](images/jeff.jpg){width="300"}
+
+:::
+
 * Background in Computational Social Science (Comp Sci MS &rarr; Political Economy PhD &rarr; Labor Econ Postdoc)
 
-Fun Facts
+**Fun (Relevant) Facts**
 
-* Used Apache Airflow daily for PhD projects! [(Example)](https://ieeexplore.ieee.org/document/9346539)
-
-:::
-
-::: {.column width="25%"}
-![](./img/jeff.jpg 'Jeff Jacobs')
-:::
-::::
-
+* Used Prefect (ETL Framework) daily for PhD projects! [(Example)](https://ieeexplore.ieee.org/document/9346539)
 * Server admin for lab server &rarr; lab AWS account at Columbia (2015-2023) &rarr; new DSAN server (!) (2025-)
 * Passion project 1: [Code for Palestine (2015-2022)](https://www.codedotx.org/code-for-palestine) &rarr; [YouthCode-Gaza (2023)](https://www.codedotx.org/youthcode-gaza) &rarr; [Ukraine Ministry of Digital Transformation (2024)](https://jjacobs.me/data-ethics-cdto/#/title-slide)
 * Passion projects 2+3 [🤓]: [web app frameworks](https://dbtskills.io/)
-* Sleep disorder means lots of [reading](https://app.thestorygraph.com/profile/jpowerj) -- mainly history! -- at night
+* Sleep disorder means lots of [reading](https://notes.jjacobs.me) -- mainly history! -- at night
 * Also teaching *PPOL6805 / DSAN 6750: GIS for Spatial Data Science* this semester
 
-## Instructional Team: Teaching Assistants {.smaller .title-12}
+## Instructional Team: Teaching Assistants {.title-08}
 
-* Samyu Vakkalanka, [`spv15@georgetown.edu`](mailto:spv15@georgetown.edu)
-* Fangzhou Wang, [`fw256@georgetown.edu`](mailto:fw256@georgetown.edu)
-* Siru Wu, [`sw1430@georgetown.edu`](mailto:sw1430@georgetown.edu)
+:::: {layout="[1,1,1]"}
 
-## Samyu Vakkalanka, [`spv15@georgetown.edu`](mailto:spv15@georgetown.edu) {.smaller .title-11}
+![Samyu Vakkalanka, [`spv15@georgetown.edu`](mailto:spv15@georgetown.edu)](images/samyu.jpg){align="center"}
 
-<center>
+![Fangzhou Wang, [`fw256@georgetown.edu`](mailto:fw256@georgetown.edu)](images/fangzhou.jpg){align="center"}
 
-![](images/samyu.jpg){align="center"}
+![Siru Wu, [`sw1430@georgetown.edu`](mailto:sw1430@georgetown.edu)](images/siru.jpg){align="center"}
 
-</center>
-
-## Fangzhou Wang, [`fw256@georgetown.edu`](mailto:fw256@georgetown.edu) {.smaller .title-11}
-
-<center>
-
-![](images/fangzhou.jpg){align="center"}
-
-</center>
-
-## Siru Wu, [`sw1430@georgetown.edu`](mailto:sw1430@georgetown.edu) {.smaller .title-12}
-
-<center>
-
-![](images/siru.jpg){align="center"}
-
-</center>
+::::
 
 ## Evaluation
 
@@ -150,9 +153,9 @@ Fun Facts
 * Your job will be to use what you've learned in weeks 1-6 to **write out the implementation details** of how you would meet these specifications
 * Will make more sense by end of lecture today with **X.com** example
 
-# What Makes Data "Big"? Why Do We Need "The Cloud" to Work With It? {data-stack-name="Big Data"}
+# What Makes Data "Big"? Why Do We Need "The Cloud"? {data-stack-name="Big Data"}
 
-## Telemetry: Brain-Hurting Levels of Tracking {.title-11 .smaller}
+## $\text{Revenue} = f(\text{Tracking}, \text{Analytics})$ {.title-11 .smaller}
 
 *(See [TheMarkup.org's Blacklight Tool](https://themarkup.org/blacklight/2020/09/22/how-we-built-a-real-time-privacy-inspector#survey) or [OpenTelemetry](https://opentelemetry.io/docs/what-is-opentelemetry/) for more examples)*
 
@@ -178,7 +181,7 @@ Fun Facts
 </thead>
 <tbody>
 <tr>
-  <td class='tdvc'><span data-qmd="***General Telemetry***"></span></td>
+  <td class='tdvc'><span data-qmd="***HTTP Requests***"></span></td>
   <td class='tdvc'><span data-qmd="User $i$ visited page $y$ at time $t$"></span></td>
   <td class='tdvc tdc'>&rarr;</td>
   <td class='text-65 tdvc'><div data-qmd="`{'user_id': 123,`<br>`'page': '/login',`<br>`'ts': '20260831_153000'}`"></div></td>
@@ -205,48 +208,357 @@ Fun Facts
 </table>
 ```
 
-## Every 60 Seconds (2026) {.crunch-title .text-80 .crunch-p .crunch-ul}
+## OLTP Demo {.smaller .crunch-title .title-11 .crunch-code-filename}
 
-* AI things serve **millions** of requests (exact numbers proprietary)
-* **500 hours** of video uploaded to YouTube
-* **1.04 million** Slack messages sent
-* **362,000 hours** watched on Netflix
-* **5.9-11.4 million** Google searches
-* **$443,000** spent on Amazon
-* **347,200** posts on X (formerly Twitter)
-* **231-250 million** emails sent
+```{=html}
+<style>
+.browser {
+  color: #e7e9ec;
+  margin: 10px;
+  border: 2px solid darkgray;
+  border-radius: 6px;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.browser-head {
+  background: #1c222b;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.browser-head .dots{
+  display: flex;
+  gap: 5px;
+}
+.browser-head .dots span{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3a4150;
+}
+.browser-head .urlbar{
+  flex: 1;
+  background: #12161c;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 11px;
+}
+.browser-body{
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.site-mock{
+  background: #1a1f27;
+  border: 1px solid #2a313c;
+  border-radius: 6px;
+  padding: 14px;
+}
+.site-mock h4{
+  margin: 0 0 6px;
+  font-size: 16pt;
+  color: #f2f3f4;
+}
+.site-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.site-actions button{
+  padding: 7px 12px;
+  border-radius: 4px;
+  border: 1px solid #3a4150;
+  background: #232a34;
+  color: #e7e9ec;
+  cursor: pointer;
+}
+.site-actions button:hover{
+  background: #2c3441;
+}
+.site-actions button:active{
+  transform:scale(0.97);
+}
+.tracker-log{
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 5px;
+}
+.tracker-log .empty {
+  color: #5c636e;
+  padding-top:6px;
+}
+.tracker-item {
+  font-size: 11px;
+  background: #1a1f27;
+  border: 1px solid #2a313c;
+  border-left: 3px solid #e69f00;
+  border-radius:3px;
+  padding:7px 9px;
+  animation:slideIn .25s ease;
+}
+.tracker-item .t1 {
+  color: #e69f00;
+  font-weight: 600;
+}
+.tracker-item .t2 {
+  margin-left: 5px;
+}
+@keyframes slideIn{
+  from{
+    opacity: 0; transform: translateY(-4px);
+  }
+  to{
+    opacity: 1; transform: translateY(0);
+  }
+}
+.request-card{
+  background: #eef2fe;
+  border: 2px solid darkgray;
+  border-radius: 6px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: none;
+}
+.request-card.show{
+  animation:cardIn .3s ease forwards;
+}
+@keyframes cardIn{
+  to{
+    opacity:1;transform:translateY(0);
+  }
+}
+.request-card .req-head{
+  background: #1a1f27;
+  color:#fff;
+  font-size:11px;
+  padding:6px 10px;
+  display:flex;
+  justify-content: space-between;
+}
+.request-card pre{
+  margin: 0;
+  padding: 10px;
+  font-size: 11px;
+  color: #1b2559;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.payload-list{
+  flex: 1;
+  /* overflow-y: auto; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 5px;
+}
+.payload-list .empty{
+  color: #4b5158;
+  font-size: 12px;
+}
+.table-wrap{
+  flex: 1;
+  overflow: auto;
+  border: 1px solid darkgray;
+  border-radius: 4px;
+  margin-left: 0px !important;
+}
+table.events{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+table.events thead th{
+  position: sticky;
+  top: 0;
+  background: #f0efe9;
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid lightgray;
+  color: #4b5158;
+  font-weight:600;
+}
+table.events tbody td{
+  padding: 6px 6px;
+  border-bottom: 1px solid #ecece6;
+  white-space: nowrap;
+  color: #14171a;
+  font-size: 11pt;
+}
+table.events tbody tr.new{
+  animation: rowIn .5s ease;
+}
+@keyframes rowIn{
+  from{
+    background: #d3f0da;
+  }
+  to{
+    background: transparent;
+  }
+}
+</style>
+```
 
-## But health and scientific computing create a lot too!
+:::: {.columns}
+::: {.column width="35%"}
 
-<center>
-<img src="img/scientific.png">
-</center>
+<div style="display: flex; align-items: center; justify-content: center; margin: auto; gap: 10px;"><i class='bi bi-1-circle' style='line-height: 1;'></i> Your Browser <button id="resetDemo">Reset</button></div>
 
-## There's lots of **graph** data too {.crunch-title .text-90}
-
-:::: {layout="[1,1]" layout-valign="center"}
-::: {#graph-text}
-
-Many interesting datasets have a graph structure:
-
-* Social networks
-* Google's knowledge graph
-* Telecom networks
-* Computer networks
-* Road networks
-* Collaboration/relationships
-
-Some of these are **HUGE**
+```{=html}
+<div class="browser">
+  <div class="browser-head">
+    <div class="dots"><span></span><span></span><span></span></div>
+    <div class="urlbar">shopdemo.example/product/213</div>
+  </div>
+  <div class="browser-body">
+    <div class="site-mock">
+      <h4>Rick Owens Teaspoon, $99</h4>
+      <div class="site-actions">
+        <button data-ev="pageview">Load page</button>
+        <button data-ev="scroll">Scroll product photos</button>
+        <button data-ev="cookie">Accept cookies</button>
+        <button data-ev="addcart">Add to cart</button>
+      </div>
+    </div>
+    <div class="tracker-log" id="trackerLog">
+      <div class="empty"></div>
+    </div>
+  </div>
+</div>
+```
 
 :::
-::: {#graph-img}
+::: {.column width="30%"}
 
-<img src="img/big-graph.jpg">
+<div style="display: flex; align-items: center; justify-content: center; margin: auto; gap: 10px;"><i class='bi bi-2-circle' style='line-height: 1;'></i> Network Requests</div>
+
+<div class="payload-list" id="payloadLog">
+  <div class="empty"></div>
+</div>
+
+:::
+::: {.column width="35%"}
+
+<div style="display: flex; align-items: center; justify-content: center; margin: auto; gap: 10px;"><i class='bi bi-3-circle' style='line-height: 1;'></i> OLTP Database</div>
+
+``` {.sql .code-overflow-wrap #transactionLog code-line-numbers="false" filename="Last SQL Command:"}
+CREATE TABLE events (
+  event_id int PRIMARY KEY,
+  event_type varchar(255),
+  uid int,
+  ts timestamp
+);
+```
+
+```{=html}
+<div class="table-wrap">
+  <table class="events">
+  <thead>
+    <tr>
+      <th class='tt'>event_id</th>
+      <th class='tt'>event_type</th>
+      <th class='tt'>uid</th>
+      <th class='tt'>ts</th>
+    </tr>
+    </thead>
+    <tbody id="eventsBody"></tbody>
+  </table>
+</div>
+```
 
 :::
 ::::
 
+```{=html}
+<script>
+(function() {
+  console.log('oltp demo js')
+  const trackerLog = document.getElementById('trackerLog');
+  const payloadLog = document.getElementById('payloadLog');
+  const eventsBody = document.getElementById('eventsBody');
+  const transactionLog = document.getElementById('transactionLog');
+  let eventCount = 0;
+  let userId = '123'
+  const trackerDefs = {
+    pageview: { source:'analytics.js', detail:'captures pageview' },
+    scroll: { source:'analytics.js', detail:'captures scroll depth' },
+    cookie: { source:'consent-manager.js', detail:'writes cookie + syncs ad ID' },
+    addcart: { source:'ad-pixel.js', detail:'Sends product id + price to ad network' },
+  };
+  function clearEmpty(container){
+    const empty = container.querySelector('.empty');
+    if(empty) empty.remove();
+  }
+  function fireEvent(evType){
+    const def = trackerDefs[evType]
+    clearEmpty(trackerLog)
+    clearEmpty(payloadLog)
+    // 1. Tracker log
+    const item = document.createElement('div')
+    item.className = 'tracker-item'
+    item.innerHTML = `<div class="t1">${def.source}</div><div class="t2">${def.detail}</div>`;
+    trackerLog.appendChild(item);
+    trackerLog.scrollTop = trackerLog.scrollHeight;
+    // 2. Network request
+    setTimeout(() => {
+      eventCount++;
+      const ts = new Date().toISOString().replace('T',' ').slice(0,19).replaceAll('-','');
+      const payload = {
+        event_type: evType,
+        user_id: userId,
+        url: "/product/213",
+        ts: ts,
+        ip: "100.101.102.103",
+      };
+      const card = document.createElement('div');
+      card.className = 'request-card';
+      card.innerHTML = `<div class="req-head"><span class='tt'>POST /collect</span><span>${def.source}</span></div><pre>${JSON.stringify(payload, null, 2)}</pre>`;
+      payloadLog.appendChild(card);
+      requestAnimationFrame(() => card.classList.add('show'));
+      payloadLog.scrollTop = payloadLog.scrollHeight;
+
+      // 3. DB insert
+      setTimeout(() => {
+        const row = document.createElement('tr');
+        row.className = 'new';
+        const shortId = String(eventCount).padStart(4,'0');
+        row.innerHTML = `<td class='tt'>${shortId}</td><td class='tt'>${evType}</td><td class='tt'>${userId}</td><td class='tt'>${ts}</td>`;
+        eventsBody.append(row);
+        transactionLog.firstChild.firstChild.innerHTML = `<span id="transactionLog-1"<a href="#transactionLog-1" aria-hidden="true" tabindex="-1"></a><span class='kw'>INSERT</span> <span class='kw'>INTO</span> events <span class='kw'>VALUES</span> (\n  ${shortId}, ${evType}, ...\n); <span class='kw'>COMMIT</span>;</span>`;
+      }, 180);
+    }, 200);
+  } // end fireEvent
+
+  // console.log(document.querySelectorAll('.site-actions button'))
+  document.querySelectorAll('.site-actions button')
+    .forEach((btn) => {
+      btn.addEventListener('click', () => {
+        fireEvent(btn.dataset.ev);
+        console.log('fired: ' + btn.dataset.ev)
+      })
+    })
+  document.getElementById('resetDemo').addEventListener('click', ()=>{
+    trackerLog.innerHTML = '<div class="empty"></div>';
+    payloadLog.innerHTML = '<div class="empty"></div>';
+    eventsBody.innerHTML = '';
+    transactionLog.firstChild.firstChild.innerHTML = 'CREATE TABLE events (\n  event_id int PRIMARY KEY,\n  event_type varchar(255),\n  user_id int,\n  ts timestamp\n);';
+    eventCount = 0;
+    userId = 'u123'
+  });
+})();
+</script>
+```
+
 ## Apache (web server) log files
+
 <img src="img/apache-server-log.jpg" width=600>
 
 ## System log files
@@ -551,20 +863,7 @@ digraph G {
 
 : {tbl-colwidths="[20, 40, 40]"}
 
-## Thinking About Big Data Workflows {.smaller .crunch-title .title-12}
 
-[William Cohen](http://www.cs.cmu.edu/~wcohen/) (Director, Research Engineering, Google):
-
-* Working with big data is _not_ about...
-  * Code optimization
-  * Learning the details of today's hardware/software (they are evolving...)
-* Working with big data _is_ about **understanding**:
-  * The cost of what you want to do
-  * What the tools that are available offer
-  * How much can be accomplished with linear or nearly-linear operations 
-  * How to organize your computations so that they effectively use whatever’s fast
-  * How to test/debug/verify with large data
-* Recall that traditional tools like `R` and `Python` are **single threaded** (by default)
 
 ## Tools at-a-glance
 
@@ -603,12 +902,6 @@ Other:
 :::
 :::: 
 
-## Additional Links of Interest
-
-* Matt Turck's Machine Learning, Artificial Intelligence & Data Landscape (MAD)
-  * [Article](https://mattturck.com/mad2023/)
-  * [Interactive Landscape](https://mad.firstmarkcap.com/)
-
 # Data Engineering {data-stack-name="Data Engineering"}
 
 ## Data Scientist vs. Data Engineer {.smaller}
@@ -617,7 +910,7 @@ In this course, you'll **augment** your data scientist skills with data engineer
 
 <center>
 
-<img src="img/bdi-core-competencies-deng-and-dsci.png" width="60%">
+![](images/bdi-core-competencies-deng-and-dsci.png){width="60%"}
 
 </center>
 

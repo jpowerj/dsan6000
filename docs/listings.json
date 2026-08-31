@@ -1,7 +1,18 @@
 [
   {
     "listing": "/resources.html",
-    "items": []
+    "items": [
+      "/writeups/index.html",
+      "/writeups/sql-guide/index.html",
+      "/writeups/manual-spark-cluster/index.html"
+    ]
+  },
+  {
+    "listing": "/writeups/index.html",
+    "items": [
+      "/writeups/sql-guide/index.html",
+      "/writeups/manual-spark-cluster/index.html"
+    ]
   },
   {
     "listing": "/index.html",

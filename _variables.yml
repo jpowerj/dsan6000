@@ -18,39 +18,39 @@ weeks:
   footer: "DSAN 6000 Week 3: Parallelization Concepts"
   date-md: "Sep 14"
 - weeknum: 4
-  title: "DuckDB, Polars, and File Formats"
-  footer: "DSAN 6000 Week 4: DuckDB, Polars, File Formats"
+  title: "DuckDB"
+  footer: "DSAN 6000 Week 4: DuckDB"
   date-md: "Sep 21"
 - weeknum: 5
-  title: "Data Engineering"
-  footer: "DSAN 6000 Week 5: Data Engineering"
+  title: "Polars"
+  footer: "DSAN 6000 Week 5: Polars"
   date-md: "Sep 28"
 - weeknum: 6
-  title: "Introduction to Spark"
-  footer: "DSAN 6000 Week 6: Spark"
+  title: "Data Engineering"
+  footer: "DSAN 6000 Week 6: Data Engineering"
   date-md: "Oct 5"
 - weeknum: 7
-  title: ""
+  title: "Introduction to Spark"
   footer: "DSAN 6000 Week 7: Spark Clusters"
   date-md: "Oct 19"
 - weeknum: 8
-  title: ""
-  footer: "DSAN 6000 Week 8: SparkNLP"
+  title: "ML with Spark"
+  footer: "DSAN 6000 Week 8: SparkML"
   date-md: "Oct 26"
 - weeknum: 9
-  title: ""
-  footer: "DSAN 6000 Week 9: SparkML"
+  title: "NLP with Spark"
+  footer: "DSAN 6000 Week 9: SparkNLP"
   date-md: "Nov 2"
 - weeknum: 10
-  title: ""
-  footer: "DSAN 6000 Week 10: ETL Pipelines with Airflow"
+  title: "ETL Pipelines"
+  footer: "DSAN 6000 Week 10: ETL Pipelines"
   date-md: "Nov 9"
 - weeknum: 11
-  title: ""
+  title: "Vector Databases"
   footer: "DSAN 6000 Week 11: Vector Databases"
   date-md: "Nov 16"
 - weeknum: 12
-  title: ""
+  title: "Final Project Preparation"
   footer: "DSAN 6000 Week 13"
   date-md: "Nov 30"
 - weeknum: 13

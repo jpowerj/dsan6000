@@ -199,3 +199,68 @@ If any of of the answers is _**no**_ then you have a big-ish data problem!
 -   Develop strategies to break down large problems and datasets into manageable pieces
 -   Identify broad spectrum resources and documentation to remain current with big data tools and developments
 -   Communicate and interpret the big data analytics results through written and verbal methods
+
+---
+
+## Every 60 Seconds (2026) {.crunch-title .text-80 .crunch-p .crunch-ul}
+
+* AI things serve **millions** of requests (exact numbers proprietary)
+* **500 hours** of video uploaded to YouTube
+* **1.04 million** Slack messages sent
+* **362,000 hours** watched on Netflix
+* **5.9-11.4 million** Google searches
+* **$443,000** spent on Amazon
+* **347,200** posts on X (formerly Twitter)
+* **231-250 million** emails sent
+
+---
+
+## There's lots of **graph** data too {.crunch-title .text-90}
+
+:::: {layout="[1,1]" layout-valign="center"}
+::: {#graph-text}
+
+Many interesting datasets have a graph structure:
+
+* Social networks
+* Google's knowledge graph
+* Telecom networks
+* Computer networks
+* Road networks
+* Collaboration/relationships
+
+Some of these are **HUGE**
+
+:::
+::: {#graph-img}
+
+<img src="img/big-graph.jpg">
+
+:::
+::::
+
+---
+
+## Thinking About Big Data Workflows {.smaller .crunch-title .title-12}
+
+[William Cohen](http://www.cs.cmu.edu/~wcohen/) (Director, Research Engineering, Google):
+
+* Working with big data is _not_ about...
+  * Code optimization
+  * Learning the details of today's hardware/software (they are evolving...)
+* Working with big data _is_ about **understanding**:
+  * The cost of what you want to do
+  * What the tools that are available offer
+  * How much can be accomplished with linear or nearly-linear operations 
+  * How to organize your computations so that they effectively use whatever’s fast
+  * How to test/debug/verify with large data
+* Recall that traditional tools like `R` and `Python` are **single threaded** (by default)
+
+---
+
+
+## Additional Links of Interest
+
+* Matt Turck's Machine Learning, Artificial Intelligence & Data Landscape (MAD)
+  * [Article](https://mattturck.com/mad2023/)
+  * [Interactive Landscape](https://mad.firstmarkcap.com/)
