@@ -1,5 +1,5 @@
 ---
-title: "Week 13: Serverless and Container Orchestration"
+title: "Week 13: Final Project Presentations"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"

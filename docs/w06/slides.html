@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Jeff Jacobs">
-  <title>DSAN 6000: Big Data and Cloud Computing – Week 6: Introduction to Spark</title>
+  <title>DSAN 6000: Big Data and Cloud Computing – Week 6: Data Engineering</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -98,26 +98,7 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
+  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-87495948a0ecb1c3d05f66f4a95694f5.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -219,7 +200,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Week 6: Introduction to Spark</h1>
+  <h1 class="title">Week 6: Data Engineering</h1>
   <p class="subtitle"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2026</p>
 
 <div class="quarto-title-authors">
@@ -235,459 +216,339 @@ Jeff Jacobs
 
   <p class="date">Monday, October 5, 2026</p>
 </section>
-<section id="highest-level-overview-roadmap" class="title-slide slide level1 smaller title-12 center" data-name="Roadmap">
-<h1>Highest-Level Overview (Roadmap!)</h1>
+<section id="agenda" class="slide level2">
+<h2>Agenda</h2>
+<div class="column" style="width:47%;">
+<h3 id="looking-back">Looking Back</h3>
 <ul>
-<li>Week 3: <strong>Map-Reduce</strong>
-<ul>
-<li>But, just the “plain”, basic version <strong>built into Python</strong> (<code>map()</code>, <code>functools.reduce()</code>)</li>
-</ul></li>
-<li>Last Week: <strong>Athena</strong> with <strong>AWS Glue</strong> under the hood
-<ul>
-<li>“Automated” ETL Pipeline!</li>
-</ul></li>
-<li>This Week: Hitting a wall with Athena… It <strong>doesn’t know in advance what [types of] queries you’re going to make!</strong></li>
-<li>If you’re going to <strong>group by</strong> (e.g.) <strong>state</strong>, then rent <strong>50 computers</strong> to process one state each, Athena doesn’t know to <strong>place the Ohio data on the Ohio computer!</strong></li>
-<li>We need a way to <strong>“steer” Map-Reduce’s choices</strong>… Enter <strong>Hadoop MapReduce!</strong></li>
+<li>Introduction to cloud</li>
+<li>Python Multiprocessing</li>
+<li>DuckDB, Polars</li>
 </ul>
-</section>
-
+<h3 id="future">Future</h3>
+<ul>
+<li>Project introduction</li>
+<li>Spark dataframe, ML, NLP</li>
+</ul>
+</div><div class="column" style="width:47%;">
+<h3 id="today">Today</h3>
+<ul>
+<li>Data Engineering
+<ul>
+<li>Data Lakes, Warehouses</li>
+<li>NoSQL Databases</li>
+</ul></li>
+<li>Lab:
+<ul>
+<li>Athena</li>
+<li>EC2</li>
+</ul></li>
+</ul>
+</div></section>
 <section>
-<section id="a-reminder-map-reduce-as-a-paradigm" class="title-slide slide level1 center" data-stack-name="Map-Reduce">
-<h1>A Reminder: Map-Reduce as a <em>Paradigm</em></h1>
+<section id="data-engineering" class="title-slide slide level1 center" data-stack-name="Data Engineering">
+<h1>Data Engineering</h1>
 
 </section>
-<section id="what-happens-when-not-embarrassingly-parallel" class="slide level2 smaller crunch-title crunch-math crunch-ul title-09">
-<h2>What Happens When <em>Not</em> Embarrassingly Parallel?</h2>
+<section id="what-is-data-engineering" class="slide level2">
+<h2>What is Data Engineering?</h2>
+<p>As the scale of the data grew, the existing ETL processes alone were not sufficient, a separate discipline was needed for:</p>
 <ul>
-<li>Think of the difference between <strong>linear</strong> and <strong>quadratic equations</strong> in algebra:</li>
-<li><span class="math inline">\(3x - 1 = 0\)</span> is “embarrassingly” solvable, on its own: you can solve it directly, by adding 3 to both sides <span class="math inline">\(\implies x = \frac{1}{3}\)</span>. Same for <span class="math inline">\(2x + 3 = 0 \implies x = -\frac{3}{2}\)</span></li>
-<li>Now consider <span class="math inline">\(6x^2 + 7x - 3 = 0\)</span>: Harder to solve “directly”, so your instinct might be to turn to the laborious <strong>quadratic equation</strong>:</li>
+<li>Collecting data</li>
+<li>Managing storage</li>
+<li>Cataloging</li>
+<li>Making it available for applications such as analytics &amp; machine learning)</li>
+<li>Security</li>
+<li>Lifecycle management</li>
+<li>And more…</li>
 </ul>
-<p><span class="math display">\[
-\begin{align*}
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)} = \frac{-7 \pm 11}{12} = \left\{\frac{1}{3},-\frac{3}{2}\right\}
-\end{align*}
-\]</span></p>
+<blockquote>
+<p><b><a href="https://en.wikipedia.org/wiki/Data_engineering">From Wikipedia</a>:</b> Data engineering refers to the building of systems to enable the collection and usage of data. This data is usually used to enable subsequent analysis and data science; which often involves machine learning. Making the data usable usually involves substantial compute and storage, as well as data processing and cleaning.</p>
+</blockquote>
+</section>
+<section id="what-do-data-engineers-do" class="slide level2">
+<h2>What do Data Engineers do?</h2>
+<p>Data engineers build systems that collect data from different sources and make this data available for analytics and ML application. This usually involves the following:</p>
 <ul>
-<li>And yet, <span class="math inline">\(6x^2 + 7x - 3 = (3x - 1)(2x + 3)\)</span>, meaning that we could have <strong>split</strong> the problem into two “embarrassingly” solvable pieces, then <strong>multiplied</strong> to get result!</li>
+<li><strong>Acquisition</strong>: Finding all the different datasets around the business.
+<ul>
+<li>These could be availble in databases, shared drives, ingested directly from IoT devices, external datasets, and more.</li>
+</ul></li>
+<li><strong>Cleaning</strong>: The raw data usually cannot be used as is, it needs to be cleaned.</li>
+<li><strong>Conversion</strong>: Since the data is coming from different sources, it would probably in different formats (database tables, CSV, JSON, custom). Needs to be converted into a common format (such as parquet) before it becomes usable.
+<ul>
+<li>Multiple datasets need to be joined together to answer a business question.</li>
+</ul></li>
 </ul>
 </section>
-<section id="the-analogy-to-map-reduce" class="slide level2 crunch-title title-09">
-<h2>The Analogy to Map-Reduce</h2>
+<section id="what-do-data-engineers-do-contd." class="slide level2">
+<h2>What do Data Engineers do (contd.)?</h2>
+<ul>
+<li><strong>Disambiguation</strong>: How to interpret what the data means? Use a data catalog and then with the help of subject matter experts (often called <em>Data Stewards</em>) add meaningful description to the datasets.</li>
+<li><strong>Deduplication</strong>: Having a single source of truth!</li>
+<li><strong>Data Governance</strong>: for how long to store the data, how to enforce access controls (<a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">Principle of least privilege</a>) etc.</li>
+</ul>
+<p>Once this is done, data may be stored in a central repository such as a <strong>data lake</strong> or <strong>data lakehouse</strong>. Data engineers may also copy and move subsets of data into a data warehouse.</p>
+</section>
+<section id="data-engineering-tools-and-technologies" class="slide level2">
+<h2>Data Engineering Tools and Technologies</h2>
+<p>Data engineers work with a variety of tools and technologies, including:</p>
+<ul>
+<li><strong>ETL Tools</strong>: ETL (extract, transform, load) tools move data between systems. They access data, then apply rules to “transform” the data through steps that make it more suitable for analysis.</li>
+<li><strong>SQL</strong>: Structured Query Language (SQL) is the standard language for querying relational databases.</li>
+<li><strong>Python</strong>: Python is a general programming language. Data engineers may choose to use Python for ETL tasks. Spark (pyspark) for Big Data, Apache Flink for streaming data.</li>
+<li><strong>Cloud Data Storage</strong>: Including Amazon S3, Azure Data Lake Storage (ADLS), Google Cloud Storage, etc.</li>
+<li><strong>Cloud Data Warehouses</strong>: Data ready for use by data scientists and analysts is stored in data warehouses, such as Amazon Redshift, Google BigQuery, Azure Data Warehouse, Snowflake etc.</li>
+</ul>
+</section>
+<section id="popular-data-engineering-tools" class="slide level2">
+<h2>Popular Data engineering tools</h2>
+
+<img data-src="images/de-tools.png" class="r-stretch quarto-figure-center"><p class="caption"><a href="https://www.secoda.co/blog/the-top-20-most-commonly-used-data-engineering-tools">Source</a></p></section></section>
+<section>
+<section id="data-lakes" class="title-slide slide level1 center" data-stack-name="Lakes vs. Warehouses">
+<h1>Data Lakes</h1>
+<p><a href="images/data-lake.png"></a></p>
+</section>
+<section id="wikipedia-definition" class="slide level2">
+<h2>Wikipedia Definition</h2>
+<blockquote>
+<p><strong><a href="https://en.wikipedia.org/wiki/Data_lake">From Wikipedia</a></strong>: A data lake is a system or repository of data stored in its natural/raw format, usually object blobs or files. A data lake is usually a single store of data including raw copies of source system data, sensor data, social data etc., and transformed data used for tasks such as reporting, visualization, advanced analytics and machine learning. A data lake can include structured data from relational databases (rows and columns), semi-structured data (CSV, logs, XML, JSON), unstructured data (emails, documents, PDFs) and binary data (images, audio, video).</p>
+</blockquote>
+</section>
+<section id="cloud-provider-definitions" class="slide level2">
+<h2>Cloud Provider Definitions</h2>
+<p>Definitions in the wild (<strong>emphasis mine</strong>).</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><a href="https://aws.amazon.com/big-data/datalakes-and-analytics/what-is-a-data-lake/">AWS</a></strong><br>
+A data lake is a <strong>centralized repository</strong> that allows you to store all your <strong>structured and unstructured</strong> data at any scale. You can store your data as-is, without having to first structure the data, and run different types of analytics—from dashboards and visualizations to big data processing, real-time <strong>analytics</strong>, and machine learning to guide better decisions.</p>
+</div><div class="column" style="width:50%;">
+<p><strong><a href="https://cloud.google.com/learn/what-is-a-data-lake">GCP</a></strong><br>
+A data lake provides a <strong>scalable and secure platform</strong> that allows enterprises to: ingest <strong>any data from any system at any speed</strong>—even if the data comes from on-premises, cloud, or edge-computing systems; store any type or volume of data in full fidelity; process data in real time or batch mode; and analyze data using SQL, Python, R, or any other language, third-party data, or <strong>analytics</strong> application.</p>
+</div><div class="column" style="width:50%;">
+<p><strong><a href="https://azure.microsoft.com/en-us/solutions/data-lake/">Azure</a></strong><br>
+Azure Data Lake includes all the capabilities required to make it easy for developers, data scientists, and analysts to <strong>store data of any size, shape, and speed</strong>, and do all types of processing and <strong>analytics</strong> across platforms and languages.</p>
+</div><div class="column" style="width:50%;">
+<p><strong><a href="https://www.databricks.com/discover/data-lakes/introduction">DataBricks</a></strong><br>
+A data lake is a central location that holds a <strong>large amount of data</strong> in its native, <strong>raw format</strong>. Compared to a hierarchical data warehouse, which stores data in files or folders, a data lake uses a flat architecture and <strong>object storage</strong> to store the data.‍</p>
+</div></div>
+</section>
+<section id="working-with-a-cloud-data-lake" class="slide level2">
+<h2>Working with a Cloud Data Lake</h2>
+<p>A cloud data lake is setup using the cloud provider’s object store (S3, GCS, Azure Blob Storage).</p>
+<ul>
+<li><p>The object stores are extremely scalable, for context, the maximum size of an object in S3 is 5 TB and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html">there is no limit to number of objects in an S3 bucket</a>.</p></li>
+<li><p>They are extremely duarable, 99.999999999%. Provide strong consistency (read-after-write, listing buckets and objects, granting permissions etc.).</p></li>
+<li><p>Cost effective, with <a href="https://aws.amazon.com/s3/storage-classes/">multiple storage classes</a>.</p></li>
+<li><p>Integration with data processing tools such as Spark, machine learning tools such as SageMaker, data warehouses such as RedShift and data cataloging tools.</p></li>
+<li><p>They provide <em>Fine Grained Access Control</em> to the data.</p></li>
+</ul>
+</section>
+<section id="data-warehouses" class="slide level2">
+<h2>Data Warehouses</h2>
+
+<img data-src="images/data-warehouse.png" class="r-stretch"><blockquote>
+<p><strong><a href="https://en.wikipedia.org/wiki/Data_warehouse">From Wikipedia</a></strong>: In computing, a data warehouse (DW or DWH), also known as an enterprise data warehouse (EDW), is a system used for reporting and data analysis and is considered a core component of business intelligence. DWs are central repositories of integrated data from one or more disparate sources. They store current and historical data in one single place that are used for creating analytical reports for workers throughout the enterprise.</p>
+</blockquote>
+</section>
+<section id="data-warehouse-cloud-provider-definitions" class="slide level2">
+<h2>Data Warehouse (Cloud Provider Definitions)</h2>
+<p>Definitions in the wild (<strong>emphasis mine</strong>).</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><a href="https://aws.amazon.com/data-warehouse/">AWS</a></strong><br>
+A data warehouse is a <strong>central repository</strong> of information that can be analyzed to make more informed decisions. <strong>Data flows into a data warehouse</strong> from transactional systems, relational databases, and other sources, typically <strong>on a regular cadence</strong>. Business analysts, data engineers, data scientists, and decision makers <strong>access the data through business intelligence (BI) tools, SQL clients, and other analytics applications</strong>.</p>
+<p><strong><a href="https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/data-warehousing">Azure</a></strong><br>
+A data warehouse is a <strong>centralized repository</strong> of integrated data from one or more <strong>disparate sources</strong>. Data warehouses store current and historical data and are used for <strong>reporting and analysis</strong> of the data.</p>
+</div><div class="column" style="width:50%;">
+<p><strong><a href="https://cloud.google.com/learn/what-is-a-data-warehouse">GCP</a></strong><br>
+A data warehouse is an <strong>enterprise system</strong> used for the <strong>analysis and reporting</strong> of structured and semi-structured data from <strong>multiple sources</strong>, such as point-of-sale transactions, marketing automation, customer relationship management, and more.</p>
+<p><strong><a href="https://www.snowflake.com/data-cloud-glossary/data-warehousing">Snowflake</a></strong><br>
+A data warehouse (DW) is a <strong>relational database</strong> that is designed for <strong>analytical rather than transactional work</strong>. It collects and aggregates data from one or many sources so it can be analyzed to produce business insights.</p>
+</div></div>
+</section>
+<section id="working-with-a-cloud-data-warehouse" class="slide level2">
+<h2>Working with a Cloud Data Warehouse</h2>
+<p>All cloud providers provide a data warehouse solution that works in conjunction with their data lake solution.</p>
+<ul>
+<li><p>AWS has <a href="https://aws.amazon.com/pm/redshift/">Redshift</a>, Azure has <a href="https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/data-warehousing">Synapse Analytics</a>. GCP has <a href="https://cloud.google.com/bigquery">BigQuery</a> and then there is <a href="https://www.snowflake.com/en/">Snowflake</a>.</p></li>
+<li><p>In a data warehouse, <em>Online analytical processing (OLAP)</em> allows for fast querying and analysis of data from different perspectives. It also helps in pre-aggregating and pre-calculating the information available in the archive.</p></li>
+<li><p>Data warehouses are Peta Byte scale (<a href="https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html">Amazon RedShift</a>, <a href="https://cloud.google.com/blog/products/data-analytics/new-blog-series-bigquery-explained-overview">Google BigQuery</a>, <a href="https://azure.microsoft.com/en-us/updates/introducing-azure-synapse-analytics-a-limitless-analytics-service-with-unmatched-time-to-insight/">Azure Synapse Analytics</a>).</p></li>
+<li><p>Data warehouses can have dedicated compute provisioned or be serverless (BigQuery is serverless, Redshift allows both options now).</p></li>
+<li><p>Data warehouses now offer integrated ML capabilities, you can build models with SQL and use them in queries (<a href="https://aws.amazon.com/redshift/features/redshift-ml/">Amazon RedShift ML</a>, <a href="https://cloud.google.com/bigquery-ml/docs/introduction">Google BigQuery ML</a>, <a href="https://learn.microsoft.com/en-us/azure/synapse-analytics/machine-learning/what-is-machine-learning">Azure Synapse Analytics ML</a>).</p></li>
+<li><p>Integration with reporting and dashboarding tools such as Tableau, Grafana, Looker etc. and data analytics tools such as Spark and data cataloging tools.</p></li>
+<li><p>They provide <em>Fine Grained Access Control</em> to the data.</p></li>
+</ul>
+</section>
+<section id="combining-data-lakes-and-data-warehouses" class="slide level2">
+<h2>Combining Data Lakes and Data Warehouses</h2>
+<p>Combine the flexibility, cost-efficiency, and scale of data lakes with the data management and ACID transactions of data warehouses to provide a single architecture that can enable business intelligence and machine learning on all data.</p>
+<ul>
+<li><a href="https://aws.amazon.com/blogs/big-data/build-a-lake-house-architecture-on-aws/">Build a lakehouse architecture on AWS</a></li>
+<li><a href="https://www.databricks.com/product/data-lakehouse">The Databricks lakehouse platform</a></li>
+<li><a href="https://cloud.google.com/blog/products/data-analytics/open-data-lakehouse-on-google-cloud">Open data lakehouse on Google Cloud</a></li>
+<li><a href="https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/the-data-lakehouse-the-data-warehouse-and-a-modern-data-platform/ba-p/2792337">The data lakehouse, the data warehouse and a modern data platform on Azure</a></li>
+</ul>
+</section>
+<section id="nosql-databases" class="slide level2">
+<h2>NoSQL Databases</h2>
+<p>At some point we needed to think beyond relation databases, because:</p>
+<ul>
+<li>Data became more and more complex (not all data is tabular, thinkin JSON data emitted by an IoT device).</li>
+<li>Cost of storage decreased (everything did not need to be stored in the 3rd normal form)</li>
+<li>More data on the cloud meant data needed to be placed across different servers (scale-out)</li>
+<li>Data needed to be placed intelligently in geo locations of interest</li>
+<li>And more…</li>
+</ul>
+<blockquote>
+<p><strong><a href="https://en.wikipedia.org/wiki/NoSQL">From Wikipedia</a></strong>: A NoSQL (originally referring to “non-SQL” or “non-relational”) database provides a mechanism for storage and retrieval of data that is modeled in means other than the tabular relations used in relational databases. Such databases have existed since the late 1960s, but the name “NoSQL” was only coined in the early 21st century, triggered by the needs of Web 2.0 companies. NoSQL databases are increasingly used in big data and real-time web applications. NoSQL systems are also sometimes called Not only SQL to emphasize that they may support SQL-like query languages or sit alongside SQL databases in polyglot-persistent architectures.</p>
+</blockquote>
+</section>
+<section id="types-of-nosql-databases" class="slide level2">
+<h2>Types of NoSQL Databases</h2>
+<p>Over time, four major types of NoSQL databases emerged: document databases, key-value databases, wide-column stores, and graph databases.</p>
+<ul>
+<li><p><strong>Document databases</strong> store data in documents similar to JSON (JavaScript Object Notation) objects. Each document contains pairs of fields and values. The values can typically be a variety of types including things like strings, numbers, booleans, arrays, or objects.</p></li>
+<li><p><strong>Key-value databases</strong> are a simpler type of database where each item contains keys and values.</p></li>
+<li><p><strong>Wide-column stores</strong> store data in tables, rows, and dynamic columns.</p></li>
+<li><p><strong>Graph databases</strong> store data in nodes and edges. Nodes typically store information about people, places, and things, while edges store information about the relationships between the nodes.</p></li>
+</ul>
+</section>
+<section id="examples-of-nosql-databases" class="slide level2">
+<h2>Examples of NoSQL Databases</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 75%">
-<col style="width: 25%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
+<thead>
+<tr class="header">
+<th>NOSQL Database Type</th>
+<th>Examples</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(\leadsto\)</span> If code is <strong>not</strong> embarrassingly parallel (instinctually requiring laborious serial execution),</td>
-<td style="text-align: center;"><span class="math inline">\(\underbrace{6x^2 + 7x - 3 = 0}_{\text{Solve using Quadratic Eqn}}\)</span></td>
+<td>Document Database</td>
+<td>Amazon DocumentDB, MongoDB, Cosmos DB, ArangoDB, Couchbase Server, CouchDB</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">But can be <strong>split</strong> into…</td>
-<td style="text-align: center;"><span class="math inline">\((3x - 1)(2x + 3) = 0\)</span></td>
+<td>Key-value Database</td>
+<td>Amazon DynamoDB, Couchbase, Memcached, Redis</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Embarrassingly parallel <strong>pieces</strong> which <strong>combine</strong> to same result,</td>
-<td style="text-align: center;"><span class="math inline">\(\underbrace{3x - 1 = 0}_{\text{Solve directly}}, \underbrace{2x + 3 = 0}_{\text{Solve directly}}\)</span></td>
+<td>Wide-column datastores</td>
+<td>Amazon DynamoDB, Apache Cassandra, Google Bigtable, Azure Tables</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">We can use <strong>map-reduce</strong> to achieve ultra speedup (running “pieces” on <strong>GPU!</strong>)</td>
-<td style="text-align: center;"><span class="math inline">\(\underbrace{(3x-1)(2x+3) = 0}_{\text{Solutions satisfy this product}}\)</span></td>
+<td>Graph databases</td>
+<td>Amazon Neptune, Neo4j</td>
 </tr>
 </tbody>
 </table>
+<p>As a data scientist you would work with a NoSQL database through an SDK/API. Several programming languages are supported including Python, Java, Go, C++ etc.</p>
 </section>
-<section id="factoring-into-embarrassing-and-non-embarrassing-pieces" class="slide level2 smaller crunch-title crunch-details">
-<h2>“Factoring” into Embarrassing and Non-Embarrassing Pieces</h2>
+<section id="example-of-documents-in-a-document-database" class="slide level2">
+<h2>Example of documents in a document database</h2>
+<p>Here is an example of a document inserted in a key-value/document database such as MongoDB.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>   <span class="dt">"name"</span> <span class="fu">:</span> <span class="st">"IS 350"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>   <span class="dt">"year"</span> <span class="fu">:</span> <span class="st">"2015"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a>   <span class="dt">"make"</span> <span class="fu">:</span> <span class="st">"Lexus"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>   <span class="dt">"colors"</span> <span class="fu">:</span> <span class="ot">[</span><span class="st">"black"</span><span class="ot">,</span><span class="st">"white"</span><span class="ot">,</span><span class="st">"grey"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a>   <span class="dt">"spec"</span> <span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a>      <span class="dt">"engine"</span> <span class="fu">:</span> <span class="st">"V6"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a>      <span class="dt">"wheelbase"</span> <span class="fu">:</span> <span class="st">"110.2 in"</span><span class="fu">,</span></span>
+<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a>      <span class="dt">"length"</span> <span class="fu">:</span> <span class="st">"183.7 in"</span></span>
+<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a>   <span class="fu">}</span></span>
+<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The same example can be inserted in an Amazon DynamoDB table called (say) <code>Cars</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>database <span class="op">=</span> boto3.resource(<span class="st">'dynamodb'</span>)</span>
+<span id="cb2-2"><a></a>table <span class="op">=</span> database.Table(<span class="st">'cars'</span>)</span>
+<span id="cb2-3"><a></a>item <span class="op">=</span> {</span>
+<span id="cb2-4"><a></a>   <span class="st">"name"</span> : <span class="st">"IS 350"</span>,</span>
+<span id="cb2-5"><a></a>   <span class="st">"year"</span> : <span class="st">"2015"</span>,</span>
+<span id="cb2-6"><a></a>   <span class="st">"make"</span> : <span class="st">"Lexus"</span>,</span>
+<span id="cb2-7"><a></a>   <span class="st">"colors"</span> : [<span class="st">"black"</span>,<span class="st">"white"</span>,<span class="st">"grey"</span>],</span>
+<span id="cb2-8"><a></a>   <span class="st">"spec"</span> : {</span>
+<span id="cb2-9"><a></a>      <span class="st">"engine"</span> : <span class="st">"V6"</span>,</span>
+<span id="cb2-10"><a></a>      <span class="st">"wheelbase"</span> : <span class="st">"110.2 in"</span>,</span>
+<span id="cb2-11"><a></a>      <span class="st">"length"</span> : <span class="st">"183.7 in"</span></span>
+<span id="cb2-12"><a></a>   }</span>
+<span id="cb2-13"><a></a>}</span>
+<span id="cb2-14"><a></a>table.put_item(Item <span class="op">=</span> item)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="other-data-stores-to-know-about" class="slide level2">
+<h2>Other Data Stores to Know About</h2>
+<p>Besides the general concepts about data lkakes, warehouses, different types of databases, there are some purpose built databases that are good to know about.</p>
 <ul>
-<li>Problem from DSAN 5000/5100: Computing SSR (<strong>Sum of Squared Residuals</strong>)</li>
-<li><span class="math inline">\(y = (1,3,2), \widehat{y} = (2, 5, 0) \implies \text{SSR} = (1-2)^2 + (3-5)^2 + (2-0)^2 = 9\)</span></li>
-<li>Computing pieces separately:</li>
+<li>Splunk</li>
+<li>Elasticsearch</li>
+<li>DuckDB</li>
+<li>Many many more…</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="bu">map</span>(do_something_with_piece, list_of_pieces)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="cef2303e" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>[1, 4, 4]</code></pre>
-</div>
-</div>
+</section>
+<section id="further-reading" class="slide level2">
+<h2>Further Reading</h2>
+<p>Please lookup these topics on Google for further reading. Not providing specific links here because they all point to vendor specific products.</p>
 <ul>
-<li>Combining solved pieces</li>
+<li>Data Catalog</li>
+<li>Data Governance</li>
+<li>Data Mesh</li>
+<li>Data Fabric</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="bu">reduce</span>(how_to_combine_pair_of_pieces, pieces_to_combine)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="5a43ea16" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>9</code></pre>
-</div>
-</div>
 </section></section>
 <section>
-<section id="but-why-is-all-this-weird-mapping-and-reducing-necessary" class="title-slide slide level1 center" data-stack-name="Map-Reduce Rationale">
-<h1>But… Why is All This Weird Mapping and Reducing Necessary?</h1>
-<ul>
-<li>Without knowing a bit more of the <strong>internals</strong> of <strong>computing efficiency</strong>, it may seem like a huge cost in terms of overly-complicated overhead, not to mention learning curve…</li>
-</ul>
-</section>
-<section id="the-killer-application-matrix-multiplication" class="slide level2 crunch-title smaller title-11">
-<h2>The “Killer Application”: Matrix Multiplication</h2>
-<ul>
-<li><em>(I learned from <a href="http://infolab.stanford.edu/~ullman/" target="_blank">Jeff Ullman</a>, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the <a href="http://web.stanford.edu/class/cs246/" target="_blank">class</a> did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)</em></li>
-</ul>
+<section id="diving-one-level-deeper-oltp-vs.-olap" class="title-slide slide level1 center" data-stack-name="OLTP vs. OLAP">
+<h1>Diving One Level Deeper: OLTP vs.&nbsp;OLAP</h1>
 
-<img data-src="images/map_reduce3.svg" class="r-stretch quarto-figure-center"><p class="caption">From <span class="citation" data-cites="leskovec_mining_2014">Leskovec et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, which is (legally) <a href="http://www.mmds.org/" target="_blank">free online</a>!</p></section>
-<section id="the-killer-way-to-learn-text-counts" class="slide level2 smaller crunch-title crunch-ul crunch-p title-12">
-<h2>The Killer Way-To-Learn: Text Counts!</h2>
-<ul>
-<li><span class="citation" data-cites="leskovec_mining_2014">(<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>: Text counts (2.2) <span class="math inline">\(\rightarrow\)</span> Matrix multiplication (2.3) <span class="math inline">\(\rightarrow \cdots \rightarrow\)</span> PageRank (5.1)</li>
-<li><em>(And yall thought it was just busywork for HW3</em> 😏<em>)</em></li>
-<li>The goal: User searches <a href="https://www.youtube.com/watch?v=eqwiC93zmxI" target="_blank">“Denzel Curry”</a>… How <strong>relevant</strong> is a given webpage?</li>
-<li>Scenario 1: Entire internet fits on CPU <span class="math inline">\(\Rightarrow\)</span> Can just make a big big hash table:</li>
-</ul>
-<div class="cell" data-fig-height="4" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<svg width="960" height="384" viewbox="0.00 0.00 621.14 285.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 281)">
-<title>G</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-281 617.14,-281 617.14,4 -4,4"></polygon>
-<!-- internet -->
-<g id="node1" class="node">
-<title>internet</title>
-<polyline fill="none" stroke="black" points="11.5,-247.5 208.5,-247.5 "></polyline>
-<text text-anchor="start" x="68.76" y="-253.9" font-family="Helvetica,sans-Serif" font-size="14.00">Scan in O(n):</text>
-<text text-anchor="start" x="13.5" y="-230.9" font-family="Courier,monospace" font-size="14.00">Today Denzel Washington</text>
-<text text-anchor="start" x="13.5" y="-214.1" font-family="Courier,monospace" font-size="14.00">ate a big bowl of Yum's</text>
-<text text-anchor="start" x="13.5" y="-197.3" font-family="Courier,monospace" font-size="14.00">curry. Denzel allegedly</text>
-<text text-anchor="start" x="13.5" y="-180.5" font-family="Courier,monospace" font-size="14.00">rubbed his tum and said</text>
-<text text-anchor="start" x="13.5" y="-163.7" font-family="Courier,monospace" font-size="14.00">"yum yum yum" when he</text>
-<text text-anchor="start" x="13.5" y="-146.9" font-family="Courier,monospace" font-size="14.00">tasted today's curry.</text>
-<text text-anchor="start" x="13.5" y="-130.1" font-family="Courier,monospace" font-size="14.00">"Yum! It is me Denzel,</text>
-<text text-anchor="start" x="13.5" y="-113.3" font-family="Courier,monospace" font-size="14.00">curry is my fav!", he</text>
-<text text-anchor="start" x="13.5" y="-96.5" font-family="Courier,monospace" font-size="14.00">exclaimed. According to</text>
-<text text-anchor="start" x="13.5" y="-79.7" font-family="Courier,monospace" font-size="14.00">his friend Steph, curry</text>
-<text text-anchor="start" x="13.5" y="-62.9" font-family="Courier,monospace" font-size="14.00">is indeed Denzel's fav.</text>
-<text text-anchor="start" x="13.5" y="-46.1" font-family="Courier,monospace" font-size="14.00">We are live with Del</text>
-<text text-anchor="start" x="13.5" y="-29.3" font-family="Courier,monospace" font-size="14.00">Curry in Washington for</text>
-<text text-anchor="start" x="13.5" y="-12.5" font-family="Courier,monospace" font-size="14.00">a Denzel curry update.</text>
-<polygon fill="none" stroke="black" points="8,-4 8,-273 211,-273 211,-4 8,-4"></polygon>
-</g>
-<!-- ccounts -->
-<g id="node2" class="node">
-<title>ccounts</title>
-<polyline fill="none" stroke="black" points="330.14,-223.5 602.14,-223.5 "></polyline>
-<text text-anchor="start" x="419.85" y="-229.9" font-family="Helvetica,sans-Serif" font-size="14.00">Overall Counts</text>
-<polyline fill="none" stroke="black" points="462.14,-31.5 462.14,-221.5 "></polyline>
-<text text-anchor="start" x="333.14" y="-205.9" font-family="Courier,monospace" font-size="14.00">('according',1)</text>
-<text text-anchor="start" x="333.14" y="-189.1" font-family="Courier,monospace" font-size="14.00">('allegedly',1)</text>
-<text text-anchor="start" x="333.14" y="-172.3" font-family="Courier,monospace" font-size="14.00">('ate',1)</text>
-<text text-anchor="start" x="333.14" y="-155.5" font-family="Courier,monospace" font-size="14.00">('big',1)</text>
-<text text-anchor="start" x="333.14" y="-138.7" font-family="Courier,monospace" font-size="14.00">('bowl',1)</text>
-<text text-anchor="start" x="333.14" y="-121.9" font-family="Courier,monospace" font-size="14.00">('curry',6)</text>
-<text text-anchor="start" x="333.14" y="-105.1" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
-<text text-anchor="start" x="333.14" y="-88.3" font-family="Courier,monospace" font-size="14.00">('denzel',5)</text>
-<text text-anchor="start" x="333.14" y="-71.5" font-family="Courier,monospace" font-size="14.00">('exclaimed',1)</text>
-<text text-anchor="start" x="333.14" y="-54.7" font-family="Courier,monospace" font-size="14.00">('fav',2)</text>
-<text text-anchor="start" x="333.14" y="-37.9" font-family="Courier,monospace" font-size="14.00">('friend',1)</text>
-<text text-anchor="start" x="466.14" y="-206.3" font-family="Courier,monospace" font-size="14.00">('indeed',1)</text>
-<text text-anchor="start" x="466.14" y="-189.5" font-family="Courier,monospace" font-size="14.00">('live',1)</text>
-<text text-anchor="start" x="466.14" y="-172.7" font-family="Courier,monospace" font-size="14.00">('rubbed',1)</text>
-<text text-anchor="start" x="466.14" y="-155.9" font-family="Courier,monospace" font-size="14.00">('said',1)</text>
-<text text-anchor="start" x="466.14" y="-139.1" font-family="Courier,monospace" font-size="14.00">('steph',1)</text>
-<text text-anchor="start" x="466.14" y="-122.3" font-family="Courier,monospace" font-size="14.00">('tasted',1)</text>
-<text text-anchor="start" x="466.14" y="-105.5" font-family="Courier,monospace" font-size="14.00">('today',2)</text>
-<text text-anchor="start" x="466.14" y="-88.7" font-family="Courier,monospace" font-size="14.00">('tum',1)</text>
-<text text-anchor="start" x="466.14" y="-71.9" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
-<text text-anchor="start" x="466.14" y="-55.1" font-family="Courier,monospace" font-size="14.00">('washington',2)</text>
-<text text-anchor="start" x="466.14" y="-38.3" font-family="Courier,monospace" font-size="14.00">('yum',4)</text>
-<polygon fill="none" stroke="black" points="327.14,-28.5 327.14,-248.5 605.14,-248.5 605.14,-28.5 327.14,-28.5"></polygon>
-</g>
-<!-- internet&#45;&gt;ccounts -->
-<g id="edge1" class="edge">
-<title>internet-&gt;ccounts</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M219.31,-138.5C248.07,-138.5 279.66,-138.5 310.34,-138.5"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="310.47,-141.48 318.97,-138.5 310.47,-135.53 310.47,-141.48"></polygon>
-<text text-anchor="middle" x="269.07" y="-142.7" font-family="Times,serif" font-size="14.00">Hash Table</text>
-</g>
-</g>
-</svg>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
 </section>
-<section id="if-everything-doesnt-fit-on-cpu" class="slide level2">
-<h2>If Everything <em>Doesn’t</em> Fit on CPU…</h2>
-
-<img data-src="images/cpu_gpu.png" class="r-stretch quarto-figure-center"><p class="caption">From Cornell Virtual Workshop, <a href="https://cvw.cac.cornell.edu/gpu-architecture/gpu-characteristics/design" target="_blank">“Understanding GPU Architecture”</a></p></section>
-<section id="break-problem-into-chunks-for-the-green-bois" class="slide level2 smaller crunch-title title-10 crunch-quarto-figure">
-<h2>Break Problem into <em>Chunks</em> for the Green Bois!</h2>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<svg width="960" height="480" viewbox="0.00 0.00 930.65 419.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 415)">
-<title>G</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-415 926.65,-415 926.65,4 -4,4"></polygon>
-<!-- chunked -->
-<g id="node1" class="node">
-<title>chunked</title>
-<polyline fill="none" stroke="black" points="11.5,-339.5 210.5,-339.5 "></polyline>
-<text text-anchor="start" x="49.13" y="-345.9" font-family="Helvetica,sans-Serif" font-size="14.00">Chunked Document</text>
-<polyline fill="none" stroke="black" points="11.5,-264.5 210.5,-264.5 "></polyline>
-<text text-anchor="start" x="14.5" y="-321.9" font-family="Courier,monospace" font-size="14.00">Today Denzel Washington</text>
-<text text-anchor="start" x="14.5" y="-305.1" font-family="Courier,monospace" font-size="14.00">ate a big bowl of Yum's</text>
-<text text-anchor="start" x="14.5" y="-288.3" font-family="Courier,monospace" font-size="14.00">curry. Denzel allegedly</text>
-<text text-anchor="start" x="14.5" y="-271.5" font-family="Courier,monospace" font-size="14.00">rubbed his tum and said</text>
-<polyline fill="none" stroke="black" points="11.5,-189.5 210.5,-189.5 "></polyline>
-<text text-anchor="start" x="14.5" y="-246.9" font-family="Courier,monospace" font-size="14.00">"yum yum yum" when he</text>
-<text text-anchor="start" x="14.5" y="-230.1" font-family="Courier,monospace" font-size="14.00">tasted today's curry.</text>
-<text text-anchor="start" x="14.5" y="-213.3" font-family="Courier,monospace" font-size="14.00">"Yum! It is me Denzel,</text>
-<text text-anchor="start" x="14.5" y="-196.5" font-family="Courier,monospace" font-size="14.00">curry is my fav!", he</text>
-<polyline fill="none" stroke="black" points="11.5,-114.5 210.5,-114.5 "></polyline>
-<text text-anchor="start" x="14.5" y="-171.9" font-family="Courier,monospace" font-size="14.00">exclaimed. According to</text>
-<text text-anchor="start" x="14.5" y="-155.1" font-family="Courier,monospace" font-size="14.00">his friend Steph, curry</text>
-<text text-anchor="start" x="14.5" y="-138.3" font-family="Courier,monospace" font-size="14.00">is indeed Denzel's fav.</text>
-<text text-anchor="start" x="14.5" y="-121.5" font-family="Courier,monospace" font-size="14.00">We are live with Del</text>
-<text text-anchor="start" x="13.5" y="-97.9" font-family="Courier,monospace" font-size="14.00">Curry in Washington for</text>
-<text text-anchor="start" x="13.5" y="-81.1" font-family="Courier,monospace" font-size="14.00">a Denzel curry update.</text>
-<polygon fill="none" stroke="black" points="8,-72.5 8,-364.5 213,-364.5 213,-72.5 8,-72.5"></polygon>
-</g>
-<!-- chcounts -->
-<g id="node2" class="node">
-<title>chcounts</title>
-<polyline fill="none" stroke="black" points="305.32,-365.5 443.32,-365.5 "></polyline>
-<text text-anchor="start" x="322.18" y="-371.9" font-family="Helvetica,sans-Serif" font-size="14.00">Chunked Counts</text>
-<polyline fill="none" stroke="black" points="305.32,-273.5 443.32,-273.5 "></polyline>
-<text text-anchor="start" x="308.32" y="-347.9" font-family="Courier,monospace" font-size="14.00">('today',1)</text>
-<text text-anchor="start" x="308.32" y="-331.1" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
-<text text-anchor="start" x="308.32" y="-314.3" font-family="Courier,monospace" font-size="14.00">...</text>
-<text text-anchor="start" x="308.32" y="-297.5" font-family="Courier,monospace" font-size="14.00">('tum',1)</text>
-<text text-anchor="start" x="308.32" y="-280.7" font-family="Courier,monospace" font-size="14.00">('said',1)</text>
-<polyline fill="none" stroke="black" points="305.32,-181.5 443.32,-181.5 "></polyline>
-<text text-anchor="start" x="308.32" y="-255.9" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
-<text text-anchor="start" x="308.32" y="-239.1" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
-<text text-anchor="start" x="308.32" y="-222.3" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
-<text text-anchor="start" x="308.32" y="-205.5" font-family="Courier,monospace" font-size="14.00">...</text>
-<text text-anchor="start" x="308.32" y="-188.7" font-family="Courier,monospace" font-size="14.00">('fav',1)</text>
-<polyline fill="none" stroke="black" points="305.32,-123.5 443.32,-123.5 "></polyline>
-<text text-anchor="start" x="308.32" y="-163.9" font-family="Courier,monospace" font-size="14.00">('exclaimed',1)</text>
-<text text-anchor="start" x="308.32" y="-147.1" font-family="Courier,monospace" font-size="14.00">...</text>
-<text text-anchor="start" x="308.32" y="-130.3" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
-<text text-anchor="start" x="307.32" y="-106.9" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
-<text text-anchor="start" x="307.32" y="-90.1" font-family="Courier,monospace" font-size="14.00">('washington',1)</text>
-<text text-anchor="start" x="307.32" y="-73.3" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
-<text text-anchor="start" x="307.32" y="-56.5" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
-<text text-anchor="start" x="307.32" y="-39.7" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
-<polygon fill="none" stroke="black" points="302.32,-30.5 302.32,-390.5 446.32,-390.5 446.32,-30.5 302.32,-30.5"></polygon>
-</g>
-<!-- chunked&#45;&gt;chcounts -->
-<g id="edge1" class="edge">
-<title>chunked:p1-&gt;chcounts:p1</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-301.5C250.33,-301.5 260.87,-316.07 295.5,-318.23"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="295.74,-321.22 304.32,-318.5 295.92,-315.27 295.74,-321.22"></polygon>
-<text text-anchor="middle" x="257.66" y="-318.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
-</g>
-<!-- chunked&#45;&gt;chcounts -->
-<g id="edge2" class="edge">
-<title>chunked:p2-&gt;chcounts:p2</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-226.5C249.69,-226.5 261.37,-226.5 295.62,-226.5"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="295.82,-229.48 304.32,-226.5 295.82,-223.53 295.82,-229.48"></polygon>
-<text text-anchor="middle" x="257.66" y="-230.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
-</g>
-<!-- chunked&#45;&gt;chcounts -->
-<g id="edge3" class="edge">
-<title>chunked:p3-&gt;chcounts:p3</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-150.5C249.7,-150.5 261.37,-151.36 295.62,-151.48"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="295.82,-154.46 304.32,-151.5 295.83,-148.51 295.82,-154.46"></polygon>
-<text text-anchor="middle" x="257.66" y="-154.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
-</g>
-<!-- chunked&#45;&gt;chcounts -->
-<g id="edge4" class="edge">
-<title>chunked:p4-&gt;chcounts:p4</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M211.5,-93.5C250.26,-93.5 260.93,-79.79 295.52,-77.75"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="295.91,-80.72 304.32,-77.5 295.74,-74.77 295.91,-80.72"></polygon>
-<text text-anchor="middle" x="257.66" y="-94.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
-</g>
-<!-- scounts -->
-<g id="node3" class="node">
-<title>scounts</title>
-<polyline fill="none" stroke="black" points="538.65,-376.5 676.65,-376.5 "></polyline>
-<text text-anchor="start" x="559.4" y="-382.9" font-family="Helvetica,sans-Serif" font-size="14.00">Hashed Counts</text>
-<polyline fill="none" stroke="black" points="538.65,-268.5 676.65,-268.5 "></polyline>
-<text text-anchor="start" x="541.65" y="-358.9" font-family="Courier,monospace" font-size="14.00">('allegedly',1)</text>
-<text text-anchor="start" x="541.65" y="-342.1" font-family="Courier,monospace" font-size="14.00">...</text>
-<text text-anchor="start" x="541.65" y="-325.3" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
-<text text-anchor="start" x="541.65" y="-308.5" font-family="Courier,monospace" font-size="14.00">('denzel',2)</text>
-<text text-anchor="start" x="541.65" y="-291.7" font-family="Courier,monospace" font-size="14.00">...</text>
-<text text-anchor="start" x="541.65" y="-274.9" font-family="Courier,monospace" font-size="14.00">('yum',1)</text>
-<polyline fill="none" stroke="black" points="538.65,-193.5 676.65,-193.5 "></polyline>
-<text text-anchor="start" x="541.65" y="-250.9" font-family="Courier,monospace" font-size="14.00">('curry',2)</text>
-<text text-anchor="start" x="541.65" y="-234.1" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
-<text text-anchor="start" x="541.65" y="-217.3" font-family="Courier,monospace" font-size="14.00">...</text>
-<text text-anchor="start" x="541.65" y="-200.5" font-family="Courier,monospace" font-size="14.00">('yum',4)</text>
-<polyline fill="none" stroke="black" points="538.65,-101.5 676.65,-101.5 "></polyline>
-<text text-anchor="start" x="541.65" y="-175.9" font-family="Courier,monospace" font-size="14.00">('according',1)</text>
-<text text-anchor="start" x="541.65" y="-159.1" font-family="Courier,monospace" font-size="14.00">('curry',1)</text>
-<text text-anchor="start" x="541.65" y="-142.3" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
-<text text-anchor="start" x="541.65" y="-125.5" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
-<text text-anchor="start" x="541.65" y="-108.7" font-family="Courier,monospace" font-size="14.00">...</text>
-<text text-anchor="start" x="540.65" y="-84.9" font-family="Courier,monospace" font-size="14.00">('curry',2)</text>
-<text text-anchor="start" x="540.65" y="-68.1" font-family="Courier,monospace" font-size="14.00">('denzel',1)</text>
-<text text-anchor="start" x="540.65" y="-51.3" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
-<text text-anchor="start" x="540.65" y="-34.5" font-family="Courier,monospace" font-size="14.00">('washington',1)</text>
-<polygon fill="none" stroke="black" points="535.65,-25.5 535.65,-401.5 679.65,-401.5 679.65,-25.5 535.65,-25.5"></polygon>
-</g>
-<!-- chcounts&#45;&gt;scounts -->
-<g id="edge5" class="edge">
-<title>chcounts:p1-&gt;scounts:p1</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-318.5C482.74,-318.5 494.45,-321.07 528.9,-321.45"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="529.13,-324.43 537.65,-321.5 529.16,-318.48 529.13,-324.43"></polygon>
-<text text-anchor="middle" x="490.99" y="-324.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
-</g>
-<!-- chcounts&#45;&gt;scounts -->
-<g id="edge6" class="edge">
-<title>chcounts:p2-&gt;scounts:p2</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-226.5C482.76,-226.5 494.43,-229.93 528.9,-230.44"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="529.13,-233.41 537.65,-230.5 529.17,-227.46 529.13,-233.41"></polygon>
-<text text-anchor="middle" x="490.99" y="-233.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
-</g>
-<!-- chcounts&#45;&gt;scounts -->
-<g id="edge7" class="edge">
-<title>chcounts:p3-&gt;scounts:p3</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-151.5C482.78,-151.5 494.42,-147.21 528.89,-146.58"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="529.18,-149.55 537.65,-146.5 529.12,-143.6 529.18,-149.55"></polygon>
-<text text-anchor="middle" x="490.99" y="-154.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
-</g>
-<!-- chcounts&#45;&gt;scounts -->
-<g id="edge8" class="edge">
-<title>chcounts:p4-&gt;scounts:p4</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M444.32,-77.5C483.15,-77.5 494.13,-65.5 528.82,-63.72"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="529.23,-66.69 537.65,-63.5 529.08,-60.74 529.23,-66.69"></polygon>
-<text text-anchor="middle" x="490.99" y="-79.7" font-family="Times,serif" font-size="14.00">O(n/4)</text>
-</g>
-<!-- ccounts -->
-<g id="node4" class="node">
-<title>ccounts</title>
-<polyline fill="none" stroke="black" points="773.65,-381.5 911.65,-381.5 "></polyline>
-<text text-anchor="start" x="796.35" y="-387.9" font-family="Helvetica,sans-Serif" font-size="14.00">Overall Counts</text>
-<text text-anchor="start" x="775.65" y="-364.9" font-family="Courier,monospace" font-size="14.00">('according',1)</text>
-<text text-anchor="start" x="775.65" y="-348.1" font-family="Courier,monospace" font-size="14.00">('allegedly',1)</text>
-<text text-anchor="start" x="775.65" y="-331.3" font-family="Courier,monospace" font-size="14.00">('ate',1)</text>
-<text text-anchor="start" x="775.65" y="-314.5" font-family="Courier,monospace" font-size="14.00">('big',1)</text>
-<text text-anchor="start" x="775.65" y="-297.7" font-family="Courier,monospace" font-size="14.00">('bowl',1)</text>
-<text text-anchor="start" x="775.65" y="-280.9" font-family="Courier,monospace" font-size="14.00">('curry',6)</text>
-<text text-anchor="start" x="775.65" y="-264.1" font-family="Courier,monospace" font-size="14.00">('del',1)</text>
-<text text-anchor="start" x="775.65" y="-247.3" font-family="Courier,monospace" font-size="14.00">('denzel',5)</text>
-<text text-anchor="start" x="775.65" y="-230.5" font-family="Courier,monospace" font-size="14.00">('exclaimed',1)</text>
-<text text-anchor="start" x="775.65" y="-213.7" font-family="Courier,monospace" font-size="14.00">('fav',2)</text>
-<text text-anchor="start" x="775.65" y="-196.9" font-family="Courier,monospace" font-size="14.00">('friend',1)</text>
-<text text-anchor="start" x="775.65" y="-180.1" font-family="Courier,monospace" font-size="14.00">('indeed',1)</text>
-<text text-anchor="start" x="775.65" y="-163.3" font-family="Courier,monospace" font-size="14.00">('live',1)</text>
-<text text-anchor="start" x="775.65" y="-146.5" font-family="Courier,monospace" font-size="14.00">('rubbed',1)</text>
-<text text-anchor="start" x="775.65" y="-129.7" font-family="Courier,monospace" font-size="14.00">('said',1)</text>
-<text text-anchor="start" x="775.65" y="-112.9" font-family="Courier,monospace" font-size="14.00">('steph',1)</text>
-<text text-anchor="start" x="775.65" y="-96.1" font-family="Courier,monospace" font-size="14.00">('tasted',1)</text>
-<text text-anchor="start" x="775.65" y="-79.3" font-family="Courier,monospace" font-size="14.00">('today',2)</text>
-<text text-anchor="start" x="775.65" y="-62.5" font-family="Courier,monospace" font-size="14.00">('tum',1)</text>
-<text text-anchor="start" x="775.65" y="-45.7" font-family="Courier,monospace" font-size="14.00">('update',1)</text>
-<text text-anchor="start" x="775.65" y="-28.9" font-family="Courier,monospace" font-size="14.00">('washington',2)</text>
-<text text-anchor="start" x="775.65" y="-12.1" font-family="Courier,monospace" font-size="14.00">('yum',4)</text>
-<polygon fill="none" stroke="black" points="770.65,-4 770.65,-407 914.65,-407 914.65,-4 770.65,-4"></polygon>
-</g>
-<!-- scounts&#45;&gt;ccounts -->
-<g id="edge9" class="edge">
-<title>scounts:p1-&gt;ccounts:p1</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-321.5C723.01,-321.5 718.85,-281.81 744.65,-244.5 757.59,-225.78 749.4,-200.42 764.12,-194.02"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="764.8,-196.92 772.65,-192.5 763.76,-191.06 764.8,-196.92"></polygon>
-</g>
-<!-- scounts&#45;&gt;ccounts -->
-<g id="edge10" class="edge">
-<title>scounts:p2-&gt;ccounts:p1</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-230.5C691.56,-230.5 692.85,-221.97 705.65,-216.5 731.89,-205.29 739.57,-194.77 764.06,-192.82"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="764.27,-195.79 772.65,-192.5 764.04,-189.84 764.27,-195.79"></polygon>
-</g>
-<!-- scounts&#45;&gt;ccounts -->
-<g id="edge11" class="edge">
-<title>scounts:p3-&gt;ccounts:p1</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-146.5C721.44,-146.5 725.38,-186.59 763.88,-191.92"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="763.97,-194.91 772.65,-192.5 764.36,-188.97 763.97,-194.91"></polygon>
-</g>
-<!-- scounts&#45;&gt;ccounts -->
-<g id="edge12" class="edge">
-<title>scounts:p4-&gt;ccounts:p1</title>
-<path fill="none" stroke="black" stroke-width="1.2" d="M677.65,-63.5C710.33,-63.5 733.06,-172.2 764.11,-190.04"></path>
-<polygon fill="black" stroke="black" stroke-width="1.2" points="763.66,-193 772.65,-192.5 765.31,-187.29 763.66,-193"></polygon>
-</g>
-<!-- scounts&#45;&gt;ccounts -->
-<g id="edge13" class="edge">
-<title>scounts:p2-&gt;ccounts</title>
-<path fill="none" stroke="black" stroke-width="0" d="M677.65,-230.5C705.33,-230.5 735.35,-226.98 762.04,-222.57"></path>
-<polygon fill="black" stroke="black" stroke-width="0" points="762.26,-222.57 762.36,-222.52 762.25,-222.5 762.26,-222.57"></polygon>
-<text text-anchor="middle" x="729.34" y="-240.91" font-family="Times,serif" font-size="14.00"> </text>
-<polygon fill="white" stroke="transparent" points="686.69,-194.15 686.69,-231.15 740.69,-231.15 740.69,-194.15 686.69,-194.15"></polygon>
-<text text-anchor="start" x="688.23" y="-216.55" font-family="Times,serif" font-size="14.00">Merge in</text>
-<text text-anchor="start" x="700.47" y="-199.75" font-family="Times,serif" font-size="14.00">O(n)</text>
-</g>
-</g>
-</svg>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<ul>
-<li><span class="math inline">\(\implies\)</span> Total = <span class="math inline">\(O(3n) = O(n)\)</span></li>
-<li>But <strong>also</strong> optimized in terms of constants, because of <strong>sequential memory reads</strong></li>
-</ul>
-</section>
-<section id="in-class-demo-1" class="slide level2 crunch-title crunch-img text-90">
-<h2>In-Class Demo 1</h2>
-
-<img data-src="images/matvec2_img.png" class="quarto-figure quarto-figure-center r-stretch"><p><a href="https://deepnote.com/workspace/Columbia-University-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-41367b13-4253-47c8-8ffe-0544456d6070/notebook/DSAN5500HW5-8b90a6af23d34d239b7da0111228614d?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=41367b13-4253-47c8-8ffe-0544456d6070">Map-Reduced <strong>Matrix-Vector Multiplication</strong> Demo</a></p>
-</section>
-<section id="in-class-demo-2" class="slide level2 crunch-title crunch-img text-90">
-<h2>In-Class Demo 2</h2>
+<section id="boar-book-time" class="slide level2 crunch-title">
+<h2>Boar Book Time!</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><span class="citation" data-cites="kleppmann_designing_2017">(<a href="" role="doc-biblioref" onclick="return false;"><strong>kleppmann_designing_2017?</strong></a>)</span>, pages 69-95</p>
+</div><div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/cars.jpg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="images/boar_book.jpg" class="quarto-figure quarto-figure-center" width="400"></p>
 </figure>
 </div>
+</div></div>
+</section>
+<section id="telemetry-analytics" class="slide level2">
+<h2>Telemetry → Analytics</h2>
+<p>Recall how many tiny bits of information are <strong>streaming into</strong> a given app’s servers at any given time!</p>
+<blockquote>
+<p>Database administrators therefore <strong>closely guard their OLTP databases</strong>. They are usually <strong>reluctant to let business analysts run ad hoc analytic queries on an OLTP database</strong>, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions.</p>
+</blockquote>
+</section></section>
+<section>
+<section id="athena-for-eda-on-raw-data" class="title-slide slide level1 center" data-stack-name="Athena">
+<h1>Athena for EDA on Raw Data!</h1>
+
+</section>
+<section id="what-is-the-quickest-possible-way-to-explore-data-in-s3" class="slide level2">
+<h2>What is the Quickest Possible Way to Explore Data in S3?</h2>
+
+<img data-src="images/athena_glue.jpg" class="r-stretch quarto-figure-center"><p class="caption">From <a href="https://www.youtube.com/watch?v=Wkpl66NaqEA">this video</a></p></section>
+<section id="lab-analyzing-nyc-taxi-dataset-with-athena" class="slide level2 title-08 crunch-title">
+<h2>Lab: Analyzing NYC Taxi dataset with Athena</h2>
 <ul>
-<li><a href="https://colab.research.google.com/drive/1G894WS7ltIUTusWWmsCnF_zQhQqZCDOc">Cars! Driving!</a></li>
+<li>A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset</li>
+<li>This notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.<br>
+</li>
+<li><a href="?var:gh-classroom.lab05">GitHub Classroom Link for Lab 5</a></li>
+<li><a href="?var:gh-classroom.a05">GitHub Classroom Link for Assignment 5</a></li>
 </ul>
-
-<aside><div>
-<p>Adapted from/almost identical to <a href="https://jacobcelestine.com/knowledge_repo/colab_and_pyspark/">Jacob Celestine’s tutorial</a></p>
-</div></aside></section>
-<section id="in-class-demo-3" class="slide level2 crunch-title crunch-img text-90">
-<h2>In-Class Demo 3</h2>
-
-<img data-src="images/williams.jpg" class="quarto-figure quarto-figure-center r-stretch"><p><a href="https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-Duplicate-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/DSAN5500HW5-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d">Tennis! Swingin rackets! Scorin goals!</a></p>
-</section>
-<section id="lab-time" class="slide level2" data-name="Lab 6">
-<h2>Lab Time!</h2>
-</section>
-<section id="references" class="slide level2 smaller scrollable">
-<h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-leskovec_mining_2014" class="csl-entry" role="listitem">
-Leskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. <em>Mining of <span>Massive Datasets</span></em>. Cambridge University Press. <a href="http://infolab.stanford.edu/~ullman/mmds/book.pdf">http://infolab.stanford.edu/~ullman/mmds/book.pdf</a>.
-</div>
-</div>
 
 
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>DSAN 6000 Week 6: Data Engineering</p>
+<p>DSAN 6000 Week 5: Polars</p>
 </div>
 </div></div>
 

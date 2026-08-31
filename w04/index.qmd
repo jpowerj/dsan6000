@@ -1,9 +1,9 @@
 ---
-title: "Week 4: DuckDB, Polars, File Formats"
+title: "Week 4: DuckDB"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
-date: 2026-09-22
+date: 2026-09-21
 date-format: full
 lecnum: 4
 categories:

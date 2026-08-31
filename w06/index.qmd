@@ -1,11 +1,11 @@
 ---
-title: "Week 6: Introduction to Spark"
+title: "Week 6: Data Engineering"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
 date: 2026-10-05
 date-format: full
-lecnum: 6
+lecnum: 5
 categories:
   - "Class Sessions"
 crossref:
@@ -20,7 +20,7 @@ format:
     scrollable: true
     link-external-icon: true
     link-external-newwindow: true
-    footer: "{{< var weeks.6.footer >}}"
+    footer: "{{< var weeks.5.footer >}}"
     include-in-header:
       text: "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'><link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'><script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz' crossorigin='anonymous'></script>"
     theme: [default, "../dsan-globals/jjquarto.scss"]
@@ -49,279 +49,318 @@ format:
 
 ::: {.content-visible unless-format="revealjs"}
 
-The content for today is **split** between the following **two resources**:
-
 <center class='mb-3'>
-<a class="h2" href="https://gu-dsan.github.io/6000-fall-2025/slides/06-slides.html" target="_blank">Open *Spark* Slides from Main Site</a>
-</center>
-
-<center class='mb-3'>
-<a class="h2" href="./slides.html" target="_blank">Open *MapReduce* slides in new tab &rarr;</a>
+<a class="h2" href="./slides.html" target="_blank">Open slides in new tab &rarr;</a>
 </center>
 
 :::
 
-# Highest-Level Overview (Roadmap!) {data-name="Roadmap" .smaller .title-12}
+## Agenda
 
-* Week 3: **Map-Reduce**
-  * But, just the "plain", basic version **built into Python** (`map()`, `functools.reduce()`)
-* Last Week: **Athena** with **AWS Glue** under the hood
-  * "Automated" ETL Pipeline!
-* This Week: Hitting a wall with Athena... It **doesn't know in advance what [types of] queries you're going to make!**
-* If you're going to **group by** (e.g.) **state**, then rent **50 computers** to process one state each, Athena doesn't know to **place the Ohio data on the Ohio computer!**
-* We need a way to **"steer" Map-Reduce's choices**... Enter **Hadoop MapReduce!**
+::: {.column width="47%"}
+### Looking Back
 
-# A Reminder: Map-Reduce as a *Paradigm* {data-stack-name="Map-Reduce"}
+* Introduction to cloud
+* Python Multiprocessing
+* DuckDB, Polars
 
-## What Happens When *Not* Embarrassingly Parallel? {.smaller .crunch-title .crunch-math .crunch-ul .title-09}
-
-* Think of the difference between **linear** and **quadratic equations** in algebra:
-* $3x - 1 = 0$ is "embarrassingly" solvable, on its own: you can solve it directly, by adding 3 to both sides $\implies x = \frac{1}{3}$. Same for $2x + 3 = 0 \implies x = -\frac{3}{2}$
-* Now consider $6x^2 + 7x - 3 = 0$: Harder to solve "directly", so your instinct might be to turn to the laborious **quadratic equation**:
-
-$$
-\begin{align*}
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)} = \frac{-7 \pm 11}{12} = \left\{\frac{1}{3},-\frac{3}{2}\right\}
-\end{align*}
-$$
-
-* And yet, $6x^2 + 7x - 3 = (3x - 1)(2x + 3)$, meaning that we could have **split** the problem into two "embarrassingly" solvable pieces, then **multiplied** to get result!
-
-## The Analogy to Map-Reduce {.crunch-title .title-09}
-
-| | |
-|:- |:-:|
-| $\leadsto$ If code is **not** embarrassingly parallel (instinctually requiring laborious serial execution), | $\underbrace{6x^2 + 7x - 3 = 0}_{\text{Solve using Quadratic Eqn}}$ |
-| But can be **split** into... | $(3x - 1)(2x + 3) = 0$ |
-| Embarrassingly parallel **pieces** which **combine** to same result, | $\underbrace{3x - 1 = 0}_{\text{Solve directly}}, \underbrace{2x + 3 = 0}_{\text{Solve directly}}$ |
-| We can use **map-reduce** to achieve ultra speedup (running "pieces" on **GPU!**) | $\underbrace{(3x-1)(2x+3) = 0}_{\text{Solutions satisfy this product}}$ |
-
-: {tbl-colwidths="[75,25]"}
-
-## "Factoring" into Embarrassing and Non-Embarrassing Pieces {.smaller .crunch-title .crunch-details}
-
-* Problem from DSAN 5000/5100: Computing SSR (**Sum of Squared Residuals**)
-* $y = (1,3,2), \widehat{y} = (2, 5, 0) \implies \text{SSR} = (1-2)^2 + (3-5)^2 + (2-0)^2 = 9$
-* Computing pieces separately:
-
-```python
-map(do_something_with_piece, list_of_pieces)
-```
-
-```{python}
-my_map = map(lambda input: input**2, [(1-2), (3-5), (2-0)])
-map_result = list(my_map)
-map_result
-```
-
-* Combining solved pieces
-
-```python
-reduce(how_to_combine_pair_of_pieces, pieces_to_combine)
-```
-
-```{python}
-from functools import reduce
-my_reduce = reduce(lambda piece1, piece2: piece1 + piece2, map_result)
-my_reduce
-```
-
-# But... Why is All This Weird Mapping and Reducing Necessary? {data-stack-name="Map-Reduce Rationale"}
-
-* Without knowing a bit more of the **internals** of **computing efficiency**, it may seem like a huge cost in terms of overly-complicated overhead, not to mention learning curve...
-
-## The "Killer Application": Matrix Multiplication {.crunch-title .smaller .title-11}
-
-* *(I learned from <a href='http://infolab.stanford.edu/~ullman/' target='_blank'>Jeff Ullman</a>, who did the obnoxious Stanford thing of mentioning in passing how "two previous students in the <a href='http://web.stanford.edu/class/cs246/' target='_blank'>class</a> did this for a cool final project on web crawling and, well, it escalated quickly", aka became Google)*
-
-![From @leskovec_mining_2014, which is (legally) <a href='http://www.mmds.org/' target='_blank'>free online</a>!](images/map_reduce3.svg){fig-align="center"}
-
-## The Killer Way-To-Learn: Text Counts! {.smaller .crunch-title .crunch-ul .crunch-p .title-12}
-
-* [-@leskovec_mining_2014]: Text counts (2.2) $\rightarrow$ Matrix multiplication (2.3) $\rightarrow \cdots \rightarrow$ PageRank (5.1)
-* *(And yall thought it was just busywork for HW3* 😏*)*
-* The goal: User searches <a href='https://www.youtube.com/watch?v=eqwiC93zmxI' target='_blank'>"Denzel Curry"</a>... How **relevant** is a given webpage?
-* Scenario 1: Entire internet fits on CPU $\Rightarrow$ Can just make a big big hash table:
-
-```{dot}
-//| echo: false
-//| fig-height: 4
-digraph G {
-    rankdir="LR";
-    nodesep="10";
-	edge [penwidth=1.2,arrowsize=0.85]
-    node [
-        shape=plaintext;
-        fontname="Courier";
-    ];
-    # Chunked
-    internet [shape=none label=<
-<table border="1" cellborder="0">
-<tr>
-  <td border="1" sides="b"><font face="Helvetica">Scan in O(n):</font></td>
-</tr>
-<tr>
-  <td port="p1" align="text" balign="left">Today Denzel Washington<br />ate a big bowl of Yum's<br />curry. Denzel allegedly<br />rubbed his tum and said<br />"yum yum yum" when he<br />tasted today's curry.<br />"Yum! It is me Denzel,<br />curry is my fav!", he<br />exclaimed. According to<br />his friend Steph, curry<br />is indeed Denzel's fav.<br />We are live with Del<br />Curry in Washington for<br />a Denzel curry update.</td>
-</tr>
-</table>>];
-
-    # Combined counts
-    ccounts [shape=none label=<
-<table border="1" cellborder="0">
-<tr>
-  <td border="1" sides="b" colspan="2"><font face="Helvetica">Overall Counts</font></td>
-</tr>
-<tr>
-  <td port="p1" border="1" align="text" balign="left" sides="r">('according',1)<br />('allegedly',1)<br />('ate',1)<br />('big',1)<br />('bowl',1)<br />('curry',6)<br />('del',1)<br />('denzel',5)<br />('exclaimed',1)<br />('fav',2)<br />('friend',1)</td>
-  <td align="text" balign="left">('indeed',1)<br />('live',1)<br />('rubbed',1)<br />('said',1)<br />('steph',1)<br />('tasted',1)<br />('today',2)<br />('tum',1)<br />('update',1)<br />('washington',2)<br />('yum',4)</td>
-</tr>
-</table>>];
-    internet -> ccounts[label="Hash Table"];
-}
-```
-
-## If Everything *Doesn't* Fit on CPU...
-
-![From Cornell Virtual Workshop, <a href='https://cvw.cac.cornell.edu/gpu-architecture/gpu-characteristics/design' target='_blank'>"Understanding GPU Architecture"</a>](images/cpu_gpu.png){fig-align="center"}
-
-## Break Problem into *Chunks* for the Green Bois! {.smaller .crunch-title .title-10 .crunch-quarto-figure}
-
-```{dot}
-//| echo: false
-digraph G {
-    rankdir="LR";
-	edge [penwidth=1.2,arrowsize=0.85]
-    node [
-        shape=plaintext;
-        fontname="Courier";
-    ];
-    # Chunked
-    chunked [shape=none label=<
-<table border="1" cellborder="0">
-<tr>
-  <td border="1" sides="b"><font face="Helvetica">Chunked Document</font></td>
-</tr>
-<tr>
-  <td port="p1" border="1" align="text" balign="left" sides="b">Today Denzel Washington<br />ate a big bowl of Yum's<br />curry. Denzel allegedly<br />rubbed his tum and said</td>
-</tr>
-<tr>
-  <td port="p2" border="1" align="text" balign="left" sides="b">"yum yum yum" when he<br />tasted today's curry.<br />"Yum! It is me Denzel,<br />curry is my fav!", he</td>
-</tr>
-<tr>
-  <td port="p3" border="1" align="text" balign="left" sides="b">exclaimed. According to<br />his friend Steph, curry<br />is indeed Denzel's fav.<br />We are live with Del</td>
-</tr>
-<tr>
-  <td port="p4" align="text" balign="left">Curry in Washington for<br />a Denzel curry update.</td>
-</tr>
-</table>>];
-    // orig:p1 -> chunked:p1;
-    // orig:p2 -> chunked:p2;
-    // orig:p3 -> chunked:p3;
-    // orig:p4 -> chunked:p4;
-
-    # Chunked counts
-    chcounts [shape=none label=<
-<table border="1">
-<tr>
-  <td border="1" sides="b"><font face="Helvetica">Chunked Counts</font></td>
-</tr>
-<tr>
-  <td port="p1" border="1" align="text" balign="left" sides="b">('today',1)<br />('denzel',1)<br />...<br />('tum',1)<br />('said',1)</td>
-</tr>
-<tr>
-  <td port="p2" border="1" align="text" balign="left" sides="b">('yum',1)<br />('yum',1)<br />('yum',1)<br />...<br />('fav',1)</td>
-</tr>
-<tr>
-  <td port="p3" border="1" align="text" balign="left" sides="b">('exclaimed',1)<br />...<br />('del',1)</td>
-</tr>
-<tr>
-  <td port="p4" border="0" align="text" balign="left">('curry',1)<br />('washington',1)<br />('denzel',1)<br />('curry',1)<br />('update',1)</td>
-</tr>
-</table>>];
-    chunked:p1 -> chcounts:p1[label="O(n/4)"];
-    chunked:p2 -> chcounts:p2[label="O(n/4)"];
-    chunked:p3 -> chcounts:p3[label="O(n/4)"];
-    chunked:p4 -> chcounts:p4[label="O(n/4)"];
-
-    # Sorted counts
-    scounts [shape=none label=<
-<table border="1">
-<tr>
-  <td border="1" sides="b"><font face="Helvetica">Hashed Counts</font></td>
-</tr>
-<tr>
-  <td port="p1" border="1" align="text" balign="left" sides="b">('allegedly',1)<br />...<br />('curry',1)<br />('denzel',2)<br />...<br />('yum',1)</td>
-</tr>
-<tr>
-  <td port="p2" border="1" align="text" balign="left" sides="b">('curry',2)<br />('denzel',1)<br />...<br />('yum',4)</td>
-</tr>
-<tr>
-  <td port="p3" border="1" align="text" balign="left" sides="b">('according',1)<br />('curry',1)<br />('del',1)<br />('denzel',1)<br />...</td>
-</tr>
-<tr>
-  <td port="p4" border="0" align="text" balign="left">('curry',2)<br />('denzel',1)<br />('update',1)<br />('washington',1)</td>
-</tr>
-</table>>];
-    chcounts:p1 -> scounts:p1[label="O(n/4)"];
-    chcounts:p2 -> scounts:p2[label="O(n/4)"];
-    chcounts:p3 -> scounts:p3[label="O(n/4)"];
-    chcounts:p4 -> scounts:p4[label="O(n/4)"];
-
-    # Combined counts
-    ccounts [shape=none,label=<
-<table border="1" cellborder="0">
-<tr>
-  <td port="p0" border="1" sides="b"><font face="Helvetica">Overall Counts</font></td>
-</tr>
-<tr>
-  <td port="p1" align="text" balign="left">('according',1)<br />('allegedly',1)<br />('ate',1)<br />('big',1)<br />('bowl',1)<br />('curry',6)<br />('del',1)<br />('denzel',5)<br />('exclaimed',1)<br />('fav',2)<br />('friend',1)<br />('indeed',1)<br />('live',1)<br />('rubbed',1)<br />('said',1)<br />('steph',1)<br />('tasted',1)<br />('today',2)<br />('tum',1)<br />('update',1)<br />('washington',2)<br />('yum',4)</td>
-</tr>
-</table>>];
-    scounts:p1 -> ccounts:p1;
-    scounts:p2 -> ccounts:p1;
-    scounts:p3 -> ccounts:p1;
-    scounts:p4 -> ccounts:p1;
-    scounts:p2 -> ccounts[margin="5",labeldistance="4",penwidth="0",arrowsize="0.01",taillabel=<
-<table border="0" cellborder="0">
-<tr>
-  <td bgcolor="white" color="black"><font color="black">Merge in<br />O(n)</font></td>
-</tr>
-</table>
-    >,headlabel=" ",minlen="2"];
-}
-```
-
-* $\implies$ Total = $O(3n) = O(n)$
-* But **also** optimized in terms of constants, because of **sequential memory reads**
-
-## In-Class Demo 1 {.crunch-title .crunch-img .text-90}
-
-![](images/matvec2_img.png){fig-align="center"}
-
-[Map-Reduced **Matrix-Vector Multiplication** Demo](https://deepnote.com/workspace/Columbia-University-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-41367b13-4253-47c8-8ffe-0544456d6070/notebook/DSAN5500HW5-8b90a6af23d34d239b7da0111228614d?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=41367b13-4253-47c8-8ffe-0544456d6070)
-
-## In-Class Demo 2 {.crunch-title .crunch-img .text-90}
-
-![](images/cars.jpg){fig-align="center"}
-
-* [Cars! Driving!](
-https://colab.research.google.com/drive/1G894WS7ltIUTusWWmsCnF_zQhQqZCDOc)
-
-::: {.aside}
-
-Adapted from/almost identical to [Jacob Celestine's tutorial](https://jacobcelestine.com/knowledge_repo/colab_and_pyspark/)
+### Future  
+* Project introduction
+* Spark dataframe, ML, NLP
 
 :::
 
-## In-Class Demo 3 {.crunch-title .crunch-img .text-90}
+::: {.column width="47%"}
+### Today
 
-![](images/williams.jpg){fig-align="center"}
+* Data Engineering
+  * Data Lakes, Warehouses
+  * NoSQL Databases
 
-[Tennis! Swingin rackets! Scorin goals!](https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-Duplicate-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/DSAN5500HW5-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&utm_medium=product-shared-content&utm_campaign=notebook&utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d)
-
-## Lab Time! {data-name="Lab 6"}
-
-## References
-
-::: {#refs}
+* Lab: 
+  * Athena
+  * EC2
 :::
+
+# Data Engineering {data-stack-name="Data Engineering"}
+
+## What is Data Engineering?
+
+As the scale of the data grew, the existing ETL processes alone were not sufficient, a separate discipline was needed for:
+
+- Collecting data
+- Managing storage
+- Cataloging
+- Making it available for applications such as analytics & machine learning)
+- Security
+- Lifecycle management
+- And more...
+
+> <b>[From Wikipedia](https://en.wikipedia.org/wiki/Data_engineering):</b> Data engineering refers to the building of systems to enable the collection and usage of data. This data is usually used to enable subsequent analysis and data science; which often involves machine learning. Making the data usable usually involves substantial compute and storage, as well as data processing and cleaning.
+
+## What do Data Engineers do?
+
+Data engineers build systems that collect data from different sources and make this data available for analytics and ML application. This usually involves the following:
+
+- **Acquisition**: Finding all the different datasets around the business.
+  - These could be availble in databases, shared drives, ingested directly from IoT devices, external datasets, and more.
+- **Cleaning**: The raw data usually cannot be used as is, it needs to be cleaned.
+- **Conversion**: Since the data is coming from different sources, it would probably in different formats (database tables, CSV, JSON, custom). Needs to be converted into a common format (such as parquet) before it becomes usable.
+  - Multiple datasets need to be joined together to answer a business question.
+
+## What do Data Engineers do (contd.)?
+
+- **Disambiguation**: How to interpret what the data means? Use a data catalog and then with the help of subject matter experts (often called _Data Stewards_) add meaningful description to the datasets.
+- **Deduplication**: Having a single source of truth!
+- **Data Governance**: for how long to store the data, how to enforce access controls ([Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege)) etc.
+
+Once this is done, data may be stored in a central repository such as a **data lake** or **data lakehouse**. Data engineers may also copy and move subsets of data into a data warehouse.
+
+## Data Engineering Tools and Technologies
+
+Data engineers work with a variety of tools and technologies, including: 
+ 
+- **ETL Tools**: ETL (extract, transform, load) tools move data between systems. They access data, then apply rules to “transform” the data through steps that make it more suitable for analysis.
+- **SQL**: Structured Query Language (SQL) is the standard language for querying relational databases.
+- **Python**: Python is a general programming language. Data engineers may choose to use Python for ETL tasks. Spark (pyspark) for Big Data, Apache Flink for streaming data. 
+- **Cloud Data Storage**: Including Amazon S3, Azure Data Lake Storage (ADLS), Google Cloud Storage, etc.
+- **Cloud Data Warehouses**: Data ready for use by data scientists and analysts is stored in data warehouses, such as Amazon Redshift, Google BigQuery, Azure Data Warehouse, Snowflake etc.
+
+## Popular Data engineering tools
+
+![[Source](https://www.secoda.co/blog/the-top-20-most-commonly-used-data-engineering-tools)](images/de-tools.png)
+
+# Data Lakes {data-stack-name="Lakes vs. Warehouses"}
+
+[](images/data-lake.png)
+
+## Wikipedia Definition
+
+> **[From Wikipedia](https://en.wikipedia.org/wiki/Data_lake)**: A data lake is a system or repository of data stored in its natural/raw format, usually object blobs or files. A data lake is usually a single store of data including raw copies of source system data, sensor data, social data etc., and transformed data used for tasks such as reporting, visualization, advanced analytics and machine learning. A data lake can include structured data from relational databases (rows and columns), semi-structured data (CSV, logs, XML, JSON), unstructured data (emails, documents, PDFs) and binary data (images, audio, video).
+
+## Cloud Provider Definitions
+
+Definitions in the wild (**emphasis mine**).
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**[AWS](https://aws.amazon.com/big-data/datalakes-and-analytics/what-is-a-data-lake/)**  
+A data lake is a **centralized repository** that allows you to store all your **structured and unstructured** data at any scale. You can store your data as-is, without having to first structure the data, and run different types of analytics—from dashboards and visualizations to big data processing, real-time **analytics**, and machine learning to guide better decisions.
+
+:::
+
+::: {.column width="50%"}
+**[GCP](https://cloud.google.com/learn/what-is-a-data-lake)**  
+A data lake provides a **scalable and secure platform** that allows enterprises to: ingest **any data from any system at any speed**—even if the data comes from on-premises, cloud, or edge-computing systems; store any type or volume of data in full fidelity; process data in real time or batch mode; and analyze data using SQL, Python, R, or any other language, third-party data, or **analytics** application.
+:::
+
+::: {.column width="50%"}
+**[Azure](https://azure.microsoft.com/en-us/solutions/data-lake/)**  
+Azure Data Lake includes all the capabilities required to make it easy for developers, data scientists, and analysts to **store data of any size, shape, and speed**, and do all types of processing and **analytics** across platforms and languages.
+:::
+
+
+::: {.column width="50%"}
+**[DataBricks](https://www.databricks.com/discover/data-lakes/introduction)**  
+A data lake is a central location that holds a **large amount of data** in its native, **raw format**. Compared to a hierarchical data warehouse, which stores data in files or folders, a data lake uses a flat architecture and **object storage** to store the data.‍ 
+:::
+::::
+
+## Working with a Cloud Data Lake
+
+A cloud data lake is setup using the cloud provider's object store (S3, GCS, Azure Blob Storage).
+
+ - The object stores are extremely scalable, for context, the maximum size of an object in S3 is 5 TB and [there is no limit to number of objects in an S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html).
+
+ - They are extremely duarable, 99.999999999%. Provide strong consistency (read-after-write, listing buckets and objects, granting permissions etc.).
+
+ - Cost effective, with [multiple storage classes](https://aws.amazon.com/s3/storage-classes/).
+
+ - Integration with data processing tools such as Spark, machine learning tools such as SageMaker, data warehouses such as RedShift and data cataloging tools.
+
+ - They provide _Fine Grained Access Control_ to the data.
+
+## Data Warehouses
+
+![](images/data-warehouse.png)
+
+>**[From Wikipedia](https://en.wikipedia.org/wiki/Data_warehouse)**: In computing, a data warehouse (DW or DWH), also known as an enterprise data warehouse (EDW), is a system used for reporting and data analysis and is considered a core component of business intelligence. DWs are central repositories of integrated data from one or more disparate sources. They store current and historical data in one single place that are used for creating analytical reports for workers throughout the enterprise.
+
+
+## Data Warehouse (Cloud Provider Definitions)
+
+Definitions in the wild (**emphasis mine**).
+
+::: columns
+::: {.column width="50%"}
+
+**[AWS](https://aws.amazon.com/data-warehouse/)**  
+A data warehouse is a **central repository** of information that can be analyzed to make more informed decisions. **Data flows into a data warehouse** from transactional systems, relational databases, and other sources, typically **on a regular cadence**. Business analysts, data engineers, data scientists, and decision makers **access the data through business intelligence (BI) tools, SQL clients, and other analytics applications**.  
+
+**[Azure](https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/data-warehousing)**  
+A data warehouse is a **centralized repository** of integrated data from one or more **disparate sources**. Data warehouses store current and historical data and are used for **reporting and analysis** of the data.
+:::
+
+::: {.column width="50%"}
+**[GCP](https://cloud.google.com/learn/what-is-a-data-warehouse)**  
+A data warehouse is an **enterprise system** used for the **analysis and reporting** of structured and semi-structured data from **multiple sources**, such as point-of-sale transactions, marketing automation, customer relationship management, and more.   
+
+**[Snowflake](https://www.snowflake.com/data-cloud-glossary/data-warehousing)**  
+A data warehouse (DW) is a **relational database** that is designed for **analytical rather than transactional work**. It collects and aggregates data from one or many sources so it can be analyzed to produce business insights. 
+:::
+
+::: 
+
+## Working with a Cloud Data Warehouse
+
+All cloud providers provide a data warehouse solution that works in conjunction with their data lake solution.
+
+ - AWS has [Redshift](https://aws.amazon.com/pm/redshift/), Azure has [Synapse Analytics](https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/data-warehousing). GCP has [BigQuery](https://cloud.google.com/bigquery) and then there is [Snowflake](https://www.snowflake.com/en/).
+
+ - In a data warehouse, _Online analytical processing (OLAP)_ allows for fast querying and analysis of data from different perspectives. It also helps in pre-aggregating and pre-calculating the information available in the archive.
+ 
+ - Data warehouses are Peta Byte scale ([Amazon RedShift](https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html), [Google BigQuery](https://cloud.google.com/blog/products/data-analytics/new-blog-series-bigquery-explained-overview), [Azure Synapse Analytics](https://azure.microsoft.com/en-us/updates/introducing-azure-synapse-analytics-a-limitless-analytics-service-with-unmatched-time-to-insight/)).
+
+ - Data warehouses can have dedicated compute provisioned or be serverless (BigQuery is serverless, Redshift allows both options now).
+
+ - Data warehouses now offer integrated ML capabilities, you can build models with SQL and use them in queries ([Amazon RedShift ML](https://aws.amazon.com/redshift/features/redshift-ml/), [Google BigQuery ML](https://cloud.google.com/bigquery-ml/docs/introduction), [Azure Synapse Analytics ML](https://learn.microsoft.com/en-us/azure/synapse-analytics/machine-learning/what-is-machine-learning)).
+
+  - Integration with reporting and dashboarding tools such as Tableau, Grafana, Looker etc. and data analytics tools such as Spark and data cataloging tools.
+
+ - They provide _Fine Grained Access Control_ to the data.
+
+## Combining Data Lakes and Data Warehouses
+
+Combine the flexibility, cost-efficiency, and scale of data lakes with the data management and ACID transactions of data warehouses to provide a single architecture that can enable business intelligence and machine learning on all data.
+
+ - [Build a lakehouse architecture on AWS](https://aws.amazon.com/blogs/big-data/build-a-lake-house-architecture-on-aws/)
+ - [The Databricks lakehouse platform](https://www.databricks.com/product/data-lakehouse)
+ - [Open data lakehouse on Google Cloud](https://cloud.google.com/blog/products/data-analytics/open-data-lakehouse-on-google-cloud)
+ - [The data lakehouse, the data warehouse and a modern data platform on Azure](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/the-data-lakehouse-the-data-warehouse-and-a-modern-data-platform/ba-p/2792337)
+
+## NoSQL Databases
+
+At some point we needed to think beyond relation databases, because:
+
+- Data became more and more complex (not all data is tabular, thinkin JSON data emitted by an IoT device).
+- Cost of storage decreased (everything did not need to be stored in the 3rd normal form)
+- More data on the cloud meant data needed to be placed across different servers (scale-out)
+- Data needed to be placed intelligently in geo locations of interest
+- And more...  
+
+> **[From Wikipedia](https://en.wikipedia.org/wiki/NoSQL)**: A NoSQL (originally referring to "non-SQL" or "non-relational") database provides a mechanism for storage and retrieval of data that is modeled in means other than the tabular relations used in relational databases. Such databases have existed since the late 1960s, but the name "NoSQL" was only coined in the early 21st century, triggered by the needs of Web 2.0 companies. NoSQL databases are increasingly used in big data and real-time web applications. NoSQL systems are also sometimes called Not only SQL to emphasize that they may support SQL-like query languages or sit alongside SQL databases in polyglot-persistent architectures.
+
+## Types of NoSQL Databases
+
+Over time, four major types of NoSQL databases emerged: document databases, key-value databases, wide-column stores, and graph databases. 
+
+- **Document databases** store data in documents similar to JSON (JavaScript Object Notation) objects. Each document contains pairs of fields and values. The values can typically be a variety of types including things like strings, numbers, booleans, arrays, or objects.
+
+- **Key-value databases** are a simpler type of database where each item contains keys and values.
+
+- **Wide-column stores** store data in tables, rows, and dynamic columns.
+
+- **Graph databases** store data in nodes and edges. Nodes typically store information about people, places, and things, while edges store information about the relationships between the nodes.
+
+
+## Examples of NoSQL Databases
+
+|  NOSQL Database Type | Examples   |
+|---|---|
+|  Document Database |  Amazon DocumentDB, MongoDB, Cosmos DB, ArangoDB, Couchbase Server, CouchDB |
+| Key-value Database  | Amazon DynamoDB, Couchbase, Memcached, Redis   |
+|  Wide-column datastores | Amazon DynamoDB, Apache Cassandra, Google Bigtable, Azure Tables   |
+| Graph databases | Amazon Neptune, Neo4j |
+
+As a data scientist you would work with a NoSQL database through an SDK/API. Several programming languages are supported including Python, Java, Go, C++ etc.
+
+## Example of documents in a document database
+
+Here is an example of a document inserted in a key-value/document database such as MongoDB.
+``` {.json code-line-numbers="false"}
+{
+   "name" : "IS 350",
+   "year" : "2015",
+   "make" : "Lexus",
+   "colors" : ["black","white","grey"],
+   "spec" : {
+      "engine" : "V6",
+      "wheelbase" : "110.2 in",
+      "length" : "183.7 in"
+   }
+}
+```
+
+The same example can be inserted in an Amazon DynamoDB table called (say) `Cars`.
+
+``` {.python code-line-numbers="true"}
+database = boto3.resource('dynamodb')
+table = database.Table('cars')
+item = {
+   "name" : "IS 350",
+   "year" : "2015",
+   "make" : "Lexus",
+   "colors" : ["black","white","grey"],
+   "spec" : {
+      "engine" : "V6",
+      "wheelbase" : "110.2 in",
+      "length" : "183.7 in"
+   }
+}
+table.put_item(Item = item)
+```
+
+## Other Data Stores to Know About
+
+Besides the general concepts about data lkakes, warehouses, different types of databases, there are some purpose built databases that are good to know about.
+
+- Splunk
+- Elasticsearch
+- DuckDB
+- Many many more...
+
+## Further Reading
+
+Please lookup these topics on Google for further reading. Not providing specific links here because they all point to vendor specific products.
+
+- Data Catalog
+- Data Governance
+- Data Mesh
+- Data Fabric
+
+# Diving One Level Deeper: OLTP vs. OLAP {data-stack-name="OLTP vs. OLAP"}
+
+## Boar Book Time! {.crunch-title}
+
+:::: {.columns}
+::: {.column width="40%"}
+
+@kleppmann_designing_2017, pages 69-95
+
+:::
+::: {.column width="60%"}
+
+![](images/boar_book.jpg){fig-align="center" width="400"}
+
+:::
+::::
+
+## Telemetry &rarr; Analytics
+
+Recall how many tiny bits of information are **streaming into** a given app's servers at any given time!
+
+> Database administrators therefore **closely guard their OLTP databases**. They are usually **reluctant to let business analysts run ad hoc analytic queries on an OLTP database**, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions.
+
+# Athena for EDA on Raw Data! {data-stack-name="Athena"}
+
+## What is the Quickest Possible Way to Explore Data in S3?
+
+![From [this video](https://www.youtube.com/watch?v=Wkpl66NaqEA)](images/athena_glue.jpg){fig-align="center"}
+
+## Lab: Analyzing NYC Taxi dataset with Athena {.title-08 .crunch-title}
+
+* A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset
+* This notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.  
+* [GitHub Classroom Link for Lab 5]({{< var gh-classroom.lab05 >}})
+* [GitHub Classroom Link for Assignment 5]({{< var gh-classroom.a05 >}})

@@ -1,5 +1,5 @@
 ---
-title: "Week 9: SparkML"
+title: "Week 9: SparkNLP"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
@@ -36,3 +36,4 @@ format:
     df-print: kable
 ---
 
+# SparkNLP: Technically a 3rd-Party Library

@@ -1,5 +1,5 @@
 ---
-title: "Week 10: ETL Pipeline Orchestration with Airflow"
+title: "Week 10: ETL Pipeline Orchestration with Prefect"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
