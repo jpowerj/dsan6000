@@ -264,3 +264,429 @@ Some of these are **HUGE**
 * Matt Turck's Machine Learning, Artificial Intelligence & Data Landscape (MAD)
   * [Article](https://mattturck.com/mad2023/)
   * [Interactive Landscape](https://mad.firstmarkcap.com/)
+
+---
+
+# Big Data in the Age of Generative AI
+
+## The New Data Landscape (2025) {.crunch-ul}
+
+**Training Foundation Models**
+
+* GPT-4: Trained on about 13 trillion tokens
+* Llama 3: 15 trillion tokens 
+* Google Gemini: Multi-modal training (text, images, video)
+* Each iteration requires **petabytes** of curated data
+
+**Data Requirements Have Exploded**
+
+* 2020: BERT trained on 3.3 billion words
+* 2023: GPT-4 trained on ~13 trillion tokens
+* 2024: Llama 3 trained on 15+ trillion tokens
+
+## Big Data Infrastructure: Data Lakes, Warehouses {.title-09 .text-80}
+
+**Traditional Use Cases:**
+
+* Business intelligence
+* Analytics & reporting
+* Historical data storage
+
+**Modern AI Use Cases:**
+
+* Training data repositories
+* Vector embeddings storage
+* RAG (Retrieval-Augmented Generation) context
+* Fine-tuning datasets
+* Evaluation & benchmark data
+
+## RAG and Context Engineering: The New Data Pipeline {.text-80 .crunch-title .crunch-p}
+
+```{dot}
+//| fig-height: 1
+digraph G {
+  rankdir="LR";
+  raw[label="Raw Data"];
+  lake[label="Data Lake"];
+  proc[label="Processing"];
+  vec[label="Vector DB"];
+  context[label="LLM Context"];
+  raw -> lake -> proc -> vec -> context;
+}
+```
+
+**Key Components:**
+
+* **Data Lakes** (S3, Azure Data Lake): Store massive unstructured data
+* **Data Warehouses** (Snowflake, BigQuery): Structured data for context
+* **Vector Databases** (Pinecone, Weaviate, Qdrant): Semantic search
+* **Embedding Models**: Convert data to vectors
+* **Orchestration** (Airflow, Prefect): Manage the pipeline
+
+
+## MCP Servers & Agentic AI {.smaller .crunch-title .crunch-ul .crunch-p}
+
+**Model Context Protocol (MCP)**
+
+* Open protocol for connecting AI assistants to data sources
+* Standardized way to expose tools and data to LLMs
+* Enables "agentic" behavior - AI that can act autonomously
+
+**MCP in Production**
+
+```{dot}
+//| fig-height: 1
+digraph G {
+  rankdir="LR";
+  ware[label="Data Warehouse"];
+  mcp[label="MCP Server"];
+  agent[label="AI Agent"];
+  action[label="Action"];
+  ware -> mcp -> agent -> action;
+}
+```
+
+**Examples:**
+
+* AI agents querying Snowflake for real-time analytics
+* Autonomous systems updating data lakes based on predictions
+* Multi-agent systems coordinating through shared data contexts
+
+
+## Data Quality for AI {.text-85 .crunch-p .crunch-ul}
+
+*(Why Data Quality Matters More Than Ever)*
+
+**Garbage In, Garbage Out - Amplified:**
+
+* Bad training data → Biased models
+* Incorrect RAG data → Hallucinations
+* Poor data governance → Compliance issues
+
+**Data Quality Challenges in 2025**
+
+* **Scale**: Validating trillions of tokens
+* **Diversity**: Multi-modal, multi-lingual data
+* **Velocity**: Real-time data for online learning
+* **Veracity**: Detecting AI-generated synthetic data
+
+---
+
+## Emerging Trends (2025-2027) {.smaller .crunch-ul .crunch-p}
+
+**Unified Platforms:**
+
+* Data lakes becoming "AI lakes"
+* Integrated vector + relational databases
+* One-stop shops for data + AI (Databricks, Snowflake Cortex)
+
+**Edge Computing + AI:**
+
+* Processing at the data source
+* Federated learning across devices
+* 5G enabling real-time edge AI
+
+**Synthetic Data:**
+
+* AI generating training data for AI
+* Privacy-preserving synthetic datasets
+
+## What You'll Learn in This Course {.crunch-title .smaller}
+
+*Modern Big Data Stack (2025)*
+
+:::: {layout="[1,1]"}
+::: {#bd-stack-left}
+
+**Query Engines:**
+
+* DuckDB - In-process analytical database
+* Polars - Lightning-fast DataFrame library  
+* Spark - Distributed processing at scale
+
+**Data Warehouses & Lakes:**
+
+* Snowflake - Cloud-native data warehouse
+* Athena - Serverless SQL on S3
+* Iceberg - Open table format
+
+:::
+::: {#bd-stack-right}
+
+**AI/ML Integration:**
+
+* Vector databases for embeddings
+* RAG implementation patterns
+* Streaming with Spark Structured Streaming
+
+**Orchestration:**
+
+* Airflow for pipeline management
+* Serverless with AWS Lambda
+
+:::
+::::
+
+## Data Types
+
+* Structured
+* Unstructured
+* Natural language
+* Machine-generated
+* Graph-based
+* Audio, video, and images
+* Streaming
+
+---
+
+## Typical Real-World Scenarios in 2025 {.text-90}
+
+**Scenario 1: Traditional Big Data**
+
+You have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. **What do you do?**
+
+**Scenario 2: AI/ML Pipeline**
+
+Your company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. **How do you architect this?**
+
+**Scenario 3: Real-Time Analytics**
+
+You need to process 1 million events/second from IoT devices and provide real-time dashboards with <1s latency. **What's your stack?**
+
+---
+
+## Big Data vs. Small Data I {.smaller .crunch-title .text-60}
+
+|  | Small Data is usually... | On the other hand, Big Data... |
+|---|---|---|
+| **Goals** | gathered for a specific goal | may have a goal in mind when it's first started, but things can evolve or take unexpected directions |
+| **Location** | in one place, and often in a single computer file | can be in multiple files in multiple servers on computers in different geographic locations |
+| **Structure/Contents** | highly structured like an Excel spreadsheet, and it's got rows and columns of data | can be unstructured, it can have many formats in files involved across disciplines, and may link to other resources |
+| **Preparation** | prepared by the end user for their own purposes | is often prepared by one group of people, analyzed by a second group of people, and then used by a third group of people, and they may have different purposes, and they may have different disciplines |
+
+: {tbl-colwidths="[20, 40, 40]"}
+
+## Big Data vs. Small Data II {.smaller .crunch-title .text-60}
+
+|  | Small Data is usually... | On the other hand, Big Data... |
+|---|---|---|
+| **Longevity** | kept for a specific amount of time after the project is over because there's a clear ending point. In the academic world it's maybe five or seven years and then you can throw it away | contains data that must be stored in perpetuity. Many big data projects extend into the past and future |
+| **Measurements** | measured with a single protocol using set units and it's usually done at the same time | is collected and measured using many sources, protocols, units, etc |
+| **Reproducibility** | be reproduced in their entirety if something goes wrong in the process | replication is seldom feasible |
+| **Stakes** | if things go wrong the costs are limited, it's not an enormous problem | can have high costs of failure in terms of money, time and labor |
+| **Access** | identified by a location specified in a row/column | unless it is exceptionally well designed, the organization can be inscrutable |
+| **Analysis** | analyzed together, all at once | is ordinarily analyzed in incremental steps |
+
+: {tbl-colwidths="[20, 40, 40]"}
+
+
+---
+
+## Data Engineer Responsibilities
+
+<center>
+
+![](images/datacamp-3.png){width="600"}
+
+</center>
+
+---
+
+## Data Engineering: Levels 2 and 3
+
+<center>
+
+![](images/rogati.png){width="600"}
+
+</center>
+
+---
+
+[Reference material: Text Lesson 1,2,3,7,9,10](https://linuxjourney.com/lesson/monitor-processes-ps-command)
+
+---
+
+## The Terminal {.crunch-title .text-90}
+
+:::: {layout="[1,1]" layout-valign="center"}
+::: {#terminal-text}
+
+- Terminal access was **THE ONLY** way to do programming
+- No GUIs! No Spyder, Jupyter, RStudio, etc.
+- Coding is still more powerful than graphical interfaces for complex jobs
+- Coding makes work repeatable
+
+:::
+::: {#terminal-img}
+
+![](img/terminal_old_computer.jpg)
+
+:::
+::::
+
+---
+
+# Time for Lab! Linux Command Line {data-stack-name="Linux Lab"}
+
+## BASH {.crunch-title}
+
+:::: {layout="[60,40]" layout-valign="center"}
+::: {#bash-text}
+
+* Created in 1989 by Brian Fox: "**B**ourne-**A**gain **Sh**ell"
+* Brian Fox also built the first online interactive banking software
+* BASH is a command processor
+* Connection between you and the machine language and hardware
+
+:::
+::: {#bash-img}
+
+![](img/bash.png)
+
+:::
+::::
+
+## The Prompt
+
+``` {.bash code-line-numbers="false"}
+username@hostname:current_directory $
+```
+
+What do we learn from the prompt?
+
+- Who you are - **`username`**
+- The machine where your code is running - **`hostname`**
+- The directory where your code is running - **`current_directory`**
+- The shell type - **`$`** - this symbol means BA$H
+
+## Syntax {.smaller .crunch-title .crunch-p .crunch-li-7}
+
+``` {.bash code-line-numbers="false"}
+COMMAND -F --FLAG
+```
+
+* `COMMAND` is the program, everything after that = arguments
+* `F` is a single letter flag, `FLAG` is a single word or words connected by dashes. A space breaks things into a new argument.
+* Sometimes argument has single letter and long form versions (e.g. `F` and `FLAG`)
+
+```{.bash code-line-numbers="false"}
+COMMAND -F --FILE file1
+```
+
+* Here we pass a text argument `"file1"` as the **value** for the `FILE` flag
+* **`-h`** flag is usually to get help. You can also run the **`man`** command and pass the name of the program as the argument to get the help page.
+
+Let's try basic commands:
+
+- **`date`** to get the current date
+- **`whoami`** to get your user name
+- **`echo "Hello World"`** to print to the console
+
+## Examining Files {.crunch-title .text-85 .crunch-ul .crunch-li-8}
+
+* Find out your **P**resent **W**orking **D**irectory **`pwd`**
+* Examine the contents of files and folders using **`ls`**
+* Make new files from scratch using **`touch`**
+* **Glob**: "Mini-language" for selecting files with wildcards
+  - **`\*`** for wild card any number of characters
+  - **`\?`** for wild card for a single character
+  - **`[]`** for one of many character options
+  - **`!`** for exclusion
+  - **`[:alpha:]`**, **`[:alnum:]`**, **`[:digit:]`**, **`[:lower:]`**, **`[:upper:]`**
+
+[Reference material: Shell Lesson 1,2,4,5](https://linuxjourney.com/lesson/the-shell)
+
+## Navigating Directories {.crunch-title .text-80 .crunch-ul .crunch-p .crunch-li-8}
+
+* Knowing **where your terminal is executing code** ensures you are working with the right inputs/outputs.
+* Use `pwd` to determine the Present Working Directory.
+* Change to a folder called "git-repo" with `cd git-repo`.
+- **`.`** refers to the current directory, such as **`./git-repo`**
+- **`..`** can be used to move up one level (**`cd ..`**), and can be combined to move up multiple levels (**`cd ../../my_folder`**)
+- **`/`** is the **root** of the filesystem: contains core folders (system, users)
+- **`~`** is the **home directory**. Move to folders referenced relative to this path by including it at the start of your path, for example **`~/projects`**.
+* To **visualize the structure** of your working directory, use **`tree`**
+
+[Reference link](https://www.freecodecamp.org/news/linux-command-line-bash-tutorial/)
+
+## Interacting with Files {.crunch-title .crunch-ul .text-85 .crunch-p .crunch-li-8}
+
+Now that we know how to navigate through **directories**, we need commands for interacting with **files**...
+
+- **`mv`** to move files from one location to another
+  * Can use glob here - `?`, `*`, `[]`, ...
+- **`cp`** to copy files instead of moving
+  + Can use glob here - `?`, `*`, `[]`, ...
+- **`mkdir`** to make a directory
+- **`rm`** to remove files
+- **`rmdir`** to remove directories
+- **`rm -rf`** to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING
+
+## Using BASH for Data Exploration {.crunch-title .crunch-ul .text-90 .crunch-li-8}
+
+- **`head FILENAME`** / **`tail FILENAME`** - glimpsing the first / last few rows of data
+- **`more FILENAME`** / **`less FILENAME`** - viewing the data with basic up / (up & down) controls
+- **`cat FILENAME`** - print entire file contents into terminal
+- **`vim FILENAME`** - open (or edit!) the file in vim editor
+- **`grep FILENAME`** - search for lines within a file that match a regex expression
+- **`wc FILENAME`** - count the number of lines (**`-l`** flag) or number of words (**`-w`** flag)
+
+[Reference material: Text Lesson 8,9,15,16](https://linuxjourney.com/lesson/stdout-standard-out-redirect)
+
+## Pipes and Arrows
+
+* **`|`** sends the stdout to another command (is the most powerful symbol in BASH!)
+* **`>`**  sends stdout to a file and overwrites anything that was there before
+* **`>>`** appends the stdout to the end of a file (or starts a new file from scratch if one does not exist yet)
+* **`<`** sends stdin into the command on the left
+
+[Reference material: Text Lesson 1,2,3,4,5](https://linuxjourney.com/lesson/stdout-standard-out-redirect)
+
+## Alias and User Files {.crunch-title .text-85}
+
+* `/.bashrc` is where your shell settings are located
+* How many processes? **`whoami | xargs ps -u | wc -l`**
+* Hard to remember full command! Let's make an **alias**
+* General syntax:
+
+  ``` {.bash code-line-numbers="false"}
+  alias alias_name="command_to_run"
+  ```
+
+* For our case:
+
+  ``` {.bash code-line-numbers="false"}
+  alias nproc="whoami | xargs ps -u | wc -l"
+  ```
+
+* Now we need to put this alias into the .bashrc
+
+  ``` {.bash code-line-numbers="false"}
+  alias nproc="whoami | xargs ps -u | wc -l" >> ~/.bashrc
+  ```
+
+* Your commands get saved in **`~/.bash_history`**
+
+## Process Management {.crunch-title .text-90 .crunch-ul .crunch-p .crunch-li-8}
+
+* Use **`ps`** to see your running processes
+* Use **`top`** or even better **`htop`** to see all running processes
+* Install **htop** via **`sudo yum install htop -y`**
+* To kill a broken process: first find the **process ID (PID)**
+* Then use **`kill [PID NUM]`** to "ask" the process to terminate. If things get really bad: **`kill -9 [PID NUM]`**
+* To kill a command in the terminal window it is running in, try using **Ctrl + C** or **Ctrl + /**
+* Run **`cat`** on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.
+
+---
+
+# Data Engineering {data-stack-name="Data Engineering"}
+
+## Data Scientist vs. Data Engineer {.smaller}
+
+In this course, you'll **augment** your data scientist skills with data engineering skills!
+
+<center>
+
+![](images/bdi-core-competencies-deng-and-dsci.png){width="60%"}
+
+</center>

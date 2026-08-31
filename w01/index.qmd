@@ -10,7 +10,8 @@ categories:
   - "Class Sessions"
 crossref:
   fig-title: Fig
-# bibliography: "../_PPOL6805.bib"
+bibliography: "../_DSAN6000.bib"
+csl: "../chicago-17-no-url.csl"
 cache: true
 format:
   revealjs:
@@ -32,7 +33,6 @@ format:
         <link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='' crossorigin='anonymous' referrerpolicy='no-referrer'></script>
         <script src='../sidebar.js'></script>
-        <script src='oltp-demo.js'></script>
         <link rel='preconnect' href='//fonts.gstatic.com' crossorigin>
         <link href='//fonts.googleapis.com/css2?family=Honk&display=swap' rel='stylesheet'>
         <style>
@@ -47,13 +47,14 @@ format:
       - simplemenu
     simplemenu:
       flat: true
-      header: >
+      barhtml:
+        header: |
           <div class='menubar'>
             <span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span>
             
-            <span style='position: absolute; right: 0; padding-right: 8px; z-index: 10; display: inline-flex !important;'>
+            <span style='position: absolute; right: 0; padding-right: 8px; z-index: 10; display: inline-flex !important; gap: 2px; align-content: center; align-items: center;'>
               <a id='toggle-01-label' href='#' onclick="window.toggleSectionClicked('01'); return(false);" class='no-decoration'>01 </a>
-              <a href='#' onclick="window.toggleIconClicked(); return(false);" class='no-decoration'><i id='section-toggle-icon' class='bi bi-toggle-off pt-0 ps-1 pe-1'></i></a>
+              <a href='#' onclick="window.toggleIconClicked(); return(false);" class='no-decoration'><i id='section-toggle-icon' class='bi bi-toggle-off' style='line-height: 1;'></i></a>
               <a id='toggle-02-label' href='#' onclick="window.toggleSectionClicked('02'); return(false);" class='no-decoration'> 02</a>
             </span>
             <ul class='menu'></ul>
@@ -79,15 +80,16 @@ Today's Planned Schedule:
 
 | | Start | End | Topic |
 |:- |:- |:- |:- |
-| **Lecture** | <span class='sec-start'>3:30pm</span> | 4:00pm | [HW1 Questions and Concerns &rarr;](#hw1-questions-andor-concerns)
-| | 7:00pm | 7:30pm | [Motivating Examples: Causal Inference &rarr;](#motivation-ii-causal-inference) |
-| | 7:30pm | 7:45pm | [Your First Probabilistic Graphical Model! &rarr;](#your-first-probabilistic-graphical-model)
-| **Break!** | 7:45pm | 8:00pm | |
-| | 8:00pm | 9:00pm | [PGM "Lab" &rarr;](#hidden-markov-models-(hmms-are-our-ur-pgms))
+| **Lecture** | <span class='sec-start'>3:30pm</span> | <span class='sec-p30'>4:00pm</span> | [Setting the Table (Logistics) &rarr;](#setting-the-table-course-logistics)
+| | <span class='sec-p30'>7:00pm</span> | <span class='sec-p60'>7:30pm</span> | [Big Data and Clouds: Core Definitions &rarr;](#what-makes-data-big-why-do-we-need-the-cloud) |
+| | <span class='sec-p60'>7:30pm</span> | <span class='sec-p75'>7:45pm</span> | [Demo: Measuring Implementation Efficiency &rarr;](#data-engineering)
+| | 7:30pm | 7:45pm | [Key Tools Overview &rarr;](#key-tools)
+| **Break!** | 8:00pm | 8:10pm | |
+| | 8:10pm | 9:00pm | [In-Class Demo: DDLs and DQLs &rarr;](#lab-ddls-vs.-dqls)
 
 : {tbl-colwidths="[12,12,12,64]"}
 
-# Course Overview {data-stack-name="Course Overview"}
+# Setting the Table: Course Logistics {data-stack-name="Course Overview"}
 
 ## Course Webpage {.smaller .crunch-p}
 
@@ -153,7 +155,7 @@ Links to these additional resources are in the sidebar:
 * Your job will be to use what you've learned in weeks 1-6 to **write out the implementation details** of how you would meet these specifications
 * Will make more sense by end of lecture today with **X.com** example
 
-# What Makes Data "Big"? Why Do We Need "The Cloud"? {data-stack-name="Big Data"}
+# What Makes Data "Big"? Why Do We Need "The Cloud"? {data-stack-name="Big Data: OLTP"}
 
 ## $\text{Revenue} = f(\text{Tracking}, \text{Analytics})$ {.title-11 .smaller}
 
@@ -244,7 +246,7 @@ Links to these additional resources are in the sidebar:
   background: #12161c;
   border-radius: 4px;
   padding: 5px 10px;
-  font-size: 11px;
+  font-size: 10pt;
 }
 .browser-body{
   padding: 16px;
@@ -261,15 +263,18 @@ Links to these additional resources are in the sidebar:
 }
 .site-mock h4{
   margin: 0 0 6px;
-  font-size: 16pt;
+  font-size: 15pt;
   color: #f2f3f4;
+}
+.site-mock h4 a {
+  font-weight: 600;
 }
 .site-actions{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
-.site-actions button{
+.site-actions button, #resetDemo {
   padding: 7px 12px;
   border-radius: 4px;
   border: 1px solid #3a4150;
@@ -277,13 +282,13 @@ Links to these additional resources are in the sidebar:
   color: #e7e9ec;
   cursor: pointer;
 }
-.site-actions button:hover{
+.site-actions button:hover, #resetDemo:hover {
   background: #2c3441;
 }
-.site-actions button:active{
+.site-actions button:active, #resetDemo:active {
   transform:scale(0.97);
 }
-.tracker-log{
+.tracker-log {
   flex: 1;
   overflow-y: auto;
   display: flex;
@@ -293,16 +298,16 @@ Links to these additional resources are in the sidebar:
 }
 .tracker-log .empty {
   color: #5c636e;
-  padding-top:6px;
+  padding-top: 6px;
 }
 .tracker-item {
   font-size: 11px;
   background: #1a1f27;
   border: 1px solid #2a313c;
   border-left: 3px solid #e69f00;
-  border-radius:3px;
-  padding:7px 9px;
-  animation:slideIn .25s ease;
+  border-radius: 3px;
+  padding: 7px 9px;
+  animation: slideIn .25s ease;
 }
 .tracker-item .t1 {
   color: #e69f00;
@@ -416,11 +421,11 @@ table.events tbody tr.new{
 <div class="browser">
   <div class="browser-head">
     <div class="dots"><span></span><span></span><span></span></div>
-    <div class="urlbar">shopdemo.example/product/213</div>
+    <div class="urlbar">https://bolbol.grailed.com/product/213</div>
   </div>
   <div class="browser-body">
     <div class="site-mock">
-      <h4>Rick Owens Teaspoon, $99</h4>
+      <h4>Rick Owens <a href='https://www.rickowensshoe.com/rick-owens-tea-spoon-in-sterling-silver-and-ox-bone-p-1920.html' target='_blank'>Teaspoon</a>, $99</h4>
       <div class="site-actions">
         <button data-ev="pageview">Load page</button>
         <button data-ev="scroll">Scroll product photos</button>
@@ -488,9 +493,9 @@ CREATE TABLE events (
   let eventCount = 0;
   let userId = '123'
   const trackerDefs = {
-    pageview: { source:'analytics.js', detail:'captures pageview' },
-    scroll: { source:'analytics.js', detail:'captures scroll depth' },
-    cookie: { source:'consent-manager.js', detail:'writes cookie + syncs ad ID' },
+    pageview: { source:'analytics.js', detail:'Captures loaded page' },
+    scroll: { source:'analytics.js', detail:'Captures scroll amount' },
+    cookie: { source:'consent-manager.js', detail:'Writes cookie, syncs ad ID' },
     addcart: { source:'ad-pixel.js', detail:'Sends product id + price to ad network' },
   };
   function clearEmpty(container){
@@ -504,7 +509,7 @@ CREATE TABLE events (
     // 1. Tracker log
     const item = document.createElement('div')
     item.className = 'tracker-item'
-    item.innerHTML = `<div class="t1">${def.source}</div><div class="t2">${def.detail}</div>`;
+    item.innerHTML = `<div><span class='t1'>${def.source}</span>: <span class='t2'>${def.detail}</span></div>`;
     trackerLog.appendChild(item);
     trackerLog.scrollTop = trackerLog.scrollHeight;
     // 2. Network request
@@ -557,54 +562,129 @@ CREATE TABLE events (
 </script>
 ```
 
-## Apache (web server) log files
+## Apache HTTP Server Log File {.smaller .title-11}
 
-<img src="img/apache-server-log.jpg" width=600>
+*On Ubuntu, typically `/var/log/apache2/access.log`*
 
-## System log files
+``` {.plaintext code-line-numbers="1,9"}
+192.168.1.105 - - [31/Aug/2026:14:22:01 -0400] "GET /index.html HTTP/1.1" 200 5124 "https://www.google.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+203.0.113.42 - - [31/Aug/2026:14:22:03 -0400] "GET /images/logo.png HTTP/1.1" 200 2341 "https://example.com/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"
+198.51.100.23 - - [31/Aug/2026:14:22:05 -0400] "POST /login HTTP/1.1" 302 0 "https://example.com/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+192.168.1.105 - jj [31/Aug/2026:14:22:06 -0400] "GET /dashboard HTTP/1.1" 200 8842 "https://example.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+203.0.113.42 - - [31/Aug/2026:14:22:09 -0400] "GET /api/data?id=452 HTTP/1.1" 404 512 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"
+66.249.66.1 - - [31/Aug/2026:14:22:12 -0400] "GET /robots.txt HTTP/1.1" 200 178 "-" "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+198.51.100.23 - - [31/Aug/2026:14:22:15 -0400] "GET /assets/style.css HTTP/1.1" 304 0 "https://example.com/dashboard" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+10.0.0.5 - - [31/Aug/2026:14:22:19 -0400] "GET /admin HTTP/1.1" 403 291 "-" "curl/8.4.0"
+192.168.1.105 - jj [31/Aug/2026:14:22:23 -0400] "GET /favicon.ico HTTP/1.1" 200 894 "https://example.com/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+```
 
-<img src="img/syslog-file.jpg" width=600>
+:::: {.columns}
+::: {.column width="50%"}
+
+<center>
+
+<span style='font-size: 80%;'>Line <i class='bi bi-1-circle'></i></span>
+
+</center>
+
+```{.plaintext}
+192.168.1.105 -
+  - [31/Aug/2026:14:22:01 -0400]
+  "GET /index.html HTTP/1.1"
+  200 5124
+  "https://www.google.com/"
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
+    AppleWebKit/537.36 (KHTML, like Gecko) \
+    Chrome/128.0.0.0 Safari/537.36"
+```
+
+:::
+::: {.column width="50%"}
+
+<center>
+
+<span style='font-size: 80%;'>Line <i class='bi bi-9-circle'></i></span>
+
+</center>
+
+```{.plaintext}
+192.168.1.105 -
+  jj [31/Aug/2026:14:22:06 -0400]
+  "GET /dashboard HTTP/1.1"
+  200 8842
+  "https://example.com/login"
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
+    AppleWebKit/537.36 (KHTML, like Gecko) \
+    Chrome/128.0.0.0 Safari/537.36"
+```
+
+:::
+::::
+
+## Linux System Log File {.smaller .crunch-title .title-12}
+
+*On Ubuntu, typically `/var/log/syslog`*
+
+``` {.plaintext code-line-numbers="4,5,10,13,14,15"}
+Sep 3 20:10:01 myEC2 systemd[1]: Started Session 42 of user root.
+Sep 3 20:14:17 myEC2 sshd[203]: Accepted publickey for jj from 203.0.113.42 port 51322 ssh2
+Sep 3 20:14:17 myEC2 sshd[203]: unix(sshd:session): session opened for user jj(uid=1001) by (uid=0)
+Sep 3 20:14:18 myEC2 systemd-logind[812]: New session 43 of user jj.
+Sep 3 20:15:42 myEC2 sudo[310]: jj: PWD=/home/jj; USER=root; COMMAND=/usr/bin/systemctl restart apache2
+Sep 3 20:15:43 myEC2 apache2[325]: 2026/08/31 09:15:43 [notice] 19325#19325: signal process started
+Sep 3 20:18:33 myEC2 sshd[340]: Failed password for admin from 198.51.100.77 port 44210 ssh2
+Sep 3 20:18:35 myEC2 sshd[340]: Failed password for admin from 198.51.100.77 port 44210 ssh2
+Sep 3 20:18:37 myEC2 sshd[340]: Connection closed by admin 198.51.100.77 port 44210 [preauth]
+Sep 3 20:20:11 myEC2 systemd[1]: mysql.service: Main process exited, code=killed, status=9/KILL
+Sep 3 20:20:12 myEC2 systemd[1]: mysql.service: Scheduled restart job, restart counter is at 1.
+Sep 3 20:20:12 myEC2 systemd[1]: Started MySQL Community Server.
+Sep 3 20:21:00 myEC2 kernel: [2357.4201] Out of memory: Killed process 18122 (java) total-vm:4823012kB
+Sep 3 20:23:15 myEC2 systemd-logind[812]: Session 43 logged out. Waiting for processes to exit.
+Sep 3 21:00:00 myEC2 CRON[8455]: (root) CMD ( cd / && run-parts --report /etc/cron.daily ))
+```
 
 ## Internet of Things (IoT) {.crunch-title .crunch-p .crunch-ul .crunch-img}
 
-**75 billion connected devices generating data:**
+*Nearly 100 billion devices generating data:*
 
 :::: {layout="[50,50]" layout-valign="top"}
 ::: {#iot-text}
 
 * Smart home devices (Alexa, Google Home, Apple HomePod)
 * Wearables (Apple Watch, Fitbit, Oura rings)
-* Connected vehicles & self-driving cars
-* Industrial IoT sensors
+* Vehicles (not just self-driving cars!)
+* Industrial sensors
 
 :::
 ::: {#iot-img}
 
 * Smart city infrastructure
-* Medical devices & remote patient monitoring
+* Medical devices, remote patient monitoring
 
-<img src="img/sensors-everywhere.jpg" width=600>
+![](images/sensors-everywhere.jpg){width="800"}
 
 :::
 ::::
 
-## Smartphone Location Data
+::: {.aside}
 
-<img src="img/smartphone.jpg">
+Slide Author: Amit Arora!
 
-## Typical Real-World Scenarios in 2025 {.text-90}
+:::
 
-**Scenario 1: Traditional Big Data**
+## Smartphone Location Data {.crunch-title}
 
-You have a laptop with 16GB of RAM and a 256GB SSD. You are given a 1TB dataset in text files. **What do you do?**
+<center>
 
-**Scenario 2: AI/ML Pipeline**
+![](images/smartphone.jpg){width="600"}
 
-Your company wants to build a RAG system using 10TB of internal documents. You need sub-second query response times. **How do you architect this?**
+</center>
 
-**Scenario 3: Real-Time Analytics**
+::: {.aside}
 
-You need to process 1 million events/second from IoT devices and provide real-time dashboards with <1s latency. **What's your stack?**
+Slide Author: Amit Arora!
+
+:::
 
 ## Big Data Definition For This Class(!) {.smaller .title-12}
 
@@ -649,456 +729,156 @@ You need to process 1 million events/second from IoT devices and provide real-ti
 
 </div>
 
-# Big Data in the Age of Generative AI
-
-## The New Data Landscape (2025) {.crunch-ul}
-
-**Training Foundation Models**
-
-* GPT-4: Trained on about 13 trillion tokens
-* Llama 3: 15 trillion tokens 
-* Google Gemini: Multi-modal training (text, images, video)
-* Each iteration requires **petabytes** of curated data
-
-**Data Requirements Have Exploded**
-
-* 2020: BERT trained on 3.3 billion words
-* 2023: GPT-4 trained on ~13 trillion tokens
-* 2024: Llama 3 trained on 15+ trillion tokens
-
-## Big Data Infrastructure: Data Lakes, Warehouses {.title-09 .text-80}
-
-**Traditional Use Cases:**
-
-* Business intelligence
-* Analytics & reporting
-* Historical data storage
-
-**Modern AI Use Cases:**
-
-* Training data repositories
-* Vector embeddings storage
-* RAG (Retrieval-Augmented Generation) context
-* Fine-tuning datasets
-* Evaluation & benchmark data
-
-## RAG and Context Engineering: The New Data Pipeline {.text-80 .crunch-title .crunch-p}
-
-```{dot}
-//| fig-height: 1
-digraph G {
-  rankdir="LR";
-  raw[label="Raw Data"];
-  lake[label="Data Lake"];
-  proc[label="Processing"];
-  vec[label="Vector DB"];
-  context[label="LLM Context"];
-  raw -> lake -> proc -> vec -> context;
-}
-```
-
-**Key Components:**
-
-* **Data Lakes** (S3, Azure Data Lake): Store massive unstructured data
-* **Data Warehouses** (Snowflake, BigQuery): Structured data for context
-* **Vector Databases** (Pinecone, Weaviate, Qdrant): Semantic search
-* **Embedding Models**: Convert data to vectors
-* **Orchestration** (Airflow, Prefect): Manage the pipeline
-
-
-## MCP Servers & Agentic AI {.smaller .crunch-title .crunch-ul .crunch-p}
-
-**Model Context Protocol (MCP)**
-
-* Open protocol for connecting AI assistants to data sources
-* Standardized way to expose tools and data to LLMs
-* Enables "agentic" behavior - AI that can act autonomously
-
-**MCP in Production**
-
-```{dot}
-//| fig-height: 1
-digraph G {
-  rankdir="LR";
-  ware[label="Data Warehouse"];
-  mcp[label="MCP Server"];
-  agent[label="AI Agent"];
-  action[label="Action"];
-  ware -> mcp -> agent -> action;
-}
-```
-
-**Examples:**
-
-* AI agents querying Snowflake for real-time analytics
-* Autonomous systems updating data lakes based on predictions
-* Multi-agent systems coordinating through shared data contexts
-
-
-## Data Quality for AI {.text-85 .crunch-p .crunch-ul}
-
-*(Why Data Quality Matters More Than Ever)*
-
-**Garbage In, Garbage Out - Amplified:**
-
-* Bad training data → Biased models
-* Incorrect RAG data → Hallucinations
-* Poor data governance → Compliance issues
-
-**Data Quality Challenges in 2025**
-
-* **Scale**: Validating trillions of tokens
-* **Diversity**: Multi-modal, multi-lingual data
-* **Velocity**: Real-time data for online learning
-* **Veracity**: Detecting AI-generated synthetic data
-
 ## Real-World Big Data / AI Examples {.crunch-title .smaller .title-11 .crunch-ul .crunch-p}
 
 **Netflix**
 
-* **Data Scale**: 260+ million subscribers generating 100+ billion events/day
-* **AI Use**: Personalization, content recommendations, thumbnail generation
-* **Stack**: S3 → Spark → Iceberg → ML models → Real-time serving
+* *Scale*: 260+ million subscribers generating 100+ billion events/day
+* *AI Use*: Personalization, content recommendations, thumbnail generation
+* *Stack*: S3 → Spark → Iceberg → ML models → Real-time serving
 
 **Uber**
 
-* **Data Scale**: 35+ million trips per day, petabytes of location data
-* **AI Use**: ETA prediction, surge pricing, driver-rider matching
-* **Stack**: Kafka → Spark Streaming → Feature Store → ML Platform
+* *Scale*: 35+ million trips per day, petabytes of location data
+* *AI Use*: ETA prediction, surge pricing, driver-rider matching
+* *Stack*: Kafka → Spark Streaming → Feature Store → ML Platform
 
 **OpenAI**
 
-* **Data Scale**: Trillions of tokens for training, millions of queries/day
-* **AI Use**: GPT models, DALL-E, embeddings
-* **Stack**: Distributed training &rarr; Vector DBs &rarr; Inference clusters
+* *Scale*: Trillions of tokens for training, millions of queries/day
+* *AI Use*: GPT models, DALL-E, embeddings
+* *Stack*: Distributed training &rarr; Vector DBs &rarr; Inference clusters
 
+::: {.aside}
 
-## Emerging Trends (2025-2027) {.smaller .crunch-ul .crunch-p}
-
-**Unified Platforms:**
-
-* Data lakes becoming "AI lakes"
-* Integrated vector + relational databases
-* One-stop shops for data + AI (Databricks, Snowflake Cortex)
-
-**Edge Computing + AI:**
-
-* Processing at the data source
-* Federated learning across devices
-* 5G enabling real-time edge AI
-
-**Synthetic Data:**
-
-* AI generating training data for AI
-* Privacy-preserving synthetic datasets
-
-## What You'll Learn in This Course {.crunch-title .smaller}
-
-*Modern Big Data Stack (2025)*
-
-:::: {layout="[1,1]"}
-::: {#bd-stack-left}
-
-**Query Engines:**
-
-* DuckDB - In-process analytical database
-* Polars - Lightning-fast DataFrame library  
-* Spark - Distributed processing at scale
-
-**Data Warehouses & Lakes:**
-
-* Snowflake - Cloud-native data warehouse
-* Athena - Serverless SQL on S3
-* Iceberg - Open table format
+Slide Author: Amit Arora!
 
 :::
-::: {#bd-stack-right}
 
-**AI/ML Integration:**
+## Data Architecture / Infrastructure Demo {.smaller .title-08}
 
-* Vector databases for embeddings
-* RAG implementation patterns
-* Streaming with Spark Structured Streaming
+<center>
+***How would you make X, the Former Bird App, scale to a billion users!?!***
+</center>
 
-**Orchestration:**
+![*Figure 2-1 from @kleppmann_designing_2026: A "standard" **relational** approach*](images/kleppmann-fig2-1.svg){align="center"}
 
-* Airflow for pipeline management
-* Serverless with AWS Lambda
+# "The Cloud" = Renting Computers from a Big Company {data-stack-name="The Cloud: AWS"}
 
-:::
-::::
+*(...That's it, that's the whole definition)*
 
-## Data Types
-
-* Structured
-* Unstructured
-* Natural language
-* Machine-generated
-* Graph-based
-* Audio, video, and images
-* Streaming
-
-
-## Big Data vs. Small Data I {.smaller .crunch-title .text-60}
-
-|  | Small Data is usually... | On the other hand, Big Data... |
-|---|---|---|
-| **Goals** | gathered for a specific goal | may have a goal in mind when it's first started, but things can evolve or take unexpected directions |
-| **Location** | in one place, and often in a single computer file | can be in multiple files in multiple servers on computers in different geographic locations |
-| **Structure/Contents** | highly structured like an Excel spreadsheet, and it's got rows and columns of data | can be unstructured, it can have many formats in files involved across disciplines, and may link to other resources |
-| **Preparation** | prepared by the end user for their own purposes | is often prepared by one group of people, analyzed by a second group of people, and then used by a third group of people, and they may have different purposes, and they may have different disciplines |
-
-: {tbl-colwidths="[20, 40, 40]"}
-
-## Big Data vs. Small Data II {.smaller .crunch-title .text-60}
-
-|  | Small Data is usually... | On the other hand, Big Data... |
-|---|---|---|
-| **Longevity** | kept for a specific amount of time after the project is over because there's a clear ending point. In the academic world it's maybe five or seven years and then you can throw it away | contains data that must be stored in perpetuity. Many big data projects extend into the past and future |
-| **Measurements** | measured with a single protocol using set units and it's usually done at the same time | is collected and measured using many sources, protocols, units, etc |
-| **Reproducibility** | be reproduced in their entirety if something goes wrong in the process | replication is seldom feasible |
-| **Stakes** | if things go wrong the costs are limited, it's not an enormous problem | can have high costs of failure in terms of money, time and labor |
-| **Access** | identified by a location specified in a row/column | unless it is exceptionally well designed, the organization can be inscrutable |
-| **Analysis** | analyzed together, all at once | is ordinarily analyzed in incremental steps |
-
-: {tbl-colwidths="[20, 40, 40]"}
-
-
-
-## Tools at-a-glance
+## Our Toolbox From Now Until December 😎 {.smaller .crunch-title .title-11}
 
 :::: {.columns}
-::: {.column width="50%" .r-fit-text}
-### Languages, libraries, and projects
+::: {.column width="50%"}
+
+<div style='border: 2px solid black; padding-left: 10px; padding-right: 10px; padding-bottom: 8px; padding-top: 6px; border-radius: 20px;'>
+
+<center><div>**Big Data Handling**</div></center>
+<center><div style='font-size: 70%;'>*You **could** technically run all these on your laptop!*</div></center>
+<center><div style='font-size: 70%;'>*...But in this class they'll run **on remote EC2***</div></center>
+
+<hr />
+
 - [Python](https://www.python.org/)
     - [`pandas`](https://pandas.pydata.org/)
-    - [`polars`](https://www.pola.rs/)
-    - [`PySpark`](https://spark.apache.org/docs/latest/api/python/index.html)
     - [`duckdb`](https://duckdb.org/docs/api/python/overview.html)
-    - [`dask`](https://www.dask.org/)
-    - [`ray`](https://www.ray.io/)
+    - [`polars`](https://www.pola.rs/)
+    - [`pyspark`](https://spark.apache.org/docs/latest/api/python/index.html)
+    * [`prefect`](https://www.prefect.io/)
 - [Apache Arrow](https://arrow.apache.org/)
-- [Apache Spark](https://spark.apache.org/)
-- [SQL](https://en.wikipedia.org/wiki/SQL) 
-- [Apache Hadoop](https://hadoop.apache.org/) (briefly)
+- [Apache Hadoop](https://hadoop.apache.org/) $\leadsto$ [Apache Spark](https://spark.apache.org/)
+
+</div>
 
 :::
 
-::: {.column width="50%" .r-fit-text}
+::: {.column width="50%"}
 
-### Cloud Services 
+<div style='border: 2px solid black; padding-left: 10px; padding-right: 10px; padding-top: 6px; margin-bottom: 8px; border-radius: 20px;'>
 
-- Amazon Web Services (AWS)
-  - [AWS Sagemaker](https://aws.amazon.com/pm/sagemaker/)
-  - [Amazon S3](https://aws.amazon.com/s3/)
-- Azure
-  - [Azure Blob](https://azure.microsoft.com/en-us/products/storage/blobs/)
-  - [Azure Machine Learning](https://azure.microsoft.com/en-us/products/machine-learning/)
+<center><div>**Cloud Services**</div></center>
+<center><div style='font-size: 70%;'>*These run on [some Amazon server](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html#zones-north-america) near<br>[Dulles Airport](https://www.datacentermap.com/c/amazon-aws/datacenters/) or [Frederick, MD](https://www.wmar2news.com/news/local-news/frederickcounty/maryland-approves-amazons-air-quality-permit-to-build-frederick-data-center)*</div></center>
 
-Other:
+<hr />
 
-- [AWS Elastic MapReduce (EMR)](https://aws.amazon.com/emr/)
+- Virtual Machines: [EC2](https://aws.amazon.com/ec2/)
+- Object Storage: [S3](https://aws.amazon.com/s3/)
+- Elastic Map-Reduce: [EMR](https://aws.amazon.com/emr/)
+
+</div>
+
+<div style='border: 2px solid black; padding-left: 10px; padding-right: 10px; padding-top: 6px; border-radius: 20px;'>
+
+<center><div>**IDEs**</div></center>
+<center><div style='font-size: 70%;'>*These **should** be run on your laptop*</div></center>
+<center><div style='font-size: 70%;'>*...But just to **connect to EC2** (edit/run remote files)!*</div></center>
+
+<hr />
+
+* [VSCode](https://code.visualstudio.com/)
+* [Positron](https://positron.posit.co/)
+
+</div>
   
 :::
-:::: 
-
-# Data Engineering {data-stack-name="Data Engineering"}
-
-## Data Scientist vs. Data Engineer {.smaller}
-
-In this course, you'll **augment** your data scientist skills with data engineering skills!
-
-<center>
-
-![](images/bdi-core-competencies-deng-and-dsci.png){width="60%"}
-
-</center>
-
-## Data Engineer Responsibilities
-
-<center>
-
-<img src="img/datacamp-3.png" width=600>
-
-</center>
-
-
-## Data Engineering: Levels 2 and 3
-
-<center>
-
-<img src="img/rogati.png" width=600>
-
-</center>
-
-# Time for Lab! Linux Command Line {data-stack-name="Linux Lab"}
-
-## The Terminal {.crunch-title .text-90}
-
-:::: {layout="[1,1]" layout-valign="center"}
-::: {#terminal-text}
-
-- Terminal access was **THE ONLY** way to do programming
-- No GUIs! No Spyder, Jupyter, RStudio, etc.
-- Coding is still more powerful than graphical interfaces for complex jobs
-- Coding makes work repeatable
-
-:::
-::: {#terminal-img}
-
-![](img/terminal_old_computer.jpg)
-
-:::
 ::::
 
-## BASH {.crunch-title}
+## Our Bookshelf From Now Until December 😎 {.smaller .crunch-title .title-11}
 
-:::: {layout="[60,40]" layout-valign="center"}
-::: {#bash-text}
+```{=html}
+<table class='text-875'>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+</thead>
+<tbody>
+<tr>
+  <td class='tdvc'>Week 2: Cloud Computing</td>
+  <td class='tdvc'><span data-qmd="**The Boar Book**: @kleppmann_designing_2026, *Designing Data-Intensive Applications (2nd Edition)*"></span></td>
+</tr>
+<tr>
+  <td class='tdvc'>Week 3: Parallel Concepts</td>
+  <td class='tdvc'><span data-qmd="**The Wolohan MapReduce Book**: @wolohan_mastering_2020, *Mastering Large Datasets with Python*, Chapters 1-6"></span></td>
+</tr>
+<tr>
+  <td class='tdvc'>Week 4: DuckDB</td>
+  <td class='tdvc'><span data-qmd="**The SQL Bird Book**: @tanimura_sql_2021, *SQL for Data Analysis*<br>**The I-Need-Ham, Hunger Book**: @needham_duckdb_2024, *DuckDB in Action*"></span></td>
+</tr>
+<tr>
+  <td class='tdvc'>Week 5: Polars</td>
+  <td class='tdvc'><span data-qmd="**The Lynx Book**: @janssens_python_2025, *Python Polars: The Definitive Guide*"></span></td>
+</tr>
+<tr>
+  <td class='tdvc'>Week 6: Data Engineering</td>
+  <td class='tdvc'><span data-qmd="**General Data Engineering**: @eagar_data_2021, *Data Engineering with AWS*<br>**Athena**: @virtuoso_serverless_2021, *Serverless Analytics with Amazon Athena*"></span></td>
+</tr>
+<tr>
+  <td class='tdvc'>Week 7: Hadoop</td>
+  <td class='tdvc'><span data-qmd="**The Wolohan MapReduce Book**: @wolohan_mastering_2020, *Mastering Large Datasets with Python*, Chapters 7-10"></span></td>
+</tr>
+<tr>
+  <td class='tdvc'>Weeks 8-9: Spark</td>
+  <td class='tdvc'><span data-qmd="**The Electric Eel Book**: @damji_learning_2020, *Learning Spark*"></span></td>
+</tr>
+<tr>
+  <td class='tdvc'>Weeks 10-11: ETL, Vector DBs</td>
+  <td class='tdvc'><span data-qmd="**The Zilliz Course**: @zilliz_introduction_2025, *Introduction to Unstructured Data*"></span></td>
+</tr>
+</tbody>
+</table>
+```
 
-* Created in 1989 by Brian Fox: "**B**ourne-**A**gain **Sh**ell"
-* Brian Fox also built the first online interactive banking software
-* BASH is a command processor
-* Connection between you and the machine language and hardware
+# Time for In-Class Demos! {data-stack-name="Demos"}
 
+## Lab: DDLs vs. DQLs
+
+* **DDL**: Data **Definition** Language
+* **DQL**: Data **Query** Language
+
+## References
+
+::: {#refs}
 :::
-::: {#bash-img}
-
-![](img/bash.png)
-
-:::
-::::
-
-## The Prompt
-
-``` {.bash code-line-numbers="false"}
-username@hostname:current_directory $
-```
-
-What do we learn from the prompt?
-
-- Who you are - **`username`**
-- The machine where your code is running - **`hostname`**
-- The directory where your code is running - **`current_directory`**
-- The shell type - **`$`** - this symbol means BA$H
-
-## Syntax {.smaller .crunch-title .crunch-p .crunch-li-7}
-
-``` {.bash code-line-numbers="false"}
-COMMAND -F --FLAG
-```
-
-* `COMMAND` is the program, everything after that = arguments
-* `F` is a single letter flag, `FLAG` is a single word or words connected by dashes. A space breaks things into a new argument.
-* Sometimes argument has single letter and long form versions (e.g. `F` and `FLAG`)
-
-```{.bash code-line-numbers="false"}
-COMMAND -F --FILE file1
-```
-
-* Here we pass a text argument `"file1"` as the **value** for the `FILE` flag
-* **`-h`** flag is usually to get help. You can also run the **`man`** command and pass the name of the program as the argument to get the help page.
-
-Let's try basic commands:
-
-- **`date`** to get the current date
-- **`whoami`** to get your user name
-- **`echo "Hello World"`** to print to the console
-
-## Examining Files {.crunch-title .text-85 .crunch-ul .crunch-li-8}
-
-* Find out your **P**resent **W**orking **D**irectory **`pwd`**
-* Examine the contents of files and folders using **`ls`**
-* Make new files from scratch using **`touch`**
-* **Glob**: "Mini-language" for selecting files with wildcards
-  - **`\*`** for wild card any number of characters
-  - **`\?`** for wild card for a single character
-  - **`[]`** for one of many character options
-  - **`!`** for exclusion
-  - **`[:alpha:]`**, **`[:alnum:]`**, **`[:digit:]`**, **`[:lower:]`**, **`[:upper:]`**
-
-[Reference material: Shell Lesson 1,2,4,5](https://linuxjourney.com/lesson/the-shell)
-
-## Navigating Directories {.crunch-title .text-80 .crunch-ul .crunch-p .crunch-li-8}
-
-* Knowing **where your terminal is executing code** ensures you are working with the right inputs/outputs.
-* Use `pwd` to determine the Present Working Directory.
-* Change to a folder called "git-repo" with `cd git-repo`.
-- **`.`** refers to the current directory, such as **`./git-repo`**
-- **`..`** can be used to move up one level (**`cd ..`**), and can be combined to move up multiple levels (**`cd ../../my_folder`**)
-- **`/`** is the **root** of the filesystem: contains core folders (system, users)
-- **`~`** is the **home directory**. Move to folders referenced relative to this path by including it at the start of your path, for example **`~/projects`**.
-* To **visualize the structure** of your working directory, use **`tree`**
-
-[Reference link](https://www.freecodecamp.org/news/linux-command-line-bash-tutorial/)
-
-## Interacting with Files {.crunch-title .crunch-ul .text-85 .crunch-p .crunch-li-8}
-
-Now that we know how to navigate through **directories**, we need commands for interacting with **files**...
-
-- **`mv`** to move files from one location to another
-  * Can use glob here - `?`, `*`, `[]`, ...
-- **`cp`** to copy files instead of moving
-  + Can use glob here - `?`, `*`, `[]`, ...
-- **`mkdir`** to make a directory
-- **`rm`** to remove files
-- **`rmdir`** to remove directories
-- **`rm -rf`** to blast everything! WARNING!!! DO NOT USE UNLESS YOU KNOW WHAT YOU ARE DOING
-
-## Using BASH for Data Exploration {.crunch-title .crunch-ul .text-90 .crunch-li-8}
-
-- **`head FILENAME`** / **`tail FILENAME`** - glimpsing the first / last few rows of data
-- **`more FILENAME`** / **`less FILENAME`** - viewing the data with basic up / (up & down) controls
-- **`cat FILENAME`** - print entire file contents into terminal
-- **`vim FILENAME`** - open (or edit!) the file in vim editor
-- **`grep FILENAME`** - search for lines within a file that match a regex expression
-- **`wc FILENAME`** - count the number of lines (**`-l`** flag) or number of words (**`-w`** flag)
-
-[Reference material: Text Lesson 8,9,15,16](https://linuxjourney.com/lesson/stdout-standard-out-redirect)
-
-## Pipes and Arrows
-
-* **`|`** sends the stdout to another command (is the most powerful symbol in BASH!)
-* **`>`**  sends stdout to a file and overwrites anything that was there before
-* **`>>`** appends the stdout to the end of a file (or starts a new file from scratch if one does not exist yet)
-* **`<`** sends stdin into the command on the left
-
-[Reference material: Text Lesson 1,2,3,4,5](https://linuxjourney.com/lesson/stdout-standard-out-redirect)
-
-## Alias and User Files {.crunch-title .text-85}
-
-* `/.bashrc` is where your shell settings are located
-* How many processes? **`whoami | xargs ps -u | wc -l`**
-* Hard to remember full command! Let's make an **alias**
-* General syntax:
-
-  ``` {.bash code-line-numbers="false"}
-  alias alias_name="command_to_run"
-  ```
-
-* For our case:
-
-  ``` {.bash code-line-numbers="false"}
-  alias nproc="whoami | xargs ps -u | wc -l"
-  ```
-
-* Now we need to put this alias into the .bashrc
-
-  ``` {.bash code-line-numbers="false"}
-  alias nproc="whoami | xargs ps -u | wc -l" >> ~/.bashrc
-  ```
-
-* Your commands get saved in **`~/.bash_history`**
-
-## Process Management {.crunch-title .text-90 .crunch-ul .crunch-p .crunch-li-8}
-
-* Use **`ps`** to see your running processes
-* Use **`top`** or even better **`htop`** to see all running processes
-* Install **htop** via **`sudo yum install htop -y`**
-* To kill a broken process: first find the **process ID (PID)**
-* Then use **`kill [PID NUM]`** to "ask" the process to terminate. If things get really bad: **`kill -9 [PID NUM]`**
-* To kill a command in the terminal window it is running in, try using **Ctrl + C** or **Ctrl + /**
-* Run **`cat`** on its own to let it stay open. Now open a new terminal to examine the processes and find the cat process.
-
-[Reference material: Text Lesson 1,2,3,7,9,10](https://linuxjourney.com/lesson/monitor-processes-ps-command)
-

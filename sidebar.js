@@ -113,7 +113,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     updateToggleIcon(newStr)
     let sData = sectionData[newStr]
     for (const [sKey, sVal] of Object.entries(sData)) {
-      (sKey).text(sVal);
+      console.log(`sKey: ${sKey}`)
+      $(sKey).text(sVal);
     }
     const s01Replace = {
       // w01

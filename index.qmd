@@ -18,12 +18,6 @@ format:
     link-external-newwindow: true
 ---
 
-::: {.callout-warning title="Under Construction"}
-
-The homepage and syllabus for this course are still under construction, and will be finalized by the **first day of Section <span class='sec-num'>01</span> lecture, <span class='sec-w01-date-full'>Monday, August 31</span>**
-
-:::
-
 ```{=html}
 <style>
 .honk-honk {

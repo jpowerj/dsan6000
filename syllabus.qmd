@@ -33,12 +33,6 @@ format:
 
 \vspace{-8mm}
 
-::: {.callout-warning title="Under Construction"}
-
-The homepage and syllabus for this course are still under construction, and will be finalized by the **first day of Section <span class='sec-num'>01</span> lecture, <span class='sec-w01-date-full'>Monday, August 31</span>**
-
-:::
-
 Welcome to the Fall 2026 version of **Big Data and Cloud Computing** at Georgetown University! Please note that the most up-to-date version of this syllabus will always be available at [jjacobs.me/dsan6000](https://jjacobs.me/dsan6000){target='_blank'}
 
 ## Course Staff and Office Hours
@@ -73,16 +67,20 @@ On the basis of the guidelines we've developed for courses offered through DSAN,
 </thead>
 <tbody>
 <tr>
-    <td><span data-qmd="In-Class Midterm"></span></td>
-    <td>20%</td>
+  <td>Homeworks</td>
+  <td>50%</td>
+</tr>
+<tr>
+  <td>In-Class Midterm</td>
+  <td>20%</td>
 </tr>
 <tr>
     <td>Final Project</td>
-    <td>30%</td>
+    <td>25%</td>
 </tr>
 <tr>
-    <td>Homeworks</td>
-    <td>50%</td>
+  <td>Attendance</td>
+  <td>5%</td>
 </tr>
 </tbody>
 </table>
@@ -251,7 +249,7 @@ Excused lateness exceptions will be grounded in a policy where you can "pause" t
 
 ![Maslow's Hierarchy of Needs, from [Wikimedia](https://commons.wikimedia.org/wiki/File:Maslow%27s_Hierarchy_of_Needs_Pyramid_(original_five-level_model).png)](images/maslow.png){#fig-maslow fig-align="center" width="70%"}
 
-Learning GIS is way up there in the blue triangle, so, it's important that you feel like the first four levels are solidified before you turn your focus back to classwork. And, it's a win-win, because it means that once you're back in action you can be more engaged and receptive to new topics, rather than being forced to "simulate" being in the blue triangle while in reality struggling in other spots!
+Learning about Big Data and Cloud Computing is way up there in the green and blue portions, so, it's important that you feel like the first four levels are solidified before you turn your focus back to classwork. And, it's a win-win, because it means that once you're back in action you can be more engaged and receptive to new topics, rather than being forced to "simulate" being in the blue triangle while in reality struggling in other spots!
 
 ## Final Letter Grade Determination
 
