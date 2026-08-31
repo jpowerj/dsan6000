@@ -85,7 +85,7 @@ Today's Planned Schedule:
 | | <span class='sec-p60'>7:30pm</span> | <span class='sec-p75'>7:45pm</span> | [Demo: Measuring Implementation Efficiency &rarr;](#data-engineering)
 | | 7:30pm | 7:45pm | [Key Tools Overview &rarr;](#key-tools)
 | **Break!** | 8:00pm | 8:10pm | |
-| | 8:10pm | 9:00pm | [In-Class Demo: DDLs and DQLs &rarr;](#lab-ddls-vs.-dqls)
+| | 8:10pm | 9:00pm | [Getting Set Up in AWS Academy &rarr;](#)
 
 : {tbl-colwidths="[12,12,12,64]"}
 
@@ -729,7 +729,7 @@ Slide Author: Amit Arora!
 
 </div>
 
-## Real-World Big Data / AI Examples {.crunch-title .smaller .title-11 .crunch-ul .crunch-p}
+## Real-World Examples {.crunch-title .smaller .title-11 .crunch-ul .crunch-p}
 
 **Netflix**
 
@@ -762,6 +762,12 @@ Slide Author: Amit Arora!
 </center>
 
 ![*Figure 2-1 from @kleppmann_designing_2026: A "standard" **relational** approach*](images/kleppmann-fig2-1.svg){align="center"}
+
+<center>
+
+[[**"Back of the envelope" calculation demo**](https://observablehq.com/@jpowerj/scaling-bird-app)]{.boxed-cb}
+
+</center>
 
 # "The Cloud" = Renting Computers from a Big Company {data-stack-name="The Cloud: AWS"}
 
@@ -827,7 +833,7 @@ Slide Author: Amit Arora!
 ## Our Bookshelf From Now Until December 😎 {.smaller .crunch-title .title-11}
 
 ```{=html}
-<table class='text-875'>
+<table class='text-85'>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -865,18 +871,15 @@ Slide Author: Amit Arora!
 </tr>
 <tr>
   <td class='tdvc'>Weeks 10-11: ETL, Vector DBs</td>
-  <td class='tdvc'><span data-qmd="**The Zilliz Course**: @zilliz_introduction_2025, *Introduction to Unstructured Data*"></span></td>
+  <td class='tdvc'><span data-qmd="**The Zilliz Course Intro**: @zilliz_introduction_2025, *Introduction to Unstructured Data*"></span></td>
 </tr>
 </tbody>
 </table>
 ```
 
-# Time for In-Class Demos! {data-stack-name="Demos"}
+# Demo Time! {data-stack-name="AWS Demo"}
 
-## Lab: DDLs vs. DQLs
-
-* **DDL**: Data **Definition** Language
-* **DQL**: Data **Query** Language
+* Setting up a **new EC2 instance** using the AWS Console
 
 ## References
 

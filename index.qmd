@@ -77,9 +77,9 @@ format:
 
 :::
 
-::: {.callout-note title="Irregular Lecture Days"}
+::: {.callout-note title="Holidays / Irregular Lecture Days"}
 
-Please keep in mind the following "special" days, when course meetings will be shifted or skipped due to holidays:
+Please keep in mind the following dates, when course meetings will be shifted or skipped:
 
 * **Tuesday, September 8**: The **Week 2 meeting** for the Monday section (Section 01) falls on a **Tuesday**, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)
 * **Monday, October 12** and **Thursday, October 15**: No class due to Georgetown's Mid-Semester Holiday
@@ -87,6 +87,6 @@ Please keep in mind the following "special" days, when course meetings will be s
 
 :::
 
-Welcome! This webpage contains slides, resources, and auxiliary writeups for *DSAN 6000: Big Data and Cloud Computing*, Fall 2026 at Georgetown University.
+Welcome! This webpage contains slides, [resources](resources.qmd), and auxiliary [writeups](writeups/index.qmd) for *DSAN 6000: Big Data and Cloud Computing*, Fall 2026 at Georgetown University.
 
 Section <span class='sec-num'>01</span> of the course takes place on **<span class='sec-day-full'>Wednesday</span>** from **<span class='sec-start'>3:30pm</span> to <span class='sec-end'>6:00pm</span>** in **<span class='sec-room'>Walsh 394</span>**. Use the links in the sidebar, or in the table below, to explore the content for a particular week.

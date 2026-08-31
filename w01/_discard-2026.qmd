@@ -1,0 +1,4 @@
+## Lab: DDLs vs. DQLs
+
+* **DDL**: Data **Definition** Language
+* **DQL**: Data **Query** Language
