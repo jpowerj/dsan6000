@@ -125,7 +125,7 @@ You'll now be on the "Launch an instance" page. Follow these steps to configure 
    - Click **Create key pair** and save the file securely - you'll need this to connect to your instance
 
 ::: callout-important
-**SAVE YOUR KEY PAIR FILE SECURELY!** This file is your only way to access your EC2 instance. Store it in a safe location on your computer and never share it with anyone.
+**SAVE YOUR `.pem` KEY PAIR FILE SECURELY!** This file is your only way to access your EC2 instance. Store it in a safe location on your computer and never share it with anyone.
 :::
 
 5. **Network settings**:
