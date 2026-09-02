@@ -1,0 +1,57 @@
+## Task 5: Complete Today's Lab Assignment
+
+Now that you have your EC2 instance set up with VSCode, let's complete today's lab assignment.
+
+### Accept the GitHub Classroom Assignment
+
+1. Click on the following link to accept the lab assignment:
+   [GitHub Classroom Assignment - Lab 02](https://classroom.github.com/a/LzwXGbm_)
+
+2. Accept the assignment, which will create a private repository for you.
+
+### Clone the Repository
+
+1. In your VSCode terminal (connected to EC2), clone your assignment repository:
+   ```bash
+   cd ~/dsan6000
+   git clone YOUR_ASSIGNMENT_REPO_URL
+   cd YOUR_REPO_NAME
+   ```
+
+### Review the Assignment
+
+The assignment is based on analyzing a dataset using cloud computing resources. You can review the `analytics.ipynb` notebook in your repo.
+
+### Complete the Tasks
+
+1. Open the `analytics.ipynb` notebook in VSCode:
+   - Click on the notebook file in the VSCode explorer
+   - VSCode will automatically open it with Jupyter support
+
+2. The notebook contains several tasks related to:
+   - Loading and exploring a dataset
+   - Creating an S3 bucket in your AWS account
+   - Uploading data to S3
+   - Performing basic data analysis
+
+3. Work through each cell in the notebook, completing the tasks marked with "TODO" or "Task".
+
+4. Make sure to:
+   - Run all cells and verify the output
+   - Complete all required tasks
+   - Add your analysis and observations where requested
+
+### Submit Your Work
+
+1. After completing all tasks, save your notebook.
+
+2. Commit and push your changes to GitHub:
+   ```bash
+   git add .
+   git commit -m "Complete Lab 02 - EC2 and data analysis"
+   git push origin main
+   ```
+
+::: callout-important
+Make sure to commit and push your completed notebook to your GitHub repository before the deadline.
+:::

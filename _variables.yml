@@ -4,6 +4,7 @@ course:
   slides-subtitle: "*DSAN 6000: Big Data and Cloud Computing*<br>Fall 2026"
   homepage_url: "https://jjacobs.me/dsan6000"
   gspace_url: "https://chat.google.com/room/AAQAfu8NheM?cls=7"
+  aws_canvas_url: "https://awsacademy.instructure.com/courses/184539"
 weeks:
 - weeknum: 1
   title: "Course Overview"
