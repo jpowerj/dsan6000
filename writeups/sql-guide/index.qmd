@@ -6,6 +6,8 @@ date: 2026-08-30
 sidebar: mainnav
 categories:
   - Extra Writeups
+assignments:
+  - Homework 3
 format:
   html:
     df-print: kable

@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jeff Jacobs (2026)">
+<meta name="author" content="Amit Arora (2025)">
+<meta name="dcterms.date" content="2026-09-08">
 
-<title>Resource Hub – DSAN 6000: Big Data and Cloud Computing</title>
+<title>Creating Your S3 Bucket – DSAN 6000: Big Data and Cloud Computing</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,51 +26,66 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-fedc0afa5eed45b88079642ee2c6e752.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b8d062b2540509935fb81a62cba1d670.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-6a9b6ebf4f72336ee4717be713fb06d3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-b8d062b2540509935fb81a62cba1d670.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-fedc0afa5eed45b88079642ee2c6e752.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b8d062b2540509935fb81a62cba1d670.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-6a9b6ebf4f72336ee4717be713fb06d3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-b8d062b2540509935fb81a62cba1d670.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -97,7 +115,7 @@ div.csl-indent {
 }</script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./sidebar.js"></script>
+<script src="../../sidebar.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
@@ -275,7 +293,9 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./resources.html">Resources</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      DSAN 6000: Big Data and Cloud Computing
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -290,7 +310,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">DSAN 6000: Big Data and Cloud Computing</a> 
+      <a href="../../">DSAN 6000: Big Data and Cloud Computing</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -305,104 +325,104 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><i class="bi bi-house"></i> Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./resources.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./writeups/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../writeups/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Writeups</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w01/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w01/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1: <span class="sec-w01-date">Aug 31</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w02/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 2: <span class="sec-w02-date">Sep 8</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w03/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w03/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 3: <span class="sec-w03-date">Sep 14</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w04/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w04/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 4: <span class="sec-w04-date">Sep 21</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w05/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w05/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 5: <span class="sec-w05-date">Sep 28</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w06/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w06/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 6: <span class="sec-w06-date">Oct 5</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w07/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w07/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 7: <span class="sec-w07-date">Oct 19</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w08/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w08/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 8: <span class="sec-w08-date">Oct 26</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w09/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w09/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 9: <span class="sec-w09-date">Nov 2</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w10/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w10/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 10: <span class="sec-w10-date">Nov 9</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w11/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w11/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 11: <span class="sec-w11-date">Nov 16</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w12/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w12/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 12: <span class="sec-w12-date">Nov 30</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./w13/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w13/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 13: <span class="sec-w13-date">Dec 7-8</span></span></a>
   </div>
 </li>
@@ -449,20 +469,14 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#recordings" id="toc-recordings" class="nav-link active" data-scroll-target="#recordings">2025 Recordings</a></li>
-  <li><a href="#key-books-by-week" id="toc-key-books-by-week" class="nav-link" data-scroll-target="#key-books-by-week">Key Books By Week</a>
-  <ul class="collapse">
-  <li><a href="#week-1-course-overview-week-2-cloud-computing" id="toc-week-1-course-overview-week-2-cloud-computing" class="nav-link" data-scroll-target="#week-1-course-overview-week-2-cloud-computing">Week 1: Course Overview / Week 2: Cloud Computing</a></li>
-  <li><a href="#week-3-parallel-concepts" id="toc-week-3-parallel-concepts" class="nav-link" data-scroll-target="#week-3-parallel-concepts">Week 3: Parallel Concepts</a></li>
-  <li><a href="#week-4-sql-duckdb-polars" id="toc-week-4-sql-duckdb-polars" class="nav-link" data-scroll-target="#week-4-sql-duckdb-polars">Week 4: SQL, DuckDB, Polars</a></li>
-  <li><a href="#week-5-data-warehousing" id="toc-week-5-data-warehousing" class="nav-link" data-scroll-target="#week-5-data-warehousing">Week 5: Data Warehousing</a></li>
-  <li><a href="#weeks-6-and-7-hadoop-pyspark" id="toc-weeks-6-and-7-hadoop-pyspark" class="nav-link" data-scroll-target="#weeks-6-and-7-hadoop-pyspark">Weeks 6 and 7: Hadoop → PySpark</a></li>
-  <li><a href="#weeks-8-and-9-spark-in-depth" id="toc-weeks-8-and-9-spark-in-depth" class="nav-link" data-scroll-target="#weeks-8-and-9-spark-in-depth">Weeks 8 and 9: Spark in Depth</a></li>
-  </ul></li>
-  <li><a href="#in-class-demos" id="toc-in-class-demos" class="nav-link" data-scroll-target="#in-class-demos">In-Class Demos</a></li>
-  <li><a href="#pdfs-of-books" id="toc-pdfs-of-books" class="nav-link" data-scroll-target="#pdfs-of-books">PDFs of Books</a></li>
+  <li><a href="#navigate-to-s3-service" id="toc-navigate-to-s3-service" class="nav-link active" data-scroll-target="#navigate-to-s3-service">Navigate to S3 Service</a></li>
+  <li><a href="#view-s3-buckets-dashboard" id="toc-view-s3-buckets-dashboard" class="nav-link" data-scroll-target="#view-s3-buckets-dashboard">View S3 Buckets Dashboard</a></li>
+  <li><a href="#create-a-new-s3-bucket" id="toc-create-a-new-s3-bucket" class="nav-link" data-scroll-target="#create-a-new-s3-bucket">Create a New S3 Bucket</a></li>
+  <li><a href="#view-your-created-bucket" id="toc-view-your-created-bucket" class="nav-link" data-scroll-target="#view-your-created-bucket">View Your Created Bucket</a></li>
+  <li><a href="#upload-a-test-file-to-your-bucket" id="toc-upload-a-test-file-to-your-bucket" class="nav-link" data-scroll-target="#upload-a-test-file-to-your-bucket">Upload a Test File to Your Bucket</a></li>
+  <li><a href="#working-with-s3-from-the-command-line" id="toc-working-with-s3-from-the-command-line" class="nav-link" data-scroll-target="#working-with-s3-from-the-command-line">Working with S3 from the Command Line</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/resources.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/writeups/s3/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -470,14 +484,30 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Resource Hub</h1>
-</div>
+<h1 class="title">Creating Your S3 Bucket</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Extra Writeups</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeff Jacobs (2026) <a href="mailto:jj1088@georgetown.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+             <p>Amit Arora (2025) <a href="mailto:aa1603@georgetown.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 8, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -487,141 +517,117 @@ div.csl-indent {
 </header>
 
 
-<section id="recordings" class="level2">
-<h2 class="anchored" data-anchor-id="recordings">2025 Recordings</h2>
-<p>Lecture recordings from the Fall 2025 version of the course can be watched <a href="https://georgetown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9ebe4700-c41f-434a-bb78-b34801332737%22" target="_blank">here</a></p>
+<div class="callout callout-style-default callout-note callout-titled" title="SaxaNet vs. GuestNet">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SaxaNet vs.&nbsp;GuestNet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are on Georgetown’s campus, make sure that you are connected to the <a href="https://uis.georgetown.edu/saxanet/"><strong>SaxaNet</strong> wifi network</a>, and <strong>not</strong> the <strong>GuestNet</strong> wifi network. SSHing into a remote instance is <strong>blocked</strong> on GuestNet, which means if you are on GuestNet you wil not be able to connect to your EC2 instances.</p>
+</div>
+</div>
+<p>Amazon S3 (Simple Storage Service) is AWS’s object storage service that allows you to store and retrieve data from anywhere on the web. In this task, you’ll create an S3 bucket to store datasets, code outputs, and other files for your projects.</p>
+<section id="navigate-to-s3-service" class="level2">
+<h2 class="anchored" data-anchor-id="navigate-to-s3-service">Navigate to S3 Service</h2>
+<ol type="1">
+<li><p>From the AWS Console home page, search for <strong>S3</strong> in the search bar at the top or find it under the “Storage” section.</p></li>
+<li><p>Click on <strong>S3</strong> to open the S3 dashboard.</p></li>
+</ol>
+<p><a href="img/Homepage-S3.png"><img src="img/Homepage-S3.png" class="img-fluid"></a></p>
 </section>
-<section id="key-books-by-week" class="level2">
-<h2 class="anchored" data-anchor-id="key-books-by-week">Key Books By Week</h2>
-<section id="week-1-course-overview-week-2-cloud-computing" class="level3">
-<h3 class="anchored" data-anchor-id="week-1-course-overview-week-2-cloud-computing">Week 1: Course Overview / Week 2: Cloud Computing</h3>
-<ul>
-<li><strong>The Boar Book</strong>: <span class="citation" data-cites="kleppmann_designing_2026">Kleppmann and Riccomini (<a href="#ref-kleppmann_designing_2026" role="doc-biblioref">2026</a>)</span>, <em>Designing Data-Intensive Applications (2nd Edition)</em></li>
-</ul>
+<section id="view-s3-buckets-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="view-s3-buckets-dashboard">View S3 Buckets Dashboard</h2>
+<p>Once in the S3 service, you’ll see the main S3 buckets dashboard. This shows all your existing buckets (if any) and allows you to create new ones.</p>
+<p><a href="img/S3-buckets-S3.png"><img src="img/S3-buckets-S3.png" class="img-fluid"></a></p>
 </section>
-<section id="week-3-parallel-concepts" class="level3">
-<h3 class="anchored" data-anchor-id="week-3-parallel-concepts">Week 3: Parallel Concepts</h3>
+<section id="create-a-new-s3-bucket" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-new-s3-bucket">Create a New S3 Bucket</h2>
+<ol type="1">
+<li>Click on the <strong>Create bucket</strong> button (orange button on the right side of the page).</li>
+</ol>
+<p><a href="img/Create-S3-bucket-S3.png"><img src="img/Create-S3-bucket-S3.png" class="img-fluid"></a></p>
+<ol start="2" type="1">
+<li><strong>Configure your bucket</strong>:
 <ul>
-<li><strong>The Wolohan MapReduce Book</strong>: <span class="citation" data-cites="wolohan_mastering_2020">Wolohan (<a href="#ref-wolohan_mastering_2020" role="doc-biblioref">2020</a>)</span>, <em>Mastering Large Datasets with Python</em>, Chapters 1-6</li>
-</ul>
-</section>
-<section id="week-4-sql-duckdb-polars" class="level3">
-<h3 class="anchored" data-anchor-id="week-4-sql-duckdb-polars">Week 4: SQL, DuckDB, Polars</h3>
+<li><strong>Bucket name</strong>: Enter a unique name like <code>{your-net-id}-dsan6k-f2025</code> (replace <code>{your-net-id}</code> with your actual NET ID)
 <ul>
-<li><strong>The SQL Bird Book</strong>: <span class="citation" data-cites="tanimura_sql_2021">Tanimura (<a href="#ref-tanimura_sql_2021" role="doc-biblioref">2021</a>)</span>, <em>SQL for Data Analysis: Advanced Techniques for Transforming Data into Insights</em></li>
-<li><strong>The Lynx Book</strong>: <span class="citation" data-cites="janssens_python_2025">Janssens and Nieuwdorp (<a href="#ref-janssens_python_2025" role="doc-biblioref">2025</a>)</span>, <em>Python Polars: The Definitive Guide</em></li>
-<li><strong>The I-Need-Ham, Hunger Book</strong>: <span class="citation" data-cites="needham_duckdb_2024">Needham, Hunger, and Simons (<a href="#ref-needham_duckdb_2024" role="doc-biblioref">2024</a>)</span>, <em>DuckDB in Action</em></li>
-</ul>
-</section>
-<section id="week-5-data-warehousing" class="level3">
-<h3 class="anchored" data-anchor-id="week-5-data-warehousing">Week 5: Data Warehousing</h3>
-<p>Two Packt Books:</p>
-<ul>
-<li><strong>General Data Engineering on AWS</strong>: <span class="citation" data-cites="eagar_data_2021">Eagar (<a href="#ref-eagar_data_2021" role="doc-biblioref">2021</a>)</span>, <em>Data Engineering with AWS</em></li>
-<li><strong>Data Engineering with Athena</strong>: <span class="citation" data-cites="virtuoso_serverless_2021">Virtuoso et al. (<a href="#ref-virtuoso_serverless_2021" role="doc-biblioref">2021</a>)</span>, <em>Serverless Analytics with Amazon Athena</em></li>
-</ul>
-</section>
-<section id="weeks-6-and-7-hadoop-pyspark" class="level3">
-<h3 class="anchored" data-anchor-id="weeks-6-and-7-hadoop-pyspark">Weeks 6 and 7: Hadoop → PySpark</h3>
-<ul>
-<li><strong>The Wolohan MapReduce Book</strong>: <span class="citation" data-cites="wolohan_mastering_2020">Wolohan (<a href="#ref-wolohan_mastering_2020" role="doc-biblioref">2020</a>)</span>, <em>Mastering Large Datasets with Python</em>, Chapters 7-10</li>
-</ul>
-</section>
-<section id="weeks-8-and-9-spark-in-depth" class="level3">
-<h3 class="anchored" data-anchor-id="weeks-8-and-9-spark-in-depth">Weeks 8 and 9: Spark in Depth</h3>
-<ul>
-<li><strong>The Electric Eel Book</strong>: <span class="citation" data-cites="damji_learning_2020">Damji et al. (<a href="#ref-damji_learning_2020" role="doc-biblioref">2020</a>)</span>, <em>Learning Spark</em></li>
-</ul>
-</section>
-</section>
-<section id="in-class-demos" class="level2">
-<h2 class="anchored" data-anchor-id="in-class-demos">In-Class Demos</h2>
-<ul>
-<li><a href="https://colab.research.google.com/drive/1tS3nM7FJAqthDqdeXmqgxiOYMcRrFTZq?usp=sharing">Week 4 Polars Demo (Colab)</a></li>
-<li><a href="https://colab.research.google.com/drive/1tPlayCjCJqS4D1TKXwtx93knBZhWxqOy?usp=sharing">Week 4 DuckDB Demo (Colab)</a></li>
-<li>Week 6 Hadoop Demo (Deepnote): <a href="https://deepnote.com/workspace/Columbia-University-f2637961-0c74-4aff-8153-d766baa193ed/project/MapReduceDemo-41367b13-4253-47c8-8ffe-0544456d6070/notebook/DSAN5500HW5-8b90a6af23d34d239b7da0111228614d?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=41367b13-4253-47c8-8ffe-0544456d6070">Map-Reduced Matrix-Vector Multiplication</a></li>
-<li>Week 6 Hadoop → PySpark Demo (Deepnote): <a href="https://deepnote.com/workspace/dsan-f2637961-0c74-4aff-8153-d766baa193ed/project/PySpark-Demo-5b6d12ee-5b84-4b9c-b217-57081420a97d/notebook/PySparkTennis-e728d4f3669d412fa2af10e6f30b9689?utm_source=share-modal&amp;utm_medium=product-shared-content&amp;utm_campaign=notebook&amp;utm_content=5b6d12ee-5b84-4b9c-b217-57081420a97d">Tennis Analytics with Hadoop and PySpark RDDs</a> <!-- * [Week 7 M&M Counts Starter Code (Databricks Free Edition)](https://dbc-7c96f2b7-b70a.cloud.databricks.com/editor/notebooks/1614884783289922?o=3732734799398494) --></li>
-<li><a href="https://colab.research.google.com/drive/17xglntdFVtGpgJRt_Y3fDELYt4Lycf96?usp=sharing">Week 7 PySpark DataFrames Demo (Colab)</a>
-<ul>
-<li>(Adapted from <a href="https://jacobcelestine.com/knowledge_repo/colab_and_pyspark/">Jacob Celestine’s PySpark on Colab demo</a>)</li>
+<li>Note: Bucket names must be globally unique across all AWS accounts, lowercase, and can contain only letters, numbers, and hyphens</li>
 </ul></li>
-<li><a href="https://colab.research.google.com/drive/1pTHqKyU0_-1-ylJgF2gG8KJQr24QKx0G?usp=sharing">Week 8 SparkNLP Demo</a></li>
-<li><a href="https://colab.research.google.com/drive/1HpdPjTNAbIYzvlyK9YoxVb6MaXmcDyQs?usp=sharing">Week 9 Spark ML Demo (Colab)</a></li>
-<li><a href="https://github.com/jpowerj/mlflow-demo">Week 9 MLFlow Demo (GitHub)</a></li>
-</ul>
+<li><strong>AWS Region</strong>: Leave as default (should match your EC2 region, typically us-east-1)</li>
+<li><strong>Object Ownership</strong>: Leave as default (ACLs disabled)</li>
+<li><strong>Block Public Access settings</strong>: Leave all boxes checked (block all public access) for security</li>
+<li><strong>Bucket Versioning</strong>: Leave as “Disable” for now</li>
+<li><strong>Tags</strong>: Optional - you can add tags like <code>course: dsan6000</code> if desired</li>
+<li><strong>Default encryption</strong>: Leave as default (Server-side encryption with Amazon S3 managed keys)</li>
+<li><strong>Advanced settings</strong>: Leave as default</li>
+</ul></li>
+<li>Scroll to the bottom and click <strong>Create bucket</strong>.</li>
+</ol>
 </section>
-<section id="pdfs-of-books" class="level2">
-<h2 class="anchored" data-anchor-id="pdfs-of-books">PDFs of Books</h2>
-<p>The remainder of this page is auto-generated from all of the references across the slides for each week: click on the <strong>name</strong> of a reference to download the ebook version, if available!</p>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-damji_learning_2020" class="csl-entry" role="listitem">
-Damji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. <em><a href="https://www.dropbox.com/scl/fi/fhscpw6xcneo8ypfnvge0/LearningSpark_Lightning-FastDataAnalytics-Second-JulesS_Damji.pdf?rlkey=k5ai7xssv72b8satzlb1igmdk&amp;dl=1">Learning <span>Spark</span></a></em>. O’Reilly Media, Inc.
+<section id="view-your-created-bucket" class="level2">
+<h2 class="anchored" data-anchor-id="view-your-created-bucket">View Your Created Bucket</h2>
+<p>After creation, you’ll be redirected to the S3 buckets list where you can see your newly created bucket.</p>
+<p><a href="img/aa1603-dsan6k-f2025-S3-bucket-S3.png"><img src="img/aa1603-dsan6k-f2025-S3-bucket-S3.png" class="img-fluid"></a></p>
+</section>
+<section id="upload-a-test-file-to-your-bucket" class="level2">
+<h2 class="anchored" data-anchor-id="upload-a-test-file-to-your-bucket">Upload a Test File to Your Bucket</h2>
+<ol type="1">
+<li><p>Click on your bucket name to open it.</p></li>
+<li><p>Click the <strong>Upload</strong> button.</p></li>
+<li><p>Either drag and drop files or click <strong>Add files</strong> to browse and select files from your computer.</p></li>
+<li><p>For testing, you can create a simple text file on your computer with some content and upload it.</p></li>
+<li><p>After selecting your file(s), click <strong>Upload</strong> at the bottom of the page.</p></li>
+<li><p>Once uploaded, you’ll see a success message. Click <strong>Close</strong> to return to your bucket view.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="ref-eagar_data_2021" class="csl-entry" role="listitem">
-Eagar, Gareth. 2021. <em>Data <span>Engineering</span> with <span>AWS</span>: <span>Learn</span> How to Design and Build Cloud-Based Data Transformation Pipelines Using <span>AWS</span></em>. 1st ed. Birmingham: Packt Publishing Limited.
+<div class="callout-title-container flex-fill">
+Tip
 </div>
-<div id="ref-firth_papers_1957" class="csl-entry" role="listitem">
-Firth, John Rupert. 1957. <em><a href="https://books.google.com?id=yxZZAAAAMAAJ">Papers in <span>Linguistics</span>, 1934-1951</a></em>. Oxford University Press.
 </div>
-<div id="ref-gopalan_cloud_2022" class="csl-entry" role="listitem">
-Gopalan, Rukmani. 2022. <em><a href="https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&amp;dl=1">The <span>Cloud Data Lake</span>: <span>A Guide</span> to <span>Building Robust Cloud Data Architecture</span></a></em>. O’Reilly Media, Inc.
+<div class="callout-body-container callout-body">
+<p>Your S3 bucket is now ready to use! You can upload datasets, store output files, and share data between different AWS services. The bucket name you created will be used in subsequent labs and assignments.</p>
 </div>
-<div id="ref-hennessy_computer_2017" class="csl-entry" role="listitem">
-Hennessy, John L., and David A. Patterson. 2017. <em><a href="https://books.google.com?id=cM8mDwAAQBAJ">Computer <span>Architecture</span>: <span>A Quantitative Approach</span></a></em>. Morgan Kaufmann.
 </div>
-<div id="ref-janssens_python_2025" class="csl-entry" role="listitem">
-Janssens, Jeroen, and Thijs Nieuwdorp. 2025. <em><a href="https://www.dropbox.com/scl/fi/xbku8b76x1zd3s6wpjmud/Python-Polars-the-Definitive-Guide.pdf?rlkey=y132hd73541e2mzwb9pppbwhq&amp;dl=1">Python <span>Polars</span>: <span>The Definitive Guide</span>: <span>Transforming</span>, <span>Analyzing</span>, and <span>Visualizing Data</span> with a <span>Fast</span> and <span>Expressive DataFrame API</span></a></em>. O’Reilly Media, Inc.
+</section>
+<section id="working-with-s3-from-the-command-line" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-s3-from-the-command-line">Working with S3 from the Command Line</h2>
+<p>Once you connect to your EC2 instance via VSCode (in the next section), you can interact with your S3 bucket using the AWS CLI, which is pre-installed on EC2 instances with the LabInstanceProfile. Here are some useful commands you’ll use:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List all your S3 buckets</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> s3 ls</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># List contents of a specific bucket</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> s3 ls s3://your-bucket-name/</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Upload a file to S3</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> s3 cp local-file.txt s3://your-bucket-name/</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Download a file from S3</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> s3 cp s3://your-bucket-name/file.txt ./</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Upload an entire directory</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> s3 sync ./local-folder s3://your-bucket-name/folder/</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Download an entire directory</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> s3 sync s3://your-bucket-name/folder/ ./local-folder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled" title="Naming Your Bucket">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="ref-kleppmann_designing_2026" class="csl-entry" role="listitem">
-Kleppmann, Martin, and Chris Riccomini. 2026. <em>Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems</em>. 2nd edition. Santa Rosa, CA: O’Reilly.
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Naming Your Bucket
 </div>
-<div id="ref-leskovec_mining_2014" class="csl-entry" role="listitem">
-Leskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. <em><a href="http://infolab.stanford.edu/~ullman/mmds/book.pdf">Mining of <span>Massive Datasets</span></a></em>. Cambridge University Press.
 </div>
-<div id="ref-loukides_what_2010" class="csl-entry" role="listitem">
-Loukides, Mike. 2010. <span>“<a href="https://www.oreilly.com/radar/what-is-data-science/">What Is Data Science?</a>”</span> O’Reilly Media. June 2, 2010.
-</div>
-<div id="ref-mell_nist_2011" class="csl-entry" role="listitem">
-Mell, Peter, and Timothy Grance. 2011. <span>“<a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf">The <span>NIST Definition</span> of <span>Cloud Computing</span></a>.”</span> <em>National Institute of Standards and Technology, Special Publication</em> 800 (2011): 145.
-</div>
-<div id="ref-needham_duckdb_2024" class="csl-entry" role="listitem">
-Needham, Mark, Michael Hunger, and Michael Simons. 2024. <em><a href="https://www.dropbox.com/scl/fi/l1lz7dqz1nhumbvmre408/PythonPolars_TheDefinitiveGuide_Transforming-JeroenJanssens-ThijsNieuwdorp-1-2025apr01-O-ReillyMedia-Incorporated-9781098156084-094d66f3df5acfda8eb1b5f6d2002878-Anna-sArchive.pdf?rlkey=6nbdad5khui8tc2qe1i8yhv4c&amp;dl=1"><span>DuckDB</span> in <span>Action</span></a></em>. <span>Simon and Schuster</span>.
-</div>
-<div id="ref-noble_progress_1995" class="csl-entry" role="listitem">
-Noble, David F. 1995. <em>Progress Without People: New Technology, Unemployment, and the Message of Resistance</em>. Toronto: Between the Lines.
-</div>
-<div id="ref-polanyi_great_1944" class="csl-entry" role="listitem">
-Polanyi, Karl. 1944. <em>The <span>Great Transformation</span>: <span>The Political</span> and <span>Economic Origins</span> of <span>Our Time</span></em>. Beacon Press.
-</div>
-<div id="ref-raasveldt_duckdb_2019" class="csl-entry" role="listitem">
-Raasveldt, Mark, and Hannes Mühleisen. 2019. <span>“<a href="https://doi.org/10.1145/3299869.3320212"><span>DuckDB</span>: An <span>Embeddable Analytical Database</span></a>.”</span> In <em>Proceedings of the 2019 <span>International Conference</span> on <span>Management</span> of <span>Data</span></em>, 1981–84. <span>SIGMOD</span> ’19. New York, NY, USA: Association for Computing Machinery.
-</div>
-<div id="ref-raff_how_" class="csl-entry" role="listitem">
-Raff, Edward, Drew Farris, and Stella Biderman. 2025. <em>How <span>Large Language Models Work</span></em>.
-</div>
-<div id="ref-reis_fundamentals_2022" class="csl-entry" role="listitem">
-Reis, Joe, and Matt Housley. 2022. <em><a href="https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&amp;dl=1">Fundamentals of <span>Data Engineering</span>: <span>Plan</span> and <span>Build Robust Data Systems</span></a></em>. O’Reilly Media, Inc.
-</div>
-<div id="ref-saussure_course_1916" class="csl-entry" role="listitem">
-Saussure, Ferdinand de. 1916. <em><a href="https://books.google.com?id=lDmOvAAD7CMC">Course in <span>General Linguistics</span></a></em>. Open Court.
-</div>
-<div id="ref-tanimura_sql_2021" class="csl-entry" role="listitem">
-Tanimura, Cathy. 2021. <em><a href="https://www.dropbox.com/scl/fi/xk7h6rp2qog7qwu9nnrkm/SQL-for-Data-Analysis.pdf?rlkey=jmy5z88e6ozvnoc0tx0e6a15r&amp;dl=1"><span>SQL</span> for <span>Data Analysis</span>: <span>Advanced Techniques</span> for <span>Transforming Data</span> into <span>Insights</span></a></em>. O’Reilly Media, Inc.
-</div>
-<div id="ref-topol_inmemory_2024" class="csl-entry" role="listitem">
-Topol, Matthew, and Wes McKinney. 2024. <em><a href="https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&amp;dl=1">In-<span>Memory Analytics</span> with <span>Apache Arrow</span></a></em>. Packt Publishing Ltd.
-</div>
-<div id="ref-virtuoso_serverless_2021" class="csl-entry" role="listitem">
-Virtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. <em><a href="https://www.dropbox.com/scl/fi/lfwe6m2dulm1ugs92rpnj/Serverless-Analytics-with-Amazon-Athena-Anthony-Virtuoso.pdf?rlkey=h0z2g6rkihcnbagcq8386h8ay&amp;dl=1">Serverless <span>Analytics</span> with <span>Amazon Athena</span>: <span>Query</span> Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure</a></em>. Packt Publishing Ltd.
-</div>
-<div id="ref-wojtowicz_undermining_2025" class="csl-entry" role="listitem">
-Wojtowicz, Zachary, and Simon DeDeo. 2025. <span>“Undermining <span>Mental Proof</span>: <span>How AI Can Make Cooperation Harder</span> by <span>Making Thinking Easier</span>.”</span>
-</div>
-<div id="ref-wolohan_mastering_2020" class="csl-entry" role="listitem">
-Wolohan, John. 2020. <em><a href="https://www.dropbox.com/scl/fi/ugkacs7krqdgo0c5xqgy0/John-T.-Wolohan-Mastering-Large-Datasets-with-Python.pdf?rlkey=397zleff6uuibvhfzfme18f41&amp;dl=1">Mastering <span>Large Datasets</span> with <span>Python</span>: <span>Parallelize</span> and <span>Distribute Your Python Code</span></a></em>. <span>Simon and Schuster</span>.
-</div>
-<div id="ref-zilliz_introduction_2025" class="csl-entry" role="listitem">
-Zilliz. 2025. <span>“<a href="https://zilliz.com/learn/introduction-to-unstructured-data">Introduction to <span>Unstructured Data</span></a>.”</span> 2025.
+<div class="callout-body-container callout-body">
+<p>Remember to replace <code>your-bucket-name</code> with the actual name of the bucket you created (e.g., <code>{your-net-id}-dsan6k-f2025</code>).</p>
 </div>
 </div>
 
@@ -1054,4 +1060,4 @@ Zilliz. 2025. <span>“<a href="https://zilliz.com/learn/introduction-to-unstruc
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/resources.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/writeups/s3/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

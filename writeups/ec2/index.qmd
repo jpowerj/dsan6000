@@ -9,6 +9,7 @@ date: 2026-09-01
 sidebar: mainnav
 categories:
   - Extra Writeups
+assignments: Homework 1
 format:
   html:
     df-print: kable

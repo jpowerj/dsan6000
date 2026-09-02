@@ -1,13 +1,6 @@
 ---
 title: "Resource Hub"
 sidebar: mainnav
-listing:
-  id: writeups
-  type: grid
-  categories: true
-  contents: "writeups/**/*.qmd"
-  image-height: 0px
-  fields: [title, subtitle, categories, date]
 bibliography: "_DSAN6000.bib"
 csl: "chicago-17-no-url.csl"
 nocite: |
@@ -64,11 +57,6 @@ Two Packt Books:
 * [Week 8 SparkNLP Demo](https://colab.research.google.com/drive/1pTHqKyU0_-1-ylJgF2gG8KJQr24QKx0G?usp=sharing)
 * [Week 9 Spark ML Demo (Colab)](https://colab.research.google.com/drive/1HpdPjTNAbIYzvlyK9YoxVb6MaXmcDyQs?usp=sharing)
 * [Week 9 MLFlow Demo (GitHub)](https://github.com/jpowerj/mlflow-demo)
-
-## Extra Writeups
-
-::: {#writeups}
-:::
 
 ## PDFs of Books
 
