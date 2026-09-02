@@ -1,10 +1,12 @@
 ---
 title: Setting Up a Spark Cluster "Manually"
 author: "Jeff Jacobs"
-date: 2025-10-09
+date: 2026-10-09
 sidebar: mainnav
 categories:
   - Extra Writeups
+assignment:
+  - Homework 7
 format:
   html:
     df-print: kable

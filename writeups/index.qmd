@@ -17,7 +17,7 @@ listing:
     date: "Last Updated"
     assignments: "Relevant Assignments"
     categories: "Category"
-  sort: "date desc"
+  sort: "date asc"
   table-hover: true
   # date-format: full
   #date-format: "dddd MMM D, YYYY, HH:mm:ss"

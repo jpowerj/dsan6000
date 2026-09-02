@@ -11,9 +11,9 @@
   {
     "listing": "/writeups/index.html",
     "items": [
-      "/writeups/s3/index.html",
-      "/writeups/ec2/index.html",
       "/writeups/sql-guide/index.html",
+      "/writeups/ec2/index.html",
+      "/writeups/s3/index.html",
       "/writeups/manual-spark-cluster/index.html"
     ]
   },
