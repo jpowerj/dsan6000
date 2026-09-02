@@ -17,6 +17,10 @@ format:
     df-print: kable
 ---
 
+## 2025 Recordings
+
+Lecture recordings from the Fall 2025 version of the course can be watched [here](https://georgetown.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9ebe4700-c41f-434a-bb78-b34801332737"){target='_blank'}
+
 ## Key Books By Week
 
 ### Week 1: Course Overview / Week 2: Cloud Computing
