@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeff Jacobs">
-<meta name="dcterms.date" content="2026-08-30">
+<meta name="dcterms.date" content="2026-09-14">
 
 <title>From Pandas to SQL – DSAN 6000: Big Data and Cloud Computing</title>
 <style>
@@ -510,7 +510,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 30, 2026</p>
+      <p class="date">September 14, 2026</p>
     </div>
   </div>
   
@@ -916,7 +916,7 @@ WHERE day NOT IN ('Saturday','Sunday')
 EXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') 
 ┌────────────────────────────────────────────────┐
 │┌──────────────────────────────────────────────┐│
-││              Total Time: 0.0014s             ││
+││              Total Time: 0.0017s             ││
 │└──────────────────────────────────────────────┘│
 └────────────────────────────────────────────────┘
 ┌───────────────────────────┐
@@ -1379,7 +1379,7 @@ EXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs A
 <section id="combining-operations" class="level3">
 <h3 class="anchored" data-anchor-id="combining-operations">Combining Operations</h3>
 <p>To bring everything together, let’s see how we can combine the above three tasks into a single query!</p>
-<div id="95e8ea2b" class="cell" data-execution_count="17">
+<div id="afa385cd" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>con.execute(<span class="st">"""</span></span>
