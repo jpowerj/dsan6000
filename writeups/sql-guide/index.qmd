@@ -2,7 +2,7 @@
 title: "From Pandas to SQL"
 subtitle: "Converting Code into Queries"
 author: "Jeff Jacobs"
-date: 2026-09-20
+date: 2026-08-30
 sidebar: mainnav
 categories:
   - Extra Writeups
