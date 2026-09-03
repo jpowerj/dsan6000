@@ -2,7 +2,7 @@
 title: "DSAN 6000: Big Data and Cloud Computing"
 # subtitle: "Big Data and Cloud Computing"
 # times: "\\begin{itemize}\\item Mondays 3:30-6pm, Walsh 394 \\item Thursdays 6:30-9pm, Walsh 394 \\end{itemize}"
-subtitle: "Section 01: M 3:30-6pm, Walsh 394\n\nSection 02: Th 6:30-9pm, Walsh 394"
+subtitle: "Section 01: M 3:30-6pm, Walsh 394\n\nSection 02: Th 6:30-9pm, Car Barn 204"
 author: "Jeff Jacobs"
 email: "jj1088@georgetown.edu"
 institute: "Georgetown University"

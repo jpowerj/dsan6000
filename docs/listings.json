@@ -1,14 +1,5 @@
 [
   {
-    "listing": "/resources.html",
-    "items": [
-      "/writeups/ec2/index.html",
-      "/writeups/index.html",
-      "/writeups/sql-guide/index.html",
-      "/writeups/manual-spark-cluster/index.html"
-    ]
-  },
-  {
     "listing": "/writeups/index.html",
     "items": [
       "/writeups/ec2/index.html",
