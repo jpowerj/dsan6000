@@ -2519,7 +2519,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9776 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.6611 s"
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9635 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.6635 s"
   },
   {
     "objectID": "w03/slides.html#what-happens-when-not-embarrassingly-parallel",
@@ -2740,7 +2740,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9767 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.6672 s",
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9683 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.7016 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 14</span>"
     ]
@@ -3687,7 +3687,7 @@
   {
     "objectID": "w02/index.html",
     "href": "w02/index.html",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "",
     "text": "Open slides in new tab →",
     "crumbs": [
@@ -3697,7 +3697,7 @@
   {
     "objectID": "w02/index.html#internet-of-things-iot",
     "href": "w02/index.html#internet-of-things-iot",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Internet of Things (IoT)",
     "text": "Internet of Things (IoT)\nNearly 100 billion devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nVehicles (not just self-driving cars!)\nIndustrial sensors\n\n\n\n\nSmart city infrastructure\nMedical devices, remote patient monitoring\n\n\n\n\n\n\n\nSlide Author: Amit Arora!",
     "crumbs": [
@@ -3707,7 +3707,7 @@
   {
     "objectID": "w02/index.html#smartphone-location-data",
     "href": "w02/index.html#smartphone-location-data",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Smartphone Location Data",
     "text": "Smartphone Location Data\n\n\n\n\n\nSlide Author: Amit Arora!",
     "crumbs": [
@@ -3717,7 +3717,7 @@
   {
     "objectID": "w02/index.html#real-world-examples",
     "href": "w02/index.html#real-world-examples",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Real-World Examples",
     "text": "Real-World Examples\nNetflix\n\nScale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\nUber\n\nScale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\nOpenAI\n\nScale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters\n\n\n\nSlide Author: Amit Arora!",
     "crumbs": [
@@ -3727,7 +3727,7 @@
   {
     "objectID": "w02/index.html#data-architecture-infrastructure-demo",
     "href": "w02/index.html#data-architecture-infrastructure-demo",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Data Architecture / Infrastructure Demo",
     "text": "Data Architecture / Infrastructure Demo\n\nHow would you make X, the Former Bird App, scale to a billion users!?!\n\n\n\n\nFigure 2-1 from Kleppmann and Riccomini (2026): A “standard” relational approach\n\n\n\n“Back of the envelope” calculation demo",
     "crumbs": [
@@ -3737,7 +3737,7 @@
   {
     "objectID": "w02/index.html#our-toolbox-from-now-until-december",
     "href": "w02/index.html#our-toolbox-from-now-until-december",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Our Toolbox From Now Until December 😎",
     "text": "Our Toolbox From Now Until December 😎\n\n\n\n\n\nBig Data Handling\n\n\n\n\nYou could technically run all these on your laptop!\n\n\n\n\n…But in this class they’ll run on remote EC2\n\n\n\n\nPython\n\npandas\nduckdb\npolars\npyspark\nprefect\n\nApache Arrow\nApache Hadoop \\(\\leadsto\\) Apache Spark\n\n\n\n\n\n\nCloud Services\n\n\n\n\nThese run on some Amazon server nearDulles Airport or Frederick, MD\n\n\n\n\nVirtual Machines: EC2\nObject Storage: S3\nElastic Map-Reduce: EMR\n\n\n\n\n\nIDEs\n\n\n\n\nThese should be run on your laptop\n\n\n\n\n…But just to connect to EC2 (edit/run remote files)!\n\n\n\n\nVSCode\nPositron",
     "crumbs": [
@@ -3747,7 +3747,7 @@
   {
     "objectID": "w02/index.html#jeffs-favorite-big-data-definition",
     "href": "w02/index.html#jeffs-favorite-big-data-definition",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Jeff’s Favorite “Big Data” Definition",
     "text": "Jeff’s Favorite “Big Data” Definition\n \n\nBig data is when the size of the data itself becomes part of the problem (Loukides 2010)\n\n\nIn other words: Your problem becomes a “big data problem” when you hit one or both of the walls!",
     "crumbs": [
@@ -3757,7 +3757,7 @@
   {
     "objectID": "w02/index.html#you-vs.-your-opps",
     "href": "w02/index.html#you-vs.-your-opps",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "You vs. Your Opps",
     "text": "You vs. Your Opps",
     "crumbs": [
@@ -3767,7 +3767,7 @@
   {
     "objectID": "w02/index.html#so-you-find-yourself-smashed-against-a-wall",
     "href": "w02/index.html#so-you-find-yourself-smashed-against-a-wall",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "So You Find Yourself Smashed Against A Wall…",
     "text": "So You Find Yourself Smashed Against A Wall…\n(Some of yall would fold in this scenario)",
     "crumbs": [
@@ -3777,7 +3777,7 @@
   {
     "objectID": "w02/index.html#the-pre-cloud-approach-make-the-one-computer-faster-and-faster",
     "href": "w02/index.html#the-pre-cloud-approach-make-the-one-computer-faster-and-faster",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "The “Pre-Cloud” Approach: Make The One Computer Faster and Faster",
     "text": "The “Pre-Cloud” Approach: Make The One Computer Faster and Faster",
     "crumbs": [
@@ -3787,7 +3787,7 @@
   {
     "objectID": "w02/index.html#it-worked-for-many-decades",
     "href": "w02/index.html#it-worked-for-many-decades",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "It Worked For… Many Decades!",
     "text": "It Worked For… Many Decades!",
     "crumbs": [
@@ -3797,7 +3797,7 @@
   {
     "objectID": "w02/index.html#is-moores-law-dead",
     "href": "w02/index.html#is-moores-law-dead",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Is Moore’s Law Dead?",
     "text": "Is Moore’s Law Dead?\n…Kind of?\n\nFocus nowadays: specialized hardware / compute architectures hyper-optimized for particular tasks\n\n[If you took DSAN 5500] Think of BLAS\n\nGraphic Processing Units (GPUs)\nGoogle’s Tensor Processing Units (TPUs)",
     "crumbs": [
@@ -3807,7 +3807,7 @@
   {
     "objectID": "w02/index.html#even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
     "href": "w02/index.html#even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Even Upgrading Our Hardware Didn’t Help 😭 Now What Do We Do?",
     "text": "Even Upgrading Our Hardware Didn’t Help 😭 Now What Do We Do?\n…We distribute! (Horizontal Scaling)\n\n\n\n\n\n\n\n\n\nVertical Scaling → \nHorizontal Scaling\n\n → \n\n\n\n\n\nProcessing Power\nFancier CPU (faster/more cores)\nMore computers \\(\\implies\\) More CPUs\n\n\nMemory\nInstall more RAM\nMore computers \\(\\implies\\) More RAM\n\n\nStorage\nBigger hard drive\nMore computers \\(\\implies\\) More hard drive space",
     "crumbs": [
@@ -3817,7 +3817,7 @@
   {
     "objectID": "w02/index.html#my-favorite-example-ever",
     "href": "w02/index.html#my-favorite-example-ever",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "My Favorite Example Ever",
     "text": "My Favorite Example Ever\n\nSpongebob is cooking Krabby Patties too slowly to satisfy ravenous customers…\nShould he upgrade his one spatula? How bout just many simple spatulas at once!",
     "crumbs": [
@@ -3827,7 +3827,7 @@
   {
     "objectID": "w02/index.html#how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for",
     "href": "w02/index.html#how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "How Do We Achieve This? …That’s Exactly What The Cloud is For!",
     "text": "How Do We Achieve This? …That’s Exactly What The Cloud is For!",
     "crumbs": [
@@ -3837,7 +3837,7 @@
   {
     "objectID": "w02/index.html#the-cloud-nist-definition",
     "href": "w02/index.html#the-cloud-nist-definition",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "“The Cloud”: NIST Definition",
     "text": "“The Cloud”: NIST Definition\n\n\n\n\n\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)",
     "crumbs": [
@@ -3847,7 +3847,7 @@
   {
     "objectID": "w02/index.html#simplicity-vs.-flexibility",
     "href": "w02/index.html#simplicity-vs.-flexibility",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Simplicity vs. Flexibility",
     "text": "Simplicity vs. Flexibility",
     "crumbs": [
@@ -3857,7 +3857,7 @@
   {
     "objectID": "w02/index.html#hotel-analogy",
     "href": "w02/index.html#hotel-analogy",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Hotel Analogy",
     "text": "Hotel Analogy",
     "crumbs": [
@@ -3867,7 +3867,7 @@
   {
     "objectID": "w02/index.html#infrastructure-as-a-service-iaas",
     "href": "w02/index.html#infrastructure-as-a-service-iaas",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Infrastructure as a Service (IaaS)",
     "text": "Infrastructure as a Service (IaaS)\n\nVirtualized computing resources delivered over the internet\nProvider manages: Physical hardware, virtualization, networking, storage\nYou manage: Operating systems, applications, runtime, data, middleware\n\nExamples and Use Cases\n\nAmazon EC2, Microsoft Azure VMs, Google Compute Engine\nPerfect for: Development environments, web hosting, backup & recovery\nBenefits: Rapid scaling, pay-as-you-go, global availability\n\n# Launch a virtual machine in seconds\naws ec2 run-instances --image-id ami-12345 --instance-type t3.large\n\n\nSlide credit: Amit Arora",
     "crumbs": [
@@ -3877,7 +3877,7 @@
   {
     "objectID": "w02/index.html#software-as-a-service-saas",
     "href": "w02/index.html#software-as-a-service-saas",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Software as a Service (SaaS)",
     "text": "Software as a Service (SaaS)\n\nComplete applications delivered over the internet\nProvider manages: Everything (infrastructure, platform, software)\nYou manage: Your data and user access\n\nExamples and Use Cases\n\nGmail, Salesforce, Microsoft 365, Zoom\nPerfect for: Business applications, collaboration tools, CRM\nBenefits: No installation, automatic updates, accessible anywhere\n80% of companies use SaaS applications\n\n\n\nSlide credit: Amit Arora",
     "crumbs": [
@@ -3885,9 +3885,39 @@
     ]
   },
   {
+    "objectID": "w02/index.html#ec2-elastic-cloud-compute",
+    "href": "w02/index.html#ec2-elastic-cloud-compute",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
+    "section": "EC2: Elastic Cloud Compute",
+    "text": "EC2: Elastic Cloud Compute\nHW1:\n\nCreate your own remote EC2 computer instance\nUse it to download (one-way) from remote storage bucket",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#s3-simple-storage-service",
+    "href": "w02/index.html#s3-simple-storage-service",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
+    "section": "S3: Simple Storage Service",
+    "text": "S3: Simple Storage Service\nHW2:\n\nCreate your own remote storage instance\nRead and write to it from your EC2 instance",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#athena-x-glue-query-s3-like-a-database",
+    "href": "w02/index.html#athena-x-glue-query-s3-like-a-database",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
+    "section": "Athena x Glue: Query S3 Like a Database",
+    "text": "Athena x Glue: Query S3 Like a Database\nHW5:\n\nAuto-ingest data into an S3 bucket, along with metadata\nTell Athena the schema of this data using Glue\nRun SQL queries on S3\n\nYou never manually make a DB!\nYou never manually set up a server to execute SQL queries or to save their results!",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
+    ]
+  },
+  {
     "objectID": "w02/index.html#references",
     "href": "w02/index.html#references",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "References",
     "text": "References\n\n\nKleppmann, Martin, and Chris Riccomini. 2026. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. 2nd edition. Santa Rosa, CA: O’Reilly.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. June 2, 2010.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.",
     "crumbs": [
@@ -3897,140 +3927,161 @@
   {
     "objectID": "w02/slides.html#internet-of-things-iot",
     "href": "w02/slides.html#internet-of-things-iot",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Internet of Things (IoT)",
     "text": "Internet of Things (IoT)\nNearly 100 billion devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nVehicles (not just self-driving cars!)\nIndustrial sensors\n\n\n\n\nSmart city infrastructure\nMedical devices, remote patient monitoring\n\n\n\n\n\n\n\nSlide Author: Amit Arora!"
   },
   {
     "objectID": "w02/slides.html#smartphone-location-data",
     "href": "w02/slides.html#smartphone-location-data",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Smartphone Location Data",
     "text": "Smartphone Location Data\n\n\n\n\n\nSlide Author: Amit Arora!"
   },
   {
     "objectID": "w02/slides.html#real-world-examples",
     "href": "w02/slides.html#real-world-examples",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Real-World Examples",
     "text": "Real-World Examples\nNetflix\n\nScale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\nUber\n\nScale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\nOpenAI\n\nScale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters\n\n\n\nSlide Author: Amit Arora!"
   },
   {
     "objectID": "w02/slides.html#data-architecture-infrastructure-demo",
     "href": "w02/slides.html#data-architecture-infrastructure-demo",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Data Architecture / Infrastructure Demo",
     "text": "Data Architecture / Infrastructure Demo\n\nHow would you make X, the Former Bird App, scale to a billion users!?!\n\n\nFigure 2-1 from Kleppmann and Riccomini (2026): A “standard” relational approach\n“Back of the envelope” calculation demo"
   },
   {
     "objectID": "w02/slides.html#our-toolbox-from-now-until-december",
     "href": "w02/slides.html#our-toolbox-from-now-until-december",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Our Toolbox From Now Until December 😎",
     "text": "Our Toolbox From Now Until December 😎\n\n\n\n\n\nBig Data Handling\n\n\n\n\nYou could technically run all these on your laptop!\n\n\n\n\n…But in this class they’ll run on remote EC2\n\n\n\n\nPython\n\npandas\nduckdb\npolars\npyspark\nprefect\n\nApache Arrow\nApache Hadoop \\(\\leadsto\\) Apache Spark\n\n\n\n\n\n\nCloud Services\n\n\n\n\nThese run on some Amazon server nearDulles Airport or Frederick, MD\n\n\n\n\nVirtual Machines: EC2\nObject Storage: S3\nElastic Map-Reduce: EMR\n\n\n\n\n\nIDEs\n\n\n\n\nThese should be run on your laptop\n\n\n\n\n…But just to connect to EC2 (edit/run remote files)!\n\n\n\n\nVSCode\nPositron"
   },
   {
     "objectID": "w02/slides.html#jeffs-favorite-big-data-definition",
     "href": "w02/slides.html#jeffs-favorite-big-data-definition",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Jeff’s Favorite “Big Data” Definition",
     "text": "Jeff’s Favorite “Big Data” Definition\n \n\nBig data is when the size of the data itself becomes part of the problem (Loukides 2010)\n\n\nIn other words: Your problem becomes a “big data problem” when you hit one or both of the walls!"
   },
   {
     "objectID": "w02/slides.html#you-vs.-your-opps",
     "href": "w02/slides.html#you-vs.-your-opps",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "You vs. Your Opps",
     "text": "You vs. Your Opps"
   },
   {
     "objectID": "w02/slides.html#so-you-find-yourself-smashed-against-a-wall",
     "href": "w02/slides.html#so-you-find-yourself-smashed-against-a-wall",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "So You Find Yourself Smashed Against A Wall…",
     "text": "So You Find Yourself Smashed Against A Wall…\n(Some of yall would fold in this scenario)"
   },
   {
     "objectID": "w02/slides.html#the-pre-cloud-approach-make-the-one-computer-faster-and-faster",
     "href": "w02/slides.html#the-pre-cloud-approach-make-the-one-computer-faster-and-faster",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "The “Pre-Cloud” Approach: Make The One Computer Faster and Faster",
     "text": "The “Pre-Cloud” Approach: Make The One Computer Faster and Faster"
   },
   {
     "objectID": "w02/slides.html#it-worked-for-many-decades",
     "href": "w02/slides.html#it-worked-for-many-decades",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "It Worked For… Many Decades!",
     "text": "It Worked For… Many Decades!"
   },
   {
     "objectID": "w02/slides.html#is-moores-law-dead",
     "href": "w02/slides.html#is-moores-law-dead",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Is Moore’s Law Dead?",
     "text": "Is Moore’s Law Dead?\n…Kind of?\n\nFocus nowadays: specialized hardware / compute architectures hyper-optimized for particular tasks\n\n[If you took DSAN 5500] Think of BLAS\n\nGraphic Processing Units (GPUs)\nGoogle’s Tensor Processing Units (TPUs)"
   },
   {
     "objectID": "w02/slides.html#even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
     "href": "w02/slides.html#even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Even Upgrading Our Hardware Didn’t Help 😭 Now What Do We Do?",
     "text": "Even Upgrading Our Hardware Didn’t Help 😭 Now What Do We Do?\n…We distribute! (Horizontal Scaling)\n\n\n\n\n\n\n\n\n\nVertical Scaling → \nHorizontal Scaling\n\n → \n\n\n\n\n\nProcessing Power\nFancier CPU (faster/more cores)\nMore computers \\(\\implies\\) More CPUs\n\n\nMemory\nInstall more RAM\nMore computers \\(\\implies\\) More RAM\n\n\nStorage\nBigger hard drive\nMore computers \\(\\implies\\) More hard drive space"
   },
   {
     "objectID": "w02/slides.html#my-favorite-example-ever",
     "href": "w02/slides.html#my-favorite-example-ever",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "My Favorite Example Ever",
     "text": "My Favorite Example Ever\n\nSpongebob is cooking Krabby Patties too slowly to satisfy ravenous customers…\nShould he upgrade his one spatula? How bout just many simple spatulas at once!"
   },
   {
     "objectID": "w02/slides.html#how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for",
     "href": "w02/slides.html#how-do-we-achieve-this-thats-exactly-what-the-cloud-is-for",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "How Do We Achieve This? …That’s Exactly What The Cloud is For!",
     "text": "How Do We Achieve This? …That’s Exactly What The Cloud is For!"
   },
   {
     "objectID": "w02/slides.html#the-cloud-nist-definition",
     "href": "w02/slides.html#the-cloud-nist-definition",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "“The Cloud”: NIST Definition",
     "text": "“The Cloud”: NIST Definition\n\n\n\n\n\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)"
   },
   {
     "objectID": "w02/slides.html#simplicity-vs.-flexibility",
     "href": "w02/slides.html#simplicity-vs.-flexibility",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Simplicity vs. Flexibility",
     "text": "Simplicity vs. Flexibility"
   },
   {
     "objectID": "w02/slides.html#hotel-analogy",
     "href": "w02/slides.html#hotel-analogy",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Hotel Analogy",
     "text": "Hotel Analogy"
   },
   {
     "objectID": "w02/slides.html#infrastructure-as-a-service-iaas",
     "href": "w02/slides.html#infrastructure-as-a-service-iaas",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Infrastructure as a Service (IaaS)",
     "text": "Infrastructure as a Service (IaaS)\n\nVirtualized computing resources delivered over the internet\nProvider manages: Physical hardware, virtualization, networking, storage\nYou manage: Operating systems, applications, runtime, data, middleware\n\nExamples and Use Cases\n\nAmazon EC2, Microsoft Azure VMs, Google Compute Engine\nPerfect for: Development environments, web hosting, backup & recovery\nBenefits: Rapid scaling, pay-as-you-go, global availability\n\n# Launch a virtual machine in seconds\naws ec2 run-instances --image-id ami-12345 --instance-type t3.large\n\n\nSlide credit: Amit Arora"
   },
   {
     "objectID": "w02/slides.html#software-as-a-service-saas",
     "href": "w02/slides.html#software-as-a-service-saas",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "Software as a Service (SaaS)",
     "text": "Software as a Service (SaaS)\n\nComplete applications delivered over the internet\nProvider manages: Everything (infrastructure, platform, software)\nYou manage: Your data and user access\n\nExamples and Use Cases\n\nGmail, Salesforce, Microsoft 365, Zoom\nPerfect for: Business applications, collaboration tools, CRM\nBenefits: No installation, automatic updates, accessible anywhere\n80% of companies use SaaS applications\n\n\n\nSlide credit: Amit Arora"
   },
   {
+    "objectID": "w02/slides.html#ec2-elastic-cloud-compute",
+    "href": "w02/slides.html#ec2-elastic-cloud-compute",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
+    "section": "EC2: Elastic Cloud Compute",
+    "text": "EC2: Elastic Cloud Compute\nHW1:\n\nCreate your own remote EC2 computer instance\nUse it to download (one-way) from remote storage bucket"
+  },
+  {
+    "objectID": "w02/slides.html#s3-simple-storage-service",
+    "href": "w02/slides.html#s3-simple-storage-service",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
+    "section": "S3: Simple Storage Service",
+    "text": "S3: Simple Storage Service\nHW2:\n\nCreate your own remote storage instance\nRead and write to it from your EC2 instance"
+  },
+  {
+    "objectID": "w02/slides.html#athena-x-glue-query-s3-like-a-database",
+    "href": "w02/slides.html#athena-x-glue-query-s3-like-a-database",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
+    "section": "Athena x Glue: Query S3 Like a Database",
+    "text": "Athena x Glue: Query S3 Like a Database\nHW5:\n\nAuto-ingest data into an S3 bucket, along with metadata\nTell Athena the schema of this data using Glue\nRun SQL queries on S3\n\nYou never manually make a DB!\nYou never manually set up a server to execute SQL queries or to save their results!"
+  },
+  {
     "objectID": "w02/slides.html#references",
     "href": "w02/slides.html#references",
-    "title": "Week 2: Cloud Computing",
+    "title": "Week 2: Using Cloud Resources for Horizontal Scaling",
     "section": "References",
     "text": "References\n\n\nKleppmann, Martin, and Chris Riccomini. 2026. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. 2nd edition. Santa Rosa, CA: O’Reilly.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. June 2, 2010.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145."
   },
@@ -4067,7 +4118,7 @@
     "href": "writeups/sql-guide/index.html#onto-duckdb",
     "title": "From Pandas to SQL",
     "section": "Onto DuckDB!",
-    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌────────────────────────────────────────────────┐\n│┌──────────────────────────────────────────────┐│\n││              Total Time: 0.0015s             ││\n│└──────────────────────────────────────────────┘│\n└────────────────────────────────────────────────┘\n┌───────────────────────────┐\n│           QUERY           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│    ────────────────────   │\n│                           │\n│           0 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│    ────────────────────   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│           FILTER          │\n│    ────────────────────   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         TABLE_SCAN        │\n│    ────────────────────   │\n│   Function: PANDAS_SCAN   │\n│                           │\n│        Projections:       │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│                           │\n│                           │\n│                           │\n│           7 rows          │\n│           0.00s           │\n└───────────────────────────┘\n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
+    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌────────────────────────────────────────────────┐\n│┌──────────────────────────────────────────────┐│\n││              Total Time: 0.0020s             ││\n│└──────────────────────────────────────────────┘│\n└────────────────────────────────────────────────┘\n┌───────────────────────────┐\n│           QUERY           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│    ────────────────────   │\n│                           │\n│           0 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│    ────────────────────   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│           FILTER          │\n│    ────────────────────   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         TABLE_SCAN        │\n│    ────────────────────   │\n│   Function: PANDAS_SCAN   │\n│                           │\n│        Projections:       │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│                           │\n│                           │\n│                           │\n│           7 rows          │\n│           0.00s           │\n└───────────────────────────┘\n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
   },
   {
     "objectID": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",
@@ -4261,7 +4312,7 @@
     "href": "index.html",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "",
-    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHolidays / Irregular Lecture Days\n\n\n\nPlease keep in mind the following dates, when course meetings will be shifted or skipped:\n\nTuesday, September 8: The Week 2 meeting for the Monday section (Section 01) falls on a Tuesday, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)\nMonday, October 12 and Thursday, October 15: No class due to Georgetown’s Mid-Semester Holiday\nMonday, November 23 and Thursday, November 26: No class due to Georgetown’s 2026 Fall Recess\n\n\n\nWelcome! This webpage contains slides, resources, and auxiliary writeups for DSAN 6000: Big Data and Cloud Computing, Fall 2026 at Georgetown University.\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394. Use the links in the sidebar, or in the table below, to explore the content for a particular week.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 31\n\n\n\n\n\n\nWeek 2: Cloud Computing\n\n\nSep 8\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 14\n\n\n\n\n\n\nWeek 4: DuckDB\n\n\nSep 21\n\n\n\n\n\n\nWeek 5: Polars\n\n\nSep 28\n\n\n\n\n\n\nWeek 6: Data Engineering\n\n\nOct 5\n\n\n\n\n\n\nWeek 7: Introduction to Spark\n\n\nOct 19\n\n\n\n\n\n\nWeek 8: SparkML\n\n\nOct 26\n\n\n\n\n\n\nWeek 9: SparkNLP\n\n\nNov 2\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Prefect\n\n\nNov 9\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 16\n\n\n\n\n\n\nWeek 12: Final Project Preparation\n\n\nNov 30\n\n\n\n\n\n\nWeek 13: Final Project Presentations\n\n\nDec 7\n\n\n\n\n\n\nNo matching items",
+    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHolidays / Irregular Lecture Days\n\n\n\nPlease keep in mind the following dates, when course meetings will be shifted or skipped:\n\nTuesday, September 8: The Week 2 meeting for the Monday section (Section 01) falls on a Tuesday, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)\nMonday, October 12 and Thursday, October 15: No class due to Georgetown’s Mid-Semester Holiday\nMonday, November 23 and Thursday, November 26: No class due to Georgetown’s 2026 Fall Recess\n\n\n\nWelcome! This webpage contains slides, resources, and auxiliary writeups for DSAN 6000: Big Data and Cloud Computing, Fall 2026 at Georgetown University.\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394. Use the links in the sidebar, or in the table below, to explore the content for a particular week.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 31\n\n\n\n\n\n\nWeek 2: Using Cloud Resources for Horizontal Scaling\n\n\nSep 8\n\n\n\n\n\n\nWeek 3: Parallelization Concepts\n\n\nSep 14\n\n\n\n\n\n\nWeek 4: DuckDB\n\n\nSep 21\n\n\n\n\n\n\nWeek 5: Polars\n\n\nSep 28\n\n\n\n\n\n\nWeek 6: Data Engineering\n\n\nOct 5\n\n\n\n\n\n\nWeek 7: Introduction to Spark\n\n\nOct 19\n\n\n\n\n\n\nWeek 8: SparkML\n\n\nOct 26\n\n\n\n\n\n\nWeek 9: SparkNLP\n\n\nNov 2\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Prefect\n\n\nNov 9\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 16\n\n\n\n\n\n\nWeek 12: Final Project Preparation\n\n\nNov 30\n\n\n\n\n\n\nWeek 13: Final Project Presentations\n\n\nDec 7\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "<i class='bi bi-house'></i> Home"
     ]
@@ -4387,66 +4438,6 @@
     ]
   },
   {
-    "objectID": "w01/index.html#internet-of-things-iot",
-    "href": "w01/index.html#internet-of-things-iot",
-    "title": "Week 1: Course Overview",
-    "section": "Internet of Things (IoT)",
-    "text": "Internet of Things (IoT)\nNearly 100 billion devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nVehicles (not just self-driving cars!)\nIndustrial sensors\n\n\n\n\nSmart city infrastructure\nMedical devices, remote patient monitoring\n\n\n\n\n\n\n\nSlide Author: Amit Arora!",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#smartphone-location-data",
-    "href": "w01/index.html#smartphone-location-data",
-    "title": "Week 1: Course Overview",
-    "section": "Smartphone Location Data",
-    "text": "Smartphone Location Data\n\n\n\n\n\nSlide Author: Amit Arora!",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#big-data-definition-for-this-class",
-    "href": "w01/index.html#big-data-definition-for-this-class",
-    "title": "Week 1: Course Overview",
-    "section": "Big Data Definition For This Class(!)",
-    "text": "Big Data Definition For This Class(!)\n\n\nBig Data: “When the size of the data itself becomes part of the engineering problem”\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#real-world-examples",
-    "href": "w01/index.html#real-world-examples",
-    "title": "Week 1: Course Overview",
-    "section": "Real-World Examples",
-    "text": "Real-World Examples\nNetflix\n\nScale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\nUber\n\nScale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\nOpenAI\n\nScale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters\n\n\n\nSlide Author: Amit Arora!",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#data-architecture-infrastructure-demo",
-    "href": "w01/index.html#data-architecture-infrastructure-demo",
-    "title": "Week 1: Course Overview",
-    "section": "Data Architecture / Infrastructure Demo",
-    "text": "Data Architecture / Infrastructure Demo\n\nHow would you make X, the Former Bird App, scale to a billion users!?!\n\n\n\n\nFigure 2-1 from Kleppmann and Riccomini (2026): A “standard” relational approach\n\n\n\n“Back of the envelope” calculation demo",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
-    "objectID": "w01/index.html#our-toolbox-from-now-until-december",
-    "href": "w01/index.html#our-toolbox-from-now-until-december",
-    "title": "Week 1: Course Overview",
-    "section": "Our Toolbox From Now Until December 😎",
-    "text": "Our Toolbox From Now Until December 😎\n\n\n\n\n\nBig Data Handling\n\n\n\n\nYou could technically run all these on your laptop!\n\n\n\n\n…But in this class they’ll run on remote EC2\n\n\n\n\nPython\n\npandas\nduckdb\npolars\npyspark\nprefect\n\nApache Arrow\nApache Hadoop \\(\\leadsto\\) Apache Spark\n\n\n\n\n\n\nCloud Services\n\n\n\n\nThese run on some Amazon server nearDulles Airport or Frederick, MD\n\n\n\n\nVirtual Machines: EC2\nObject Storage: S3\nElastic Map-Reduce: EMR\n\n\n\n\n\nIDEs\n\n\n\n\nThese should be run on your laptop\n\n\n\n\n…But just to connect to EC2 (edit/run remote files)!\n\n\n\n\nVSCode\nPositron",
-    "crumbs": [
-      "Week 1: <span class='sec-w01-date'>Aug 31</span>"
-    ]
-  },
-  {
     "objectID": "w01/index.html#our-bookshelf-from-now-until-december",
     "href": "w01/index.html#our-bookshelf-from-now-until-december",
     "title": "Week 1: Course Overview",
@@ -4537,48 +4528,6 @@
     "text": "Linux System Log File\nOn Ubuntu, typically /var/log/syslog\nSep 3 20:10:01 myEC2 systemd[1]: Started Session 42 of user root.\nSep 3 20:14:17 myEC2 sshd[203]: Accepted publickey for jj from 203.0.113.42 port 51322 ssh2\nSep 3 20:14:17 myEC2 sshd[203]: unix(sshd:session): session opened for user jj(uid=1001) by (uid=0)\nSep 3 20:14:18 myEC2 systemd-logind[812]: New session 43 of user jj.\nSep 3 20:15:42 myEC2 sudo[310]: jj: PWD=/home/jj; USER=root; COMMAND=/usr/bin/systemctl restart apache2\nSep 3 20:15:43 myEC2 apache2[325]: 2026/08/31 09:15:43 [notice] 19325#19325: signal process started\nSep 3 20:18:33 myEC2 sshd[340]: Failed password for admin from 198.51.100.77 port 44210 ssh2\nSep 3 20:18:35 myEC2 sshd[340]: Failed password for admin from 198.51.100.77 port 44210 ssh2\nSep 3 20:18:37 myEC2 sshd[340]: Connection closed by admin 198.51.100.77 port 44210 [preauth]\nSep 3 20:20:11 myEC2 systemd[1]: mysql.service: Main process exited, code=killed, status=9/KILL\nSep 3 20:20:12 myEC2 systemd[1]: mysql.service: Scheduled restart job, restart counter is at 1.\nSep 3 20:20:12 myEC2 systemd[1]: Started MySQL Community Server.\nSep 3 20:21:00 myEC2 kernel: [2357.4201] Out of memory: Killed process 18122 (java) total-vm:4823012kB\nSep 3 20:23:15 myEC2 systemd-logind[812]: Session 43 logged out. Waiting for processes to exit.\nSep 3 21:00:00 myEC2 CRON[8455]: (root) CMD ( cd / && run-parts --report /etc/cron.daily ))"
   },
   {
-    "objectID": "w01/slides.html#internet-of-things-iot",
-    "href": "w01/slides.html#internet-of-things-iot",
-    "title": "Week 1: Course Overview",
-    "section": "Internet of Things (IoT)",
-    "text": "Internet of Things (IoT)\nNearly 100 billion devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nVehicles (not just self-driving cars!)\nIndustrial sensors\n\n\n\n\nSmart city infrastructure\nMedical devices, remote patient monitoring\n\n\n\n\n\n\n\nSlide Author: Amit Arora!"
-  },
-  {
-    "objectID": "w01/slides.html#smartphone-location-data",
-    "href": "w01/slides.html#smartphone-location-data",
-    "title": "Week 1: Course Overview",
-    "section": "Smartphone Location Data",
-    "text": "Smartphone Location Data\n\n\n\n\n\nSlide Author: Amit Arora!"
-  },
-  {
-    "objectID": "w01/slides.html#big-data-definition-for-this-class",
-    "href": "w01/slides.html#big-data-definition-for-this-class",
-    "title": "Week 1: Course Overview",
-    "section": "Big Data Definition For This Class(!)",
-    "text": "Big Data Definition For This Class(!)\n\n\nBig Data: “When the size of the data itself becomes part of the engineering problem”\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?"
-  },
-  {
-    "objectID": "w01/slides.html#real-world-examples",
-    "href": "w01/slides.html#real-world-examples",
-    "title": "Week 1: Course Overview",
-    "section": "Real-World Examples",
-    "text": "Real-World Examples\nNetflix\n\nScale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\nUber\n\nScale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\nOpenAI\n\nScale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters\n\n\n\nSlide Author: Amit Arora!"
-  },
-  {
-    "objectID": "w01/slides.html#data-architecture-infrastructure-demo",
-    "href": "w01/slides.html#data-architecture-infrastructure-demo",
-    "title": "Week 1: Course Overview",
-    "section": "Data Architecture / Infrastructure Demo",
-    "text": "Data Architecture / Infrastructure Demo\n\nHow would you make X, the Former Bird App, scale to a billion users!?!\n\n\nFigure 2-1 from Kleppmann and Riccomini (2026): A “standard” relational approach\n“Back of the envelope” calculation demo"
-  },
-  {
-    "objectID": "w01/slides.html#our-toolbox-from-now-until-december",
-    "href": "w01/slides.html#our-toolbox-from-now-until-december",
-    "title": "Week 1: Course Overview",
-    "section": "Our Toolbox From Now Until December 😎",
-    "text": "Our Toolbox From Now Until December 😎\n\n\n\n\n\nBig Data Handling\n\n\n\n\nYou could technically run all these on your laptop!\n\n\n\n\n…But in this class they’ll run on remote EC2\n\n\n\n\nPython\n\npandas\nduckdb\npolars\npyspark\nprefect\n\nApache Arrow\nApache Hadoop \\(\\leadsto\\) Apache Spark\n\n\n\n\n\n\nCloud Services\n\n\n\n\nThese run on some Amazon server nearDulles Airport or Frederick, MD\n\n\n\n\nVirtual Machines: EC2\nObject Storage: S3\nElastic Map-Reduce: EMR\n\n\n\n\n\nIDEs\n\n\n\n\nThese should be run on your laptop\n\n\n\n\n…But just to connect to EC2 (edit/run remote files)!\n\n\n\n\nVSCode\nPositron"
-  },
-  {
     "objectID": "w01/slides.html#our-bookshelf-from-now-until-december",
     "href": "w01/slides.html#our-bookshelf-from-now-until-december",
     "title": "Week 1: Course Overview",
@@ -4607,7 +4556,7 @@
     "href": "syllabus.html#course-staff-and-office-hours",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "Course Staff and Office Hours",
-    "text": "Course Staff and Office Hours\n\nProf. Jeff Jacobs, jj1088@georgetown.edu: Schedule office hours at jjacobs.me/meet\n\nTues 4:30-7:00pm, Weds 3-4pm, Thurs 3-4pm\n(Please try to schedule at least 8 hours in advance, and let me know briefly in the “Additional Info” portion of the signup form what you’d like to discuss, so I have time to prepare!)\n\nTA Samyu Vakkalanka, spv15@georgetown.edu\n\nOffice Hours: TBD\n\nTA Fangzhou Wang, fw256@georgetown.edu\n\nOffice Hours: TBD\n\nTA Siru Wu, sw1430@georgetown.edu\n\nOffice Hours: TBD",
+    "text": "Course Staff and Office Hours\n\nProf. Jeff Jacobs, jj1088@georgetown.edu: Schedule office hours at jjacobs.me/meet\n\nOffice Hours: Tuesdays 4:30-7:00pm, Wednesdays 3-4pm, Thursdays 3-4pm\n(Please try to schedule at least 8 hours in advance, and let me know briefly in the “Additional Info” portion of the signup form what you’d like to discuss, so I have time to prepare!)\n\nTA Samyu Vakkalanka, spv15@georgetown.edu\n\nOffice Hours: TBD (Email to reserve a 30-minute slot in advance)\n\nTA Fangzhou Wang, fw256@georgetown.edu\n\nOffice Hours: Fridays 7-8pm (Email to reserve a 30-minute slot in advance)\n\nTA Siru Wu, sw1430@georgetown.edu\n\nOffice Hours: Mondays 1-2pm (Email to reserve a slot in advance)",
     "crumbs": [
       "Syllabus"
     ]
@@ -4637,7 +4586,7 @@
     "href": "syllabus.html#course-topics-calendar",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "Course Topics / Calendar",
-    "text": "Course Topics / Calendar\nThe following is a rough map of what we will work through together throughout the semester; given that everyone learns at a different pace, my aim is to leave us with a good amount of flexibility in terms of how much time we spend on each topic.\nNonetheless, if you are able to do the recommended readings listed below before the start of each week’s lecture, this will be a good indication that you are “on pace”, relative to the overall set of topics I aim to cover by the end of the semester.\nIf you find any discrepancies between this schedule and Georgetown’s official calendar, please let us know!\n\n\n\n\n\n\n\n\n\nUnit\nWeek\nDate\nTopic\n\n\n\n\nUnit 1: Core Concepts\n1\nAug 31\nCourse Overview\n\n\n\n2\nSep 8\nHorizontal Scaling via Cloud Computing\n\n\n\n3\nSep 14\nParallelization Concepts\n\n\nUnit 2: Scaling Pandas\n4\nSep 21\nDuckDB\n\n\n\n5\nSep 28\nPolars\n\n\n\n6\nOct 5\nData Engineering\n\n\nUnit 3: Distributed Computing with Spark\n7\nOct 19\nIntroduction to Spark\n\n\n\n8\nOct 26\nML with Spark\n\n\n\n9\nNov 2\nNLP with Spark\n\n\nUnit 4: ETL for Vector DBs\n10\nNov 9\nETL Pipelines\n\n\n\n11\nNov 16\nVector Databases\n\n\n\n\nNov 23\nNo Class (Fall Break)\n\n\nUnit 5: Final Projects\n12\nNov 30\nFinal Project Preparation\n\n\n\n13\nDec 7\nFinal Presentations",
+    "text": "Course Topics / Calendar\nThe following is a rough map of what we will work through together throughout the semester; given that everyone learns at a different pace, my aim is to leave us with a good amount of flexibility in terms of how much time we spend on each topic.\nNonetheless, if you are able to do the recommended readings listed below before the start of each week’s lecture, this will be a good indication that you are “on pace”, relative to the overall set of topics I aim to cover by the end of the semester.\nIf you find any discrepancies between this schedule and Georgetown’s official calendar, please let us know!\n\n\n\n\n\n\n\n\n\nUnit\nWeek\nDate\nTopic\n\n\n\n\nUnit 1: Core Concepts\n1\nAug 31\nCourse Overview\n\n\n\n2\nSep 8\nHorizontal Scaling with Cloud Resources\n\n\n\n3\nSep 14\nParallelization Concepts\n\n\nUnit 2: Scaling Pandas\n4\nSep 21\nDuckDB\n\n\n\n5\nSep 28\nPolars\n\n\n\n6\nOct 5\nData Engineering\n\n\nUnit 3: Distributed Computing with Spark\n7\nOct 19\nIntroduction to Spark\n\n\n\n8\nOct 26\nML with Spark\n\n\n\n9\nNov 2\nNLP with Spark\n\n\nUnit 4: ETL for Vector DBs\n10\nNov 9\nETL Pipelines\n\n\n\n11\nNov 16\nVector Databases\n\n\n\n\nNov 23\nNo Class (Fall Break)\n\n\nUnit 5: Final Projects\n12\nNov 30\nFinal Project Preparation\n\n\n\n13\nDec 7\nFinal Presentations",
     "crumbs": [
       "Syllabus"
     ]

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jeff Jacobs">
 
-<title>Week 2: Cloud Computing – DSAN 6000: Big Data and Cloud Computing</title>
+<title>Week 2: Using Cloud Resources for Horizontal Scaling – DSAN 6000: Big Data and Cloud Computing</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -507,7 +507,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-09-08, 05:16:19 AM</em></p>
+<p><em>Updated 2026-09-08, 03:38:50 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -544,6 +544,12 @@ window.Quarto = {
   <li><a href="#infrastructure-as-a-service-iaas" id="toc-infrastructure-as-a-service-iaas" class="nav-link" data-scroll-target="#infrastructure-as-a-service-iaas">Infrastructure as a Service (IaaS)</a></li>
   <li><a href="#software-as-a-service-saas" id="toc-software-as-a-service-saas" class="nav-link" data-scroll-target="#software-as-a-service-saas">Software as a Service (SaaS)</a></li>
   </ul></li>
+  <li><a href="#aws-core" id="toc-aws-core" class="nav-link" data-scroll-target="#aws-core">AWS “Core”</a>
+  <ul class="collapse">
+  <li><a href="#ec2-elastic-cloud-compute" id="toc-ec2-elastic-cloud-compute" class="nav-link" data-scroll-target="#ec2-elastic-cloud-compute">EC2: Elastic Cloud Compute</a></li>
+  <li><a href="#s3-simple-storage-service" id="toc-s3-simple-storage-service" class="nav-link" data-scroll-target="#s3-simple-storage-service">S3: Simple Storage Service</a></li>
+  <li><a href="#athena-x-glue-query-s3-like-a-database" id="toc-athena-x-glue-query-s3-like-a-database" class="nav-link" data-scroll-target="#athena-x-glue-query-s3-like-a-database">Athena x Glue: Query S3 Like a Database</a></li>
+  </ul></li>
   <li><a href="#hw2-ec2-s3" id="toc-hw2-ec2-s3" class="nav-link" data-scroll-target="#hw2-ec2-s3">HW2: EC2 🤝 S3</a>
   <ul class="collapse">
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -557,7 +563,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 2: Cloud Computing</h1>
+<h1 class="title">Week 2: Using Cloud Resources for Horizontal Scaling</h1>
 <p class="subtitle lead"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2026</p>
   <div class="quarto-categories">
     <div class="quarto-category">Class Sessions</div>
@@ -677,8 +683,8 @@ window.Quarto = {
 </center>
 </section>
 </section>
-<section id="the-cloud-renting-computers-from-a-big-company" class="level1" data-stack-name="The Cloud: AWS">
-<h1 data-stack-name="The Cloud: AWS">“The Cloud” = Renting Computers from a Big Company</h1>
+<section id="the-cloud-renting-computers-from-a-big-company" class="level1" data-stack-name="The Cloud?">
+<h1 data-stack-name="The Cloud?">“The Cloud” = Renting Computers from a Big Company</h1>
 <p><em>(…That’s it, that’s the whole definition)</em></p>
 <section id="our-toolbox-from-now-until-december" class="level2 smaller crunch-title title-11">
 <h2 class="smaller crunch-title title-11 anchored" data-anchor-id="our-toolbox-from-now-until-december">Our Toolbox From Now Until December 😎</h2>
@@ -858,7 +864,7 @@ window.Quarto = {
 <th class="tdc" data-quarto-table-cell-role="th"><p>Vertical Scaling<br><i class="bi bi-pc-display-horizontal text-60"></i> → <i class="bi bi-pc-display-horizontal"></i></p></th>
 <th class="tdc" data-quarto-table-cell-role="th">Horizontal Scaling<br>
 <div style="display: flex; flex-direction: row; justify-content: center; line-height: 1; gap: 10px;">
-<i class="bi bi-pc-display-horizontal" style="line-height: 1 !important;"></i> → <img src="images/multiple-computers.svg" style="width: 40px; margin-top: 0px; margin-bottom: 0px; line-height: 1;">
+<i class="bi bi-pc-display-horizontal" style="line-height: 1 !important;"></i> → <img src="images/multiple-computers.svg" style="width: 45px; margin-top: 0px; margin-bottom: 0px; line-height: 1;">
 </div></th>
 </tr>
 </thead>
@@ -971,9 +977,47 @@ window.Quarto = {
 <p>Slide credit: Amit Arora</p>
 </div></div></section>
 </section>
-<section id="hw2-ec2-s3" class="level1" data-stack-name="AWS Lab">
-<h1 data-stack-name="AWS Lab">HW2: EC2 🤝 S3</h1>
-<p><a href="https://gu-dsan.github.io/6000-fall-2025/labs/02-labs.html">Click to Start HW2!</a></p>
+<section id="aws-core" class="level1" data-stack-name="AWS">
+<h1 data-stack-name="AWS">AWS “Core”</h1>
+<ul>
+<li>Remotely-Accessible Computers with <strong>EC2</strong></li>
+<li>Remotely-Accessible Storage with <strong>S3</strong></li>
+</ul>
+<section id="ec2-elastic-cloud-compute" class="level2">
+<h2 class="anchored" data-anchor-id="ec2-elastic-cloud-compute">EC2: Elastic Cloud Compute</h2>
+<p>HW1:</p>
+<ul>
+<li>Create your own <strong>remote EC2 computer instance</strong></li>
+<li>Use it to <strong>download</strong> (one-way) from remote storage bucket</li>
+</ul>
+</section>
+<section id="s3-simple-storage-service" class="level2">
+<h2 class="anchored" data-anchor-id="s3-simple-storage-service">S3: Simple Storage Service</h2>
+<p>HW2:</p>
+<ul>
+<li>Create your own <strong>remote storage instance</strong></li>
+<li><strong>Read and write</strong> to it from your EC2 instance</li>
+</ul>
+</section>
+<section id="athena-x-glue-query-s3-like-a-database" class="level2 title-08">
+<h2 class="title-08 anchored" data-anchor-id="athena-x-glue-query-s3-like-a-database">Athena x Glue: Query S3 Like a Database</h2>
+<p>HW5:</p>
+<ul>
+<li>Auto-ingest data into an S3 bucket, along with <strong>metadata</strong></li>
+<li>Tell Athena the <strong>schema</strong> of this data using Glue</li>
+<li>Run SQL queries on S3
+<ul>
+<li>You never <em>manually</em> make a DB!</li>
+<li>You never <em>manually</em> set up a server to execute SQL queries or to save their results!</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="hw2-ec2-s3" class="level1" data-stack-name="S3 Demo">
+<h1 data-stack-name="S3 Demo">HW2: EC2 🤝 S3</h1>
+<ul>
+<li>In Class-Demo: Getting EC2 to talk to S3</li>
+</ul>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">

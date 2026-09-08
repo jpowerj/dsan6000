@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Jeff Jacobs">
-  <title>DSAN 6000: Big Data and Cloud Computing – Week 2: Cloud Computing</title>
+  <title>DSAN 6000: Big Data and Cloud Computing – Week 2: Using Cloud Resources for Horizontal Scaling</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -235,7 +235,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Week 2: Cloud Computing</h1>
+  <h1 class="title">Week 2: Using Cloud Resources for Horizontal Scaling</h1>
   <p class="subtitle"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2026</p>
 
 <div class="quarto-title-authors">
@@ -326,7 +326,7 @@ Jeff Jacobs
 </center>
 </section></section>
 <section>
-<section id="the-cloud-renting-computers-from-a-big-company" class="title-slide slide level1 center" data-stack-name="The Cloud: AWS">
+<section id="the-cloud-renting-computers-from-a-big-company" class="title-slide slide level1 center" data-stack-name="The Cloud?">
 <h1>“The Cloud” = Renting Computers from a Big Company</h1>
 <p><em>(…That’s it, that’s the whole definition)</em></p>
 </section>
@@ -500,7 +500,7 @@ Jeff Jacobs
 <th class="tdc" data-quarto-table-cell-role="th"><p>Vertical Scaling<br><i class="bi bi-pc-display-horizontal text-60"></i> → <i class="bi bi-pc-display-horizontal"></i></p></th>
 <th class="tdc" data-quarto-table-cell-role="th">Horizontal Scaling<br>
 <div style="display: flex; flex-direction: row; justify-content: center; line-height: 1; gap: 10px;">
-<i class="bi bi-pc-display-horizontal" style="line-height: 1 !important;"></i> → <img src="images/multiple-computers.svg" style="width: 40px; margin-top: 0px; margin-bottom: 0px; line-height: 1;">
+<i class="bi bi-pc-display-horizontal" style="line-height: 1 !important;"></i> → <img src="images/multiple-computers.svg" style="width: 45px; margin-top: 0px; margin-bottom: 0px; line-height: 1;">
 </div></th>
 </tr>
 </thead>
@@ -601,9 +601,48 @@ Jeff Jacobs
 <p>Slide credit: Amit Arora</p>
 </div></aside></section></section>
 <section>
-<section id="hw2-ec2-s3" class="title-slide slide level1 center" data-stack-name="AWS Lab">
+<section id="aws-core" class="title-slide slide level1 center" data-stack-name="AWS">
+<h1>AWS “Core”</h1>
+<ul>
+<li>Remotely-Accessible Computers with <strong>EC2</strong></li>
+<li>Remotely-Accessible Storage with <strong>S3</strong></li>
+</ul>
+</section>
+<section id="ec2-elastic-cloud-compute" class="slide level2">
+<h2>EC2: Elastic Cloud Compute</h2>
+<p>HW1:</p>
+<ul>
+<li>Create your own <strong>remote EC2 computer instance</strong></li>
+<li>Use it to <strong>download</strong> (one-way) from remote storage bucket</li>
+</ul>
+</section>
+<section id="s3-simple-storage-service" class="slide level2">
+<h2>S3: Simple Storage Service</h2>
+<p>HW2:</p>
+<ul>
+<li>Create your own <strong>remote storage instance</strong></li>
+<li><strong>Read and write</strong> to it from your EC2 instance</li>
+</ul>
+</section>
+<section id="athena-x-glue-query-s3-like-a-database" class="slide level2 title-08">
+<h2>Athena x Glue: Query S3 Like a Database</h2>
+<p>HW5:</p>
+<ul>
+<li>Auto-ingest data into an S3 bucket, along with <strong>metadata</strong></li>
+<li>Tell Athena the <strong>schema</strong> of this data using Glue</li>
+<li>Run SQL queries on S3
+<ul>
+<li>You never <em>manually</em> make a DB!</li>
+<li>You never <em>manually</em> set up a server to execute SQL queries or to save their results!</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="hw2-ec2-s3" class="title-slide slide level1 center" data-stack-name="S3 Demo">
 <h1>HW2: EC2 🤝 S3</h1>
-<p><a href="https://gu-dsan.github.io/6000-fall-2025/labs/02-labs.html">Click to Start HW2!</a></p>
+<ul>
+<li>In Class-Demo: Getting EC2 to talk to S3</li>
+</ul>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>

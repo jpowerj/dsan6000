@@ -1,5 +1,5 @@
 ---
-title: "Week 2: Cloud Computing"
+title: "Week 2: Using Cloud Resources for Horizontal Scaling"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
@@ -160,7 +160,7 @@ Slide Author: Amit Arora!
 
 </center>
 
-# "The Cloud" = Renting Computers from a Big Company {data-stack-name="The Cloud: AWS"}
+# "The Cloud" = Renting Computers from a Big Company {data-stack-name="The Cloud?"}
 
 *(...That's it, that's the whole definition)*
 
@@ -322,7 +322,7 @@ Slide Author: Amit Arora!
 <tr>
   <th></th>
   <th class='tdc'><div data-qmd="Vertical Scaling<br><i class='bi bi-pc-display-horizontal text-60'></i> &rarr; <i class='bi bi-pc-display-horizontal'></i>"></div></th>
-  <th class='tdc'><div data-qmd="Horizontal Scaling<br><div style='display: flex; flex-direction: row; justify-content: center; line-height: 1; gap: 10px;'><i class='bi bi-pc-display-horizontal' style='line-height: 1 !important;'></i> &rarr; <img src='images/multiple-computers.svg' style='width: 40px; margin-top: 0px; margin-bottom: 0px; line-height: 1;'></img></div>"></div></th>
+  <th class='tdc'><div data-qmd="Horizontal Scaling<br><div style='display: flex; flex-direction: row; justify-content: center; line-height: 1; gap: 10px;'><i class='bi bi-pc-display-horizontal' style='line-height: 1 !important;'></i> &rarr; <img src='images/multiple-computers.svg' style='width: 45px; margin-top: 0px; margin-bottom: 0px; line-height: 1;'></img></div>"></div></th>
 </tr>
 </thead>
 <tbody>
@@ -425,9 +425,38 @@ Slide credit: Amit Arora
 
 :::
 
-# HW2: EC2 🤝 S3 {data-stack-name="AWS Lab"}
+# AWS "Core" {data-stack-name="AWS"}
 
-[Click to Start HW2!](https://gu-dsan.github.io/6000-fall-2025/labs/02-labs.html)
+* Remotely-Accessible Computers with **EC2**
+* Remotely-Accessible Storage with **S3**
+
+## EC2: Elastic Cloud Compute
+
+HW1:
+
+* Create your own **remote EC2 computer instance**
+* Use it to **download** (one-way) from remote storage bucket
+
+## S3: Simple Storage Service
+
+HW2:
+
+* Create your own **remote storage instance**
+* **Read and write** to it from your EC2 instance
+
+## Athena x Glue: Query S3 Like a Database {.title-08}
+
+HW5:
+
+* Auto-ingest data into an S3 bucket, along with **metadata**
+* Tell Athena the **schema** of this data using Glue
+* Run SQL queries on S3
+  * You never *manually* make a DB!
+  * You never *manually* set up a server to execute SQL queries or to save their results!
+
+# HW2: EC2 🤝 S3 {data-stack-name="S3 Demo"}
+
+* In Class-Demo: Getting EC2 to talk to S3
 
 ## References
 
