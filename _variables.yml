@@ -11,8 +11,8 @@ weeks:
   footer: "DSAN 6000 Week 1: Course Overview"
   date-md: "Aug 31"
 - weeknum: 2
-  title: "Cloud Computing"
-  footer: "DSAN 6000 Week 2: Cloud Computing"
+  title: "Horizontal Scaling via Cloud Computing"
+  footer: "DSAN 6000 Week 2: Horizontal Scaling"
   date-md: "Sep 8"
 - weeknum: 3
   title: "Parallelization Concepts"
@@ -52,9 +52,9 @@ weeks:
   date-md: "Nov 16"
 - weeknum: 12
   title: "Final Project Preparation"
-  footer: "DSAN 6000 Week 13"
+  footer: "DSAN 6000 Week 12"
   date-md: "Nov 30"
 - weeknum: 13
   title: "Final Presentations"
-  footer: "DSAN 6000 Week 14"
+  footer: "DSAN 6000 Week 13"
   date-md: "Dec 7"

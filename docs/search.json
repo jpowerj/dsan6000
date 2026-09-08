@@ -2519,7 +2519,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9790 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.6879 s"
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9776 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.6611 s"
   },
   {
     "objectID": "w03/slides.html#what-happens-when-not-embarrassingly-parallel",
@@ -2740,7 +2740,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Parallelization Concepts",
     "section": "In Action",
-    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9746 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.6428 s",
+    "text": "In Action\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 580\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n0.9767 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.6672 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 14</span>"
     ]
@@ -3695,6 +3695,56 @@
     ]
   },
   {
+    "objectID": "w02/index.html#internet-of-things-iot",
+    "href": "w02/index.html#internet-of-things-iot",
+    "title": "Week 2: Cloud Computing",
+    "section": "Internet of Things (IoT)",
+    "text": "Internet of Things (IoT)\nNearly 100 billion devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nVehicles (not just self-driving cars!)\nIndustrial sensors\n\n\n\n\nSmart city infrastructure\nMedical devices, remote patient monitoring\n\n\n\n\n\n\n\nSlide Author: Amit Arora!",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#smartphone-location-data",
+    "href": "w02/index.html#smartphone-location-data",
+    "title": "Week 2: Cloud Computing",
+    "section": "Smartphone Location Data",
+    "text": "Smartphone Location Data\n\n\n\n\n\nSlide Author: Amit Arora!",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#real-world-examples",
+    "href": "w02/index.html#real-world-examples",
+    "title": "Week 2: Cloud Computing",
+    "section": "Real-World Examples",
+    "text": "Real-World Examples\nNetflix\n\nScale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\nUber\n\nScale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\nOpenAI\n\nScale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters\n\n\n\nSlide Author: Amit Arora!",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#data-architecture-infrastructure-demo",
+    "href": "w02/index.html#data-architecture-infrastructure-demo",
+    "title": "Week 2: Cloud Computing",
+    "section": "Data Architecture / Infrastructure Demo",
+    "text": "Data Architecture / Infrastructure Demo\n\nHow would you make X, the Former Bird App, scale to a billion users!?!\n\n\n\n\nFigure 2-1 from Kleppmann and Riccomini (2026): A “standard” relational approach\n\n\n\n“Back of the envelope” calculation demo",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
+    ]
+  },
+  {
+    "objectID": "w02/index.html#our-toolbox-from-now-until-december",
+    "href": "w02/index.html#our-toolbox-from-now-until-december",
+    "title": "Week 2: Cloud Computing",
+    "section": "Our Toolbox From Now Until December 😎",
+    "text": "Our Toolbox From Now Until December 😎\n\n\n\n\n\nBig Data Handling\n\n\n\n\nYou could technically run all these on your laptop!\n\n\n\n\n…But in this class they’ll run on remote EC2\n\n\n\n\nPython\n\npandas\nduckdb\npolars\npyspark\nprefect\n\nApache Arrow\nApache Hadoop \\(\\leadsto\\) Apache Spark\n\n\n\n\n\n\nCloud Services\n\n\n\n\nThese run on some Amazon server nearDulles Airport or Frederick, MD\n\n\n\n\nVirtual Machines: EC2\nObject Storage: S3\nElastic Map-Reduce: EMR\n\n\n\n\n\nIDEs\n\n\n\n\nThese should be run on your laptop\n\n\n\n\n…But just to connect to EC2 (edit/run remote files)!\n\n\n\n\nVSCode\nPositron",
+    "crumbs": [
+      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
+    ]
+  },
+  {
     "objectID": "w02/index.html#jeffs-favorite-big-data-definition",
     "href": "w02/index.html#jeffs-favorite-big-data-definition",
     "title": "Week 2: Cloud Computing",
@@ -3718,8 +3768,8 @@
     "objectID": "w02/index.html#so-you-find-yourself-smashed-against-a-wall",
     "href": "w02/index.html#so-you-find-yourself-smashed-against-a-wall",
     "title": "Week 2: Cloud Computing",
-    "section": "So you find yourself smashed against a wall…",
-    "text": "So you find yourself smashed against a wall…\n(Some of yall would fold in this scenario)",
+    "section": "So You Find Yourself Smashed Against A Wall…",
+    "text": "So You Find Yourself Smashed Against A Wall…\n(Some of yall would fold in this scenario)",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 8</span>"
     ]
@@ -3749,17 +3799,17 @@
     "href": "w02/index.html#is-moores-law-dead",
     "title": "Week 2: Cloud Computing",
     "section": "Is Moore’s Law Dead?",
-    "text": "Is Moore’s Law Dead?\n\n…Kind of?\nFocus nowadays: specialized hardware / compute architectures hyper-optimized for particular tasks\n\n[If you took DSAN 5500] Think of BLAS\n\nGraphic Processing Units (GPUs)\nField Programmable Gate Arrays (FPGAs)\nData Processing Units (DPUs)\nGoogle’s Tensor Processing Units (TPUs)",
+    "text": "Is Moore’s Law Dead?\n…Kind of?\n\nFocus nowadays: specialized hardware / compute architectures hyper-optimized for particular tasks\n\n[If you took DSAN 5500] Think of BLAS\n\nGraphic Processing Units (GPUs)\nGoogle’s Tensor Processing Units (TPUs)",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 8</span>"
     ]
   },
   {
-    "objectID": "w02/index.html#so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
-    "href": "w02/index.html#so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
+    "objectID": "w02/index.html#even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
+    "href": "w02/index.html#even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
     "title": "Week 2: Cloud Computing",
-    "section": "So, even upgrading our hardware didn’t help 😭 now what do we do?",
-    "text": "So, even upgrading our hardware didn’t help 😭 now what do we do?\n\nWe distribute!\nMore CPUs, more memory, more storage!",
+    "section": "Even Upgrading Our Hardware Didn’t Help 😭 Now What Do We Do?",
+    "text": "Even Upgrading Our Hardware Didn’t Help 😭 Now What Do We Do?\n…We distribute! (Horizontal Scaling)\n\n\n\n\n\n\n\n\n\nVertical Scaling → \nHorizontal Scaling\n\n → \n\n\n\n\n\nProcessing Power\nFancier CPU (faster/more cores)\nMore computers \\(\\implies\\) More CPUs\n\n\nMemory\nInstall more RAM\nMore computers \\(\\implies\\) More RAM\n\n\nStorage\nBigger hard drive\nMore computers \\(\\implies\\) More hard drive space",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 8</span>"
     ]
@@ -3785,41 +3835,21 @@
     ]
   },
   {
-    "objectID": "w02/index.html#benefits",
-    "href": "w02/index.html#benefits",
+    "objectID": "w02/index.html#the-cloud-nist-definition",
+    "href": "w02/index.html#the-cloud-nist-definition",
     "title": "Week 2: Cloud Computing",
-    "section": "Benefits",
-    "text": "Benefits\n\n\n\n\nProvides access to low-cost computing\nCosts are decreasing every year\nElastic\nPaaS works!\nMany other benefits…",
+    "section": "“The Cloud”: NIST Definition",
+    "text": "“The Cloud”: NIST Definition\n\n\n\n\n\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 8</span>"
     ]
   },
   {
-    "objectID": "w02/index.html#q-what-is-the-cloud",
-    "href": "w02/index.html#q-what-is-the-cloud",
+    "objectID": "w02/index.html#simplicity-vs.-flexibility",
+    "href": "w02/index.html#simplicity-vs.-flexibility",
     "title": "Week 2: Cloud Computing",
-    "section": "Q: What is The Cloud?",
-    "text": "Q: What is The Cloud?\n\nA: Using someone else’s computers",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#nist-definition",
-    "href": "w02/index.html#nist-definition",
-    "title": "Week 2: Cloud Computing",
-    "section": "NIST Definition",
-    "text": "NIST Definition\n\n\n\n\n\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#service-models",
-    "href": "w02/index.html#service-models",
-    "title": "Week 2: Cloud Computing",
-    "section": "Service Models",
-    "text": "Service Models",
+    "section": "Simplicity vs. Flexibility",
+    "text": "Simplicity vs. Flexibility",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 8</span>"
     ]
@@ -3839,17 +3869,7 @@
     "href": "w02/index.html#infrastructure-as-a-service-iaas",
     "title": "Week 2: Cloud Computing",
     "section": "Infrastructure as a Service (IaaS)",
-    "text": "Infrastructure as a Service (IaaS)\n\nVirtualized computing resources delivered over the internet\nProvider manages: Physical hardware, virtualization, networking, storage\nYou manage: Operating systems, applications, runtime, data, middleware\n\nExamples and Use Cases\n\nAmazon EC2, Microsoft Azure VMs, Google Compute Engine\nPerfect for: Development environments, web hosting, backup & recovery\nBenefits: Rapid scaling, pay-as-you-go, global availability\n\n# Launch a virtual machine in seconds\naws ec2 run-instances --image-id ami-12345 --instance-type t3.xlarge",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#platform-as-a-service-paas",
-    "href": "w02/index.html#platform-as-a-service-paas",
-    "title": "Week 2: Cloud Computing",
-    "section": "Platform as a Service (PaaS)",
-    "text": "Platform as a Service (PaaS)\n\nWhat is PaaS?\n\nComplete development and deployment environment in the cloud\nProvider manages: Infrastructure, operating systems, runtime environments\nYou manage: Applications and data\n\nExamples and Use Cases\n\nAWS Elastic Beanstalk, Google App Engine, Microsoft Azure App Service\nPerfect for: Web applications, API development, microservices\nBenefits: Faster development, automatic scaling, integrated DevOps\n\n# Deploy your app with minimal configuration\ngit push heroku main  # App automatically deployed and scaled",
+    "text": "Infrastructure as a Service (IaaS)\n\nVirtualized computing resources delivered over the internet\nProvider manages: Physical hardware, virtualization, networking, storage\nYou manage: Operating systems, applications, runtime, data, middleware\n\nExamples and Use Cases\n\nAmazon EC2, Microsoft Azure VMs, Google Compute Engine\nPerfect for: Development environments, web hosting, backup & recovery\nBenefits: Rapid scaling, pay-as-you-go, global availability\n\n# Launch a virtual machine in seconds\naws ec2 run-instances --image-id ami-12345 --instance-type t3.large\n\n\nSlide credit: Amit Arora",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 8</span>"
     ]
@@ -3859,117 +3879,7 @@
     "href": "w02/index.html#software-as-a-service-saas",
     "title": "Week 2: Cloud Computing",
     "section": "Software as a Service (SaaS)",
-    "text": "Software as a Service (SaaS)\n\nComplete applications delivered over the internet\nProvider manages: Everything (infrastructure, platform, software)\nYou manage: Your data and user access\n\nExamples and Use Cases\n\nGmail, Salesforce, Microsoft 365, Slack, Zoom\nPerfect for: Business applications, collaboration tools, CRM\nBenefits: No installation, automatic updates, accessible anywhere\n\nThe SaaS Revolution\n\n80% of companies use SaaS applications\n$195 billion market size (2023)",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#cloud-infrastructure-and-the-ai-revolution",
-    "href": "w02/index.html#cloud-infrastructure-and-the-ai-revolution",
-    "title": "Week 2: Cloud Computing",
-    "section": "Cloud Infrastructure and the AI Revolution",
-    "text": "Cloud Infrastructure and the AI Revolution\n\nMassive Computational Requirements\n\nTraining large language models requires thousands of GPUs\nCloud provides elastic access to specialized hardware\n\nData Storage and Processing\n\nAI models need petabytes of training data\nCloud offers unlimited, globally distributed storage\n\nCost Efficiency\n\nPay-per-use model for expensive AI hardware\nNo upfront investment in GPU clusters",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#gpu-infrastructure-the-ai-powerhouse",
-    "href": "w02/index.html#gpu-infrastructure-the-ai-powerhouse",
-    "title": "Week 2: Cloud Computing",
-    "section": "GPU Infrastructure: The AI Powerhouse",
-    "text": "GPU Infrastructure: The AI Powerhouse\nFrom Gaming to AI\n\nOriginally: Graphics processing for video games\nNow: Parallel processing powerhouse for AI/ML workloads\nArchitecture: Thousands of cores vs. CPUs 8-64 cores\n\nCloud GPU Offerings\n# AWS GPU instances for different AI workloads\np4d.24xlarge   # 8x NVIDIA A100 (40GB) - $32/hour\np3.16xlarge    # 8x NVIDIA V100 (16GB) - $24/hour\ng4dn.xlarge    # 1x NVIDIA T4 (16GB)   - $0.50/hour\nThe Scale Challenge\n\nGPT-4 training: Estimated 25,000 A100 GPUs for 6 months\nMeta’s AI infrastructure: 350,000+ NVIDIA H100 chips\nCost: Single AI training run can cost $100M+",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#distributed-computing-and-large-clusters",
-    "href": "w02/index.html#distributed-computing-and-large-clusters",
-    "title": "Week 2: Cloud Computing",
-    "section": "Distributed Computing and Large Clusters",
-    "text": "Distributed Computing and Large Clusters\nModern AI Requires Massive Clusters\n\nModel parallelism: Split models across multiple GPUs\nData parallelism: Process different data batches simultaneously\n\nPipeline parallelism: Different layers on different GPUs\n\nTechnologies Enabling Scale\n\nKubernetes: Container orchestration for microservices\nApache Spark: Distributed data processing framework\nRay: Distributed AI/ML framework for Python\n\n# Distributed training with Ray\nimport ray\nfrom ray import tune\n# Scale across 1000+ machines automatically\ntune.run(train_model, resources_per_trial={\"gpu\": 8})",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#data-storage-evolution",
-    "href": "w02/index.html#data-storage-evolution",
-    "title": "Week 2: Cloud Computing",
-    "section": "Data Storage Evolution",
-    "text": "Data Storage Evolution\nThe Data Tsunami\n\n2025 projection: 181 zettabytes of data globally\nAI training datasets: CommonCrawl (800TB), ImageNet (150GB)\nReal-time requirements: 1-10ms latency for inference (some cases sub-millisecond)\n\nStorage Technologies\n\nObject Storage: Amazon S3, Google Cloud Storage (petabyte scale)\nHigh-performance: NVMe SSDs, persistent memory\nDistributed filesystems: HDFS, GlusterFS, Ceph\n\nThe Economics of Data\n\nStorage costs: Dropped 99.9% since 1980\nTransfer costs: Still significant for large datasets\nEdge computing: Bringing compute closer to data sources",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#evolution-of-the-cloud",
-    "href": "w02/index.html#evolution-of-the-cloud",
-    "title": "Week 2: Cloud Computing",
-    "section": "Evolution of the Cloud",
-    "text": "Evolution of the Cloud\n\n\n\n\n\n\n\n\nYesterday\nToday\nTomorrow\n\n\n\n\nLimited number of tools and vendors\nMany tools and vendors to work with\nIntegrated tools and vendors\n\n\nOne platform - few devices\nMultiple platforms - many devices\nConnected platforms and devices\n\n\nData is scarce but manageable\nOverabundance of data\nData is used for important business decisions\n\n\nIT has major influence and control\nIT has limited influence and control\nIT is strategic to the business\n\n\nPeople only work when they are at work\nPeople work wherever they want\nPeople have access to what they need wherever they are",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#what-does-the-cloud-look-like-microsoft-azure-data-center",
-    "href": "w02/index.html#what-does-the-cloud-look-like-microsoft-azure-data-center",
-    "title": "Week 2: Cloud Computing",
-    "section": "What Does the Cloud Look Like? Microsoft Azure Data Center",
-    "text": "What Does the Cloud Look Like? Microsoft Azure Data Center",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#loudon-county-va-cloudon",
-    "href": "w02/index.html#loudon-county-va-cloudon",
-    "title": "Week 2: Cloud Computing",
-    "section": "Loudon County, VA: “CLoudon”",
-    "text": "Loudon County, VA: “CLoudon”\n\n70% of the world’s internet traffic passes through Loudon\nHow data centers power VA’s Loudon County\nThe heart of “The Cloud” is in Virginia\nCBS Sunday Morning Visits the Home of the Internet in Loudoun County",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#further-reading-saas-and-cloud-computing",
-    "href": "w02/index.html#further-reading-saas-and-cloud-computing",
-    "title": "Week 2: Cloud Computing",
-    "section": "Further Reading: SaaS and Cloud Computing",
-    "text": "Further Reading: SaaS and Cloud Computing\nSaaS and Cloud Computing Statistics:\n\n1. Zylo: 111 Unmissable SaaS Statistics for 2025\n2. Spendesk: 60+ eye-opening SaaS statistics (2025)\n3. Substly: The 28 most important SaaS statistics in 2023\n4. Harpa AI: SaaS Industry Key Statistics 2023\n5. Content Beta: 110+ SaaS Statistics and Trends\n6. Statista: Average number of SaaS apps used in the U.S. 2024\n7. Meetanshi: SaaS Statistics for 2025: Market Size, Growth, Trends & More",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#data-storage-and-ai-infrastructure",
-    "href": "w02/index.html#data-storage-and-ai-infrastructure",
-    "title": "Week 2: Cloud Computing",
-    "section": "Data Storage and AI Infrastructure",
-    "text": "Data Storage and AI Infrastructure\n\n2025 global data volume (181 zettabytes)\n\nrivery.io\nExplodingTopics.com\nPIT.edu\nForbes\n\nCommonCrawl and ImageNet dataset sizes\nAI inference latency and storage tech:\n\nIBM\nRCR Wireless",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#storage-economics-and-technology",
-    "href": "w02/index.html#storage-economics-and-technology",
-    "title": "Week 2: Cloud Computing",
-    "section": "Storage Economics and Technology",
-    "text": "Storage Economics and Technology\n\nStorage cost declines\n\nHumanProgress.org\nOur World In Data\n\nOngoing significance of transfer (egress) costs\nEdge computing trends",
-    "crumbs": [
-      "Week 2: <span class='sec-w02-date'>Sep 8</span>"
-    ]
-  },
-  {
-    "objectID": "w02/index.html#gpu-infrastructure-and-ai-training-costs",
-    "href": "w02/index.html#gpu-infrastructure-and-ai-training-costs",
-    "title": "Week 2: Cloud Computing",
-    "section": "GPU Infrastructure and AI Training Costs",
-    "text": "GPU Infrastructure and AI Training Costs\n\nGPT-4 GPU count and training duration\n\nGenspark.ai\nklu.ai\nacorn.io\n\nMeta’s NVIDIA H100 GPUs\nAI training cost estimates\n\nGenspark.ai\nacorn.io",
+    "text": "Software as a Service (SaaS)\n\nComplete applications delivered over the internet\nProvider manages: Everything (infrastructure, platform, software)\nYou manage: Your data and user access\n\nExamples and Use Cases\n\nGmail, Salesforce, Microsoft 365, Zoom\nPerfect for: Business applications, collaboration tools, CRM\nBenefits: No installation, automatic updates, accessible anywhere\n80% of companies use SaaS applications\n\n\n\nSlide credit: Amit Arora",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 8</span>"
     ]
@@ -3979,10 +3889,45 @@
     "href": "w02/index.html#references",
     "title": "Week 2: Cloud Computing",
     "section": "References",
-    "text": "References\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media, June 2. https://www.oreilly.com/radar/what-is-data-science/.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf.",
+    "text": "References\n\n\nKleppmann, Martin, and Chris Riccomini. 2026. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. 2nd edition. Santa Rosa, CA: O’Reilly.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. June 2, 2010.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.",
     "crumbs": [
       "Week 2: <span class='sec-w02-date'>Sep 8</span>"
     ]
+  },
+  {
+    "objectID": "w02/slides.html#internet-of-things-iot",
+    "href": "w02/slides.html#internet-of-things-iot",
+    "title": "Week 2: Cloud Computing",
+    "section": "Internet of Things (IoT)",
+    "text": "Internet of Things (IoT)\nNearly 100 billion devices generating data:\n\n\n\n\nSmart home devices (Alexa, Google Home, Apple HomePod)\nWearables (Apple Watch, Fitbit, Oura rings)\nVehicles (not just self-driving cars!)\nIndustrial sensors\n\n\n\n\nSmart city infrastructure\nMedical devices, remote patient monitoring\n\n\n\n\n\n\n\nSlide Author: Amit Arora!"
+  },
+  {
+    "objectID": "w02/slides.html#smartphone-location-data",
+    "href": "w02/slides.html#smartphone-location-data",
+    "title": "Week 2: Cloud Computing",
+    "section": "Smartphone Location Data",
+    "text": "Smartphone Location Data\n\n\n\n\n\nSlide Author: Amit Arora!"
+  },
+  {
+    "objectID": "w02/slides.html#real-world-examples",
+    "href": "w02/slides.html#real-world-examples",
+    "title": "Week 2: Cloud Computing",
+    "section": "Real-World Examples",
+    "text": "Real-World Examples\nNetflix\n\nScale: 260+ million subscribers generating 100+ billion events/day\nAI Use: Personalization, content recommendations, thumbnail generation\nStack: S3 → Spark → Iceberg → ML models → Real-time serving\n\nUber\n\nScale: 35+ million trips per day, petabytes of location data\nAI Use: ETA prediction, surge pricing, driver-rider matching\nStack: Kafka → Spark Streaming → Feature Store → ML Platform\n\nOpenAI\n\nScale: Trillions of tokens for training, millions of queries/day\nAI Use: GPT models, DALL-E, embeddings\nStack: Distributed training → Vector DBs → Inference clusters\n\n\n\nSlide Author: Amit Arora!"
+  },
+  {
+    "objectID": "w02/slides.html#data-architecture-infrastructure-demo",
+    "href": "w02/slides.html#data-architecture-infrastructure-demo",
+    "title": "Week 2: Cloud Computing",
+    "section": "Data Architecture / Infrastructure Demo",
+    "text": "Data Architecture / Infrastructure Demo\n\nHow would you make X, the Former Bird App, scale to a billion users!?!\n\n\nFigure 2-1 from Kleppmann and Riccomini (2026): A “standard” relational approach\n“Back of the envelope” calculation demo"
+  },
+  {
+    "objectID": "w02/slides.html#our-toolbox-from-now-until-december",
+    "href": "w02/slides.html#our-toolbox-from-now-until-december",
+    "title": "Week 2: Cloud Computing",
+    "section": "Our Toolbox From Now Until December 😎",
+    "text": "Our Toolbox From Now Until December 😎\n\n\n\n\n\nBig Data Handling\n\n\n\n\nYou could technically run all these on your laptop!\n\n\n\n\n…But in this class they’ll run on remote EC2\n\n\n\n\nPython\n\npandas\nduckdb\npolars\npyspark\nprefect\n\nApache Arrow\nApache Hadoop \\(\\leadsto\\) Apache Spark\n\n\n\n\n\n\nCloud Services\n\n\n\n\nThese run on some Amazon server nearDulles Airport or Frederick, MD\n\n\n\n\nVirtual Machines: EC2\nObject Storage: S3\nElastic Map-Reduce: EMR\n\n\n\n\n\nIDEs\n\n\n\n\nThese should be run on your laptop\n\n\n\n\n…But just to connect to EC2 (edit/run remote files)!\n\n\n\n\nVSCode\nPositron"
   },
   {
     "objectID": "w02/slides.html#jeffs-favorite-big-data-definition",
@@ -4002,8 +3947,8 @@
     "objectID": "w02/slides.html#so-you-find-yourself-smashed-against-a-wall",
     "href": "w02/slides.html#so-you-find-yourself-smashed-against-a-wall",
     "title": "Week 2: Cloud Computing",
-    "section": "So you find yourself smashed against a wall…",
-    "text": "So you find yourself smashed against a wall…\n(Some of yall would fold in this scenario)"
+    "section": "So You Find Yourself Smashed Against A Wall…",
+    "text": "So You Find Yourself Smashed Against A Wall…\n(Some of yall would fold in this scenario)"
   },
   {
     "objectID": "w02/slides.html#the-pre-cloud-approach-make-the-one-computer-faster-and-faster",
@@ -4024,14 +3969,14 @@
     "href": "w02/slides.html#is-moores-law-dead",
     "title": "Week 2: Cloud Computing",
     "section": "Is Moore’s Law Dead?",
-    "text": "Is Moore’s Law Dead?\n\n…Kind of?\nFocus nowadays: specialized hardware / compute architectures hyper-optimized for particular tasks\n\n[If you took DSAN 5500] Think of BLAS\n\nGraphic Processing Units (GPUs)\nField Programmable Gate Arrays (FPGAs)\nData Processing Units (DPUs)\nGoogle’s Tensor Processing Units (TPUs)"
+    "text": "Is Moore’s Law Dead?\n…Kind of?\n\nFocus nowadays: specialized hardware / compute architectures hyper-optimized for particular tasks\n\n[If you took DSAN 5500] Think of BLAS\n\nGraphic Processing Units (GPUs)\nGoogle’s Tensor Processing Units (TPUs)"
   },
   {
-    "objectID": "w02/slides.html#so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
-    "href": "w02/slides.html#so-even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
+    "objectID": "w02/slides.html#even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
+    "href": "w02/slides.html#even-upgrading-our-hardware-didnt-help-now-what-do-we-do",
     "title": "Week 2: Cloud Computing",
-    "section": "So, even upgrading our hardware didn’t help 😭 now what do we do?",
-    "text": "So, even upgrading our hardware didn’t help 😭 now what do we do?\n\nWe distribute!\nMore CPUs, more memory, more storage!"
+    "section": "Even Upgrading Our Hardware Didn’t Help 😭 Now What Do We Do?",
+    "text": "Even Upgrading Our Hardware Didn’t Help 😭 Now What Do We Do?\n…We distribute! (Horizontal Scaling)\n\n\n\n\n\n\n\n\n\nVertical Scaling → \nHorizontal Scaling\n\n → \n\n\n\n\n\nProcessing Power\nFancier CPU (faster/more cores)\nMore computers \\(\\implies\\) More CPUs\n\n\nMemory\nInstall more RAM\nMore computers \\(\\implies\\) More RAM\n\n\nStorage\nBigger hard drive\nMore computers \\(\\implies\\) More hard drive space"
   },
   {
     "objectID": "w02/slides.html#my-favorite-example-ever",
@@ -4048,32 +3993,18 @@
     "text": "How Do We Achieve This? …That’s Exactly What The Cloud is For!"
   },
   {
-    "objectID": "w02/slides.html#benefits",
-    "href": "w02/slides.html#benefits",
+    "objectID": "w02/slides.html#the-cloud-nist-definition",
+    "href": "w02/slides.html#the-cloud-nist-definition",
     "title": "Week 2: Cloud Computing",
-    "section": "Benefits",
-    "text": "Benefits\n\n\n\n\nProvides access to low-cost computing\nCosts are decreasing every year\nElastic\nPaaS works!\nMany other benefits…"
+    "section": "“The Cloud”: NIST Definition",
+    "text": "“The Cloud”: NIST Definition\n\n\n\n\n\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)"
   },
   {
-    "objectID": "w02/slides.html#q-what-is-the-cloud",
-    "href": "w02/slides.html#q-what-is-the-cloud",
+    "objectID": "w02/slides.html#simplicity-vs.-flexibility",
+    "href": "w02/slides.html#simplicity-vs.-flexibility",
     "title": "Week 2: Cloud Computing",
-    "section": "Q: What is The Cloud?",
-    "text": "Q: What is The Cloud?\n\nA: Using someone else’s computers"
-  },
-  {
-    "objectID": "w02/slides.html#nist-definition",
-    "href": "w02/slides.html#nist-definition",
-    "title": "Week 2: Cloud Computing",
-    "section": "NIST Definition",
-    "text": "NIST Definition\n\n\n\n\n\n\nBased on Mell and Grance (2011) (The “official” NIST definition of “Cloud Computing”)"
-  },
-  {
-    "objectID": "w02/slides.html#service-models",
-    "href": "w02/slides.html#service-models",
-    "title": "Week 2: Cloud Computing",
-    "section": "Service Models",
-    "text": "Service Models"
+    "section": "Simplicity vs. Flexibility",
+    "text": "Simplicity vs. Flexibility"
   },
   {
     "objectID": "w02/slides.html#hotel-analogy",
@@ -4087,105 +4018,21 @@
     "href": "w02/slides.html#infrastructure-as-a-service-iaas",
     "title": "Week 2: Cloud Computing",
     "section": "Infrastructure as a Service (IaaS)",
-    "text": "Infrastructure as a Service (IaaS)\n\nVirtualized computing resources delivered over the internet\nProvider manages: Physical hardware, virtualization, networking, storage\nYou manage: Operating systems, applications, runtime, data, middleware\n\nExamples and Use Cases\n\nAmazon EC2, Microsoft Azure VMs, Google Compute Engine\nPerfect for: Development environments, web hosting, backup & recovery\nBenefits: Rapid scaling, pay-as-you-go, global availability\n\n# Launch a virtual machine in seconds\naws ec2 run-instances --image-id ami-12345 --instance-type t3.xlarge"
-  },
-  {
-    "objectID": "w02/slides.html#platform-as-a-service-paas",
-    "href": "w02/slides.html#platform-as-a-service-paas",
-    "title": "Week 2: Cloud Computing",
-    "section": "Platform as a Service (PaaS)",
-    "text": "Platform as a Service (PaaS)\nWhat is PaaS?\n\nComplete development and deployment environment in the cloud\nProvider manages: Infrastructure, operating systems, runtime environments\nYou manage: Applications and data\n\nExamples and Use Cases\n\nAWS Elastic Beanstalk, Google App Engine, Microsoft Azure App Service\nPerfect for: Web applications, API development, microservices\nBenefits: Faster development, automatic scaling, integrated DevOps\n\n# Deploy your app with minimal configuration\ngit push heroku main  # App automatically deployed and scaled"
+    "text": "Infrastructure as a Service (IaaS)\n\nVirtualized computing resources delivered over the internet\nProvider manages: Physical hardware, virtualization, networking, storage\nYou manage: Operating systems, applications, runtime, data, middleware\n\nExamples and Use Cases\n\nAmazon EC2, Microsoft Azure VMs, Google Compute Engine\nPerfect for: Development environments, web hosting, backup & recovery\nBenefits: Rapid scaling, pay-as-you-go, global availability\n\n# Launch a virtual machine in seconds\naws ec2 run-instances --image-id ami-12345 --instance-type t3.large\n\n\nSlide credit: Amit Arora"
   },
   {
     "objectID": "w02/slides.html#software-as-a-service-saas",
     "href": "w02/slides.html#software-as-a-service-saas",
     "title": "Week 2: Cloud Computing",
     "section": "Software as a Service (SaaS)",
-    "text": "Software as a Service (SaaS)\n\nComplete applications delivered over the internet\nProvider manages: Everything (infrastructure, platform, software)\nYou manage: Your data and user access\n\nExamples and Use Cases\n\nGmail, Salesforce, Microsoft 365, Slack, Zoom\nPerfect for: Business applications, collaboration tools, CRM\nBenefits: No installation, automatic updates, accessible anywhere\n\nThe SaaS Revolution\n\n80% of companies use SaaS applications\n$195 billion market size (2023)"
-  },
-  {
-    "objectID": "w02/slides.html#cloud-infrastructure-and-the-ai-revolution",
-    "href": "w02/slides.html#cloud-infrastructure-and-the-ai-revolution",
-    "title": "Week 2: Cloud Computing",
-    "section": "Cloud Infrastructure and the AI Revolution",
-    "text": "Cloud Infrastructure and the AI Revolution\n\nMassive Computational Requirements\n\nTraining large language models requires thousands of GPUs\nCloud provides elastic access to specialized hardware\n\nData Storage and Processing\n\nAI models need petabytes of training data\nCloud offers unlimited, globally distributed storage\n\nCost Efficiency\n\nPay-per-use model for expensive AI hardware\nNo upfront investment in GPU clusters"
-  },
-  {
-    "objectID": "w02/slides.html#gpu-infrastructure-the-ai-powerhouse",
-    "href": "w02/slides.html#gpu-infrastructure-the-ai-powerhouse",
-    "title": "Week 2: Cloud Computing",
-    "section": "GPU Infrastructure: The AI Powerhouse",
-    "text": "GPU Infrastructure: The AI Powerhouse\nFrom Gaming to AI\n\nOriginally: Graphics processing for video games\nNow: Parallel processing powerhouse for AI/ML workloads\nArchitecture: Thousands of cores vs. CPUs 8-64 cores\n\nCloud GPU Offerings\n# AWS GPU instances for different AI workloads\np4d.24xlarge   # 8x NVIDIA A100 (40GB) - $32/hour\np3.16xlarge    # 8x NVIDIA V100 (16GB) - $24/hour\ng4dn.xlarge    # 1x NVIDIA T4 (16GB)   - $0.50/hour\nThe Scale Challenge\n\nGPT-4 training: Estimated 25,000 A100 GPUs for 6 months\nMeta’s AI infrastructure: 350,000+ NVIDIA H100 chips\nCost: Single AI training run can cost $100M+"
-  },
-  {
-    "objectID": "w02/slides.html#distributed-computing-and-large-clusters",
-    "href": "w02/slides.html#distributed-computing-and-large-clusters",
-    "title": "Week 2: Cloud Computing",
-    "section": "Distributed Computing and Large Clusters",
-    "text": "Distributed Computing and Large Clusters\nModern AI Requires Massive Clusters\n\nModel parallelism: Split models across multiple GPUs\nData parallelism: Process different data batches simultaneously\n\nPipeline parallelism: Different layers on different GPUs\n\nTechnologies Enabling Scale\n\nKubernetes: Container orchestration for microservices\nApache Spark: Distributed data processing framework\nRay: Distributed AI/ML framework for Python\n\n# Distributed training with Ray\nimport ray\nfrom ray import tune\n# Scale across 1000+ machines automatically\ntune.run(train_model, resources_per_trial={\"gpu\": 8})"
-  },
-  {
-    "objectID": "w02/slides.html#data-storage-evolution",
-    "href": "w02/slides.html#data-storage-evolution",
-    "title": "Week 2: Cloud Computing",
-    "section": "Data Storage Evolution",
-    "text": "Data Storage Evolution\nThe Data Tsunami\n\n2025 projection: 181 zettabytes of data globally\nAI training datasets: CommonCrawl (800TB), ImageNet (150GB)\nReal-time requirements: 1-10ms latency for inference (some cases sub-millisecond)\n\nStorage Technologies\n\nObject Storage: Amazon S3, Google Cloud Storage (petabyte scale)\nHigh-performance: NVMe SSDs, persistent memory\nDistributed filesystems: HDFS, GlusterFS, Ceph\n\nThe Economics of Data\n\nStorage costs: Dropped 99.9% since 1980\nTransfer costs: Still significant for large datasets\nEdge computing: Bringing compute closer to data sources"
-  },
-  {
-    "objectID": "w02/slides.html#evolution-of-the-cloud",
-    "href": "w02/slides.html#evolution-of-the-cloud",
-    "title": "Week 2: Cloud Computing",
-    "section": "Evolution of the Cloud",
-    "text": "Evolution of the Cloud\n\n\n\n\n\n\n\n\nYesterday\nToday\nTomorrow\n\n\n\n\nLimited number of tools and vendors\nMany tools and vendors to work with\nIntegrated tools and vendors\n\n\nOne platform - few devices\nMultiple platforms - many devices\nConnected platforms and devices\n\n\nData is scarce but manageable\nOverabundance of data\nData is used for important business decisions\n\n\nIT has major influence and control\nIT has limited influence and control\nIT is strategic to the business\n\n\nPeople only work when they are at work\nPeople work wherever they want\nPeople have access to what they need wherever they are"
-  },
-  {
-    "objectID": "w02/slides.html#what-does-the-cloud-look-like-microsoft-azure-data-center",
-    "href": "w02/slides.html#what-does-the-cloud-look-like-microsoft-azure-data-center",
-    "title": "Week 2: Cloud Computing",
-    "section": "What Does the Cloud Look Like? Microsoft Azure Data Center",
-    "text": "What Does the Cloud Look Like? Microsoft Azure Data Center"
-  },
-  {
-    "objectID": "w02/slides.html#loudon-county-va-cloudon",
-    "href": "w02/slides.html#loudon-county-va-cloudon",
-    "title": "Week 2: Cloud Computing",
-    "section": "Loudon County, VA: “CLoudon”",
-    "text": "Loudon County, VA: “CLoudon”\n\n70% of the world’s internet traffic passes through Loudon\nHow data centers power VA’s Loudon County\nThe heart of “The Cloud” is in Virginia\nCBS Sunday Morning Visits the Home of the Internet in Loudoun County"
-  },
-  {
-    "objectID": "w02/slides.html#further-reading-saas-and-cloud-computing",
-    "href": "w02/slides.html#further-reading-saas-and-cloud-computing",
-    "title": "Week 2: Cloud Computing",
-    "section": "Further Reading: SaaS and Cloud Computing",
-    "text": "Further Reading: SaaS and Cloud Computing\nSaaS and Cloud Computing Statistics:\n\n1. Zylo: 111 Unmissable SaaS Statistics for 2025\n2. Spendesk: 60+ eye-opening SaaS statistics (2025)\n3. Substly: The 28 most important SaaS statistics in 2023\n4. Harpa AI: SaaS Industry Key Statistics 2023\n5. Content Beta: 110+ SaaS Statistics and Trends\n6. Statista: Average number of SaaS apps used in the U.S. 2024\n7. Meetanshi: SaaS Statistics for 2025: Market Size, Growth, Trends & More"
-  },
-  {
-    "objectID": "w02/slides.html#data-storage-and-ai-infrastructure",
-    "href": "w02/slides.html#data-storage-and-ai-infrastructure",
-    "title": "Week 2: Cloud Computing",
-    "section": "Data Storage and AI Infrastructure",
-    "text": "Data Storage and AI Infrastructure\n\n2025 global data volume (181 zettabytes)\n\nrivery.io\nExplodingTopics.com\nPIT.edu\nForbes\n\nCommonCrawl and ImageNet dataset sizes\nAI inference latency and storage tech:\n\nIBM\nRCR Wireless"
-  },
-  {
-    "objectID": "w02/slides.html#storage-economics-and-technology",
-    "href": "w02/slides.html#storage-economics-and-technology",
-    "title": "Week 2: Cloud Computing",
-    "section": "Storage Economics and Technology",
-    "text": "Storage Economics and Technology\n\nStorage cost declines\n\nHumanProgress.org\nOur World In Data\n\nOngoing significance of transfer (egress) costs\nEdge computing trends"
-  },
-  {
-    "objectID": "w02/slides.html#gpu-infrastructure-and-ai-training-costs",
-    "href": "w02/slides.html#gpu-infrastructure-and-ai-training-costs",
-    "title": "Week 2: Cloud Computing",
-    "section": "GPU Infrastructure and AI Training Costs",
-    "text": "GPU Infrastructure and AI Training Costs\n\nGPT-4 GPU count and training duration\n\nGenspark.ai\nklu.ai\nacorn.io\n\nMeta’s NVIDIA H100 GPUs\nAI training cost estimates\n\nGenspark.ai\nacorn.io"
+    "text": "Software as a Service (SaaS)\n\nComplete applications delivered over the internet\nProvider manages: Everything (infrastructure, platform, software)\nYou manage: Your data and user access\n\nExamples and Use Cases\n\nGmail, Salesforce, Microsoft 365, Zoom\nPerfect for: Business applications, collaboration tools, CRM\nBenefits: No installation, automatic updates, accessible anywhere\n80% of companies use SaaS applications\n\n\n\nSlide credit: Amit Arora"
   },
   {
     "objectID": "w02/slides.html#references",
     "href": "w02/slides.html#references",
     "title": "Week 2: Cloud Computing",
     "section": "References",
-    "text": "References\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media, June 2. https://www.oreilly.com/radar/what-is-data-science/.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145. https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf."
+    "text": "References\n\n\nKleppmann, Martin, and Chris Riccomini. 2026. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. 2nd edition. Santa Rosa, CA: O’Reilly.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. June 2, 2010.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145."
   },
   {
     "objectID": "writeups/manual-spark-cluster/index.html",
@@ -4220,7 +4067,7 @@
     "href": "writeups/sql-guide/index.html#onto-duckdb",
     "title": "From Pandas to SQL",
     "section": "Onto DuckDB!",
-    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌────────────────────────────────────────────────┐\n│┌──────────────────────────────────────────────┐│\n││              Total Time: 0.0020s             ││\n│└──────────────────────────────────────────────┘│\n└────────────────────────────────────────────────┘\n┌───────────────────────────┐\n│           QUERY           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│    ────────────────────   │\n│                           │\n│           0 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│    ────────────────────   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│           FILTER          │\n│    ────────────────────   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         TABLE_SCAN        │\n│    ────────────────────   │\n│   Function: PANDAS_SCAN   │\n│                           │\n│        Projections:       │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│                           │\n│                           │\n│                           │\n│           7 rows          │\n│           0.00s           │\n└───────────────────────────┘\n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
+    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌────────────────────────────────────────────────┐\n│┌──────────────────────────────────────────────┐│\n││              Total Time: 0.0015s             ││\n│└──────────────────────────────────────────────┘│\n└────────────────────────────────────────────────┘\n┌───────────────────────────┐\n│           QUERY           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│    ────────────────────   │\n│                           │\n│           0 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│    ────────────────────   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│           FILTER          │\n│    ────────────────────   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         TABLE_SCAN        │\n│    ────────────────────   │\n│   Function: PANDAS_SCAN   │\n│                           │\n│        Projections:       │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│                           │\n│                           │\n│                           │\n│           7 rows          │\n│           0.00s           │\n└───────────────────────────┘\n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
   },
   {
     "objectID": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",
@@ -4790,7 +4637,7 @@
     "href": "syllabus.html#course-topics-calendar",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "Course Topics / Calendar",
-    "text": "Course Topics / Calendar\nThe following is a rough map of what we will work through together throughout the semester; given that everyone learns at a different pace, my aim is to leave us with a good amount of flexibility in terms of how much time we spend on each topic.\nNonetheless, if you are able to do the recommended readings listed below before the start of each week’s lecture, this will be a good indication that you are “on pace”, relative to the overall set of topics I aim to cover by the end of the semester.\nIf you find any discrepancies between this schedule and Georgetown’s official calendar, please let us know!\n\n\n\n\n\n\n\n\n\nUnit\nWeek\nDate\nTopic\n\n\n\n\nUnit 1: Core Concepts\n1\nAug 31\nCourse Overview\n\n\n\n2\nSep 8\nCloud Computing\n\n\n\n3\nSep 14\nParallelization Concepts\n\n\nUnit 2: Scaling Pandas\n4\nSep 21\nDuckDB\n\n\n\n5\nSep 28\nPolars\n\n\n\n6\nOct 5\nData Engineering\n\n\nUnit 3: Distributed Computing with Spark\n7\nOct 19\nIntroduction to Spark\n\n\n\n8\nOct 26\nML with Spark\n\n\n\n9\nNov 2\nNLP with Spark\n\n\nUnit 4: ETL for Vector DBs\n10\nNov 9\nETL Pipelines\n\n\n\n11\nNov 16\nVector Databases\n\n\n\n\nNov 23\nNo Class (Fall Break)\n\n\nUnit 5: Final Projects\n12\nNov 30\nFinal Project Preparation\n\n\n\n13\nDec 7\nFinal Presentations",
+    "text": "Course Topics / Calendar\nThe following is a rough map of what we will work through together throughout the semester; given that everyone learns at a different pace, my aim is to leave us with a good amount of flexibility in terms of how much time we spend on each topic.\nNonetheless, if you are able to do the recommended readings listed below before the start of each week’s lecture, this will be a good indication that you are “on pace”, relative to the overall set of topics I aim to cover by the end of the semester.\nIf you find any discrepancies between this schedule and Georgetown’s official calendar, please let us know!\n\n\n\n\n\n\n\n\n\nUnit\nWeek\nDate\nTopic\n\n\n\n\nUnit 1: Core Concepts\n1\nAug 31\nCourse Overview\n\n\n\n2\nSep 8\nHorizontal Scaling via Cloud Computing\n\n\n\n3\nSep 14\nParallelization Concepts\n\n\nUnit 2: Scaling Pandas\n4\nSep 21\nDuckDB\n\n\n\n5\nSep 28\nPolars\n\n\n\n6\nOct 5\nData Engineering\n\n\nUnit 3: Distributed Computing with Spark\n7\nOct 19\nIntroduction to Spark\n\n\n\n8\nOct 26\nML with Spark\n\n\n\n9\nNov 2\nNLP with Spark\n\n\nUnit 4: ETL for Vector DBs\n10\nNov 9\nETL Pipelines\n\n\n\n11\nNov 16\nVector Databases\n\n\n\n\nNov 23\nNo Class (Fall Break)\n\n\nUnit 5: Final Projects\n12\nNov 30\nFinal Project Preparation\n\n\n\n13\nDec 7\nFinal Presentations",
     "crumbs": [
       "Syllabus"
     ]
