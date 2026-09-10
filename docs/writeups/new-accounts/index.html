@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -470,7 +505,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>If you encounter an error that looks something like the following after clicking the “Start Lab” button in AWS Canvas (on the right side of the AWS Learner Lab interface):</p>
-<pre class="plaintext code-overflow-wrap"><code>Lab is in state: CREATE_FAILED - CloudFormation did not receive a response from your Custom Resource. Please check your logs for requestId [46bfb34a-1871-427a-b986-b8d6b4dec93f]. If you are using the Python cfn-response module, you may need to update your Lambda function code so that CloudFormation can attach the updated version., please end lab and wait for it to complete.</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode email code-overflow-wrap code-with-copy"><code class="sourceCode email"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Lab is in state: CREATE_FAILED - CloudFormation did not receive a response from your Custom Resource. Please check your logs for requestId [46bfb34a-1871-427a-b986-b8d6b4dec93f]. If you are using the Python cfn-response module, you may need to update your Lambda function code so that CloudFormation can attach the updated version., please end lab and wait for it to complete.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Please let us know in the Google Space and we will be able to create a new account for you. Once you receive your new email invite, please use the procedure demonstrated in the following short video to ensure that your new account isn’t just “merged” with your older account:</p>
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
     <iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=53139446-32e9-4e80-b367-b4c001467766&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=false&amp;captions=false&amp;interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="DSAN 6000: Creating a New AWS Canvas Account"></iframe>
