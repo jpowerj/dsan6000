@@ -19,7 +19,7 @@ format:
 
 If you encounter an error that looks something like the following after clicking the "Start Lab" button in AWS Canvas (on the right side of the AWS Learner Lab interface):
 
-```
+``` {.plaintext .code-overflow-wrap}
 Lab is in state: CREATE_FAILED - CloudFormation did not receive a response from your Custom Resource. Please check your logs for requestId [46bfb34a-1871-427a-b986-b8d6b4dec93f]. If you are using the Python cfn-response module, you may need to update your Lambda function code so that CloudFormation can attach the updated version., please end lab and wait for it to complete.
 ```
 
