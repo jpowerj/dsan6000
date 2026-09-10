@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jeff Jacobs">
+<meta name="dcterms.date" content="2026-09-09">
 
-<title>Extra Writeups – DSAN 6000: Big Data and Cloud Computing</title>
+<title>Setting Up A New AWS Canvas Account – DSAN 6000: Big Data and Cloud Computing</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,30 +28,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-fedc0afa5eed45b88079642ee2c6e752.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0bdd48471a4bfd0dcffdd5744a13b8fb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f66a0c5d46d281c23161a583f047a5aa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-0bdd48471a4bfd0dcffdd5744a13b8fb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-fedc0afa5eed45b88079642ee2c6e752.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-0bdd48471a4bfd0dcffdd5744a13b8fb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f66a0c5d46d281c23161a583f047a5aa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-0bdd48471a4bfd0dcffdd5744a13b8fb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -77,70 +77,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-date','listing-assignments','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="../sidebar.js"></script>
+<script src="../../sidebar.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -315,7 +257,9 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../writeups/index.html">Writeups</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      DSAN 6000: Big Data and Cloud Computing
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -330,7 +274,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">DSAN 6000: Big Data and Cloud Computing</a> 
+      <a href="../../">DSAN 6000: Big Data and Cloud Computing</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -345,104 +289,104 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><i class="bi bi-house"></i> Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../../resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../writeups/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../writeups/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Writeups</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w01/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w01/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1: <span class="sec-w01-date">Aug 31</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w02/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 2: <span class="sec-w02-date">Sep 8</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w03/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w03/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 3: <span class="sec-w03-date">Sep 14</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w04/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w04/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 4: <span class="sec-w04-date">Sep 21</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w05/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w05/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 5: <span class="sec-w05-date">Sep 28</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w06/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w06/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 6: <span class="sec-w06-date">Oct 5</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w07/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w07/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 7: <span class="sec-w07-date">Oct 19</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w08/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w08/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 8: <span class="sec-w08-date">Oct 26</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w09/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w09/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 9: <span class="sec-w09-date">Nov 2</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w10/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w10/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 10: <span class="sec-w10-date">Nov 9</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w11/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w11/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 11: <span class="sec-w11-date">Nov 16</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w12/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w12/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 12: <span class="sec-w12-date">Nov 30</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w13/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../w13/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 13: <span class="sec-w13-date">Dec 7-8</span></span></a>
   </div>
 </li>
@@ -484,23 +428,38 @@ window.Quarto = {
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="RXh0cmElMjBXcml0ZXVwcw==">Extra Writeups <span class="quarto-category-count">(5)</span></div></div></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Extra Writeups</h1>
-</div>
+<h1 class="title">Setting Up A New AWS Canvas Account</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Extra Writeups</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeff Jacobs <a href="mailto:jj1088@georgetown.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 9, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -510,143 +469,12 @@ window.Quarto = {
 </header>
 
 
-<div id="listing-listing" class="quarto-listing quarto-listing-container-table">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-date-sort" data-direction="asc">
-        Last Updated - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Last Updated - Newest
-      </option>
-      <option value="listing-title-sort" data-direction="asc">
-        Title
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<p>If you encounter an error that looks something like the following after clicking the “Start Lab” button in AWS Canvas (on the right side of the AWS Learner Lab interface):</p>
+<pre><code>Lab is in state: CREATE_FAILED - CloudFormation did not receive a response from your Custom Resource. Please check your logs for requestId [46bfb34a-1871-427a-b986-b8d6b4dec93f]. If you are using the Python cfn-response module, you may need to update your Lambda function code so that CloudFormation can attach the updated version., please end lab and wait for it to complete.</code></pre>
+<p>Please let us know in the Google Space and we will be able to create a new account for you. Once you receive your new email invite, please use the procedure demonstrated in the following short video to ensure that your new account isn’t just “merged” with your older account:</p>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+    <iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=53139446-32e9-4e80-b367-b4c001467766&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=false&amp;captions=false&amp;interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="DSAN 6000: Creating a New AWS Canvas Account"></iframe>
 </div>
-<table class="quarto-listing-table table table-hover">
-<thead>
-<tr>
-
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Last Updated</a>
-</th>
-
-<th>
-Relevant Assignments
-</th>
-
-<th>
-Category
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-categories="RXh0cmElMjBXcml0ZXVwcw==" data-listing-date-sort="1788235200000" data-listing-file-modified-sort="1788316083853" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2107" data-listing-title-sort="Creating Your EC2 Instance" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="../writeups/ec2/index.html" class="title listing-title">Creating Your EC2 Instance</a>
-</td>
-<td>
-<span class="listing-date">Sep 1, 2026</span>
-</td>
-<td>
-<span class="listing-assignments">Homework 1</span>
-</td>
-<td>
-<span class="listing-categories">Extra Writeups</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-categories="RXh0cmElMjBXcml0ZXVwcw==" data-listing-date-sort="1788840000000" data-listing-file-modified-sort="1788316171736" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="571" data-listing-title-sort="Creating Your S3 Bucket" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="../writeups/s3/index.html" class="title listing-title">Creating Your S3 Bucket</a>
-</td>
-<td>
-<span class="listing-date">Sep 8, 2026</span>
-</td>
-<td>
-<span class="listing-assignments">Homework 2</span>
-</td>
-<td>
-<span class="listing-categories">Extra Writeups</span>
-</td>
-
-</tr>
-
-<tr data-index="2" data-categories="RXh0cmElMjBXcml0ZXVwcw==" data-listing-date-sort="1788926400000" data-listing-file-modified-sort="1789070468094" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="174" data-listing-title-sort="Setting Up A New AWS Canvas Account" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="../writeups/new-accounts/index.html" class="title listing-title">Setting Up A New AWS Canvas Account</a>
-</td>
-<td>
-<span class="listing-date">Sep 9, 2026</span>
-</td>
-<td>
-<span class="listing-assignments">Homeworks (All)</span>
-</td>
-<td>
-<span class="listing-categories">Extra Writeups</span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-categories="RXh0cmElMjBXcml0ZXVwcw==" data-listing-date-sort="1789358400000" data-listing-file-modified-sort="1788316494346" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1529" data-listing-title-sort="From Pandas to SQL" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="../writeups/sql-guide/index.html" class="title listing-title">From Pandas to SQL</a>
-</td>
-<td>
-<span class="listing-date">Sep 14, 2026</span>
-</td>
-<td>
-<span class="listing-assignments">Homework 3</span>
-</td>
-<td>
-<span class="listing-categories">Extra Writeups</span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-categories="RXh0cmElMjBXcml0ZXVwcw==" data-listing-date-sort="1791518400000" data-listing-file-modified-sort="1788316468053" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="420" data-listing-title-sort="Setting Up a Spark Cluster &quot;Manually&quot;" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="../writeups/manual-spark-cluster/index.html" class="title listing-title">Setting Up a Spark Cluster “Manually”</a>
-</td>
-<td>
-<span class="listing-date">Oct 9, 2026</span>
-</td>
-<td>
-<span class="listing-assignments">Homework 7</span>
-</td>
-<td>
-<span class="listing-categories">Extra Writeups</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-
 
 
 
@@ -1076,4 +904,4 @@ Category
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/writeups/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/writeups/new-accounts/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
