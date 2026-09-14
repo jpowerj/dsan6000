@@ -12,6 +12,7 @@ crossref:
   fig-title: Fig
 cache: false
 bibliography: "../_DSAN6000.bib"
+csl: "../chicago-17-no-url.csl"
 format:
   revealjs:
     output-file: "slides.html"
@@ -409,7 +410,7 @@ disp_time(par_start, par_end)
 :::
 ::::
 
-## Amdahl's Law
+## Amdahl's Law {.crunch-title}
 
 How do we know whether or not the overhead is **"worth it"?**
 
@@ -625,12 +626,6 @@ digraph G {
 * **We** need to start thinking like this bc, **1000x** harder to debug **parallel code!** So we need to be less ad hoc in how we write+debug, from here on out! 🙇‍♂️🙏
 
 ![From @leskovec_mining_2014](images/map_reduce_full.svg){fig-align="center" width="500"}
-
-::: {.notes}
-
-The title relates to a classic Economics joke (the best kind of joke): "An economist and a CEO are walking down the street, when the CEO points at the ground and tells the economist, 'look! A $20 bill on the ground!' The economist keeps on walking, scoffing at the CEO: 'don't be silly, if there was a $20 bill on the ground, somebody would have picked it up already'."
-
-:::
 
 # But... Why is All This Weird Mapping and Reducing Necessary? {data-stack-name="Map-Reduce Rationale"}
 

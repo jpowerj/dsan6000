@@ -87,3 +87,11 @@ For data operations in the "No" column, they often require global coordination o
 ---
 
 * *(I learned from <a href='http://infolab.stanford.edu/~ullman/' target='_blank'>Jeff Ullman</a>, who did the obnoxious Stanford thing of mentioning in passing how "two previous students in the <a href='http://web.stanford.edu/class/cs246/' target='_blank'>class</a> did this for a cool final project on web crawling and, well, it escalated quickly", aka became Google)*
+
+---
+
+::: {.notes}
+
+The title relates to a classic Economics joke (the best kind of joke): "An economist and a CEO are walking down the street, when the CEO points at the ground and tells the economist, 'look! A $20 bill on the ground!' The economist keeps on walking, scoffing at the CEO: 'don't be silly, if there was a $20 bill on the ground, somebody would have picked it up already'."
+
+:::
