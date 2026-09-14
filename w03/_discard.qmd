@@ -1,0 +1,89 @@
+## Glossary {.smaller .crunch-title .text-65}
+
+| Term | Definition |
+|---|---|
+| **Local** | Your current workstation (laptop, desktop, etc.), wherever you start the terminal/console application. |
+| **Remote** | Any machine you connect to via ssh or other means. |
+| **EC2** | Single virtual machine in the cloud where you can run computation |
+| **SageMaker** | Integrated Developer Environment where you can conduct data science on single machines or distributed training |
+| **GPU** | Graphics Processing Unit - specialized hardware for parallel computation, essential for AI/ML |
+| **TPU** | Tensor Processing Unit - Google's custom AI accelerator chips |
+| **Ephemeral** | Lasting for a short time - any machine that will get turned off or place you will lose data |
+| **Persistent** | Lasting for a long time - any environment where your work is NOT lost when the timer goes off |
+
+: {tbl-colwidths="[18,82]"}
+
+---
+
+## Typical Real-World Scenarios {.smaller .crunch-title .text-65}
+
+- You need to **prepare training data** for LLMs by cleaning and deduplicating 100TB of web-scraped text
+- You are building a **RAG system** that requires embedding and indexing millions of documents in parallel
+- You need to **extract structured data** from millions of PDFs using vision models for document AI
+- You are **preprocessing multimodal datasets** with billions of image-text pairs for foundation model training
+- You need to run **quality filtering** on petabytes of Common Crawl data for training dataset
+- You are **generating synthetic training data** using LLMs to augment limited real-world datasets
+- You need to **transform and tokenize** text across 100+ languages for multilingual AI
+- You are building **real-time data pipelines** that process streaming data for online learning
+
+---
+
+## Rules of Thumb for Parallelization {.smaller .crunch-title .crunch-p .crunch-ul .crunch-li-5 .text-60}
+
+::: {.column width="49%"}
+
+<center>
+
+***Yes - Parallelize These***
+
+</center>
+
+**Data Preparation:**
+
+-   Text extraction from documents
+-   Tokenization of text corpora
+-   Image preprocessing
+-   Embedding generation for documents
+-   Data quality filtering and validation
+-   Format conversions (audio features)
+-   Web scraping and data collection
+-   Synthetic data generation
+
+**Data Processing:**
+
+-   Batch inference on datasets
+-   Feature extraction at scale
+-   Data deduplication (local)
+
+:::
+
+::: {.column width="48%"}
+
+<center>
+
+**No - Keep Sequential**
+
+</center>
+
+**Order-Dependent:**
+
+-   Conversation threading
+-   Time-series preprocessing
+-   Sequential data validation
+-   Cumulative statistics
+
+**Global Operations:**
+
+-   Global deduplication
+-   Cross-dataset joins
+-   Computing exact quantiles
+
+:::
+
+::: {.callout-note appearance="simple"}
+For data operations in the "No" column, they often require global coordination or maintain strict ordering. However, many can be approximated with parallel algorithms (like approximate deduplication with locality-sensitive hashing)
+:::
+
+---
+
+* *(I learned from <a href='http://infolab.stanford.edu/~ullman/' target='_blank'>Jeff Ullman</a>, who did the obnoxious Stanford thing of mentioning in passing how "two previous students in the <a href='http://web.stanford.edu/class/cs246/' target='_blank'>class</a> did this for a cool final project on web crawling and, well, it escalated quickly", aka became Google)*

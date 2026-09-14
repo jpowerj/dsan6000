@@ -1,8 +1,8 @@
 ---
-title: "Week 3: Parallelization Concepts"
+title: "Week 3: Separating Data from Computation for Parallel Processing"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
-# institute: "{{< var course.institute >}}"
+institute: "{{< var course.institute >}}"
 date: 2026-09-14
 date-format: full
 lecnum: 3
@@ -22,14 +22,40 @@ format:
     link-external-newwindow: true
     footer: "{{< var weeks.3.footer >}}"
     include-in-header:
-      text: "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'><link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'><script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz' crossorigin='anonymous'></script>"
-    theme: [default, "../dsan-globals/jjquarto.scss"]
+      text: |
+        <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'>
+        <link rel='stylesheet' type='text/css' href='//cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='' crossorigin='anonymous' referrerpolicy='no-referrer'></script>
+        <script src='../sidebar.js'></script>
+        <link rel='preconnect' href='//fonts.gstatic.com' crossorigin>
+        <link href='//fonts.googleapis.com/css2?family=Honk&display=swap' rel='stylesheet'>
+        <style>
+        .honk-honk {
+          font-family: "Honk", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+        </style>
+    theme:
+      - default
+      - "../dsan-globals/jjquarto.scss"
+      - "../dsan-globals/jjquarto-light.scss"
     revealjs-plugins:
       - simplemenu
     simplemenu:
       flat: true
       barhtml:
-        header: "<div class='menubar'><span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span><ul class='menu'></ul></div>"
+        header: >
+          <div class='menubar'>
+            <span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span>
+            
+            <span style='position: absolute; right: 0; padding-right: 8px; padding-top: 3px; z-index: 10; display: inline-flex !important; align-items: center !important;'>
+              <a id='toggle-01-label' href='#' onclick="window.toggleSectionClicked('01'); return(false);" class='no-decoration'>01</a>
+              <a href='#' onclick="window.toggleIconClicked(); return(false);" class='no-decoration'><i id='section-toggle-icon' class='bi bi-toggle-off' style='padding-top: 0px; padding-left: 3px; padding-right: 3px;'></i></a>
+              <a id='toggle-02-label' href='#' onclick="window.toggleSectionClicked('02'); return(false);" class='no-decoration'>02</a>
+            </span>
+            <ul class='menu'></ul>
+          </div>
       scale: 0.5
   html:
     output-file: "index.html"
@@ -45,52 +71,64 @@ format:
 
 :::
 
-## Looking back
+# Parallelization in General {.smaller .title-13 data-stack-name="Parallel Overview"}
 
-- Continued great use of Slack!
-  - Nice interactions
-- Due date reminders:  
-  - Assignment 2: {{< var due_dates.assignment02 >}}
-  - Lab 3: {{< var due_dates.lab03 >}}
-  - Assignment 3: {{< var due_dates.assignment03 >}}
+:::: {#fig-kentaro}
 
-## Glossary {.smaller .crunch-title .text-65}
+{{< video https://youtu.be/qQQex1BNpO0 width="100%" height="500" >}}
 
-| Term | Definition |
-|---|---|
-| **Local** | Your current workstation (laptop, desktop, etc.), wherever you start the terminal/console application. |
-| **Remote** | Any machine you connect to via ssh or other means. |
-| **EC2** | Single virtual machine in the cloud where you can run computation |
-| **SageMaker** | Integrated Developer Environment where you can conduct data science on single machines or distributed training |
-| **GPU** | Graphics Processing Unit - specialized hardware for parallel computation, essential for AI/ML |
-| **TPU** | Tensor Processing Unit - Google's custom AI accelerator chips |
-| **Ephemeral** | Lasting for a short time - any machine that will get turned off or place you will lose data |
-| **Persistent** | Lasting for a long time - any environment where your work is NOT lost when the timer goes off |
-
-: {tbl-colwidths="[18,82]"}
-
-# Parallelization in General {data-stack-name="Parallel Overview"}
+DJ Kentaro = The Scheduler, Spinning records = Processes
+::::
 
 ## Quick Survey Question, for Intuition-Building
 
-* Are humans capable of **"true" multi-tasking**?
-  * As in, doing two things at the **exact same time?**
-* (Or, do we instead **rapidly switch back and forth** between tasks?)
+* Is the human sensorimotor system capable of **"true" multitasking**?
+* As in, doing two things at the **exact same time?**
+* *(...Or, do we instead have to **rapidly switch back and forth** between tasks?)*
 
 ## The Answer {.smaller .crunch-title .crunch-ul}
 
-* (From what we understand, at the moment, by way of studies in neuroscience/cognitive science/etc...)
-* Humans are **not** capable of true multitasking! In CS terms, this would be called **multiprocessing** (more on this later)
-* We **are** capable, however, of various modes of **concurrency**!
+* The human brain is [mostly] **not** capable of true multitasking (*[rare exceptions](https://medicine.georgetown.edu/news-releases/georgetown-researchers-show-how-brain-rewires-itself-to-enable-true-multitasking/)*)
+* In CS terms, true multitasking is called **multiprocessing** (more on this later)
+* We **are** capable, however, of *other* modes of **concurrency**:
 
-| | Multithreading | Asynchronous Execution |
-| - | - | - |
-| **Unconsciously**<br>(you do it already, "naturally") | Focus on **one** speaker within a loud room, with tons of other conversations entering your ears | Put something in oven, set alarm, go do something else, take out of oven once alarm goes off |
-| **Consciously**<br>(you can do it with effort/practice) | Pat head (up and down) and rub stomach (circular motion) "simultaneously" | Throw a ball in the air, clap 3 times, catch ball |
+```{=html}
+<table>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 35%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+  <th></th>
+  <th>Multithreading</th>
+  <th>Asynchronous Execution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><span data-qmd='**Unconsciously**<br>(you do it already, "naturally")'></span></td>
+  <td><span data-qmd="Focus on **one** speaker within a loud room, many other sounds entering your ears"></span></td>
+  <td><span data-qmd="Put food in oven, set alarm, go do something else, take out of oven once alarm goes off"></span></td>
+</tr>
+<tr>
+  <td><span data-qmd="**Consciously**<br>(you can do it with effort/practice)"></span></td>
+  <td><span data-qmd='Pat head (up and down) and rub stomach (circular motion) "simultaneously"'></span></td>
+  <td class='tdvc'>Throw a ball in the air, clap 3 times, catch ball</td>
+</tr>
+<tr>
+  <td><span data-qmd="**From Observer's Perspective?**"></span></td>
+  <td class='tdvc'><span data-qmd='*Looks like* multiprocessing'></span></td>
+  <td class='tdvc'>Doesn't look like multiprocessing</td>
+</tr>
+</tbody>
+</table>
+```
 
-## Helpful *Specifically* for Programming {.title-09}
+## Helpful *Specifically* for Programming {.title-09 .crunch-title .crunch-ul}
 
-* Course notes from MIT's [class on parallel computing](https://book.sciml.ai/) phrases it like: if implemented thoughtfully, concurrency is a **power multiplier** for your code (do 10 things in 1 second instead of 10 seconds...)
+* Course notes from MIT's [class on parallel computing](https://book.sciml.ai/) phrases it like: if implemented thoughtfully, concurrency is a **power multiplier** for your code (do 10 things in 1 second instead of 10 seconds)
 
 ![](images/mario.gif){fig-align="center"}
 
@@ -102,112 +140,140 @@ format:
   * Need to know whether Task $A$ and Task $B$ can **share one resource** or **need their own individual resources**
   * Once Task $A$ and $B$ both complete, how do we **merge** their results together?
 
-## Avoiding the Rabbithole
+## Avoiding the Rabbithole {.fix-ol}
 
-* Parallel computing is a **rabbithole**, but one you can safely avoid via simple heuristics ("rules of thumb")!
+Parallel computing is a **rabbithole**, but one you can safely avoid via simple heuristics ("rules of thumb"):
 
-1. Check for optimizations to serial code first,
+1. Check for optimizations to serial code first (vectorization, memoization),
 2. Check for **embarrassingly parallel** code blocks
 3. Use **map-reduce** approach for more complicated cases
+4. Still hitting a wall? Try **horizontal scaling**
 
-## Typical Real-World Scenarios {.smaller .crunch-title .text-65}
+...Horizontally-scaled map-reduce, you say? Why, that's **exactly what Hadoop / Spark do for us!**
 
-- You need to **prepare training data** for LLMs by cleaning and deduplicating 100TB of web-scraped text
-- You are building a **RAG system** that requires embedding and indexing millions of documents in parallel
-- You need to **extract structured data** from millions of PDFs using vision models for document AI
-- You are **preprocessing multimodal datasets** with billions of image-text pairs for foundation model training
-- You need to run **quality filtering** on petabytes of Common Crawl data for training dataset
-- You are **generating synthetic training data** using LLMs to augment limited real-world datasets
-- You need to **transform and tokenize** text across 100+ languages for multilingual AI
-- You are building **real-time data pipelines** that process streaming data for online learning
+## "Embarrassingly Parallel" Pipelines {.smaller .crunch-title .crunch-ul .crunch-callout-half .fix-video}
 
-## "Embarrassingly Parallel" Pipelines {.smaller .crunch-title .crunch-ul}
+::: {.callout-tip title="Embarrassingly Parallel"}
 
-* Technical definition: tasks within pipeline can easily be parallelized bc **no dependence** and **no need for communication** (triple spatula!)
+A problem is *embarrassingly parallel* when it can be divided into $N$ subtasks without any **temporal dependence** or **need for communication** between the tasks
+
+:::
+
+:::: {.columns}
+::: {.column width="55%"}
 
 <center>
 
-{{< video https://jpj.georgetown.domains/dsan6000-scratch/triple_spatula.mp4 width="800" height="400" >}}
+{{< video https://jpj.georgetown.domains/dsan6000-scratch/triple_spatula.mp4 width="520" height="340" >}}
 
 </center>
 
-## Parallelizing Non-Embarrassingly-Parallel Pipelines {.smaller .title-10 .crunch-title}
+:::
+::: {.column width="45%"}
+
+<span class='info-badge'>**Temporal Dependence:**</span>
+
+Does spongebob have to **wait for one krabby patty to finish cooking** before **starting to cook a second one?**
+
+<span class='info-badge'>**Between-Process Communication:**</span>
+
+Does the cooking of one patty **require some piece of another partially-cooked patty**?
+
+:::
+::::
+
+## Naïvely "Chopping" Non-Embarrassingly-Parallel Problems {.smaller .title-08 .crunch-title .crunch-title .crunch-callout .crunch-p .crunch-ul}
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* Not all data-processing pipelines are embarrassingly-parallel!
+* May still be hope via **map-reduce** approach
+* We'll use the following terminology:
+
+::: {.callout-tip title="Non-Embarrassingly-Parallel Problems"}
+
+If a data-processing problem is *not* embarrassingly-parallel, then the **tasks** that need to be performed may be:
+
+* **Loosely-coupled**: Can be **mapped** to embarrassingly-parallel pieces, solved separately by non-communicating processors, then **merged**
+* **Tightly-coupled**: Can be **mapped** to sub-tasks, solved separately by *communicating* processors, then **merged**
+* **Non-parallelizable**: ["$\text{P}$-complete" problems](https://en.wikipedia.org/wiki/P-complete#P-complete_problems) **proven** to have no efficient parallelization unless $\text{P} = \text{NP}$
+
+:::
+
+:::
+::: {.column width="45%"}
 
 ![](images/epic_bacon_lifehack.jpeg){fig-align="center"}
 
-## Buzzkill: Complications to Come 😰 {.crunch-title .crunch-ul .title-09 .crunch-li-8}
-
-* If it's such a magical powerup, shouldn't we just **parallelize everything**? Answer: No 😞 bc **overhead**.
-* Overhead source 1: **Sending** tasks to workers (processors), **collecting** results
-* Overhead source 2: Even after setting up new stacks and heaps, threads may need to **communicate with each other** (e.g. if they need to **synchronize** at some point(s))
-* In fact, probably the earliest super-popular parallelization library was created to handle **Source 2**, not Source 1: <a href='https://en.wikipedia.org/wiki/Message_Passing_Interface' target='_blank'>**Message Passing Interface**</a> (C, C++, and Fortran)
-
-## Rules of Thumb for Parallelization {.smaller .crunch-title .crunch-p .crunch-ul .crunch-li-5 .text-60}
-
-::: {.column width="49%"}
-
-<center>
-
-***Yes - Parallelize These***
-
-</center>
-
-**Data Preparation:**
-
--   Text extraction from documents
--   Tokenization of text corpora
--   Image preprocessing
--   Embedding generation for documents
--   Data quality filtering and validation
--   Format conversions (audio features)
--   Web scraping and data collection
--   Synthetic data generation
-
-**Data Processing:**
-
--   Batch inference on datasets
--   Feature extraction at scale
--   Data deduplication (local)
-
 :::
+::::
 
-::: {.column width="48%"}
+## Buzzkill: Complications to Come 😰 {.smaller .crunch-title .crunch-ul .title-09 .crunch-li-8 .fix-ol}
 
-<center>
+If it's such a magical powerup, why not **parallelize *everything?*** A: **Overhead costs** 😞
 
-**No - Keep Sequential**
+```{=html}
+<table>
+<colgroup>
+<col style="width: 43%;">
+<col style="width: 19%;">
+<col style="width: 19%;">
+<col style="width: 19%;">
+</colgroup>
+<thead>
+<tr>
+  <th></th>
+  <th class='tdc'>Embarrassingly Parallel</th>
+  <th class='tdc'>Loosely Coupled</th>
+  <th class='tdc'>Tightly Coupled</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><span data-qmd="<i class='bi bi-1-circle'></i> **Sending** tasks to workers"></span></td>
+  <td class='tdc tdvc'>⏱️</td>
+  <td class='tdc tdvc'>⏱️</td>
+  <td class='tdc tdvc'>⏱️</td>
+</tr>
+<tr>
+  <td><span data-qmd="<i class='bi bi-2-circle'></i> Facilitating **communication** between workers"></span></td>
+  <td class='tdc tdvc'></td>
+  <td class='tdc tdvc'></td>
+  <td class='tdc tdvc'>⏱️</td>
+</tr>
+<tr>
+  <td><span data-qmd="<i class='bi bi-3-circle'></i> **Collecting** results from workers"></span></td>
+  <td class='tdc tdvc'></td>
+  <td class='tdc tdvc'>⏱️</td>
+  <td class='tdc tdvc'>⏱️</td>
+</tr>
+<tr>
+  <td><span data-qmd="<i class='bi bi-4-circle'></i> **Merging** collected results"></span></td>
+  <td class='tdc tdvc'></td>
+  <td class='tdc tdvc'>⏱️</td>
+  <td class='tdc tdvc'>⏱️</td>
+</tr>
+</tbody>
+</table>
+```
 
-</center>
+* Map-reduce (underlying Hadoop / Spark) focuses on **loosely-coupled** problems (may be *overkill* for embarrassingly-parallel: can just use `multiprocessing` or `joblib`)
+* Earlier famous parallelization library was created for **tightly-coupled** problems: [**Message Passing Interface**](https://en.wikipedia.org/wiki/Message_Passing_Interface){target='_blank'} (C, C++, and Fortran)
 
-**Order-Dependent:**
+## In Action {.crunch-title .crunch-details .title-09 .crunch-p .crunch-img .crunch-quarto-figure}
 
--   Conversation threading
--   Time-series preprocessing
--   Sequential data validation
--   Cumulative statistics
-
-**Global Operations:**
-
--   Global deduplication
--   Cross-dataset joins
--   Computing exact quantiles
-
-:::
-
-::: {.callout-note appearance="simple"}
-For data operations in the "No" column, they often require global coordination or maintain strict ordering. However, many can be approximated with parallel algorithms (like approximate deduplication with locality-sensitive hashing)
-:::
-
-## In Action {.crunch-title .crunch-details}
+[![](images/colab-badge.svg){fig-align="center" style="line-height: 0;"}](https://colab.research.google.com/drive/1DydNTIMPCnu0MCday-x7cRr7EXCirQGU?usp=drive_link){.noicon target='_blank'}
 
 ```{python}
 #| echo: true
 #| code-fold: false
+#| cache: true
 import time
 from sympy.ntheory import factorint
 from joblib import Parallel, delayed
 parallel_runner = Parallel(n_jobs=4)
-start, end = 500, 580
+start, end = 500, 650
 def find_prime_factors(num):
   time.sleep(.01)
   return factorint(num, multiple=True)
@@ -220,6 +286,7 @@ disp_time = lambda start, end: print('{:.4f} s'.format(end - start))
 ```{python}
 #| echo: true
 #| code-fold: false
+#| cache: true
 serial_start = time.time()
 result = [
   (i,find_prime_factors(i))
@@ -235,6 +302,7 @@ disp_time(serial_start, serial_end)
 ```{python}
 #| echo: true
 #| code-fold: false
+#| cache: true
 par_start = time.time()
 result = parallel_runner(
   delayed(find_prime_factors)(i)
@@ -247,7 +315,109 @@ disp_time(par_start, par_end)
 :::
 :::
 
-# Beyond Embarrassingly Parallel Tasks... {data-stack-name="Beyond Embarrassingly Parallel"}
+## What Is `joblib` Doing Here? {.crunch-title .crunch-img}
+
+:::: {.columns}
+::: {.column width="30%"}
+
+```{=html}
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>Input</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class='tdr'>1</td>
+  <td><span data-qmd="`500`"></span></td>
+</tr>
+<tr>
+  <td class='tdr'>2</td>
+  <td><span data-qmd="`501`"></span></td>
+</tr>
+<tr>
+  <td class='tdr'>3</td>
+  <td><span data-qmd="`502`"></span></td>
+</tr>
+<tr>
+  <td class='tdr'>4</td>
+  <td><span data-qmd="`503`"></span></td>
+</tr>
+<tr>
+  <td class='tdr'>5</td>
+  <td><span data-qmd="`504`"></span></td>
+</tr>
+<tr>
+  <td class='tdc' colspan="2"><span data-qmd="$\vdots$"></span></td>
+</tr>
+<tr>
+  <td class='tdr'>151</td>
+  <td><span data-qmd="`650`"></span></td>
+</tr>
+</tbody>
+</table>
+```
+
+:::
+::: {.column width="40%"}
+
+<center style="font-size: 80%;">
+
+`joblib` / Hadoop / Spark
+
+![](images/foreman-flip-h.png){fig-align="center"}
+
+<div style="display: inline-block; width: 100%; height: 40px; background: #000000; clip-path: polygon(0 50%, 10% 0, 10% 40%, 90% 40%, 90% 0, 100% 50%, 90% 100%, 90% 60%, 10% 60%, 10% 100%);"></div>
+
+</center>
+
+:::
+::: {.column width="30%"}
+
+
+```{=html}
+<table>
+<thead>
+<tr>
+  <th class='tdc'>Worker</th>
+  <th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td class='tdc'><img src='images/yesman_laptop_nobg.png' width="110"></img></td>
+  <td class='tdc tdvc'>1</td>
+</tr>
+<tr>
+  <td class='tdc'><img src='images/yesman_laptop_nobg.png' width="110"></img></td>
+  <td class='tdc tdvc'>2</td>
+</tr>
+<tr>
+  <td class='tdc'><img src='images/yesman_laptop_nobg.png' width="110"></img></td>
+  <td class='tdc tdvc'>3</td>
+</tr>
+<tr>
+  <td class='tdc tdvc'><img src='images/yesman_laptop_nobg.png' width="110"></img></td>
+  <td class='tdc tdvc'>4</td>
+</tr>
+</tbody>
+</table>
+```
+
+:::
+::::
+
+## Amdahl's Law
+
+How do we know whether or not the overhead is **"worth it"?**
+
+![](images/AmdahlsLaw.svg){fig-align="center"}
+
+# Beyond Embarrassingly-Parallel Problems... {.smaller .title-12 data-stack-name="Beyond Embarrassingly Parallel"}
+
+* Why **"map"**-reduce? What does it mean to **map** non-embarrassingly-parallel tasks to embarrassingly-parallel ones?
 
 ## What Happens When *Not* Embarrassingly Parallel? {.smaller .crunch-title .crunch-math .crunch-ul .title-09}
 
@@ -274,7 +444,7 @@ $$
 
 : {tbl-colwidths="[75,25]"}
 
-## The Direct Analogy: Map-Reduce! {.smaller .crunch-title .crunch-details}
+## For a Problem You've Seen Before! {.smaller .crunch-title .crunch-details}
 
 * Problem from DSAN 5000/5100: Computing SSR (**Sum of Squared Residuals**)
 * $y = (1,3,2), \widehat{y} = (2, 5, 0) \implies \text{SSR} = (1-2)^2 + (3-5)^2 + (2-0)^2 = 9$
@@ -467,8 +637,6 @@ The title relates to a classic Economics joke (the best kind of joke): "An econo
 * Without knowing a bit more of the **internals** of **computing efficiency**, it may seem like a huge cost in terms of overly-complicated overhead, not to mention learning curve...
 
 ## The "Killer Application": Matrix Multiplication {.crunch-title .smaller .title-11}
-
-* *(I learned from <a href='http://infolab.stanford.edu/~ullman/' target='_blank'>Jeff Ullman</a>, who did the obnoxious Stanford thing of mentioning in passing how "two previous students in the <a href='http://web.stanford.edu/class/cs246/' target='_blank'>class</a> did this for a cool final project on web crawling and, well, it escalated quickly", aka became Google)*
 
 ![From @leskovec_mining_2014, which is (legally) <a href='http://www.mmds.org/' target='_blank'>free online</a>!](images/map_reduce3.svg){fig-align="center"}
 

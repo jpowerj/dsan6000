@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Jeff Jacobs">
-  <title>DSAN 6000: Big Data and Cloud Computing – Week 3: Parallelization Concepts</title>
+  <title>DSAN 6000: Big Data and Cloud Computing – Week 3: Separating Data from Computation for Parallel Processing</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -120,7 +120,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1a7b444f0f0685ff72c0a7c85111ac42.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-b1a288874972c9b3ed76049c4d0ff6e4.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -214,14 +214,26 @@
       margin-right: 0; 
     }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="../sidebar.js"></script>
+  <link rel="preconnect" href="//fonts.gstatic.com" crossorigin="">
+  <link href="//fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
+  <style>
+  .honk-honk {
+    font-family: "Honk", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Week 3: Parallelization Concepts</h1>
+  <h1 class="title">Week 3: Separating Data from Computation for Parallel Processing</h1>
   <p class="subtitle"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2026</p>
 
 <div class="quarto-title-authors">
@@ -229,128 +241,79 @@
 <div class="quarto-title-author-name">
 Jeff Jacobs 
 </div>
-</div>
+        <p class="quarto-title-affiliation">
+            <a href="mailto:jj1088@georgetown.edu" target="_blank"><code>jj1088@georgetown.edu</code></a>
+          </p>
+    </div>
 </div>
 
   <p class="date">Monday, September 14, 2026</p>
 </section>
-<section id="looking-back" class="slide level2">
-<h2>Looking back</h2>
-<ul>
-<li>Continued great use of Slack!
-<ul>
-<li>Nice interactions</li>
-</ul></li>
-<li>Due date reminders:
-<ul>
-<li>Assignment 2: <strong>?var:due_dates.assignment02</strong></li>
-<li>Lab 3: <strong>?var:due_dates.lab03</strong></li>
-<li>Assignment 3: <strong>?var:due_dates.assignment03</strong></li>
-</ul></li>
-</ul>
-</section>
-<section id="glossary" class="slide level2 smaller crunch-title text-65">
-<h2>Glossary</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 18%">
-<col style="width: 82%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Term</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Local</strong></td>
-<td>Your current workstation (laptop, desktop, etc.), wherever you start the terminal/console application.</td>
-</tr>
-<tr class="even">
-<td><strong>Remote</strong></td>
-<td>Any machine you connect to via ssh or other means.</td>
-</tr>
-<tr class="odd">
-<td><strong>EC2</strong></td>
-<td>Single virtual machine in the cloud where you can run computation</td>
-</tr>
-<tr class="even">
-<td><strong>SageMaker</strong></td>
-<td>Integrated Developer Environment where you can conduct data science on single machines or distributed training</td>
-</tr>
-<tr class="odd">
-<td><strong>GPU</strong></td>
-<td>Graphics Processing Unit - specialized hardware for parallel computation, essential for AI/ML</td>
-</tr>
-<tr class="even">
-<td><strong>TPU</strong></td>
-<td>Tensor Processing Unit - Google’s custom AI accelerator chips</td>
-</tr>
-<tr class="odd">
-<td><strong>Ephemeral</strong></td>
-<td>Lasting for a short time - any machine that will get turned off or place you will lose data</td>
-</tr>
-<tr class="even">
-<td><strong>Persistent</strong></td>
-<td>Lasting for a long time - any environment where your work is NOT lost when the timer goes off</td>
-</tr>
-</tbody>
-</table>
-</section>
 <section>
-<section id="parallelization-in-general" class="title-slide slide level1 center" data-stack-name="Parallel Overview">
+<section id="parallelization-in-general" class="title-slide slide level1 smaller title-13 center" data-stack-name="Parallel Overview">
 <h1>Parallelization in General</h1>
-
+<div id="fig-kentaro" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-kentaro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe data-external="1" src="https://www.youtube.com/embed/qQQex1BNpO0" width="100%" height="500" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kentaro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Fig&nbsp;1: DJ Kentaro = The Scheduler, Spinning records = Processes
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="quick-survey-question-for-intuition-building" class="slide level2">
 <h2>Quick Survey Question, for Intuition-Building</h2>
 <ul>
-<li>Are humans capable of <strong>“true” multi-tasking</strong>?
-<ul>
+<li>Is the human sensorimotor system capable of <strong>“true” multitasking</strong>?</li>
 <li>As in, doing two things at the <strong>exact same time?</strong></li>
-</ul></li>
-<li>(Or, do we instead <strong>rapidly switch back and forth</strong> between tasks?)</li>
+<li><em>(…Or, do we instead have to <strong>rapidly switch back and forth</strong> between tasks?)</em></li>
 </ul>
 </section>
 <section id="the-answer" class="slide level2 smaller crunch-title crunch-ul">
 <h2>The Answer</h2>
 <ul>
-<li>(From what we understand, at the moment, by way of studies in neuroscience/cognitive science/etc…)</li>
-<li>Humans are <strong>not</strong> capable of true multitasking! In CS terms, this would be called <strong>multiprocessing</strong> (more on this later)</li>
-<li>We <strong>are</strong> capable, however, of various modes of <strong>concurrency</strong>!</li>
+<li>The human brain is [mostly] <strong>not</strong> capable of true multitasking (<em><a href="https://medicine.georgetown.edu/news-releases/georgetown-researchers-show-how-brain-rewires-itself-to-enable-true-multitasking/">rare exceptions</a></em>)</li>
+<li>In CS terms, true multitasking is called <strong>multiprocessing</strong> (more on this later)</li>
+<li>We <strong>are</strong> capable, however, of <em>other</em> modes of <strong>concurrency</strong>:</li>
 </ul>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 25%">
+<col style="width: 35%">
+<col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
-<th>Multithreading</th>
-<th>Asynchronous Execution</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Multithreading</th>
+<th data-quarto-table-cell-role="th">Asynchronous Execution</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><strong>Unconsciously</strong><br>(you do it already, “naturally”)</td>
-<td>Focus on <strong>one</strong> speaker within a loud room, with tons of other conversations entering your ears</td>
-<td>Put something in oven, set alarm, go do something else, take out of oven once alarm goes off</td>
+<td>Focus on <strong>one</strong> speaker within a loud room, many other sounds entering your ears</td>
+<td>Put food in oven, set alarm, go do something else, take out of oven once alarm goes off</td>
 </tr>
 <tr class="even">
 <td><strong>Consciously</strong><br>(you can do it with effort/practice)</td>
 <td>Pat head (up and down) and rub stomach (circular motion) “simultaneously”</td>
-<td>Throw a ball in the air, clap 3 times, catch ball</td>
+<td class="tdvc">Throw a ball in the air, clap 3 times, catch ball</td>
+</tr>
+<tr class="odd">
+<td><strong>From Observer’s Perspective?</strong></td>
+<td class="tdvc"><em>Looks like</em> multiprocessing</td>
+<td class="tdvc">Doesn't look like multiprocessing</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="helpful-specifically-for-programming" class="slide level2 title-09">
+<section id="helpful-specifically-for-programming" class="slide level2 title-09 crunch-title crunch-ul">
 <h2>Helpful <em>Specifically</em> for Programming</h2>
 <ul>
-<li>Course notes from MIT’s <a href="https://book.sciml.ai/">class on parallel computing</a> phrases it like: if implemented thoughtfully, concurrency is a <strong>power multiplier</strong> for your code (do 10 things in 1 second instead of 10 seconds…)</li>
+<li>Course notes from MIT’s <a href="https://book.sciml.ai/">class on parallel computing</a> phrases it like: if implemented thoughtfully, concurrency is a <strong>power multiplier</strong> for your code (do 10 things in 1 second instead of 10 seconds)</li>
 </ul>
 
 <img data-src="images/mario.gif" class="quarto-figure quarto-figure-center r-stretch"></section>
@@ -366,111 +329,146 @@ Jeff Jacobs
 </ul></li>
 </ul>
 </section>
-<section id="avoiding-the-rabbithole" class="slide level2 scrollable">
+<section id="avoiding-the-rabbithole" class="slide level2 fix-ol scrollable">
 <h2>Avoiding the Rabbithole</h2>
-<ul>
-<li>Parallel computing is a <strong>rabbithole</strong>, but one you can safely avoid via simple heuristics (“rules of thumb”)!</li>
-</ul>
+<p>Parallel computing is a <strong>rabbithole</strong>, but one you can safely avoid via simple heuristics (“rules of thumb”):</p>
 <ol type="1">
-<li>Check for optimizations to serial code first,</li>
+<li>Check for optimizations to serial code first (vectorization, memoization),</li>
 <li>Check for <strong>embarrassingly parallel</strong> code blocks</li>
 <li>Use <strong>map-reduce</strong> approach for more complicated cases</li>
+<li>Still hitting a wall? Try <strong>horizontal scaling</strong></li>
 </ol>
+<p>…Horizontally-scaled map-reduce, you say? Why, that’s <strong>exactly what Hadoop / Spark do for us!</strong></p>
 </section>
-<section id="typical-real-world-scenarios" class="slide level2 smaller crunch-title text-65">
-<h2>Typical Real-World Scenarios</h2>
-<ul>
-<li>You need to <strong>prepare training data</strong> for LLMs by cleaning and deduplicating 100TB of web-scraped text</li>
-<li>You are building a <strong>RAG system</strong> that requires embedding and indexing millions of documents in parallel</li>
-<li>You need to <strong>extract structured data</strong> from millions of PDFs using vision models for document AI</li>
-<li>You are <strong>preprocessing multimodal datasets</strong> with billions of image-text pairs for foundation model training</li>
-<li>You need to run <strong>quality filtering</strong> on petabytes of Common Crawl data for training dataset</li>
-<li>You are <strong>generating synthetic training data</strong> using LLMs to augment limited real-world datasets</li>
-<li>You need to <strong>transform and tokenize</strong> text across 100+ languages for multilingual AI</li>
-<li>You are building <strong>real-time data pipelines</strong> that process streaming data for online learning</li>
-</ul>
-</section>
-<section id="embarrassingly-parallel-pipelines" class="slide level2 smaller crunch-title crunch-ul">
+<section id="embarrassingly-parallel-pipelines" class="slide level2 smaller crunch-title crunch-ul crunch-callout-half fix-video">
 <h2>“Embarrassingly Parallel” Pipelines</h2>
-<ul>
-<li>Technical definition: tasks within pipeline can easily be parallelized bc <strong>no dependence</strong> and <strong>no need for communication</strong> (triple spatula!)</li>
-</ul>
-<center>
-<video id="video_shortcode_videojs_video1" width="800" height="400" class="video-js vjs-default-skin vjs-big-play-centered " controls="" preload="auto" data-setup="{}" title=""><source src="https://jpj.georgetown.domains/dsan6000-scratch/triple_spatula.mp4"></video>
-</center>
-</section>
-<section id="parallelizing-non-embarrassingly-parallel-pipelines" class="slide level2 smaller title-10 crunch-title">
-<h2>Parallelizing Non-Embarrassingly-Parallel Pipelines</h2>
-
-<img data-src="images/epic_bacon_lifehack.jpeg" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="buzzkill-complications-to-come" class="slide level2 crunch-title crunch-ul title-09 crunch-li-8">
-<h2>Buzzkill: Complications to Come 😰</h2>
-<ul>
-<li>If it’s such a magical powerup, shouldn’t we just <strong>parallelize everything</strong>? Answer: No 😞 bc <strong>overhead</strong>.</li>
-<li>Overhead source 1: <strong>Sending</strong> tasks to workers (processors), <strong>collecting</strong> results</li>
-<li>Overhead source 2: Even after setting up new stacks and heaps, threads may need to <strong>communicate with each other</strong> (e.g.&nbsp;if they need to <strong>synchronize</strong> at some point(s))</li>
-<li>In fact, probably the earliest super-popular parallelization library was created to handle <strong>Source 2</strong>, not Source 1: <a href="https://en.wikipedia.org/wiki/Message_Passing_Interface" target="_blank"><strong>Message Passing Interface</strong></a> (C, C++, and Fortran)</li>
-</ul>
-</section>
-<section id="rules-of-thumb-for-parallelization" class="slide level2 smaller crunch-title crunch-p crunch-ul crunch-li-5 text-60">
-<h2>Rules of Thumb for Parallelization</h2>
-<div class="column" style="width:49%;">
-<center>
-<p><strong><em>Yes - Parallelize These</em></strong></p>
-</center>
-<p><strong>Data Preparation:</strong></p>
-<ul>
-<li>Text extraction from documents</li>
-<li>Tokenization of text corpora</li>
-<li>Image preprocessing</li>
-<li>Embedding generation for documents</li>
-<li>Data quality filtering and validation</li>
-<li>Format conversions (audio features)</li>
-<li>Web scraping and data collection</li>
-<li>Synthetic data generation</li>
-</ul>
-<p><strong>Data Processing:</strong></p>
-<ul>
-<li>Batch inference on datasets</li>
-<li>Feature extraction at scale</li>
-<li>Data deduplication (local)</li>
-</ul>
-</div><div class="column" style="width:48%;">
-<center>
-<p><strong>No - Keep Sequential</strong></p>
-</center>
-<p><strong>Order-Dependent:</strong></p>
-<ul>
-<li>Conversation threading</li>
-<li>Time-series preprocessing</li>
-<li>Sequential data validation</li>
-<li>Cumulative statistics</li>
-</ul>
-<p><strong>Global Operations:</strong></p>
-<ul>
-<li>Global deduplication</li>
-<li>Cross-dataset joins</li>
-<li>Computing exact quantiles</li>
-</ul>
-</div><div class="callout callout-note callout-style-simple">
+<div title="Embarrassingly Parallel">
+<div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
+<p><strong>Embarrassingly Parallel</strong></p>
+</div>
 <div class="callout-content">
-<p>For data operations in the “No” column, they often require global coordination or maintain strict ordering. However, many can be approximated with parallel algorithms (like approximate deduplication with locality-sensitive hashing)</p>
+<p>A problem is <em>embarrassingly parallel</em> when it can be divided into <span class="math inline">\(N\)</span> subtasks without any <strong>temporal dependence</strong> or <strong>need for communication</strong> between the tasks</p>
 </div>
 </div>
 </div>
+</div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<center>
+<video id="video_shortcode_videojs_video1" width="520" height="340" class="video-js vjs-default-skin vjs-big-play-centered " controls="" preload="auto" data-setup="{}" title=""><source src="https://jpj.georgetown.domains/dsan6000-scratch/triple_spatula.mp4"></video>
+</center>
+</div><div class="column" style="width:45%;">
+<p><span class="info-badge"><strong>Temporal Dependence:</strong></span></p>
+<p>Does spongebob have to <strong>wait for one krabby patty to finish cooking</strong> before <strong>starting to cook a second one?</strong></p>
+<p><span class="info-badge"><strong>Between-Process Communication:</strong></span></p>
+<p>Does the cooking of one patty <strong>require some piece of another partially-cooked patty</strong>?</p>
+</div></div>
 </section>
-<section id="in-action" class="slide level2 crunch-title crunch-details">
+<section id="naïvely-chopping-non-embarrassingly-parallel-problems" class="slide level2 smaller title-08 crunch-title crunch-callout crunch-p crunch-ul">
+<h2>Naïvely “Chopping” Non-Embarrassingly-Parallel Problems</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Not all data-processing pipelines are embarrassingly-parallel!</li>
+<li>May still be hope via <strong>map-reduce</strong> approach</li>
+<li>We’ll use the following terminology:</li>
+</ul>
+<div title="Non-Embarrassingly-Parallel Problems">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Non-Embarrassingly-Parallel Problems</strong></p>
+</div>
+<div class="callout-content">
+<p>If a data-processing problem is <em>not</em> embarrassingly-parallel, then the <strong>tasks</strong> that need to be performed may be:</p>
+<ul>
+<li><strong>Loosely-coupled</strong>: Can be <strong>mapped</strong> to embarrassingly-parallel pieces, solved separately by non-communicating processors, then <strong>merged</strong></li>
+<li><strong>Tightly-coupled</strong>: Can be <strong>mapped</strong> to sub-tasks, solved separately by <em>communicating</em> processors, then <strong>merged</strong></li>
+<li><strong>Non-parallelizable</strong>: <a href="https://en.wikipedia.org/wiki/P-complete#P-complete_problems">“<span class="math inline">\(\text{P}\)</span>-complete” problems</a> <strong>proven</strong> to have no efficient parallelization unless <span class="math inline">\(\text{P} = \text{NP}\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/epic_bacon_lifehack.jpeg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="buzzkill-complications-to-come" class="slide level2 smaller crunch-title crunch-ul title-09 crunch-li-8 fix-ol">
+<h2>Buzzkill: Complications to Come 😰</h2>
+<p>If it’s such a magical powerup, why not <strong>parallelize <em>everything?</em></strong> A: <strong>Overhead costs</strong> 😞</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th class="tdc" data-quarto-table-cell-role="th">Embarrassingly Parallel</th>
+<th class="tdc" data-quarto-table-cell-role="th">Loosely Coupled</th>
+<th class="tdc" data-quarto-table-cell-role="th">Tightly Coupled</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><i class="bi bi-1-circle"></i> <strong>Sending</strong> tasks to workers</td>
+<td class="tdc tdvc">⏱️</td>
+<td class="tdc tdvc">⏱️</td>
+<td class="tdc tdvc">⏱️</td>
+</tr>
+<tr class="even">
+<td><i class="bi bi-2-circle"></i> Facilitating <strong>communication</strong> between workers</td>
+<td class="tdc tdvc"></td>
+<td class="tdc tdvc"></td>
+<td class="tdc tdvc">⏱️</td>
+</tr>
+<tr class="odd">
+<td><i class="bi bi-3-circle"></i> <strong>Collecting</strong> results from workers</td>
+<td class="tdc tdvc"></td>
+<td class="tdc tdvc">⏱️</td>
+<td class="tdc tdvc">⏱️</td>
+</tr>
+<tr class="even">
+<td><i class="bi bi-4-circle"></i> <strong>Merging</strong> collected results</td>
+<td class="tdc tdvc"></td>
+<td class="tdc tdvc">⏱️</td>
+<td class="tdc tdvc">⏱️</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Map-reduce (underlying Hadoop / Spark) focuses on <strong>loosely-coupled</strong> problems (may be <em>overkill</em> for embarrassingly-parallel: can just use <code>multiprocessing</code> or <code>joblib</code>)</li>
+<li>Earlier famous parallelization library was created for <strong>tightly-coupled</strong> problems: <a href="https://en.wikipedia.org/wiki/Message_Passing_Interface" target="_blank"><strong>Message Passing Interface</strong></a> (C, C++, and Fortran)</li>
+</ul>
+</section>
+<section id="in-action" class="slide level2 crunch-title crunch-details title-09 crunch-p crunch-img crunch-quarto-figure">
 <h2>In Action</h2>
-<div id="882c49c3" class="cell" data-execution_count="1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://colab.research.google.com/drive/1DydNTIMPCnu0MCday-x7cRr7EXCirQGU?usp=drive_link" class="noicon" target="_blank"><img data-src="images/colab-badge.svg" class="quarto-figure quarto-figure-center" style="line-height: 0;"></a></p>
+</figure>
+</div>
+<div id="5103a528" class="cell" data-cache="true" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> time</span>
 <span id="cb1-2"><a></a><span class="im">from</span> sympy.ntheory <span class="im">import</span> factorint</span>
 <span id="cb1-3"><a></a><span class="im">from</span> joblib <span class="im">import</span> Parallel, delayed</span>
 <span id="cb1-4"><a></a>parallel_runner <span class="op">=</span> Parallel(n_jobs<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb1-5"><a></a>start, end <span class="op">=</span> <span class="dv">500</span>, <span class="dv">580</span></span>
+<span id="cb1-5"><a></a>start, end <span class="op">=</span> <span class="dv">500</span>, <span class="dv">650</span></span>
 <span id="cb1-6"><a></a><span class="kw">def</span> find_prime_factors(num):</span>
 <span id="cb1-7"><a></a>  time.sleep(<span class="fl">.01</span>)</span>
 <span id="cb1-8"><a></a>  <span class="cf">return</span> factorint(num, multiple<span class="op">=</span><span class="va">True</span>)</span>
@@ -478,7 +476,7 @@ Jeff Jacobs
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="05b3d503" class="cell" data-execution_count="2">
+<div id="3167d0af" class="cell" data-cache="true" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>serial_start <span class="op">=</span> time.time()</span>
 <span id="cb2-2"><a></a>result <span class="op">=</span> [</span>
 <span id="cb2-3"><a></a>  (i,find_prime_factors(i))</span>
@@ -487,11 +485,11 @@ Jeff Jacobs
 <span id="cb2-6"><a></a>serial_end <span class="op">=</span> time.time()</span>
 <span id="cb2-7"><a></a>disp_time(serial_start, serial_end)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.9635 s</code></pre>
+<pre><code>1.7636 s</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="be0ebe7b" class="cell" data-execution_count="3">
+<div id="02de81d0" class="cell" data-cache="true" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>par_start <span class="op">=</span> time.time()</span>
 <span id="cb4-2"><a></a>result <span class="op">=</span> parallel_runner(</span>
 <span id="cb4-3"><a></a>  delayed(find_prime_factors)(i)</span>
@@ -500,15 +498,104 @@ Jeff Jacobs
 <span id="cb4-6"><a></a>par_end <span class="op">=</span> time.time()</span>
 <span id="cb4-7"><a></a>disp_time(par_start, par_end)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.6635 s</code></pre>
+<pre><code>0.8325 s</code></pre>
 </div>
 </div>
 </div></div>
-</section></section>
-<section>
-<section id="beyond-embarrassingly-parallel-tasks" class="title-slide slide level1 center" data-stack-name="Beyond Embarrassingly Parallel">
-<h1>Beyond Embarrassingly Parallel Tasks…</h1>
+</section>
+<section id="what-is-joblib-doing-here" class="slide level2 crunch-title crunch-img">
+<h2>What Is <code>joblib</code> Doing Here?</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Input</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="tdr">1</td>
+<td><code>500</code></td>
+</tr>
+<tr class="even">
+<td class="tdr">2</td>
+<td><code>501</code></td>
+</tr>
+<tr class="odd">
+<td class="tdr">3</td>
+<td><code>502</code></td>
+</tr>
+<tr class="even">
+<td class="tdr">4</td>
+<td><code>503</code></td>
+</tr>
+<tr class="odd">
+<td class="tdr">5</td>
+<td><code>504</code></td>
+</tr>
+<tr class="even">
+<td colspan="2" class="tdc"><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="odd">
+<td class="tdr">151</td>
+<td><code>650</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:40%;">
+<center style="font-size: 80%;">
+<p><code>joblib</code> / Hadoop / Spark</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/foreman-flip-h.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div style="display: inline-block; width: 100%; height: 40px; background: #000000; clip-path: polygon(0 50%, 10% 0, 10% 40%, 90% 40%, 90% 0, 100% 50%, 90% 100%, 90% 60%, 10% 60%, 10% 100%);">
 
+</div>
+</center>
+</div><div class="column" style="width:30%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th class="tdc" data-quarto-table-cell-role="th">Worker</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="tdc"><img data-src="images/yesman_laptop_nobg.png" width="110"></td>
+<td class="tdc tdvc">1</td>
+</tr>
+<tr class="even">
+<td class="tdc"><img data-src="images/yesman_laptop_nobg.png" width="110"></td>
+<td class="tdc tdvc">2</td>
+</tr>
+<tr class="odd">
+<td class="tdc"><img data-src="images/yesman_laptop_nobg.png" width="110"></td>
+<td class="tdc tdvc">3</td>
+</tr>
+<tr class="even">
+<td class="tdc tdvc"><img data-src="images/yesman_laptop_nobg.png" width="110"></td>
+<td class="tdc tdvc">4</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="amdahls-law" class="slide level2">
+<h2>Amdahl’s Law</h2>
+<p>How do we know whether or not the overhead is <strong>“worth it”?</strong></p>
+
+<img data-src="images/AmdahlsLaw.svg" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+<section>
+<section id="beyond-embarrassingly-parallel-problems" class="title-slide slide level1 smaller title-12 center" data-stack-name="Beyond Embarrassingly Parallel">
+<h1>Beyond Embarrassingly-Parallel Problems…</h1>
+<ul>
+<li>Why <strong>“map”</strong>-reduce? What does it mean to <strong>map</strong> non-embarrassingly-parallel tasks to embarrassingly-parallel ones?</li>
+</ul>
 </section>
 <section id="what-happens-when-not-embarrassingly-parallel" class="slide level2 smaller crunch-title crunch-math crunch-ul title-09">
 <h2>What Happens When <em>Not</em> Embarrassingly Parallel?</h2>
@@ -553,14 +640,14 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 </tbody>
 </table>
 </section>
-<section id="the-direct-analogy-map-reduce" class="slide level2 smaller crunch-title crunch-details">
-<h2>The Direct Analogy: Map-Reduce!</h2>
+<section id="for-a-problem-youve-seen-before" class="slide level2 smaller crunch-title crunch-details">
+<h2>For a Problem You’ve Seen Before!</h2>
 <ul>
 <li><p>Problem from DSAN 5000/5100: Computing SSR (<strong>Sum of Squared Residuals</strong>)</p></li>
 <li><p><span class="math inline">\(y = (1,3,2), \widehat{y} = (2, 5, 0) \implies \text{SSR} = (1-2)^2 + (3-5)^2 + (2-0)^2 = 9\)</span></p></li>
 <li><p>Computing pieces separately:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">map</span>(do_something_with_piece, list_of_pieces)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="e3c4dc0d" class="cell" data-execution_count="4">
+<div id="498563e0" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>my_map <span class="op">=</span> <span class="bu">map</span>(<span class="kw">lambda</span> <span class="bu">input</span>: <span class="bu">input</span><span class="op">**</span><span class="dv">2</span>, [(<span class="dv">1</span><span class="op">-</span><span class="dv">2</span>), (<span class="dv">3</span><span class="op">-</span><span class="dv">5</span>), (<span class="dv">2</span><span class="op">-</span><span class="dv">0</span>)])</span>
 <span id="cb7-2"><a></a>map_result <span class="op">=</span> <span class="bu">list</span>(my_map)</span>
 <span id="cb7-3"><a></a>map_result</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -570,7 +657,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 </div></li>
 <li><p>Combining solved pieces</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="bu">reduce</span>(how_to_combine_pair_of_pieces, pieces_to_combine)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="20541f96" class="cell" data-execution_count="5">
+<div id="c2366423" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span></span>
 <span id="cb10-2"><a></a>my_reduce <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span> piece1, piece2: piece1 <span class="op">+</span> piece2, map_result)</span>
 <span id="cb10-3"><a></a>my_reduce</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -590,7 +677,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 <p>You may have noticed: <code>map()</code> and <code>reduce()</code> are “meta-functions”: functions that <strong>take other functions as inputs</strong></p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="46e257dd" class="cell" data-execution_count="6">
+<div id="15bc2dff" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="kw">def</span> add_5(num):</span>
 <span id="cb12-2"><a></a>  <span class="cf">return</span> num <span class="op">+</span> <span class="dv">5</span></span>
 <span id="cb12-3"><a></a>add_5(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -599,7 +686,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="70de7562" class="cell" data-execution_count="7">
+<div id="fd321a23" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="kw">def</span> apply_twice(fn, arg):</span>
 <span id="cb14-2"><a></a>  <span class="cf">return</span> fn(fn(arg))</span>
 <span id="cb14-3"><a></a>apply_twice(add_5, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -609,7 +696,7 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 </div>
 </div></div>
 <p>In Python, functions <strong>can be used as</strong> vars (Hence <code class="sourceCode python"><span class="kw">lambda</span></code>):</p>
-<div id="ab936ee3" class="cell" data-execution_count="8">
+<div id="6cae97e7" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>add_5 <span class="op">=</span> <span class="kw">lambda</span> num: num <span class="op">+</span> <span class="dv">5</span></span>
 <span id="cb16-2"><a></a>apply_twice(add_5, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -769,9 +856,6 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-7 \pm \sqrt{49 - 4(6)(-3)}}{2(6)
 </section>
 <section id="the-killer-application-matrix-multiplication" class="slide level2 crunch-title smaller title-11">
 <h2>The “Killer Application”: Matrix Multiplication</h2>
-<ul>
-<li><em>(I learned from <a href="http://infolab.stanford.edu/~ullman/" target="_blank">Jeff Ullman</a>, who did the obnoxious Stanford thing of mentioning in passing how “two previous students in the <a href="http://web.stanford.edu/class/cs246/" target="_blank">class</a> did this for a cool final project on web crawling and, well, it escalated quickly”, aka became Google)</em></li>
-</ul>
 
 <img data-src="images/map_reduce3.svg" class="r-stretch quarto-figure-center"><p class="caption">From <span class="citation" data-cites="leskovec_mining_2014">Leskovec et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, which is (legally) <a href="http://www.mmds.org/" target="_blank">free online</a>!</p></section>
 <section id="the-killer-way-to-learn-text-counts" class="slide level2 smaller crunch-title crunch-ul crunch-p title-12">
@@ -1135,7 +1219,7 @@ Leskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. <em>Mining of <
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'simplemenu': {"menubarclass":"menubar","menuclass":"menu","activeclass":"active","activeelement":"li","flat":true,"barhtml":{"header":"<div class='menubar'><span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span><ul class='menu'></ul></div>","footer":""},"scale":0.5},
+'simplemenu': {"menubarclass":"menubar","menuclass":"menu","activeclass":"active","activeelement":"li","flat":true,"barhtml":{"header":"<div class='menubar'>\n  <span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span>\n\n  <span style='position: absolute; right: 0; padding-right: 8px; padding-top: 3px; z-index: 10; display: inline-flex !important; align-items: center !important;'>\n    <a id='toggle-01-label' href='#' onclick=\"window.toggleSectionClicked('01'); return(false);\" class='no-decoration'>01</a>\n    <a href='#' onclick=\"window.toggleIconClicked(); return(false);\" class='no-decoration'><i id='section-toggle-icon' class='bi bi-toggle-off' style='padding-top: 0px; padding-left: 3px; padding-right: 3px;'></i></a>\n    <a id='toggle-02-label' href='#' onclick=\"window.toggleSectionClicked('02'); return(false);\" class='no-decoration'>02</a>\n  </span>\n  <ul class='menu'></ul>\n</div>\n","footer":""},"scale":0.5},
 'smaller': false,
  
         // Display controls in the bottom right corner
