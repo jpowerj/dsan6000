@@ -2087,14 +2087,14 @@
     "href": "w04/slides.html#plain-text-csv-tsv-fwf",
     "title": "Week 4: DuckDB",
     "section": "Plain Text (CSV, TSV, FWF)",
-    "text": "Plain Text (CSV, TSV, FWF)\n\n\n\n\n\n\nPay attention to encodings!\nLines end in linefeed, carriage-return, or both together depending on the OS that generated\nTypically, a single line of text contains a single record"
+    "text": "Plain Text (CSV, TSV, FWF)"
   },
   {
     "objectID": "w04/slides.html#json",
     "href": "w04/slides.html#json",
     "title": "Week 4: DuckDB",
     "section": "JSON",
-    "text": "JSON\n\n\n\n\n\n\nWarning\n\n\nJSON files have two flavors: JSON Lines vs. JSON. Typically when we say data is in JSON format, we imply it’s JSON Lines which means that there is a single JSON object per line, and there are multiple lines.\n\n\n\n\n\nJSON Lines\n4 records, one per line, no end comma\n{\"id\":1, \"name\":\"marck\", \"last_name\":\"vaisman\"}\n{\"id\":2, \"name\":\"anderson\", \"last_name\":\"monken\"}\n{\"id\":3, \"name\":\"amit\", \"last_name\":\"arora\"}\n{\"id\":4, \"name\":\"abhijit\", \"last_name\":\"dasgupta\"}\n\nJSON\n4 records enclosed in 1 JSON Array\n[\n  {\"id\":1, \"name\":\"marck\", \"last_name\":\"vaisman\"},\n  {\"id\":2, \"name\":\"anderson\", \"last_name\":\"monken\"},\n  {\"id\":3, \"name\":\"amit\", \"last_name\":\"arora\"},\n  {\"id\":4, \"name\":\"abhijit\", \"last_name\":\"dasgupta\"},\n]"
+    "text": "JSON\n\n\n\n\n\n\nWarning\n\n\nJSON files have two flavors: JSON Lines vs. JSON. Typically when we say data is in JSON format, we imply it’s JSON Lines which means that there is a single JSON object per line, and there are multiple lines.\n\n\n\n\n\nJSON Lines\n4 records, one per line, no end comma\n\n\ndsan6000_staff.jsonl\n\n{\"id\": 1, \"first\": \"jeff\", \"last\": \"jacobs\"}\n{\"id\": 2, \"first\": \"samyu\", \"last_name\": \"vakkalanka\"}\n{\"id\": 3, \"first\": \"fangzhou\", \"last_name\": \"wang\"}\n{\"id\": 4, \"first\": \"siru\", \"last_name\": \"wu\"}\n\n\nJSON\n4 records enclosed in 1 JSON Array\n\n\ndsan6000_staff.json\n\n[\n  {\n    \"id\": 1,\n    \"first\": \"jeff\",\n    \"last\": \"jacobs\"\n  },\n  {\n    \"id\": 2,\n    \"first\": \"samyu\",\n    \"last_name\": \"vakkalanka\"\n  },\n  {\n    \"id\": 3,\n    \"first\": \"fangzhou\",\n    \"last_name\": \"wang\"\n  },\n  {\n    \"id\": 4,\n    \"first\": \"siru\",\n    \"last_name\": \"wu\"\n  }\n]"
   },
   {
     "objectID": "w04/slides.html#binary-files",
@@ -2108,7 +2108,7 @@
     "href": "w04/slides.html#issues-with-common-file-formats-especially-csv",
     "title": "Week 4: DuckDB",
     "section": "Issues with Common File Formats (Especially CSV)",
-    "text": "Issues with Common File Formats (Especially CSV)\n\nUbiquitous but highly error-prone\nDefault delimiter: familiar character in English, the comma\nAmbiguities:\n\nDelimiter (comma, tab, semi-colon, custom)\nQuote characters (single or doble quote)\nEscaping to appropriately handle string data\n\nDoesn’t natively encode schema information\nNo direct support for nested structures\nEncoding+schema must be configured on target system to ensure ingestion\nAutodetection provided in many cloud environments but is inappropriate for production ingestion (can be painfully slow)\nData engineers often forced to work with CSV data and then build robust exception handling and error detection to ensure data quality (Pydantic!)"
+    "text": "Issues with Common File Formats (Especially CSV)\n\nAmbiguities:\n\nDelimiter (comma, tab, semi-colon, custom)\nQuote characters (single or doble quote)\nEscaping to appropriately handle string data\n\nDoesn’t natively encode schema information\nNo direct support for nested structures\nEncoding+schema must be configured on target system to ensure ingestion\nAutodetection provided in many cloud environments but is inappropriate for production ingestion (can be painfully slow)\nData engineers often forced to work with CSV data and then build robust exception handling and error detection to ensure data quality (Pydantic!)"
   },
   {
     "objectID": "w04/slides.html#introducing-apache-parquet",
@@ -2339,7 +2339,7 @@
     "href": "w04/slides.html#references",
     "title": "Week 4: DuckDB",
     "section": "References",
-    "text": "References\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&dl=1.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” Proceedings of the 2019 International Conference on Management of Data (New York, NY, USA), SIGMOD ’19, June 25, 1981–84. https://doi.org/10.1145/3299869.3320212.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&dl=1.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd. https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&dl=1."
+    "text": "References\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd."
   },
   {
     "objectID": "w04/index.html",
@@ -2816,7 +2816,7 @@
     "href": "w04/index.html#references",
     "title": "Week 4: DuckDB",
     "section": "References",
-    "text": "References\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&dl=1.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” Proceedings of the 2019 International Conference on Management of Data (New York, NY, USA), SIGMOD ’19, June 25, 1981–84. https://doi.org/10.1145/3299869.3320212.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&dl=1.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd. https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&dl=1.",
+    "text": "References\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.",
     "crumbs": [
       "Week 4: <span class='sec-w04-date'>Sep 21</span>"
     ]
@@ -4622,6 +4622,57 @@
     "text": "References",
     "crumbs": [
       "Syllabus"
+    ]
+  },
+  {
+    "objectID": "w04/slides.html#de-coupling-storage-from-compute",
+    "href": "w04/slides.html#de-coupling-storage-from-compute",
+    "title": "Week 4: DuckDB",
+    "section": "De-Coupling Storage from Compute",
+    "text": "De-Coupling Storage from Compute\n\n\n\nFrom (white_hadoop_2015?)"
+  },
+  {
+    "objectID": "w04/slides.html#jsonl-vs.-json",
+    "href": "w04/slides.html#jsonl-vs.-json",
+    "title": "Week 4: DuckDB",
+    "section": "JSONL vs. JSON",
+    "text": "JSONL vs. JSON\n\n\nJSON Lines: 4 records, one per line\n\n\ndsan6000_staff.jsonl\n\n{\"id\": 1, \"first\": \"jeff\", \"last\": \"jacobs\"}\n{\"id\": 2, \"first\": \"samyu\", \"last\": \"vakkalanka\"}\n{\"id\": 3, \"first\": \"fangzhou\", \"last\": \"wang\"}\n{\"id\": 4, \"first\": \"siru\", \"last\": \"wu\"}\n\n\nJSON: 4 records enclosed in 1 JSON Array\n\n\ndsan6000_staff.json\n\n[\n  {\n    \"id\": 1,\n    \"first\": \"jeff\",\n    \"last\": \"jacobs\"\n  },\n  {\n    \"id\": 2,\n    \"first\": \"samyu\",\n    \"last\": \"vakkalanka\"\n  },\n  {\n    \"id\": 3,\n    \"first\": \"fangzhou\",\n    \"last\": \"wang\"\n  },\n  {\n    \"id\": 4,\n    \"first\": \"siru\",\n    \"last\": \"wu\"\n  }\n]"
+  },
+  {
+    "objectID": "w04/slides.html#issues-with-common-file-formats-like-csv",
+    "href": "w04/slides.html#issues-with-common-file-formats-like-csv",
+    "title": "Week 4: DuckDB",
+    "section": "Issues with Common File Formats Like CSV",
+    "text": "Issues with Common File Formats Like CSV\n(Ambiguities abound!)\n\nDelimiter: Comma? Tab? Semicolon?\nQuote characters: Single ' or double \" quote? ASCII \"\" or UTF-8 “”?\nEscaping special characters: Is \\n an actual new line, or a piece of a string value?\nSchema information has to be sent/looked up separately\nNested structures? …Improvised and included along with schema info\nData engineers often forced to work with CSV data and then build robust exception handling and error detection to ensure data quality (Pydantic!)"
+  },
+  {
+    "objectID": "w04/index.html#de-coupling-storage-from-compute",
+    "href": "w04/index.html#de-coupling-storage-from-compute",
+    "title": "Week 4: DuckDB",
+    "section": "De-Coupling Storage from Compute",
+    "text": "De-Coupling Storage from Compute\n\n\n\nFrom (white_hadoop_2015?)",
+    "crumbs": [
+      "Week 4: <span class='sec-w04-date'>Sep 21</span>"
+    ]
+  },
+  {
+    "objectID": "w04/index.html#jsonl-vs.-json",
+    "href": "w04/index.html#jsonl-vs.-json",
+    "title": "Week 4: DuckDB",
+    "section": "JSONL vs. JSON",
+    "text": "JSONL vs. JSON\n\n\nJSON Lines: 4 records, one per line\n\n\ndsan6000_staff.jsonl\n\n{\"id\": 1, \"first\": \"jeff\", \"last\": \"jacobs\"}\n{\"id\": 2, \"first\": \"samyu\", \"last\": \"vakkalanka\"}\n{\"id\": 3, \"first\": \"fangzhou\", \"last\": \"wang\"}\n{\"id\": 4, \"first\": \"siru\", \"last\": \"wu\"}\n\n\nJSON: 4 records enclosed in 1 JSON Array\n\n\ndsan6000_staff.json\n\n[\n  {\n    \"id\": 1,\n    \"first\": \"jeff\",\n    \"last\": \"jacobs\"\n  },\n  {\n    \"id\": 2,\n    \"first\": \"samyu\",\n    \"last\": \"vakkalanka\"\n  },\n  {\n    \"id\": 3,\n    \"first\": \"fangzhou\",\n    \"last\": \"wang\"\n  },\n  {\n    \"id\": 4,\n    \"first\": \"siru\",\n    \"last\": \"wu\"\n  }\n]",
+    "crumbs": [
+      "Week 4: <span class='sec-w04-date'>Sep 21</span>"
+    ]
+  },
+  {
+    "objectID": "w04/index.html#issues-with-common-file-formats-like-csv",
+    "href": "w04/index.html#issues-with-common-file-formats-like-csv",
+    "title": "Week 4: DuckDB",
+    "section": "Issues with Common File Formats Like CSV",
+    "text": "Issues with Common File Formats Like CSV\n(Ambiguities abound!)\n\nDelimiter: Comma? Tab? Semicolon?\nQuote characters: Single ' or double \" quote? ASCII \"\" or UTF-8 “”?\nEscaping special characters: Is \\n an actual new line, or a piece of a string value?\nSchema information has to be sent/looked up separately\nNested structures? …Improvised and included along with schema info\nData engineers often forced to work with CSV data and then build robust exception handling and error detection to ensure data quality (Pydantic!)",
+    "crumbs": [
+      "Week 4: <span class='sec-w04-date'>Sep 21</span>"
     ]
   }
 ]
