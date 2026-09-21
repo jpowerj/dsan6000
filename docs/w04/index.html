@@ -63,6 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -504,7 +505,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-09-21, 07:57:09 AM</em></p>
+<p><em>Updated 2026-09-21, 03:20:11 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -520,10 +521,11 @@ window.Quarto = {
   <li><a href="#how-csvs-are-actually-stored-on-disk" id="toc-how-csvs-are-actually-stored-on-disk" class="nav-link" data-scroll-target="#how-csvs-are-actually-stored-on-disk">How CSVs Are Actually Stored on Disk</a></li>
   <li><a href="#the-skip-list-approach" id="toc-the-skip-list-approach" class="nav-link" data-scroll-target="#the-skip-list-approach">The Skip List Approach</a></li>
   <li><a href="#sidenote-now-important-later" id="toc-sidenote-now-important-later" class="nav-link" data-scroll-target="#sidenote-now-important-later">Sidenote Now, Important Later</a></li>
+  <li><a href="#the-secret-columnar-sauce-rle-compression" id="toc-the-secret-columnar-sauce-rle-compression" class="nav-link" data-scroll-target="#the-secret-columnar-sauce-rle-compression">The Secret Columnar Sauce: RLE Compression</a></li>
   </ul></li>
   <li><a href="#dream-no-more-parquet-files-have-arrived" id="toc-dream-no-more-parquet-files-have-arrived" class="nav-link" data-scroll-target="#dream-no-more-parquet-files-have-arrived">Dream No More… Parquet Files Have Arrived</a>
   <ul class="collapse">
-  <li><a href="#the-secret-columnar-sauce-compression" id="toc-the-secret-columnar-sauce-compression" class="nav-link" data-scroll-target="#the-secret-columnar-sauce-compression">The Secret Columnar Sauce: Compression</a></li>
+  <li><a href="#duckdb-demo" id="toc-duckdb-demo" class="nav-link" data-scroll-target="#duckdb-demo">DuckDB Demo</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -580,7 +582,7 @@ window.Quarto = {
 </center>
 <section id="computer-architecture-in-one-diagram" class="level1 smaller title-12 crunch-title" data-stack-name="Data Storage">
 <h1 class="smaller title-12 crunch-title" data-stack-name="Data Storage">Computer Architecture in One Diagram</h1>
-<div class="quarto-layout-panel" data-layout-align="center" data-layout="[45,55]">
+<div class="quarto-layout-panel" data-layout="[45,55]" data-layout-align="center">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="column quarto-layout-cell" style="flex-basis: 45.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -730,17 +732,40 @@ window.Quarto = {
 <li><em>(Faster insertions; Can’t make guarantees besides bin start/end)</em></li>
 </ul>
 </section>
+<section id="the-secret-columnar-sauce-rle-compression" class="level2 crunch-title title-07">
+<h2 class="crunch-title title-07 anchored" data-anchor-id="the-secret-columnar-sauce-rle-compression">The Secret Columnar Sauce: RLE Compression</h2>
+<ul>
+<li>With <strong>row-based</strong> storage, we “hop” from one data type to another with each subsequent read
+<ul>
+<li><code>1</code> → <code>"jeff"</code> → <code>300</code> → <code>date(2023)</code></li>
+</ul></li>
+<li>With <strong>columnar</strong> storage, sequential blocks have <strong>same data type!</strong> <span class="math inline">\(\leadsto\)</span> <strong>Run-Length Encoding (RLE)</strong></li>
+<li>2 million consecutive records with <code>date(2023)</code> becomes <code>(date(2023), 2000000)</code> 🤯</li>
+<li>10 years of records: 20 million bytes → 20 bytes</li>
+</ul>
 </section>
-<section id="dream-no-more-parquet-files-have-arrived" class="level1" data-stack-name="Parquet">
-<h1 data-stack-name="Parquet">Dream No More… Parquet Files Have Arrived</h1>
-<p>…And we’ll use them, alongside DuckDB, in the <strong>in-class demo!</strong> A few slides from now.</p>
-<section id="the-secret-columnar-sauce-compression" class="level2">
-<h2 class="anchored" data-anchor-id="the-secret-columnar-sauce-compression">The Secret Columnar Sauce: Compression</h2>
+</section>
+<section id="dream-no-more-parquet-files-have-arrived" class="level1 smaller title-11 crunch-title" data-stack-name="Parquet">
+<h1 class="smaller title-11 crunch-title" data-stack-name="Parquet">Dream No More… Parquet Files Have Arrived</h1>
+<p><em>Hybrid Columnar/Row-Based Storage</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/parquet.png" class="img-fluid figure-img"></p>
+<figcaption>From <span class="citation" data-cites="berk_demystifying_2022">Berk (<a href="#ref-berk_demystifying_2022" role="doc-biblioref">2022</a>)</span></figcaption>
+</figure>
+</div>
+<section id="duckdb-demo" class="level2">
+<h2 class="anchored" data-anchor-id="duckdb-demo">DuckDB Demo</h2>
+<center>
+<p><a href="https://colab.research.google.com/drive/1kkodGgDnvRAH0stiAKHEE8cWYGGVRikF?usp=sharing">Open in Colab</a></p>
+</center>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<div id="refs" role="list">
-
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-berk_demystifying_2022" class="csl-entry" role="listitem">
+Berk, Michael. 2022. <span>“<a href="https://towardsdatascience.com/demystifying-the-parquet-file-format-13adb0206705/">Demystifying the <span>Parquet File Format</span></a>.”</span> Towards Data Science. August 16, 2022.
+</div>
 </div>
 
 

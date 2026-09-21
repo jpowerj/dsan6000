@@ -189,11 +189,27 @@ If we *did* have a setup where we wanted to operate over **rows**, this optimize
 
 * *(Faster insertions; Can't make guarantees besides bin start/end)*
 
-# Dream No More... Parquet Files Have Arrived {data-stack-name="Parquet"}
+## The Secret Columnar Sauce: RLE Compression {.crunch-title .title-07}
 
-...And we'll use them, alongside DuckDB, in the **in-class demo!** A few slides from now.
+* With **row-based** storage, we "hop" from one data type to another with each subsequent read
+  * `1` &rarr; `"jeff"` &rarr; `300` &rarr; `date(2023)`
+* With **columnar** storage, sequential blocks have **same data type!** $\leadsto$ **Run-Length Encoding (RLE)**
+* 2 million consecutive records with `date(2023)` becomes `(date(2023), 2000000)` 🤯
+* 10 years of records: 20 million bytes &rarr; 20 bytes
 
-## The Secret Columnar Sauce: Compression
+# Dream No More... Parquet Files Have Arrived {.smaller .title-11 .crunch-title data-stack-name="Parquet"}
+
+*Hybrid Columnar/Row-Based Storage*
+
+![From @berk_demystifying_2022](images/parquet.png){fig-align="center"}
+
+## DuckDB Demo
+
+<center>
+
+[Open in Colab](https://colab.research.google.com/drive/1kkodGgDnvRAH0stiAKHEE8cWYGGVRikF?usp=sharing)
+
+</center>
 
 ## References
 

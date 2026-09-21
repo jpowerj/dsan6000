@@ -102,6 +102,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -384,19 +385,37 @@ Jeff Jacobs
 <ul>
 <li><em>(Faster insertions; Can’t make guarantees besides bin start/end)</em></li>
 </ul>
+</section>
+<section id="the-secret-columnar-sauce-rle-compression" class="slide level2 crunch-title title-07">
+<h2>The Secret Columnar Sauce: RLE Compression</h2>
+<ul>
+<li>With <strong>row-based</strong> storage, we “hop” from one data type to another with each subsequent read
+<ul>
+<li><code>1</code> → <code>"jeff"</code> → <code>300</code> → <code>date(2023)</code></li>
+</ul></li>
+<li>With <strong>columnar</strong> storage, sequential blocks have <strong>same data type!</strong> <span class="math inline">\(\leadsto\)</span> <strong>Run-Length Encoding (RLE)</strong></li>
+<li>2 million consecutive records with <code>date(2023)</code> becomes <code>(date(2023), 2000000)</code> 🤯</li>
+<li>10 years of records: 20 million bytes → 20 bytes</li>
+</ul>
 </section></section>
 <section>
-<section id="dream-no-more-parquet-files-have-arrived" class="title-slide slide level1 center" data-stack-name="Parquet">
+<section id="dream-no-more-parquet-files-have-arrived" class="title-slide slide level1 smaller title-11 crunch-title center" data-stack-name="Parquet">
 <h1>Dream No More… Parquet Files Have Arrived</h1>
-<p>…And we’ll use them, alongside DuckDB, in the <strong>in-class demo!</strong> A few slides from now.</p>
-</section>
-<section id="the-secret-columnar-sauce-compression" class="slide level2">
-<h2>The Secret Columnar Sauce: Compression</h2>
+<p><em>Hybrid Columnar/Row-Based Storage</em></p>
+
+<img data-src="images/parquet.png" class="r-stretch quarto-figure-center"><p class="caption">From <span class="citation" data-cites="berk_demystifying_2022">Berk (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span></p></section>
+<section id="duckdb-demo" class="slide level2">
+<h2>DuckDB Demo</h2>
+<center>
+<p><a href="https://colab.research.google.com/drive/1kkodGgDnvRAH0stiAKHEE8cWYGGVRikF?usp=sharing">Open in Colab</a></p>
+</center>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
-<div id="refs" role="list">
-
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-berk_demystifying_2022" class="csl-entry" role="listitem">
+Berk, Michael. 2022. <span>“<a href="https://towardsdatascience.com/demystifying-the-parquet-file-format-13adb0206705/">Demystifying the <span>Parquet File Format</span></a>.”</span> Towards Data Science. August 16, 2022.
+</div>
 </div>
 
 
