@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg width="498pt" height="263pt" viewBox="0.00 0.00 497.65 263.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 259)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-259 493.6526,-259 493.6526,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_G1</title>
+<polygon fill="none" stroke="#000000" stroke-dasharray="5,2" points="8,-8 8,-247 166.7752,-247 166.7752,-8 8,-8"/>
+<text text-anchor="middle" x="87.3876" y="-230.4" font-family="Times,serif" font-size="14.00" fill="#000000">Messy Pipeline Results</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_G2</title>
+<polygon fill="none" stroke="#000000" stroke-dasharray="5,2" points="276.7752,-35 276.7752,-220 481.6526,-220 481.6526,-35 276.7752,-35"/>
+<text text-anchor="middle" x="379.2139" y="-203.4" font-family="Times,serif" font-size="14.00" fill="#000000">Clean Summaries</text>
+</g>
+<!-- csv -->
+<g id="node1" class="node">
+<title>csv</title>
+<ellipse fill="none" stroke="#000000" cx="87.3876" cy="-196" rx="29.6339" ry="18"/>
+<text text-anchor="middle" x="87.3876" y="-191.8" font-family="Times,serif" font-size="14.00" fill="#000000">CSV</text>
+</g>
+<!-- qm -->
+<g id="node5" class="node">
+<title>qm</title>
+<ellipse fill="none" stroke="#000000" cx="221.7752" cy="-115" rx="27" ry="18"/>
+<text text-anchor="middle" x="221.7752" y="-110.8" font-family="Times,serif" font-size="14.00" fill="#000000">???</text>
+</g>
+<!-- csv&#45;&gt;qm -->
+<g id="edge1" class="edge">
+<title>csv-&gt;qm</title>
+<path fill="none" stroke="#000000" stroke-width=".75" d="M115.5546,-189.7276C131.3719,-185.4163 151.0329,-178.6956 166.7752,-169 181.1315,-160.158 194.6795,-146.9384 204.737,-135.7924"/>
+<polygon fill="#000000" stroke="#000000" stroke-width=".75" points="206.429,-137.049 208.8259,-131.1613 203.2805,-134.2692 206.429,-137.049"/>
+</g>
+<!-- json -->
+<g id="node2" class="node">
+<title>json</title>
+<ellipse fill="none" stroke="#000000" cx="87.3876" cy="-142" rx="34.2065" ry="18"/>
+<text text-anchor="middle" x="87.3876" y="-137.8" font-family="Times,serif" font-size="14.00" fill="#000000">JSON</text>
+</g>
+<!-- json&#45;&gt;qm -->
+<g id="edge2" class="edge">
+<title>json-&gt;qm</title>
+<path fill="none" stroke="#000000" stroke-width=".75" d="M119.5768,-135.5328C140.7792,-131.273 168.4329,-125.7171 189.6269,-121.4589"/>
+<polygon fill="#000000" stroke="#000000" stroke-width=".75" points="190.2333,-123.4792 195.7021,-120.2384 189.4059,-119.3615 190.2333,-123.4792"/>
+</g>
+<!-- pl -->
+<g id="node3" class="node">
+<title>pl</title>
+<ellipse fill="none" stroke="#000000" cx="87.3876" cy="-88" rx="56.2578" ry="18"/>
+<text text-anchor="middle" x="87.3876" y="-83.8" font-family="Times,serif" font-size="14.00" fill="#000000">Python lists</text>
+</g>
+<!-- pl&#45;&gt;qm -->
+<g id="edge3" class="edge">
+<title>pl-&gt;qm</title>
+<path fill="none" stroke="#000000" stroke-width=".75" d="M135.146,-97.5952C153.1286,-101.2081 173.1431,-105.2293 189.4002,-108.4955"/>
+<polygon fill="#000000" stroke="#000000" stroke-width=".75" points="189.366,-110.6305 195.6622,-109.7536 190.1934,-106.5128 189.366,-110.6305"/>
+</g>
+<!-- logs -->
+<g id="node4" class="node">
+<title>logs</title>
+<ellipse fill="none" stroke="#000000" cx="87.3876" cy="-34" rx="71.2753" ry="18"/>
+<text text-anchor="middle" x="87.3876" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Logged outputs</text>
+</g>
+<!-- logs&#45;&gt;qm -->
+<g id="edge4" class="edge">
+<title>logs-&gt;qm</title>
+<path fill="none" stroke="#000000" stroke-width=".75" d="M137.219,-47.1221C147.383,-50.8367 157.7265,-55.4269 166.7752,-61 181.1315,-69.842 194.6795,-83.0616 204.737,-94.2076"/>
+<polygon fill="#000000" stroke="#000000" stroke-width=".75" points="203.2805,-95.7308 208.8259,-98.8387 206.429,-92.951 203.2805,-95.7308"/>
+</g>
+<!-- email -->
+<g id="node6" class="node">
+<title>email</title>
+<ellipse fill="none" stroke="#000000" cx="379.2139" cy="-169" rx="94.3775" ry="18"/>
+<text text-anchor="middle" x="379.2139" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">Email / Text message</text>
+</g>
+<!-- qm&#45;&gt;email -->
+<g id="edge5" class="edge">
+<title>qm-&gt;email</title>
+<path fill="none" stroke="#000000" stroke-width=".75" d="M242.7583,-126.5237C252.8376,-131.7396 265.2142,-137.6876 276.7752,-142 288.1779,-146.2534 300.5302,-150.1119 312.5792,-153.4955"/>
+<polygon fill="#000000" stroke="#000000" stroke-width=".75" points="312.1219,-155.5477 318.4643,-155.118 313.2383,-151.4988 312.1219,-155.5477"/>
+</g>
+<!-- slack -->
+<g id="node7" class="node">
+<title>slack</title>
+<ellipse fill="none" stroke="#000000" cx="379.2139" cy="-115" rx="67.7333" ry="18"/>
+<text text-anchor="middle" x="379.2139" y="-110.8" font-family="Times,serif" font-size="14.00" fill="#000000">Slack message</text>
+</g>
+<!-- qm&#45;&gt;slack -->
+<g id="edge6" class="edge">
+<title>qm-&gt;slack</title>
+<path fill="none" stroke="#000000" stroke-width=".75" d="M248.8398,-115C264.536,-115 285.1376,-115 305.3154,-115"/>
+<polygon fill="#000000" stroke="#000000" stroke-width=".75" points="305.5579,-117.1001 311.5579,-115 305.5579,-112.9001 305.5579,-117.1001"/>
+</g>
+<!-- reports -->
+<g id="node8" class="node">
+<title>reports</title>
+<ellipse fill="none" stroke="#000000" cx="379.2139" cy="-61" rx="78.7571" ry="18"/>
+<text text-anchor="middle" x="379.2139" y="-56.8" font-family="Times,serif" font-size="14.00" fill="#000000">Markdown report</text>
+</g>
+<!-- qm&#45;&gt;reports -->
+<g id="edge7" class="edge">
+<title>qm-&gt;reports</title>
+<path fill="none" stroke="#000000" stroke-width=".75" d="M242.7583,-103.4763C252.8376,-98.2604 265.2142,-92.3124 276.7752,-88 289.5518,-83.2341 303.5205,-78.964 316.9189,-75.3023"/>
+<polygon fill="#000000" stroke="#000000" stroke-width=".75" points="317.7777,-77.2463 323.0285,-73.6631 316.6893,-73.1897 317.7777,-77.2463"/>
+</g>
+</g>
+</svg>
