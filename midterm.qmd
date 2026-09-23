@@ -1,0 +1,11 @@
+---
+title: "Preparing for the In-Class Midterm"
+sidebar: mainnav
+bibliography: "_DSAN6000.bib"
+csl: "chicago-17-no-url.csl"
+format:
+  html:
+    df-print: kable
+---
+
+**Coming Soon!**

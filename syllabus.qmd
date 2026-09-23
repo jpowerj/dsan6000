@@ -41,7 +41,7 @@ Welcome to the Fall 2026 version of **Big Data and Cloud Computing** at Georgeto
     * Office Hours: **Tuesdays 4:30-7:00pm, Wednesdays 3-4pm, Thursdays 3-4pm**
     * *(Please try to schedule at least 8 hours in advance, and let me know briefly in the "Additional Info" portion of the signup form what you'd like to discuss, so I have time to prepare!)*
 * **TA Samyu Vakkalanka**, [`spv15@georgetown.edu`](mailto:spv15@georgetown.edu){target='_blank'}
-  * Office Hours: TBD *(Email to reserve a 30-minute slot in advance)*
+  * Office Hours: **Wednesdays 6:30-7:30pm** *(Email to reserve a 30-minute slot in advance)*
 * **TA Fangzhou Wang**, [`fw256@georgetown.edu`](mailto:fw256@georgetown.edu){target='_blank'}
   * Office Hours: **Fridays 7-8pm** *(Email to reserve a 30-minute slot in advance)*
 * **TA Siru Wu**, [`sw1430@georgetown.edu`](mailto:sw1430@georgetown.edu){target='_blank'}

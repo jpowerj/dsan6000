@@ -35,12 +35,12 @@ weeks:
   footer: "DSAN 6000 Week 7: Spark Clusters"
   date-md: "Oct 19"
 - weeknum: 8
-  title: "ML with Spark"
-  footer: "DSAN 6000 Week 8: SparkML"
+  title: "SparkML, SparkNLP"
+  footer: "DSAN 6000 Week 8: SparkML, SparkNLP"
   date-md: "Oct 26"
 - weeknum: 9
-  title: "NLP with Spark"
-  footer: "DSAN 6000 Week 9: SparkNLP"
+  title: "In-Class Midterm"
+  footer: "DSAN 6000 Week 9: Midterm"
   date-md: "Nov 2"
 - weeknum: 10
   title: "ETL Pipelines"

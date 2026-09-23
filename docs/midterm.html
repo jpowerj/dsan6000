@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jeff Jacobs">
 
-<title>Week 4: DuckDB – DSAN 6000: Big Data and Cloud Computing</title>
+<title>Preparing for the In-Class Midterm – DSAN 6000: Big Data and Cloud Computing</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,86 +23,31 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-fedc0afa5eed45b88079642ee2c6e752.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-34a0eba8e2d80e45ad4ec04665ab2a23.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-eae5b3a220c4fad84732ca6114dc952a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-34a0eba8e2d80e45ad4ec04665ab2a23.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-fedc0afa5eed45b88079642ee2c6e752.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-34a0eba8e2d80e45ad4ec04665ab2a23.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-eae5b3a220c4fad84732ca6114dc952a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-34a0eba8e2d80e45ad4ec04665ab2a23.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -133,39 +77,10 @@ div.csl-indent {
 }</script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="../sidebar.js"></script>
+<script src="./sidebar.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -340,7 +255,9 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../w04/index.html">Week 4: <span class="sec-w04-date">Sep 21</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      DSAN 6000: Big Data and Cloud Computing
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -355,7 +272,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">DSAN 6000: Big Data and Cloud Computing</a> 
+      <a href="./">DSAN 6000: Big Data and Cloud Computing</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -370,104 +287,104 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><i class="bi bi-house"></i> Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../resources.html" class="sidebar-item-text sidebar-link">
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../writeups/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./writeups/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Writeups</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w01/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./w01/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1: <span class="sec-w01-date">Aug 31</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./w02/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 2: <span class="sec-w02-date">Sep 8</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w03/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./w03/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 3: <span class="sec-w03-date">Sep 14</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w04/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./w04/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 4: <span class="sec-w04-date">Sep 21</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w05/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./w05/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 5: <span class="sec-w05-date">Sep 28</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w06/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./w06/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 6: <span class="sec-w06-date">Oct 5</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w07/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./w07/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 7: <span class="sec-w07-date">Oct 19</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w08/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./w08/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 8: <span class="sec-w08-date">Oct 26</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w09/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./w09/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 9: <span class="sec-w09-date">Nov 2</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w10/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./w10/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 10: <span class="sec-w10-date">Nov 9</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w11/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./w11/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 11: <span class="sec-w11-date">Nov 16</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w12/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./w12/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 12: <span class="sec-w12-date">Nov 30</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../w13/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./w13/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 13: <span class="sec-w13-date">Dec 7-8</span></span></a>
   </div>
 </li>
@@ -509,27 +426,8 @@ window.Quarto = {
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#computer-architecture-in-one-diagram" id="toc-computer-architecture-in-one-diagram" class="nav-link active" data-scroll-target="#computer-architecture-in-one-diagram">Computer Architecture in One Diagram</a>
-  <ul class="collapse">
-  <li><a href="#the-problem-with-csvs-for-data-engineers" id="toc-the-problem-with-csvs-for-data-engineers" class="nav-link" data-scroll-target="#the-problem-with-csvs-for-data-engineers">The Problem With CSVs (for Data Engineers)</a></li>
-  <li><a href="#the-problem-with-csvs-for-data-scientists" id="toc-the-problem-with-csvs-for-data-scientists" class="nav-link" data-scroll-target="#the-problem-with-csvs-for-data-scientists">The Problem With CSVs (for Data Scientists)</a></li>
-  <li><a href="#how-csvs-are-actually-stored-on-disk" id="toc-how-csvs-are-actually-stored-on-disk" class="nav-link" data-scroll-target="#how-csvs-are-actually-stored-on-disk">How CSVs Are Actually Stored on Disk</a></li>
-  <li><a href="#the-skip-list-approach" id="toc-the-skip-list-approach" class="nav-link" data-scroll-target="#the-skip-list-approach">The Skip List Approach</a></li>
-  <li><a href="#sidenote-now-important-later" id="toc-sidenote-now-important-later" class="nav-link" data-scroll-target="#sidenote-now-important-later">Sidenote Now, Important Later</a></li>
-  <li><a href="#the-secret-columnar-sauce-rle-compression" id="toc-the-secret-columnar-sauce-rle-compression" class="nav-link" data-scroll-target="#the-secret-columnar-sauce-rle-compression">The Secret Columnar Sauce: RLE Compression</a></li>
-  </ul></li>
-  <li><a href="#dream-no-more-parquet-files-have-arrived" id="toc-dream-no-more-parquet-files-have-arrived" class="nav-link" data-scroll-target="#dream-no-more-parquet-files-have-arrived">Dream No More… Parquet Files Have Arrived</a>
-  <ul class="collapse">
-  <li><a href="#duckdb-demo" id="toc-duckdb-demo" class="nav-link" data-scroll-target="#duckdb-demo">DuckDB Demo</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w04/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -537,37 +435,14 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 4: DuckDB</h1>
-<p class="subtitle lead"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2026</p>
-  <div class="quarto-categories">
-    <div class="quarto-category">Class Sessions</div>
-  </div>
-  </div>
+<h1 class="title">Preparing for the In-Class Midterm</h1>
+</div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Jeff Jacobs </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="mailto:jj1088@georgetown.edu" target="_blank"><code>jj1088@georgetown.edu</code></a>
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">Monday, September 21, 2026</p>
-    </div>
-  </div>
+    
   
     
   </div>
@@ -577,200 +452,9 @@ window.Quarto = {
 </header>
 
 
-<center class="mb-3">
-<a class="h2" href="./slides.html" target="_blank">Open slides in new tab →</a>
-</center>
-<section id="computer-architecture-in-one-diagram" class="level1 smaller title-12 crunch-title" data-stack-name="Data Storage">
-<h1 class="smaller title-12 crunch-title" data-stack-name="Data Storage">Computer Architecture in One Diagram</h1>
-<div class="quarto-layout-panel" data-layout="[45,55]" data-layout-align="center">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="column quarto-layout-cell" style="flex-basis: 45.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/mem_hierarchy.svg" class="img-fluid figure-img" width="500"></p>
-<figcaption><em>Possibly the last non-AI diagram Jeff will make</em></figcaption>
-</figure>
-</div>
-</div>
-<div class="column quarto-layout-cell" style="flex-basis: 55.0%;justify-content: center;">
-<ul>
-<li>Storage <strong>↑ higher</strong> on pyramid is <strong>faster</strong> but <strong>more expensive</strong></li>
-<li>Registers, Caches <strong>built into processor</strong></li>
-<li>Everything from <strong>RAM</strong> upwards uses electricity ⚡️, <strong>dies when unplugged</strong></li>
-<li><strong>Solid-State Drives (SSDs)</strong> have <em>no moving parts</em> (“flash memory”)</li>
-<li><strong>Hard-Drive Disks (HDDs)</strong> have <em>moving parts</em>: “heads” which scan over spinning magnetic disk then read data <strong>sequentially</strong></li>
-</ul>
-</div>
-</div>
-</div>
-<section id="the-problem-with-csvs-for-data-engineers" class="level2 title-09 crunch-title crunch-p text-85">
-<h2 class="title-09 crunch-title crunch-p text-85 anchored" data-anchor-id="the-problem-with-csvs-for-data-engineers">The Problem With CSVs (for Data Engineers)</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th class="tdvc" data-quarto-table-cell-role="th"><i class="bi bi-1-circle"></i> Inherent ambiguities…</th>
-<th data-quarto-table-cell-role="th"><i class="bi bi-2-circle"></i> No built-in way to <em>communicate</em> schema info!</th>
-<td></td>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Delimiter:</strong> Comma? Tab? Semicolon?</td>
-<td><strong>Schema information:</strong> Sent or looked up separately (codebooks)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>Quote characters:</strong> Single <code>'</code> or double <code>"</code> quote?<br>ASCII <code>""</code> or UTF-8 <code>“”</code>?</td>
-<td><strong>Nested structures:</strong><br>…Improvised and included in schema</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td colspan="2"><strong>Escaping special characters:</strong> <code>\n</code> = new line, or part of string val?</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><span class="math inline">\(\leadsto\)</span> <strong>Data engineers</strong> working with CSV data have to build robust <strong>error detection</strong> systems to ensure data quality (<a href="https://pydantic.dev/docs/validation/latest/get-started/"><strong>Pydantic!</strong></a> <a href="https://pandera.readthedocs.io/en/stable/"><strong>Pandera!</strong></a>)</p>
-</section>
-<section id="the-problem-with-csvs-for-data-scientists" class="level2 crunch-title title-075">
-<h2 class="crunch-title title-075 anchored" data-anchor-id="the-problem-with-csvs-for-data-scientists">The Problem With CSVs (for Data Scientists)</h2>
-<ul>
-<li>Brainstorming exercise: What kinds of <strong>operations</strong> do you think of when you think of “doing” data science?</li>
-<li>For me: <code>mean()</code>, <code>std()</code>, <code>max()</code>, <code>min()</code>, etc…</li>
-<li>Computing SSRs: <code>(df['y'] - df['y_pred']) ** 2</code></li>
-<li>These are <strong>columnar</strong> operations, yet <code>.csv</code> files are read <strong>row-by-row</strong></li>
-</ul>
-</section>
-<section id="how-csvs-are-actually-stored-on-disk" class="level2 crunch-title title-09 text-90">
-<h2 class="crunch-title title-09 text-90 anchored" data-anchor-id="how-csvs-are-actually-stored-on-disk">How CSVs Are Actually Stored on Disk</h2>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>dsan6000_staff.csv</strong></pre>
-</div>
-<pre class="csv" data-filename="dsan6000_staff.csv"><code>staff_id,last,first,points\n1,jacobs,jeff,300\n2,vakkalanka,samyu,400\n3,wang,fangzhou,500\n4,wu,siru,600</code></pre>
-</div>
-<ul>
-<li>…Even if we only want to compute average of last column, computer has to <strong>scan over all data in row</strong> first (remember: <strong>sequential</strong> memory reads)</li>
-</ul>
-<p><strong><em>…But Imagine A World Where… (John Lemon, from Beetles)</em></strong></p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>dsan6000_staff.csv</strong></pre>
-</div>
-<pre class="csv" data-filename="dsan6000_staff.csv"><code>points,300,400,500,600\nstaff_id,1,2,3,4\nlast,jacobs,vakkalanka,wang,wu\nfirst,jeff,samyu,fangzhou,siru</code></pre>
-</div>
-<ul>
-<li>…But I completely cheated here! I moved the last column to be the first column. How could we achieve this in practice?</li>
-</ul>
-</section>
-<section id="the-skip-list-approach" class="level2 crunch-title text-85 fix-wrap">
-<h2 class="crunch-title text-85 fix-wrap anchored" data-anchor-id="the-skip-list-approach">The Skip List Approach</h2>
-<p><em>(Note: If you took DSAN 5000, you saw the <a href="https://en.wikipedia.org/wiki/Skip_list">skip list</a> data structure… here we’re generalizing this to <code>DataFrame</code>s!)</em></p>
-<p>Now imagine a <strong>fancier header</strong>, with an <strong>index</strong> telling the reader the exact <strong>byte</strong> where each column starts:</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>column name</th>
-<th>column start</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>staff_id</code></td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td><code>last</code></td>
-<td>18</td>
-</tr>
-<tr class="odd">
-<td><code>first</code></td>
-<td>50</td>
-</tr>
-<tr class="even">
-<td><code>points</code></td>
-<td>82</td>
-</tr>
-</tbody>
-</table>
-</div><div class="column" style="width:50%;">
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>dsan6000_staff.csv</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="dsan6000_staff.csv"><pre class="sourceCode numberSource csv code-overflow-wrap number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>staff_id,1,2,3,4\nlast,jacobs,vakkalanka,wang,wu\nfirst,jeff,samyu,fangzhou,siru\npoints,300,400,500,600</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><span class="math inline">\(\leadsto\)</span> Now the reader can just <strong>skip over</strong> bytes 0-81!</p>
-</div>
-</div>
-<p>Even more efficient if we implement index as <strong>Binary Search Tree</strong></p>
-</section>
-<section id="sidenote-now-important-later" class="level2 crunch-title text-85 crunch-p crunch-li-8">
-<h2 class="crunch-title text-85 crunch-p crunch-li-8 anchored" data-anchor-id="sidenote-now-important-later">Sidenote Now, Important Later</h2>
-<p>If we <em>did</em> have a setup where we wanted to operate over <strong>rows</strong>, this optimized-index approach would work just as well!</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Sorted Data:</strong></p>
-<ul>
-<li>If <strong>sorted</strong> by <code>staff_id</code>: 1000 employees total, employee 500 starts at byte 820</li>
-<li><span class="math inline">\(\leadsto\)</span> <em>(Higher ids guaranteed to be in later bytes)</em></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Time Series Data:</strong></p>
-<ul>
-<li>2020 data starts at byte 0</li>
-<li>2021 data starts at byte 458</li>
-<li>2022 data starts at byte 1810</li>
-<li>2023 data starts at …</li>
-</ul>
-</div>
-</div>
-<p><strong>Binned Data:</strong> Last names N-Z start at byte 1130</p>
-<ul>
-<li><em>(Faster insertions; Can’t make guarantees besides bin start/end)</em></li>
-</ul>
-</section>
-<section id="the-secret-columnar-sauce-rle-compression" class="level2 crunch-title title-07">
-<h2 class="crunch-title title-07 anchored" data-anchor-id="the-secret-columnar-sauce-rle-compression">The Secret Columnar Sauce: RLE Compression</h2>
-<ul>
-<li>With <strong>row-based</strong> storage, we “hop” from one data type to another with each subsequent read
-<ul>
-<li><code>1</code> → <code>"jeff"</code> → <code>300</code> → <code>date(2023)</code></li>
-</ul></li>
-<li>With <strong>columnar</strong> storage, sequential blocks have <strong>same data type!</strong> <span class="math inline">\(\leadsto\)</span> <strong>Run-Length Encoding (RLE)</strong></li>
-<li>2 million consecutive records with <code>date(2023)</code> becomes <code>(date(2023), 2000000)</code> 🤯</li>
-<li>10 years of records: 20 million bytes → 20 bytes</li>
-</ul>
-</section>
-</section>
-<section id="dream-no-more-parquet-files-have-arrived" class="level1 smaller title-11 crunch-title" data-stack-name="Parquet">
-<h1 class="smaller title-11 crunch-title" data-stack-name="Parquet">Dream No More… Parquet Files Have Arrived</h1>
-<p><em>Hybrid Columnar/Row-Based Storage</em></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/parquet.png" class="img-fluid figure-img"></p>
-<figcaption>From <span class="citation" data-cites="berk_demystifying_2022">Berk (<a href="#ref-berk_demystifying_2022" role="doc-biblioref">2022</a>)</span></figcaption>
-</figure>
-</div>
-<section id="duckdb-demo" class="level2">
-<h2 class="anchored" data-anchor-id="duckdb-demo">DuckDB Demo</h2>
-<center>
-<p><a href="https://colab.research.google.com/drive/1kkodGgDnvRAH0stiAKHEE8cWYGGVRikF?usp=sharing">Open in Colab</a></p>
-</center>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-berk_demystifying_2022" class="csl-entry" role="listitem">
-Berk, Michael. 2022. <span>“<a href="https://towardsdatascience.com/demystifying-the-parquet-file-format-13adb0206705/">Demystifying the <span>Parquet File Format</span></a>.”</span> Towards Data Science. August 16, 2022.
-</div>
-</div>
+<p><strong>Coming Soon!</strong></p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1198,4 +882,4 @@ Berk, Michael. 2022. <span>“<a href="https://towardsdatascience.com/demystifyi
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w04/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/midterm.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

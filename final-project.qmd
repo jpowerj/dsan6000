@@ -1,0 +1,11 @@
+---
+title: "Final Project"
+sidebar: mainnav
+bibliography: "_DSAN6000.bib"
+csl: "chicago-17-no-url.csl"
+format:
+  html:
+    df-print: kable
+---
+
+**Final Project details coming soon!**
