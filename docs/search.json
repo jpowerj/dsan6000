@@ -44,7 +44,7 @@
     "href": "resources.html#pdfs-of-books",
     "title": "Resource Hub",
     "section": "PDFs of Books",
-    "text": "PDFs of Books\nThe remainder of this page is auto-generated from all of the references across the slides for each week: click on the name of a reference to download the ebook version, if available!\n\n\nAmbrose, Susan A., Michael W. Bridges, Michele DiPietro, Marsha C. Lovett, and Marie K. Norman. 2010. How Learning Works: Seven Research-Based Principles for Smart Teaching. John Wiley & Sons.\n\n\nAubury, Simon. 2024. Getting Started with DuckDB: A Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows. 1st ed. Birmingham: Packt Publishing Limited.\n\n\nBerk, Michael. 2022. “Demystifying the Parquet File Format.” Towards Data Science. August 16, 2022.\n\n\nDamji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. Learning Spark. O’Reilly Media, Inc.\n\n\nEagar, Gareth. 2021. Data Engineering with AWS: Learn How to Design and Build Cloud-Based Data Transformation Pipelines Using AWS. 1st ed. Birmingham: Packt Publishing Limited.\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc.\n\n\nGrama, Ananth. 2003. Introduction to Parallel Computing. Addison-Wesley.\n\n\nHennessy, John L., and David A. Patterson. 2017. Computer Architecture: A Quantitative Approach. Morgan Kaufmann.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nKleppmann, Martin, and Chris Riccomini. 2026. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. 2nd edition. Santa Rosa, CA: O’Reilly.\n\n\nLee, Wei-Meng. 2024. DuckDB: Up and Running: Fast Data Analytics and Reporting. First edition. Sebastopol, CA: O’Reilly Media, Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. June 2, 2010.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.\n\n\nNeedham, Mark, Michael Hunger, and Michael Simons. 2024. DuckDB in Action. Simon and Schuster.\n\n\nNoble, David F. 1995. Progress Without People: New Technology, Unemployment, and the Message of Resistance. Toronto: Between the Lines.\n\n\nPacheco, Peter, and Matthew Malensek. 2022. An Introduction to Parallel Programming. Morgan Kaufmann.\n\n\nPolanyi, Karl. 1944. The Great Transformation: The Political and Economic Origins of Our Time. Beacon Press.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nRaff, Edward, Drew Farris, and Stella Biderman. 2025. How Large Language Models Work.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court.\n\n\nTanimura, Cathy. 2021. SQL for Data Analysis: Advanced Techniques for Transforming Data into Insights. O’Reilly Media, Inc.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.\n\n\nVirtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. Serverless Analytics with Amazon Athena: Query Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure. Packt Publishing Ltd.\n\n\nWojtowicz, Zachary, and Simon DeDeo. 2025. “Undermining Mental Proof: How AI Can Make Cooperation Harder by Making Thinking Easier.”\n\n\nWolohan, John. 2020. Mastering Large Datasets with Python: Parallelize and Distribute Your Python Code. Simon and Schuster.\n\n\nZilliz. 2025. “Introduction to Unstructured Data.” 2025.",
+    "text": "PDFs of Books\nThe remainder of this page is auto-generated from all of the references across the slides for each week: click on the name of a reference to download the ebook version, if available!\n\n\nAmbrose, Susan A., Michael W. Bridges, Michele DiPietro, Marsha C. Lovett, and Marie K. Norman. 2010. How Learning Works: Seven Research-Based Principles for Smart Teaching. John Wiley & Sons.\n\n\nAubury, Simon. 2024. Getting Started with DuckDB: A Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows. Birmingham: Packt Publishing Limited.\n\n\nBerk, Michael. 2022. “Demystifying the Parquet File Format.” Towards Data Science. August 16, 2022.\n\n\nDamji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. Learning Spark. O’Reilly Media, Inc.\n\n\nEagar, Gareth. 2021. Data Engineering with AWS: Learn How to Design and Build Cloud-Based Data Transformation Pipelines Using AWS. 1st ed. Birmingham: Packt Publishing Limited.\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc.\n\n\nGrama, Ananth. 2003. Introduction to Parallel Computing. Addison-Wesley.\n\n\nHennessy, John L., and David A. Patterson. 2017. Computer Architecture: A Quantitative Approach. Morgan Kaufmann.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nKleppmann, Martin, and Chris Riccomini. 2026. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. 2nd edition. Santa Rosa, CA: O’Reilly.\n\n\nLee, Wei-Meng. 2024. DuckDB: Up and Running: Fast Data Analytics and Reporting. First edition. Sebastopol, CA: O’Reilly Media, Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. June 2, 2010.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.\n\n\nNeedham, Mark, Michael Hunger, and Michael Simons. 2024. DuckDB in Action. Simon and Schuster.\n\n\nNoble, David F. 1995. Progress Without People: New Technology, Unemployment, and the Message of Resistance. Toronto: Between the Lines.\n\n\nPacheco, Peter, and Matthew Malensek. 2022. An Introduction to Parallel Programming. Morgan Kaufmann.\n\n\nPolanyi, Karl. 1944. The Great Transformation: The Political and Economic Origins of Our Time. Beacon Press.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nRaff, Edward, Drew Farris, and Stella Biderman. 2025. How Large Language Models Work.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court.\n\n\nTanimura, Cathy. 2021. SQL for Data Analysis: Advanced Techniques for Transforming Data into Insights. O’Reilly Media, Inc.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.\n\n\nVirtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. Serverless Analytics with Amazon Athena: Query Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure. Packt Publishing Ltd.\n\n\nWojtowicz, Zachary, and Simon DeDeo. 2025. “Undermining Mental Proof: How AI Can Make Cooperation Harder by Making Thinking Easier.”\n\n\nWolohan, John. 2020. Mastering Large Datasets with Python: Parallelize and Distribute Your Python Code. Simon and Schuster.\n\n\nZilliz. 2025. “Introduction to Unstructured Data.” 2025.",
     "crumbs": [
       "Resources"
     ]
@@ -1832,63 +1832,63 @@
   {
     "objectID": "w04/slides.html#the-problem-with-csvs-for-data-engineers",
     "href": "w04/slides.html#the-problem-with-csvs-for-data-engineers",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "The Problem With CSVs (for Data Engineers)",
     "text": "The Problem With CSVs (for Data Engineers)\n\n\n\n Inherent ambiguities…\n No built-in way to communicate schema info!\n\n\n\n\n\nDelimiter: Comma? Tab? Semicolon?\nSchema information: Sent or looked up separately (codebooks)\n\n\n\nQuote characters: Single ' or double \" quote?ASCII \"\" or UTF-8 “”?\nNested structures:…Improvised and included in schema\n\n\n\nEscaping special characters: \\n = new line, or part of string val?\n\n\n\n\n\\(\\leadsto\\) Data engineers working with CSV data have to build robust error detection systems to ensure data quality (Pydantic! Pandera!)"
   },
   {
     "objectID": "w04/slides.html#the-problem-with-csvs-for-data-scientists",
     "href": "w04/slides.html#the-problem-with-csvs-for-data-scientists",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "The Problem With CSVs (for Data Scientists)",
     "text": "The Problem With CSVs (for Data Scientists)\n\nBrainstorming exercise: What kinds of operations do you think of when you think of “doing” data science?\nFor me: mean(), std(), max(), min(), etc…\nComputing SSRs: (df['y'] - df['y_pred']) ** 2\nThese are columnar operations, yet .csv files are read row-by-row"
   },
   {
     "objectID": "w04/slides.html#how-csvs-are-actually-stored-on-disk",
     "href": "w04/slides.html#how-csvs-are-actually-stored-on-disk",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "How CSVs Are Actually Stored on Disk",
     "text": "How CSVs Are Actually Stored on Disk\n\n\ndsan6000_staff.csv\n\nstaff_id,last,first,points\\n1,jacobs,jeff,300\\n2,vakkalanka,samyu,400\\n3,wang,fangzhou,500\\n4,wu,siru,600\n\n\n…Even if we only want to compute average of last column, computer has to scan over all data in row first (remember: sequential memory reads)\n\n…But Imagine A World Where… (John Lemon, from Beetles)\n\n\ndsan6000_staff.csv\n\npoints,300,400,500,600\\nstaff_id,1,2,3,4\\nlast,jacobs,vakkalanka,wang,wu\\nfirst,jeff,samyu,fangzhou,siru\n\n\n…But I completely cheated here! I moved the last column to be the first column. How could we achieve this in practice?"
   },
   {
     "objectID": "w04/slides.html#the-skip-list-approach",
     "href": "w04/slides.html#the-skip-list-approach",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "The Skip List Approach",
     "text": "The Skip List Approach\n(Note: If you took DSAN 5000, you saw the skip list data structure… here we’re generalizing this to DataFrames!)\nNow imagine a fancier header, with an index telling the reader the exact byte where each column starts:\n\n\n\n\n\ncolumn name\ncolumn start\n\n\n\n\nstaff_id\n0\n\n\nlast\n18\n\n\nfirst\n50\n\n\npoints\n82\n\n\n\n\n\n\ndsan6000_staff.csv\n\nstaff_id,1,2,3,4\\nlast,jacobs,vakkalanka,wang,wu\\nfirst,jeff,samyu,fangzhou,siru\\npoints,300,400,500,600\n\n\\(\\leadsto\\) Now the reader can just skip over bytes 0-81!\n\nEven more efficient if we implement index as Binary Search Tree"
   },
   {
     "objectID": "w04/slides.html#sidenote-now-important-later",
     "href": "w04/slides.html#sidenote-now-important-later",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "Sidenote Now, Important Later",
     "text": "Sidenote Now, Important Later\nIf we did have a setup where we wanted to operate over rows, this optimized-index approach would work just as well!\n\n\nSorted Data:\n\nIf sorted by staff_id: 1000 employees total, employee 500 starts at byte 820\n\\(\\leadsto\\) (Higher ids guaranteed to be in later bytes)\n\n\nTime Series Data:\n\n2020 data starts at byte 0\n2021 data starts at byte 458\n2022 data starts at byte 1810\n2023 data starts at …\n\n\nBinned Data: Last names N-Z start at byte 1130\n\n(Faster insertions; Can’t make guarantees besides bin start/end)"
   },
   {
     "objectID": "w04/slides.html#the-secret-columnar-sauce-rle-compression",
     "href": "w04/slides.html#the-secret-columnar-sauce-rle-compression",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "The Secret Columnar Sauce: RLE Compression",
     "text": "The Secret Columnar Sauce: RLE Compression\n\nWith row-based storage, we “hop” from one data type to another with each subsequent read\n\n1 → \"jeff\" → 300 → date(2023)\n\nWith columnar storage, sequential blocks have same data type! \\(\\leadsto\\) Run-Length Encoding (RLE)\n2 million consecutive records with date(2023) becomes (date(2023), 2000000) 🤯\n10 years of records: 20 million bytes → 20 bytes"
   },
   {
     "objectID": "w04/slides.html#duckdb-demo",
     "href": "w04/slides.html#duckdb-demo",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "DuckDB Demo",
     "text": "DuckDB Demo\n\nOpen in Colab"
   },
   {
     "objectID": "w04/slides.html#references",
     "href": "w04/slides.html#references",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "References",
     "text": "References\n\n\nBerk, Michael. 2022. “Demystifying the Parquet File Format.” Towards Data Science. August 16, 2022."
   },
   {
     "objectID": "w04/index.html",
     "href": "w04/index.html",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "",
     "text": "Open slides in new tab →",
     "crumbs": [
@@ -1898,7 +1898,7 @@
   {
     "objectID": "w04/index.html#the-problem-with-csvs-for-data-engineers",
     "href": "w04/index.html#the-problem-with-csvs-for-data-engineers",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "The Problem With CSVs (for Data Engineers)",
     "text": "The Problem With CSVs (for Data Engineers)\n\n\n\n Inherent ambiguities…\n No built-in way to communicate schema info!\n\n\n\n\n\nDelimiter: Comma? Tab? Semicolon?\nSchema information: Sent or looked up separately (codebooks)\n\n\n\nQuote characters: Single ' or double \" quote?ASCII \"\" or UTF-8 “”?\nNested structures:…Improvised and included in schema\n\n\n\nEscaping special characters: \\n = new line, or part of string val?\n\n\n\n\n\\(\\leadsto\\) Data engineers working with CSV data have to build robust error detection systems to ensure data quality (Pydantic! Pandera!)",
     "crumbs": [
@@ -1908,7 +1908,7 @@
   {
     "objectID": "w04/index.html#the-problem-with-csvs-for-data-scientists",
     "href": "w04/index.html#the-problem-with-csvs-for-data-scientists",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "The Problem With CSVs (for Data Scientists)",
     "text": "The Problem With CSVs (for Data Scientists)\n\nBrainstorming exercise: What kinds of operations do you think of when you think of “doing” data science?\nFor me: mean(), std(), max(), min(), etc…\nComputing SSRs: (df['y'] - df['y_pred']) ** 2\nThese are columnar operations, yet .csv files are read row-by-row",
     "crumbs": [
@@ -1918,7 +1918,7 @@
   {
     "objectID": "w04/index.html#how-csvs-are-actually-stored-on-disk",
     "href": "w04/index.html#how-csvs-are-actually-stored-on-disk",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "How CSVs Are Actually Stored on Disk",
     "text": "How CSVs Are Actually Stored on Disk\n\n\ndsan6000_staff.csv\n\nstaff_id,last,first,points\\n1,jacobs,jeff,300\\n2,vakkalanka,samyu,400\\n3,wang,fangzhou,500\\n4,wu,siru,600\n\n\n…Even if we only want to compute average of last column, computer has to scan over all data in row first (remember: sequential memory reads)\n\n…But Imagine A World Where… (John Lemon, from Beetles)\n\n\ndsan6000_staff.csv\n\npoints,300,400,500,600\\nstaff_id,1,2,3,4\\nlast,jacobs,vakkalanka,wang,wu\\nfirst,jeff,samyu,fangzhou,siru\n\n\n…But I completely cheated here! I moved the last column to be the first column. How could we achieve this in practice?",
     "crumbs": [
@@ -1928,7 +1928,7 @@
   {
     "objectID": "w04/index.html#the-skip-list-approach",
     "href": "w04/index.html#the-skip-list-approach",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "The Skip List Approach",
     "text": "The Skip List Approach\n(Note: If you took DSAN 5000, you saw the skip list data structure… here we’re generalizing this to DataFrames!)\nNow imagine a fancier header, with an index telling the reader the exact byte where each column starts:\n\n\n\n\n\ncolumn name\ncolumn start\n\n\n\n\nstaff_id\n0\n\n\nlast\n18\n\n\nfirst\n50\n\n\npoints\n82\n\n\n\n\n\n\ndsan6000_staff.csv\n\nstaff_id,1,2,3,4\\nlast,jacobs,vakkalanka,wang,wu\\nfirst,jeff,samyu,fangzhou,siru\\npoints,300,400,500,600\n\n\\(\\leadsto\\) Now the reader can just skip over bytes 0-81!\n\n\nEven more efficient if we implement index as Binary Search Tree",
     "crumbs": [
@@ -1938,7 +1938,7 @@
   {
     "objectID": "w04/index.html#sidenote-now-important-later",
     "href": "w04/index.html#sidenote-now-important-later",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "Sidenote Now, Important Later",
     "text": "Sidenote Now, Important Later\nIf we did have a setup where we wanted to operate over rows, this optimized-index approach would work just as well!\n\n\nSorted Data:\n\nIf sorted by staff_id: 1000 employees total, employee 500 starts at byte 820\n\\(\\leadsto\\) (Higher ids guaranteed to be in later bytes)\n\n\nTime Series Data:\n\n2020 data starts at byte 0\n2021 data starts at byte 458\n2022 data starts at byte 1810\n2023 data starts at …\n\n\n\nBinned Data: Last names N-Z start at byte 1130\n\n(Faster insertions; Can’t make guarantees besides bin start/end)",
     "crumbs": [
@@ -1948,7 +1948,7 @@
   {
     "objectID": "w04/index.html#the-secret-columnar-sauce-rle-compression",
     "href": "w04/index.html#the-secret-columnar-sauce-rle-compression",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "The Secret Columnar Sauce: RLE Compression",
     "text": "The Secret Columnar Sauce: RLE Compression\n\nWith row-based storage, we “hop” from one data type to another with each subsequent read\n\n1 → \"jeff\" → 300 → date(2023)\n\nWith columnar storage, sequential blocks have same data type! \\(\\leadsto\\) Run-Length Encoding (RLE)\n2 million consecutive records with date(2023) becomes (date(2023), 2000000) 🤯\n10 years of records: 20 million bytes → 20 bytes",
     "crumbs": [
@@ -1958,7 +1958,7 @@
   {
     "objectID": "w04/index.html#duckdb-demo",
     "href": "w04/index.html#duckdb-demo",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "DuckDB Demo",
     "text": "DuckDB Demo\n\nOpen in Colab",
     "crumbs": [
@@ -1968,7 +1968,7 @@
   {
     "objectID": "w04/index.html#references",
     "href": "w04/index.html#references",
-    "title": "Week 4: DuckDB",
+    "title": "Week 4: Columnar Data Formats and DuckDB",
     "section": "References",
     "text": "References\n\n\nBerk, Michael. 2022. “Demystifying the Parquet File Format.” Towards Data Science. August 16, 2022.",
     "crumbs": [
@@ -2070,7 +2070,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Separating Data from Computation for Parallel Processing",
     "section": "In Action",
-    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.7918 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8470 s",
+    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8518 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8242 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 14</span>"
     ]
@@ -2276,7 +2276,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Separating Data from Computation for Parallel Processing",
     "section": "In Action",
-    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.7994 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8214 s"
+    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8319 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8361 s"
   },
   {
     "objectID": "w03/slides.html#what-is-joblib-doing-here",
@@ -2379,7 +2379,7 @@
   {
     "objectID": "w05/index.html",
     "href": "w05/index.html",
-    "title": "Week 5: Polars",
+    "title": "Week 5: From DuckDB to Polars",
     "section": "",
     "text": "Open slides in new tab →",
     "crumbs": [
@@ -2387,461 +2387,61 @@
     ]
   },
   {
-    "objectID": "w05/index.html#agenda-and-goals-for-today",
-    "href": "w05/index.html#agenda-and-goals-for-today",
-    "title": "Week 5: Polars",
-    "section": "Agenda and Goals for Today",
-    "text": "Agenda and Goals for Today\n\n\n\nLecture\n\nDistributed file systems\nModern file types\nWorking with large tabular data on a single node\n\nDuckDB\nPolars\n\n\n\n\n\nLab\n\nRun a similar task with Pandas, polars and duckdb",
+    "objectID": "w05/index.html#hw5-no-more-shoving-sql-in-python-with",
+    "href": "w05/index.html#hw5-no-more-shoving-sql-in-python-with",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "HW5: No More Shoving SQL in Python with \"\"\"",
+    "text": "HW5: No More Shoving SQL in Python with \"\"\"\n\nDuckDB: “Artificial” separation of computation and data\n\nHW4 Q3 Data loaded into Pandas DataFrame\nHW4 Q3 Computation written as SQL expression:\nquery = \"\"\"\n&lt;SQL code&gt;\n\"\"\"\n…Then you shoved them together: result_df = con.execute(query).df()\n\nPolars: “Natural” computation-data separation within the same language (Python)\n\nHW5 Q2 Data loaded into Polars DataFrame (Python object)\nHW5 Q2 Computation written as Polars functions (Python code)\npolars library specifies which functions “activate” eager evaluation",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 28</span>"
     ]
   },
   {
-    "objectID": "w05/index.html#logistics-and-review",
-    "href": "w05/index.html#logistics-and-review",
-    "title": "Week 5: Polars",
-    "section": "Logistics and Review",
-    "text": "Logistics and Review\n\n\nDeadlines\n\nAssignment 1: Python Skills Due Sept 5 11:59pm\nLab 2: Cloud Tooling Due Sept 5 6pm\nAssignment 2: Shell & Linux Due Sept 11 11:59pm\nLab 3: Parallel Computing Due Sept 12 6pm\nAssignment 3: Parallelization Due Sept 18 11:59pm\nLab 4: Docker and Lambda Due Sept 19 6pm\nAssignment 4: Containers Due Sept 25 11:59pm\nLab 5: DuckDB & Polars Due Sept 26 6pm\n\n\nLook back and ahead\n\nContinue to use Slack for questions!\nDocker (containerization)\nLambda functions\nComing up: Spark and project",
+    "objectID": "w05/index.html#duckdb-buzzwords-leadsto-understanding",
+    "href": "w05/index.html#duckdb-buzzwords-leadsto-understanding",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "DuckDB: Buzzwords \\(\\leadsto\\) Understanding",
+    "text": "DuckDB: Buzzwords \\(\\leadsto\\) Understanding\n\nDuckDB is an in-process SQL OLAP DBMS. (Aubury 2024)\n\n\nDatabase Management System (DBMS): An interface between the database and its users, allowing create, read, update, and delete (CRUD) operations on the DB\nOnline Analytical Processing (OLAP): A data processing paradigm focused on applying column-wise aggregation functions and joining large datasets together\n(Contrasts with Online Transaction Processing (OLTP), where frequent writing of individual records (rows) is the dominant pattern of data interaction)\nStructured Query Language (SQL): A declarative programming language used to store, manipulate, and query records in relational databases – DBs representing data as tables of rows and columns, with formal relationships defined across tables\nIn-process: DuckDB embeds within a process + its memory. Most DBMSs run separately (e.g., on a remote server); DuckDB eliminates connect/authenticate steps",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 28</span>"
     ]
   },
   {
-    "objectID": "w05/index.html#raw-ingredients-of-storage-systems",
-    "href": "w05/index.html#raw-ingredients-of-storage-systems",
-    "title": "Week 5: Polars",
-    "section": "Raw Ingredients of Storage Systems",
-    "text": "Raw Ingredients of Storage Systems\n\n\n\nDisk drives (magnetic HDDs or SSDs)\nRAM\nNetworking and CPU\nSerialization\nCompression\nCaching\n\n\n\n\n\nFrom Reis and Housley (2022)",
+    "objectID": "w05/index.html#duckdb-as-ephemeral-db-in-ram",
+    "href": "w05/index.html#duckdb-as-ephemeral-db-in-ram",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "DuckDB as Ephemeral DB-In-RAM",
+    "text": "DuckDB as Ephemeral DB-In-RAM\n\nStandalone operation (as its own process, independent of Python): DuckDB CLI\nPython operation: Upon import duckdb, creates a default, in-memory DB\ndefault_mem_con = duckdb.connect(database=':default:')\n\nTypically not used, if only bc less clear where and when the DB was created (readers of your code would need to know this fact about import duckdb)\n\nSetting up a connection creates a new, con-specific in-memory DB:\ncon = duckdb.connect(database=':memory:')\ncon = duckdb.connect() # database=':memory:' is default setting\nCan persist to file on disk:\ncon = duckdb.connect('my_cool_data.duckdb')\nPlease note  duckdb.connect() is not how we connect to the on-disk data files, external S3 objects, or in-memory DataFrames that we want to run queries on!\ncon.execute('SELECT * FROM my_df LIMIT 5;')",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 28</span>"
     ]
   },
   {
-    "objectID": "w05/index.html#single-machine-vs.-distributed-storage",
-    "href": "w05/index.html#single-machine-vs.-distributed-storage",
-    "title": "Week 5: Polars",
-    "section": "Single-Machine vs. Distributed Storage",
-    "text": "Single-Machine vs. Distributed Storage\n\n\n\nFrom Reis and Housley (2022)\n\n\n\n\n\nSingle-Machine\n\n\nThey are commonly used for storing operating system files, application files, and user data files.\nFilesystems are also used in databases to store data files, transaction logs, and backups.\n\n\n\nDistributed Storage\n\n\nA distributed filesystem is a type of filesystem that spans multiple computers.\nIt provides a unified view of files across all the computers in the system.\nHave existed before cloud",
+    "objectID": "w05/index.html#sqlite-duckdb-for-oltp",
+    "href": "w05/index.html#sqlite-duckdb-for-oltp",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "SQLite: “DuckDB for OLTP”",
+    "text": "SQLite: “DuckDB for OLTP”\n\nBoth are simplified in-process DBMSs that connect to a single local file (also both free and open source)\nSQLite optimized for row-oriented, OLTP workloads\nDuckDB optimized for column-oriented, OLAP workloads\nHW6 will give you exposure to both!\n\n SQLite for OLTP ingestion of events\n Athena (coming soon) for “automatic” ETL\n DuckDB for OLAP inference (MLFlow)",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 28</span>"
     ]
   },
   {
-    "objectID": "w05/index.html#file-storage-types",
-    "href": "w05/index.html#file-storage-types",
-    "title": "Week 5: Polars",
-    "section": "File Storage Types",
-    "text": "File Storage Types\n\n\n\nLocal Disk\n\n\nOS-managed filesystems on local disk partition:\nNTFS (Windows)\nHFS+ (MacOS)\next4 (Linux)() on a local disk partition of SSD or magnetic disk\n\n\n\nNetwork-Attached (NAS)\n\n\nAccessed by clients over a network\nRedundancy and reliability, fine-grained control of resources, storage pooling across multiple disks for large virtual volumes, and file sharing across multiple machines\n\n\nCloud Filesystems\n\nNot object store (more on that later)\nNot the virtual hard drive attached to a virtual machine\nFully managed: Takes care of networking, managing disk clusters, failures, and configuration (Azure Files, Amazon Elastic Filesystem)\nBacked by Object Store\n\n\n\nBased on Reis and Housley (2022)",
+    "objectID": "w05/index.html#polars-in-jeffs-mental-model",
+    "href": "w05/index.html#polars-in-jeffs-mental-model",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "Polars (in Jeff’s Mental Model)",
+    "text": "Polars (in Jeff’s Mental Model)\n\nPolars = Tool written in Rust for fast (query-optimized), distributed, DataFrame-esque OLAP workflows\npolars = Python library for “high-level” (Python-level) interaction with Polars\nIf we want optimized, distributed processing, we need lazy execution (enabling logical \\(\\leadsto\\) physical query plan)…\nQuery optimization via lazy execution not part of pandas!\n\\(\\implies\\) Let’s find a lazy-execution-focused library that “feels” as close to Pandas as possible… that’s polars!",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 28</span>"
     ]
   },
   {
-    "objectID": "w05/index.html#object-stores",
-    "href": "w05/index.html#object-stores",
-    "title": "Week 5: Polars",
-    "section": "Object Stores",
-    "text": "Object Stores\n\nSomewhat confusing because object has several meanings in computer science.\nIn this context, we’re talking about a specialized file-like construct. It could be any type of file: TXT, CSV, JSON, images, videos, audio\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nContains objects of all shapes and sizes: each gets a unique identifier\nObjects are immutable: cannot be modified in place (unlike local FS)",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#distributed-fs-vs-object-store",
-    "href": "w05/index.html#distributed-fs-vs-object-store",
-    "title": "Week 5: Polars",
-    "section": "Distributed FS vs Object Store",
-    "text": "Distributed FS vs Object Store\n\n\n\n\n\n\n\n\n\nDistributed File System\nObject Storage\n\n\n\n\nOrganization\nFiles in hierarchical directories\nFlat organization (though there can be overlays to provide hierarchical files structure)\n\n\nMethod\nPOSIX File Operations\nREST API\n\n\nImmutability\nNone: Random writes anywhere in file\nImmutable: need to replace/append entire object\n\n\nPerformance\nPerforms best for smaller files\nPerforms best for large files\n\n\nScalability\nMillions of files\nBillions of objects\n\n\n\nBoth provide:\n\nFault tolerance\nAvailability and consistency",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#before-data-locality-for-hadoop",
-    "href": "w05/index.html#before-data-locality-for-hadoop",
-    "title": "Week 5: Polars",
-    "section": "Before: Data locality (for Hadoop)",
-    "text": "Before: Data locality (for Hadoop)\n\n\n\nFrom (white_hadoop_2015?)",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#today-de-coupling-storage-from-compute",
-    "href": "w05/index.html#today-de-coupling-storage-from-compute",
-    "title": "Week 5: Polars",
-    "section": "Today: De-Coupling Storage from Compute",
-    "text": "Today: De-Coupling Storage from Compute\n\n\n\nFrom Gopalan (2022)",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#data-on-disk-formats",
-    "href": "w05/index.html#data-on-disk-formats",
-    "title": "Week 5: Polars",
-    "section": "Data-on-Disk Formats",
-    "text": "Data-on-Disk Formats\n\nPlain Text (CSV, TSV, FWF)\nJSON\nBinary Files",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#plain-text-csv-tsv-fwf",
-    "href": "w05/index.html#plain-text-csv-tsv-fwf",
-    "title": "Week 5: Polars",
-    "section": "Plain Text (CSV, TSV, FWF)",
-    "text": "Plain Text (CSV, TSV, FWF)\n\n\n\n\n\n\nPay attention to encodings!\nLines end in linefeed, carriage-return, or both together depending on the OS that generated\nTypically, a single line of text contains a single record",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#json",
-    "href": "w05/index.html#json",
-    "title": "Week 5: Polars",
-    "section": "JSON",
-    "text": "JSON\n\n\n\n\n\n\nWarning\n\n\n\nJSON files have two flavors: JSON Lines vs. JSON. Typically when we say data is in JSON format, we imply it’s JSON Lines which means that there is a single JSON object per line, and there are multiple lines.\n\n\n\n\nJSON Lines\n4 records, one per line, no end comma\n{\"id\":1, \"name\":\"marck\", \"last_name\":\"vaisman\"}\n{\"id\":2, \"name\":\"anderson\", \"last_name\":\"monken\"}\n{\"id\":3, \"name\":\"amit\", \"last_name\":\"arora\"}\n{\"id\":4, \"name\":\"abhijit\", \"last_name\":\"dasgupta\"}\n\nJSON\n4 records enclosed in 1 JSON Array\n[\n  {\"id\":1, \"name\":\"marck\", \"last_name\":\"vaisman\"},\n  {\"id\":2, \"name\":\"anderson\", \"last_name\":\"monken\"},\n  {\"id\":3, \"name\":\"amit\", \"last_name\":\"arora\"},\n  {\"id\":4, \"name\":\"abhijit\", \"last_name\":\"dasgupta\"},\n]",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#binary-files",
-    "href": "w05/index.html#binary-files",
-    "title": "Week 5: Polars",
-    "section": "Binary Files",
-    "text": "Binary Files",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#issues-with-common-file-formats-especially-csv",
-    "href": "w05/index.html#issues-with-common-file-formats-especially-csv",
-    "title": "Week 5: Polars",
-    "section": "Issues with Common File Formats (Especially CSV)",
-    "text": "Issues with Common File Formats (Especially CSV)\n\nUbiquitous but highly error-prone\nDefault delimiter: familiar character in English, the comma\nAmbiguities:\n\nDelimiter (comma, tab, semi-colon, custom)\nQuote characters (single or doble quote)\nEscaping to appropriately handle string data\n\nDoesn’t natively encode schema information\nNo direct support for nested structures\nEncoding+schema must be configured on target system to ensure ingestion\nAutodetection provided in many cloud environments but is inappropriate for production ingestion (can be painfully slow)\nData engineers often forced to work with CSV data and then build robust exception handling and error detection to ensure data quality (Pydantic!)",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#introducing-apache-parquet",
-    "href": "w05/index.html#introducing-apache-parquet",
-    "title": "Week 5: Polars",
-    "section": "Introducing Apache Parquet",
-    "text": "Introducing Apache Parquet\n\nFree, open-source, column-oriented data storage format created by Twitter and Cloudera (v1.0 released July 2013)\nData stored in columnar format (as opposed to row format), designed for read and write performance\nBuilds in schema information and natively supports nested data\nSupported by R and Python through Apache Arrow (more coming up!)",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#traditional-row-store",
-    "href": "w05/index.html#traditional-row-store",
-    "title": "Week 5: Polars",
-    "section": "Traditional Row-Store",
-    "text": "Traditional Row-Store\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuery: “How many balls did we sell?\nThe engine must scan each and every row until the end!",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#column-store",
-    "href": "w05/index.html#column-store",
-    "title": "Week 5: Polars",
-    "section": "Column-Store",
-    "text": "Column-Store\n\n\n\n\n\n\n\nParquet file format, everything you need to know",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#row-groups",
-    "href": "w05/index.html#row-groups",
-    "title": "Week 5: Polars",
-    "section": "Row Groups",
-    "text": "Row Groups\n\n\n\nData is stored in row groups!\n\n\n\nOnly required fields",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#metadata-compression-and-dictionary-encoding",
-    "href": "w05/index.html#metadata-compression-and-dictionary-encoding",
-    "title": "Week 5: Polars",
-    "section": "Metadata, compression, and dictionary encoding",
-    "text": "Metadata, compression, and dictionary encoding",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#apache-arrow-for-in-memory-analytics",
-    "href": "w05/index.html#apache-arrow-for-in-memory-analytics",
-    "title": "Week 5: Polars",
-    "section": "Apache Arrow for In-Memory Analytics",
-    "text": "Apache Arrow for In-Memory Analytics\n\nApache Arrow is a development platform for in-memory analytics. It contains a set of technologies that enable big data systems to process and move data fast. It specifies a standardized language-independent columnar memory format for flat and hierarchical data, organized for efficient analytic operations on modern hardware. (Topol and McKinney 2024)",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#before-arrow",
-    "href": "w05/index.html#before-arrow",
-    "title": "Week 5: Polars",
-    "section": "Before Arrow",
-    "text": "Before Arrow\n\n\n\nTopol and McKinney (2024)",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#after-arrow",
-    "href": "w05/index.html#after-arrow",
-    "title": "Week 5: Polars",
-    "section": "After Arrow",
-    "text": "After Arrow\n\n\n\nTopol and McKinney (2024)",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#arrow-compatibility",
-    "href": "w05/index.html#arrow-compatibility",
-    "title": "Week 5: Polars",
-    "section": "Arrow Compatibility",
-    "text": "Arrow Compatibility\n\n\n\nTopol and McKinney (2024)",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#arrow-performance",
-    "href": "w05/index.html#arrow-performance",
-    "title": "Week 5: Polars",
-    "section": "Arrow Performance",
-    "text": "Arrow Performance\n\n\n\n\n\nTopol and McKinney (2024)\n\n\n\n\n\n\nTopol and McKinney (2024)",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#using-arrow-with-csv-and-parquet",
-    "href": "w05/index.html#using-arrow-with-csv-and-parquet",
-    "title": "Week 5: Polars",
-    "section": "Using Arrow with CSV and Parquet",
-    "text": "Using Arrow with CSV and Parquet\n\n\n\nPython\n\npyarrow or from pandas\nimport pandas as pd\npd.read_csv(engine = 'pyarrow')\npd.read_parquet()\n\nimport pyarrow.csv\npyarrow.csv.read_csv()\n\nimport pyarrow.parquet\npyarrow.parquet.read_table()\n\n\nR\n\nUse the arrow package\nlibrary(arrow)\n\nread_csv_arrow()\nread_parquet()\nread_json_arrow()\n\nwrite_csv_arrow()\nwrite_parquet()\n\n\nRecommendation: save your intermediate and analytical datasets as Parquet!",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#before-we-begin",
-    "href": "w05/index.html#before-we-begin",
-    "title": "Week 5: Polars",
-    "section": "Before We Begin…",
-    "text": "Before We Begin…\n\nPandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.\n\nPandas is slow, but less slow if you use it the right way!\n\nApache Arrow and the “10 Things I Hate About pandas” (A 2017 post from the creator of Pandas…))\n50x faster data loading in Pandas: no problem (an old 2019 article…)\nIs Pandas really that slow?\nPandas 2.0 and the arrow revolution",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#polars-1",
-    "href": "w05/index.html#polars-1",
-    "title": "Week 5: Polars",
-    "section": "Polars",
-    "text": "Polars",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#why-is-polars-faster-than-pandas",
-    "href": "w05/index.html#why-is-polars-faster-than-pandas",
-    "title": "Week 5: Polars",
-    "section": "Why is Polars Faster than Pandas?",
-    "text": "Why is Polars Faster than Pandas?\n\nPolars is written in Rust. Rust is compiled; Python is interpreted\n\nCompiled language: you generate the machine code only once then run it, subsequent runs do not need the compilation step.\nInterpreted language: code has to be parsed, interpreted and converted into machine code every single time.\n\nParallelization: Vectorized operations can be executed in parallel on multiple cores\nLazy evaluation: Polars supports two APIs lazy as well as eager evaluation (used by pandas). In lazy evaluation, a query is executed only when required. While in eager evaluation, a query is executed immediately.\nPolars uses Arrow for in-memory data representation. Similar to how pandas uses NumPy (Pandas 2 allows using Arrow as backend)\nPolars \\(\\approx\\) in-memory DataFrame library + query optimizer\n\n\n\n[Excerpt from this post from Ritchie Vink, author of Polars] Arrow provides the efficient data structures and some compute kernels, like a SUM, a FILTER, a MAX etc. Arrow is not a query engine. Polars is a DataFrame library on top of arrow that has implemented efficient algorithms for JOINS, GROUPBY, PIVOTs, MELTs, QUERY OPTIMIZATION, etc. (the things you expect from a DF lib).",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#ease-of-use",
-    "href": "w05/index.html#ease-of-use",
-    "title": "Week 5: Polars",
-    "section": "Ease of Use",
-    "text": "Ease of Use\n\nFamiliar API for users of Pandas: differences in syntax but still a Dataframe API making it straightforward to perform common operations such as filtering, aggregating, and joining data\nSee Migrating from Pandas\nReading data\n# must install s3fs -&gt; \"pip install s3fs\"\n# Using Polars\nimport polars as pl\npolars_df = pl.read_parquet(\"s3://nyc-tlc/trip data/yellow_tripdata_2023-06.parquet\")\n\n# using Pandas\nimport pandas as pd\npandas_df = pd.read_parquet(\"s3://nyc-tlc/trip data/yellow_tripdata_2023-06.parquet\")\nSelecting columns (see Pushdown optimization)\n# Using Polars\nselected_columns_polars = polars_df[['column1', 'column2']]\n\n# Using Pandas\nselected_columns_pandas = pandas_df[['column1', 'column2']]",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#ease-of-use-contd.",
-    "href": "w05/index.html#ease-of-use-contd.",
-    "title": "Week 5: Polars",
-    "section": "Ease of Use (contd.)",
-    "text": "Ease of Use (contd.)\n\nFiltering data\n# Using Polars\nfiltered_polars = polars_df[polars_df['column1'] &gt; 10]\n\n# Using Pandas\nfiltered_pandas = pandas_df[pandas_df['column1'] &gt; 10]\nThough you can write Polars code that looks like Pandas, better to write idiomatic Polars code that takes advantage of Polars’ features\nMigrating from Apache Spark: Whereas Spark DataFrame is a collection of rows, Polars DataFrame is closer to a collection of columns",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#installation-data-loading-and-basic-operations",
-    "href": "w05/index.html#installation-data-loading-and-basic-operations",
-    "title": "Week 5: Polars",
-    "section": "Installation, Data Loading, and Basic Operations",
-    "text": "Installation, Data Loading, and Basic Operations\nInstall via pip:\npip install polars\nImport polars in your Python code and read data as usual:\nimport polars as pl\ndf = pl.read_parquet(\"s3://nyc-tlc/trip data/yellow_tripdata_2023-06.parquet\")\ndf.head()\n\nshape: (5, 19)\n┌──────────┬────────────┬──────────────┬──────────────┬─────┬──────────────┬──────────────┬──────────────┬─────────────┐\n│ VendorID ┆ tpep_picku ┆ tpep_dropoff ┆ passenger_co ┆ ... ┆ improvement_ ┆ total_amount ┆ congestion_s ┆ Airport_fee │\n│ ---      ┆ p_datetime ┆ _datetime    ┆ unt          ┆     ┆ surcharge    ┆ ---          ┆ urcharge     ┆ ---         │\n│ i32      ┆ ---        ┆ ---          ┆ ---          ┆     ┆ ---          ┆ f64          ┆ ---          ┆ f64         │\n│          ┆ datetime[n ┆ datetime[ns] ┆ i64          ┆     ┆ f64          ┆              ┆ f64          ┆             │\n│          ┆ s]         ┆              ┆              ┆     ┆              ┆              ┆              ┆             │\n╞══════════╪════════════╪══════════════╪══════════════╪═════╪══════════════╪══════════════╪══════════════╪═════════════╡\n│ 1        ┆ 2023-06-01 ┆ 2023-06-01   ┆ 1            ┆ ... ┆ 1.0          ┆ 33.6         ┆ 2.5          ┆ 0.0         │\n│          ┆ 00:08:48   ┆ 00:29:41     ┆              ┆     ┆              ┆              ┆              ┆             │\n│ 1        ┆ 2023-06-01 ┆ 2023-06-01   ┆ 0            ┆ ... ┆ 1.0          ┆ 23.6         ┆ 2.5          ┆ 0.0         │\n│          ┆ 00:15:04   ┆ 00:25:18     ┆              ┆     ┆              ┆              ┆              ┆             │\n│ 1        ┆ 2023-06-01 ┆ 2023-06-01   ┆ 1            ┆ ... ┆ 1.0          ┆ 60.05        ┆ 0.0          ┆ 1.75        │\n└──────────┴────────────┴──────────────┴──────────────┴─────┴──────────────┴──────────────┴──────────────┴─────────────┘",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#polars-pipeline-example",
-    "href": "w05/index.html#polars-pipeline-example",
-    "title": "Week 5: Polars",
-    "section": "Polars Pipeline Example",
-    "text": "Polars Pipeline Example\nWe’ll run this as part of the lab in a little bit; think how you might code this in Pandas…\n\n\n\nPolars pipeline",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#further-reading",
-    "href": "w05/index.html#further-reading",
-    "title": "Week 5: Polars",
-    "section": "Further reading",
-    "text": "Further reading\n\nPolars\nUser guide ← MUST READ\nPolars GitHub repo\nPandas Vs Polars: a syntax and speed comparison\nTips & tricks for working with strings in Polars",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#duckdb-1",
-    "href": "w05/index.html#duckdb-1",
-    "title": "Week 5: Polars",
-    "section": "DuckDB",
-    "text": "DuckDB\n\nDuckDB is an in-process SQL OLAP DB management system\nLike sqlite, but for analytics. What does this mean? It means that your database runs inside your process, there are no servers to manage, no remote system to connect to. Easy to experiment with SQL-like syntax.\nVectorized processing: Loads chunks of data into memory (tries to keep everything in the CPU’s L1 and L2 cache) and is thus able to handle datasets bigger than the amount of RAM available.\nSupports Python, R and a host of other languages\nImportant paper on DuckDB: Raasveldt and Mühleisen (2019)",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#key-features",
-    "href": "w05/index.html#key-features",
-    "title": "Week 5: Polars",
-    "section": "Key Features",
-    "text": "Key Features\n\nColumnar Storage, Vectorized Query Processing: DuckDB contains a columnar-vectorized query execution engine, where queries are run on a large batch of values (a “vector”) in one operation\n\nMost analytical queries (think group by and summarize) or even data retrieval for training ML models require retrieving a subset of columns and now the entire row, columnar storage make this faster\n\nIn-Memory Processing: All data needed for processing is brought within the process memory (recall that columnar storage format helps with this) making queries run faster (no DB call over the network)\nSQL Support: highly Postgres-compatible version of SQL1.\nACID Compliance: Transactional guarantees (ACID properties) through bulk-optimized Multi-Version Concurrency Control (MVCC).",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#use-cases-for-duckdb",
-    "href": "w05/index.html#use-cases-for-duckdb",
-    "title": "Week 5: Polars",
-    "section": "Use Cases for DuckDB",
-    "text": "Use Cases for DuckDB\n\nData Warehousing\nBusiness Intelligence\nReal-Time Analytics\nIoT Data Processing\n\nDuckDB in the Wild\n\nHow We Silently Switched Mode’s In-Memory Data Engine to DuckDB To Boost Visual Data Exploration Speed\nWhy we built Rill with DuckDB\nLeveraging DuckDB for enhanced performance in dbt projects",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#duckdb-diy",
-    "href": "w05/index.html#duckdb-diy",
-    "title": "Week 5: Polars",
-    "section": "DuckDB: DIY",
-    "text": "DuckDB: DIY\n\n\n\nDatalake and DuckDB\n\n\nUsing DuckDB in AWS Lambda",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#duckdb-fully-managed",
-    "href": "w05/index.html#duckdb-fully-managed",
-    "title": "Week 5: Polars",
-    "section": "DuckDB: Fully-Managed",
-    "text": "DuckDB: Fully-Managed\n\n\n\nMotherDuck Architecture\n\n\n\nArchitecture and capabilities\nSeamlessly analyze data, whether it sits on your laptop, in the cloud or split between.\nHybrid execution automatically plans each part of your query and determines where it’s best computed\nDuckDB Vs MotherDuck",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#setting-up-duckdb",
-    "href": "w05/index.html#setting-up-duckdb",
-    "title": "Week 5: Polars",
-    "section": "Setting Up DuckDB",
-    "text": "Setting Up DuckDB\nConfiguration and Initialization: DuckDB is integrated into Python and R for efficient interactive data analysis (APIs for Java, C, C++, Julia, Swift, and others)\npip install duckdb\nConnecting to DuckDB\nimport duckdb\n# directly query a Pandas DataFrame\nimport pandas as pd\ndata_url = \"https://raw.githubusercontent.com/anly503/datasets/main/EconomistData.csv\"\ndf = pd.read_csv(data_url)\nduckdb.sql('SELECT * FROM df')",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#setting-up-duckdb-contd.",
-    "href": "w05/index.html#setting-up-duckdb-contd.",
-    "title": "Week 5: Polars",
-    "section": "Setting Up DuckDB (contd.)",
-    "text": "Setting Up DuckDB (contd.)\nSupported data formats: DuckDB can ingest data from a wide variety of formats – both on-disk and in-memory. See the data ingestion page for more information.\nimport duckdb\nduckdb.read_csv('example.csv')                # read a CSV file into a Relation\nduckdb.read_parquet('example.parquet')        # read a Parquet file into a Relation\nduckdb.read_json('example.json')              # read a JSON file into a Relation\n\nduckdb.sql('SELECT * FROM \"example.csv\"')     # directly query a CSV file\nduckdb.sql('SELECT * FROM \"example.parquet\"') # directly query a Parquet file\nduckdb.sql('SELECT * FROM \"example.json\"')    # directly query a JSON file",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#querying-duckdb",
-    "href": "w05/index.html#querying-duckdb",
-    "title": "Week 5: Polars",
-    "section": "Querying DuckDB",
-    "text": "Querying DuckDB\nEssential Reading\n\nFriendlier SQL with DuckDB\nSQL Introduction\n\nBasic SQL Queries\nimport duckdb\nimport pandas as pd\nbabynames = pd.read_parquet(\"https://github.com/anly503/datasets/raw/main/babynames.parquet.zstd\")\nduckdb.sql(\"select count(*)  from babynames where Name='John'\")\nAggregations and Grouping\nduckdb.sql(\"select State, Name, count(*) as count  from babynames group by State, Name order by State desc, count desc\")",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#querying-duckdb-contd.",
-    "href": "w05/index.html#querying-duckdb-contd.",
-    "title": "Week 5: Polars",
-    "section": "Querying DuckDB (contd.)",
-    "text": "Querying DuckDB (contd.)\nEssential reading: FROM and JOIN clauses\nJoins and Subqueries\n# Join two tables together\nduckdb.sql(\"SELECT * FROM table_name JOIN other_table ON (table_name.key = other_table.key\")\nWindow Functions\npowerplants = pd.read_csv(\"https://raw.githubusercontent.com/anly503/datasets/main/powerplants.csv\", parse_dates=[\"date\"])\nq = \"\"\"\nSELECT \"plant\", \"date\",\n    AVG(\"MWh\") OVER (\n        PARTITION BY \"plant\"\n        ORDER BY \"date\" ASC\n        RANGE BETWEEN INTERVAL 3 DAYS PRECEDING\n                  AND INTERVAL 3 DAYS FOLLOWING)\n        AS \"MWh 7-day Moving Average\"\nFROM powerplants\nORDER BY 1, 2;\n\"\"\"\nduckdb.sql(q)",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#using-the-duckdb-cli-and-shell",
-    "href": "w05/index.html#using-the-duckdb-cli-and-shell",
-    "title": "Week 5: Polars",
-    "section": "Using the DuckDB CLI and Shell",
-    "text": "Using the DuckDB CLI and Shell\n\nInstall DuckDB CLI or use in browser via shell.duckdb.org for data exploration via SQL; Once installed, import a local file into the shell and run queries\nYou can download powerplants.csv here\nC:\\Users\\&lt;username&gt;\\Downloads\\duckdb_cli-windows-amd64&gt; duckdb\nv0.8.1 6536a77232\nEnter \".help\" for usage hints.\nConnected to a transient in-memory database.\nUse \".open FILENAME\" to reopen on a persistent database.\nD CREATE TABLE powerplants AS SELECT * FROM read_csv_auto('powerplants.csv');\nD DESCRIBE powerplants;\n┌─────────────┬─────────────┬─────────┬─────────┬─────────┬───────┐\n│ column_name │ column_type │  null   │   key   │ default │ extra │\n│   varchar   │   varchar   │ varchar │ varchar │ varchar │ int32 │\n├─────────────┼─────────────┼─────────┼─────────┼─────────┼───────┤\n│ plant       │ VARCHAR     │ YES     │         │         │       │\n│ date        │ DATE        │ YES     │         │         │       │\n│ MWh         │ BIGINT      │ YES     │         │         │       │\n└─────────────┴─────────────┴─────────┴─────────┴─────────┴───────┘\nD  SELECT * from powerplants where plant='Boston' and date='2019-01-02';\n┌─────────┬────────────┬────────┐\n│  plant  │    date    │  MWh   │\n│ varchar │    date    │ int64  │\n├─────────┼────────────┼────────┤\n│ Boston  │ 2019-01-02 │ 564337 │\n└─────────┴────────────┴────────┘",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#profiling-in-duckdb",
-    "href": "w05/index.html#profiling-in-duckdb",
-    "title": "Week 5: Polars",
-    "section": "Profiling in DuckDB",
-    "text": "Profiling in DuckDB\nQuery Optimization: Use EXPLAIN and ANALYZE keywords to understand how your query is being executed and the time being spent in individual steps\nD EXPLAIN ANALYZE SELECT * from powerplants where plant='Boston' and date='2019-01-02';\nDuckDB will use all the cores available on the underlying compute, but you can adjust this (Full configuration details here)\nD select current_setting('threads');\n┌────────────────────────────┐\n│ current_setting('threads') │\n│           int64            │\n├────────────────────────────┤\n│                          8 │\n└────────────────────────────┘\nD SET threads=4;\nD select current_setting('threads');\n┌────────────────────────────┐\n│ current_setting('threads') │\n│           int64            │\n├────────────────────────────┤\n│                          4 │\n└────────────────────────────┘",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#benchmarks-and-comparisons",
-    "href": "w05/index.html#benchmarks-and-comparisons",
-    "title": "Week 5: Polars",
-    "section": "Benchmarks and Comparisons",
-    "text": "Benchmarks and Comparisons\n\n\n\n\nTricky topic! Can make your chosen solution look better by focusing on metrics on which it provides better results\nIn general, TPC-H and TPC-DS are considered the standard benchmarks for data processing.\n\n\n\n\n\n\nTPC-DS Homepage",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
-  },
-  {
-    "objectID": "w05/index.html#further-reading-on-duckdb",
-    "href": "w05/index.html#further-reading-on-duckdb",
-    "title": "Week 5: Polars",
-    "section": "Further Reading on DuckDB",
-    "text": "Further Reading on DuckDB\n\nParallel Grouped Aggregation in DuckDB\nMeta queries\nProfiling queries in DuckDB\nDuckDB tutorial for beginners\nDuckDB CLI API\nUsing DuckDB in AWS Lambda\nRevisiting the Poor Man’s Data Lake with MotherDuck\nSupercharge your data processing with DuckDB\nFriendlier SQL with DuckDB\nBuilding and deploying data apps with DuckDB and Streamlit",
+    "objectID": "w05/index.html#lab-time",
+    "href": "w05/index.html#lab-time",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "Lab Time!",
+    "text": "Lab Time!\n\nWeek 5 Lab: Polars",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 28</span>"
     ]
@@ -2849,351 +2449,61 @@
   {
     "objectID": "w05/index.html#references",
     "href": "w05/index.html#references",
-    "title": "Week 5: Polars",
+    "title": "Week 5: From DuckDB to Polars",
     "section": "References",
-    "text": "References\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&dl=1.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” Proceedings of the 2019 International Conference on Management of Data (New York, NY, USA), SIGMOD ’19, June 25, 1981–84. https://doi.org/10.1145/3299869.3320212.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&dl=1.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd. https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&dl=1.",
+    "text": "References\n\n\nAubury, Simon. 2024. Getting Started with DuckDB: A Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows. Birmingham: Packt Publishing Limited.",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 28</span>"
     ]
   },
   {
-    "objectID": "w05/index.html#footnotes",
-    "href": "w05/index.html#footnotes",
-    "title": "Week 5: Polars",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nFriendlier SQL with DuckDB↩︎",
-    "crumbs": [
-      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
-    ]
+    "objectID": "w05/slides.html#hw5-no-more-shoving-sql-in-python-with",
+    "href": "w05/slides.html#hw5-no-more-shoving-sql-in-python-with",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "HW5: No More Shoving SQL in Python with \"\"\"",
+    "text": "HW5: No More Shoving SQL in Python with \"\"\"\n\nDuckDB: “Artificial” separation of computation and data\n\nHW4 Q3 Data loaded into Pandas DataFrame\nHW4 Q3 Computation written as SQL expression:\nquery = \"\"\"\n&lt;SQL code&gt;\n\"\"\"\n…Then you shoved them together: result_df = con.execute(query).df()\n\nPolars: “Natural” computation-data separation within the same language (Python)\n\nHW5 Q2 Data loaded into Polars DataFrame (Python object)\nHW5 Q2 Computation written as Polars functions (Python code)\npolars library specifies which functions “activate” eager evaluation"
   },
   {
-    "objectID": "w05/slides.html#agenda-and-goals-for-today",
-    "href": "w05/slides.html#agenda-and-goals-for-today",
-    "title": "Week 5: Polars",
-    "section": "Agenda and Goals for Today",
-    "text": "Agenda and Goals for Today\n\n\nLecture\n\nDistributed file systems\nModern file types\nWorking with large tabular data on a single node\n\nDuckDB\nPolars\n\n\n\nLab\n\nRun a similar task with Pandas, polars and duckdb"
+    "objectID": "w05/slides.html#duckdb-buzzwords-leadsto-understanding",
+    "href": "w05/slides.html#duckdb-buzzwords-leadsto-understanding",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "DuckDB: Buzzwords \\(\\leadsto\\) Understanding",
+    "text": "DuckDB: Buzzwords \\(\\leadsto\\) Understanding\n\nDuckDB is an in-process SQL OLAP DBMS. (Aubury 2024)\n\n\nDatabase Management System (DBMS): An interface between the database and its users, allowing create, read, update, and delete (CRUD) operations on the DB\nOnline Analytical Processing (OLAP): A data processing paradigm focused on applying column-wise aggregation functions and joining large datasets together\n(Contrasts with Online Transaction Processing (OLTP), where frequent writing of individual records (rows) is the dominant pattern of data interaction)\nStructured Query Language (SQL): A declarative programming language used to store, manipulate, and query records in relational databases – DBs representing data as tables of rows and columns, with formal relationships defined across tables\nIn-process: DuckDB embeds within a process + its memory. Most DBMSs run separately (e.g., on a remote server); DuckDB eliminates connect/authenticate steps"
   },
   {
-    "objectID": "w05/slides.html#logistics-and-review",
-    "href": "w05/slides.html#logistics-and-review",
-    "title": "Week 5: Polars",
-    "section": "Logistics and Review",
-    "text": "Logistics and Review\n\n\nDeadlines\n\nAssignment 1: Python Skills Due Sept 5 11:59pm\nLab 2: Cloud Tooling Due Sept 5 6pm\nAssignment 2: Shell & Linux Due Sept 11 11:59pm\nLab 3: Parallel Computing Due Sept 12 6pm\nAssignment 3: Parallelization Due Sept 18 11:59pm\nLab 4: Docker and Lambda Due Sept 19 6pm\nAssignment 4: Containers Due Sept 25 11:59pm\nLab 5: DuckDB & Polars Due Sept 26 6pm\n\n\nLook back and ahead\n\nContinue to use Slack for questions!\nDocker (containerization)\nLambda functions\nComing up: Spark and project"
+    "objectID": "w05/slides.html#duckdb-as-ephemeral-db-in-ram",
+    "href": "w05/slides.html#duckdb-as-ephemeral-db-in-ram",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "DuckDB as Ephemeral DB-In-RAM",
+    "text": "DuckDB as Ephemeral DB-In-RAM\n\nStandalone operation (as its own process, independent of Python): DuckDB CLI\nPython operation: Upon import duckdb, creates a default, in-memory DB\ndefault_mem_con = duckdb.connect(database=':default:')\n\nTypically not used, if only bc less clear where and when the DB was created (readers of your code would need to know this fact about import duckdb)\n\nSetting up a connection creates a new, con-specific in-memory DB:\ncon = duckdb.connect(database=':memory:')\ncon = duckdb.connect() # database=':memory:' is default setting\nCan persist to file on disk:\ncon = duckdb.connect('my_cool_data.duckdb')\nPlease note  duckdb.connect() is not how we connect to the on-disk data files, external S3 objects, or in-memory DataFrames that we want to run queries on!\ncon.execute('SELECT * FROM my_df LIMIT 5;')"
   },
   {
-    "objectID": "w05/slides.html#raw-ingredients-of-storage-systems",
-    "href": "w05/slides.html#raw-ingredients-of-storage-systems",
-    "title": "Week 5: Polars",
-    "section": "Raw Ingredients of Storage Systems",
-    "text": "Raw Ingredients of Storage Systems\n\n\n\nDisk drives (magnetic HDDs or SSDs)\nRAM\nNetworking and CPU\nSerialization\nCompression\nCaching\n\n\n\n\n\nFrom Reis and Housley (2022)"
+    "objectID": "w05/slides.html#sqlite-duckdb-for-oltp",
+    "href": "w05/slides.html#sqlite-duckdb-for-oltp",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "SQLite: “DuckDB for OLTP”",
+    "text": "SQLite: “DuckDB for OLTP”\n\nBoth are simplified in-process DBMSs that connect to a single local file (also both free and open source)\nSQLite optimized for row-oriented, OLTP workloads\nDuckDB optimized for column-oriented, OLAP workloads\nHW6 will give you exposure to both!\n\n SQLite for OLTP ingestion of events\n Athena (coming soon) for “automatic” ETL\n DuckDB for OLAP inference (MLFlow)"
   },
   {
-    "objectID": "w05/slides.html#single-machine-vs.-distributed-storage",
-    "href": "w05/slides.html#single-machine-vs.-distributed-storage",
-    "title": "Week 5: Polars",
-    "section": "Single-Machine vs. Distributed Storage",
-    "text": "Single-Machine vs. Distributed Storage\n\nFrom Reis and Housley (2022)\n\n\nSingle-Machine\n\n\nThey are commonly used for storing operating system files, application files, and user data files.\nFilesystems are also used in databases to store data files, transaction logs, and backups.\n\n\n\nDistributed Storage\n\n\nA distributed filesystem is a type of filesystem that spans multiple computers.\nIt provides a unified view of files across all the computers in the system.\nHave existed before cloud"
+    "objectID": "w05/slides.html#polars-in-jeffs-mental-model",
+    "href": "w05/slides.html#polars-in-jeffs-mental-model",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "Polars (in Jeff’s Mental Model)",
+    "text": "Polars (in Jeff’s Mental Model)\n\nPolars = Tool written in Rust for fast (query-optimized), distributed, DataFrame-esque OLAP workflows\npolars = Python library for “high-level” (Python-level) interaction with Polars\nIf we want optimized, distributed processing, we need lazy execution (enabling logical \\(\\leadsto\\) physical query plan)…\nQuery optimization via lazy execution not part of pandas!\n\\(\\implies\\) Let’s find a lazy-execution-focused library that “feels” as close to Pandas as possible… that’s polars!"
   },
   {
-    "objectID": "w05/slides.html#file-storage-types",
-    "href": "w05/slides.html#file-storage-types",
-    "title": "Week 5: Polars",
-    "section": "File Storage Types",
-    "text": "File Storage Types\n\n\n\nLocal Disk\n\n\nOS-managed filesystems on local disk partition:\nNTFS (Windows)\nHFS+ (MacOS)\next4 (Linux)() on a local disk partition of SSD or magnetic disk\n\n\n\nNetwork-Attached (NAS)\n\n\nAccessed by clients over a network\nRedundancy and reliability, fine-grained control of resources, storage pooling across multiple disks for large virtual volumes, and file sharing across multiple machines\n\n\nCloud Filesystems\n\nNot object store (more on that later)\nNot the virtual hard drive attached to a virtual machine\nFully managed: Takes care of networking, managing disk clusters, failures, and configuration (Azure Files, Amazon Elastic Filesystem)\nBacked by Object Store\n\n\nBased on Reis and Housley (2022)"
-  },
-  {
-    "objectID": "w05/slides.html#object-stores",
-    "href": "w05/slides.html#object-stores",
-    "title": "Week 5: Polars",
-    "section": "Object Stores",
-    "text": "Object Stores\n\nSomewhat confusing because object has several meanings in computer science.\nIn this context, we’re talking about a specialized file-like construct. It could be any type of file: TXT, CSV, JSON, images, videos, audio\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nContains objects of all shapes and sizes: each gets a unique identifier\nObjects are immutable: cannot be modified in place (unlike local FS)"
-  },
-  {
-    "objectID": "w05/slides.html#distributed-fs-vs-object-store",
-    "href": "w05/slides.html#distributed-fs-vs-object-store",
-    "title": "Week 5: Polars",
-    "section": "Distributed FS vs Object Store",
-    "text": "Distributed FS vs Object Store\n\n\n\n\n\n\n\n\n\nDistributed File System\nObject Storage\n\n\n\n\nOrganization\nFiles in hierarchical directories\nFlat organization (though there can be overlays to provide hierarchical files structure)\n\n\nMethod\nPOSIX File Operations\nREST API\n\n\nImmutability\nNone: Random writes anywhere in file\nImmutable: need to replace/append entire object\n\n\nPerformance\nPerforms best for smaller files\nPerforms best for large files\n\n\nScalability\nMillions of files\nBillions of objects\n\n\n\nBoth provide:\n\nFault tolerance\nAvailability and consistency"
-  },
-  {
-    "objectID": "w05/slides.html#before-data-locality-for-hadoop",
-    "href": "w05/slides.html#before-data-locality-for-hadoop",
-    "title": "Week 5: Polars",
-    "section": "Before: Data locality (for Hadoop)",
-    "text": "Before: Data locality (for Hadoop)\n\n\n\nFrom (white_hadoop_2015?)"
-  },
-  {
-    "objectID": "w05/slides.html#today-de-coupling-storage-from-compute",
-    "href": "w05/slides.html#today-de-coupling-storage-from-compute",
-    "title": "Week 5: Polars",
-    "section": "Today: De-Coupling Storage from Compute",
-    "text": "Today: De-Coupling Storage from Compute\n\nFrom Gopalan (2022)"
-  },
-  {
-    "objectID": "w05/slides.html#data-on-disk-formats",
-    "href": "w05/slides.html#data-on-disk-formats",
-    "title": "Week 5: Polars",
-    "section": "Data-on-Disk Formats",
-    "text": "Data-on-Disk Formats\n\nPlain Text (CSV, TSV, FWF)\nJSON\nBinary Files"
-  },
-  {
-    "objectID": "w05/slides.html#plain-text-csv-tsv-fwf",
-    "href": "w05/slides.html#plain-text-csv-tsv-fwf",
-    "title": "Week 5: Polars",
-    "section": "Plain Text (CSV, TSV, FWF)",
-    "text": "Plain Text (CSV, TSV, FWF)\n\n\n\n\n\n\nPay attention to encodings!\nLines end in linefeed, carriage-return, or both together depending on the OS that generated\nTypically, a single line of text contains a single record"
-  },
-  {
-    "objectID": "w05/slides.html#json",
-    "href": "w05/slides.html#json",
-    "title": "Week 5: Polars",
-    "section": "JSON",
-    "text": "JSON\n\n\n\n\n\n\nWarning\n\n\nJSON files have two flavors: JSON Lines vs. JSON. Typically when we say data is in JSON format, we imply it’s JSON Lines which means that there is a single JSON object per line, and there are multiple lines.\n\n\n\n\n\nJSON Lines\n4 records, one per line, no end comma\n{\"id\":1, \"name\":\"marck\", \"last_name\":\"vaisman\"}\n{\"id\":2, \"name\":\"anderson\", \"last_name\":\"monken\"}\n{\"id\":3, \"name\":\"amit\", \"last_name\":\"arora\"}\n{\"id\":4, \"name\":\"abhijit\", \"last_name\":\"dasgupta\"}\n\nJSON\n4 records enclosed in 1 JSON Array\n[\n  {\"id\":1, \"name\":\"marck\", \"last_name\":\"vaisman\"},\n  {\"id\":2, \"name\":\"anderson\", \"last_name\":\"monken\"},\n  {\"id\":3, \"name\":\"amit\", \"last_name\":\"arora\"},\n  {\"id\":4, \"name\":\"abhijit\", \"last_name\":\"dasgupta\"},\n]"
-  },
-  {
-    "objectID": "w05/slides.html#binary-files",
-    "href": "w05/slides.html#binary-files",
-    "title": "Week 5: Polars",
-    "section": "Binary Files",
-    "text": "Binary Files"
-  },
-  {
-    "objectID": "w05/slides.html#issues-with-common-file-formats-especially-csv",
-    "href": "w05/slides.html#issues-with-common-file-formats-especially-csv",
-    "title": "Week 5: Polars",
-    "section": "Issues with Common File Formats (Especially CSV)",
-    "text": "Issues with Common File Formats (Especially CSV)\n\nUbiquitous but highly error-prone\nDefault delimiter: familiar character in English, the comma\nAmbiguities:\n\nDelimiter (comma, tab, semi-colon, custom)\nQuote characters (single or doble quote)\nEscaping to appropriately handle string data\n\nDoesn’t natively encode schema information\nNo direct support for nested structures\nEncoding+schema must be configured on target system to ensure ingestion\nAutodetection provided in many cloud environments but is inappropriate for production ingestion (can be painfully slow)\nData engineers often forced to work with CSV data and then build robust exception handling and error detection to ensure data quality (Pydantic!)"
-  },
-  {
-    "objectID": "w05/slides.html#introducing-apache-parquet",
-    "href": "w05/slides.html#introducing-apache-parquet",
-    "title": "Week 5: Polars",
-    "section": "Introducing Apache Parquet",
-    "text": "Introducing Apache Parquet\n\nFree, open-source, column-oriented data storage format created by Twitter and Cloudera (v1.0 released July 2013)\nData stored in columnar format (as opposed to row format), designed for read and write performance\nBuilds in schema information and natively supports nested data\nSupported by R and Python through Apache Arrow (more coming up!)"
-  },
-  {
-    "objectID": "w05/slides.html#traditional-row-store",
-    "href": "w05/slides.html#traditional-row-store",
-    "title": "Week 5: Polars",
-    "section": "Traditional Row-Store",
-    "text": "Traditional Row-Store\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuery: “How many balls did we sell?\nThe engine must scan each and every row until the end!"
-  },
-  {
-    "objectID": "w05/slides.html#column-store",
-    "href": "w05/slides.html#column-store",
-    "title": "Week 5: Polars",
-    "section": "Column-Store",
-    "text": "Column-Store\n\n\n\n\n\n\n\nParquet file format, everything you need to know"
-  },
-  {
-    "objectID": "w05/slides.html#row-groups",
-    "href": "w05/slides.html#row-groups",
-    "title": "Week 5: Polars",
-    "section": "Row Groups",
-    "text": "Row Groups\n\n\n\nData is stored in row groups!\n\n\n\nOnly required fields"
-  },
-  {
-    "objectID": "w05/slides.html#metadata-compression-and-dictionary-encoding",
-    "href": "w05/slides.html#metadata-compression-and-dictionary-encoding",
-    "title": "Week 5: Polars",
-    "section": "Metadata, compression, and dictionary encoding",
-    "text": "Metadata, compression, and dictionary encoding"
-  },
-  {
-    "objectID": "w05/slides.html#apache-arrow-for-in-memory-analytics",
-    "href": "w05/slides.html#apache-arrow-for-in-memory-analytics",
-    "title": "Week 5: Polars",
-    "section": "Apache Arrow for In-Memory Analytics",
-    "text": "Apache Arrow for In-Memory Analytics\n\nApache Arrow is a development platform for in-memory analytics. It contains a set of technologies that enable big data systems to process and move data fast. It specifies a standardized language-independent columnar memory format for flat and hierarchical data, organized for efficient analytic operations on modern hardware. (Topol and McKinney 2024)"
-  },
-  {
-    "objectID": "w05/slides.html#before-arrow",
-    "href": "w05/slides.html#before-arrow",
-    "title": "Week 5: Polars",
-    "section": "Before Arrow",
-    "text": "Before Arrow\n\nTopol and McKinney (2024)"
-  },
-  {
-    "objectID": "w05/slides.html#after-arrow",
-    "href": "w05/slides.html#after-arrow",
-    "title": "Week 5: Polars",
-    "section": "After Arrow",
-    "text": "After Arrow\n\nTopol and McKinney (2024)"
-  },
-  {
-    "objectID": "w05/slides.html#arrow-compatibility",
-    "href": "w05/slides.html#arrow-compatibility",
-    "title": "Week 5: Polars",
-    "section": "Arrow Compatibility",
-    "text": "Arrow Compatibility\n\nTopol and McKinney (2024)"
-  },
-  {
-    "objectID": "w05/slides.html#arrow-performance",
-    "href": "w05/slides.html#arrow-performance",
-    "title": "Week 5: Polars",
-    "section": "Arrow Performance",
-    "text": "Arrow Performance\n\n\n\n\n\nTopol and McKinney (2024)\n\n\n\n\n\n\nTopol and McKinney (2024)"
-  },
-  {
-    "objectID": "w05/slides.html#using-arrow-with-csv-and-parquet",
-    "href": "w05/slides.html#using-arrow-with-csv-and-parquet",
-    "title": "Week 5: Polars",
-    "section": "Using Arrow with CSV and Parquet",
-    "text": "Using Arrow with CSV and Parquet\n\n\n\nPython\n\npyarrow or from pandas\nimport pandas as pd\npd.read_csv(engine = 'pyarrow')\npd.read_parquet()\n\nimport pyarrow.csv\npyarrow.csv.read_csv()\n\nimport pyarrow.parquet\npyarrow.parquet.read_table()\n\n\nR\n\nUse the arrow package\nlibrary(arrow)\n\nread_csv_arrow()\nread_parquet()\nread_json_arrow()\n\nwrite_csv_arrow()\nwrite_parquet()\n\nRecommendation: save your intermediate and analytical datasets as Parquet!"
-  },
-  {
-    "objectID": "w05/slides.html#before-we-begin",
-    "href": "w05/slides.html#before-we-begin",
-    "title": "Week 5: Polars",
-    "section": "Before We Begin…",
-    "text": "Before We Begin…\n\nPandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.\n\nPandas is slow, but less slow if you use it the right way!\n\nApache Arrow and the “10 Things I Hate About pandas” (A 2017 post from the creator of Pandas…))\n50x faster data loading in Pandas: no problem (an old 2019 article…)\nIs Pandas really that slow?\nPandas 2.0 and the arrow revolution"
-  },
-  {
-    "objectID": "w05/slides.html#polars-1",
-    "href": "w05/slides.html#polars-1",
-    "title": "Week 5: Polars",
-    "section": "Polars",
-    "text": "Polars"
-  },
-  {
-    "objectID": "w05/slides.html#why-is-polars-faster-than-pandas",
-    "href": "w05/slides.html#why-is-polars-faster-than-pandas",
-    "title": "Week 5: Polars",
-    "section": "Why is Polars Faster than Pandas?",
-    "text": "Why is Polars Faster than Pandas?\n\nPolars is written in Rust. Rust is compiled; Python is interpreted\n\nCompiled language: you generate the machine code only once then run it, subsequent runs do not need the compilation step.\nInterpreted language: code has to be parsed, interpreted and converted into machine code every single time.\n\nParallelization: Vectorized operations can be executed in parallel on multiple cores\nLazy evaluation: Polars supports two APIs lazy as well as eager evaluation (used by pandas). In lazy evaluation, a query is executed only when required. While in eager evaluation, a query is executed immediately.\nPolars uses Arrow for in-memory data representation. Similar to how pandas uses NumPy (Pandas 2 allows using Arrow as backend)\nPolars \\(\\approx\\) in-memory DataFrame library + query optimizer\n\n\n\n[Excerpt from this post from Ritchie Vink, author of Polars] Arrow provides the efficient data structures and some compute kernels, like a SUM, a FILTER, a MAX etc. Arrow is not a query engine. Polars is a DataFrame library on top of arrow that has implemented efficient algorithms for JOINS, GROUPBY, PIVOTs, MELTs, QUERY OPTIMIZATION, etc. (the things you expect from a DF lib)."
-  },
-  {
-    "objectID": "w05/slides.html#ease-of-use",
-    "href": "w05/slides.html#ease-of-use",
-    "title": "Week 5: Polars",
-    "section": "Ease of Use",
-    "text": "Ease of Use\n\nFamiliar API for users of Pandas: differences in syntax but still a Dataframe API making it straightforward to perform common operations such as filtering, aggregating, and joining data\nSee Migrating from Pandas\nReading data\n# must install s3fs -&gt; \"pip install s3fs\"\n# Using Polars\nimport polars as pl\npolars_df = pl.read_parquet(\"s3://nyc-tlc/trip data/yellow_tripdata_2023-06.parquet\")\n\n# using Pandas\nimport pandas as pd\npandas_df = pd.read_parquet(\"s3://nyc-tlc/trip data/yellow_tripdata_2023-06.parquet\")\nSelecting columns (see Pushdown optimization)\n# Using Polars\nselected_columns_polars = polars_df[['column1', 'column2']]\n\n# Using Pandas\nselected_columns_pandas = pandas_df[['column1', 'column2']]"
-  },
-  {
-    "objectID": "w05/slides.html#ease-of-use-contd.",
-    "href": "w05/slides.html#ease-of-use-contd.",
-    "title": "Week 5: Polars",
-    "section": "Ease of Use (contd.)",
-    "text": "Ease of Use (contd.)\n\nFiltering data\n# Using Polars\nfiltered_polars = polars_df[polars_df['column1'] &gt; 10]\n\n# Using Pandas\nfiltered_pandas = pandas_df[pandas_df['column1'] &gt; 10]\nThough you can write Polars code that looks like Pandas, better to write idiomatic Polars code that takes advantage of Polars’ features\nMigrating from Apache Spark: Whereas Spark DataFrame is a collection of rows, Polars DataFrame is closer to a collection of columns"
-  },
-  {
-    "objectID": "w05/slides.html#installation-data-loading-and-basic-operations",
-    "href": "w05/slides.html#installation-data-loading-and-basic-operations",
-    "title": "Week 5: Polars",
-    "section": "Installation, Data Loading, and Basic Operations",
-    "text": "Installation, Data Loading, and Basic Operations\nInstall via pip:\npip install polars\nImport polars in your Python code and read data as usual:\nimport polars as pl\ndf = pl.read_parquet(\"s3://nyc-tlc/trip data/yellow_tripdata_2023-06.parquet\")\ndf.head()\n\nshape: (5, 19)\n┌──────────┬────────────┬──────────────┬──────────────┬─────┬──────────────┬──────────────┬──────────────┬─────────────┐\n│ VendorID ┆ tpep_picku ┆ tpep_dropoff ┆ passenger_co ┆ ... ┆ improvement_ ┆ total_amount ┆ congestion_s ┆ Airport_fee │\n│ ---      ┆ p_datetime ┆ _datetime    ┆ unt          ┆     ┆ surcharge    ┆ ---          ┆ urcharge     ┆ ---         │\n│ i32      ┆ ---        ┆ ---          ┆ ---          ┆     ┆ ---          ┆ f64          ┆ ---          ┆ f64         │\n│          ┆ datetime[n ┆ datetime[ns] ┆ i64          ┆     ┆ f64          ┆              ┆ f64          ┆             │\n│          ┆ s]         ┆              ┆              ┆     ┆              ┆              ┆              ┆             │\n╞══════════╪════════════╪══════════════╪══════════════╪═════╪══════════════╪══════════════╪══════════════╪═════════════╡\n│ 1        ┆ 2023-06-01 ┆ 2023-06-01   ┆ 1            ┆ ... ┆ 1.0          ┆ 33.6         ┆ 2.5          ┆ 0.0         │\n│          ┆ 00:08:48   ┆ 00:29:41     ┆              ┆     ┆              ┆              ┆              ┆             │\n│ 1        ┆ 2023-06-01 ┆ 2023-06-01   ┆ 0            ┆ ... ┆ 1.0          ┆ 23.6         ┆ 2.5          ┆ 0.0         │\n│          ┆ 00:15:04   ┆ 00:25:18     ┆              ┆     ┆              ┆              ┆              ┆             │\n│ 1        ┆ 2023-06-01 ┆ 2023-06-01   ┆ 1            ┆ ... ┆ 1.0          ┆ 60.05        ┆ 0.0          ┆ 1.75        │\n└──────────┴────────────┴──────────────┴──────────────┴─────┴──────────────┴──────────────┴──────────────┴─────────────┘"
-  },
-  {
-    "objectID": "w05/slides.html#polars-pipeline-example",
-    "href": "w05/slides.html#polars-pipeline-example",
-    "title": "Week 5: Polars",
-    "section": "Polars Pipeline Example",
-    "text": "Polars Pipeline Example\nWe’ll run this as part of the lab in a little bit; think how you might code this in Pandas…\n\nPolars pipeline"
-  },
-  {
-    "objectID": "w05/slides.html#further-reading",
-    "href": "w05/slides.html#further-reading",
-    "title": "Week 5: Polars",
-    "section": "Further reading",
-    "text": "Further reading\n\nPolars\nUser guide ← MUST READ\nPolars GitHub repo\nPandas Vs Polars: a syntax and speed comparison\nTips & tricks for working with strings in Polars"
-  },
-  {
-    "objectID": "w05/slides.html#duckdb-1",
-    "href": "w05/slides.html#duckdb-1",
-    "title": "Week 5: Polars",
-    "section": "DuckDB",
-    "text": "DuckDB\n\nDuckDB is an in-process SQL OLAP DB management system\nLike sqlite, but for analytics. What does this mean? It means that your database runs inside your process, there are no servers to manage, no remote system to connect to. Easy to experiment with SQL-like syntax.\nVectorized processing: Loads chunks of data into memory (tries to keep everything in the CPU’s L1 and L2 cache) and is thus able to handle datasets bigger than the amount of RAM available.\nSupports Python, R and a host of other languages\nImportant paper on DuckDB: Raasveldt and Mühleisen (2019)"
-  },
-  {
-    "objectID": "w05/slides.html#key-features",
-    "href": "w05/slides.html#key-features",
-    "title": "Week 5: Polars",
-    "section": "Key Features",
-    "text": "Key Features\n\nColumnar Storage, Vectorized Query Processing: DuckDB contains a columnar-vectorized query execution engine, where queries are run on a large batch of values (a “vector”) in one operation\n\nMost analytical queries (think group by and summarize) or even data retrieval for training ML models require retrieving a subset of columns and now the entire row, columnar storage make this faster\n\nIn-Memory Processing: All data needed for processing is brought within the process memory (recall that columnar storage format helps with this) making queries run faster (no DB call over the network)\nSQL Support: highly Postgres-compatible version of SQL1.\nACID Compliance: Transactional guarantees (ACID properties) through bulk-optimized Multi-Version Concurrency Control (MVCC).\n\nFriendlier SQL with DuckDB"
-  },
-  {
-    "objectID": "w05/slides.html#use-cases-for-duckdb",
-    "href": "w05/slides.html#use-cases-for-duckdb",
-    "title": "Week 5: Polars",
-    "section": "Use Cases for DuckDB",
-    "text": "Use Cases for DuckDB\n\nData Warehousing\nBusiness Intelligence\nReal-Time Analytics\nIoT Data Processing\n\nDuckDB in the Wild\n\nHow We Silently Switched Mode’s In-Memory Data Engine to DuckDB To Boost Visual Data Exploration Speed\nWhy we built Rill with DuckDB\nLeveraging DuckDB for enhanced performance in dbt projects"
-  },
-  {
-    "objectID": "w05/slides.html#duckdb-diy",
-    "href": "w05/slides.html#duckdb-diy",
-    "title": "Week 5: Polars",
-    "section": "DuckDB: DIY",
-    "text": "DuckDB: DIY\n\nDatalake and DuckDBUsing DuckDB in AWS Lambda"
-  },
-  {
-    "objectID": "w05/slides.html#duckdb-fully-managed",
-    "href": "w05/slides.html#duckdb-fully-managed",
-    "title": "Week 5: Polars",
-    "section": "DuckDB: Fully-Managed",
-    "text": "DuckDB: Fully-Managed\n\nMotherDuck Architecture\nArchitecture and capabilities\nSeamlessly analyze data, whether it sits on your laptop, in the cloud or split between.\nHybrid execution automatically plans each part of your query and determines where it’s best computed\nDuckDB Vs MotherDuck"
-  },
-  {
-    "objectID": "w05/slides.html#setting-up-duckdb",
-    "href": "w05/slides.html#setting-up-duckdb",
-    "title": "Week 5: Polars",
-    "section": "Setting Up DuckDB",
-    "text": "Setting Up DuckDB\nConfiguration and Initialization: DuckDB is integrated into Python and R for efficient interactive data analysis (APIs for Java, C, C++, Julia, Swift, and others)\npip install duckdb\nConnecting to DuckDB\nimport duckdb\n# directly query a Pandas DataFrame\nimport pandas as pd\ndata_url = \"https://raw.githubusercontent.com/anly503/datasets/main/EconomistData.csv\"\ndf = pd.read_csv(data_url)\nduckdb.sql('SELECT * FROM df')"
-  },
-  {
-    "objectID": "w05/slides.html#setting-up-duckdb-contd.",
-    "href": "w05/slides.html#setting-up-duckdb-contd.",
-    "title": "Week 5: Polars",
-    "section": "Setting Up DuckDB (contd.)",
-    "text": "Setting Up DuckDB (contd.)\nSupported data formats: DuckDB can ingest data from a wide variety of formats – both on-disk and in-memory. See the data ingestion page for more information.\nimport duckdb\nduckdb.read_csv('example.csv')                # read a CSV file into a Relation\nduckdb.read_parquet('example.parquet')        # read a Parquet file into a Relation\nduckdb.read_json('example.json')              # read a JSON file into a Relation\n\nduckdb.sql('SELECT * FROM \"example.csv\"')     # directly query a CSV file\nduckdb.sql('SELECT * FROM \"example.parquet\"') # directly query a Parquet file\nduckdb.sql('SELECT * FROM \"example.json\"')    # directly query a JSON file"
-  },
-  {
-    "objectID": "w05/slides.html#querying-duckdb",
-    "href": "w05/slides.html#querying-duckdb",
-    "title": "Week 5: Polars",
-    "section": "Querying DuckDB",
-    "text": "Querying DuckDB\nEssential Reading\n\nFriendlier SQL with DuckDB\nSQL Introduction\n\nBasic SQL Queries\nimport duckdb\nimport pandas as pd\nbabynames = pd.read_parquet(\"https://github.com/anly503/datasets/raw/main/babynames.parquet.zstd\")\nduckdb.sql(\"select count(*)  from babynames where Name='John'\")\nAggregations and Grouping\nduckdb.sql(\"select State, Name, count(*) as count  from babynames group by State, Name order by State desc, count desc\")"
-  },
-  {
-    "objectID": "w05/slides.html#querying-duckdb-contd.",
-    "href": "w05/slides.html#querying-duckdb-contd.",
-    "title": "Week 5: Polars",
-    "section": "Querying DuckDB (contd.)",
-    "text": "Querying DuckDB (contd.)\nEssential reading: FROM and JOIN clauses\nJoins and Subqueries\n# Join two tables together\nduckdb.sql(\"SELECT * FROM table_name JOIN other_table ON (table_name.key = other_table.key\")\nWindow Functions\npowerplants = pd.read_csv(\"https://raw.githubusercontent.com/anly503/datasets/main/powerplants.csv\", parse_dates=[\"date\"])\nq = \"\"\"\nSELECT \"plant\", \"date\",\n    AVG(\"MWh\") OVER (\n        PARTITION BY \"plant\"\n        ORDER BY \"date\" ASC\n        RANGE BETWEEN INTERVAL 3 DAYS PRECEDING\n                  AND INTERVAL 3 DAYS FOLLOWING)\n        AS \"MWh 7-day Moving Average\"\nFROM powerplants\nORDER BY 1, 2;\n\"\"\"\nduckdb.sql(q)"
-  },
-  {
-    "objectID": "w05/slides.html#using-the-duckdb-cli-and-shell",
-    "href": "w05/slides.html#using-the-duckdb-cli-and-shell",
-    "title": "Week 5: Polars",
-    "section": "Using the DuckDB CLI and Shell",
-    "text": "Using the DuckDB CLI and Shell\n\nInstall DuckDB CLI or use in browser via shell.duckdb.org for data exploration via SQL; Once installed, import a local file into the shell and run queries\nYou can download powerplants.csv here\nC:\\Users\\&lt;username&gt;\\Downloads\\duckdb_cli-windows-amd64&gt; duckdb\nv0.8.1 6536a77232\nEnter \".help\" for usage hints.\nConnected to a transient in-memory database.\nUse \".open FILENAME\" to reopen on a persistent database.\nD CREATE TABLE powerplants AS SELECT * FROM read_csv_auto('powerplants.csv');\nD DESCRIBE powerplants;\n┌─────────────┬─────────────┬─────────┬─────────┬─────────┬───────┐\n│ column_name │ column_type │  null   │   key   │ default │ extra │\n│   varchar   │   varchar   │ varchar │ varchar │ varchar │ int32 │\n├─────────────┼─────────────┼─────────┼─────────┼─────────┼───────┤\n│ plant       │ VARCHAR     │ YES     │         │         │       │\n│ date        │ DATE        │ YES     │         │         │       │\n│ MWh         │ BIGINT      │ YES     │         │         │       │\n└─────────────┴─────────────┴─────────┴─────────┴─────────┴───────┘\nD  SELECT * from powerplants where plant='Boston' and date='2019-01-02';\n┌─────────┬────────────┬────────┐\n│  plant  │    date    │  MWh   │\n│ varchar │    date    │ int64  │\n├─────────┼────────────┼────────┤\n│ Boston  │ 2019-01-02 │ 564337 │\n└─────────┴────────────┴────────┘"
-  },
-  {
-    "objectID": "w05/slides.html#profiling-in-duckdb",
-    "href": "w05/slides.html#profiling-in-duckdb",
-    "title": "Week 5: Polars",
-    "section": "Profiling in DuckDB",
-    "text": "Profiling in DuckDB\nQuery Optimization: Use EXPLAIN and ANALYZE keywords to understand how your query is being executed and the time being spent in individual steps\nD EXPLAIN ANALYZE SELECT * from powerplants where plant='Boston' and date='2019-01-02';\nDuckDB will use all the cores available on the underlying compute, but you can adjust this (Full configuration details here)\nD select current_setting('threads');\n┌────────────────────────────┐\n│ current_setting('threads') │\n│           int64            │\n├────────────────────────────┤\n│                          8 │\n└────────────────────────────┘\nD SET threads=4;\nD select current_setting('threads');\n┌────────────────────────────┐\n│ current_setting('threads') │\n│           int64            │\n├────────────────────────────┤\n│                          4 │\n└────────────────────────────┘"
-  },
-  {
-    "objectID": "w05/slides.html#benchmarks-and-comparisons",
-    "href": "w05/slides.html#benchmarks-and-comparisons",
-    "title": "Week 5: Polars",
-    "section": "Benchmarks and Comparisons",
-    "text": "Benchmarks and Comparisons\n\n\n\n\nTricky topic! Can make your chosen solution look better by focusing on metrics on which it provides better results\nIn general, TPC-H and TPC-DS are considered the standard benchmarks for data processing.\n\n\n\n\n\n\nTPC-DS Homepage"
-  },
-  {
-    "objectID": "w05/slides.html#further-reading-on-duckdb",
-    "href": "w05/slides.html#further-reading-on-duckdb",
-    "title": "Week 5: Polars",
-    "section": "Further Reading on DuckDB",
-    "text": "Further Reading on DuckDB\n\nParallel Grouped Aggregation in DuckDB\nMeta queries\nProfiling queries in DuckDB\nDuckDB tutorial for beginners\nDuckDB CLI API\nUsing DuckDB in AWS Lambda\nRevisiting the Poor Man’s Data Lake with MotherDuck\nSupercharge your data processing with DuckDB\nFriendlier SQL with DuckDB\nBuilding and deploying data apps with DuckDB and Streamlit"
+    "objectID": "w05/slides.html#lab-time",
+    "href": "w05/slides.html#lab-time",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "Lab Time!",
+    "text": "Lab Time!\n\nWeek 5 Lab: Polars"
   },
   {
     "objectID": "w05/slides.html#references",
     "href": "w05/slides.html#references",
-    "title": "Week 5: Polars",
+    "title": "Week 5: From DuckDB to Polars",
     "section": "References",
-    "text": "References\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/7u469ccc8y169us5hydk0/The-cloud-data-lake-a-guide-to-building-robust-cloud-data-Rukmani-Gopalan.pdf?rlkey=ey06a6zt9g90d4zq8tfncndta&dl=1.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” Proceedings of the 2019 International Conference on Management of Data (New York, NY, USA), SIGMOD ’19, June 25, 1981–84. https://doi.org/10.1145/3299869.3320212.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc. https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals-of-data-engineering-_-plan-and-build-robust-Joe-Reis-Matt-Housley.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&dl=1.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd. https://www.dropbox.com/scl/fi/cl5bwkjxl8jvxd52fkb4s/Matthew-Topol-In-Memory-Analytics-with-Apache-Arrow-2nd-Edition.pdf?rlkey=anqcenvrfs6t4kaqcunkms2fz&dl=1."
+    "text": "References\n\n\nAubury, Simon. 2024. Getting Started with DuckDB: A Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows. Birmingham: Packt Publishing Limited."
   },
   {
     "objectID": "writeups/new-accounts/index.html",
@@ -3235,7 +2545,7 @@
     "href": "writeups/sql-guide/index.html#onto-duckdb",
     "title": "From Pandas to SQL",
     "section": "Onto DuckDB!",
-    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌────────────────────────────────────────────────┐\n│┌──────────────────────────────────────────────┐│\n││              Total Time: 0.0016s             ││\n│└──────────────────────────────────────────────┘│\n└────────────────────────────────────────────────┘\n┌───────────────────────────┐\n│           QUERY           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│    ────────────────────   │\n│                           │\n│           0 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│    ────────────────────   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│           FILTER          │\n│    ────────────────────   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         TABLE_SCAN        │\n│    ────────────────────   │\n│   Function: PANDAS_SCAN   │\n│                           │\n│        Projections:       │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│                           │\n│                           │\n│                           │\n│           7 rows          │\n│           0.00s           │\n└───────────────────────────┘\n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
+    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌────────────────────────────────────────────────┐\n│┌──────────────────────────────────────────────┐│\n││              Total Time: 0.0012s             ││\n│└──────────────────────────────────────────────┘│\n└────────────────────────────────────────────────┘\n┌───────────────────────────┐\n│           QUERY           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│    ────────────────────   │\n│                           │\n│           0 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│    ────────────────────   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│           FILTER          │\n│    ────────────────────   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         TABLE_SCAN        │\n│    ────────────────────   │\n│   Function: PANDAS_SCAN   │\n│                           │\n│        Projections:       │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│                           │\n│                           │\n│                           │\n│           7 rows          │\n│           0.00s           │\n└───────────────────────────┘\n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
   },
   {
     "objectID": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",
@@ -3429,7 +2739,7 @@
     "href": "index.html",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "",
-    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHolidays / Irregular Lecture Days\n\n\n\nPlease keep in mind the following dates, when course meetings will be shifted or skipped:\n\nTuesday, September 8: The Week 2 meeting for the Monday section (Section 01) falls on a Tuesday, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)\nMonday, October 12 and Thursday, October 15: No class due to Georgetown’s Mid-Semester Holiday\nMonday, November 23 and Thursday, November 26: No class due to Georgetown’s 2026 Fall Recess\n\n\n\nWelcome! This webpage contains slides, resources, and auxiliary writeups for DSAN 6000: Big Data and Cloud Computing, Fall 2026 at Georgetown University.\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394. Use the links in the sidebar, or in the table below, to explore the content for a particular week.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 31\n\n\n\n\n\n\nWeek 2: Using Cloud Resources for Horizontal Scaling\n\n\nSep 8\n\n\n\n\n\n\nWeek 3: Separating Data from Computation for Parallel Processing\n\n\nSep 14\n\n\n\n\n\n\nWeek 4: DuckDB\n\n\nSep 21\n\n\n\n\n\n\nWeek 5: Polars\n\n\nSep 28\n\n\n\n\n\n\nWeek 6: Data Engineering\n\n\nOct 5\n\n\n\n\n\n\nWeek 7: Introduction to Spark\n\n\nOct 19\n\n\n\n\n\n\nWeek 8: SparkML, Spark NLP\n\n\nOct 26\n\n\n\n\n\n\nWeek 9: In-Class Midterm\n\n\nNov 2\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Prefect\n\n\nNov 9\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 16\n\n\n\n\n\n\nWeek 12: Final Project Preparation\n\n\nNov 30\n\n\n\n\n\n\nWeek 13: Final Project Presentations\n\n\nDec 7\n\n\n\n\n\n\nNo matching items",
+    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHolidays / Irregular Lecture Days\n\n\n\nPlease keep in mind the following dates, when course meetings will be shifted or skipped:\n\nTuesday, September 8: The Week 2 meeting for the Monday section (Section 01) falls on a Tuesday, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)\nMonday, October 12 and Thursday, October 15: No class due to Georgetown’s Mid-Semester Holiday\nMonday, November 23 and Thursday, November 26: No class due to Georgetown’s 2026 Fall Recess\n\n\n\nWelcome! This webpage contains slides, resources, and auxiliary writeups for DSAN 6000: Big Data and Cloud Computing, Fall 2026 at Georgetown University.\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394. Use the links in the sidebar, or in the table below, to explore the content for a particular week.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 31\n\n\n\n\n\n\nWeek 2: Using Cloud Resources for Horizontal Scaling\n\n\nSep 8\n\n\n\n\n\n\nWeek 3: Separating Data from Computation for Parallel Processing\n\n\nSep 14\n\n\n\n\n\n\nWeek 4: Columnar Data Formats and DuckDB\n\n\nSep 21\n\n\n\n\n\n\nWeek 5: From DuckDB to Polars\n\n\nSep 28\n\n\n\n\n\n\nWeek 6: Data Engineering\n\n\nOct 5\n\n\n\n\n\n\nWeek 7: Introduction to Spark\n\n\nOct 19\n\n\n\n\n\n\nWeek 8: SparkML, Spark NLP\n\n\nOct 26\n\n\n\n\n\n\nWeek 9: In-Class Midterm\n\n\nNov 2\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Prefect\n\n\nNov 9\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 16\n\n\n\n\n\n\nWeek 12: Final Project Preparation\n\n\nNov 30\n\n\n\n\n\n\nWeek 13: Final Project Presentations\n\n\nDec 7\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "<i class='bi bi-house'></i> Home"
     ]

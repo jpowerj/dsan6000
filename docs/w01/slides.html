@@ -7,8 +7,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.3">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Jeff Jacobs">
   <title>DSAN 6000: Big Data and Cloud Computing – Week 1: Course Overview</title>
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -119,7 +122,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-047f67cb885eaad61ada07ee5f9a19da.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1482fc58e9086be013ce8b2d8719dd7b.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -240,7 +243,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Jeff Jacobs 
+Jeff Jacobs
 </div>
         <p class="quarto-title-affiliation">
             <a href="mailto:jj1088@georgetown.edu" target="_blank"><code>jj1088@georgetown.edu</code></a>
@@ -802,60 +805,60 @@ table.events tbody tr.new{
 <section id="apache-http-server-log-file" class="slide level2 smaller title-11">
 <h2>Apache HTTP Server Log File</h2>
 <p><em>On Ubuntu, typically <code>/var/log/apache2/access.log</code></em></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="1,9"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>192.168.1.105 - - [31/Aug/2026:14:22:01 -0400] "GET /index.html HTTP/1.1" 200 5124 "https://www.google.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"</span>
-<span id="cb1-2"><a></a>203.0.113.42 - - [31/Aug/2026:14:22:03 -0400] "GET /images/logo.png HTTP/1.1" 200 2341 "https://example.com/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"</span>
-<span id="cb1-3"><a></a>198.51.100.23 - - [31/Aug/2026:14:22:05 -0400] "POST /login HTTP/1.1" 302 0 "https://example.com/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"</span>
-<span id="cb1-4"><a></a>192.168.1.105 - jj [31/Aug/2026:14:22:06 -0400] "GET /dashboard HTTP/1.1" 200 8842 "https://example.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"</span>
-<span id="cb1-5"><a></a>203.0.113.42 - - [31/Aug/2026:14:22:09 -0400] "GET /api/data?id=452 HTTP/1.1" 404 512 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"</span>
-<span id="cb1-6"><a></a>66.249.66.1 - - [31/Aug/2026:14:22:12 -0400] "GET /robots.txt HTTP/1.1" 200 178 "-" "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"</span>
-<span id="cb1-7"><a></a>198.51.100.23 - - [31/Aug/2026:14:22:15 -0400] "GET /assets/style.css HTTP/1.1" 304 0 "https://example.com/dashboard" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"</span>
-<span id="cb1-8"><a></a>10.0.0.5 - - [31/Aug/2026:14:22:19 -0400] "GET /admin HTTP/1.1" 403 291 "-" "curl/8.4.0"</span>
-<span id="cb1-9"><a></a>192.168.1.105 - jj [31/Aug/2026:14:22:23 -0400] "GET /favicon.ico HTTP/1.1" 200 894 "https://example.com/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="1,9"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>192.168.1.105 - - [31/Aug/2026:14:22:01 -0400] "GET /index.html HTTP/1.1" 200 5124 "https://www.google.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"</span>
+<span id="cb1-2"><a aria-label="2"></a>203.0.113.42 - - [31/Aug/2026:14:22:03 -0400] "GET /images/logo.png HTTP/1.1" 200 2341 "https://example.com/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"</span>
+<span id="cb1-3"><a aria-label="3"></a>198.51.100.23 - - [31/Aug/2026:14:22:05 -0400] "POST /login HTTP/1.1" 302 0 "https://example.com/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"</span>
+<span id="cb1-4"><a aria-label="4"></a>192.168.1.105 - jj [31/Aug/2026:14:22:06 -0400] "GET /dashboard HTTP/1.1" 200 8842 "https://example.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"</span>
+<span id="cb1-5"><a aria-label="5"></a>203.0.113.42 - - [31/Aug/2026:14:22:09 -0400] "GET /api/data?id=452 HTTP/1.1" 404 512 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"</span>
+<span id="cb1-6"><a aria-label="6"></a>66.249.66.1 - - [31/Aug/2026:14:22:12 -0400] "GET /robots.txt HTTP/1.1" 200 178 "-" "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"</span>
+<span id="cb1-7"><a aria-label="7"></a>198.51.100.23 - - [31/Aug/2026:14:22:15 -0400] "GET /assets/style.css HTTP/1.1" 304 0 "https://example.com/dashboard" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"</span>
+<span id="cb1-8"><a aria-label="8"></a>10.0.0.5 - - [31/Aug/2026:14:22:19 -0400] "GET /admin HTTP/1.1" 403 291 "-" "curl/8.4.0"</span>
+<span id="cb1-9"><a aria-label="9"></a>192.168.1.105 - jj [31/Aug/2026:14:22:23 -0400] "GET /favicon.ico HTTP/1.1" 200 894 "https://example.com/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <center>
 <p><span style="font-size: 80%;">Line <i class="bi bi-1-circle"></i></span></p>
 </center>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>192.168.1.105 -</span>
-<span id="cb2-2"><a></a>  - [31/Aug/2026:14:22:01 -0400]</span>
-<span id="cb2-3"><a></a>  "GET /index.html HTTP/1.1"</span>
-<span id="cb2-4"><a></a>  200 5124</span>
-<span id="cb2-5"><a></a>  "https://www.google.com/"</span>
-<span id="cb2-6"><a></a>  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) \</span>
-<span id="cb2-7"><a></a>    AppleWebKit/537.36 (KHTML, like Gecko) \</span>
-<span id="cb2-8"><a></a>    Chrome/128.0.0.0 Safari/537.36"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>192.168.1.105 -</span>
+<span id="cb2-2"><a aria-label="2"></a>  - [31/Aug/2026:14:22:01 -0400]</span>
+<span id="cb2-3"><a aria-label="3"></a>  "GET /index.html HTTP/1.1"</span>
+<span id="cb2-4"><a aria-label="4"></a>  200 5124</span>
+<span id="cb2-5"><a aria-label="5"></a>  "https://www.google.com/"</span>
+<span id="cb2-6"><a aria-label="6"></a>  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) \</span>
+<span id="cb2-7"><a aria-label="7"></a>    AppleWebKit/537.36 (KHTML, like Gecko) \</span>
+<span id="cb2-8"><a aria-label="8"></a>    Chrome/128.0.0.0 Safari/537.36"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:50%;">
 <center>
 <p><span style="font-size: 80%;">Line <i class="bi bi-9-circle"></i></span></p>
 </center>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>192.168.1.105 -</span>
-<span id="cb3-2"><a></a>  jj [31/Aug/2026:14:22:06 -0400]</span>
-<span id="cb3-3"><a></a>  "GET /dashboard HTTP/1.1"</span>
-<span id="cb3-4"><a></a>  200 8842</span>
-<span id="cb3-5"><a></a>  "https://example.com/login"</span>
-<span id="cb3-6"><a></a>  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) \</span>
-<span id="cb3-7"><a></a>    AppleWebKit/537.36 (KHTML, like Gecko) \</span>
-<span id="cb3-8"><a></a>    Chrome/128.0.0.0 Safari/537.36"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a aria-label="1"></a>192.168.1.105 -</span>
+<span id="cb3-2"><a aria-label="2"></a>  jj [31/Aug/2026:14:22:06 -0400]</span>
+<span id="cb3-3"><a aria-label="3"></a>  "GET /dashboard HTTP/1.1"</span>
+<span id="cb3-4"><a aria-label="4"></a>  200 8842</span>
+<span id="cb3-5"><a aria-label="5"></a>  "https://example.com/login"</span>
+<span id="cb3-6"><a aria-label="6"></a>  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) \</span>
+<span id="cb3-7"><a aria-label="7"></a>    AppleWebKit/537.36 (KHTML, like Gecko) \</span>
+<span id="cb3-8"><a aria-label="8"></a>    Chrome/128.0.0.0 Safari/537.36"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
 <section id="linux-system-log-file" class="slide level2 smaller crunch-title title-12">
 <h2>Linux System Log File</h2>
 <p><em>On Ubuntu, typically <code>/var/log/syslog</code></em></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-code-line-numbers="4,5,10,13,14,15"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>Sep 3 20:10:01 myEC2 systemd[1]: Started Session 42 of user root.</span>
-<span id="cb4-2"><a></a>Sep 3 20:14:17 myEC2 sshd[203]: Accepted publickey for jj from 203.0.113.42 port 51322 ssh2</span>
-<span id="cb4-3"><a></a>Sep 3 20:14:17 myEC2 sshd[203]: unix(sshd:session): session opened for user jj(uid=1001) by (uid=0)</span>
-<span id="cb4-4"><a></a>Sep 3 20:14:18 myEC2 systemd-logind[812]: New session 43 of user jj.</span>
-<span id="cb4-5"><a></a>Sep 3 20:15:42 myEC2 sudo[310]: jj: PWD=/home/jj; USER=root; COMMAND=/usr/bin/systemctl restart apache2</span>
-<span id="cb4-6"><a></a>Sep 3 20:15:43 myEC2 apache2[325]: 2026/08/31 09:15:43 [notice] 19325#19325: signal process started</span>
-<span id="cb4-7"><a></a>Sep 3 20:18:33 myEC2 sshd[340]: Failed password for admin from 198.51.100.77 port 44210 ssh2</span>
-<span id="cb4-8"><a></a>Sep 3 20:18:35 myEC2 sshd[340]: Failed password for admin from 198.51.100.77 port 44210 ssh2</span>
-<span id="cb4-9"><a></a>Sep 3 20:18:37 myEC2 sshd[340]: Connection closed by admin 198.51.100.77 port 44210 [preauth]</span>
-<span id="cb4-10"><a></a>Sep 3 20:20:11 myEC2 systemd[1]: mysql.service: Main process exited, code=killed, status=9/KILL</span>
-<span id="cb4-11"><a></a>Sep 3 20:20:12 myEC2 systemd[1]: mysql.service: Scheduled restart job, restart counter is at 1.</span>
-<span id="cb4-12"><a></a>Sep 3 20:20:12 myEC2 systemd[1]: Started MySQL Community Server.</span>
-<span id="cb4-13"><a></a>Sep 3 20:21:00 myEC2 kernel: [2357.4201] Out of memory: Killed process 18122 (java) total-vm:4823012kB</span>
-<span id="cb4-14"><a></a>Sep 3 20:23:15 myEC2 systemd-logind[812]: Session 43 logged out. Waiting for processes to exit.</span>
-<span id="cb4-15"><a></a>Sep 3 21:00:00 myEC2 CRON[8455]: (root) CMD ( cd / &amp;&amp; run-parts --report /etc/cron.daily ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-code-line-numbers="4,5,10,13,14,15"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a aria-label="1"></a>Sep 3 20:10:01 myEC2 systemd[1]: Started Session 42 of user root.</span>
+<span id="cb4-2"><a aria-label="2"></a>Sep 3 20:14:17 myEC2 sshd[203]: Accepted publickey for jj from 203.0.113.42 port 51322 ssh2</span>
+<span id="cb4-3"><a aria-label="3"></a>Sep 3 20:14:17 myEC2 sshd[203]: unix(sshd:session): session opened for user jj(uid=1001) by (uid=0)</span>
+<span id="cb4-4"><a aria-label="4"></a>Sep 3 20:14:18 myEC2 systemd-logind[812]: New session 43 of user jj.</span>
+<span id="cb4-5"><a aria-label="5"></a>Sep 3 20:15:42 myEC2 sudo[310]: jj: PWD=/home/jj; USER=root; COMMAND=/usr/bin/systemctl restart apache2</span>
+<span id="cb4-6"><a aria-label="6"></a>Sep 3 20:15:43 myEC2 apache2[325]: 2026/08/31 09:15:43 [notice] 19325#19325: signal process started</span>
+<span id="cb4-7"><a aria-label="7"></a>Sep 3 20:18:33 myEC2 sshd[340]: Failed password for admin from 198.51.100.77 port 44210 ssh2</span>
+<span id="cb4-8"><a aria-label="8"></a>Sep 3 20:18:35 myEC2 sshd[340]: Failed password for admin from 198.51.100.77 port 44210 ssh2</span>
+<span id="cb4-9"><a aria-label="9"></a>Sep 3 20:18:37 myEC2 sshd[340]: Connection closed by admin 198.51.100.77 port 44210 [preauth]</span>
+<span id="cb4-10"><a aria-label="10"></a>Sep 3 20:20:11 myEC2 systemd[1]: mysql.service: Main process exited, code=killed, status=9/KILL</span>
+<span id="cb4-11"><a aria-label="11"></a>Sep 3 20:20:12 myEC2 systemd[1]: mysql.service: Scheduled restart job, restart counter is at 1.</span>
+<span id="cb4-12"><a aria-label="12"></a>Sep 3 20:20:12 myEC2 systemd[1]: Started MySQL Community Server.</span>
+<span id="cb4-13"><a aria-label="13"></a>Sep 3 20:21:00 myEC2 kernel: [2357.4201] Out of memory: Killed process 18122 (java) total-vm:4823012kB</span>
+<span id="cb4-14"><a aria-label="14"></a>Sep 3 20:23:15 myEC2 systemd-logind[812]: Session 43 logged out. Waiting for processes to exit.</span>
+<span id="cb4-15"><a aria-label="15"></a>Sep 3 21:00:00 myEC2 CRON[8455]: (root) CMD ( cd / &amp;&amp; run-parts --report /etc/cron.daily ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="our-bookshelf-from-now-until-december" class="slide level2 smaller crunch-title title-11">
 <h2>Our Bookshelf From Now Until December 😎</h2>
@@ -1132,7 +1135,7 @@ Zilliz. 2025. <span>“<a href="https://zilliz.com/learn/introduction-to-unstruc
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

@@ -7,11 +7,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.3">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Jeff Jacobs">
-  <title>DSAN 6000: Big Data and Cloud Computing – Week 4: DuckDB</title>
+  <title>DSAN 6000: Big Data and Cloud Computing – Week 4: Columnar Data Formats and DuckDB</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -119,7 +122,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-047f67cb885eaad61ada07ee5f9a19da.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1482fc58e9086be013ce8b2d8719dd7b.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -213,20 +216,21 @@
       margin-right: 0; 
     }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Week 4: DuckDB</h1>
+  <h1 class="title">Week 4: Columnar Data Formats and DuckDB</h1>
   <p class="subtitle"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2026</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Jeff Jacobs 
+Jeff Jacobs
 </div>
         <p class="quarto-title-affiliation">
             <a href="mailto:jj1088@georgetown.edu" target="_blank"><code>jj1088@georgetown.edu</code></a>
@@ -303,7 +307,7 @@ Jeff Jacobs
 <div class="code-with-filename-file">
 <pre><strong>dsan6000_staff.csv</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="dsan6000_staff.csv"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>staff_id,last,first,points\n1,jacobs,jeff,300\n2,vakkalanka,samyu,400\n3,wang,fangzhou,500\n4,wu,siru,600</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="dsan6000_staff.csv"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>staff_id,last,first,points\n1,jacobs,jeff,300\n2,vakkalanka,samyu,400\n3,wang,fangzhou,500\n4,wu,siru,600</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>…Even if we only want to compute average of last column, computer has to <strong>scan over all data in row</strong> first (remember: <strong>sequential</strong> memory reads)</li>
@@ -313,7 +317,7 @@ Jeff Jacobs
 <div class="code-with-filename-file">
 <pre><strong>dsan6000_staff.csv</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="dsan6000_staff.csv"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>points,300,400,500,600\nstaff_id,1,2,3,4\nlast,jacobs,vakkalanka,wang,wu\nfirst,jeff,samyu,fangzhou,siru</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="dsan6000_staff.csv"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>points,300,400,500,600\nstaff_id,1,2,3,4\nlast,jacobs,vakkalanka,wang,wu\nfirst,jeff,samyu,fangzhou,siru</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>…But I completely cheated here! I moved the last column to be the first column. How could we achieve this in practice?</li>
@@ -356,7 +360,7 @@ Jeff Jacobs
 <div class="code-with-filename-file">
 <pre><strong>dsan6000_staff.csv</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="dsan6000_staff.csv"><pre class="sourceCode numberSource csv code-overflow-wrap number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>staff_id,1,2,3,4\nlast,jacobs,vakkalanka,wang,wu\nfirst,jeff,samyu,fangzhou,siru\npoints,300,400,500,600</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="dsan6000_staff.csv"><pre class="sourceCode numberSource csv code-overflow-wrap number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a aria-label="1"></a>staff_id,1,2,3,4\nlast,jacobs,vakkalanka,wang,wu\nfirst,jeff,samyu,fangzhou,siru\npoints,300,400,500,600</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="math inline">\(\leadsto\)</span> Now the reader can just <strong>skip over</strong> bytes 0-81!</p>
 </div></div>
@@ -611,7 +615,7 @@ Berk, Michael. 2022. <span>“<a href="https://towardsdatascience.com/demystifyi
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

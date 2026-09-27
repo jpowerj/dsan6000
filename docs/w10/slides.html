@@ -7,8 +7,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.3">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Jeff Jacobs">
   <title>DSAN 6000: Big Data and Cloud Computing – Week 10: ETL Pipeline Orchestration with Prefect</title>
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -118,7 +121,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2af5ea75fba726d39f5fb8e5e764db64.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-8a88dcf9b778808aa94704c54862fbe0.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -225,7 +228,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Jeff Jacobs 
+Jeff Jacobs
 </div>
         <p class="quarto-title-affiliation">
             <a href="mailto:jj1088@georgetown.edu" target="_blank"><code>jj1088@georgetown.edu</code></a>
@@ -320,13 +323,13 @@ Jeff Jacobs
 <li><p><a href="https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html" class="under"><strong>Directed Acyclic Graph (<code>DAG</code>)</strong></a>: Your pipeline as a whole!</p></li>
 <li><p><code>DAG</code>s consist of <strong>multiple</strong> <a href="https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/tasks.html" class="under"><strong><code>task</code>s</strong></a>, which you “string together” using the <a href="https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html#control-flow"><strong>control flow</strong></a> operators <code>&gt;&gt;</code> and <code>&lt;&lt;</code></p></li>
 <li><p>[Ex <i class="bi bi-1-circle" style="font-size: 90%;"></i>] <code>second_task</code>, <code>third_task</code> can’t start until <code>first_task</code> completes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>first_task <span class="op">&gt;&gt;</span> [second_task, third_task]</span>
-<span id="cb1-2"><a></a><span class="co"># Equivalent to:</span></span>
-<span id="cb1-3"><a></a>first_task.set_downstream([second_task, third_task])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-label="1"></a>first_task <span class="op">&gt;&gt;</span> [second_task, third_task]</span>
+<span id="cb1-2"><a aria-label="2"></a><span class="co"># Equivalent to:</span></span>
+<span id="cb1-3"><a aria-label="3"></a>first_task.set_downstream([second_task, third_task])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>[Ex <i class="bi bi-2-circle" style="font-size: 90%;"></i>] <code>fourth_task</code> can’t start until <code>third_task</code> completes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>fourth_task <span class="op">&lt;&lt;</span> third_task</span>
-<span id="cb2-2"><a></a><span class="co"># Equivalent to:</span></span>
-<span id="cb2-3"><a></a>fourth_task.set_upstream(third_task)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a>fourth_task <span class="op">&lt;&lt;</span> third_task</span>
+<span id="cb2-2"><a aria-label="2"></a><span class="co"># Equivalent to:</span></span>
+<span id="cb2-3"><a aria-label="3"></a>fourth_task.set_upstream(third_task)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>What <em>kinds</em> of <code>task</code>s can we create? Brings us to another concept…</p></li>
 </ul>
 </section>
@@ -396,11 +399,11 @@ Jeff Jacobs
 <div class="code-with-filename-file">
 <pre><strong>start-airflow.sh</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="start-airflow.sh"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">airflow</span> db migrate</span>
-<span id="cb3-2"><a></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
-<span id="cb3-3"><a></a><span class="ex">airflow</span> scheduler</span>
-<span id="cb3-4"><a></a><span class="ex">airflow</span> dag-processor</span>
-<span id="cb3-5"><a></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="start-airflow.sh"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-label="1"></a><span class="ex">airflow</span> db migrate</span>
+<span id="cb3-2"><a aria-label="2"></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
+<span id="cb3-3"><a aria-label="3"></a><span class="ex">airflow</span> scheduler</span>
+<span id="cb3-4"><a aria-label="4"></a><span class="ex">airflow</span> dag-processor</span>
+<span id="cb3-5"><a aria-label="5"></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -422,11 +425,11 @@ Jeff Jacobs
 <div class="code-with-filename-file">
 <pre><strong>start-airflow.sh</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="start-airflow.sh" data-code-line-numbers="1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="ex">airflow</span> db migrate</span>
-<span id="cb4-2"><a></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
-<span id="cb4-3"><a></a><span class="ex">airflow</span> scheduler</span>
-<span id="cb4-4"><a></a><span class="ex">airflow</span> dag-processor</span>
-<span id="cb4-5"><a></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="start-airflow.sh" data-code-line-numbers="1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-label="1"></a><span class="ex">airflow</span> db migrate</span>
+<span id="cb4-2"><a aria-label="2"></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
+<span id="cb4-3"><a aria-label="3"></a><span class="ex">airflow</span> scheduler</span>
+<span id="cb4-4"><a aria-label="4"></a><span class="ex">airflow</span> dag-processor</span>
+<span id="cb4-5"><a aria-label="5"></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>General info used by DAGs: variables, connections, XComs</li>
@@ -441,11 +444,11 @@ Jeff Jacobs
 <div class="code-with-filename-file">
 <pre><strong>start-airflow.sh</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="start-airflow.sh" data-code-line-numbers="2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="ex">airflow</span> db migrate</span>
-<span id="cb5-2"><a></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
-<span id="cb5-3"><a></a><span class="ex">airflow</span> scheduler</span>
-<span id="cb5-4"><a></a><span class="ex">airflow</span> dag-processor</span>
-<span id="cb5-5"><a></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="start-airflow.sh" data-code-line-numbers="2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-label="1"></a><span class="ex">airflow</span> db migrate</span>
+<span id="cb5-2"><a aria-label="2"></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
+<span id="cb5-3"><a aria-label="3"></a><span class="ex">airflow</span> scheduler</span>
+<span id="cb5-4"><a aria-label="4"></a><span class="ex">airflow</span> dag-processor</span>
+<span id="cb5-5"><a aria-label="5"></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -481,11 +484,11 @@ Jeff Jacobs
 <div class="code-with-filename-file">
 <pre><strong>start-airflow.sh</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="start-airflow.sh" data-code-line-numbers="3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">airflow</span> db migrate</span>
-<span id="cb6-2"><a></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
-<span id="cb6-3"><a></a><span class="ex">airflow</span> scheduler</span>
-<span id="cb6-4"><a></a><span class="ex">airflow</span> dag-processor</span>
-<span id="cb6-5"><a></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="start-airflow.sh" data-code-line-numbers="3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a aria-label="1"></a><span class="ex">airflow</span> db migrate</span>
+<span id="cb6-2"><a aria-label="2"></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
+<span id="cb6-3"><a aria-label="3"></a><span class="ex">airflow</span> scheduler</span>
+<span id="cb6-4"><a aria-label="4"></a><span class="ex">airflow</span> dag-processor</span>
+<span id="cb6-5"><a aria-label="5"></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Default: <code>LocalExecutor</code></li>
@@ -507,11 +510,11 @@ Jeff Jacobs
 <div class="code-with-filename-file">
 <pre><strong>start-airflow.sh</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-filename="start-airflow.sh" data-code-line-numbers="4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="ex">airflow</span> db migrate</span>
-<span id="cb7-2"><a></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
-<span id="cb7-3"><a></a><span class="ex">airflow</span> scheduler</span>
-<span id="cb7-4"><a></a><span class="ex">airflow</span> dag-processor</span>
-<span id="cb7-5"><a></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-filename="start-airflow.sh" data-code-line-numbers="4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a aria-label="1"></a><span class="ex">airflow</span> db migrate</span>
+<span id="cb7-2"><a aria-label="2"></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
+<span id="cb7-3"><a aria-label="3"></a><span class="ex">airflow</span> scheduler</span>
+<span id="cb7-4"><a aria-label="4"></a><span class="ex">airflow</span> dag-processor</span>
+<span id="cb7-5"><a aria-label="5"></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <img data-src="images/dag_processor.png" class="r-stretch quarto-figure-center"><p class="caption">From <span class="citation" data-cites="ruiter_data_2026">(<a href="#/references" role="doc-biblioref" onclick=""><strong>ruiter_data_2026?</strong></a>)</span></p></section>
@@ -522,26 +525,26 @@ Jeff Jacobs
 <div class="code-with-filename-file">
 <pre><strong>dag_scheduling.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-filename="dag_scheduling.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">from</span> airflow.sdk <span class="im">import</span> DAG</span>
-<span id="cb8-2"><a></a><span class="im">import</span> pendulum</span>
-<span id="cb8-3"><a></a>dag <span class="op">=</span> DAG(<span class="st">"regular_interval_cron_example"</span>, schedule<span class="op">=</span><span class="st">"0 0 * * *"</span>, ...)</span>
-<span id="cb8-4"><a></a>dag <span class="op">=</span> DAG(<span class="st">"regular_interval_cron_preset_example"</span>, schedule<span class="op">=</span><span class="st">"@daily"</span>, ...)</span>
-<span id="cb8-5"><a></a>dag <span class="op">=</span> DAG(<span class="st">"regular_interval_timedelta_example"</span>, schedule<span class="op">=</span>pendulum.timedelta(days<span class="op">=</span><span class="dv">1</span>), ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-filename="dag_scheduling.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-label="1"></a><span class="im">from</span> airflow.sdk <span class="im">import</span> DAG</span>
+<span id="cb8-2"><a aria-label="2"></a><span class="im">import</span> pendulum</span>
+<span id="cb8-3"><a aria-label="3"></a>dag <span class="op">=</span> DAG(<span class="st">"regular_interval_cron_example"</span>, schedule<span class="op">=</span><span class="st">"0 0 * * *"</span>, ...)</span>
+<span id="cb8-4"><a aria-label="4"></a>dag <span class="op">=</span> DAG(<span class="st">"regular_interval_cron_preset_example"</span>, schedule<span class="op">=</span><span class="st">"@daily"</span>, ...)</span>
+<span id="cb8-5"><a aria-label="5"></a>dag <span class="op">=</span> DAG(<span class="st">"regular_interval_timedelta_example"</span>, schedule<span class="op">=</span>pendulum.timedelta(days<span class="op">=</span><span class="dv">1</span>), ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><a href="https://crontab.guru/"><strong><code>Cron</code></strong></a>: Full-on scheduling language (used by computers since <a href="https://en.wikipedia.org/wiki/Cron">1975</a>!)</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>crontab.sh</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-filename="crontab.sh"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="co"># ┌───────────── minute (0–59)</span></span>
-<span id="cb9-2"><a></a><span class="co"># │ ┌───────────── hour (0–23)</span></span>
-<span id="cb9-3"><a></a><span class="co"># │ │ ┌───────────── day of the month (1–31)</span></span>
-<span id="cb9-4"><a></a><span class="co"># │ │ │ ┌───────────── month (1–12)</span></span>
-<span id="cb9-5"><a></a><span class="co"># │ │ │ │ ┌───────────── day of the week (0–6) (Sunday to Saturday)</span></span>
-<span id="cb9-6"><a></a><span class="co"># │ │ │ │ │</span></span>
-<span id="cb9-7"><a></a><span class="co"># │ │ │ │ │</span></span>
-<span id="cb9-8"><a></a><span class="co"># │ │ │ │ │</span></span>
-<span id="cb9-9"><a></a><span class="co"># * * * * * &lt;command to execute&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-filename="crontab.sh"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a aria-label="1"></a><span class="co"># ┌───────────── minute (0–59)</span></span>
+<span id="cb9-2"><a aria-label="2"></a><span class="co"># │ ┌───────────── hour (0–23)</span></span>
+<span id="cb9-3"><a aria-label="3"></a><span class="co"># │ │ ┌───────────── day of the month (1–31)</span></span>
+<span id="cb9-4"><a aria-label="4"></a><span class="co"># │ │ │ ┌───────────── month (1–12)</span></span>
+<span id="cb9-5"><a aria-label="5"></a><span class="co"># │ │ │ │ ┌───────────── day of the week (0–6) (Sunday to Saturday)</span></span>
+<span id="cb9-6"><a aria-label="6"></a><span class="co"># │ │ │ │ │</span></span>
+<span id="cb9-7"><a aria-label="7"></a><span class="co"># │ │ │ │ │</span></span>
+<span id="cb9-8"><a aria-label="8"></a><span class="co"># │ │ │ │ │</span></span>
+<span id="cb9-9"><a aria-label="9"></a><span class="co"># * * * * * &lt;command to execute&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><a href="https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/cron.html#cron-presets">Cron Presets</a>: <code>None</code>, <code>"@once"</code>, <code>"@continuous"</code>, <code>"@hourly"</code>, <code>"@daily"</code>, <code>"@weekly"</code></p>
 </section>
@@ -608,12 +611,12 @@ Jeff Jacobs
 <div class="code-with-filename-file">
 <pre><strong>homepage.jinja</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename="homepage.jinja"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb10-1"><a></a><span class="dt">&lt;</span><span class="kw">h4</span><span class="dt">&gt;</span>{{ me['name'] }}'s Favorite Hobbies<span class="dt">&lt;/</span><span class="kw">h4</span><span class="dt">&gt;</span></span>
-<span id="cb10-2"><a></a><span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
-<span id="cb10-3"><a></a>{%- for hobby in hobbies %}</span>
-<span id="cb10-4"><a></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>{{ hobby }}<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb10-5"><a></a>{%- endfor %}</span>
-<span id="cb10-6"><a></a><span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename="homepage.jinja"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb10-1"><a aria-label="1"></a><span class="dt">&lt;</span><span class="kw">h4</span><span class="dt">&gt;</span>{{ me['name'] }}'s Favorite Hobbies<span class="dt">&lt;/</span><span class="kw">h4</span><span class="dt">&gt;</span></span>
+<span id="cb10-2"><a aria-label="2"></a><span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
+<span id="cb10-3"><a aria-label="3"></a>{%- for hobby in hobbies %}</span>
+<span id="cb10-4"><a aria-label="4"></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>{{ hobby }}<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb10-5"><a aria-label="5"></a>{%- endfor %}</span>
+<span id="cb10-6"><a aria-label="6"></a><span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
 <center>
@@ -624,16 +627,16 @@ Jeff Jacobs
 <div class="code-with-filename-file">
 <pre><strong>render_jinja.py</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename="render_jinja.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="im">from</span> jinja2 <span class="im">import</span> Template</span>
-<span id="cb11-2"><a></a>tmpl <span class="op">=</span> Template(<span class="st">'homepage.jinja'</span>)</span>
-<span id="cb11-3"><a></a>tmpl.render(</span>
-<span id="cb11-4"><a></a>    me <span class="op">=</span> {<span class="st">'name'</span>: <span class="st">'Jeff'</span>},</span>
-<span id="cb11-5"><a></a>    hobbies <span class="op">=</span> [</span>
-<span id="cb11-6"><a></a>        <span class="st">'eat'</span>,</span>
-<span id="cb11-7"><a></a>        <span class="st">'sleep'</span>,</span>
-<span id="cb11-8"><a></a>        <span class="st">'attend to the proverbial bag'</span></span>
-<span id="cb11-9"><a></a>    ]</span>
-<span id="cb11-10"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename="render_jinja.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-label="1"></a><span class="im">from</span> jinja2 <span class="im">import</span> Template</span>
+<span id="cb11-2"><a aria-label="2"></a>tmpl <span class="op">=</span> Template(<span class="st">'homepage.jinja'</span>)</span>
+<span id="cb11-3"><a aria-label="3"></a>tmpl.render(</span>
+<span id="cb11-4"><a aria-label="4"></a>    me <span class="op">=</span> {<span class="st">'name'</span>: <span class="st">'Jeff'</span>},</span>
+<span id="cb11-5"><a aria-label="5"></a>    hobbies <span class="op">=</span> [</span>
+<span id="cb11-6"><a aria-label="6"></a>        <span class="st">'eat'</span>,</span>
+<span id="cb11-7"><a aria-label="7"></a>        <span class="st">'sleep'</span>,</span>
+<span id="cb11-8"><a aria-label="8"></a>        <span class="st">'attend to the proverbial bag'</span></span>
+<span id="cb11-9"><a aria-label="9"></a>    ]</span>
+<span id="cb11-10"><a aria-label="10"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </div>
@@ -649,12 +652,12 @@ Jeff Jacobs
 <div class="code-with-filename-file">
 <pre><strong>rendered.html</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-filename="rendered.html"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb12-1"><a></a><span class="dt">&lt;</span><span class="kw">h4</span><span class="dt">&gt;</span>Jeff's Favorite Hobbies<span class="dt">&lt;/</span><span class="kw">h4</span><span class="dt">&gt;</span></span>
-<span id="cb12-2"><a></a><span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
-<span id="cb12-3"><a></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>eat<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb12-4"><a></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>sleep<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb12-5"><a></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>attend to the proverbial bag<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb12-6"><a></a><span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-filename="rendered.html"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb12-1"><a aria-label="1"></a><span class="dt">&lt;</span><span class="kw">h4</span><span class="dt">&gt;</span>Jeff's Favorite Hobbies<span class="dt">&lt;/</span><span class="kw">h4</span><span class="dt">&gt;</span></span>
+<span id="cb12-2"><a aria-label="2"></a><span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
+<span id="cb12-3"><a aria-label="3"></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>eat<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb12-4"><a aria-label="4"></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>sleep<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb12-5"><a aria-label="5"></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>attend to the proverbial bag<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb12-6"><a aria-label="6"></a><span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
 <p><span class="math inline">\(\leadsto\)</span></p>
@@ -978,7 +981,7 @@ Fig&nbsp;1: Both figures from <span class="citation" data-cites="ruiter_data_202
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

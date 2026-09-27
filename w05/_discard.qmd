@@ -23,3 +23,58 @@ This notebook reads the NYC taxi dataset files for the year 2021 (about 29m rows
 3. We create a DuckDB instance in memory and using the connection to this in-memory database We run some simple analytics operations using SQL syntax.
 
 Also see [https://duckdb.org/2021/12/03/duck-arrow.html](https://duckdb.org/2021/12/03/duck-arrow.html)
+
+---
+
+## Agenda and Goals for Today
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### Lecture
+
+* Distributed file systems
+* Modern file types
+* Working with large tabular data on a single node
+  * DuckDB
+  * Polars
+
+:::
+
+::: {.column width="50%"}
+
+### Lab
+
+* Run a similar task with Pandas, polars and duckdb
+
+:::
+::::
+
+## Logistics and Review {.smaller .crunch-title .crunch-p}
+
+:::: {.columns}
+::: {.column width="60%"}
+
+**Deadlines**
+
+- ~~Assignment 1: Python Skills **Due Sept 5 11:59pm**~~
+- ~~Lab 2: Cloud Tooling **Due Sept 5 6pm**~~
+- ~~Assignment 2: Shell & Linux **Due Sept 11 11:59pm**~~
+- ~~Lab 3: Parallel Computing **Due Sept 12 6pm**~~
+- Assignment 3: Parallelization **Due Sept 18 11:59pm**
+- Lab 4: Docker and Lambda **Due Sept 19 6pm**
+- Assignment 4: Containers **Due Sept 25 11:59pm**
+- Lab 5: DuckDB & Polars **Due Sept 26 6pm**
+
+:::
+::: {.column width="40%"}
+
+**Look back and ahead**
+
+* Continue to use Slack for questions!
+* Docker (containerization)
+* Lambda functions
+* Coming up: Spark and project
+
+:::
+::::

@@ -1,0 +1,31 @@
+<div style="border: 1px solid black; padding-left: 12px; padding-right: 12px; padding-top: 6px; margin-bottom: 10px; border-radius: 20px; background-color: white;">
+<div style="text-align: center;"><b>Big Data: "When the <i>size</i> of the data itself becomes part of the engineering problem"</b></div>
+<table>
+<thead>
+</thead>
+<tbody>
+<tr>
+  <td align="center" rowspan="2" width="15%" style="vertical-align: middle; border-bottom: 0px; border-top: 0px; text-align: center;">Can be <b>processed</b> on single machine?</td>
+  <td align="center" width="5%" style="vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090; text-align: center;"><i>No</i></td>
+  <td align="center" width="40%" style="vertical-align: middle; border-right: 2px solid #909090; border-top: 2px solid #909090; border-bottom: 2px solid #909090; background-color: #FF991C90; text-align: center;"><b>Medium</b><br>(<i>Parallel Processing</i>)</td>
+  <td align="center" width="40%" style="background-color: #FF991C90; vertical-align: middle; border-top: 2px solid #909090; border-right: 2px solid #909090; border-bottom: 2px solid #909090; text-align: center;"><span style="font-size: 130%;"><b>Big!</b></span><br>Parallel + Distributed Processing</td>
+</tr>
+<tr>
+  <td align="center" style="vertical-align: middle; border-right: 2px solid #909090; border-bottom: 0px solid #909090; text-align: center;"><i>Yes</i></td>
+  <td align="center" style="vertical-align: middle; border-right: 2px solid #909090; border-bottom: 2px solid #909090; text-align: center;">Small<br>(<i>Your Laptop</i>)</td>
+  <td align="center" style="vertical-align: middle; border-right: 2px solid #909090; border-bottom: 2px solid #909090; background-color: #FF991C90; text-align: center;"><b>Medium</b><br>(<i>Data Streaming</i>)</td>
+</tr>
+<tr>
+  <td style="border-bottom: 0px;"></td>
+  <td style="border-bottom: 0px solid #909090;"></td>
+  <td align="center" style="vertical-align: middle; border-bottom: 0px solid #909090; padding-bottom: 0px; text-align: center;"><i>Yes</i></td>
+  <td align="center" style="vertical-align: middle; border-bottom: 0px solid #909090; padding-bottom: 0px; text-align: center;"><i>No</i></td>
+</tr>
+<tr>
+  <td style="border-bottom: 0px;"></td>
+  <td style="border-bottom: 0px;"></td>
+  <td align="center" colspan="2" style="border-bottom: 0px; padding-bottom: 0px; text-align: center;">Can be <b>stored</b> on single machine?</td>
+</tr>
+</tbody>
+</table>
+</div>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.3">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -96,14 +99,14 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-fedc0afa5eed45b88079642ee2c6e752.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e44360b8a8db1e130c7792fece1c8032.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-34a0eba8e2d80e45ad4ec04665ab2a23.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-eae5b3a220c4fad84732ca6114dc952a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-34a0eba8e2d80e45ad4ec04665ab2a23.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-6f995713f2c375a39e781153de9a7039.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-ea59d16d39a37a6027ba13768e90dd59.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-6f995713f2c375a39e781153de9a7039.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -138,7 +141,7 @@ div.csl-indent {
 <link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -505,7 +508,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-09-22, 11:44:11 PM</em></p>
+<p><em>Updated 2026-09-27, 06:14:14 AM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -1135,15 +1138,15 @@ table.events tbody tr.new{
 <section id="apache-http-server-log-file" class="level2 smaller title-11">
 <h2 class="smaller title-11 anchored" data-anchor-id="apache-http-server-log-file">Apache HTTP Server Log File</h2>
 <p><em>On Ubuntu, typically <code>/var/log/apache2/access.log</code></em></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>192.168.1.105 - - [31/Aug/2026:14:22:01 -0400] "GET /index.html HTTP/1.1" 200 5124 "https://www.google.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"</span>
-<span id="cb1-2"><a href="#cb1-2"></a>203.0.113.42 - - [31/Aug/2026:14:22:03 -0400] "GET /images/logo.png HTTP/1.1" 200 2341 "https://example.com/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"</span>
-<span id="cb1-3"><a href="#cb1-3"></a>198.51.100.23 - - [31/Aug/2026:14:22:05 -0400] "POST /login HTTP/1.1" 302 0 "https://example.com/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"</span>
-<span id="cb1-4"><a href="#cb1-4"></a>192.168.1.105 - jj [31/Aug/2026:14:22:06 -0400] "GET /dashboard HTTP/1.1" 200 8842 "https://example.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"</span>
-<span id="cb1-5"><a href="#cb1-5"></a>203.0.113.42 - - [31/Aug/2026:14:22:09 -0400] "GET /api/data?id=452 HTTP/1.1" 404 512 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"</span>
-<span id="cb1-6"><a href="#cb1-6"></a>66.249.66.1 - - [31/Aug/2026:14:22:12 -0400] "GET /robots.txt HTTP/1.1" 200 178 "-" "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"</span>
-<span id="cb1-7"><a href="#cb1-7"></a>198.51.100.23 - - [31/Aug/2026:14:22:15 -0400] "GET /assets/style.css HTTP/1.1" 304 0 "https://example.com/dashboard" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"</span>
-<span id="cb1-8"><a href="#cb1-8"></a>10.0.0.5 - - [31/Aug/2026:14:22:19 -0400] "GET /admin HTTP/1.1" 403 291 "-" "curl/8.4.0"</span>
-<span id="cb1-9"><a href="#cb1-9"></a>192.168.1.105 - jj [31/Aug/2026:14:22:23 -0400] "GET /favicon.ico HTTP/1.1" 200 894 "https://example.com/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a>192.168.1.105 - - [31/Aug/2026:14:22:01 -0400] "GET /index.html HTTP/1.1" 200 5124 "https://www.google.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"</span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>203.0.113.42 - - [31/Aug/2026:14:22:03 -0400] "GET /images/logo.png HTTP/1.1" 200 2341 "https://example.com/index.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"</span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a>198.51.100.23 - - [31/Aug/2026:14:22:05 -0400] "POST /login HTTP/1.1" 302 0 "https://example.com/login" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"</span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>192.168.1.105 - jj [31/Aug/2026:14:22:06 -0400] "GET /dashboard HTTP/1.1" 200 8842 "https://example.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"</span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>203.0.113.42 - - [31/Aug/2026:14:22:09 -0400] "GET /api/data?id=452 HTTP/1.1" 404 512 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"</span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>66.249.66.1 - - [31/Aug/2026:14:22:12 -0400] "GET /robots.txt HTTP/1.1" 200 178 "-" "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"</span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>198.51.100.23 - - [31/Aug/2026:14:22:15 -0400] "GET /assets/style.css HTTP/1.1" 304 0 "https://example.com/dashboard" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"</span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>10.0.0.5 - - [31/Aug/2026:14:22:19 -0400] "GET /admin HTTP/1.1" 403 291 "-" "curl/8.4.0"</span>
+<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>192.168.1.105 - jj [31/Aug/2026:14:22:23 -0400] "GET /favicon.ico HTTP/1.1" 200 894 "https://example.com/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <center>
@@ -1175,21 +1178,21 @@ table.events tbody tr.new{
 <section id="linux-system-log-file" class="level2 smaller crunch-title title-12">
 <h2 class="smaller crunch-title title-12 anchored" data-anchor-id="linux-system-log-file">Linux System Log File</h2>
 <p><em>On Ubuntu, typically <code>/var/log/syslog</code></em></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>Sep 3 20:10:01 myEC2 systemd[1]: Started Session 42 of user root.</span>
-<span id="cb4-2"><a href="#cb4-2"></a>Sep 3 20:14:17 myEC2 sshd[203]: Accepted publickey for jj from 203.0.113.42 port 51322 ssh2</span>
-<span id="cb4-3"><a href="#cb4-3"></a>Sep 3 20:14:17 myEC2 sshd[203]: unix(sshd:session): session opened for user jj(uid=1001) by (uid=0)</span>
-<span id="cb4-4"><a href="#cb4-4"></a>Sep 3 20:14:18 myEC2 systemd-logind[812]: New session 43 of user jj.</span>
-<span id="cb4-5"><a href="#cb4-5"></a>Sep 3 20:15:42 myEC2 sudo[310]: jj: PWD=/home/jj; USER=root; COMMAND=/usr/bin/systemctl restart apache2</span>
-<span id="cb4-6"><a href="#cb4-6"></a>Sep 3 20:15:43 myEC2 apache2[325]: 2026/08/31 09:15:43 [notice] 19325#19325: signal process started</span>
-<span id="cb4-7"><a href="#cb4-7"></a>Sep 3 20:18:33 myEC2 sshd[340]: Failed password for admin from 198.51.100.77 port 44210 ssh2</span>
-<span id="cb4-8"><a href="#cb4-8"></a>Sep 3 20:18:35 myEC2 sshd[340]: Failed password for admin from 198.51.100.77 port 44210 ssh2</span>
-<span id="cb4-9"><a href="#cb4-9"></a>Sep 3 20:18:37 myEC2 sshd[340]: Connection closed by admin 198.51.100.77 port 44210 [preauth]</span>
-<span id="cb4-10"><a href="#cb4-10"></a>Sep 3 20:20:11 myEC2 systemd[1]: mysql.service: Main process exited, code=killed, status=9/KILL</span>
-<span id="cb4-11"><a href="#cb4-11"></a>Sep 3 20:20:12 myEC2 systemd[1]: mysql.service: Scheduled restart job, restart counter is at 1.</span>
-<span id="cb4-12"><a href="#cb4-12"></a>Sep 3 20:20:12 myEC2 systemd[1]: Started MySQL Community Server.</span>
-<span id="cb4-13"><a href="#cb4-13"></a>Sep 3 20:21:00 myEC2 kernel: [2357.4201] Out of memory: Killed process 18122 (java) total-vm:4823012kB</span>
-<span id="cb4-14"><a href="#cb4-14"></a>Sep 3 20:23:15 myEC2 systemd-logind[812]: Session 43 logged out. Waiting for processes to exit.</span>
-<span id="cb4-15"><a href="#cb4-15"></a>Sep 3 21:00:00 myEC2 CRON[8455]: (root) CMD ( cd / &amp;&amp; run-parts --report /etc/cron.daily ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a>Sep 3 20:10:01 myEC2 systemd[1]: Started Session 42 of user root.</span>
+<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a>Sep 3 20:14:17 myEC2 sshd[203]: Accepted publickey for jj from 203.0.113.42 port 51322 ssh2</span>
+<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a>Sep 3 20:14:17 myEC2 sshd[203]: unix(sshd:session): session opened for user jj(uid=1001) by (uid=0)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a>Sep 3 20:14:18 myEC2 systemd-logind[812]: New session 43 of user jj.</span>
+<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>Sep 3 20:15:42 myEC2 sudo[310]: jj: PWD=/home/jj; USER=root; COMMAND=/usr/bin/systemctl restart apache2</span>
+<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>Sep 3 20:15:43 myEC2 apache2[325]: 2026/08/31 09:15:43 [notice] 19325#19325: signal process started</span>
+<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a>Sep 3 20:18:33 myEC2 sshd[340]: Failed password for admin from 198.51.100.77 port 44210 ssh2</span>
+<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a>Sep 3 20:18:35 myEC2 sshd[340]: Failed password for admin from 198.51.100.77 port 44210 ssh2</span>
+<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a>Sep 3 20:18:37 myEC2 sshd[340]: Connection closed by admin 198.51.100.77 port 44210 [preauth]</span>
+<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>Sep 3 20:20:11 myEC2 systemd[1]: mysql.service: Main process exited, code=killed, status=9/KILL</span>
+<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a>Sep 3 20:20:12 myEC2 systemd[1]: mysql.service: Scheduled restart job, restart counter is at 1.</span>
+<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a>Sep 3 20:20:12 myEC2 systemd[1]: Started MySQL Community Server.</span>
+<span id="cb4-13"><a href="#cb4-13" aria-label="13"></a>Sep 3 20:21:00 myEC2 kernel: [2357.4201] Out of memory: Killed process 18122 (java) total-vm:4823012kB</span>
+<span id="cb4-14"><a href="#cb4-14" aria-label="14"></a>Sep 3 20:23:15 myEC2 systemd-logind[812]: Session 43 logged out. Waiting for processes to exit.</span>
+<span id="cb4-15"><a href="#cb4-15" aria-label="15"></a>Sep 3 21:00:00 myEC2 CRON[8455]: (root) CMD ( cd / &amp;&amp; run-parts --report /etc/cron.daily ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="our-bookshelf-from-now-until-december" class="level2 smaller crunch-title title-11">
 <h2 class="smaller crunch-title title-11 anchored" data-anchor-id="our-bookshelf-from-now-until-december">Our Bookshelf From Now Until December 😎</h2>
