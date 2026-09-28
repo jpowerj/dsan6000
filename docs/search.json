@@ -2070,7 +2070,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Separating Data from Computation for Parallel Processing",
     "section": "In Action",
-    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8005 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8226 s",
+    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8214 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8227 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 14</span>"
     ]
@@ -2276,7 +2276,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Separating Data from Computation for Parallel Processing",
     "section": "In Action",
-    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8004 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8237 s"
+    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.7747 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8233 s"
   },
   {
     "objectID": "w03/slides.html#what-is-joblib-doing-here",
@@ -2427,6 +2427,16 @@
     ]
   },
   {
+    "objectID": "w05/index.html#why-mention-sqlite",
+    "href": "w05/index.html#why-mention-sqlite",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "Why Mention SQLite?",
+    "text": "Why Mention SQLite?\n\nNext week, when we dive into AWS Athena (Virtuoso et al. 2021), we will be bridging OLTP and OLAP\nThe more “ambidextrous” you can be – comfortable with both row-based and columnar workflows – the better you’ll be at building and debugging \\(\\text{OLTP} \\overset{\\text{ETL}}{\\longrightarrow} \\text{OLAP}\\) pipelines!",
+    "crumbs": [
+      "Week 5: <span class='sec-w05-date'>Sep 28</span>"
+    ]
+  },
+  {
     "objectID": "w05/index.html#polars-jeffs-mental-model",
     "href": "w05/index.html#polars-jeffs-mental-model",
     "title": "Week 5: From DuckDB to Polars",
@@ -2471,7 +2481,7 @@
     "href": "w05/index.html#references",
     "title": "Week 5: From DuckDB to Polars",
     "section": "References",
-    "text": "References\n\n\nAubury, Simon. 2024. Getting Started with DuckDB: A Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows. Birmingham: Packt Publishing Limited.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.",
+    "text": "References\n\n\nAubury, Simon. 2024. Getting Started with DuckDB: A Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows. Birmingham: Packt Publishing Limited.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nVirtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. Serverless Analytics with Amazon Athena: Query Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure. Packt Publishing Ltd.",
     "crumbs": [
       "Week 5: <span class='sec-w05-date'>Sep 28</span>"
     ]
@@ -2503,6 +2513,13 @@
     "title": "Week 5: From DuckDB to Polars",
     "section": "SQLite: “DuckDB for OLTP”",
     "text": "SQLite: “DuckDB for OLTP”\n\nBoth are simplified in-process DBMSs that connect to a single local file (also both free and open source)\nSQLite optimized for row-oriented, OLTP workloads\nDuckDB optimized for column-oriented, OLAP workloads\nHW6 will give you exposure to both!\n\n SQLite for OLTP ingestion of events\n Athena (coming soon) for “automatic” ETL\n DuckDB for OLAP inference (MLFlow)"
+  },
+  {
+    "objectID": "w05/slides.html#why-mention-sqlite",
+    "href": "w05/slides.html#why-mention-sqlite",
+    "title": "Week 5: From DuckDB to Polars",
+    "section": "Why Mention SQLite?",
+    "text": "Why Mention SQLite?\n\nNext week, when we dive into AWS Athena (Virtuoso et al. 2021), we will be bridging OLTP and OLAP\nThe more “ambidextrous” you can be – comfortable with both row-based and columnar workflows – the better you’ll be at building and debugging \\(\\text{OLTP} \\overset{\\text{ETL}}{\\longrightarrow} \\text{OLAP}\\) pipelines!"
   },
   {
     "objectID": "w05/slides.html#polars-jeffs-mental-model",
@@ -2537,7 +2554,7 @@
     "href": "w05/slides.html#references",
     "title": "Week 5: From DuckDB to Polars",
     "section": "References",
-    "text": "References\n\n\nAubury, Simon. 2024. Getting Started with DuckDB: A Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows. Birmingham: Packt Publishing Limited.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc."
+    "text": "References\n\n\nAubury, Simon. 2024. Getting Started with DuckDB: A Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows. Birmingham: Packt Publishing Limited.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nVirtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. Serverless Analytics with Amazon Athena: Query Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure. Packt Publishing Ltd."
   },
   {
     "objectID": "writeups/new-accounts/index.html",

@@ -136,6 +136,11 @@ format:
   * <i class='bi bi-2-circle'></i> **Athena** (coming soon) for "automatic" ETL
   * <i class='bi bi-3-circle'></i> DuckDB for OLAP inference (MLFlow)
 
+## Why Mention SQLite?
+
+* Next week, when we dive into **AWS Athena** [@virtuoso_serverless_2021], we will be **bridging** OLTP and OLAP
+* The more "ambidextrous" you can be – comfortable with both **row-based** and **columnar** workflows – the better you'll be at **building** and **debugging** $\text{OLTP} \overset{\text{ETL}}{\longrightarrow} \text{OLAP}$ pipelines!
+
 # A Non-Sprinted Introduction to Polars {data-stack-name="Polars"}
 
 * <i class='bi bi-1-circle'></i> Eager vs. Lazy Evaluation

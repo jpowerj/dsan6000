@@ -508,7 +508,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-09-28, 09:23:35 AM</em></p>
+<p><em>Updated 2026-09-28, 03:21:22 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -526,6 +526,7 @@ window.Quarto = {
   <li><a href="#duckdb-buzzwords-leadsto-understanding" id="toc-duckdb-buzzwords-leadsto-understanding" class="nav-link" data-scroll-target="#duckdb-buzzwords-leadsto-understanding">DuckDB: Buzzwords <span class="math inline">\(\leadsto\)</span> Understanding</a></li>
   <li><a href="#duckdb-as-ephemeral-db-in-ram" id="toc-duckdb-as-ephemeral-db-in-ram" class="nav-link" data-scroll-target="#duckdb-as-ephemeral-db-in-ram">DuckDB as <em>Ephemeral</em> DB-In-RAM</a></li>
   <li><a href="#sqlite-duckdb-for-oltp" id="toc-sqlite-duckdb-for-oltp" class="nav-link" data-scroll-target="#sqlite-duckdb-for-oltp">SQLite: “DuckDB for OLTP”</a></li>
+  <li><a href="#why-mention-sqlite" id="toc-why-mention-sqlite" class="nav-link" data-scroll-target="#why-mention-sqlite">Why Mention SQLite?</a></li>
   </ul></li>
   <li><a href="#a-non-sprinted-introduction-to-polars" id="toc-a-non-sprinted-introduction-to-polars" class="nav-link" data-scroll-target="#a-non-sprinted-introduction-to-polars">A Non-Sprinted Introduction to Polars</a>
   <ul class="collapse">
@@ -672,6 +673,13 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
+<section id="why-mention-sqlite" class="level2">
+<h2 class="anchored" data-anchor-id="why-mention-sqlite">Why Mention SQLite?</h2>
+<ul>
+<li>Next week, when we dive into <strong>AWS Athena</strong> <span class="citation" data-cites="virtuoso_serverless_2021">(<a href="#ref-virtuoso_serverless_2021" role="doc-biblioref">Virtuoso et al. 2021</a>)</span>, we will be <strong>bridging</strong> OLTP and OLAP</li>
+<li>The more “ambidextrous” you can be – comfortable with both <strong>row-based</strong> and <strong>columnar</strong> workflows – the better you’ll be at <strong>building</strong> and <strong>debugging</strong> <span class="math inline">\(\text{OLTP} \overset{\text{ETL}}{\longrightarrow} \text{OLAP}\)</span> pipelines!</li>
+</ul>
+</section>
 </section>
 <section id="a-non-sprinted-introduction-to-polars" class="level1" data-stack-name="Polars">
 <h1 data-stack-name="Polars">A Non-Sprinted Introduction to Polars</h1>
@@ -739,6 +747,9 @@ Aubury, Simon. 2024. <em><a href="https://www.dropbox.com/scl/fi/lomueoav9o219qe
 </div>
 <div id="ref-janssens_python_2025" class="csl-entry" role="listitem">
 Janssens, Jeroen, and Thijs Nieuwdorp. 2025. <em><a href="https://www.dropbox.com/scl/fi/xbku8b76x1zd3s6wpjmud/Python-Polars-the-Definitive-Guide.pdf?rlkey=y132hd73541e2mzwb9pppbwhq&amp;dl=1">Python <span>Polars</span>: <span>The Definitive Guide</span>: <span>Transforming</span>, <span>Analyzing</span>, and <span>Visualizing Data</span> with a <span>Fast</span> and <span>Expressive DataFrame API</span></a></em>. O’Reilly Media, Inc.
+</div>
+<div id="ref-virtuoso_serverless_2021" class="csl-entry" role="listitem">
+Virtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. <em><a href="https://www.dropbox.com/scl/fi/lfwe6m2dulm1ugs92rpnj/Serverless-Analytics-with-Amazon-Athena-Anthony-Virtuoso.pdf?rlkey=h0z2g6rkihcnbagcq8386h8ay&amp;dl=1">Serverless <span>Analytics</span> with <span>Amazon Athena</span>: <span>Query</span> Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure</a></em>. Packt Publishing Ltd.
 </div>
 </div>
 
