@@ -60,7 +60,15 @@ format:
 
 :::
 
-# DuckDB &rarr; Polars Roadmap
+# DuckDB $\rightarrow$ Polars Roadmap {.text-75 .crunch-title .title-13}
+
+* DuckDB *nice* to know, but in this class mainly as **intro to querying `.parquet`**
+  
+  *(More advanced DuckDB queries = more advanced SQL; outside scope of class!)*
+* Polars we're learning **for its own sake**: augment Pandas w/**lazy evaluation**
+
+  ![@janssens_python_2025 p. 98, Figure 5.1](images/lazy-frame.png){fig-align="center"}
+
 
 ## HW5: No More Shoving SQL in Python with `"""` {.smaller .crunch-title .title-10}
 
@@ -79,6 +87,9 @@ format:
   * `polars` library specifies which functions "activate" **eager evaluation**
 
 # A Less-Rushed Introduction to DuckDB {data-stack-name="DuckDB"}
+
+* DuckDB = *"SQLite for OLAP (Columnar Patterns)"*
+* SQLite = *"DuckDB for OLTP (Row-Based Patterns)"*
 
 ## DuckDB: Buzzwords $\leadsto$ Understanding {.smaller .crunch-title .title-11 .crunch-p}
 
@@ -127,13 +138,41 @@ format:
 
 # A Non-Sprinted Introduction to Polars {data-stack-name="Polars"}
 
-## Polars (in Jeff's Mental Model) {.crunch-p .crunch-title .crunch-li-10}
+* <i class='bi bi-1-circle'></i> Eager vs. Lazy Evaluation
+* <i class='bi bi-2-circle'></i> Building Expressions
+* <i class='bi bi-3-circle'></i> In-Class Demo!
 
-* **Polars** = Tool written in **Rust** for fast (query-optimized), distributed, `DataFrame`-esque OLAP workflows
-* `polars` = **Python** library for "high-level" (Python-level) interaction with **Polars**
+## Polars (Jeff's Mental Model) {.crunch-p .crunch-title .title-09 .crunch-li-10}
+
+* **Polars** = `DataFrame` library in **Rust** for fast (query-optimized), distributed OLAP workflows
+* `polars` = `DataFrame` library in **Python**, "high-level" (Python-level) "wrapper" around underlying **Polars** code
 * If we want **optimized**, **distributed** processing, we need **lazy execution** (enabling logical $\leadsto$ physical query plan)...
 * Query optimization via lazy execution **not part of `pandas`!**
 * $\implies$ Let's find a lazy-execution-focused library that "feels" as close to Pandas as possible... that's `polars`!
+
+## `pl.DataFrame` vs. `LazyFrame` {.crunch-title .crunch-ul .text-90}
+
+* Polars has **two** "types" of `DataFrames`... "Types" in quotes because, a `LazyFrame` **doesn't actually contain any data!**
+* A `LazyFrame` is a **plan** (using *expressions*) for creating a `pl.DataFrame`
+* Call `lf.show_graph()` to show Polars' **optimized** query plan
+* The special function **`collect()`** is what actually **executes** the plan, **materializing** the result as a `pl.DataFrame`
+
+![@janssens_python_2025 p. 98, Figure 5.1](images/lazy-frame.png){fig-align="center"}
+
+## `LazyFrame`s = "Plans" = Strings of Expressions {.crunch-title .title-10 .smaller}
+
+* Since we're in OLAP mode, we'll almost always be using **columns** as our core objects
+* $\implies$ Most Polars expressions involve `pl.col()`:
+  * `pl.col('*')` is the expression *«all columns»*
+  * `pl.col(pl.String)` is the expression *«all string columns»*
+  * `pl.col('Age')` is the expression *«the column named `'Age'`»*
+  * `pl.col('Age') > 20` is the expression *«the col named `'Age'` is greater than 20»*
+* We then **use** expressions `e` via predicates:
+  * `pl.select(e)` to keep only **columns** matching `e`
+  * `pl.filter(e)` to keep only **rows** matching `e`
+  * `pl.with_columns(e)` to **create new columns** based on `e`
+  * `pl.group_by(e).len()` to **group** based on `e` (then aggregate, here by counting)
+
 
 ## Lab Time!
 

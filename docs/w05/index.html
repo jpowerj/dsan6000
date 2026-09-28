@@ -508,7 +508,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-09-27, 06:14:14 AM</em></p>
+<p><em>Updated 2026-09-28, 09:23:35 AM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -517,7 +517,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#duckdb-polars-roadmap" id="toc-duckdb-polars-roadmap" class="nav-link active" data-scroll-target="#duckdb-polars-roadmap">DuckDB → Polars Roadmap</a>
+  <li><a href="#duckdb-rightarrow-polars-roadmap" id="toc-duckdb-rightarrow-polars-roadmap" class="nav-link active" data-scroll-target="#duckdb-rightarrow-polars-roadmap">DuckDB <span class="math inline">\(\rightarrow\)</span> Polars Roadmap</a>
   <ul class="collapse">
   <li><a href="#hw5-no-more-shoving-sql-in-python-with" id="toc-hw5-no-more-shoving-sql-in-python-with" class="nav-link" data-scroll-target="#hw5-no-more-shoving-sql-in-python-with">HW5: No More Shoving SQL in Python with <code>"""</code></a></li>
   </ul></li>
@@ -529,7 +529,9 @@ window.Quarto = {
   </ul></li>
   <li><a href="#a-non-sprinted-introduction-to-polars" id="toc-a-non-sprinted-introduction-to-polars" class="nav-link" data-scroll-target="#a-non-sprinted-introduction-to-polars">A Non-Sprinted Introduction to Polars</a>
   <ul class="collapse">
-  <li><a href="#polars-in-jeffs-mental-model" id="toc-polars-in-jeffs-mental-model" class="nav-link" data-scroll-target="#polars-in-jeffs-mental-model">Polars (in Jeff’s Mental Model)</a></li>
+  <li><a href="#polars-jeffs-mental-model" id="toc-polars-jeffs-mental-model" class="nav-link" data-scroll-target="#polars-jeffs-mental-model">Polars (Jeff’s Mental Model)</a></li>
+  <li><a href="#pl.dataframe-vs.-lazyframe" id="toc-pl.dataframe-vs.-lazyframe" class="nav-link" data-scroll-target="#pl.dataframe-vs.-lazyframe"><code>pl.DataFrame</code> vs.&nbsp;<code>LazyFrame</code></a></li>
+  <li><a href="#lazyframes-plans-strings-of-expressions" id="toc-lazyframes-plans-strings-of-expressions" class="nav-link" data-scroll-target="#lazyframes-plans-strings-of-expressions"><code>LazyFrame</code>s = “Plans” = Strings of Expressions</a></li>
   <li><a href="#lab-time" id="toc-lab-time" class="nav-link" data-scroll-target="#lab-time">Lab Time!</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
@@ -585,8 +587,19 @@ window.Quarto = {
 <center class="mb-3">
 <a class="h2" href="./slides.html" target="_blank">Open slides in new tab →</a>
 </center>
-<section id="duckdb-polars-roadmap" class="level1">
-<h1>DuckDB → Polars Roadmap</h1>
+<section id="duckdb-rightarrow-polars-roadmap" class="level1 text-75 crunch-title title-13">
+<h1 class="text-75 crunch-title title-13">DuckDB <span class="math inline">\(\rightarrow\)</span> Polars Roadmap</h1>
+<ul>
+<li><p>DuckDB <em>nice</em> to know, but in this class mainly as <strong>intro to querying <code>.parquet</code></strong></p>
+<p><em>(More advanced DuckDB queries = more advanced SQL; outside scope of class!)</em></p></li>
+<li><p>Polars we’re learning <strong>for its own sake</strong>: augment Pandas w/<strong>lazy evaluation</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lazy-frame.png" class="img-fluid figure-img"></p>
+<figcaption><span class="citation" data-cites="janssens_python_2025">Janssens and Nieuwdorp (<a href="#ref-janssens_python_2025" role="doc-biblioref">2025</a>)</span> p.&nbsp;98, Figure 5.1</figcaption>
+</figure>
+</div></li>
+</ul>
 <section id="hw5-no-more-shoving-sql-in-python-with" class="level2 smaller crunch-title title-10">
 <h2 class="smaller crunch-title title-10 anchored" data-anchor-id="hw5-no-more-shoving-sql-in-python-with">HW5: No More Shoving SQL in Python with <code>"""</code></h2>
 <ul>
@@ -610,6 +623,10 @@ window.Quarto = {
 </section>
 <section id="a-less-rushed-introduction-to-duckdb" class="level1" data-stack-name="DuckDB">
 <h1 data-stack-name="DuckDB">A Less-Rushed Introduction to DuckDB</h1>
+<ul>
+<li>DuckDB = <em>“SQLite for OLAP (Columnar Patterns)”</em></li>
+<li>SQLite = <em>“DuckDB for OLTP (Row-Based Patterns)”</em></li>
+</ul>
 <section id="duckdb-buzzwords-leadsto-understanding" class="level2 smaller crunch-title title-11 crunch-p">
 <h2 class="smaller crunch-title title-11 crunch-p anchored" data-anchor-id="duckdb-buzzwords-leadsto-understanding">DuckDB: Buzzwords <span class="math inline">\(\leadsto\)</span> Understanding</h2>
 <blockquote class="blockquote">
@@ -658,14 +675,54 @@ window.Quarto = {
 </section>
 <section id="a-non-sprinted-introduction-to-polars" class="level1" data-stack-name="Polars">
 <h1 data-stack-name="Polars">A Non-Sprinted Introduction to Polars</h1>
-<section id="polars-in-jeffs-mental-model" class="level2 crunch-p crunch-title crunch-li-10">
-<h2 class="crunch-p crunch-title crunch-li-10 anchored" data-anchor-id="polars-in-jeffs-mental-model">Polars (in Jeff’s Mental Model)</h2>
 <ul>
-<li><strong>Polars</strong> = Tool written in <strong>Rust</strong> for fast (query-optimized), distributed, <code>DataFrame</code>-esque OLAP workflows</li>
-<li><code>polars</code> = <strong>Python</strong> library for “high-level” (Python-level) interaction with <strong>Polars</strong></li>
+<li><i class="bi bi-1-circle"></i> Eager vs.&nbsp;Lazy Evaluation</li>
+<li><i class="bi bi-2-circle"></i> Building Expressions</li>
+<li><i class="bi bi-3-circle"></i> In-Class Demo!</li>
+</ul>
+<section id="polars-jeffs-mental-model" class="level2 crunch-p crunch-title title-09 crunch-li-10">
+<h2 class="crunch-p crunch-title title-09 crunch-li-10 anchored" data-anchor-id="polars-jeffs-mental-model">Polars (Jeff’s Mental Model)</h2>
+<ul>
+<li><strong>Polars</strong> = <code>DataFrame</code> library in <strong>Rust</strong> for fast (query-optimized), distributed OLAP workflows</li>
+<li><code>polars</code> = <code>DataFrame</code> library in <strong>Python</strong>, “high-level” (Python-level) “wrapper” around underlying <strong>Polars</strong> code</li>
 <li>If we want <strong>optimized</strong>, <strong>distributed</strong> processing, we need <strong>lazy execution</strong> (enabling logical <span class="math inline">\(\leadsto\)</span> physical query plan)…</li>
 <li>Query optimization via lazy execution <strong>not part of <code>pandas</code>!</strong></li>
 <li><span class="math inline">\(\implies\)</span> Let’s find a lazy-execution-focused library that “feels” as close to Pandas as possible… that’s <code>polars</code>!</li>
+</ul>
+</section>
+<section id="pl.dataframe-vs.-lazyframe" class="level2 crunch-title crunch-ul text-90">
+<h2 class="crunch-title crunch-ul text-90 anchored" data-anchor-id="pl.dataframe-vs.-lazyframe"><code>pl.DataFrame</code> vs.&nbsp;<code>LazyFrame</code></h2>
+<ul>
+<li>Polars has <strong>two</strong> “types” of <code>DataFrames</code>… “Types” in quotes because, a <code>LazyFrame</code> <strong>doesn’t actually contain any data!</strong></li>
+<li>A <code>LazyFrame</code> is a <strong>plan</strong> (using <em>expressions</em>) for creating a <code>pl.DataFrame</code></li>
+<li>Call <code>lf.show_graph()</code> to show Polars’ <strong>optimized</strong> query plan</li>
+<li>The special function <strong><code>collect()</code></strong> is what actually <strong>executes</strong> the plan, <strong>materializing</strong> the result as a <code>pl.DataFrame</code></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lazy-frame.png" class="img-fluid figure-img"></p>
+<figcaption><span class="citation" data-cites="janssens_python_2025">Janssens and Nieuwdorp (<a href="#ref-janssens_python_2025" role="doc-biblioref">2025</a>)</span> p.&nbsp;98, Figure 5.1</figcaption>
+</figure>
+</div>
+</section>
+<section id="lazyframes-plans-strings-of-expressions" class="level2 crunch-title title-10 smaller">
+<h2 class="crunch-title title-10 smaller anchored" data-anchor-id="lazyframes-plans-strings-of-expressions"><code>LazyFrame</code>s = “Plans” = Strings of Expressions</h2>
+<ul>
+<li>Since we’re in OLAP mode, we’ll almost always be using <strong>columns</strong> as our core objects</li>
+<li><span class="math inline">\(\implies\)</span> Most Polars expressions involve <code>pl.col()</code>:
+<ul>
+<li><code>pl.col('*')</code> is the expression <em>«all columns»</em></li>
+<li><code>pl.col(pl.String)</code> is the expression <em>«all string columns»</em></li>
+<li><code>pl.col('Age')</code> is the expression <em>«the column named <code>'Age'</code>»</em></li>
+<li><code>pl.col('Age') &gt; 20</code> is the expression <em>«the col named <code>'Age'</code> is greater than 20»</em></li>
+</ul></li>
+<li>We then <strong>use</strong> expressions <code>e</code> via predicates:
+<ul>
+<li><code>pl.select(e)</code> to keep only <strong>columns</strong> matching <code>e</code></li>
+<li><code>pl.filter(e)</code> to keep only <strong>rows</strong> matching <code>e</code></li>
+<li><code>pl.with_columns(e)</code> to <strong>create new columns</strong> based on <code>e</code></li>
+<li><code>pl.group_by(e).len()</code> to <strong>group</strong> based on <code>e</code> (then aggregate, here by counting)</li>
+</ul></li>
 </ul>
 </section>
 <section id="lab-time" class="level2">
@@ -679,6 +736,9 @@ window.Quarto = {
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-aubury_getting_2024" class="csl-entry" role="listitem">
 Aubury, Simon. 2024. <em><a href="https://www.dropbox.com/scl/fi/lomueoav9o219qeqx9hxt/Getting-Started-with-DuckDB.pdf?rlkey=l3jk9nduj7yr29aq9qrxmjtvk&amp;st=6679rosz&amp;dl=1">Getting <span>Started</span> with <span>DuckDB</span>: <span>A</span> Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows</a></em>. Birmingham: Packt Publishing Limited.
+</div>
+<div id="ref-janssens_python_2025" class="csl-entry" role="listitem">
+Janssens, Jeroen, and Thijs Nieuwdorp. 2025. <em><a href="https://www.dropbox.com/scl/fi/xbku8b76x1zd3s6wpjmud/Python-Polars-the-Definitive-Guide.pdf?rlkey=y132hd73541e2mzwb9pppbwhq&amp;dl=1">Python <span>Polars</span>: <span>The Definitive Guide</span>: <span>Transforming</span>, <span>Analyzing</span>, and <span>Visualizing Data</span> with a <span>Fast</span> and <span>Expressive DataFrame API</span></a></em>. O’Reilly Media, Inc.
 </div>
 </div>
 

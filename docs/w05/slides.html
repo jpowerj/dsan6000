@@ -241,9 +241,19 @@ Jeff Jacobs
   <p class="date">Monday, September 28, 2026</p>
 </section>
 <section>
-<section id="duckdb-polars-roadmap" class="title-slide slide level1 center">
-<h1>DuckDB → Polars Roadmap</h1>
-
+<section id="duckdb-rightarrow-polars-roadmap" class="title-slide slide level1 text-75 crunch-title title-13 center">
+<h1>DuckDB <span class="math inline">\(\rightarrow\)</span> Polars Roadmap</h1>
+<ul>
+<li><p>DuckDB <em>nice</em> to know, but in this class mainly as <strong>intro to querying <code>.parquet</code></strong></p>
+<p><em>(More advanced DuckDB queries = more advanced SQL; outside scope of class!)</em></p></li>
+<li><p>Polars we’re learning <strong>for its own sake</strong>: augment Pandas w/<strong>lazy evaluation</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/lazy-frame.png"></p>
+<figcaption><span class="citation" data-cites="janssens_python_2025">Janssens and Nieuwdorp (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span> p.&nbsp;98, Figure 5.1</figcaption>
+</figure>
+</div></li>
+</ul>
 </section>
 <section id="hw5-no-more-shoving-sql-in-python-with" class="slide level2 smaller crunch-title title-10">
 <h2>HW5: No More Shoving SQL in Python with <code>"""</code></h2>
@@ -268,7 +278,10 @@ Jeff Jacobs
 <section>
 <section id="a-less-rushed-introduction-to-duckdb" class="title-slide slide level1 center" data-stack-name="DuckDB">
 <h1>A Less-Rushed Introduction to DuckDB</h1>
-
+<ul>
+<li>DuckDB = <em>“SQLite for OLAP (Columnar Patterns)”</em></li>
+<li>SQLite = <em>“DuckDB for OLTP (Row-Based Patterns)”</em></li>
+</ul>
 </section>
 <section id="duckdb-buzzwords-leadsto-understanding" class="slide level2 smaller crunch-title title-11 crunch-p">
 <h2>DuckDB: Buzzwords <span class="math inline">\(\leadsto\)</span> Understanding</h2>
@@ -318,16 +331,50 @@ Jeff Jacobs
 <section>
 <section id="a-non-sprinted-introduction-to-polars" class="title-slide slide level1 center" data-stack-name="Polars">
 <h1>A Non-Sprinted Introduction to Polars</h1>
-
-</section>
-<section id="polars-in-jeffs-mental-model" class="slide level2 crunch-p crunch-title crunch-li-10">
-<h2>Polars (in Jeff’s Mental Model)</h2>
 <ul>
-<li><strong>Polars</strong> = Tool written in <strong>Rust</strong> for fast (query-optimized), distributed, <code>DataFrame</code>-esque OLAP workflows</li>
-<li><code>polars</code> = <strong>Python</strong> library for “high-level” (Python-level) interaction with <strong>Polars</strong></li>
+<li><i class="bi bi-1-circle"></i> Eager vs.&nbsp;Lazy Evaluation</li>
+<li><i class="bi bi-2-circle"></i> Building Expressions</li>
+<li><i class="bi bi-3-circle"></i> In-Class Demo!</li>
+</ul>
+</section>
+<section id="polars-jeffs-mental-model" class="slide level2 crunch-p crunch-title title-09 crunch-li-10">
+<h2>Polars (Jeff’s Mental Model)</h2>
+<ul>
+<li><strong>Polars</strong> = <code>DataFrame</code> library in <strong>Rust</strong> for fast (query-optimized), distributed OLAP workflows</li>
+<li><code>polars</code> = <code>DataFrame</code> library in <strong>Python</strong>, “high-level” (Python-level) “wrapper” around underlying <strong>Polars</strong> code</li>
 <li>If we want <strong>optimized</strong>, <strong>distributed</strong> processing, we need <strong>lazy execution</strong> (enabling logical <span class="math inline">\(\leadsto\)</span> physical query plan)…</li>
 <li>Query optimization via lazy execution <strong>not part of <code>pandas</code>!</strong></li>
 <li><span class="math inline">\(\implies\)</span> Let’s find a lazy-execution-focused library that “feels” as close to Pandas as possible… that’s <code>polars</code>!</li>
+</ul>
+</section>
+<section id="pl.dataframe-vs.-lazyframe" class="slide level2 crunch-title crunch-ul text-90">
+<h2><code>pl.DataFrame</code> vs.&nbsp;<code>LazyFrame</code></h2>
+<ul>
+<li>Polars has <strong>two</strong> “types” of <code>DataFrames</code>… “Types” in quotes because, a <code>LazyFrame</code> <strong>doesn’t actually contain any data!</strong></li>
+<li>A <code>LazyFrame</code> is a <strong>plan</strong> (using <em>expressions</em>) for creating a <code>pl.DataFrame</code></li>
+<li>Call <code>lf.show_graph()</code> to show Polars’ <strong>optimized</strong> query plan</li>
+<li>The special function <strong><code>collect()</code></strong> is what actually <strong>executes</strong> the plan, <strong>materializing</strong> the result as a <code>pl.DataFrame</code></li>
+</ul>
+
+<img data-src="images/lazy-frame.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="janssens_python_2025">Janssens and Nieuwdorp (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span> p.&nbsp;98, Figure 5.1</p></section>
+<section id="lazyframes-plans-strings-of-expressions" class="slide level2 crunch-title title-10 smaller">
+<h2><code>LazyFrame</code>s = “Plans” = Strings of Expressions</h2>
+<ul>
+<li>Since we’re in OLAP mode, we’ll almost always be using <strong>columns</strong> as our core objects</li>
+<li><span class="math inline">\(\implies\)</span> Most Polars expressions involve <code>pl.col()</code>:
+<ul>
+<li><code>pl.col('*')</code> is the expression <em>«all columns»</em></li>
+<li><code>pl.col(pl.String)</code> is the expression <em>«all string columns»</em></li>
+<li><code>pl.col('Age')</code> is the expression <em>«the column named <code>'Age'</code>»</em></li>
+<li><code>pl.col('Age') &gt; 20</code> is the expression <em>«the col named <code>'Age'</code> is greater than 20»</em></li>
+</ul></li>
+<li>We then <strong>use</strong> expressions <code>e</code> via predicates:
+<ul>
+<li><code>pl.select(e)</code> to keep only <strong>columns</strong> matching <code>e</code></li>
+<li><code>pl.filter(e)</code> to keep only <strong>rows</strong> matching <code>e</code></li>
+<li><code>pl.with_columns(e)</code> to <strong>create new columns</strong> based on <code>e</code></li>
+<li><code>pl.group_by(e).len()</code> to <strong>group</strong> based on <code>e</code> (then aggregate, here by counting)</li>
+</ul></li>
 </ul>
 </section>
 <section id="lab-time" class="slide level2">
@@ -341,6 +388,9 @@ Jeff Jacobs
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-aubury_getting_2024" class="csl-entry" role="listitem">
 Aubury, Simon. 2024. <em><a href="https://www.dropbox.com/scl/fi/lomueoav9o219qeqx9hxt/Getting-Started-with-DuckDB.pdf?rlkey=l3jk9nduj7yr29aq9qrxmjtvk&amp;st=6679rosz&amp;dl=1">Getting <span>Started</span> with <span>DuckDB</span>: <span>A</span> Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows</a></em>. Birmingham: Packt Publishing Limited.
+</div>
+<div id="ref-janssens_python_2025" class="csl-entry" role="listitem">
+Janssens, Jeroen, and Thijs Nieuwdorp. 2025. <em><a href="https://www.dropbox.com/scl/fi/xbku8b76x1zd3s6wpjmud/Python-Polars-the-Definitive-Guide.pdf?rlkey=y132hd73541e2mzwb9pppbwhq&amp;dl=1">Python <span>Polars</span>: <span>The Definitive Guide</span>: <span>Transforming</span>, <span>Analyzing</span>, and <span>Visualizing Data</span> with a <span>Fast</span> and <span>Expressive DataFrame API</span></a></em>. O’Reilly Media, Inc.
 </div>
 </div>
 
