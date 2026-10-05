@@ -24,6 +24,8 @@ website:
         text: "Resources"
       - href: writeups/index.qmd
         text: "Writeups"
+      - href: midterm.qmd
+        text: "Midterm Prep"
       - "---"
       - href: w01/index.qmd
         text: "Week 1: <span class='sec-w01-date'>Aug 31</span>"
