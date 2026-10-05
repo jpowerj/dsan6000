@@ -1,0 +1,155 @@
+## Agenda
+
+::: {.column width="47%"}
+### Looking Back
+
+* Introduction to cloud
+* Python Multiprocessing
+* DuckDB, Polars
+
+### Future  
+* Project introduction
+* Spark dataframe, ML, NLP
+
+:::
+
+::: {.column width="47%"}
+### Today
+
+* Data Engineering
+  * Data Lakes, Warehouses
+  * NoSQL Databases
+
+* Lab: 
+  * Athena
+  * EC2
+:::
+
+---
+
+## What do Data Engineers do?
+
+Data engineers build systems that collect data from different sources and make this data available for analytics and ML application. This usually involves the following:
+
+- **Acquisition**: Finding all the different datasets around the business.
+  - These could be availble in databases, shared drives, ingested directly from IoT devices, external datasets, and more.
+- **Cleaning**: The raw data usually cannot be used as is, it needs to be cleaned.
+- **Conversion**: Since the data is coming from different sources, it would probably in different formats (database tables, CSV, JSON, custom). Needs to be converted into a common format (such as parquet) before it becomes usable.
+  - Multiple datasets need to be joined together to answer a business question.
+
+---
+
+## Data Engineering Tools and Technologies
+
+Data engineers work with a variety of tools and technologies, including: 
+ 
+- **ETL Tools**: ETL (extract, transform, load) tools move data between systems. They access data, then apply rules to “transform” the data through steps that make it more suitable for analysis.
+- **SQL**: Structured Query Language (SQL) is the standard language for querying relational databases.
+- **Python**: Python is a general programming language. Data engineers may choose to use Python for ETL tasks. Spark (pyspark) for Big Data, Apache Flink for streaming data. 
+- **Cloud Data Storage**: Including Amazon S3, Azure Data Lake Storage (ADLS), Google Cloud Storage, etc.
+- **Cloud Data Warehouses**: Data ready for use by data scientists and analysts is stored in data warehouses, such as Amazon Redshift, Google BigQuery, Azure Data Warehouse, Snowflake etc.
+
+---
+
+## Popular Data engineering tools
+
+![[Source](https://www.secoda.co/blog/the-top-20-most-commonly-used-data-engineering-tools)](images/de-tools.png)
+
+---
+
+## NoSQL Databases
+
+At some point we needed to think beyond relation databases, because:
+
+- Data became more and more complex (not all data is tabular, thinkin JSON data emitted by an IoT device).
+- Cost of storage decreased (everything did not need to be stored in the 3rd normal form)
+- More data on the cloud meant data needed to be placed across different servers (scale-out)
+- Data needed to be placed intelligently in geo locations of interest
+- And more...  
+
+> **[From Wikipedia](https://en.wikipedia.org/wiki/NoSQL)**: A NoSQL (originally referring to "non-SQL" or "non-relational") database provides a mechanism for storage and retrieval of data that is modeled in means other than the tabular relations used in relational databases. Such databases have existed since the late 1960s, but the name "NoSQL" was only coined in the early 21st century, triggered by the needs of Web 2.0 companies. NoSQL databases are increasingly used in big data and real-time web applications. NoSQL systems are also sometimes called Not only SQL to emphasize that they may support SQL-like query languages or sit alongside SQL databases in polyglot-persistent architectures.
+
+## Types of NoSQL Databases
+
+Over time, four major types of NoSQL databases emerged: document databases, key-value databases, wide-column stores, and graph databases. 
+
+- **Document databases** store data in documents similar to JSON (JavaScript Object Notation) objects. Each document contains pairs of fields and values. The values can typically be a variety of types including things like strings, numbers, booleans, arrays, or objects.
+
+- **Key-value databases** are a simpler type of database where each item contains keys and values.
+
+- **Wide-column stores** store data in tables, rows, and dynamic columns.
+
+- **Graph databases** store data in nodes and edges. Nodes typically store information about people, places, and things, while edges store information about the relationships between the nodes.
+
+
+## Examples of NoSQL Databases
+
+|  NOSQL Database Type | Examples   |
+|---|---|
+|  Document Database |  Amazon DocumentDB, MongoDB, Cosmos DB, ArangoDB, Couchbase Server, CouchDB |
+| Key-value Database  | Amazon DynamoDB, Couchbase, Memcached, Redis   |
+|  Wide-column datastores | Amazon DynamoDB, Apache Cassandra, Google Bigtable, Azure Tables   |
+| Graph databases | Amazon Neptune, Neo4j |
+
+As a data scientist you would work with a NoSQL database through an SDK/API. Several programming languages are supported including Python, Java, Go, C++ etc.
+
+## Example of documents in a document database
+
+Here is an example of a document inserted in a key-value/document database such as MongoDB.
+``` {.json code-line-numbers="false"}
+{
+   "name" : "IS 350",
+   "year" : "2015",
+   "make" : "Lexus",
+   "colors" : ["black","white","grey"],
+   "spec" : {
+      "engine" : "V6",
+      "wheelbase" : "110.2 in",
+      "length" : "183.7 in"
+   }
+}
+```
+
+The same example can be inserted in an Amazon DynamoDB table called (say) `Cars`.
+
+``` {.python code-line-numbers="true"}
+database = boto3.resource('dynamodb')
+table = database.Table('cars')
+item = {
+   "name" : "IS 350",
+   "year" : "2015",
+   "make" : "Lexus",
+   "colors" : ["black","white","grey"],
+   "spec" : {
+      "engine" : "V6",
+      "wheelbase" : "110.2 in",
+      "length" : "183.7 in"
+   }
+}
+table.put_item(Item = item)
+```
+
+## Other Data Stores to Know About
+
+Besides the general concepts about data lkakes, warehouses, different types of databases, there are some purpose built databases that are good to know about.
+
+- Splunk
+- Elasticsearch
+- DuckDB
+- Many many more...
+
+## Further Reading
+
+Please lookup these topics on Google for further reading. Not providing specific links here because they all point to vendor specific products.
+
+- Data Catalog
+- Data Governance
+- Data Mesh
+- Data Fabric
+
+---
+
+* A simple example of using DuckDB and Apache Arrow using NYC Taxi dataset
+* This notebook reads the NYC taxi dataset files for the first 6 months of the year 2023 (about ~20 million rows) and runs some analytics operation on this dataset. This dataset is too big to fit into memory.  
+* [GitHub Classroom Link for Lab 5]({{< var gh-classroom.lab05 >}})
+* [GitHub Classroom Link for Assignment 5]({{< var gh-classroom.a05 >}})
