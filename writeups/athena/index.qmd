@@ -1,0 +1,216 @@
+---
+title: "AWS Athena Demo"
+author:
+  - name: "Jeff Jacobs (2026)"
+    email: jj1088@georgetown.edu
+  - name: "Amit Arora (2025)"
+    email: aa1603@georgetown.edu
+  - name: "Dheeraj Oruganty (2024)"
+    email: do343@georgetown.edu
+date: 2026-10-05
+sidebar: mainnav
+categories:
+  - Demos
+assignments:
+  - Homework 6
+format:
+  html:
+    df-print: kable
+    code-fold: show
+    html-math-method: mathjax
+    link-external-newwindow: true
+    link-external-icon: true
+---
+
+## Part 1: Data Preparation
+
+From your EC2 instance terminal, run the following commands to copy the NYC-TLC Dataset into your S3 bucket.
+
+**Important:** Replace `<your-net-id>` with your actual net id (e.g., for net id aa1603, the bucket name will be `athena-aa1603`).
+
+```bash
+# Set your net ID (replace <your-net-id> with your actual net id)
+NETID=<your-net-id>
+BUCKET=athena-$NETID
+
+# Create a new S3 bucket
+aws s3 mb s3://$BUCKET
+
+# Verify that the bucket is created
+aws s3 ls s3://$BUCKET/
+
+# Download NYC TLC dataset directly to your S3 bucket
+# This downloads and uploads files without storing them locally
+wget -qO- https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.parquet \
+  --no-check-certificate | aws s3 cp - s3://$BUCKET/data/2023/yellow_tripdata_2023-01.parquet
+
+# Download data for multiple months (January through June 2023)
+for month in {01..06}; do
+    echo "Downloading data for month $month..."
+    wget -qO- "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-$month.parquet" \
+      --no-check-certificate | aws s3 cp - "s3://$BUCKET/data/2023/yellow_tripdata_2023-$month.parquet"
+done
+
+# Verify all 6 files are uploaded
+aws s3 ls s3://$BUCKET/data/2023/
+```
+
+**Expected Output:**
+```
+2024-09-20 13:51:29   47673370 yellow_tripdata_2023-01.parquet
+2024-09-20 13:51:31   47748012 yellow_tripdata_2023-02.parquet
+2024-09-20 13:51:32   56127762 yellow_tripdata_2023-03.parquet
+2024-09-20 13:51:34   54222699 yellow_tripdata_2023-04.parquet
+2024-09-20 13:51:36   58654627 yellow_tripdata_2023-05.parquet
+2024-09-20 13:51:38   54999465 yellow_tripdata_2023-06.parquet
+```
+
+## Part 2: Amazon Athena with GUI Query Editor
+
+In this part, you will set up Amazon Athena using the AWS Console and execute SQL queries using the GUI query editor.
+
+### Step 1: Setting up AWS Glue Data Catalog
+
+AWS Glue is a serverless data integration service that helps discover and catalog data. We'll use it to create a data catalog for our NYC taxi data stored in S3.
+
+1. Search for `AWS Glue` in the search bar of your AWS console as shown in the figure below. Open Data Catalog and Click on Crawlers
+
+    [![](img/gl0.png)](img/gl0.png)
+
+1. Open Data Catalog and Click on Crawlers. This page should pop up. Click on the Create Crawlers button
+
+    [![](img/gc-1.png)](img/gc-1.png)
+
+1. Enter a Name for your dataset. Leave the description blank. The figure below shows sample text you could use. Once you enter your desired name, scroll down to the next section.
+
+    [![](img/glc-2.png)](img/glc-2.png)
+
+1. Click on Not Yet and select `Add a Data Source`
+
+    [![](img/glc-3.png)](img/glc-3.png)
+
+1. This should pop up, Now select the s3 path where the data is stored as given below.
+
+    [![](img/glc-4.png)](img/glc-4.png)
+
+1. Click on Add S3 Source and this should appear. Click on Next
+
+    [![](img/glc-5.png)](img/glc-5.png)
+
+1. Select IAM role as LabRole as below. Click on Next
+
+    [![](img/glc-6.png)](img/glc-6.png)
+
+1. Now, this screen should appear. Click on Add Database:
+
+    [![](img/glc-7.png)](img/glc-7.png)
+
+1. Follow the steps as below. Click on Create Database.
+    
+    [![](img/glc-8.png)](img/glc-8.png)
+
+1. Go back to the AWS Glue tab and click on refresh. select the database as below. Click on next
+
+    [![](img/glc-9.png)](img/glc-9.png)
+
+1. Now select Create Crawler
+
+    [![](img/glc-10.png)](img/glc-10.png)
+
+1. One Crawler should successfully be created. and you should see this:
+
+    [![](img/glc-11.png)](img/glc-11.png)
+
+1. Now Click on Run Crawler. This screen should appear.
+
+    [![](img/glc-12.png)](img/glc-12.png)
+
+1. After some time, you should see `Crawler successfully starting`
+
+    [![](img/glc-13.png)](img/glc-13.png)
+
+### Step 2: Configuring and Using Amazon Athena
+
+1. Now search for `Athena`. Select Datasources and click on `AWSDataCatalog`
+
+    [![](img/athena-0.png)](img/athena-0.png)
+
+1. Now Click on `nyc_tlc`.
+
+    [![](img/athena-ds-2.png)](img/athena-ds-2.png)
+
+1. You will notice that a table is already created corresponding to our data source (the parquet files in the S3 bucket).
+
+    [![](img/athena-ds-3.png)](img/athena-ds-3.png)
+
+1. Click on the table name (i.e. `2023`). You should see the schema of the table. This schema shows that the data crawler that we ran has read the parquet files in the S3 bucket,
+
+    [![](img/gdc1.png)](img/gdc1.png)
+
+1. Observe the schema for a few seconds, do you notice something wrong? The `airport_fee` column is repeated, so we need to fix this by editing the schema. Click on `Edit schema`.
+
+    [![](img/gdc2.png)](img/gdc2.png)
+
+1. Delete the second occurence of the `airport_fee` field and click on `Save as new table version`.
+
+    [![](img/gdc3.png)](img/gdc3.png)
+
+1. Now we are ready to query the data in this table. Search for `Athena` in services and go to `Query Editor`. However, there is still one last step remaining, Athena stores the results in S3 and we need to set the path in S3 where the results of the queries would be stored. **_Replace the net-id you see in the screenshot with your own net-id_**.
+
+   >We will need to make use of the `data/results` folder when we work with Athena programatically, so make a mental note of it.
+
+   [![](img/athena2.png)](img/athena2.png)
+
+
+1. Type the following query in the Query Editor -> `SELECT count(*) from "AwsDataCatalog"."nyc_tlc"."2023"`. You should see the number of rows as shown in the following screenshot.
+
+    [![](img/athena-qe.png)](img/athena-qe.png)
+
+### Step 3: SQL Queries
+
+Once Amazon Athena is configured, execute the following queries in the Query Editor:
+
+#### Query 1: Count Total Records
+
+```sql
+SELECT count(*) from "AwsDataCatalog"."nyc_tlc"."2023";
+```
+
+#### Query 2: Find Trip Distance Anomalies
+
+```sql
+SELECT * FROM (
+    SELECT
+        t.pulocationid,
+        t.dolocationid,
+        t.tpep_pickup_datetime,
+        t.tpep_dropoff_datetime,
+        t.trip_distance,
+        q1,
+        q2,
+        q3,
+        (q3 - q1) AS iqr,
+        CASE
+            WHEN t.trip_distance < (q1 - 1.5 * (q3 - q1)) OR t.trip_distance > (q3 + 1.5 * (q3 - q1)) THEN 'Anomaly'
+            ELSE 'Normal'
+        END AS trip_distance_anomaly
+    FROM
+        (SELECT
+            approx_percentile(trip_distance, 0.25) AS q1,
+            approx_percentile(trip_distance, 0.5) AS q2,
+            approx_percentile(trip_distance, 0.75) AS q3
+        FROM "AwsDataCatalog"."nyc_tlc"."2023"
+        WHERE trip_distance > 0 AND trip_distance < 100) AS quartiles,
+        "AwsDataCatalog"."nyc_tlc"."2023" AS t
+    WHERE t.trip_distance > 0
+) AS anomaly_detection
+WHERE trip_distance_anomaly = 'Anomaly'
+LIMIT 1000;
+```
+
+## Additional Resources
+
+- [Amazon Athena Documentation](https://docs.aws.amazon.com/athena/)
+- [AWS Glue Documentation](https://docs.aws.amazon.com/glue/)
+- [NYC TLC Trip Record Data Dictionary](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf)
+- [Boto3 Athena Client Documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena.html)

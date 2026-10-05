@@ -26,6 +26,8 @@ format:
       text: |
         <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'>
         <link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='' crossorigin='anonymous' referrerpolicy='no-referrer'></script>
+        <script src='../sidebar.js'></script>
     theme:
       - default
       - "../dsan-globals/jjquarto.scss"
@@ -115,7 +117,7 @@ Once this is done, data may be stored in a central repository such as a **data l
 :::: {layout="[1,1]" layout-valign="center"}
 ::: {#boar-book-left}
 
-* Lakes vs. Warehouses
+* Warehouses vs. Lakes vs. Lakehouses
 * Star Schema
 * Extract-Transform-Load (ETL) Pipelines
 
@@ -127,35 +129,81 @@ Once this is done, data may be stored in a central repository such as a **data l
 :::
 ::::
 
-## The Star Schema {.smaller .crunch-title .crunch-p}
+## Reminder: Telemetry &rarr; Analytics
+
+Recall how many tiny bits of information are **streaming into** a given app's servers at any given time!
+
+> Database administrators therefore **closely guard their OLTP databases**. They are usually **reluctant to let business analysts run ad hoc analytic queries on an OLTP database**, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions. [@kleppmann_designing_2026]
+
+## Data Warehouse (Bill Inmon, 1989) {.crunch-title .text-90}
+
+> Before the data warehouse, the analysis would often occur directly on the source system itself, with the obvious consequence of bogging down production **transactional** databases with long-running queries. The goal of the data warehouse was to separate the **source system [OLTP]** from the **analytical system [OLAP]**. [@reis_fundamentals_2022, p. 295]
+
+> Data in the data warehouse is able to be used for many different purposes, including **sitting and waiting** for future requirements which are unknown today. [@inmon_building_2002]
+
+## Data Warehouse Principles {.crunch-title .text-80 .crunch-ul}
+
+* **Subject-oriented:** Focused on a specific subject area (sales, marketing)
+* **Integrated:** Data from disparate sources is consolidated and normalized
+* **Nonvolatile:** Data remains unchanged once stored
+* **Time-variant:** Varying time ranges can be queried
+
+![@reis_fundamentals_2022, Figure 8-13, p. 297](images/warehouse.png){fig-align="center"}
+
+## Kimball Star Schema {.smaller .crunch-title .crunch-p}
 
 :::: {.columns}
-::: {.column width="65%"}
+::: {.column width="60%"}
 
-![@kleppmann_designing_2026, pp. 77-79](images/star-schema.png){fig-align="center" width="90%"}
+![@kleppmann_designing_2026, pp. 77-79](images/star-schema.png){.lightbox fig-align="center" width="90%"}
 
 :::
-::: {.column width="35%"}
+::: {.column width="40%"}
 
-* In the center: a **single *fact table***
-* Refers out to many **dimension tables**
+<i class='bi bi-1-circle'></i> At center, a **single *fact table*:**
+
+* *Long*, many many rows, as few columns as possible
+* "Single source of truth"
+
+<i class='bi bi-2-circle'></i> Pointers to **dimension tables:**
+
+* *Wide*, many many columns
+* All relevant information about each **value** in the fact table
 
 :::
 ::::
 
-## Telemetry &rarr; Analytics
+## Data Lake {.crunch-title .text-90}
 
-Recall how many tiny bits of information are **streaming into** a given app's servers at any given time!
+* As data scale grows, the "up front" work required to ETL data into warehouses becomes more and more daunting...
+* Data lake = drop stringent requirements of warehouse (structured tables), and just... toss data into **object storage** (**S3 buckets**)!
+* [Jeff's take] Relates to **schema-on-write** vs. **schema-on-read**:
+  * Can't write just anything into warehouse tables, needs to **match schema**
+  * ...But, you **can** write just anything into S3 buckets
+* Tossing stuff into a big lake can lead to **data swamps** 😱 ...Gives rise to **Data Lakehouse** model (Databricks)
 
-> Database administrators therefore **closely guard their OLTP databases**. They are usually **reluctant to let business analysts run ad hoc analytic queries on an OLTP database**, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions.
+## Data Lakehouse (Databricks)
 
-# Athena for EDA on Raw Data! {data-stack-name="Athena"}
+* Still tossing data into "lake"
+* **But**, data platforms like [**Databricks**](https://www.databricks.com/product/data-lakehouse) do extra work to organize it
+* For example: Auto-scan the stuff tossed into the lake to populate **data catalog**
+* ...AWS Glue x AWS Athena = simplest possible version of this automated data cataloging!
 
-## What is the Quickest Possible Way to Explore Data in S3?
+# AWS Athena: "Automated" ETL! {data-stack-name="Athena"}
 
-![From [this video](https://www.youtube.com/watch?v=Wkpl66NaqEA)](images/athena_glue.jpg){fig-align="center"}
+* Carry out analytic queries **directly on S3 buckets!**
 
-## Lab: Analyzing NYC Taxi dataset with Athena {.title-08 .crunch-title}
+## What is the Quickest Possible Way to Explore Data in S3? {.crunch-title}
+
+![From [this video](https://www.youtube.com/watch?v=Wkpl66NaqEA)](images/athena_glue.jpg){fig-align="center" width="90%"}
+
+## Demo: Analyzing NYC Taxi Data with Athena {.crunch-title}
+
+<center>
+
+[AWS Athena Demo](../writeups/athena/index.qmd){.boxed-cb .external}
+
+</center>
 
 ## References
 

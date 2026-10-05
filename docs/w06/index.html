@@ -482,7 +482,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-05, 12:10:45 AM</em></p>
+<p><em>Updated 2026-10-05, 03:13:38 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -498,13 +498,17 @@ window.Quarto = {
   </ul></li>
   <li><a href="#oltp-rightarrow-olap-one-level-deeper" id="toc-oltp-rightarrow-olap-one-level-deeper" class="nav-link" data-scroll-target="#oltp-rightarrow-olap-one-level-deeper">OLTP <span class="math inline">\(\rightarrow\)</span> OLAP: One Level Deeper</a>
   <ul class="collapse">
-  <li><a href="#the-star-schema" id="toc-the-star-schema" class="nav-link" data-scroll-target="#the-star-schema">The Star Schema</a></li>
-  <li><a href="#telemetry-analytics" id="toc-telemetry-analytics" class="nav-link" data-scroll-target="#telemetry-analytics">Telemetry → Analytics</a></li>
+  <li><a href="#reminder-telemetry-analytics" id="toc-reminder-telemetry-analytics" class="nav-link" data-scroll-target="#reminder-telemetry-analytics">Reminder: Telemetry → Analytics</a></li>
+  <li><a href="#data-warehouse-bill-inmon-1989" id="toc-data-warehouse-bill-inmon-1989" class="nav-link" data-scroll-target="#data-warehouse-bill-inmon-1989">Data Warehouse (Bill Inmon, 1989)</a></li>
+  <li><a href="#data-warehouse-principles" id="toc-data-warehouse-principles" class="nav-link" data-scroll-target="#data-warehouse-principles">Data Warehouse Principles</a></li>
+  <li><a href="#kimball-star-schema" id="toc-kimball-star-schema" class="nav-link" data-scroll-target="#kimball-star-schema">Kimball Star Schema</a></li>
+  <li><a href="#data-lake" id="toc-data-lake" class="nav-link" data-scroll-target="#data-lake">Data Lake</a></li>
+  <li><a href="#data-lakehouse-databricks" id="toc-data-lakehouse-databricks" class="nav-link" data-scroll-target="#data-lakehouse-databricks">Data Lakehouse (Databricks)</a></li>
   </ul></li>
-  <li><a href="#athena-for-eda-on-raw-data" id="toc-athena-for-eda-on-raw-data" class="nav-link" data-scroll-target="#athena-for-eda-on-raw-data">Athena for EDA on Raw Data!</a>
+  <li><a href="#aws-athena-automated-etl" id="toc-aws-athena-automated-etl" class="nav-link" data-scroll-target="#aws-athena-automated-etl">AWS Athena: “Automated” ETL!</a>
   <ul class="collapse">
   <li><a href="#what-is-the-quickest-possible-way-to-explore-data-in-s3" id="toc-what-is-the-quickest-possible-way-to-explore-data-in-s3" class="nav-link" data-scroll-target="#what-is-the-quickest-possible-way-to-explore-data-in-s3">What is the Quickest Possible Way to Explore Data in S3?</a></li>
-  <li><a href="#lab-analyzing-nyc-taxi-dataset-with-athena" id="toc-lab-analyzing-nyc-taxi-dataset-with-athena" class="nav-link" data-scroll-target="#lab-analyzing-nyc-taxi-dataset-with-athena">Lab: Analyzing NYC Taxi dataset with Athena</a></li>
+  <li><a href="#demo-analyzing-nyc-taxi-data-with-athena" id="toc-demo-analyzing-nyc-taxi-data-with-athena" class="nav-link" data-scroll-target="#demo-analyzing-nyc-taxi-data-with-athena">Demo: Analyzing NYC Taxi Data with Athena</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -620,7 +624,7 @@ window.Quarto = {
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div id="boar-book-left" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <ul>
-<li>Lakes vs.&nbsp;Warehouses</li>
+<li>Warehouses vs.&nbsp;Lakes vs.&nbsp;Lakehouses</li>
 <li>Star Schema</li>
 <li>Extract-Transform-Load (ETL) Pipelines</li>
 </ul>
@@ -635,49 +639,114 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<section id="the-star-schema" class="level2 smaller crunch-title crunch-p">
-<h2 class="smaller crunch-title crunch-p anchored" data-anchor-id="the-star-schema">The Star Schema</h2>
-<div class="columns">
-<div class="column" style="width:65%;">
+<section id="reminder-telemetry-analytics" class="level2">
+<h2 class="anchored" data-anchor-id="reminder-telemetry-analytics">Reminder: Telemetry → Analytics</h2>
+<p>Recall how many tiny bits of information are <strong>streaming into</strong> a given app’s servers at any given time!</p>
+<blockquote class="blockquote">
+<p>Database administrators therefore <strong>closely guard their OLTP databases</strong>. They are usually <strong>reluctant to let business analysts run ad hoc analytic queries on an OLTP database</strong>, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions. <span class="citation" data-cites="kleppmann_designing_2026">(<a href="#ref-kleppmann_designing_2026" role="doc-biblioref">Kleppmann and Riccomini 2026</a>)</span></p>
+</blockquote>
+</section>
+<section id="data-warehouse-bill-inmon-1989" class="level2 crunch-title text-90">
+<h2 class="crunch-title text-90 anchored" data-anchor-id="data-warehouse-bill-inmon-1989">Data Warehouse (Bill Inmon, 1989)</h2>
+<blockquote class="blockquote">
+<p>Before the data warehouse, the analysis would often occur directly on the source system itself, with the obvious consequence of bogging down production <strong>transactional</strong> databases with long-running queries. The goal of the data warehouse was to separate the <strong>source system [OLTP]</strong> from the <strong>analytical system [OLAP]</strong>. <span class="citation" data-cites="reis_fundamentals_2022">(<a href="#ref-reis_fundamentals_2022" role="doc-biblioref">Reis and Housley 2022, 295</a>)</span></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Data in the data warehouse is able to be used for many different purposes, including <strong>sitting and waiting</strong> for future requirements which are unknown today. <span class="citation" data-cites="inmon_building_2002">(<a href="#ref-inmon_building_2002" role="doc-biblioref">Inmon 1992</a>)</span></p>
+</blockquote>
+</section>
+<section id="data-warehouse-principles" class="level2 crunch-title text-80 crunch-ul">
+<h2 class="crunch-title text-80 crunch-ul anchored" data-anchor-id="data-warehouse-principles">Data Warehouse Principles</h2>
+<ul>
+<li><strong>Subject-oriented:</strong> Focused on a specific subject area (sales, marketing)</li>
+<li><strong>Integrated:</strong> Data from disparate sources is consolidated and normalized</li>
+<li><strong>Nonvolatile:</strong> Data remains unchanged once stored</li>
+<li><strong>Time-variant:</strong> Varying time ranges can be queried</li>
+</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/star-schema.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p><img src="images/warehouse.png" class="img-fluid figure-img"></p>
+<figcaption><span class="citation" data-cites="reis_fundamentals_2022">Reis and Housley (<a href="#ref-reis_fundamentals_2022" role="doc-biblioref">2022</a>)</span>, Figure 8-13, p.&nbsp;297</figcaption>
+</figure>
+</div>
+</section>
+<section id="kimball-star-schema" class="level2 smaller crunch-title crunch-p">
+<h2 class="smaller crunch-title crunch-p anchored" data-anchor-id="kimball-star-schema">Kimball Star Schema</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/star-schema.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="@kleppmann_designing_2026, pp.&nbsp;77-79"><img src="images/star-schema.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="Kleppmann and Riccomini (2026), pp.&nbsp;77-79"></a></p>
+</figure>
+</div>
 <figcaption><span class="citation" data-cites="kleppmann_designing_2026">Kleppmann and Riccomini (<a href="#ref-kleppmann_designing_2026" role="doc-biblioref">2026</a>)</span>, pp.&nbsp;77-79</figcaption>
 </figure>
 </div>
-</div><div class="column" style="width:35%;">
+</div><div class="column" style="width:40%;">
+<p><i class="bi bi-1-circle"></i> At center, a <strong>single <em>fact table</em>:</strong></p>
 <ul>
-<li>In the center: a <strong>single <em>fact table</em></strong></li>
-<li>Refers out to many <strong>dimension tables</strong></li>
+<li><em>Long</em>, many many rows, as few columns as possible</li>
+<li>“Single source of truth”</li>
+</ul>
+<p><i class="bi bi-2-circle"></i> Pointers to <strong>dimension tables:</strong></p>
+<ul>
+<li><em>Wide</em>, many many columns</li>
+<li>All relevant information about each <strong>value</strong> in the fact table</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="telemetry-analytics" class="level2">
-<h2 class="anchored" data-anchor-id="telemetry-analytics">Telemetry → Analytics</h2>
-<p>Recall how many tiny bits of information are <strong>streaming into</strong> a given app’s servers at any given time!</p>
-<blockquote class="blockquote">
-<p>Database administrators therefore <strong>closely guard their OLTP databases</strong>. They are usually <strong>reluctant to let business analysts run ad hoc analytic queries on an OLTP database</strong>, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions.</p>
-</blockquote>
+<section id="data-lake" class="level2 crunch-title text-90">
+<h2 class="crunch-title text-90 anchored" data-anchor-id="data-lake">Data Lake</h2>
+<ul>
+<li>As data scale grows, the “up front” work required to ETL data into warehouses becomes more and more daunting…</li>
+<li>Data lake = drop stringent requirements of warehouse (structured tables), and just… toss data into <strong>object storage</strong> (<strong>S3 buckets</strong>)!</li>
+<li>[Jeff’s take] Relates to <strong>schema-on-write</strong> vs.&nbsp;<strong>schema-on-read</strong>:
+<ul>
+<li>Can’t write just anything into warehouse tables, needs to <strong>match schema</strong></li>
+<li>…But, you <strong>can</strong> write just anything into S3 buckets</li>
+</ul></li>
+<li>Tossing stuff into a big lake can lead to <strong>data swamps</strong> 😱 …Gives rise to <strong>Data Lakehouse</strong> model (Databricks)</li>
+</ul>
+</section>
+<section id="data-lakehouse-databricks" class="level2">
+<h2 class="anchored" data-anchor-id="data-lakehouse-databricks">Data Lakehouse (Databricks)</h2>
+<ul>
+<li>Still tossing data into “lake”</li>
+<li><strong>But</strong>, data platforms like <a href="https://www.databricks.com/product/data-lakehouse"><strong>Databricks</strong></a> do extra work to organize it</li>
+<li>For example: Auto-scan the stuff tossed into the lake to populate <strong>data catalog</strong></li>
+<li>…AWS Glue x AWS Athena = simplest possible version of this automated data cataloging!</li>
+</ul>
 </section>
 </section>
-<section id="athena-for-eda-on-raw-data" class="level1" data-stack-name="Athena">
-<h1 data-stack-name="Athena">Athena for EDA on Raw Data!</h1>
-<section id="what-is-the-quickest-possible-way-to-explore-data-in-s3" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-the-quickest-possible-way-to-explore-data-in-s3">What is the Quickest Possible Way to Explore Data in S3?</h2>
+<section id="aws-athena-automated-etl" class="level1" data-stack-name="Athena">
+<h1 data-stack-name="Athena">AWS Athena: “Automated” ETL!</h1>
+<ul>
+<li>Carry out analytic queries <strong>directly on S3 buckets!</strong></li>
+</ul>
+<section id="what-is-the-quickest-possible-way-to-explore-data-in-s3" class="level2 crunch-title">
+<h2 class="crunch-title anchored" data-anchor-id="what-is-the-quickest-possible-way-to-explore-data-in-s3">What is the Quickest Possible Way to Explore Data in S3?</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/athena_glue.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/athena_glue.jpg" class="img-fluid figure-img" style="width:90.0%"></p>
 <figcaption>From <a href="https://www.youtube.com/watch?v=Wkpl66NaqEA">this video</a></figcaption>
 </figure>
 </div>
 </section>
-<section id="lab-analyzing-nyc-taxi-dataset-with-athena" class="level2 title-08 crunch-title">
-<h2 class="title-08 crunch-title anchored" data-anchor-id="lab-analyzing-nyc-taxi-dataset-with-athena">Lab: Analyzing NYC Taxi dataset with Athena</h2>
+<section id="demo-analyzing-nyc-taxi-data-with-athena" class="level2 crunch-title">
+<h2 class="crunch-title anchored" data-anchor-id="demo-analyzing-nyc-taxi-data-with-athena">Demo: Analyzing NYC Taxi Data with Athena</h2>
+<center>
+<p><a href="../writeups/athena/index.html" class="boxed-cb external">AWS Athena Demo</a></p>
+</center>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-inmon_building_2002" class="csl-entry" role="listitem">
+Inmon, W. H. 1992. <em><a href="https://books.google.com?id=9T6Oe6AujzUC">Building the <span>Data Warehouse</span></a></em>. John Wiley &amp; Sons.
+</div>
 <div id="ref-kleppmann_designing_2026" class="csl-entry" role="listitem">
 Kleppmann, Martin, and Chris Riccomini. 2026. <em><a href="https://www.dropbox.com/scl/fi/8mjmyw4t5l7vuly2mvtl8/Designing-Data-Intensive-Applications.pdf?rlkey=jjxt5z28b14locj4fty7092l3&amp;st=eslkqa3p&amp;dl=1">Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems</a></em>. 2nd edition. Santa Rosa, CA: O’Reilly.
 </div>
