@@ -1,0 +1,8 @@
+
+The first phase of our plan is the "core" ETL pipeline we hope to implement:
+
+* **E**xtracting raw data from New York City's Department of Homeless Services (DHS),
+* **T**ransforming it into machine-readable form, and
+* **L**oading it into a database of daily shelter counts.
+
+We will then query this database – our "single source of truth" – to obtain always-up-to-date feature values to use as inputs to an **ML model** whose goal is to improve the provision of shelter and food, the regulation of temperature, and the access to power and digital connections that these shelters currently work to provide, albeit with limited resources and a lack of AI-optimized infrastructural systems or new sustainable synthetic materials.

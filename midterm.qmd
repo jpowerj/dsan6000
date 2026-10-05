@@ -8,4 +8,50 @@ format:
     df-print: kable
 ---
 
-**Coming Soon!**
+::: {.callout-warning title="Under Construction"}
+
+You are reading an **early draft** of the Practice Midterm! I want to make it available for eager beavers who are particularly worried about what the Midterm might look like, but I will announce over Canvas (and remove this message) when the final version is ready for you to work through.
+
+:::
+
+The purpose of the DSAN 6000 in-class midterm is twofold:
+
+* First, to assess your comprehension of the course topics from Weeks 1 through 8, and their interrelationships, as they relate to the goals of modern data-driven organizations
+* Second, to perform this assessment not in the abstract but via the development of a **concrete plan** that will then serve as a key step in your Final Project!
+
+For the **Practice Midterm** here, however, we will be using a **sample project**, as a simulation of the type of project you might brainstorm on your own in the weeks leading up to the Midterm. The vignette describing this project is as follows:
+
+## Sample Project Vignette
+
+In his final book, 2024's Genesis: Artificial Intelligence, Hope, and the Human Spirit, tech visionary Henry Kissinger joined forces with former Google CEO Eric Schmidt and a third guy to explore how AI "enables the achievement of higher, more difficult, and grander problems than those currently solvable by the human brain" (40). With their trademark concern for the disadvantaged, Kissinger and friends describe an exhilarating technology-driven future, wherein
+
+> *"Distributed AI systems might be designed to connect, via mass-manufactured robots and AI-optimized infrastructural systems, to the unconnected [...] enabling the provision of food, clothing, and shelter to the half of humanity that still lacks those basic necessities. Alternatively, using new sustainable synthetic materials, AIs could build cities around the world to provide shelter, regulate temperature, ensure access to power and digital connections, and provide clean water, food, medicine, and sanitation."* (113)
+
+How might we take some initial steps towards this brighter horizon, with its AI versions of already-existing-but-underfunded institutions like food banks and homeless shelters? In this project we will focus on the latter institutions, by overhaulting New York City's current Homeless Shelter [**Data Portal**](https://www.nyc.gov/site/dhs/about/stats-and-reports.page).
+
+As it is currently set up, the portal is not very amenable to the types of modern data-analytic tasks that data scientists carry out on a day-to-day basis: Daily data is simply entered into a shared Excel spreadsheet at each shelter location, and then the spreadsheet contents are exported to PDF once per day, at the following URL:
+
+> https://www.nyc.gov/assets/dhs/downloads/pdf/dailyreport.pdf
+
+The PDF at this URL is then **overwritten** each day, so that statistics from prior days are no longer available after 24 hours: after this window of time, only **aggregate** monthly data is available (via the monthly reports accessible via the earlier link to the data portal).
+
+The first phase of our plan is thus to implement an **OLTP** infrastructure, enabling each shelter to record **events** – e.g., entry, exit, and transfer of individuals and families – into an OLTP database.
+
+Next, we will need some way to ensure that data from this OLTP infrastructure **flows** into a downstream OLAP-friendly format, so that our data scientists can derive core **insights**: which shelters tend to be most full on which days, for example, or which are more likely to have vegan-friendly or gluten-free food on a given day, which have more vacancies for individuals vs. vacancies for families, and so on.
+
+Then, to actually **carry out** the computation to derive these insights, we need to use some technology that is optimized for OLAP workflows.
+
+Finally, we will need some way of deriving **reports** and **visualizations** of the answers to these questions!
+
+## Question 1: OLTP Infrastructure
+
+## Question 2: Ingesting, Transforming, and Loading OLTP Snapshots
+
+## Question 3: OLAP Infrastructure
+
+## Question 4: Querying OLAP Data
+
+## Question 5: Scaling OLAP Queries
+
+## Question 6: Serving and Reporting Our Scaled OLAP Query Results
+

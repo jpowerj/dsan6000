@@ -431,12 +431,24 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-05, 03:13:38 PM</em></p>
+<p><em>Updated 2026-10-05, 07:26:25 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sample-project-vignette" id="toc-sample-project-vignette" class="nav-link active" data-scroll-target="#sample-project-vignette">Sample Project Vignette</a></li>
+  <li><a href="#question-1-oltp-infrastructure" id="toc-question-1-oltp-infrastructure" class="nav-link" data-scroll-target="#question-1-oltp-infrastructure">Question 1: OLTP Infrastructure</a></li>
+  <li><a href="#question-2-ingesting-transforming-and-loading-oltp-snapshots" id="toc-question-2-ingesting-transforming-and-loading-oltp-snapshots" class="nav-link" data-scroll-target="#question-2-ingesting-transforming-and-loading-oltp-snapshots">Question 2: Ingesting, Transforming, and Loading OLTP Snapshots</a></li>
+  <li><a href="#question-3-olap-infrastructure" id="toc-question-3-olap-infrastructure" class="nav-link" data-scroll-target="#question-3-olap-infrastructure">Question 3: OLAP Infrastructure</a></li>
+  <li><a href="#question-4-querying-olap-data" id="toc-question-4-querying-olap-data" class="nav-link" data-scroll-target="#question-4-querying-olap-data">Question 4: Querying OLAP Data</a></li>
+  <li><a href="#question-5-scaling-olap-queries" id="toc-question-5-scaling-olap-queries" class="nav-link" data-scroll-target="#question-5-scaling-olap-queries">Question 5: Scaling OLAP Queries</a></li>
+  <li><a href="#question-6-serving-and-reporting-our-scaled-olap-query-results" id="toc-question-6-serving-and-reporting-our-scaled-olap-query-results" class="nav-link" data-scroll-target="#question-6-serving-and-reporting-our-scaled-olap-query-results">Question 6: Serving and Reporting Our Scaled OLAP Query Results</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/midterm.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -461,9 +473,62 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>Coming Soon!</strong></p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Under Construction">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Under Construction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You are reading an <strong>early draft</strong> of the Practice Midterm! I want to make it available for eager beavers who are particularly worried about what the Midterm might look like, but I will announce over Canvas (and remove this message) when the final version is ready for you to work through.</p>
+</div>
+</div>
+<p>The purpose of the DSAN 6000 in-class midterm is twofold:</p>
+<ul>
+<li>First, to assess your comprehension of the course topics from Weeks 1 through 8, and their interrelationships, as they relate to the goals of modern data-driven organizations</li>
+<li>Second, to perform this assessment not in the abstract but via the development of a <strong>concrete plan</strong> that will then serve as a key step in your Final Project!</li>
+</ul>
+<p>For the <strong>Practice Midterm</strong> here, however, we will be using a <strong>sample project</strong>, as a simulation of the type of project you might brainstorm on your own in the weeks leading up to the Midterm. The vignette describing this project is as follows:</p>
+<section id="sample-project-vignette" class="level2">
+<h2 class="anchored" data-anchor-id="sample-project-vignette">Sample Project Vignette</h2>
+<p>In his final book, 2024’s Genesis: Artificial Intelligence, Hope, and the Human Spirit, tech visionary Henry Kissinger joined forces with former Google CEO Eric Schmidt and a third guy to explore how AI “enables the achievement of higher, more difficult, and grander problems than those currently solvable by the human brain” (40). With their trademark concern for the disadvantaged, Kissinger and friends describe an exhilarating technology-driven future, wherein</p>
+<blockquote class="blockquote">
+<p><em>“Distributed AI systems might be designed to connect, via mass-manufactured robots and AI-optimized infrastructural systems, to the unconnected […] enabling the provision of food, clothing, and shelter to the half of humanity that still lacks those basic necessities. Alternatively, using new sustainable synthetic materials, AIs could build cities around the world to provide shelter, regulate temperature, ensure access to power and digital connections, and provide clean water, food, medicine, and sanitation.”</em> (113)</p>
+</blockquote>
+<p>How might we take some initial steps towards this brighter horizon, with its AI versions of already-existing-but-underfunded institutions like food banks and homeless shelters? In this project we will focus on the latter institutions, by overhaulting New York City’s current Homeless Shelter <a href="https://www.nyc.gov/site/dhs/about/stats-and-reports.page"><strong>Data Portal</strong></a>.</p>
+<p>As it is currently set up, the portal is not very amenable to the types of modern data-analytic tasks that data scientists carry out on a day-to-day basis: Daily data is simply entered into a shared Excel spreadsheet at each shelter location, and then the spreadsheet contents are exported to PDF once per day, at the following URL:</p>
+<blockquote class="blockquote">
+<p>https://www.nyc.gov/assets/dhs/downloads/pdf/dailyreport.pdf</p>
+</blockquote>
+<p>The PDF at this URL is then <strong>overwritten</strong> each day, so that statistics from prior days are no longer available after 24 hours: after this window of time, only <strong>aggregate</strong> monthly data is available (via the monthly reports accessible via the earlier link to the data portal).</p>
+<p>The first phase of our plan is thus to implement an <strong>OLTP</strong> infrastructure, enabling each shelter to record <strong>events</strong> – e.g., entry, exit, and transfer of individuals and families – into an OLTP database.</p>
+<p>Next, we will need some way to ensure that data from this OLTP infrastructure <strong>flows</strong> into a downstream OLAP-friendly format, so that our data scientists can derive core <strong>insights</strong>: which shelters tend to be most full on which days, for example, or which are more likely to have vegan-friendly or gluten-free food on a given day, which have more vacancies for individuals vs.&nbsp;vacancies for families, and so on.</p>
+<p>Then, to actually <strong>carry out</strong> the computation to derive these insights, we need to use some technology that is optimized for OLAP workflows.</p>
+<p>Finally, we will need some way of deriving <strong>reports</strong> and <strong>visualizations</strong> of the answers to these questions!</p>
+</section>
+<section id="question-1-oltp-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-oltp-infrastructure">Question 1: OLTP Infrastructure</h2>
+</section>
+<section id="question-2-ingesting-transforming-and-loading-oltp-snapshots" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-ingesting-transforming-and-loading-oltp-snapshots">Question 2: Ingesting, Transforming, and Loading OLTP Snapshots</h2>
+</section>
+<section id="question-3-olap-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="question-3-olap-infrastructure">Question 3: OLAP Infrastructure</h2>
+</section>
+<section id="question-4-querying-olap-data" class="level2">
+<h2 class="anchored" data-anchor-id="question-4-querying-olap-data">Question 4: Querying OLAP Data</h2>
+</section>
+<section id="question-5-scaling-olap-queries" class="level2">
+<h2 class="anchored" data-anchor-id="question-5-scaling-olap-queries">Question 5: Scaling OLAP Queries</h2>
+</section>
+<section id="question-6-serving-and-reporting-our-scaled-olap-query-results" class="level2">
+<h2 class="anchored" data-anchor-id="question-6-serving-and-reporting-our-scaled-olap-query-results">Question 6: Serving and Reporting Our Scaled OLAP Query Results</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -891,4 +956,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/midterm.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/midterm.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
