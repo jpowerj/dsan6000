@@ -1,0 +1,18 @@
+---
+title: "Banking77 Fraud Detection"
+sidebar: mainnav
+datatypes:
+  - "Numeric"
+  - "Datetime"
+  - "Text"
+  - "Location"
+categories:
+  - "Banking / Finance"
+methods:
+  - "Polars"
+  - "DuckDB"
+format:
+  html: default
+---
+
+ACLED

@@ -1,0 +1,18 @@
+---
+title: "ACLED Event Data"
+sidebar: mainnav
+datatypes:
+  - "Numeric"
+  - "Datetime"
+  - "Text"
+  - "Location"
+categories:
+  - "International Relations"
+methods:
+  - "Polars"
+  - "DuckDB"
+format:
+  html: default
+---
+
+ACLED

@@ -1,0 +1,33 @@
+---
+title: "Final Project"
+sidebar: mainnav
+bibliography: "../_DSAN6000.bib"
+csl: "../chicago-17-no-url.csl"
+listing:
+  sort-ui: false
+  filter-ui: false
+  id: final-datasets
+  type: table
+  categories: true
+  fields:
+    - title
+    - datatypes
+    # - methods
+    - categories
+  field-display-names: 
+    title: "Title"
+    # methods: "Class Topic Emphases"
+    datatypes: "Main Datatypes"
+    categories: "Application Areas"
+  sort: "title asc"
+  table-hover: true
+format:
+  html:
+    df-print: kable
+---
+
+## Pre-Approved Datasets
+
+::: {#final-datasets}
+:::
+

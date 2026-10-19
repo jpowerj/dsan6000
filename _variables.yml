@@ -32,11 +32,11 @@ weeks:
   date-md: "Oct 5"
 - weeknum: 7
   title: "Introduction to Spark"
-  footer: "DSAN 6000 Week 7: Spark Clusters"
+  footer: "DSAN 6000 Week 7: Intro to Spark"
   date-md: "Oct 19"
 - weeknum: 8
-  title: "SparkML, SparkNLP"
-  footer: "DSAN 6000 Week 8: SparkML, SparkNLP"
+  title: "Spark MLLib, SparkNLP"
+  footer: "DSAN 6000 Week 8: Spark MLLib, SparkNLP"
   date-md: "Oct 26"
 - weeknum: 9
   title: "In-Class Midterm"

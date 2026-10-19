@@ -1,0 +1,15 @@
+---
+title: "High-Resolution Settlement Layer (HRSL) Estimates"
+sidebar: mainnav
+datatypes:
+  - "Location"
+  - "Numeric"
+categories:
+  - "Geographic Information Systems (GIS)"
+methods:
+  - Athena
+format:
+  html: default
+---
+
+HRSL

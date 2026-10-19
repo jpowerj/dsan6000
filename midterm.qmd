@@ -6,6 +6,7 @@ csl: "chicago-17-no-url.csl"
 format:
   html:
     df-print: kable
+  pdf: default
 ---
 
 ::: {.callout-warning title="Under Construction"}
@@ -21,9 +22,19 @@ The purpose of the DSAN 6000 in-class midterm is twofold:
 
 For the **Practice Midterm** here, however, we will be using a **sample project**, as a simulation of the type of project you might brainstorm on your own in the weeks leading up to the Midterm. The vignette describing this project is as follows:
 
-## Sample Project Vignette
+## Sample Project Vignettes
 
-In his final book, 2024's Genesis: Artificial Intelligence, Hope, and the Human Spirit, tech visionary Henry Kissinger joined forces with former Google CEO Eric Schmidt and a third guy to explore how AI "enables the achievement of higher, more difficult, and grander problems than those currently solvable by the human brain" (40). With their trademark concern for the disadvantaged, Kissinger and friends describe an exhilarating technology-driven future, wherein
+:::: {.panel-tabset group="topic"}
+
+### Healthcare
+
+Healthcare
+
+### Banking, Finance, and Retail Analysis
+
+### Public Infrastructure
+
+In his final book, 2024's *Genesis: Artificial Intelligence, Hope, and the Human Spirit*, tech visionary Henry Kissinger joined forces with former Google CEO Eric Schmidt and a third guy to explore how AI "enables the achievement of higher, more difficult, and grander problems than those currently solvable by the human brain" (40). With their trademark concern for the disadvantaged, Kissinger and friends describe an exhilarating technology-driven future, wherein
 
 > *"Distributed AI systems might be designed to connect, via mass-manufactured robots and AI-optimized infrastructural systems, to the unconnected [...] enabling the provision of food, clothing, and shelter to the half of humanity that still lacks those basic necessities. Alternatively, using new sustainable synthetic materials, AIs could build cities around the world to provide shelter, regulate temperature, ensure access to power and digital connections, and provide clean water, food, medicine, and sanitation."* (113)
 
@@ -31,7 +42,7 @@ How might we take some initial steps towards this brighter horizon, with its AI 
 
 As it is currently set up, the portal is not very amenable to the types of modern data-analytic tasks that data scientists carry out on a day-to-day basis: Daily data is simply entered into a shared Excel spreadsheet at each shelter location, and then the spreadsheet contents are exported to PDF once per day, at the following URL:
 
-> https://www.nyc.gov/assets/dhs/downloads/pdf/dailyreport.pdf
+> [**https://www.nyc.gov/assets/dhs/downloads/pdf/dailyreport.pdf**](https://www.nyc.gov/assets/dhs/downloads/pdf/dailyreport.pdf)
 
 The PDF at this URL is then **overwritten** each day, so that statistics from prior days are no longer available after 24 hours: after this window of time, only **aggregate** monthly data is available (via the monthly reports accessible via the earlier link to the data portal).
 
@@ -43,7 +54,23 @@ Then, to actually **carry out** the computation to derive these insights, we nee
 
 Finally, we will need some way of deriving **reports** and **visualizations** of the answers to these questions!
 
+::::
+
 ## Question 1: OLTP Infrastructure
+
+:::: {.panel-tabset group="topic"}
+
+### Healthcare
+
+Healthcare
+
+### Banking, Finance, and Retail Analysis
+
+Banking
+
+### Public Infrastructure
+
+::::
 
 ## Question 2: Ingesting, Transforming, and Loading OLTP Snapshots
 

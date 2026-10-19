@@ -1,0 +1,16 @@
+---
+title: "NYC Homeless Shelter Reportss"
+sidebar: mainnav
+datatypes:
+  - "Numeric"
+  - "Datetime"
+categories:
+  - "Management Consulting"
+  - "Logistics / Infrastructure"
+methods:
+  - "ETL Pipelines"
+format:
+  html: default
+---
+
+NYC

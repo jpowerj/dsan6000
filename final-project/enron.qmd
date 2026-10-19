@@ -1,0 +1,14 @@
+---
+title: "Enron Email Corpus"
+sidebar: mainnav
+categories:
+  - "Management Consulting"
+datatypes:
+  - "Text"
+  - "Datetime"
+  - "Directed Network"
+format:
+  html: default
+---
+
+Enron

@@ -1,16 +1,5 @@
 [
   {
-    "listing": "/writeups/index.html",
-    "items": [
-      "/writeups/ec2/index.html",
-      "/writeups/s3/index.html",
-      "/writeups/new-accounts/index.html",
-      "/writeups/sql-guide/index.html",
-      "/writeups/athena/index.html",
-      "/writeups/manual-spark-cluster/index.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/w01/index.html",
@@ -26,6 +15,31 @@
       "/w11/index.html",
       "/w12/index.html",
       "/w13/index.html"
+    ]
+  },
+  {
+    "listing": "/writeups/index.html",
+    "items": [
+      "/writeups/ec2/index.html",
+      "/writeups/s3/index.html",
+      "/writeups/new-accounts/index.html",
+      "/writeups/sql-guide/index.html",
+      "/writeups/athena/index.html",
+      "/writeups/manual-spark-cluster/index.html"
+    ]
+  },
+  {
+    "listing": "/final-project/index.html",
+    "items": [
+      "/final-project/acled.html",
+      "/final-project/banking77.html",
+      "/final-project/enron.html",
+      "/final-project/hrsl.html",
+      "/final-project/nyc-shelters.html",
+      "/final-project/supreme-court.html",
+      "/final-project/healthcare.html",
+      "/final-project/comtrade.html",
+      "/final-project/wikipedia.html"
     ]
   }
 ]
