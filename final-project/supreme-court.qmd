@@ -1,13 +1,13 @@
 ---
 title: "Supreme Court Discussions"
 sidebar: mainnav
-datatypes:
-  - "Text"
-  - "Person"
 categories:
   - "Law"
   - "Politics"
   - "Discourse Analysis"
+datatypes:
+  - "Text"
+  - "Person"
 format:
   html: default
 ---

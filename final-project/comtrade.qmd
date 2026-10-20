@@ -1,13 +1,13 @@
 ---
 title: "UN Comtrade Database"
 sidebar: mainnav
+categories:
+  - "Economics"
+  - "Political Economy"
 datatypes:
   - "Numeric"
   - "Location"
   - "Network"
-categories:
-  - "Economics"
-  - "Political Economy"
 format:
   html: default
 ---

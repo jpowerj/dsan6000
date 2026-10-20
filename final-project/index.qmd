@@ -1,5 +1,5 @@
 ---
-title: "Final Project"
+title: "Midterm &rarr; Final Project Datasets"
 sidebar: mainnav
 bibliography: "../_DSAN6000.bib"
 csl: "../chicago-17-no-url.csl"

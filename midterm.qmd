@@ -15,7 +15,12 @@ You are reading an **early draft** of the Practice Midterm! I want to make it av
 
 :::
 
-The purpose of the DSAN 6000 in-class midterm is twofold:
+The **in-class midterm** will be held on the following days, based on your section:
+
+* **Section 01:** Monday, November 2, 2026
+* **Section 02:** Thursday, November 5, 2026
+
+The purpose of the midterm is twofold:
 
 * First, to assess your comprehension of the course topics from Weeks 1 through 8, and their interrelationships, as they relate to the goals of modern data-driven organizations
 * Second, to perform this assessment not in the abstract but via the development of a **concrete plan** that will then serve as a key step in your Final Project!

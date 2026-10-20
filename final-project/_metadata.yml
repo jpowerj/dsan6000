@@ -1,0 +1,6 @@
+sidebar: mainnav
+format:
+  html:
+    code-fold: show
+    template-partials:
+      - title-block.html

@@ -6,11 +6,6 @@ categories:
 datatypes:
   - "Numeric"
   - "Text"
-methods:
-  - "DuckDB"
-  - "Polars"
-  - "Map-Reduce"
-  - "Spark"
 format:
   html: default
 ---

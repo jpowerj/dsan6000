@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NYC Homeless Shelter Reportss – DSAN 6000: Big Data and Cloud Computing</title>
+<title>NYC Homeless Shelter Reports – DSAN 6000: Big Data and Cloud Computing</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -48,9 +83,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c4be25393946f74289422ee4c198210d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-7f9e61f1d016b8962716e42606c55401.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-c4be25393946f74289422ee4c198210d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-912ded09c68d16aea39e73d51e1ad9a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-d4d75af031a5f8911a7e193b677b21c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-912ded09c68d16aea39e73d51e1ad9a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -443,12 +478,20 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-19, 03:24:12 PM</em></p>
+<p><em>Updated 2026-10-19, 09:24:43 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#midterm-vignette" id="toc-midterm-vignette" class="nav-link active" data-scroll-target="#midterm-vignette">Midterm Vignette</a></li>
+  <li><a href="#data-vignette-nyc-homeless-shelters" id="toc-data-vignette-nyc-homeless-shelters" class="nav-link" data-scroll-target="#data-vignette-nyc-homeless-shelters">Data Vignette: NYC Homeless Shelters</a></li>
+  <li><a href="#question-1-starter-oltp-infrastructure" id="toc-question-1-starter-oltp-infrastructure" class="nav-link" data-scroll-target="#question-1-starter-oltp-infrastructure">Question 1 Starter: OLTP Infrastructure</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/final-project/nyc-shelters.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -456,12 +499,20 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">NYC Homeless Shelter Reportss</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Management Consulting</div>
+<h1 class="title">NYC Homeless Shelter Reports</h1>
+    <div class="quarto-title-meta-heading">Application Areas</div>
+<div class="cat-title">
+<div class="quarto-categories">
+    <div class="quarto-category">Consulting</div>
     <div class="quarto-category">Logistics / Infrastructure</div>
   </div>
+</div>
+    <div class="quarto-title-meta-heading">Datatypes</div>
+<div class="quarto-datatypes">
+    <div class="quarto-datatype">Numeric</div>
+    <div class="quarto-datatype">Datetime</div>
   </div>
+</div>
 
 
 
@@ -477,9 +528,43 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>NYC</p>
+<section id="midterm-vignette" class="level2">
+<h2 class="anchored" data-anchor-id="midterm-vignette">Midterm Vignette</h2>
+<hr>
+<p>title: “Data Vignette: NYC Homeless Shelters” format: html: default —</p>
+</section>
+<section id="data-vignette-nyc-homeless-shelters" class="level2">
+<h2 class="anchored" data-anchor-id="data-vignette-nyc-homeless-shelters">Data Vignette: NYC Homeless Shelters</h2>
+<p>In his final book, 2024’s <em>Genesis: Artificial Intelligence, Hope, and the Human Spirit</em>, tech visionary Henry Kissinger joined forces with former Google CEO Eric Schmidt and a third guy to explore how AI “enables the achievement of higher, more difficult, and grander problems than those currently solvable by the human brain” (40). With their trademark concern for the disadvantaged, Kissinger and friends describe an exhilarating technology-driven future, wherein</p>
+<blockquote class="blockquote">
+<p><em>“Distributed AI systems might be designed to connect, via mass-manufactured robots and AI-optimized infrastructural systems, to the unconnected […] enabling the provision of food, clothing, and shelter to the half of humanity that still lacks those basic necessities. Alternatively, using new sustainable synthetic materials, AIs could build cities around the world to provide shelter, regulate temperature, ensure access to power and digital connections, and provide clean water, food, medicine, and sanitation.”</em> (113)</p>
+</blockquote>
+<p>How might we take some initial steps towards this brighter horizon, with its AI versions of already-existing-but-underfunded institutions like food banks and homeless shelters? In this project we will focus on the latter institutions, by overhaulting New York City’s current Homeless Shelter <a href="https://www.nyc.gov/site/dhs/about/stats-and-reports.page"><strong>Data Portal</strong></a>.</p>
+<p>As it is currently set up, the portal is not very amenable to the types of modern data-analytic tasks that data scientists carry out on a day-to-day basis: Daily data is simply entered into a shared Excel spreadsheet at each shelter location, and then the spreadsheet contents are <strong>aggregated</strong> into totals (rather than entries/exits) and exported to PDF once per day, at the following URL:</p>
+<blockquote class="blockquote">
+<p><a href="https://www.nyc.gov/assets/dhs/downloads/pdf/dailyreport.pdf"><strong>https://www.nyc.gov/assets/dhs/downloads/pdf/dailyreport.pdf</strong></a></p>
+</blockquote>
+<p>The PDF at this URL is then <strong>overwritten</strong> each day, so that statistics from prior days are no longer available after 24 hours: after this window of time, only <strong>aggregate</strong> monthly data is available (via the monthly reports accessible via the earlier link to the data portal).</p>
+<p>The first phase of our plan is thus to implement an <strong>OLTP</strong> infrastructure, enabling each shelter to record <strong>events</strong> – e.g., entry, exit, and transfer of individuals and families – into an OLTP database.</p>
+<p>Next, we will need some way to ensure that data from this OLTP infrastructure <strong>flows</strong> into a downstream OLAP-friendly format, so that our data scientists can derive core <strong>insights</strong>: which shelters tend to be most full on which days, for example, or which are more likely to have vegan-friendly or gluten-free food on a given day, which have more vacancies for individuals vs.&nbsp;vacancies for families, and so on.</p>
+<p>Then, to actually <strong>carry out</strong> the computation to derive these insights, we need to use some technology that is optimized for OLAP workflows.</p>
+<p>Finally, we will need some way of deriving <strong>reports</strong> and <strong>visualizations</strong> of the answers to these questions!</p>
+</section>
+<section id="question-1-starter-oltp-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-starter-oltp-infrastructure">Question 1 Starter: OLTP Infrastructure</h2>
+<p>As mentioned in the vignette, although the <strong>nightly PDF report</strong> contains aggregate counts of the number of men, women, and children across all shelters, this is [technically, in our terminology] the <strong>OLAP</strong> form of the data as it currently exists.</p>
+<p>The <strong>OLTP</strong> format — the form of the data as it is originally <strong>recorded</strong> — consists of <strong>entry</strong> and <strong>exit records</strong>, along with the timestamp of when the event was recorded. A small sample of this OLTP data is as follows:</p>
+<div id="f4338c37" class="cell" data-execution_count="1">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># pd.read_csv()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -907,4 +992,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/final-project/nyc-shelters.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/final-project/nyc-shelters.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

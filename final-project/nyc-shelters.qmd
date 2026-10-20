@@ -1,16 +1,17 @@
 ---
-title: "NYC Homeless Shelter Reportss"
+title: "NYC Homeless Shelter Reports"
 sidebar: mainnav
+categories:
+  - "Consulting"
+  - "Logistics / Infrastructure"
 datatypes:
   - "Numeric"
   - "Datetime"
-categories:
-  - "Management Consulting"
-  - "Logistics / Infrastructure"
-methods:
-  - "ETL Pipelines"
 format:
   html: default
 ---
 
-NYC
+## Midterm Vignette
+
+{{< include ../data-vignettes/nyc-shelters.qmd >}}
+

@@ -1,16 +1,16 @@
 ---
 title: "Wikipedia Event Streams"
 sidebar: mainnav
+categories:
+  - "Logistics / Infrastructure"
 datatypes:
   - "Datetime"
   - "Categorical"
-categories:
-  - "Logistics / Infrastructure"
-methods:
-  - "Polars"
-  - "DuckDB"
 format:
   html: default
 ---
 
-ACLED
+## Midterm Vignette
+
+{{< include ../data-vignettes/_wikipedia.qmd >}}
+

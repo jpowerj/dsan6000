@@ -1,18 +1,34 @@
 ---
 title: "ACLED Event Data"
 sidebar: mainnav
+categories:
+  - "International Relations"
 datatypes:
   - "Numeric"
   - "Datetime"
   - "Text"
   - "Location"
-categories:
-  - "International Relations"
-methods:
-  - "Polars"
-  - "DuckDB"
 format:
   html: default
 ---
 
-ACLED
+## Midterm Vignette
+
+The homepage for the ACLED data project can be found [here](https://acleddata.com/), but to use this dataset for a DSAN 6000 project, you should use the **full, extracted data** available in the S3 bucket at the following URI:
+
+``` {.bash}
+s3://dsan6000-data/acled
+```
+
+### Question 1 Starter: OLTP Structure
+
+For the purposes of the midterm, you should think of the data you worked with in HW4 and HW5 as the form of this data **already extracted to OLAP**. Meaning, for the midterm you are going a few steps *back* to the OLTP records that are **originally received by ACLED**. An example of the OLTP records that might show up in a given period of time is as follows, where you can imagine this as a dump of the 5 most-recently-added rows in an events table (think of the streaming-events OLTP demo from the Week 1 slides!)
+
+```{python}
+import pandas as pd
+
+acled_oltp_df = pd.read_csv("acled_oltp.csv")
+acled_oltp_df
+```
+
+## Final Project Expectations
