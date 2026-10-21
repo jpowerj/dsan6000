@@ -11,6 +11,8 @@ format:
   html: default
 ---
 
+[&larr; Back to Datasets](index.qmd)
+
 ## Midterm Vignette
 
 As mentioned in class during Week 7, this dataset was actually the first dataset brainstormed among the instructors for pre-approved Midterm $\rightarrow$ Final Project purposes! We mention this here because, it represents a rare instance where we can actually analyze **real** data from a real company's backend DB, rather than having to *simulate* it (as in the [healthcare example](./healthcare.qmd)).

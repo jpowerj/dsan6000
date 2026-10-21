@@ -1,0 +1,27 @@
+---
+title: "Colombian Customs Microdata"
+sidebar: mainnav
+categories:
+  - "Economics"
+datatypes:
+  - "Numeric"
+  - "Location"
+  - "Network"
+format:
+  html: default
+---
+
+[&larr; Back to Datasets](index.qmd)
+
+The "final form" of this dataset evolved over a few stages:
+
+* First, Jeff announced in class that the dataset would comprise [UN Comtrade](https://comtradeplus.un.org/) data merged with vessel arrival and departure data from [IMF PortWatch](https://portwatch.imf.org/pages/data-and-methodology). Unfortunately, Georgetown does not subscribe to Comtrade, so I'm unable to bulk-export that data
+* Next, we tried the UN Food and Agriculture Organization's FAOSTAT ["Detailed Trade Matrix"](https://www.fao.org/faostat/en/#data/TM): this dataset *is* available in full, but is **aggregated** to the (sender, receiver, product, year) level
+* For the **microdata** we really want – so that we can simulate the kind of **individual financial transaction data** that you might encounter as a data scientist in **Retail Sales**, it turns out that Colombia's *Departamento Administrativo Nacional de Estadística (DANE)* provides individual-transaction level data!
+
+With that note on the trajectory of this dataset out of the way, here is your vignette and accompanying sample midterm questions:
+
+## Midterm Vignette
+
+### Question 1 Starter: OLTP Structure
+
