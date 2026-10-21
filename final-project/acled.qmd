@@ -9,7 +9,8 @@ datatypes:
   - "Text"
   - "Location"
 format:
-  html: default
+  html:
+    df-print: paged
 ---
 
 ## Midterm Vignette
@@ -20,15 +21,41 @@ The homepage for the ACLED data project can be found [here](https://acleddata.co
 s3://dsan6000-data/acled
 ```
 
+For this pathway, imagine you have been hired by ACLED and asked to apply your DSAN 6000 skills to a research project aimed towards improving their event-processing pipeline. Their needs are:
+
+1.  Decreased "latency time", in the sense that more events can be detected and their severity (in terms of civilian impacts) can be estimated in real time, while allowing these severity-levels to update as more news reports stream in
+1.  A dashboard of these detected events (and their estimated severity), publicly available for organizations like [Médecins Sans Frontières](https://en.wikipedia.org/wiki/M%C3%A9decins_Sans_Fronti%C3%A8res) to use in their allocation of medical workers across different regions
+1.  An "official" ACLED report drawing on the detected events and derived statistics, that will in turn likely be cited in UN Human Rights Council discussions and [reports](https://www.ohchr.org/sites/default/files/documents/hrbodies/hrcouncil/sessions-regular/session63/a-hrc-63-61-aev.pdf)
+
+As part or this task, you have been given **access to ACLED's OLTP database (described below)**, and you have been told to "take it from there": your job, on Questions 1-6 on the Midterm, is to plan out what each step in an OLTP $\leadsto$ OLAP pipeline for this task might look like.
+
+
+
 ### Question 1 Starter: OLTP Structure
 
 For the purposes of the midterm, you should think of the data you worked with in HW4 and HW5 as the form of this data **already extracted to OLAP**. Meaning, for the midterm you are going a few steps *back* to the OLTP records that are **originally received by ACLED**. An example of the OLTP records that might show up in a given period of time is as follows, where you can imagine this as a dump of the 5 most-recently-added rows in an events table (think of the streaming-events OLTP demo from the Week 1 slides!)
 
 ```{python}
+#| label: acled-oltp
+#| code-fold: true
 import pandas as pd
+from great_tables import GT
 
 acled_oltp_df = pd.read_csv("acled_oltp.csv")
-acled_oltp_df
+(
+  GT(acled_oltp_df)
+  .fmt_url(columns='report_url')
+  .fmt_datetime(columns='received')
+  .cols_width(cases={
+    # 'received': '50px',
+    'report_title': '50%',
+    # 'report_url': '50px',
+  })
+)
 ```
 
-## Final Project Expectations
+Note the complexities that may be involved in turning this OLTP-format stream of events into an analytics-friendly OLAP infrastructure meeting ACLED's needs (as listed above). For example:
+
+* Despite the range in `received` timestamps (between February 28 and March 29), these reports actually describe two [separate](https://civiliansofiran.com/incident/missile-strike-at-shajareh-tayyebeh-school-minab-2026-02-28) [incidents](https://airwars.org/incidents/jir260228f-february-28-2026) from US bombings in Iran earlier this year, which occurred on the same day (February 28)
+* These were not the only civilian-casualty incidents on that day, in Iran or elsewhere. The airwars.org database, for example, lists [22 incidents](https://airwars.org/incidents?start=2026-02-28&end=2026-02-28&page=2), covering (in addition to Iran): [Somalia](https://airwars.org/incidents/ussom589-february-28-2026), the [United Arab Emirates](https://airwars.org/incidents/debuae260228a-february-28-2026), [Kuwait](https://airwars.org/incidents/irkt260228b-february-28-2026), [Syria](https://airwars.org/incidents/debsyr260228a-february-28-2026), the [Occupied Palestinian Territories](https://airwars.org/incidents/ispt280226b-february-28-2026), and [Qatar](https://airwars.org/incidents/debqt260228c-february-28-2026), in addition to the multiple incidents in Iran.
+* This range of locations, in turn, means that the pipeline needs to be able to handle reports in several languages (and across many non-standardized platforms like local news sites, X.com, and Telegram): Events in Somalia may be reported in [Somali](https://en.wikipedia.org/wiki/Somali_language), for example, which can be written in three different scripts, while events in the far northeast of Syria may be reported in [Kurmanji](https://en.wikipedia.org/wiki/Kurmanji), the language widely used by autonomous Kurdish militia groups operating in this "corner" of the country.

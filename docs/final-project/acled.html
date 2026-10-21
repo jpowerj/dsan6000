@@ -83,9 +83,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-912ded09c68d16aea39e73d51e1ad9a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-d4d75af031a5f8911a7e193b677b21c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-912ded09c68d16aea39e73d51e1ad9a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7863e08c2e36e6bbea21d3a7da267a83.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-41e08071874cfcdf2239640a8fc0dacf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-7863e08c2e36e6bbea21d3a7da267a83.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -119,9 +119,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="../sidebar.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -481,7 +512,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-19, 09:24:43 PM</em></p>
+<p><em>Updated 2026-10-20, 09:08:26 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -494,7 +525,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#question-1-starter-oltp-structure" id="toc-question-1-starter-oltp-structure" class="nav-link" data-scroll-target="#question-1-starter-oltp-structure">Question 1 Starter: OLTP Structure</a></li>
   </ul></li>
-  <li><a href="#final-project-expectations" id="toc-final-project-expectations" class="nav-link" data-scroll-target="#final-project-expectations">Final Project Expectations</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/final-project/acled.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -538,65 +568,173 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="midterm-vignette">Midterm Vignette</h2>
 <p>The homepage for the ACLED data project can be found <a href="https://acleddata.com/">here</a>, but to use this dataset for a DSAN 6000 project, you should use the <strong>full, extracted data</strong> available in the S3 bucket at the following URI:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">s3://dsan6000-data/acled</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For this pathway, imagine you have been hired by ACLED and asked to apply your DSAN 6000 skills to a research project aimed towards improving their event-processing pipeline. Their needs are:</p>
+<ol type="1">
+<li>Decreased “latency time”, in the sense that more events can be detected and their severity (in terms of civilian impacts) can be estimated in real time, while allowing these severity-levels to update as more news reports stream in</li>
+<li>A dashboard of these detected events (and their estimated severity), publicly available for organizations like <a href="https://en.wikipedia.org/wiki/M%C3%A9decins_Sans_Fronti%C3%A8res">Médecins Sans Frontières</a> to use in their allocation of medical workers across different regions</li>
+<li>An “official” ACLED report drawing on the detected events and derived statistics, that will in turn likely be cited in UN Human Rights Council discussions and <a href="https://www.ohchr.org/sites/default/files/documents/hrbodies/hrcouncil/sessions-regular/session63/a-hrc-63-61-aev.pdf">reports</a></li>
+</ol>
+<p>As part or this task, you have been given <strong>access to ACLED’s OLTP database (described below)</strong>, and you have been told to “take it from there”: your job, on Questions 1-6 on the Midterm, is to plan out what each step in an OLTP <span class="math inline">\(\leadsto\)</span> OLAP pipeline for this task might look like.</p>
 <section id="question-1-starter-oltp-structure" class="level3">
 <h3 class="anchored" data-anchor-id="question-1-starter-oltp-structure">Question 1 Starter: OLTP Structure</h3>
 <p>For the purposes of the midterm, you should think of the data you worked with in HW4 and HW5 as the form of this data <strong>already extracted to OLAP</strong>. Meaning, for the midterm you are going a few steps <em>back</em> to the OLTP records that are <strong>originally received by ACLED</strong>. An example of the OLTP records that might show up in a given period of time is as follows, where you can imagine this as a dump of the 5 most-recently-added rows in an events table (think of the streaming-events OLTP demo from the Week 1 slides!)</p>
-<div id="48a492ef" class="cell" data-execution_count="1">
-<details open="" class="code-fold">
+<div id="cell-acled-oltp" class="cell" data-execution_count="1">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>acled_oltp_df <span class="op">=</span> pd.read_csv(<span class="st">"acled_oltp.csv"</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>acled_oltp_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>acled_oltp_df <span class="op">=</span> pd.read_csv(<span class="st">"acled_oltp.csv"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  GT(acled_oltp_df)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  .fmt_url(columns<span class="op">=</span><span class="st">'report_url'</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  .fmt_datetime(columns<span class="op">=</span><span class="st">'received'</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  .cols_width(cases<span class="op">=</span>{</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 'received': '50px',</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'report_title'</span>: <span class="st">'50%'</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 'report_url': '50px',</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div>
+<div id="acled-oltp" class="cell-output cell-output-display" data-execution_count="1">
+<div id="buqhpsjezs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#buqhpsjezs table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
 
+#buqhpsjezs thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#buqhpsjezs p { margin: 0; padding: 0; }
+ #buqhpsjezs .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #buqhpsjezs .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #buqhpsjezs .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #buqhpsjezs .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #buqhpsjezs .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #buqhpsjezs .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #buqhpsjezs .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #buqhpsjezs .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #buqhpsjezs .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #buqhpsjezs .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #buqhpsjezs .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #buqhpsjezs .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #buqhpsjezs .gt_spanner_row { border-bottom-style: hidden; }
+ #buqhpsjezs .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #buqhpsjezs .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #buqhpsjezs .gt_from_md> :first-child { margin-top: 0; }
+ #buqhpsjezs .gt_from_md> :last-child { margin-bottom: 0; }
+ #buqhpsjezs .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #buqhpsjezs .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #buqhpsjezs .gt_indent_1 { text-indent: 5px; }
+ #buqhpsjezs .gt_indent_2 { text-indent: calc(5px * 2); }
+ #buqhpsjezs .gt_indent_3 { text-indent: calc(5px * 3); }
+ #buqhpsjezs .gt_indent_4 { text-indent: calc(5px * 4); }
+ #buqhpsjezs .gt_indent_5 { text-indent: calc(5px * 5); }
+ #buqhpsjezs .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #buqhpsjezs .gt_row_group_first td { border-top-width: 2px; }
+ #buqhpsjezs .gt_row_group_first th { border-top-width: 2px; }
+ #buqhpsjezs .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #buqhpsjezs .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #buqhpsjezs .gt_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #buqhpsjezs .gt_first_summary_row { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; }
+ #buqhpsjezs .gt_last_summary_row_top { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #buqhpsjezs .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #buqhpsjezs .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #buqhpsjezs .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #buqhpsjezs .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #buqhpsjezs .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #buqhpsjezs .gt_left { text-align: left; }
+ #buqhpsjezs .gt_center { text-align: center; }
+ #buqhpsjezs .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #buqhpsjezs .gt_font_normal { font-weight: normal; }
+ #buqhpsjezs .gt_font_bold { font-weight: bold; }
+ #buqhpsjezs .gt_font_italic { font-style: italic; }
+ #buqhpsjezs .gt_super { font-size: 65%; }
+ #buqhpsjezs .gt_footnotes { color: font-color(#FFFFFF); background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #buqhpsjezs .gt_footnote { margin: 0px; font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; }
+ #buqhpsjezs .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #buqhpsjezs .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #buqhpsjezs .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #buqhpsjezs .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
 
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col>
+<col style="width: 50%">
+<col>
+<col>
+</colgroup>
 <thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">received_timestamp</th>
-<th data-quarto-table-cell-role="th">report_title</th>
-<th data-quarto-table-cell-role="th">report_source</th>
-<th data-quarto-table-cell-role="th">report_url</th>
+<tr class="gt_col_headings header">
+<th id="received" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">received</th>
+<th id="report_title" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">report_title</th>
+<th id="report_source" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">report_source</th>
+<th id="report_url" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">report_url</th>
 </tr>
 </thead>
-<tbody>
+<tbody class="gt_table_body">
 <tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>2026-09-01_11:00:00</td>
-<td>CENTCOM Completes Strikes on IRGC Targets in Iran</td>
-<td>US Central Command</td>
-<td>https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/...</td>
+<td class="gt_row gt_left" headers="received">2026-03-29 20:03:48</td>
+<td class="gt_row gt_left" headers="report_title">New U.S. Missile Hit Iranian Sports Hall and School, Analysis Shows</td>
+<td class="gt_row gt_left" headers="report_source">New York Times</td>
+<td class="gt_row gt_left" headers="report_url"><span style="white-space:pre;"><a href="https://www.nytimes.com/2026/03/29/world/middleeast/us-precision-strike-missile-iran-lamerd.html" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position:under;display:inline-block">https://www.nytimes.com/2026/03/29/world/middleeast/us-precision-strike-missile-iran-lamerd.html</a></span></td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>2026-09-02_05:10:03</td>
-<td>In Small Iranian Town, a U.S. Attack Turns a W...</td>
-<td>New York Times</td>
-<td>https://www.nytimes.com/2026/09/02/video/iran-...</td>
+<td class="gt_row gt_left" headers="received">2026-03-23 09:00:00</td>
+<td class="gt_row gt_left" headers="report_title">U.S. Responsible for Killing Over 100 Children in Iran School Attack</td>
+<td class="gt_row gt_left" headers="report_source">Amnesty International</td>
+<td class="gt_row gt_left" headers="report_url"><span style="white-space:pre;"><a href="https://www.amnestyusa.org/blog/u-s-responsible-for-killing-over-100-children-in-iran-school-attack/" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position:under;display:inline-block">https://www.amnestyusa.org/blog/u-s-responsible-for-killing-over-100-children-in-iran-school-attack/</a></span></td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>2026-09-06_21:11:59</td>
-<td>Deadly Iran Wedding Strike</td>
-<td>Washington Post</td>
-<td>https://www.washingtonpost.com/world/2026/09/0...</td>
+<td class="gt_row gt_left" headers="received">2026-03-06 14:19:39</td>
+<td class="gt_row gt_left" headers="report_title">Analysis suggests US was responsible for deadly strike on Iranian elementary school</td>
+<td class="gt_row gt_left" headers="report_source">CNN</td>
+<td class="gt_row gt_left" headers="report_url"><span style="white-space:pre;"><a href="https://edition.cnn.com/2026/03/06/middleeast/iran-minab-elementary-school-investigation-us-strike-intl" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position:under;display:inline-block">https://edition.cnn.com/2026/03/06/middleeast/iran-minab-elementary-school-investigation-us-strike-intl</a></span></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="received">2026-03-03 22:39:04</td>
+<td class="gt_row gt_left" headers="report_title">DNV har fått bekreftet dødsfallet til kollega Hamid Amini</td>
+<td class="gt_row gt_left" headers="report_source">Det Norske Veritas</td>
+<td class="gt_row gt_left" headers="report_url"><span style="white-space:pre;"><a href="https://www.dnv.no/news/2026/bekreftet-dodsfallet-til-kollega-hamid-amini/" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position:under;display:inline-block">https://www.dnv.no/news/2026/bekreftet-dodsfallet-til-kollega-hamid-amini/</a></span></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="received">2026-03-03 01:20:35</td>
+<td class="gt_row gt_left" headers="report_title">What we know about the strike on a school in Iran as the death toll rises</td>
+<td class="gt_row gt_left" headers="report_source">NBC News</td>
+<td class="gt_row gt_left" headers="report_url"><span style="white-space:pre;"><a href="https://www.nbcnews.com/world/iran/know-strike-school-iran-death-toll-rises-rcna261266" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position:under;display:inline-block">https://www.nbcnews.com/world/iran/know-strike-school-iran-death-toll-rises-rcna261266</a></span></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="received">2026-03-01 12:33:45</td>
+<td class="gt_row gt_left" headers="report_title">At least 153 dead after reported strike on school, Iran says</td>
+<td class="gt_row gt_left" headers="report_source">BBC</td>
+<td class="gt_row gt_left" headers="report_url"><span style="white-space:pre;"><a href="https://www.bbc.com/news/articles/c1l7rvqq51eo" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position:under;display:inline-block">https://www.bbc.com/news/articles/c1l7rvqq51eo</a></span></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="received">2026-02-28 19:26:31</td>
+<td class="gt_row gt_left" headers="report_title">شهادت بیش از ۱۵ شهروند در حمله رژیم صهیونیستی و آمریکا به لامرد فارس</td>
+<td class="gt_row gt_left" headers="report_source">IRNA</td>
+<td class="gt_row gt_left" headers="report_url"><span style="white-space:pre;"><a href="https://www.irna.ir/news/86089703/%D8%B4%D9%87%D8%A7%D8%AF%D8%AA-%D8%A8%DB%8C%D8%B4-%D8%A7%D8%B2-%DB%B1%DB%B5-%D8%B4%D9%87%D8%B1%D9%88%D9%86%D8%AF-%D8%AF%D8%B1-%D8%AD%D9%85%D9%84%D9%87-%D8%B1%DA%98%DB%8C%D9%85-%D8%B5%D9%87%DB%8C%D9%88%D9%86%DB%8C%D8%B3%D8%AA%DB%8C-%D9%88-%D8%A2%D9%85%D8%B1%DB%8C%DA%A9%D8%A7-%D8%A8%D9%87-%D9%84%D8%A7%D9%85%D8%B1%D8%AF" target="_blank" style="color:#008B8B;text-decoration:underline;text-underline-position:under;display:inline-block">https://www.irna.ir/news/86089703/%D8%B4%D9%87%D8%A7%D8%AF%D8%AA-%D8%A8%DB%8C%D8%B4-%D8%A7%D8%B2-%DB%B1%DB%B5-%D8%B4%D9%87%D8%B1%D9%88%D9%86%D8%AF-%D8%AF%D8%B1-%D8%AD%D9%85%D9%84%D9%87-%D8%B1%DA%98%DB%8C%D9%85-%D8%B5%D9%87%DB%8C%D9%88%D9%86%DB%8C%D8%B3%D8%AA%DB%8C-%D9%88-%D8%A2%D9%85%D8%B1%DB%8C%DA%A9%D8%A7-%D8%A8%D9%87-%D9%84%D8%A7%D9%85%D8%B1%D8%AF</a></span></td>
 </tr>
 </tbody>
 </table>
 
+
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="final-project-expectations" class="level2">
-<h2 class="anchored" data-anchor-id="final-project-expectations">Final Project Expectations</h2>
+<p>Note the complexities that may be involved in turning this OLTP-format stream of events into an analytics-friendly OLAP infrastructure meeting ACLED’s needs (as listed above). For example:</p>
+<ul>
+<li>Despite the range in <code>received</code> timestamps (between February 28 and March 29), these reports actually describe two <a href="https://civiliansofiran.com/incident/missile-strike-at-shajareh-tayyebeh-school-minab-2026-02-28">separate</a> <a href="https://airwars.org/incidents/jir260228f-february-28-2026">incidents</a> from US bombings in Iran earlier this year, which occurred on the same day (February 28)</li>
+<li>These were not the only civilian-casualty incidents on that day, in Iran or elsewhere. The airwars.org database, for example, lists <a href="https://airwars.org/incidents?start=2026-02-28&amp;end=2026-02-28&amp;page=2">22 incidents</a>, covering (in addition to Iran): <a href="https://airwars.org/incidents/ussom589-february-28-2026">Somalia</a>, the <a href="https://airwars.org/incidents/debuae260228a-february-28-2026">United Arab Emirates</a>, <a href="https://airwars.org/incidents/irkt260228b-february-28-2026">Kuwait</a>, <a href="https://airwars.org/incidents/debsyr260228a-february-28-2026">Syria</a>, the <a href="https://airwars.org/incidents/ispt280226b-february-28-2026">Occupied Palestinian Territories</a>, and <a href="https://airwars.org/incidents/debqt260228c-february-28-2026">Qatar</a>, in addition to the multiple incidents in Iran.</li>
+<li>This range of locations, in turn, means that the pipeline needs to be able to handle reports in several languages (and across many non-standardized platforms like local news sites, X.com, and Telegram): Events in Somalia may be reported in <a href="https://en.wikipedia.org/wiki/Somali_language">Somali</a>, for example, which can be written in three different scripts, while events in the far northeast of Syria may be reported in <a href="https://en.wikipedia.org/wiki/Kurmanji">Kurmanji</a>, the language widely used by autonomous Kurdish militia groups operating in this “corner” of the country.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
