@@ -1,8 +1,0 @@
-The homepage for the ACLED data project can be found [here](https://acleddata.com/), but to use this dataset for a DSAN 6000 project, you should use the **full, extracted data** available in the S3 bucket at the following URI:
-
-``` {.bash}
-s3://dsan6000-data/acled
-```
-
-### Question 1 Starter: OLTP Structure
-

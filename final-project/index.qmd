@@ -26,8 +26,24 @@ format:
     df-print: kable
 ---
 
-## Pre-Approved Datasets
+Looking at a dataset of all [H1-B visa job registrations](https://www.dol.gov/agencies/eta/foreign-labor/performance) submitted by US employers to the Department of Labor, the top industries (by share of total postings per [NAICS code](https://www.naics.com/search/)) hiring **data scientists** specifically (OES Code [15-2051](https://www.bls.gov/oes/2025/may/oes_stru.htm)) are:
+
+| Rank | Industry Group | NAICS Code | Percent |
+|:-:|:- |:-| -:|
+| 1 | Tech Companies | [5415](https://www.naics.com/code-search/?trms=5415&v=2022&styp=naics&qid=5aeae87a70) | 21.44% |
+| 2 | Banking and Finance | [52](https://www.naics.com/code-search/?trms=52&v=2022&styp=naics&qid=5aeae87a70) | 7.95% |
+| 3 | Retail Sales | [45](https://www.naics.com/code-search/?trms=45&v=2022&styp=naics&qid=5aeae87a70) | 7.72% |
+| 4 | Consulting Firms | [5416](https://www.naics.com/code-search/?trms=5416&v=2022&styp=naics&qid=5aeae87a70) | 4.01% |
+| 5 | Scientific Research Labs | [5417](https://www.naics.com/code-search/?trms=5417&v=2022&styp=naics&qid=5aeae87a70) | 2.58% |
+| 6 | Healthcare Organizations | [62](https://www.naics.com/code-search/?trms=62&v=2022&styp=naics&qid=5aeae87a70) | 2.06% |
+
+Thus, in choosing datasets for the midterm, my aim was to cover the **types of data you might encounter** working as a data scientist / engineer within each of these (admittedly very broadly-defined) areas!
+
+One implication of this approach is that, although some of the data is *historical* (like the Enron Email Corpus), the goal will **not** be just to analyze this nicely-packaged self-contained datasets, but instead to imagine **how you would handle *new* data continuously streaming into an OLTP database** with the same structure! So, in the Enron Email Corpus example, your interest won't be in analyzing those emails in particular, but to use them as a **case study**, extrapolating how you might use the tools we've learned in class thus far to manage a hypothetical employer's email database.
+
+## Datasets with Midterm Vignettes
 
 ::: {#final-datasets}
 :::
+
 

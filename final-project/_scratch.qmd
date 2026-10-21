@@ -1,0 +1,14 @@
+Ranked by concreteness/completion:
+
+1. ACLED
+2. NYC Homeless Shelters
+3. Enron
+4. Synthetic Healthcare Records
+
+---
+
+Removed for midterm:
+
+1. Wikipedia stream events
+2. HRSL
+3. Comtrade

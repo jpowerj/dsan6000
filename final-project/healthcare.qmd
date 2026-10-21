@@ -1,5 +1,5 @@
 ---
-title: "Synthetic Healthcare Records"
+title: "Synthetic FHIR Healthcare Records"
 sidebar: mainnav
 categories:
   - "Healthcare"
