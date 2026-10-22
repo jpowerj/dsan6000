@@ -1,0 +1,61 @@
+---
+title: "Banking77 Fraud Detection"
+sidebar: mainnav
+categories:
+  - "Banking / Finance"
+datatypes:
+  - "Numeric"
+  - "Datetime"
+  - "Text"
+  - "Location"
+format:
+  html: default
+---
+
+[&larr; Back to Datasets](../index.qmd)
+
+## Midterm Vignette
+
+This dataset is available through HuggingFace's Datasets portal [here](https://huggingface.co/datasets/PolyAI/banking77), and it has the name "Banking77" because it represents data recorded during testing of a bank website's chatbot helper, where testers were asked to work through **77 different intents**. The intents are encoded **numerically** within this dataset, and correspond to the following descriptions:
+
+```{python}
+#| label: list-intents
+#| code-fold: true
+import pandas as pd
+from great_tables import GT
+
+intent_df = pd.read_csv('intents.csv')
+(
+  GT(intent_df)
+  .opt_interactive(
+    use_page_size_select=True,
+    page_size_default=10,
+    page_size_values=[10, 25, 50],
+    pagination_type="simple",
+  )
+)
+```
+
+The bank has **hired you as a data scientist** (congratulations!) because they would like to improve their **fraud detection** rate: the rate at which they detect fraudulent usages of the chatbot to (e.g.) "circumvent" reasonable checks that a human might carry out in their heads during an interaction.
+
+### Question 1 Starter: OLTP Structure
+
+The **entries** streaming in the bank's OLTP system, in this case, represent **individual messages** sent to the chatbot, like:
+
+``` {.json}
+{
+  'label': 11,
+  'text': 'I am still waiting on my card?',
+  'received': '2026-10-22_12:00:00'
+}
+```
+
+However, note that here (since this is *training data*) we have the actual "correct" value of `label`: when **future** messages (after this test run) stream into your firm's OLTP database, this value will simply be `NA`, since the intent is not yet known!
+
+For the purposes of the midterm, however, you can assume that the bank has implemented some simple **manual intervention** procedure so that **some proportion** of the messages that are coming in **do** have intent labels (provided by, e.g., the same firm that first carried out these chatbot tests).
+
+Note the complexities that may be involved in turning this OLTP-format stream of events into an analytics-friendly OLAP infrastructure meeting the bank's fraud-detection needs. For example:
+
+* How might you "route" the training data (the messages arriving with `label` value already filled in) and non-training data (the messages without this value already filled in) differently, to enable **continuous updating** of a supervised-machine-learning-based fraud detection model?
+* One challenge might come from the fact that message contents might **change over time** in light of new external contexts: for example, in 2024 Zimbabwe changed the name of its currency from the Zimbabwe dollar to [Zimbabwe gold](https://en.wikipedia.org/wiki/Zimbabwe_Gold), so that there may be no previously-existing training messages asking about "Zimbabwe gold" labeled with intent `54` (`supported_cards_and_currencies`).
+* Another challenge might come about **in the future**, if the bank recognizes new forms of fraud that they would like to detect, perhaps via new **intents** above the 77 occurring in this dataset. How might you adapt your OLTP $\leadsto$ OLAP setup to incorporate new additions to or removals from the set of possible intents?

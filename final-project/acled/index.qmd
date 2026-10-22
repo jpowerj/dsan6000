@@ -20,7 +20,7 @@ format:
 The homepage for the ACLED data project can be found [here](https://acleddata.com/), but to use this dataset for a DSAN 6000 project, you should use the **full, extracted data** available in the S3 bucket at the following URI:
 
 ``` {.bash}
-s3://dsan6000-data/acled
+s3://dsan6000-data/acled_events.parquet
 ```
 
 For this pathway, imagine you have been hired by ACLED and asked to apply your DSAN 6000 skills to a research project aimed towards improving their event-processing pipeline. Their needs are:
@@ -29,13 +29,11 @@ For this pathway, imagine you have been hired by ACLED and asked to apply your D
 1.  A dashboard of these detected events (and their estimated severity), publicly available for organizations like [Médecins Sans Frontières](https://en.wikipedia.org/wiki/M%C3%A9decins_Sans_Fronti%C3%A8res) to use in their allocation of medical workers across different regions
 1.  An "official" ACLED report drawing on the detected events and derived statistics, that will in turn likely be cited in UN Human Rights Council discussions and [reports](https://www.ohchr.org/sites/default/files/documents/hrbodies/hrcouncil/sessions-regular/session63/a-hrc-63-61-aev.pdf)
 
-As part or this task, you have been given **access to ACLED's OLTP database (described below)**, and you have been told to "take it from there": your job, on Questions 1-6 on the Midterm, is to plan out what each step in an OLTP $\leadsto$ OLAP pipeline for this task might look like.
-
-
+As part of this task, you have been given **access to ACLED's OLTP database (described below)**, and you have been told to "take it from there": your job, on Questions 1-6 on the Midterm, is to plan out what each step in an OLTP $\leadsto$ OLAP $\leadsto$ analytic insights pipeline for this task might look like.
 
 ### Question 1 Starter: OLTP Structure
 
-For the purposes of the midterm, you should think of the data you worked with in HW4 and HW5 as the form of this data **already extracted to OLAP**. Meaning, for the midterm you are going a few steps *back* to the OLTP records that are **originally received by ACLED**. An example of the OLTP records that might show up in a given period of time is as follows, where you can imagine this as a dump of the 5 most-recently-added rows in an events table (think of the streaming-events OLTP demo from the Week 1 slides!)
+For the purposes of the midterm, you should think of the data you worked with in HW4 and HW5 as the form of this data **already extracted to OLAP**. Meaning, for the midterm you are going a few steps *back* to the OLTP records that are **originally received by ACLED**. An example of the OLTP records that might show up in a given period of time is as follows, where you can imagine this as a sample of the most-recently-added rows in an events table (think of the streaming-events OLTP demo from the Week 1 slides!)
 
 ```{python}
 #| label: acled-oltp

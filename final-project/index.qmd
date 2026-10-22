@@ -45,5 +45,3 @@ One implication of this approach is that, although some of the data is *historic
 
 ::: {#final-datasets}
 :::
-
-

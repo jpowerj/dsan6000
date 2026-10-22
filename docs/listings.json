@@ -31,11 +31,12 @@
   {
     "listing": "/final-project/index.html",
     "items": [
-      "/final-project/acled.html",
-      "/final-project/banking77.html",
+      "/final-project/acled/index.html",
+      "/final-project/banking77/index.html",
       "/final-project/colombia.html",
       "/final-project/enron.html",
-      "/final-project/healthcare.html"
+      "/final-project/nyc-shelters/index.html",
+      "/final-project/healthcare/index.html"
     ]
   }
 ]
