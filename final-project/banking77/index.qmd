@@ -1,6 +1,7 @@
 ---
 title: "Banking77 Fraud Detection"
 sidebar: mainnav
+midterm: true
 categories:
   - "Banking / Finance"
 datatypes:

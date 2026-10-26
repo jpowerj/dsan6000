@@ -1,6 +1,7 @@
 ---
 title: "Colombian Customs Microdata"
 sidebar: mainnav
+midterm: false
 categories:
   - "Economics"
 datatypes:
@@ -22,6 +23,16 @@ The "final form" of this dataset evolved over a few stages:
 With that note on the trajectory of this dataset out of the way, here is your vignette and accompanying sample midterm questions:
 
 ## Midterm Vignette
+
+Here, for ease of use, we have **translated** the (abbreviated) column headers into simpler-to-understand English versions. The codebook is as follows:
+
+| Column Name | Translation | Description |
+| - | - | - |
+| `FECH` | `date` | `FECH` is short for "fecha", meaning **"date"**. Here, the date has **four digits**, where the first two represent the year and the second two represent the month: `YYMM`. |
+| `ADUA` | `department` | `ADUA` is short for "Aduana", meaning "customs house". Here, the specific sub-department of the customs declaration is encoded as a **number**. Department `3`, for example, processed over 10K exports in January 2025, whereas department `27` processed only 1. |
+
+: {tbl-colwidths="[5, 10, 85]"}
+
 
 ### Question 1 Starter: OLTP Structure
 

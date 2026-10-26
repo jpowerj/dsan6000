@@ -1,6 +1,7 @@
 ---
 title: "NYC Homeless Shelter Reports"
 sidebar: mainnav
+midterm: true
 categories:
   - "Consulting"
   - "Logistics / Infrastructure"

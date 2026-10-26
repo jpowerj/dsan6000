@@ -83,6 +83,34 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-midterm-datasets .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-datatypes','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-midterm-datasets'] = new List('listing-midterm-datasets', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-final-datasets .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -503,7 +531,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-26, 05:24:20 AM</em></p>
+<p><em>Updated 2026-10-26, 06:18:52 AM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -512,10 +540,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#datasets-with-midterm-vignettes" id="toc-datasets-with-midterm-vignettes" class="nav-link active" data-scroll-target="#datasets-with-midterm-vignettes">Datasets with Midterm Vignettes</a></li>
+  <li><a href="#selection-criteria" id="toc-selection-criteria" class="nav-link active" data-scroll-target="#selection-criteria">Selection Criteria</a></li>
+  <li><a href="#datasets-with-midterm-vignettes" id="toc-datasets-with-midterm-vignettes" class="nav-link" data-scroll-target="#datasets-with-midterm-vignettes">Datasets with Midterm Vignettes</a></li>
+  <li><a href="#additional-final-project-datasets" id="toc-additional-final-project-datasets" class="nav-link" data-scroll-target="#additional-final-project-datasets">Additional Final Project Datasets</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/final-project/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="QmFua2luZyUyMCUyRiUyMEZpbmFuY2U=">Banking / Finance <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29uc3VsdGluZw==">Consulting <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RWNvbm9taWNz">Economics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGVhbHRoY2FyZQ==">Healthcare <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW50ZXJuYXRpb25hbCUyMFJlbGF0aW9ucw==">International Relations <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TG9naXN0aWNzJTIwJTJGJTIwSW5mcmFzdHJ1Y3R1cmU=">Logistics / Infrastructure <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="QmFua2luZyUyMCUyRiUyMEZpbmFuY2U=">Banking / Finance <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29uc3VsdGluZw==">Consulting <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGlzY291cnNlJTIwQW5hbHlzaXM=">Discourse Analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RWNvbm9taWNz">Economics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SGVhbHRoY2FyZQ==">Healthcare <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW50ZXJuYXRpb25hbCUyMFJlbGF0aW9ucw==">International Relations <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGF3">Law <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TG9naXN0aWNzJTIwJTJGJTIwSW5mcmFzdHJ1Y3R1cmU=">Logistics / Infrastructure <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UG9saXRpY3M=">Politics <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -539,6 +569,8 @@ window.Quarto = {
 </header>
 
 
+<section id="selection-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="selection-criteria">Selection Criteria</h2>
 <p>Looking at a dataset of all <a href="https://www.dol.gov/agencies/eta/foreign-labor/performance">H1-B visa job registrations</a> submitted by US employers to the Department of Labor, the top industries (by share of total postings per <a href="https://www.naics.com/search/">NAICS code</a>) hiring <strong>data scientists</strong> specifically (OES Code <a href="https://www.bls.gov/oes/2025/may/oes_stru.htm">15-2051</a>) are:</p>
 <table class="caption-top table">
 <thead>
@@ -590,8 +622,108 @@ window.Quarto = {
 </table>
 <p>Thus, in choosing datasets for the midterm, my aim was to cover the <strong>types of data you might encounter</strong> working as a data scientist / engineer within each of these (admittedly very broadly-defined) areas!</p>
 <p>One implication of this approach is that, although some of the data is <em>historical</em> (like the Enron Email Corpus), the goal will <strong>not</strong> be just to analyze this nicely-packaged self-contained datasets, but instead to imagine <strong>how you would handle <em>new</em> data continuously streaming into an OLTP database</strong> with the same structure! So, in the Enron Email Corpus example, your interest won’t be in analyzing those emails in particular, but to use them as a <strong>case study</strong>, extrapolating how you might use the tools we’ve learned in class thus far to derive analytic insights from a hypothetical employer’s email database.</p>
+</section>
 <section id="datasets-with-midterm-vignettes" class="level2">
 <h2 class="anchored" data-anchor-id="datasets-with-midterm-vignettes">Datasets with Midterm Vignettes</h2>
+<div id="listing-midterm-datasets" class="quarto-listing quarto-listing-container-table">
+<table class="quarto-listing-table table table-hover">
+<thead>
+<tr>
+
+<th>
+Title
+</th>
+
+<th>
+Main Datatypes
+</th>
+
+<th>
+Application Areas
+</th>
+
+</tr>
+</thead>
+<tbody class="list">
+
+<tr data-index="0" data-categories="SW50ZXJuYXRpb25hbCUyMFJlbGF0aW9ucw==" data-listing-file-modified-sort="1793009491495" data-listing-reading-time-sort="3" data-listing-word-count-sort="550" data-listing-title-sort="ACLED Event Data" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<a href="../final-project/acled/index.html" class="title listing-title">ACLED Event Data</a>
+</td>
+<td>
+<span class="listing-datatypes">Numeric, Datetime, Text, Location</span>
+</td>
+<td>
+<span class="listing-categories">International Relations</span>
+</td>
+
+</tr>
+
+<tr data-index="1" data-categories="QmFua2luZyUyMCUyRiUyMEZpbmFuY2U=" data-listing-file-modified-sort="1793009497357" data-listing-reading-time-sort="3" data-listing-word-count-sort="440" data-listing-title-sort="Banking77 Fraud Detection" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<a href="../final-project/banking77/index.html" class="title listing-title">Banking77 Fraud Detection</a>
+</td>
+<td>
+<span class="listing-datatypes">Numeric, Datetime, Text, Location</span>
+</td>
+<td>
+<span class="listing-categories">Banking / Finance</span>
+</td>
+
+</tr>
+
+<tr data-index="2" data-categories="Q29uc3VsdGluZw==" data-listing-file-modified-sort="1793009573088" data-listing-reading-time-sort="7" data-listing-word-count-sort="1314" data-listing-title-sort="Enron Email Corpus" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<a href="../final-project/enron/index.html" class="title listing-title">Enron Email Corpus</a>
+</td>
+<td>
+<span class="listing-datatypes">Text, Datetime, Directed Network</span>
+</td>
+<td>
+<span class="listing-categories">Consulting</span>
+</td>
+
+</tr>
+
+<tr data-index="3" data-categories="Q29uc3VsdGluZyUyQ0xvZ2lzdGljcyUyMCUyRiUyMEluZnJhc3RydWN0dXJl" data-listing-file-modified-sort="1793009561155" data-listing-reading-time-sort="3" data-listing-word-count-sort="524" data-listing-title-sort="NYC Homeless Shelter Reports" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<a href="../final-project/nyc-shelters/index.html" class="title listing-title">NYC Homeless Shelter Reports</a>
+</td>
+<td>
+<span class="listing-datatypes">Numeric, Datetime</span>
+</td>
+<td>
+<span class="listing-categories">Consulting, Logistics / Infrastructure</span>
+</td>
+
+</tr>
+
+<tr data-index="4" data-categories="SGVhbHRoY2FyZQ==" data-listing-file-modified-sort="1793009643233" data-listing-reading-time-sort="5" data-listing-word-count-sort="877" data-listing-title-sort="Synthetic FHIR Healthcare Records" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<a href="../final-project/healthcare/index.html" class="title listing-title">Synthetic FHIR Healthcare Records</a>
+</td>
+<td>
+<span class="listing-datatypes">Numeric, Text</span>
+</td>
+<td>
+<span class="listing-categories">Healthcare</span>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+<section id="additional-final-project-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="additional-final-project-datasets">Additional Final Project Datasets</h2>
+<p>Like the above datasets, these are pre-approved if you find them interesting enough to analyze for your Final Project! They do not have midterm vignettes, but you can start diving into them immediately after handing in your midterm if you’d like 😎</p>
 <div id="listing-final-datasets" class="quarto-listing quarto-listing-container-table">
 <table class="quarto-listing-table table table-hover">
 <thead>
@@ -613,35 +745,7 @@ Application Areas
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-categories="SW50ZXJuYXRpb25hbCUyMFJlbGF0aW9ucw==" data-listing-file-modified-sort="1792999051191" data-listing-reading-time-sort="3" data-listing-word-count-sort="550" data-listing-title-sort="ACLED Event Data" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="../final-project/acled/index.html" class="title listing-title">ACLED Event Data</a>
-</td>
-<td>
-<span class="listing-datatypes">Numeric, Datetime, Text, Location</span>
-</td>
-<td>
-<span class="listing-categories">International Relations</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-categories="QmFua2luZyUyMCUyRiUyMEZpbmFuY2U=" data-listing-file-modified-sort="1792886642011" data-listing-reading-time-sort="3" data-listing-word-count-sort="440" data-listing-title-sort="Banking77 Fraud Detection" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="../final-project/banking77/index.html" class="title listing-title">Banking77 Fraud Detection</a>
-</td>
-<td>
-<span class="listing-datatypes">Numeric, Datetime, Text, Location</span>
-</td>
-<td>
-<span class="listing-categories">Banking / Finance</span>
-</td>
-
-</tr>
-
-<tr data-index="2" data-categories="RWNvbm9taWNz" data-listing-file-modified-sort="1792999058296" data-listing-reading-time-sort="1" data-listing-word-count-sort="151" data-listing-title-sort="Colombian Customs Microdata" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="0" data-categories="RWNvbm9taWNz" data-listing-file-modified-sort="1793009516186" data-listing-reading-time-sort="2" data-listing-word-count-sort="263" data-listing-title-sort="Colombian Customs Microdata" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="../final-project/colombia/index.html" class="title listing-title">Colombian Customs Microdata</a>
@@ -655,44 +759,16 @@ Application Areas
 
 </tr>
 
-<tr data-index="3" data-categories="Q29uc3VsdGluZw==" data-listing-file-modified-sort="1792999063656" data-listing-reading-time-sort="7" data-listing-word-count-sort="1314" data-listing-title-sort="Enron Email Corpus" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="1" data-categories="TGF3JTJDUG9saXRpY3MlMkNEaXNjb3Vyc2UlMjBBbmFseXNpcw==" data-listing-file-modified-sort="1793009450139" data-listing-reading-time-sort="1" data-listing-word-count-sort="2" data-listing-title-sort="Supreme Court Discussions" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
-<a href="../final-project/enron/index.html" class="title listing-title">Enron Email Corpus</a>
+<a href="../final-project/supreme-court/index.html" class="title listing-title">Supreme Court Discussions</a>
 </td>
 <td>
-<span class="listing-datatypes">Text, Datetime, Directed Network</span>
+<span class="listing-datatypes">Text, Person</span>
 </td>
 <td>
-<span class="listing-categories">Consulting</span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-categories="Q29uc3VsdGluZyUyQ0xvZ2lzdGljcyUyMCUyRiUyMEluZnJhc3RydWN0dXJl" data-listing-file-modified-sort="1792999076682" data-listing-reading-time-sort="3" data-listing-word-count-sort="524" data-listing-title-sort="NYC Homeless Shelter Reports" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="../final-project/nyc-shelters/index.html" class="title listing-title">NYC Homeless Shelter Reports</a>
-</td>
-<td>
-<span class="listing-datatypes">Numeric, Datetime</span>
-</td>
-<td>
-<span class="listing-categories">Consulting, Logistics / Infrastructure</span>
-</td>
-
-</tr>
-
-<tr data-index="5" data-categories="SGVhbHRoY2FyZQ==" data-listing-file-modified-sort="1792705446193" data-listing-reading-time-sort="5" data-listing-word-count-sort="877" data-listing-title-sort="Synthetic FHIR Healthcare Records" data-listing-filename-sort="index.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<a href="../final-project/healthcare/index.html" class="title listing-title">Synthetic FHIR Healthcare Records</a>
-</td>
-<td>
-<span class="listing-datatypes">Numeric, Text</span>
-</td>
-<td>
-<span class="listing-categories">Healthcare</span>
+<span class="listing-categories">Law, Politics, Discourse Analysis</span>
 </td>
 
 </tr>

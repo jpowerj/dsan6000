@@ -1,6 +1,7 @@
 ---
 title: "Enron Email Corpus"
 sidebar: mainnav
+midterm: true
 categories:
   - "Consulting"
 datatypes:

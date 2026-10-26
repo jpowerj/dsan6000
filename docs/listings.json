@@ -33,10 +33,11 @@
     "items": [
       "/final-project/acled/index.html",
       "/final-project/banking77/index.html",
-      "/final-project/colombia/index.html",
       "/final-project/enron/index.html",
       "/final-project/nyc-shelters/index.html",
-      "/final-project/healthcare/index.html"
+      "/final-project/healthcare/index.html",
+      "/final-project/colombia/index.html",
+      "/final-project/supreme-court/index.html"
     ]
   }
 ]

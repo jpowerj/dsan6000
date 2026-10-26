@@ -4,27 +4,50 @@ sidebar: mainnav
 bibliography: "../_DSAN6000.bib"
 csl: "../chicago-17-no-url.csl"
 listing:
-  sort-ui: false
-  filter-ui: false
-  id: final-datasets
-  type: table
-  categories: true
-  fields:
-    - title
-    - datatypes
-    # - methods
-    - categories
-  field-display-names: 
-    title: "Title"
-    # methods: "Class Topic Emphases"
-    datatypes: "Main Datatypes"
-    categories: "Application Areas"
-  sort: "title asc"
-  table-hover: true
+  - sort-ui: false
+    filter-ui: false
+    id: midterm-datasets
+    type: table
+    categories: true
+    include:
+      midterm: true
+    fields:
+      - title
+      - datatypes
+      # - methods
+      - categories
+    field-display-names: 
+      title: "Title"
+      # methods: "Class Topic Emphases"
+      datatypes: "Main Datatypes"
+      categories: "Application Areas"
+    sort: "title asc"
+    table-hover: true
+  - sort-ui: false
+    filter-ui: false
+    id: final-datasets
+    type: table
+    categories: true
+    include:
+      midterm: false
+    fields:
+      - title
+      - datatypes
+      # - methods
+      - categories
+    field-display-names: 
+      title: "Title"
+      # methods: "Class Topic Emphases"
+      datatypes: "Main Datatypes"
+      categories: "Application Areas"
+    sort: "title asc"
+    table-hover: true
 format:
   html:
     df-print: kable
 ---
+
+## Selection Criteria
 
 Looking at a dataset of all [H1-B visa job registrations](https://www.dol.gov/agencies/eta/foreign-labor/performance) submitted by US employers to the Department of Labor, the top industries (by share of total postings per [NAICS code](https://www.naics.com/search/)) hiring **data scientists** specifically (OES Code [15-2051](https://www.bls.gov/oes/2025/may/oes_stru.htm)) are:
 
@@ -42,6 +65,13 @@ Thus, in choosing datasets for the midterm, my aim was to cover the **types of d
 One implication of this approach is that, although some of the data is *historical* (like the Enron Email Corpus), the goal will **not** be just to analyze this nicely-packaged self-contained datasets, but instead to imagine **how you would handle *new* data continuously streaming into an OLTP database** with the same structure! So, in the Enron Email Corpus example, your interest won't be in analyzing those emails in particular, but to use them as a **case study**, extrapolating how you might use the tools we've learned in class thus far to derive analytic insights from a hypothetical employer's email database.
 
 ## Datasets with Midterm Vignettes
+
+::: {#midterm-datasets}
+:::
+
+## Additional Final Project Datasets
+
+Like the above datasets, these are pre-approved if you find them interesting enough to analyze for your Final Project! They do not have midterm vignettes, but you can start diving into them immediately after handing in your midterm if you'd like 😎
 
 ::: {#final-datasets}
 :::

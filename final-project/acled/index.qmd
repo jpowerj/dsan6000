@@ -1,6 +1,7 @@
 ---
 title: "ACLED Event Data"
 sidebar: mainnav
+midterm: true
 categories:
   - "International Relations"
 datatypes:

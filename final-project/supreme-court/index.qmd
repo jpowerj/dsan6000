@@ -1,0 +1,16 @@
+---
+title: "Supreme Court Discussions"
+sidebar: mainnav
+midterm: false
+categories:
+  - "Law"
+  - "Politics"
+  - "Discourse Analysis"
+datatypes:
+  - "Text"
+  - "Person"
+format:
+  html: default
+---
+
+Supreme Court
