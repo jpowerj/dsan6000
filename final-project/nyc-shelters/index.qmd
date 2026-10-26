@@ -11,6 +11,8 @@ format:
   html: default
 ---
 
+[&larr; Back to Datasets](../index.qmd)
+
 ## Midterm Vignette
 
 In his final book, 2024's *Genesis: Artificial Intelligence, Hope, and the Human Spirit*, tech visionary Henry Kissinger joined forces with former Google CEO Eric Schmidt and a third guy to explore how AI "enables the achievement of higher, more difficult, and grander problems than those currently solvable by the human brain" (40). With their trademark concern for the disadvantaged, Kissinger and friends describe an exhilarating technology-driven future, wherein

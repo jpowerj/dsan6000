@@ -112,7 +112,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     updateToggleIcon(newStr)
     let sData = sectionData[newStr]
     for (const [sKey, sVal] of Object.entries(sData)) {
-      console.log(`sKey: ${sKey}`)
+      // console.log(`sKey: ${sKey}`)
       $(sKey).text(sVal);
     }
     const s01Replace = {
@@ -168,15 +168,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       'Monday, November 30, 2026': 'Thursday, December 3, 2026',
     }
     const shownDate = $('p.date').text()
-    console.log(`shownDate: ${shownDate}`)
+    // console.log(`shownDate: ${shownDate}`)
     if (newStr == "02" && (s02Replace.hasOwnProperty(shownDate))) {
-      console.log("Replacing with s02 date");
+      // console.log("Replacing with s02 date");
       const replaceWith = s02Replace[shownDate];
       console.log(`Replacement should be: ${replaceWith}`)
       $('p.date').text(replaceWith)
     }
     if (newStr == "01" && (s01Replace.hasOwnProperty(shownDate))) {
-      console.log("Replacing with s01 date");
+      // console.log("Replacing with s01 date");
       const replaceWith = s01Replace[shownDate];
       $('p.date').text(replaceWith);
     }

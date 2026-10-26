@@ -22,17 +22,18 @@ This dataset is available through HuggingFace's Datasets portal [here](https://h
 #| label: list-intents
 #| code-fold: true
 import pandas as pd
-from great_tables import GT
+# from great_tables import GT
+import itables
 
 intent_df = pd.read_csv('intents.csv')
-(
-  GT(intent_df)
-  .opt_interactive(
-    use_page_size_select=True,
-    page_size_default=10,
-    page_size_values=[10, 25, 50],
-    pagination_type="simple",
-  )
+itables.show(
+  intent_df,
+  layout={
+    "topStart": None,
+    # "topEnd": None,
+  },
+  style="width: 100%",
+  autoWidth=True,
 )
 ```
 

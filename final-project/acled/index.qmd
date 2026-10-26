@@ -13,7 +13,7 @@ format:
     df-print: paged
 ---
 
-[&larr; Back to Datasets](index.qmd)
+[&larr; Back to Datasets](../index.qmd)
 
 ## Midterm Vignette
 

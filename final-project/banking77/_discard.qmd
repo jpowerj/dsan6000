@@ -1,0 +1,9 @@
+(
+  GT(intent_df)
+  .opt_interactive(
+    use_page_size_select=True,
+    page_size_default=10,
+    page_size_values=[10, 25, 50],
+    pagination_type="simple",
+  )
+)
