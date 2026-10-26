@@ -1,5 +1,5 @@
 ---
-title: "Week 8: Spark MLLib, Spark NLP"
+title: "Week 8: Spark MLlib, Spark NLP"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
@@ -10,7 +10,8 @@ categories:
   - "Class Sessions"
 crossref:
   fig-title: Fig
-cache: true
+bibliography: "../_DSAN6000.bib"
+csl: "../chicago-17-no-url.csl"
 format:
   revealjs:
     output-file: "slides.html"
@@ -49,7 +50,232 @@ format:
 
 :::
 
-# SparkML: Hopping Up Another Abstraction Layer! {.smaller .not-title-slide .title-10 data-stack-name="SparkML Intro"}
+## Today's Agenda: Demos! And More Demos! {.title-13}
 
-![[Image Source](https://www.qubole.com/developers/spark-getting-started-guide/workflow)](images/sparkml.png){fig-align="center"}
+* Spark `DataFrame`s
+* [`MLlib`](https://spark.apache.org/docs/latest/ml-guide.html): **Official** Spark library!
+* [SparkNLP](https://sparknlp.org/): 3rd-Party Library
 
+## Spark `DataFrame` {.smaller .text-65 .crunch-title .crunch-p .crunch-ul data-name="Spark DataFrame"}
+
+...Yet another type of `DataFrame`!
+
+:::: {layout="[[1,1],[1]]"}
+::: {#df-pandas}
+
+<i class='bi bi-1-circle' style='font-size: 90%;'></i> **Pandas**
+
+* Everything in RAM
+* All computations **eager**ly executed
+
+``` {.python}
+data_df['price'].mean()
+```
+
+:::
+::: {#df-polars}
+
+<i class='bi bi-2-circle' style='font-size: 90%;'></i> **Polars**: Introduced **lazy** execution
+
+* $\leadsto$ separation of *computation* from *data*
+* Optimized for *multicore* computation
+
+``` {.python}
+ratio_expr = (
+  pl.col('work_hrs') / pl.col('sleep_hrs')
+).alias('sleep_ratio')
+data_pl.with_columns(ratio_expr).collect()
+```
+
+:::
+::: {#df-pyspark}
+
+<i class='bi bi-3-circle' style='font-size: 90%;'></i> **PySpark**
+
+``` {.python}
+data_sdf = spark.createDataFrame([
+    [1, 2.0, 's1', date(2000, 1, 1), datetime(2000, 1, 1, 12, 0)],
+    [2, 3.0, 's2', date(2000, 3, 1), datetime(2000, 1, 3, 12, 0)],
+], schema='a long, b double, c string, d date, e timestamp')
+data_sdf
+```
+
+* Optimized for *distributed* computation $\leadsto$ requires an <i class="bi bi-exclamation-triangle"></i> **always-running process** <i class="bi bi-exclamation-triangle"></i>
+* Wrapper around `RDD` (**R**esilient **D**istributed **D**ataset): `data_sdf.rdd.getNumPartitions()`
+
+:::
+::::
+
+## In-Class Demo 1: *Local* Spark
+
+*(For **development**, can just `pip install pyspark`!)*
+
+&nbsp;
+
+<center>
+
+[[**PySpark Basics**](
+https://colab.research.google.com/drive/16-Cr1Y8rwiE7h6jjYuBAdXc4iJ8XR59y?usp=drive_link)]{.boxed-cb}
+
+</center>
+
+## First Things First: OpenJDK
+
+* **Spark 4**: Recommended JDK version = [**21**](https://openjdk.org/projects/jdk/21/)
+  * *(How would you know without me telling you? Truly idk)*
+
+  ``` {.bash}
+  sudo apt install openjdk-21-jdk-headless
+  ```
+* Install this <i class='bi bi-1-circle' style='font-size: 80%;'></i> on the **master** node and <i class='bi bi-2-circle' style='font-size: 80%;'></i> on **all worker nodes** that you'd like to link together
+  * *(Run `sudo apt update` first if on a new instance!)*
+
+## Getting + Using Spark
+
+<center style="margin-top: 40px;">
+
+[[**Apache Spark Downloads Page**](https://spark.apache.org/downloads.html){.external}]{.boxed-cb}
+
+</center>
+
+* <i class='bi bi-1-circle'></i> **Click through** the ["Download Spark" link](https://www.apache.org/dyn/closer.lua/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3-connect.tgz)...
+* <i class='bi bi-2-circle'></i> ...To get the actual [**download URL**](https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3-connect.tgz) 😵‍💫
+* <i class='bi bi-3-circle'></i> Use `wget <url>` in terminal to download `.tar.gz`:
+
+  ``` {.bash style="font-size: 80%;"}
+  wget https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3.tgz
+  ```
+* <i class='bi bi-4-circle'></i> Extract using:
+  
+  ``` {.bash}
+  tar -xzvf spark-4.2.0-bin-hadoop3.tgz
+  ```
+
+## In-Class Demo 2: Your First Spark *Cluster*! {.smaller .text-60 .title-11 .crunch-ul .crunch-li-5}
+
+*Spark Cluster Checklist:*
+
+<i class='bi bi-1-circle' style='font-size: 90%;'></i> **AWS Console** &rarr; **EC2 Console** &rarr; Security group (`launch-wizard-1`):
+
+* [ ] Edit inbound rules &rarr; Add rule &rarr; Type="All traffic" &rarr; Source=itself (`sg`... autocomplete)
+
+:::: {.columns}
+::: {.column width="50%"}
+
+<i class='bi bi-2-circle' style='font-size: 90%;'></i> **Master node:**
+
+* [x] Created
+* [ ] JDK 21 installed: `sudo apt install openjdk-21-jdk-headless`
+* [ ] Spark 4.2.0 downloaded, extracted
+* [ ] **Private** IP recorded:
+  ``` {.bash}
+  export PRIVATE_IP=$(hostname -I | awk '{print $1}')
+  ```
+* [ ] `start-master.sh -h <Private IP>`
+
+:::
+::: {.column width="50%"}
+
+<i class='bi bi-3-circle' style='font-size: 90%;'></i> **Worker nodes (one at a time):**
+
+* [ ] Created with **existing security group** `launch-wizard-1`
+* [ ] `sudo apt update`
+* [ ] JDK 21 installed: `sudo apt install openjdk-21-jdk-headless`
+* [ ] Spark 4.2.0 downloaded, extracted
+* [ ] `start-worker.sh <Private IP>:7077`
+
+:::
+::::
+
+<i class='bi bi-4-circle' style='font-size: 90%;'></i> Check status via **Spark UI**: Master on `localhost:8080` (VSCode port forwarding)<br><i class='bi bi-arrow-return-right' style='margin-left: 8px;'></i> *(New worker nodes should appear after each `start-worker.sh`)*
+
+## Now *Use It* From a Jupyter Notebook {.title-09 .crunch-p}
+
+``` {.python}
+from pyspark.sql import SparkSession
+spark = (
+  SparkSession
+    .builder
+    .appName('UNSC_Speeches')
+    .master('spark://<Private IP Here!>:7077')
+    .config('spark.jars.packages','org.apache.hadoop:hadoop-aws:3.5.0')
+    .getOrCreate()
+)
+```
+
+::: {style="font-size: 80%"}
+
+Check status of **`SparkSession`** via **Spark Session UI**: `localhost:4040`
+
+* Master node UI: `localhost:8080` (worker UI=`localhost:8081`)
+* `SparkSession` UI: `localhost:4040`
+* Confusion &darr;, Understanding &uarr; 🥳
+
+:::
+
+## MLlib: Hopping Up Another Abstraction Layer! {.smaller .not-title-slide .title-10 data-name="MLlib"}
+
+![[Image Source](https://www.qubole.com/developers/spark-getting-started-guide/workflow)](images/sparkml.png){.lightbox fig-align="center"}
+
+## In-Class Demo 3
+
+&nbsp;
+
+<center>
+
+[[**MLlib in Action**](https://colab.research.google.com/drive/1JmUjc65mEucPW0bZHHjzmt812oiIXeVE?usp=sharing)]{.boxed-cb}
+
+</center>
+
+## Spark NLP {.smaller .crunch-title data-name="Spark NLP"}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**MLlib**: `pyspark` as normal:
+
+``` {.python}
+from pyspark.sql import SparkSession
+spark = (
+    SparkSession
+    .builder
+    .appName('SF_Housing')
+    .getOrCreate()
+)
+type(spark)
+# >>> pyspark.sql.session.SparkSession
+from pyspark.ml.feature import VectorAssembler
+```
+
+**Spark NLP**: *Custom* `SparkSession` with `sparknlp.start()`:
+
+``` {.python}
+import sparknlp
+spark = sparknlp.start()
+type(spark)
+# >>> pyspark.sql.session.SparkSession
+from sparknlp.base import DocumentAssembler
+```
+
+:::
+::: {.column width="50%"}
+
+![@thomas_natural_2020: The [*chimango caracara*](https://en.wikipedia.org/wiki/Chimango_caracara) book](images/sparknlp.jpg){.nostretch fig-align="center" width="360"}
+
+:::
+::::
+
+## In-Class Demo 4
+
+&nbsp;
+
+<center>
+
+[[**Distributed Sentiment Analysis with Spark NLP**](https://colab.research.google.com/drive/1CMokcCj4W0qruH946Y7dYeWYrE62iXkK?usp=sharing)]{.boxed-cb}
+
+</center>
+
+## References
+
+::: {#refs}
+:::

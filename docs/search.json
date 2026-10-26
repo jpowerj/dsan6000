@@ -44,7 +44,7 @@
     "href": "resources.html#pdfs-of-books",
     "title": "Resource Hub",
     "section": "PDFs of Books",
-    "text": "PDFs of Books\nThe remainder of this page is auto-generated from all of the references across the slides for each week: click on the name of a reference to download the ebook version, if available!\n\n\nAmbrose, Susan A., Michael W. Bridges, Michele DiPietro, Marsha C. Lovett, and Marie K. Norman. 2010. How Learning Works: Seven Research-Based Principles for Smart Teaching. John Wiley & Sons.\n\n\nAubury, Simon. 2024. Getting Started with DuckDB: A Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows. Birmingham: Packt Publishing Limited.\n\n\nBerk, Michael. 2022. “Demystifying the Parquet File Format.” Towards Data Science. August 16, 2022.\n\n\nBielsa, Esperanca, and Susan Bassnett. 2008. Translation in Global News. Routledge.\n\n\nDamji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. Learning Spark. O’Reilly Media, Inc.\n\n\nEagar, Gareth. 2021. Data Engineering with AWS: Learn How to Design and Build Cloud-Based Data Transformation Pipelines Using AWS. 1st ed. Birmingham: Packt Publishing Limited.\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc.\n\n\nGrama, Ananth. 2003. Introduction to Parallel Computing. Addison-Wesley.\n\n\nHennessy, John L., and David A. Patterson. 2017. Computer Architecture: A Quantitative Approach. Morgan Kaufmann.\n\n\nInmon, W. H. 1992. Building the Data Warehouse. John Wiley & Sons.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nKleppmann, Martin, and Chris Riccomini. 2026. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. 2nd edition. Santa Rosa, CA: O’Reilly.\n\n\nLee, Wei-Meng. 2024. DuckDB: Up and Running: Fast Data Analytics and Reporting. First edition. Sebastopol, CA: O’Reilly Media, Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. June 2, 2010.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.\n\n\nMishra, Sakti, Dylan Qu, and Anusha Challa. 2025. AWS Certified Data Engineer Associate Study Guide: In-Depth Guidance and Practice. \"O’Reilly Media, Inc.\"\n\n\nNeedham, Mark, Michael Hunger, and Michael Simons. 2024. DuckDB in Action. Simon and Schuster.\n\n\nNoble, David F. 1995. Progress Without People: New Technology, Unemployment, and the Message of Resistance. Toronto: Between the Lines.\n\n\nPacheco, Peter, and Matthew Malensek. 2022. An Introduction to Parallel Programming. Morgan Kaufmann.\n\n\nPolanyi, Karl. 1944. The Great Transformation: The Political and Economic Origins of Our Time. Beacon Press.\n\n\nPrabhakaran, Vinodkumar. 2015. Social Power in Interactions: Computational Analysis and Detection of Power Relations. Dissertation, Columbia University.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nRaff, Edward, Drew Farris, and Stella Biderman. 2025. How Large Language Models Work.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court.\n\n\nTanimura, Cathy. 2021. SQL for Data Analysis: Advanced Techniques for Transforming Data into Insights. O’Reilly Media, Inc.\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.\n\n\nTranquillin, Marco, Valliappa Lakshmanan, and Firat Tekiner. 2023. Architecting Data and Machine Learning Platforms. \"O’Reilly Media, Inc.\"\n\n\nVirtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. Serverless Analytics with Amazon Athena: Query Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure. Packt Publishing Ltd.\n\n\nWojtowicz, Zachary, and Simon DeDeo. 2025. “Undermining Mental Proof: How AI Can Make Cooperation Harder by Making Thinking Easier.”\n\n\nWolohan, John. 2020. Mastering Large Datasets with Python: Parallelize and Distribute Your Python Code. Simon and Schuster.\n\n\nZilliz. 2025. “Introduction to Unstructured Data.” 2025.",
+    "text": "PDFs of Books\nThe remainder of this page is auto-generated from all of the references across the slides for each week: click on the name of a reference to download the ebook version, if available!\n\n\nAmbrose, Susan A., Michael W. Bridges, Michele DiPietro, Marsha C. Lovett, and Marie K. Norman. 2010. How Learning Works: Seven Research-Based Principles for Smart Teaching. John Wiley & Sons.\n\n\nAubury, Simon. 2024. Getting Started with DuckDB: A Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows. Birmingham: Packt Publishing Limited.\n\n\nBerk, Michael. 2022. “Demystifying the Parquet File Format.” Towards Data Science. August 16, 2022.\n\n\nBielsa, Esperanca, and Susan Bassnett. 2008. Translation in Global News. Routledge.\n\n\nDamji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. Learning Spark. O’Reilly Media, Inc.\n\n\nEagar, Gareth. 2021. Data Engineering with AWS: Learn How to Design and Build Cloud-Based Data Transformation Pipelines Using AWS. 1st ed. Birmingham: Packt Publishing Limited.\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc.\n\n\nGrama, Ananth. 2003. Introduction to Parallel Computing. Addison-Wesley.\n\n\nHennessy, John L., and David A. Patterson. 2017. Computer Architecture: A Quantitative Approach. Morgan Kaufmann.\n\n\nInmon, W. H. 1992. Building the Data Warehouse. John Wiley & Sons.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nKleppmann, Martin, and Chris Riccomini. 2026. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. 2nd edition. Santa Rosa, CA: O’Reilly.\n\n\nLee, Wei-Meng. 2024. DuckDB: Up and Running: Fast Data Analytics and Reporting. First edition. Sebastopol, CA: O’Reilly Media, Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. June 2, 2010.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.\n\n\nMishra, Sakti, Dylan Qu, and Anusha Challa. 2025. AWS Certified Data Engineer Associate Study Guide: In-Depth Guidance and Practice. \"O’Reilly Media, Inc.\"\n\n\nNeedham, Mark, Michael Hunger, and Michael Simons. 2024. DuckDB in Action. Simon and Schuster.\n\n\nNoble, David F. 1995. Progress Without People: New Technology, Unemployment, and the Message of Resistance. Toronto: Between the Lines.\n\n\nPacheco, Peter, and Matthew Malensek. 2022. An Introduction to Parallel Programming. Morgan Kaufmann.\n\n\nPolanyi, Karl. 1944. The Great Transformation: The Political and Economic Origins of Our Time. Beacon Press.\n\n\nPrabhakaran, Vinodkumar. 2015. Social Power in Interactions: Computational Analysis and Detection of Power Relations. Dissertation, Columbia University.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nRaff, Edward, Drew Farris, and Stella Biderman. 2025. How Large Language Models Work.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court.\n\n\nTanimura, Cathy. 2021. SQL for Data Analysis: Advanced Techniques for Transforming Data into Insights. O’Reilly Media, Inc.\n\n\nThomas, Alex. 2020. Natural Language Processing with Spark NLP: Learning to Understand Text at Scale. \"O’Reilly Media, Inc.\"\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.\n\n\nTranquillin, Marco, Valliappa Lakshmanan, and Firat Tekiner. 2023. Architecting Data and Machine Learning Platforms. \"O’Reilly Media, Inc.\"\n\n\nVirtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. Serverless Analytics with Amazon Athena: Query Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure. Packt Publishing Ltd.\n\n\nWojtowicz, Zachary, and Simon DeDeo. 2025. “Undermining Mental Proof: How AI Can Make Cooperation Harder by Making Thinking Easier.”\n\n\nWolohan, John. 2020. Mastering Large Datasets with Python: Parallelize and Distribute Your Python Code. Simon and Schuster.\n\n\nZilliz. 2025. “Introduction to Unstructured Data.” 2025.",
     "crumbs": [
       "Resources"
     ]
@@ -348,7 +348,7 @@
     "href": "index.html",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "",
-    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHolidays / Irregular Lecture Days\n\n\n\nPlease keep in mind the following dates, when course meetings will be shifted or skipped:\n\nTuesday, September 8: The Week 2 meeting for the Monday section (Section 01) falls on a Tuesday, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)\nMonday, October 12 and Thursday, October 15: No class due to Georgetown’s Mid-Semester Holiday\nMonday, November 23 and Thursday, November 26: No class due to Georgetown’s 2026 Fall Recess\n\n\n\nWelcome! This webpage contains slides, resources, and auxiliary writeups for DSAN 6000: Big Data and Cloud Computing, Fall 2026 at Georgetown University.\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394. Use the links in the sidebar, or in the table below, to explore the content for a particular week.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 31\n\n\n\n\n\n\nWeek 2: Using Cloud Resources for Horizontal Scaling\n\n\nSep 8\n\n\n\n\n\n\nWeek 3: Separating Data from Computation for Parallel Processing\n\n\nSep 14\n\n\n\n\n\n\nWeek 4: Columnar Data Formats and DuckDB\n\n\nSep 21\n\n\n\n\n\n\nWeek 5: From DuckDB to Polars\n\n\nSep 28\n\n\n\n\n\n\nWeek 6: Data Engineering\n\n\nOct 5\n\n\n\n\n\n\nWeek 7: Introduction to Spark\n\n\nOct 19\n\n\n\n\n\n\nWeek 8: Spark MLLib, Spark NLP\n\n\nOct 26\n\n\n\n\n\n\nWeek 9: In-Class Midterm\n\n\nNov 2\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Prefect\n\n\nNov 9\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 16\n\n\n\n\n\n\nWeek 12: Final Project Preparation\n\n\nNov 30\n\n\n\n\n\n\nWeek 13: Final Project Presentations\n\n\nDec 7\n\n\n\n\n\n\nNo matching items",
+    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHolidays / Irregular Lecture Days\n\n\n\nPlease keep in mind the following dates, when course meetings will be shifted or skipped:\n\nTuesday, September 8: The Week 2 meeting for the Monday section (Section 01) falls on a Tuesday, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)\nMonday, October 12 and Thursday, October 15: No class due to Georgetown’s Mid-Semester Holiday\nMonday, November 23 and Thursday, November 26: No class due to Georgetown’s 2026 Fall Recess\n\n\n\nWelcome! This webpage contains slides, resources, and auxiliary writeups for DSAN 6000: Big Data and Cloud Computing, Fall 2026 at Georgetown University.\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394. Use the links in the sidebar, or in the table below, to explore the content for a particular week.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 31\n\n\n\n\n\n\nWeek 2: Using Cloud Resources for Horizontal Scaling\n\n\nSep 8\n\n\n\n\n\n\nWeek 3: Separating Data from Computation for Parallel Processing\n\n\nSep 14\n\n\n\n\n\n\nWeek 4: Columnar Data Formats and DuckDB\n\n\nSep 21\n\n\n\n\n\n\nWeek 5: From DuckDB to Polars\n\n\nSep 28\n\n\n\n\n\n\nWeek 6: Data Engineering\n\n\nOct 5\n\n\n\n\n\n\nWeek 7: Introduction to Spark\n\n\nOct 19\n\n\n\n\n\n\nWeek 8: Spark MLlib, Spark NLP\n\n\nOct 26\n\n\n\n\n\n\nWeek 9: In-Class Midterm\n\n\nNov 2\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Prefect\n\n\nNov 9\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 16\n\n\n\n\n\n\nWeek 12: Final Project Preparation\n\n\nNov 30\n\n\n\n\n\n\nWeek 13: Final Project Presentations\n\n\nDec 7\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "<i class='bi bi-house'></i> Home"
     ]
@@ -971,7 +971,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Separating Data from Computation for Parallel Processing",
     "section": "In Action",
-    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8303 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8019 s"
+    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8147 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8388 s"
   },
   {
     "objectID": "w03/slides.html#what-is-joblib-doing-here",
@@ -1166,7 +1166,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Separating Data from Computation for Parallel Processing",
     "section": "In Action",
-    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8449 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8230 s",
+    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8449 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8621 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 14</span>"
     ]
@@ -1961,7 +1961,7 @@
     "href": "writeups/sql-guide/index.html#onto-duckdb",
     "title": "From Pandas to SQL",
     "section": "Onto DuckDB!",
-    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌────────────────────────────────────────────────┐\n│┌──────────────────────────────────────────────┐│\n││              Total Time: 0.0027s             ││\n│└──────────────────────────────────────────────┘│\n└────────────────────────────────────────────────┘\n┌───────────────────────────┐\n│           QUERY           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│    ────────────────────   │\n│                           │\n│           0 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│    ────────────────────   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│           FILTER          │\n│    ────────────────────   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         TABLE_SCAN        │\n│    ────────────────────   │\n│   Function: PANDAS_SCAN   │\n│                           │\n│        Projections:       │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│                           │\n│                           │\n│                           │\n│           7 rows          │\n│           0.00s           │\n└───────────────────────────┘\n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
+    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌────────────────────────────────────────────────┐\n│┌──────────────────────────────────────────────┐│\n││              Total Time: 0.0029s             ││\n│└──────────────────────────────────────────────┘│\n└────────────────────────────────────────────────┘\n┌───────────────────────────┐\n│           QUERY           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│    ────────────────────   │\n│                           │\n│           0 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│    ────────────────────   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│           FILTER          │\n│    ────────────────────   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         TABLE_SCAN        │\n│    ────────────────────   │\n│   Function: PANDAS_SCAN   │\n│                           │\n│        Projections:       │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│                           │\n│                           │\n│                           │\n│           7 rows          │\n│           0.00s           │\n└───────────────────────────┘\n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
   },
   {
     "objectID": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",
@@ -2525,51 +2525,11 @@
     ]
   },
   {
-    "objectID": "w07/index.html#first-things-first-openjdk",
-    "href": "w07/index.html#first-things-first-openjdk",
-    "title": "Week 7: Introduction to Spark",
-    "section": "First Things First: OpenJDK",
-    "text": "First Things First: OpenJDK\n\nSpark 4: Recommended JDK version = 211\n\n(How would you know this without me telling you? Truly idk)\n\n\nsudo apt install openjdk-21-jdk-headless",
-    "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 19</span>"
-    ]
-  },
-  {
-    "objectID": "w07/index.html#getting-using-spark",
-    "href": "w07/index.html#getting-using-spark",
-    "title": "Week 7: Introduction to Spark",
-    "section": "Getting + Using Spark",
-    "text": "Getting + Using Spark\n \n\nApache Spark Downloads Page\n\n\n Spark Connect enabled ✅\n Click through the “Download Spark” link…\n …To get the actual download URL 😵‍💫\n Use wget to download",
-    "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 19</span>"
-    ]
-  },
-  {
-    "objectID": "w07/index.html#in-class-demo",
-    "href": "w07/index.html#in-class-demo",
-    "title": "Week 7: Introduction to Spark",
-    "section": "In-Class Demo",
-    "text": "In-Class Demo\n\n\n\n\n\n\nCars! Driving!\n\n\n\nAdapted from/almost identical to Jacob Celestine’s tutorial",
-    "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 19</span>"
-    ]
-  },
-  {
     "objectID": "w07/index.html#references",
     "href": "w07/index.html#references",
     "title": "Week 7: Introduction to Spark",
     "section": "References",
     "text": "References\n\n\nDamji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. Learning Spark. O’Reilly Media, Inc.",
-    "crumbs": [
-      "Week 7: <span class='sec-w07-date'>Oct 19</span>"
-    ]
-  },
-  {
-    "objectID": "w07/index.html#footnotes",
-    "href": "w07/index.html#footnotes",
-    "title": "Week 7: Introduction to Spark",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\n21?↩︎",
     "crumbs": [
       "Week 7: <span class='sec-w07-date'>Oct 19</span>"
     ]
@@ -2603,27 +2563,6 @@
     "text": "Your Goal: Narrow Dependencies!\n\n\n\nDamji et al. (2020), Figure 2-7 (p. 31)"
   },
   {
-    "objectID": "w07/slides.html#first-things-first-openjdk",
-    "href": "w07/slides.html#first-things-first-openjdk",
-    "title": "Week 7: Introduction to Spark",
-    "section": "First Things First: OpenJDK",
-    "text": "First Things First: OpenJDK\n\nSpark 4: Recommended JDK version = 211\n\n(How would you know this without me telling you? Truly idk)\n\n\nsudo apt install openjdk-21-jdk-headless\n21?"
-  },
-  {
-    "objectID": "w07/slides.html#getting-using-spark",
-    "href": "w07/slides.html#getting-using-spark",
-    "title": "Week 7: Introduction to Spark",
-    "section": "Getting + Using Spark",
-    "text": "Getting + Using Spark\n \n\nApache Spark Downloads Page\n\n\n Spark Connect enabled ✅\n Click through the “Download Spark” link…\n …To get the actual download URL 😵‍💫\n Use wget to download"
-  },
-  {
-    "objectID": "w07/slides.html#in-class-demo",
-    "href": "w07/slides.html#in-class-demo",
-    "title": "Week 7: Introduction to Spark",
-    "section": "In-Class Demo",
-    "text": "In-Class Demo\n\n\n\n\n\n\nCars! Driving!\n\n\n\nAdapted from/almost identical to Jacob Celestine’s tutorial"
-  },
-  {
     "objectID": "w07/slides.html#references",
     "href": "w07/slides.html#references",
     "title": "Week 7: Introduction to Spark",
@@ -2633,12 +2572,216 @@
   {
     "objectID": "w08/index.html",
     "href": "w08/index.html",
-    "title": "Week 8: Spark MLLib, Spark NLP",
+    "title": "Week 8: Spark MLlib, Spark NLP",
     "section": "",
-    "text": "Open slides in new tab →\n\n\nSparkML: Hopping Up Another Abstraction Layer!\n\n\n\nImage Source",
+    "text": "Open slides in new tab →",
     "crumbs": [
       "Week 8: <span class='sec-w08-date'>Oct 26</span>"
     ]
+  },
+  {
+    "objectID": "w08/index.html#todays-agenda-demos-and-more-demos",
+    "href": "w08/index.html#todays-agenda-demos-and-more-demos",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "Today’s Agenda: Demos! And More Demos!",
+    "text": "Today’s Agenda: Demos! And More Demos!\n\nSpark DataFrames\nMLlib: Official Spark library!\nSparkNLP: 3rd-Party Library",
+    "crumbs": [
+      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
+    ]
+  },
+  {
+    "objectID": "w08/index.html#spark-dataframe",
+    "href": "w08/index.html#spark-dataframe",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "Spark DataFrame",
+    "text": "Spark DataFrame\n…Yet another type of DataFrame!\n\n\n\n Pandas\n\nEverything in RAM\nAll computations eagerly executed\n\ndata_df['price'].mean()\n\n\n Polars: Introduced lazy execution\n\n\\(\\leadsto\\) separation of computation from data\nOptimized for multicore computation\n\nratio_expr = (\n  pl.col('work_hrs') / pl.col('sleep_hrs')\n).alias('sleep_ratio')\ndata_pl.with_columns(ratio_expr).collect()\n\n\n\n\n PySpark\ndata_sdf = spark.createDataFrame([\n    [1, 2.0, 's1', date(2000, 1, 1), datetime(2000, 1, 1, 12, 0)],\n    [2, 3.0, 's2', date(2000, 3, 1), datetime(2000, 1, 3, 12, 0)],\n], schema='a long, b double, c string, d date, e timestamp')\ndata_sdf\n\nOptimized for distributed computation \\(\\leadsto\\) requires an  always-running process \nWrapper around RDD (Resilient Distributed Dataset): data_sdf.rdd.getNumPartitions()",
+    "crumbs": [
+      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
+    ]
+  },
+  {
+    "objectID": "w08/index.html#in-class-demo-1-local-spark",
+    "href": "w08/index.html#in-class-demo-1-local-spark",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "In-Class Demo 1: Local Spark",
+    "text": "In-Class Demo 1: Local Spark\n(For development, can just pip install pyspark!)\n \n\nPySpark Basics",
+    "crumbs": [
+      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
+    ]
+  },
+  {
+    "objectID": "w08/index.html#first-things-first-openjdk",
+    "href": "w08/index.html#first-things-first-openjdk",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "First Things First: OpenJDK",
+    "text": "First Things First: OpenJDK\n\nSpark 4: Recommended JDK version = 21\n\n(How would you know without me telling you? Truly idk)\n\nsudo apt install openjdk-21-jdk-headless\nInstall this  on the master node and  on all worker nodes that you’d like to link together\n\n(Run sudo apt update first if on a new instance!)",
+    "crumbs": [
+      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
+    ]
+  },
+  {
+    "objectID": "w08/index.html#getting-using-spark",
+    "href": "w08/index.html#getting-using-spark",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "Getting + Using Spark",
+    "text": "Getting + Using Spark\n\nApache Spark Downloads Page\n\n\n Click through the “Download Spark” link…\n …To get the actual download URL 😵‍💫\n Use wget &lt;url&gt; in terminal to download .tar.gz:\nwget https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3.tgz\n Extract using:\ntar -xzvf spark-4.2.0-bin-hadoop3.tgz",
+    "crumbs": [
+      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
+    ]
+  },
+  {
+    "objectID": "w08/index.html#in-class-demo-2-your-first-spark-cluster",
+    "href": "w08/index.html#in-class-demo-2-your-first-spark-cluster",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "In-Class Demo 2: Your First Spark Cluster!",
+    "text": "In-Class Demo 2: Your First Spark Cluster!\nSpark Cluster Checklist:\n AWS Console → EC2 Console → Security group (launch-wizard-1):\n\nEdit inbound rules → Add rule → Type=“All traffic” → Source=itself (sg… autocomplete)\n\n\n\n Master node:\n\nCreated\nJDK 21 installed: sudo apt install openjdk-21-jdk-headless\nSpark 4.2.0 downloaded, extracted\nPrivate IP recorded:\nexport PRIVATE_IP=$(hostname -I | awk '{print $1}')\nstart-master.sh -h &lt;Private IP&gt;\n\n\n Worker nodes (one at a time):\n\nCreated with existing security group launch-wizard-1\nsudo apt update\nJDK 21 installed: sudo apt install openjdk-21-jdk-headless\nSpark 4.2.0 downloaded, extracted\nstart-worker.sh &lt;Private IP&gt;:7077\n\n\n\n Check status via Spark UI: Master on localhost:8080 (VSCode port forwarding) (New worker nodes should appear after each start-worker.sh)",
+    "crumbs": [
+      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
+    ]
+  },
+  {
+    "objectID": "w08/index.html#now-use-it-from-a-jupyter-notebook",
+    "href": "w08/index.html#now-use-it-from-a-jupyter-notebook",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "Now Use It From a Jupyter Notebook",
+    "text": "Now Use It From a Jupyter Notebook\nfrom pyspark.sql import SparkSession\nspark = (\n  SparkSession\n    .builder\n    .appName('UNSC_Speeches')\n    .master('spark://&lt;Private IP Here!&gt;:7077')\n    .config('spark.jars.packages','org.apache.hadoop:hadoop-aws:3.5.0')\n    .getOrCreate()\n)\n\nCheck status of SparkSession via Spark Session UI: localhost:4040\n\nMaster node UI: localhost:8080 (worker UI=localhost:8081)\nSparkSession UI: localhost:4040\nConfusion ↓, Understanding ↑ 🥳",
+    "crumbs": [
+      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
+    ]
+  },
+  {
+    "objectID": "w08/index.html#mllib-hopping-up-another-abstraction-layer",
+    "href": "w08/index.html#mllib-hopping-up-another-abstraction-layer",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "MLlib: Hopping Up Another Abstraction Layer!",
+    "text": "MLlib: Hopping Up Another Abstraction Layer!\n\n\n\n\n\n\n\nImage Source",
+    "crumbs": [
+      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
+    ]
+  },
+  {
+    "objectID": "w08/index.html#in-class-demo-3",
+    "href": "w08/index.html#in-class-demo-3",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "In-Class Demo 3",
+    "text": "In-Class Demo 3\n \n\nMLlib in Action",
+    "crumbs": [
+      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
+    ]
+  },
+  {
+    "objectID": "w08/index.html#spark-nlp",
+    "href": "w08/index.html#spark-nlp",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "Spark NLP",
+    "text": "Spark NLP\n\n\nMLlib: pyspark as normal:\nfrom pyspark.sql import SparkSession\nspark = (\n    SparkSession\n    .builder\n    .appName('SF_Housing')\n    .getOrCreate()\n)\ntype(spark)\n# &gt;&gt;&gt; pyspark.sql.session.SparkSession\nfrom pyspark.ml.feature import VectorAssembler\nSpark NLP: Custom SparkSession with sparknlp.start():\nimport sparknlp\nspark = sparknlp.start()\ntype(spark)\n# &gt;&gt;&gt; pyspark.sql.session.SparkSession\nfrom sparknlp.base import DocumentAssembler\n\n\n\n\nThomas (2020): The chimango caracara book",
+    "crumbs": [
+      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
+    ]
+  },
+  {
+    "objectID": "w08/index.html#in-class-demo-4",
+    "href": "w08/index.html#in-class-demo-4",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "In-Class Demo 4",
+    "text": "In-Class Demo 4\n \n\nDistributed Sentiment Analysis with Spark NLP",
+    "crumbs": [
+      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
+    ]
+  },
+  {
+    "objectID": "w08/index.html#references",
+    "href": "w08/index.html#references",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "References",
+    "text": "References\n\n\nThomas, Alex. 2020. Natural Language Processing with Spark NLP: Learning to Understand Text at Scale. \"O’Reilly Media, Inc.\"",
+    "crumbs": [
+      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
+    ]
+  },
+  {
+    "objectID": "w08/slides.html#todays-agenda-demos-and-more-demos",
+    "href": "w08/slides.html#todays-agenda-demos-and-more-demos",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "Today’s Agenda: Demos! And More Demos!",
+    "text": "Today’s Agenda: Demos! And More Demos!\n\nSpark DataFrames\nMLlib: Official Spark library!\nSparkNLP: 3rd-Party Library"
+  },
+  {
+    "objectID": "w08/slides.html#spark-dataframe",
+    "href": "w08/slides.html#spark-dataframe",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "Spark DataFrame",
+    "text": "Spark DataFrame\n…Yet another type of DataFrame!\n\n\n\n Pandas\n\nEverything in RAM\nAll computations eagerly executed\n\ndata_df['price'].mean()\n\n\n Polars: Introduced lazy execution\n\n\\(\\leadsto\\) separation of computation from data\nOptimized for multicore computation\n\nratio_expr = (\n  pl.col('work_hrs') / pl.col('sleep_hrs')\n).alias('sleep_ratio')\ndata_pl.with_columns(ratio_expr).collect()\n\n\n\n\n PySpark\ndata_sdf = spark.createDataFrame([\n    [1, 2.0, 's1', date(2000, 1, 1), datetime(2000, 1, 1, 12, 0)],\n    [2, 3.0, 's2', date(2000, 3, 1), datetime(2000, 1, 3, 12, 0)],\n], schema='a long, b double, c string, d date, e timestamp')\ndata_sdf\n\nOptimized for distributed computation \\(\\leadsto\\) requires an  always-running process \nWrapper around RDD (Resilient Distributed Dataset): data_sdf.rdd.getNumPartitions()"
+  },
+  {
+    "objectID": "w08/slides.html#in-class-demo-1-local-spark",
+    "href": "w08/slides.html#in-class-demo-1-local-spark",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "In-Class Demo 1: Local Spark",
+    "text": "In-Class Demo 1: Local Spark\n(For development, can just pip install pyspark!)\n \n\nPySpark Basics"
+  },
+  {
+    "objectID": "w08/slides.html#first-things-first-openjdk",
+    "href": "w08/slides.html#first-things-first-openjdk",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "First Things First: OpenJDK",
+    "text": "First Things First: OpenJDK\n\nSpark 4: Recommended JDK version = 21\n\n(How would you know without me telling you? Truly idk)\n\nsudo apt install openjdk-21-jdk-headless\nInstall this  on the master node and  on all worker nodes that you’d like to link together\n\n(Run sudo apt update first if on a new instance!)"
+  },
+  {
+    "objectID": "w08/slides.html#getting-using-spark",
+    "href": "w08/slides.html#getting-using-spark",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "Getting + Using Spark",
+    "text": "Getting + Using Spark\n\nApache Spark Downloads Page\n\n\n Click through the “Download Spark” link…\n …To get the actual download URL 😵‍💫\n Use wget &lt;url&gt; in terminal to download .tar.gz:\nwget https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3.tgz\n Extract using:\ntar -xzvf spark-4.2.0-bin-hadoop3.tgz"
+  },
+  {
+    "objectID": "w08/slides.html#in-class-demo-2-your-first-spark-cluster",
+    "href": "w08/slides.html#in-class-demo-2-your-first-spark-cluster",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "In-Class Demo 2: Your First Spark Cluster!",
+    "text": "In-Class Demo 2: Your First Spark Cluster!\nSpark Cluster Checklist:\n AWS Console → EC2 Console → Security group (launch-wizard-1):\n\nEdit inbound rules → Add rule → Type=“All traffic” → Source=itself (sg… autocomplete)\n\n\n\n Master node:\n\nCreated\nJDK 21 installed: sudo apt install openjdk-21-jdk-headless\nSpark 4.2.0 downloaded, extracted\nPrivate IP recorded:\nexport PRIVATE_IP=$(hostname -I | awk '{print $1}')\nstart-master.sh -h &lt;Private IP&gt;\n\n\n Worker nodes (one at a time):\n\nCreated with existing security group launch-wizard-1\nsudo apt update\nJDK 21 installed: sudo apt install openjdk-21-jdk-headless\nSpark 4.2.0 downloaded, extracted\nstart-worker.sh &lt;Private IP&gt;:7077\n\n\n Check status via Spark UI: Master on localhost:8080 (VSCode port forwarding) (New worker nodes should appear after each start-worker.sh)"
+  },
+  {
+    "objectID": "w08/slides.html#now-use-it-from-a-jupyter-notebook",
+    "href": "w08/slides.html#now-use-it-from-a-jupyter-notebook",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "Now Use It From a Jupyter Notebook",
+    "text": "Now Use It From a Jupyter Notebook\nfrom pyspark.sql import SparkSession\nspark = (\n  SparkSession\n    .builder\n    .appName('UNSC_Speeches')\n    .master('spark://&lt;Private IP Here!&gt;:7077')\n    .config('spark.jars.packages','org.apache.hadoop:hadoop-aws:3.5.0')\n    .getOrCreate()\n)\n\nCheck status of SparkSession via Spark Session UI: localhost:4040\n\nMaster node UI: localhost:8080 (worker UI=localhost:8081)\nSparkSession UI: localhost:4040\nConfusion ↓, Understanding ↑ 🥳"
+  },
+  {
+    "objectID": "w08/slides.html#mllib-hopping-up-another-abstraction-layer",
+    "href": "w08/slides.html#mllib-hopping-up-another-abstraction-layer",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "MLlib: Hopping Up Another Abstraction Layer!",
+    "text": "MLlib: Hopping Up Another Abstraction Layer!\n\n\n\n\n\n\n\nImage Source"
+  },
+  {
+    "objectID": "w08/slides.html#in-class-demo-3",
+    "href": "w08/slides.html#in-class-demo-3",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "In-Class Demo 3",
+    "text": "In-Class Demo 3\n \n\nMLlib in Action"
+  },
+  {
+    "objectID": "w08/slides.html#spark-nlp",
+    "href": "w08/slides.html#spark-nlp",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "Spark NLP",
+    "text": "Spark NLP\n\n\nMLlib: pyspark as normal:\nfrom pyspark.sql import SparkSession\nspark = (\n    SparkSession\n    .builder\n    .appName('SF_Housing')\n    .getOrCreate()\n)\ntype(spark)\n# &gt;&gt;&gt; pyspark.sql.session.SparkSession\nfrom pyspark.ml.feature import VectorAssembler\nSpark NLP: Custom SparkSession with sparknlp.start():\nimport sparknlp\nspark = sparknlp.start()\ntype(spark)\n# &gt;&gt;&gt; pyspark.sql.session.SparkSession\nfrom sparknlp.base import DocumentAssembler\n\n\n\n\nThomas (2020): The chimango caracara book"
+  },
+  {
+    "objectID": "w08/slides.html#in-class-demo-4",
+    "href": "w08/slides.html#in-class-demo-4",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "In-Class Demo 4",
+    "text": "In-Class Demo 4\n \n\nDistributed Sentiment Analysis with Spark NLP"
+  },
+  {
+    "objectID": "w08/slides.html#references",
+    "href": "w08/slides.html#references",
+    "title": "Week 8: Spark MLlib, Spark NLP",
+    "section": "References",
+    "text": "References\n\n\nThomas, Alex. 2020. Natural Language Processing with Spark NLP: Learning to Understand Text at Scale. \"O’Reilly Media, Inc.\""
   },
   {
     "objectID": "w06/index.html",

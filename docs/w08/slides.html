@@ -7,11 +7,14 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Jeff Jacobs">
-  <title>DSAN 6000: Big Data and Cloud Computing – Week 8: Spark MLLib, Spark NLP</title>
+  <title>DSAN 6000: Big Data and Cloud Computing – Week 8: Spark MLlib, Spark NLP</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -35,7 +38,93 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-e9c7f1e827923dd30cbc43483ab265a7.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -138,7 +227,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Week 8: Spark MLLib, Spark NLP</h1>
+  <h1 class="title">Week 8: Spark MLlib, Spark NLP</h1>
   <p class="subtitle"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2026</p>
 
 <div class="quarto-title-authors">
@@ -154,12 +243,208 @@ Jeff Jacobs
 
   <p class="date">Monday, October 26, 2026</p>
 </section>
-<section id="sparkml-hopping-up-another-abstraction-layer" class="title-slide slide level1 smaller not-title-slide title-10 center" data-stack-name="SparkML Intro">
-<h1>SparkML: Hopping Up Another Abstraction Layer!</h1>
+<section id="todays-agenda-demos-and-more-demos" class="slide level2 title-13">
+<h2>Today’s Agenda: Demos! And More Demos!</h2>
+<ul>
+<li>Spark <code>DataFrame</code>s</li>
+<li><a href="https://spark.apache.org/docs/latest/ml-guide.html"><code>MLlib</code></a>: <strong>Official</strong> Spark library!</li>
+<li><a href="https://sparknlp.org/">SparkNLP</a>: 3rd-Party Library</li>
+</ul>
+</section>
+<section id="spark-dataframe" class="slide level2 smaller text-65 crunch-title crunch-p crunch-ul" data-name="Spark DataFrame">
+<h2>Spark <code>DataFrame</code></h2>
+<p>…Yet another type of <code>DataFrame</code>!</p>
+<div class="quarto-layout-panel" data-layout="[[1,1],[1]]">
+<div class="quarto-layout-row">
+<div id="df-pandas" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><i class="bi bi-1-circle" style="font-size: 90%;"></i> <strong>Pandas</strong></p>
+<ul>
+<li>Everything in RAM</li>
+<li>All computations <strong>eager</strong>ly executed</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-label="1"></a>data_df[<span class="st">'price'</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="df-polars" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><i class="bi bi-2-circle" style="font-size: 90%;"></i> <strong>Polars</strong>: Introduced <strong>lazy</strong> execution</p>
+<ul>
+<li><span class="math inline">\(\leadsto\)</span> separation of <em>computation</em> from <em>data</em></li>
+<li>Optimized for <em>multicore</em> computation</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a>ratio_expr <span class="op">=</span> (</span>
+<span id="cb2-2"><a aria-label="2"></a>  pl.col(<span class="st">'work_hrs'</span>) <span class="op">/</span> pl.col(<span class="st">'sleep_hrs'</span>)</span>
+<span id="cb2-3"><a aria-label="3"></a>).alias(<span class="st">'sleep_ratio'</span>)</span>
+<span id="cb2-4"><a aria-label="4"></a>data_pl.with_columns(ratio_expr).collect()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div id="df-pyspark" class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p><i class="bi bi-3-circle" style="font-size: 90%;"></i> <strong>PySpark</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-label="1"></a>data_sdf <span class="op">=</span> spark.createDataFrame([</span>
+<span id="cb3-2"><a aria-label="2"></a>    [<span class="dv">1</span>, <span class="fl">2.0</span>, <span class="st">'s1'</span>, date(<span class="dv">2000</span>, <span class="dv">1</span>, <span class="dv">1</span>), datetime(<span class="dv">2000</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">12</span>, <span class="dv">0</span>)],</span>
+<span id="cb3-3"><a aria-label="3"></a>    [<span class="dv">2</span>, <span class="fl">3.0</span>, <span class="st">'s2'</span>, date(<span class="dv">2000</span>, <span class="dv">3</span>, <span class="dv">1</span>), datetime(<span class="dv">2000</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">0</span>)],</span>
+<span id="cb3-4"><a aria-label="4"></a>], schema<span class="op">=</span><span class="st">'a long, b double, c string, d date, e timestamp'</span>)</span>
+<span id="cb3-5"><a aria-label="5"></a>data_sdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Optimized for <em>distributed</em> computation <span class="math inline">\(\leadsto\)</span> requires an <i class="bi bi-exclamation-triangle"></i> <strong>always-running process</strong> <i class="bi bi-exclamation-triangle"></i></li>
+<li>Wrapper around <code>RDD</code> (<strong>R</strong>esilient <strong>D</strong>istributed <strong>D</strong>ataset): <code>data_sdf.rdd.getNumPartitions()</code></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="in-class-demo-1-local-spark" class="slide level2">
+<h2>In-Class Demo 1: <em>Local</em> Spark</h2>
+<p><em>(For <strong>development</strong>, can just <code>pip install pyspark</code>!)</em></p>
+<p>&nbsp;</p>
+<center>
+<p><span class="boxed-cb"><a href="https://colab.research.google.com/drive/16-Cr1Y8rwiE7h6jjYuBAdXc4iJ8XR59y?usp=drive_link"><strong>PySpark Basics</strong></a></span></p>
+</center>
+</section>
+<section id="first-things-first-openjdk" class="slide level2">
+<h2>First Things First: OpenJDK</h2>
+<ul>
+<li><strong>Spark 4</strong>: Recommended JDK version = <a href="https://openjdk.org/projects/jdk/21/"><strong>21</strong></a>
+<ul>
+<li><em>(How would you know without me telling you? Truly idk)</em></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-label="1"></a><span class="fu">sudo</span> apt install openjdk-21-jdk-headless</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li>Install this <i class="bi bi-1-circle" style="font-size: 80%;"></i> on the <strong>master</strong> node and <i class="bi bi-2-circle" style="font-size: 80%;"></i> on <strong>all worker nodes</strong> that you’d like to link together
+<ul>
+<li><em>(Run <code>sudo apt update</code> first if on a new instance!)</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="getting-using-spark" class="slide level2">
+<h2>Getting + Using Spark</h2>
+<center style="margin-top: 40px;">
+<p><span class="boxed-cb"><a href="https://spark.apache.org/downloads.html" class="external"><strong>Apache Spark Downloads Page</strong></a></span></p>
+</center>
+<ul>
+<li><p><i class="bi bi-1-circle"></i> <strong>Click through</strong> the <a href="https://www.apache.org/dyn/closer.lua/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3-connect.tgz">“Download Spark” link</a>…</p></li>
+<li><p><i class="bi bi-2-circle"></i> …To get the actual <a href="https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3-connect.tgz"><strong>download URL</strong></a> 😵‍💫</p></li>
+<li><p><i class="bi bi-3-circle"></i> Use <code>wget &lt;url&gt;</code> in terminal to download <code>.tar.gz</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="font-size: 80%;"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-label="1"></a><span class="fu">wget</span> https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3.tgz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><i class="bi bi-4-circle"></i> Extract using:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a aria-label="1"></a><span class="fu">tar</span> <span class="at">-xzvf</span> spark-4.2.0-bin-hadoop3.tgz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ul>
+</section>
+<section id="in-class-demo-2-your-first-spark-cluster" class="slide level2 smaller text-60 title-11 crunch-ul crunch-li-5">
+<h2>In-Class Demo 2: Your First Spark <em>Cluster</em>!</h2>
+<p><em>Spark Cluster Checklist:</em></p>
+<p><i class="bi bi-1-circle" style="font-size: 90%;"></i> <strong>AWS Console</strong> → <strong>EC2 Console</strong> → Security group (<code>launch-wizard-1</code>):</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Edit inbound rules → Add rule → Type=“All traffic” → Source=itself (<code>sg</code>… autocomplete)</label></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><i class="bi bi-2-circle" style="font-size: 90%;"></i> <strong>Master node:</strong></p>
+<ul class="task-list">
+<li><p><label><input type="checkbox" checked="">Created</label></p></li>
+<li><p><label><input type="checkbox">JDK 21 installed: <code>sudo apt install openjdk-21-jdk-headless</code></label></p></li>
+<li><p><label><input type="checkbox">Spark 4.2.0 downloaded, extracted</label></p></li>
+<li><p><label><input type="checkbox"><strong>Private</strong> IP recorded:</label></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a aria-label="1"></a><span class="bu">export</span> <span class="va">PRIVATE_IP</span><span class="op">=</span><span class="va">$(</span><span class="fu">hostname</span> <span class="at">-I</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print $1}'</span><span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><label><input type="checkbox"><code>start-master.sh -h &lt;Private IP&gt;</code></label></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><i class="bi bi-3-circle" style="font-size: 90%;"></i> <strong>Worker nodes (one at a time):</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Created with <strong>existing security group</strong> <code>launch-wizard-1</code></label></li>
+<li><label><input type="checkbox"><code>sudo apt update</code></label></li>
+<li><label><input type="checkbox">JDK 21 installed: <code>sudo apt install openjdk-21-jdk-headless</code></label></li>
+<li><label><input type="checkbox">Spark 4.2.0 downloaded, extracted</label></li>
+<li><label><input type="checkbox"><code>start-worker.sh &lt;Private IP&gt;:7077</code></label></li>
+</ul>
+</div></div>
+<p><i class="bi bi-4-circle" style="font-size: 90%;"></i> Check status via <strong>Spark UI</strong>: Master on <code>localhost:8080</code> (VSCode port forwarding)<br><i class="bi bi-arrow-return-right" style="margin-left: 8px;"></i> <em>(New worker nodes should appear after each <code>start-worker.sh</code>)</em></p>
+</section>
+<section id="now-use-it-from-a-jupyter-notebook" class="slide level2 title-09 crunch-p">
+<h2>Now <em>Use It</em> From a Jupyter Notebook</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-label="1"></a><span class="im">from</span> pyspark.sql <span class="im">import</span> SparkSession</span>
+<span id="cb8-2"><a aria-label="2"></a>spark <span class="op">=</span> (</span>
+<span id="cb8-3"><a aria-label="3"></a>  SparkSession</span>
+<span id="cb8-4"><a aria-label="4"></a>    .builder</span>
+<span id="cb8-5"><a aria-label="5"></a>    .appName(<span class="st">'UNSC_Speeches'</span>)</span>
+<span id="cb8-6"><a aria-label="6"></a>    .master(<span class="st">'spark://&lt;Private IP Here!&gt;:7077'</span>)</span>
+<span id="cb8-7"><a aria-label="7"></a>    .config(<span class="st">'spark.jars.packages'</span>,<span class="st">'org.apache.hadoop:hadoop-aws:3.5.0'</span>)</span>
+<span id="cb8-8"><a aria-label="8"></a>    .getOrCreate()</span>
+<span id="cb8-9"><a aria-label="9"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div style="font-size: 80%">
+<p>Check status of <strong><code>SparkSession</code></strong> via <strong>Spark Session UI</strong>: <code>localhost:4040</code></p>
+<ul>
+<li>Master node UI: <code>localhost:8080</code> (worker UI=<code>localhost:8081</code>)</li>
+<li><code>SparkSession</code> UI: <code>localhost:4040</code></li>
+<li>Confusion ↓, Understanding ↑ 🥳</li>
+</ul>
+</div>
+</section>
+<section id="mllib-hopping-up-another-abstraction-layer" class="slide level2 smaller not-title-slide title-10" data-name="MLlib">
+<h2>MLlib: Hopping Up Another Abstraction Layer!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/sparkml.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Image Source"><img data-src="images/sparkml.png" class="quarto-figure quarto-figure-center" alt="Image Source"></a></p>
+</figure>
+</div>
+<figcaption><a href="https://www.qubole.com/developers/spark-getting-started-guide/workflow">Image Source</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="in-class-demo-3" class="slide level2">
+<h2>In-Class Demo 3</h2>
+<p>&nbsp;</p>
+<center>
+<p><span class="boxed-cb"><a href="https://colab.research.google.com/drive/1JmUjc65mEucPW0bZHHjzmt812oiIXeVE?usp=sharing"><strong>MLlib in Action</strong></a></span></p>
+</center>
+</section>
+<section id="spark-nlp" class="slide level2 smaller crunch-title" data-name="Spark NLP">
+<h2>Spark NLP</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>MLlib</strong>: <code>pyspark</code> as normal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-label="1"></a><span class="im">from</span> pyspark.sql <span class="im">import</span> SparkSession</span>
+<span id="cb9-2"><a aria-label="2"></a>spark <span class="op">=</span> (</span>
+<span id="cb9-3"><a aria-label="3"></a>    SparkSession</span>
+<span id="cb9-4"><a aria-label="4"></a>    .builder</span>
+<span id="cb9-5"><a aria-label="5"></a>    .appName(<span class="st">'SF_Housing'</span>)</span>
+<span id="cb9-6"><a aria-label="6"></a>    .getOrCreate()</span>
+<span id="cb9-7"><a aria-label="7"></a>)</span>
+<span id="cb9-8"><a aria-label="8"></a><span class="bu">type</span>(spark)</span>
+<span id="cb9-9"><a aria-label="9"></a><span class="co"># &gt;&gt;&gt; pyspark.sql.session.SparkSession</span></span>
+<span id="cb9-10"><a aria-label="10"></a><span class="im">from</span> pyspark.ml.feature <span class="im">import</span> VectorAssembler</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Spark NLP</strong>: <em>Custom</em> <code>SparkSession</code> with <code>sparknlp.start()</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-label="1"></a><span class="im">import</span> sparknlp</span>
+<span id="cb10-2"><a aria-label="2"></a>spark <span class="op">=</span> sparknlp.start()</span>
+<span id="cb10-3"><a aria-label="3"></a><span class="bu">type</span>(spark)</span>
+<span id="cb10-4"><a aria-label="4"></a><span class="co"># &gt;&gt;&gt; pyspark.sql.session.SparkSession</span></span>
+<span id="cb10-5"><a aria-label="5"></a><span class="im">from</span> sparknlp.base <span class="im">import</span> DocumentAssembler</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/sparknlp.jpg" class="" width="360"></p>
+<figcaption><span class="citation" data-cites="thomas_natural_2020">Thomas (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>: The <a href="https://en.wikipedia.org/wiki/Chimango_caracara"><em>chimango caracara</em></a> book</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="in-class-demo-4" class="slide level2">
+<h2>In-Class Demo 4</h2>
+<p>&nbsp;</p>
+<center>
+<p><span class="boxed-cb"><a href="https://colab.research.google.com/drive/1CMokcCj4W0qruH946Y7dYeWYrE62iXkK?usp=sharing"><strong>Distributed Sentiment Analysis with Spark NLP</strong></a></span></p>
+</center>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-thomas_natural_2020" class="csl-entry" role="listitem">
+Thomas, Alex. 2020. <em><a href="https://www.dropbox.com/scl/fi/tpwvbcsd2qsfd3bkposyx/Natural-Language-Processing-with-Spark-NLP.pdf?rlkey=v61v42g9m6v123qxjg26vcwmu&amp;dl=1">Natural <span>Language Processing</span> with <span>Spark NLP</span>: <span>Learning</span> to <span>Understand Text</span> at <span>Scale</span></a></em>. "O’Reilly Media, Inc."
+</div>
+</div>
 
 
-
-<img data-src="images/sparkml.png" class="r-stretch quarto-figure-center"><p class="caption"><a href="https://www.qubole.com/developers/spark-getting-started-guide/workflow">Image Source</a></p></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -552,6 +837,38 @@ Jeff Jacobs
         }
       });
       </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

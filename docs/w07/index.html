@@ -27,41 +27,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -174,7 +139,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -528,7 +493,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-26, 06:18:52 AM</em></p>
+<p><em>Updated 2026-10-26, 03:18:36 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -546,16 +511,13 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#roadmap" id="toc-roadmap" class="nav-link" data-scroll-target="#roadmap">Roadmap</a></li>
   <li><a href="#your-goal-narrow-dependencies" id="toc-your-goal-narrow-dependencies" class="nav-link" data-scroll-target="#your-goal-narrow-dependencies">Your Goal: Narrow Dependencies!</a></li>
-  <li><a href="#first-things-first-openjdk" id="toc-first-things-first-openjdk" class="nav-link" data-scroll-target="#first-things-first-openjdk">First Things First: OpenJDK</a></li>
-  <li><a href="#getting-using-spark" id="toc-getting-using-spark" class="nav-link" data-scroll-target="#getting-using-spark">Getting + Using Spark</a></li>
-  <li><a href="#in-class-demo" id="toc-in-class-demo" class="nav-link" data-scroll-target="#in-class-demo">In-Class Demo</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w07/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -624,7 +586,7 @@ window.Quarto = {
 </center>
 </section>
 </section>
-<section id="entering-our-spark-era" class="level1 crunch-title crunch-p title-13 crunch-img page-columns page-full" data-stack-name="Spark">
+<section id="entering-our-spark-era" class="level1 crunch-title crunch-p title-13 crunch-img" data-stack-name="Spark">
 <h1 class="crunch-title crunch-p title-13 crunch-img" data-stack-name="Spark">Entering Our Spark Era</h1>
 <table class="caption-top table">
 <colgroup>
@@ -669,43 +631,6 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-<section id="first-things-first-openjdk" class="level2">
-<h2 class="anchored" data-anchor-id="first-things-first-openjdk">First Things First: OpenJDK</h2>
-<ul>
-<li><strong>Spark 4</strong>: Recommended JDK version = <a href="https://openjdk.org/projects/jdk/21/"><strong>21</strong></a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
-<ul>
-<li><em>(How would you know this without me telling you? Truly idk)</em></li>
-</ul></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install openjdk-21-jdk-headless</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="getting-using-spark" class="level2">
-<h2 class="anchored" data-anchor-id="getting-using-spark">Getting + Using Spark</h2>
-<p>&nbsp;</p>
-<center>
-<p><span class="boxed-cb"><a href="https://spark.apache.org/downloads.html" class="external"><strong>Apache Spark Downloads Page</strong></a></span></p>
-</center>
-<ul>
-<li><i class="bi bi-1-circle"></i> <strong>Spark Connect</strong> enabled ✅</li>
-<li><i class="bi bi-2-circle"></i> <strong>Click through</strong> the <a href="https://www.apache.org/dyn/closer.lua/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3-connect.tgz">“Download Spark” link</a>…</li>
-<li><i class="bi bi-3-circle"></i> …To get the actual <a href="https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3-connect.tgz"><strong>download URL</strong></a> 😵‍💫</li>
-<li><i class="bi bi-4-circle"></i> Use <code>wget</code> to download</li>
-</ul>
-</section>
-<section id="in-class-demo" class="level2 crunch-title crunch-img text-90 page-columns page-full">
-<h2 class="crunch-title crunch-img text-90 anchored" data-anchor-id="in-class-demo">In-Class Demo</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/cars.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<ul>
-<li><a href="https://colab.research.google.com/drive/1G894WS7ltIUTusWWmsCnF_zQhQqZCDOc">Cars! Driving!</a></li>
-</ul>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Adapted from/almost identical to <a href="https://jacobcelestine.com/knowledge_repo/colab_and_pyspark/">Jacob Celestine’s tutorial</a></p>
-</div></div></section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -718,13 +643,7 @@ Damji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. <em><a href="
 </section>
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p><a href="https://www.youtube.com/watch?v=oe6teqX2y6Y">21?</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

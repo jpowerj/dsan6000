@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jeff Jacobs">
 
-<title>Week 8: Spark MLLib, Spark NLP – DSAN 6000: Big Data and Cloud Computing</title>
+<title>Week 8: Spark MLlib, Spark NLP – DSAN 6000: Big Data and Cloud Computing</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,7 +27,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -52,6 +107,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-7863e08c2e36e6bbea21d3a7da267a83.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-41e08071874cfcdf2239640a8fc0dacf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-7863e08c2e36e6bbea21d3a7da267a83.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -87,6 +145,35 @@ ul.task-list li input[type="checkbox"] {
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -444,7 +531,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-26, 06:18:52 AM</em></p>
+<p><em>Updated 2026-10-26, 03:18:36 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -453,7 +540,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sparkml-hopping-up-another-abstraction-layer" id="toc-sparkml-hopping-up-another-abstraction-layer" class="nav-link active" data-scroll-target="#sparkml-hopping-up-another-abstraction-layer">SparkML: Hopping Up Another Abstraction Layer!</a></li>
+  <li><a href="#todays-agenda-demos-and-more-demos" id="toc-todays-agenda-demos-and-more-demos" class="nav-link active" data-scroll-target="#todays-agenda-demos-and-more-demos">Today’s Agenda: Demos! And More Demos!</a></li>
+  <li><a href="#spark-dataframe" id="toc-spark-dataframe" class="nav-link" data-scroll-target="#spark-dataframe">Spark <code>DataFrame</code></a></li>
+  <li><a href="#in-class-demo-1-local-spark" id="toc-in-class-demo-1-local-spark" class="nav-link" data-scroll-target="#in-class-demo-1-local-spark">In-Class Demo 1: <em>Local</em> Spark</a></li>
+  <li><a href="#first-things-first-openjdk" id="toc-first-things-first-openjdk" class="nav-link" data-scroll-target="#first-things-first-openjdk">First Things First: OpenJDK</a></li>
+  <li><a href="#getting-using-spark" id="toc-getting-using-spark" class="nav-link" data-scroll-target="#getting-using-spark">Getting + Using Spark</a></li>
+  <li><a href="#in-class-demo-2-your-first-spark-cluster" id="toc-in-class-demo-2-your-first-spark-cluster" class="nav-link" data-scroll-target="#in-class-demo-2-your-first-spark-cluster">In-Class Demo 2: Your First Spark <em>Cluster</em>!</a></li>
+  <li><a href="#now-use-it-from-a-jupyter-notebook" id="toc-now-use-it-from-a-jupyter-notebook" class="nav-link" data-scroll-target="#now-use-it-from-a-jupyter-notebook">Now <em>Use It</em> From a Jupyter Notebook</a></li>
+  <li><a href="#mllib-hopping-up-another-abstraction-layer" id="toc-mllib-hopping-up-another-abstraction-layer" class="nav-link" data-scroll-target="#mllib-hopping-up-another-abstraction-layer">MLlib: Hopping Up Another Abstraction Layer!</a></li>
+  <li><a href="#in-class-demo-3" id="toc-in-class-demo-3" class="nav-link" data-scroll-target="#in-class-demo-3">In-Class Demo 3</a></li>
+  <li><a href="#spark-nlp" id="toc-spark-nlp" class="nav-link" data-scroll-target="#spark-nlp">Spark NLP</a></li>
+  <li><a href="#in-class-demo-4" id="toc-in-class-demo-4" class="nav-link" data-scroll-target="#in-class-demo-4">In-Class Demo 4</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w08/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
@@ -463,7 +561,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 8: Spark MLLib, Spark NLP</h1>
+<h1 class="title">Week 8: Spark MLlib, Spark NLP</h1>
 <p class="subtitle lead"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2026</p>
   <div class="quarto-categories">
     <div class="quarto-category">Class Sessions</div>
@@ -506,13 +604,206 @@ ul.task-list li input[type="checkbox"] {
 <center class="mb-3">
 <a class="h2" href="./slides.html" target="_blank">Open slides in new tab →</a>
 </center>
-<section id="sparkml-hopping-up-another-abstraction-layer" class="level1 smaller not-title-slide title-10" data-stack-name="SparkML Intro">
-<h1 class="smaller not-title-slide title-10" data-stack-name="SparkML Intro">SparkML: Hopping Up Another Abstraction Layer!</h1>
+<section id="todays-agenda-demos-and-more-demos" class="level2 title-13">
+<h2 class="title-13 anchored" data-anchor-id="todays-agenda-demos-and-more-demos">Today’s Agenda: Demos! And More Demos!</h2>
+<ul>
+<li>Spark <code>DataFrame</code>s</li>
+<li><a href="https://spark.apache.org/docs/latest/ml-guide.html"><code>MLlib</code></a>: <strong>Official</strong> Spark library!</li>
+<li><a href="https://sparknlp.org/">SparkNLP</a>: 3rd-Party Library</li>
+</ul>
+</section>
+<section id="spark-dataframe" class="level2 smaller text-65 crunch-title crunch-p crunch-ul" data-name="Spark DataFrame">
+<h2 class="smaller text-65 crunch-title crunch-p crunch-ul anchored" data-name="Spark DataFrame" data-anchor-id="spark-dataframe">Spark <code>DataFrame</code></h2>
+<p>…Yet another type of <code>DataFrame</code>!</p>
+<div class="quarto-layout-panel" data-layout="[[1,1],[1]]">
+<div class="quarto-layout-row">
+<div id="df-pandas" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><i class="bi bi-1-circle" style="font-size: 90%;"></i> <strong>Pandas</strong></p>
+<ul>
+<li>Everything in RAM</li>
+<li>All computations <strong>eager</strong>ly executed</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data_df[<span class="st">'price'</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="df-polars" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><i class="bi bi-2-circle" style="font-size: 90%;"></i> <strong>Polars</strong>: Introduced <strong>lazy</strong> execution</p>
+<ul>
+<li><span class="math inline">\(\leadsto\)</span> separation of <em>computation</em> from <em>data</em></li>
+<li>Optimized for <em>multicore</em> computation</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ratio_expr <span class="op">=</span> (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  pl.col(<span class="st">'work_hrs'</span>) <span class="op">/</span> pl.col(<span class="st">'sleep_hrs'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>).alias(<span class="st">'sleep_ratio'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data_pl.with_columns(ratio_expr).collect()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div id="df-pyspark" class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p><i class="bi bi-3-circle" style="font-size: 90%;"></i> <strong>PySpark</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data_sdf <span class="op">=</span> spark.createDataFrame([</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>, <span class="fl">2.0</span>, <span class="st">'s1'</span>, date(<span class="dv">2000</span>, <span class="dv">1</span>, <span class="dv">1</span>), datetime(<span class="dv">2000</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">12</span>, <span class="dv">0</span>)],</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">2</span>, <span class="fl">3.0</span>, <span class="st">'s2'</span>, date(<span class="dv">2000</span>, <span class="dv">3</span>, <span class="dv">1</span>), datetime(<span class="dv">2000</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">0</span>)],</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>], schema<span class="op">=</span><span class="st">'a long, b double, c string, d date, e timestamp'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>data_sdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Optimized for <em>distributed</em> computation <span class="math inline">\(\leadsto\)</span> requires an <i class="bi bi-exclamation-triangle"></i> <strong>always-running process</strong> <i class="bi bi-exclamation-triangle"></i></li>
+<li>Wrapper around <code>RDD</code> (<strong>R</strong>esilient <strong>D</strong>istributed <strong>D</strong>ataset): <code>data_sdf.rdd.getNumPartitions()</code></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="in-class-demo-1-local-spark" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-demo-1-local-spark">In-Class Demo 1: <em>Local</em> Spark</h2>
+<p><em>(For <strong>development</strong>, can just <code>pip install pyspark</code>!)</em></p>
+<p>&nbsp;</p>
+<center>
+<p><span class="boxed-cb"><a href="https://colab.research.google.com/drive/16-Cr1Y8rwiE7h6jjYuBAdXc4iJ8XR59y?usp=drive_link"><strong>PySpark Basics</strong></a></span></p>
+</center>
+</section>
+<section id="first-things-first-openjdk" class="level2">
+<h2 class="anchored" data-anchor-id="first-things-first-openjdk">First Things First: OpenJDK</h2>
+<ul>
+<li><strong>Spark 4</strong>: Recommended JDK version = <a href="https://openjdk.org/projects/jdk/21/"><strong>21</strong></a>
+<ul>
+<li><em>(How would you know without me telling you? Truly idk)</em></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install openjdk-21-jdk-headless</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li>Install this <i class="bi bi-1-circle" style="font-size: 80%;"></i> on the <strong>master</strong> node and <i class="bi bi-2-circle" style="font-size: 80%;"></i> on <strong>all worker nodes</strong> that you’d like to link together
+<ul>
+<li><em>(Run <code>sudo apt update</code> first if on a new instance!)</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="getting-using-spark" class="level2">
+<h2 class="anchored" data-anchor-id="getting-using-spark">Getting + Using Spark</h2>
+<center style="margin-top: 40px;">
+<p><span class="boxed-cb"><a href="https://spark.apache.org/downloads.html" class="external"><strong>Apache Spark Downloads Page</strong></a></span></p>
+</center>
+<ul>
+<li><p><i class="bi bi-1-circle"></i> <strong>Click through</strong> the <a href="https://www.apache.org/dyn/closer.lua/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3-connect.tgz">“Download Spark” link</a>…</p></li>
+<li><p><i class="bi bi-2-circle"></i> …To get the actual <a href="https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3-connect.tgz"><strong>download URL</strong></a> 😵‍💫</p></li>
+<li><p><i class="bi bi-3-circle"></i> Use <code>wget &lt;url&gt;</code> in terminal to download <code>.tar.gz</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="font-size: 80%;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3.tgz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><i class="bi bi-4-circle"></i> Extract using:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xzvf</span> spark-4.2.0-bin-hadoop3.tgz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ul>
+</section>
+<section id="in-class-demo-2-your-first-spark-cluster" class="level2 smaller text-60 title-11 crunch-ul crunch-li-5">
+<h2 class="smaller text-60 title-11 crunch-ul crunch-li-5 anchored" data-anchor-id="in-class-demo-2-your-first-spark-cluster">In-Class Demo 2: Your First Spark <em>Cluster</em>!</h2>
+<p><em>Spark Cluster Checklist:</em></p>
+<p><i class="bi bi-1-circle" style="font-size: 90%;"></i> <strong>AWS Console</strong> → <strong>EC2 Console</strong> → Security group (<code>launch-wizard-1</code>):</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Edit inbound rules → Add rule → Type=“All traffic” → Source=itself (<code>sg</code>… autocomplete)</label></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><i class="bi bi-2-circle" style="font-size: 90%;"></i> <strong>Master node:</strong></p>
+<ul class="task-list">
+<li><p><label><input type="checkbox" checked="">Created</label></p></li>
+<li><p><label><input type="checkbox">JDK 21 installed: <code>sudo apt install openjdk-21-jdk-headless</code></label></p></li>
+<li><p><label><input type="checkbox">Spark 4.2.0 downloaded, extracted</label></p></li>
+<li><p><label><input type="checkbox"><strong>Private</strong> IP recorded:</label></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PRIVATE_IP</span><span class="op">=</span><span class="va">$(</span><span class="fu">hostname</span> <span class="at">-I</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print $1}'</span><span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><label><input type="checkbox"><code>start-master.sh -h &lt;Private IP&gt;</code></label></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><i class="bi bi-3-circle" style="font-size: 90%;"></i> <strong>Worker nodes (one at a time):</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Created with <strong>existing security group</strong> <code>launch-wizard-1</code></label></li>
+<li><label><input type="checkbox"><code>sudo apt update</code></label></li>
+<li><label><input type="checkbox">JDK 21 installed: <code>sudo apt install openjdk-21-jdk-headless</code></label></li>
+<li><label><input type="checkbox">Spark 4.2.0 downloaded, extracted</label></li>
+<li><label><input type="checkbox"><code>start-worker.sh &lt;Private IP&gt;:7077</code></label></li>
+</ul>
+</div>
+</div>
+<p><i class="bi bi-4-circle" style="font-size: 90%;"></i> Check status via <strong>Spark UI</strong>: Master on <code>localhost:8080</code> (VSCode port forwarding)<br><i class="bi bi-arrow-return-right" style="margin-left: 8px;"></i> <em>(New worker nodes should appear after each <code>start-worker.sh</code>)</em></p>
+</section>
+<section id="now-use-it-from-a-jupyter-notebook" class="level2 title-09 crunch-p">
+<h2 class="title-09 crunch-p anchored" data-anchor-id="now-use-it-from-a-jupyter-notebook">Now <em>Use It</em> From a Jupyter Notebook</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyspark.sql <span class="im">import</span> SparkSession</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>spark <span class="op">=</span> (</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  SparkSession</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    .builder</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    .appName(<span class="st">'UNSC_Speeches'</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    .master(<span class="st">'spark://&lt;Private IP Here!&gt;:7077'</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    .config(<span class="st">'spark.jars.packages'</span>,<span class="st">'org.apache.hadoop:hadoop-aws:3.5.0'</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    .getOrCreate()</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div style="font-size: 80%">
+<p>Check status of <strong><code>SparkSession</code></strong> via <strong>Spark Session UI</strong>: <code>localhost:4040</code></p>
+<ul>
+<li>Master node UI: <code>localhost:8080</code> (worker UI=<code>localhost:8081</code>)</li>
+<li><code>SparkSession</code> UI: <code>localhost:4040</code></li>
+<li>Confusion ↓, Understanding ↑ 🥳</li>
+</ul>
+</div>
+</section>
+<section id="mllib-hopping-up-another-abstraction-layer" class="level2 smaller not-title-slide title-10" data-name="MLlib">
+<h2 class="smaller not-title-slide title-10 anchored" data-name="MLlib" data-anchor-id="mllib-hopping-up-another-abstraction-layer">MLlib: Hopping Up Another Abstraction Layer!</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/sparkml.png" class="img-fluid figure-img"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/sparkml.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Image Source"><img src="images/sparkml.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Image Source"></a></p>
+</figure>
+</div>
 <figcaption><a href="https://www.qubole.com/developers/spark-getting-started-guide/workflow">Image Source</a></figcaption>
 </figure>
+</div>
+</section>
+<section id="in-class-demo-3" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-demo-3">In-Class Demo 3</h2>
+<p>&nbsp;</p>
+<center>
+<p><span class="boxed-cb"><a href="https://colab.research.google.com/drive/1JmUjc65mEucPW0bZHHjzmt812oiIXeVE?usp=sharing"><strong>MLlib in Action</strong></a></span></p>
+</center>
+</section>
+<section id="spark-nlp" class="level2 smaller crunch-title" data-name="Spark NLP">
+<h2 class="smaller crunch-title anchored" data-name="Spark NLP" data-anchor-id="spark-nlp">Spark NLP</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>MLlib</strong>: <code>pyspark</code> as normal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyspark.sql <span class="im">import</span> SparkSession</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>spark <span class="op">=</span> (</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    SparkSession</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    .builder</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    .appName(<span class="st">'SF_Housing'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    .getOrCreate()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(spark)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;&gt;&gt; pyspark.sql.session.SparkSession</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyspark.ml.feature <span class="im">import</span> VectorAssembler</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Spark NLP</strong>: <em>Custom</em> <code>SparkSession</code> with <code>sparknlp.start()</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sparknlp</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>spark <span class="op">=</span> sparknlp.start()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(spark)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;&gt;&gt; pyspark.sql.session.SparkSession</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sparknlp.base <span class="im">import</span> DocumentAssembler</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sparknlp.jpg" class="nostretch img-fluid figure-img" width="360"></p>
+<figcaption><span class="citation" data-cites="thomas_natural_2020">Thomas (<a href="#ref-thomas_natural_2020" role="doc-biblioref">2020</a>)</span>: The <a href="https://en.wikipedia.org/wiki/Chimango_caracara"><em>chimango caracara</em></a> book</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="in-class-demo-4" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-demo-4">In-Class Demo 4</h2>
+<p>&nbsp;</p>
+<center>
+<p><span class="boxed-cb"><a href="https://colab.research.google.com/drive/1CMokcCj4W0qruH946Y7dYeWYrE62iXkK?usp=sharing"><strong>Distributed Sentiment Analysis with Spark NLP</strong></a></span></p>
+</center>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-thomas_natural_2020" class="csl-entry" role="listitem">
+Thomas, Alex. 2020. <em><a href="https://www.dropbox.com/scl/fi/tpwvbcsd2qsfd3bkposyx/Natural-Language-Processing-with-Spark-NLP.pdf?rlkey=v61v42g9m6v123qxjg26vcwmu&amp;dl=1">Natural <span>Language Processing</span> with <span>Spark NLP</span>: <span>Learning</span> to <span>Understand Text</span> at <span>Scale</span></a></em>. "O’Reilly Media, Inc."
+</div>
 </div>
 
 
@@ -940,8 +1231,40 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w08/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w08/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+</body></html>
