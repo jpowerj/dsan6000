@@ -25,57 +25,13 @@ The purpose of the midterm is twofold:
 * First, to assess your comprehension of the course topics from Weeks 1 through 8, and their interrelationships, as they relate to the goals of modern data-driven organizations
 * Second, to perform this assessment not in the abstract but via the development of a **concrete plan** that will then serve as a key step in your Final Project!
 
-For the **Practice Midterm** here, however, we will be using a **sample project**, as a simulation of the type of project you might brainstorm on your own in the weeks leading up to the Midterm. The vignette describing this project is as follows:
+Your first step, in preparing for the midterm, is to **read through the [dataset vignettes](./final-project/index.qmd)** and decide which one is most interesting to you. Once you have decided, **register your decision on [Canvas](https://georgetown.instructure.com/courses/234516)** by choosing an option within the "Midterm Dataset Choice" assignment.
 
-## Sample Project Vignettes
-
-:::: {.panel-tabset group="topic"}
-
-### Healthcare
-
-Healthcare
-
-### Banking, Finance, and Retail Analysis
-
-### Public Infrastructure
-
-In his final book, 2024's *Genesis: Artificial Intelligence, Hope, and the Human Spirit*, tech visionary Henry Kissinger joined forces with former Google CEO Eric Schmidt and a third guy to explore how AI "enables the achievement of higher, more difficult, and grander problems than those currently solvable by the human brain" (40). With their trademark concern for the disadvantaged, Kissinger and friends describe an exhilarating technology-driven future, wherein
-
-> *"Distributed AI systems might be designed to connect, via mass-manufactured robots and AI-optimized infrastructural systems, to the unconnected [...] enabling the provision of food, clothing, and shelter to the half of humanity that still lacks those basic necessities. Alternatively, using new sustainable synthetic materials, AIs could build cities around the world to provide shelter, regulate temperature, ensure access to power and digital connections, and provide clean water, food, medicine, and sanitation."* (113)
-
-How might we take some initial steps towards this brighter horizon, with its AI versions of already-existing-but-underfunded institutions like food banks and homeless shelters? In this project we will focus on the latter institutions, by overhaulting New York City's current Homeless Shelter [**Data Portal**](https://www.nyc.gov/site/dhs/about/stats-and-reports.page).
-
-As it is currently set up, the portal is not very amenable to the types of modern data-analytic tasks that data scientists carry out on a day-to-day basis: Daily data is simply entered into a shared Excel spreadsheet at each shelter location, and then the spreadsheet contents are exported to PDF once per day, at the following URL:
-
-> [**https://www.nyc.gov/assets/dhs/downloads/pdf/dailyreport.pdf**](https://www.nyc.gov/assets/dhs/downloads/pdf/dailyreport.pdf)
-
-The PDF at this URL is then **overwritten** each day, so that statistics from prior days are no longer available after 24 hours: after this window of time, only **aggregate** monthly data is available (via the monthly reports accessible via the earlier link to the data portal).
-
-The first phase of our plan is thus to implement an **OLTP** infrastructure, enabling each shelter to record **events** – e.g., entry, exit, and transfer of individuals and families – into an OLTP database.
-
-Next, we will need some way to ensure that data from this OLTP infrastructure **flows** into a downstream OLAP-friendly format, so that our data scientists can derive core **insights**: which shelters tend to be most full on which days, for example, or which are more likely to have vegan-friendly or gluten-free food on a given day, which have more vacancies for individuals vs. vacancies for families, and so on.
-
-Then, to actually **carry out** the computation to derive these insights, we need to use some technology that is optimized for OLAP workflows.
-
-Finally, we will need some way of deriving **reports** and **visualizations** of the answers to these questions!
-
-::::
+Finally, you can think through how the following "pieces" of what we've learned up to this point in the course would work relative to your chosen dataset!
 
 ## Question 1: OLTP Infrastructure
 
-:::: {.panel-tabset group="topic"}
-
-### Healthcare
-
-Healthcare
-
-### Banking, Finance, and Retail Analysis
-
-Banking
-
-### Public Infrastructure
-
-::::
+This question is **started for you** in the vignette for your chosen dataset, where (in the subsection with header "OLTP Structure") you can get a sense for the **existing OLTP infrastructure** at the organization you've been hired at. In each case, your job is to think through **transforming** the information in this OLTP setup into the kinds of insights/inferences described at the beginning of the vignette.
 
 ## Question 2: Ingesting, Transforming, and Loading OLTP Snapshots
 
