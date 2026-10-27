@@ -26,10 +26,65 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -78,6 +133,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" '="" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="../../sidebar.js"></script>
@@ -445,7 +503,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-26, 03:18:36 PM</em></p>
+<p><em>Updated 2026-10-26, 08:42:07 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -515,13 +573,231 @@ ul.task-list li input[type="checkbox"] {
 <section id="question-1-starter-oltp-infrastructure" class="level2">
 <h2 class="anchored" data-anchor-id="question-1-starter-oltp-infrastructure">Question 1 Starter: OLTP Infrastructure</h2>
 <p>As mentioned in the vignette, although the <strong>nightly PDF report</strong> contains aggregate counts of the number of men, women, and children across all shelters, this is [technically, in our terminology] the <strong>OLAP</strong> form of the data as it currently exists.</p>
-<p>The <strong>OLTP</strong> format — the form of the data as it is originally <strong>recorded</strong> — consists of <strong>entry</strong> and <strong>exit records</strong>, along with the timestamp of when the event was recorded. A small sample of this OLTP data is as follows:</p>
-<p>[Re-arranged OLTP format coming ASAP!]</p>
+<p>The <strong>OLTP</strong> format — the form of the data as it is originally <strong>recorded</strong> — consists of <strong>entry</strong> and <strong>exit records</strong>, along with the timestamp of when the event was recorded. A small sample of this OLTP data is as follows. First, using <code>head()</code> to show the first five records that ever arrived in the OLTP DB (since it is an <strong>append-only log</strong>), we can see that the shelters started recording entries and exits late at night on September 26, 2026:</p>
+<div id="b3410fe8" class="cell" data-execution_count="1">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itables</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>shelter_pldf <span class="op">=</span> pl.read_parquet(<span class="st">'oltp_fam_children.parquet'</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>itables.show(shelter_pldf.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<!--| quarto-html-table-processing: none -->
+<table id="itables_25448df2_e8e0_4f66_bd73_8fe343a76dd3">
+  <tbody>
+    <tr>
+      <td style="vertical-align:middle; text-align:left"><a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <g style="fill:#d9d7fc">
+        <path d="M100,400H500V357H100Z"></path>
+        <path d="M100,300H400V257H100Z"></path>
+        <path d="M0,200H400V157H0Z"></path>
+        <path d="M100,100H500V57H100Z"></path>
+        <path d="M100,350H500V307H100Z"></path>
+        <path d="M100,250H400V207H100Z"></path>
+        <path d="M0,150H400V107H0Z"></path>
+        <path d="M100,50H500V7H100Z"></path>
+    </g>
+    <g style="fill:#1a1366;stroke:#1a1366;">
+   <rect x="100" y="7" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="0" y="107" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="207" width="300" height="43">
+    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="307" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
+  </rect>
+        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
+            <g transform="translate(45 50) rotate(-45)">
+                <circle r="33" cx="0" cy="0"></circle>
+                <rect x="-8" y="32" width="16" height="30"></rect>
+            </g>
+
+            <g transform="translate(450 152)">
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
+                <rect x="-15" y="-40" width="60" height="60"></rect>
+            </g>
+
+            <g transform="translate(50 352)">
+                <polygon points="-35,-5 0,-40 35,-5"></polygon>
+                <polygon points="-35,10 0,45 35,10"></polygon>
+            </g>
+
+            <g transform="translate(75 250)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+
+            <g transform="translate(425 250) rotate(180)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+        Loading ITables v2.8.1 from the internet...
+        (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)
+      </td>
+    </tr>
+  </tbody>
+</table>
+<link href="https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.css" rel="stylesheet">
+<script type="module">
+    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
+
+    document.querySelectorAll("#itables_25448df2_e8e0_4f66_bd73_8fe343a76dd3:not(.dataTable)").forEach(table => {
+        if (!(table instanceof HTMLTableElement))
+            return;
+
+        let dt_args = {
+          "classes": ["display", "nowrap", "compact"],
+          "data_json": "[[\"Nancy\", \"Richardson\", \"checkin\", \"2026-09-26 23:11:14\", \"Help Women's Center\", \"[]\", \"[]\"], [\"Marcus\", \"Roberts\", \"checkin\", \"2026-09-26 23:11:22\", \"PATH Office\", \"[]\", \"[]\"], [\"Alexandra\", \"Thompson\", \"checkin\", \"2026-09-26 23:11:29\", \"8 East 3rd Street\", \"[\\\"Gordon Murray\\\"]\", \"[]\"], [\"Wayne\", \"Smith\", \"checkin\", \"2026-09-26 23:11:37\", \"Help Women's Center\", \"[]\", \"[\\\"Sharon Smith\\\", \\\"Christopher Smith\\\"]\"], [\"Deborah\", \"Scott\", \"checkin\", \"2026-09-26 23:11:38\", \"8 East 3rd Street\", \"[]\", \"[]\"]]",
+          "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
+          "order": [],
+          "style": {"caption-side": "bottom", "margin": "auto", "table-layout": "auto", "width": "auto"},
+          "table_html": "<table><thead>\n<tr style=\"text-align: right;\">\n\n<th>first</th><th>last</th><th>event_type</th><th>event_ts</th><th>location</th><th>family</th><th>children</th>\n</tr>\n<tr><th><small class='itables-dtype'>str</small></th><th><small class='itables-dtype'>str</small></th><th><small class='itables-dtype'>str</small></th><th><small class='itables-dtype'>datetime[ms]</small></th><th><small class='itables-dtype'>str</small></th><th><small class='itables-dtype'>list[str]</small></th><th><small class='itables-dtype'>list[str]</small></th></tr></thead></table>",
+          "text_in_header_can_be_selected": true
+        };
+        new ITable(table, dt_args);
+    });
+</script>
+</div>
+</div>
+<p>We can already see <strong>two potential challenges</strong> here, in terms of how <em>efficiently</em> we might be able to extract these OLTP records into an OLAP framework:</p>
+<ul>
+<li>First, there may be countless <strong>entry errors</strong> and/or <strong>idiosyncrasies</strong> in terms of how specific desk workers enter each value:
+<ul>
+<li>Above we see <em>full names</em> for each of the non-empty <code>family</code> and <code>children</code> records, but in fact your approach will need to be able to handle cases where <strong>only a first name</strong> is recorded, or where the list of children actually just contains a single <code>str</code> value like <code>"5 children"</code> or <code>"none"</code>, <code>"NA"</code>, and so on!</li>
+</ul></li>
+<li>Second, regardless of the specific ways in which the names are entered by each desk worker, the <code>family</code> and <code>children</code> fields are being stored as <strong>nested</strong> lists of strings. We know that the <code>.parquet</code> format can handle this, but in the OLTP DB these lists will just be stored in plaintext log format, like <code>["John Smith","Jane Doe"]</code>.
+<ul>
+<li>One consequence of this detail is that your approach will need to handle e.g.&nbsp;the difference between an <strong>empty list</strong> – a case where the desk worker successfully recorded the absence of additional family members or children during check-in/check-out – and a <strong>missing</strong> value, where for whatever reason no information is available about whether family members and/or children were part of that check-in/check-out.</li>
+</ul></li>
+</ul>
+<p>The final tricky aspect of this setup becomes visible when we use <code>.tail()</code> to view the most <strong>recently-added</strong> records:</p>
+<div id="1259cd8e" class="cell" data-execution_count="2">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>itables.show(shelter_pldf.tail())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<!--| quarto-html-table-processing: none -->
+<table id="itables_f30f70a5_39ea_4b7d_aa83_5eefe37d4fe4">
+  <tbody>
+    <tr>
+      <td style="vertical-align:middle; text-align:left"><a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <g style="fill:#d9d7fc">
+        <path d="M100,400H500V357H100Z"></path>
+        <path d="M100,300H400V257H100Z"></path>
+        <path d="M0,200H400V157H0Z"></path>
+        <path d="M100,100H500V57H100Z"></path>
+        <path d="M100,350H500V307H100Z"></path>
+        <path d="M100,250H400V207H100Z"></path>
+        <path d="M0,150H400V107H0Z"></path>
+        <path d="M100,50H500V7H100Z"></path>
+    </g>
+    <g style="fill:#1a1366;stroke:#1a1366;">
+   <rect x="100" y="7" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="0" y="107" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="207" width="300" height="43">
+    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
+  </rect>
+        <rect x="100" y="307" width="400" height="43">
+    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
+  </rect>
+        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
+            <g transform="translate(45 50) rotate(-45)">
+                <circle r="33" cx="0" cy="0"></circle>
+                <rect x="-8" y="32" width="16" height="30"></rect>
+            </g>
+
+            <g transform="translate(450 152)">
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
+                <rect x="-15" y="-40" width="60" height="60"></rect>
+            </g>
+
+            <g transform="translate(50 352)">
+                <polygon points="-35,-5 0,-40 35,-5"></polygon>
+                <polygon points="-35,10 0,45 35,10"></polygon>
+            </g>
+
+            <g transform="translate(75 250)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+
+            <g transform="translate(425 250) rotate(180)">
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+        Loading ITables v2.8.1 from the internet...
+        (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)
+      </td>
+    </tr>
+  </tbody>
+</table>
+<link href="https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.css" rel="stylesheet">
+<script type="module">
+    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
+
+    document.querySelectorAll("#itables_f30f70a5_39ea_4b7d_aa83_5eefe37d4fe4:not(.dataTable)").forEach(table => {
+        if (!(table instanceof HTMLTableElement))
+            return;
+
+        let dt_args = {
+          "classes": ["display", "nowrap", "compact"],
+          "data_json": "[[\"Karla\", \"Simon\", \"checkout\", \"9999-12-31 23:59:59\", \"PATH Office\", \"[]\", \"[]\"], [\"Lindsey\", \"Madden\", \"checkout\", \"9999-12-31 23:59:59\", \"8 East 3rd Street\", \"[]\", \"[\\\"Michelle Hill\\\"]\"], [\"Nathan\", \"Meyer\", \"checkout\", \"9999-12-31 23:59:59\", \"333 Bowery\", \"[]\", \"[]\"], [\"Amanda\", \"Velazquez\", \"checkout\", \"9999-12-31 23:59:59\", \"8 East 3rd Street\", \"[]\", \"[]\"], [\"Veronica\", \"Donaldson\", \"checkout\", \"9999-12-31 23:59:59\", \"333 Bowery\", \"[\\\"Amy Meyers\\\"]\", \"[]\"]]",
+          "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
+          "order": [],
+          "style": {"caption-side": "bottom", "margin": "auto", "table-layout": "auto", "width": "auto"},
+          "table_html": "<table><thead>\n<tr style=\"text-align: right;\">\n\n<th>first</th><th>last</th><th>event_type</th><th>event_ts</th><th>location</th><th>family</th><th>children</th>\n</tr>\n<tr><th><small class='itables-dtype'>str</small></th><th><small class='itables-dtype'>str</small></th><th><small class='itables-dtype'>str</small></th><th><small class='itables-dtype'>datetime[ms]</small></th><th><small class='itables-dtype'>str</small></th><th><small class='itables-dtype'>list[str]</small></th><th><small class='itables-dtype'>list[str]</small></th></tr></thead></table>",
+          "text_in_header_can_be_selected": true
+        };
+        new ITable(table, dt_args);
+    });
+</script>
+</div>
+</div>
+<p>The <code>9999-12-31</code> timestamps on these records may throw you off, but in fact this is an extremely common thing to see in certain DB setups: so common, in fact, that it has a name: the <strong>Type 2 Slowly Changing Dimension</strong>, often shortened to just <strong>SCD2</strong>. In fact, this way of recording “current” or “active” records is described on page 299 of <span class="citation" data-cites="reis_fundamentals_2022">Reis and Housley (<a href="#ref-reis_fundamentals_2022" role="doc-biblioref">2022</a>)</span>, which is the page immediately following the book’s <strong>Kimball Star Schema</strong> diagram 🤯</p>
+<p>The idea behind the SCD2 scheme<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is just that, at the end of the night when (for example) the late-shift receptionist clocks out and the morning-shift receptionist clocks in, the system might take each individual or family that did <strong>not</strong> check out during the past 24 hours and enter a purposefully-fake “checkout” date as far as possible into the future, as an indicator that the individual or family has been <em>actively</em> residing in the shelter from their checkout date to the present.</p>
+<p>Since “the present” is an ever-changing time, that is only “known” (in terms of having a specific timestamp) at the exact moment a particular query might be made, the SCD2 approach allows “activeness” to be recorded <strong>as a date</strong>, instead of (say) having to always keep an <code>active</code> vs.&nbsp;<code>non_active</code>.</p>
+
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-reis_fundamentals_2022" class="csl-entry" role="listitem">
+Reis, Joe, and Matt Housley. 2022. <em><a href="https://www.dropbox.com/scl/fi/w4y4ka22jiraqwo0n4ymm/Fundamentals_of_Data_Engineering.pdf?rlkey=4b8d3d5hgnbq6s5o5a16tbznu&amp;dl=1">Fundamentals of <span>Data Engineering</span>: <span>Plan</span> and <span>Build Robust Data Systems</span></a></em>. O’Reilly Media, Inc.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Actually, this is just one example of how SCD2 might be employed in a particular OLTP or OLAP setup – there are multiple ways to implement this scheme, and multiple reasons why it might be useful… see the book for more!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
