@@ -443,7 +443,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-26, 08:42:07 PM</em></p>
+<p><em>Updated 2026-10-27, 07:05:14 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -454,7 +454,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#question-1-oltp-infrastructure" id="toc-question-1-oltp-infrastructure" class="nav-link active" data-scroll-target="#question-1-oltp-infrastructure">Question 1: OLTP Infrastructure</a></li>
   <li><a href="#question-2-ingesting-transforming-and-loading-oltp-snapshots" id="toc-question-2-ingesting-transforming-and-loading-oltp-snapshots" class="nav-link" data-scroll-target="#question-2-ingesting-transforming-and-loading-oltp-snapshots">Question 2: Ingesting, Transforming, and Loading OLTP Snapshots</a></li>
-  <li><a href="#question-3-olap-infrastructure" id="toc-question-3-olap-infrastructure" class="nav-link" data-scroll-target="#question-3-olap-infrastructure">Question 3: OLAP Infrastructure</a></li>
+  <li><a href="#question-3-olap-infrastructure" id="toc-question-3-olap-infrastructure" class="nav-link" data-scroll-target="#question-3-olap-infrastructure">Question 3: OLAP Infrastructure</a>
+  <ul class="collapse">
+  <li><a href="#sample-question-enron-email-corpus" id="toc-sample-question-enron-email-corpus" class="nav-link" data-scroll-target="#sample-question-enron-email-corpus">Sample Question (Enron Email Corpus)</a></li>
+  </ul></li>
   <li><a href="#question-4-querying-olap-data" id="toc-question-4-querying-olap-data" class="nav-link" data-scroll-target="#question-4-querying-olap-data">Question 4: Querying OLAP Data</a></li>
   <li><a href="#question-5-scaling-olap-queries" id="toc-question-5-scaling-olap-queries" class="nav-link" data-scroll-target="#question-5-scaling-olap-queries">Question 5: Scaling OLAP Queries</a></li>
   <li><a href="#question-6-serving-and-reporting-our-scaled-olap-query-results" id="toc-question-6-serving-and-reporting-our-scaled-olap-query-results" class="nav-link" data-scroll-target="#question-6-serving-and-reporting-our-scaled-olap-query-results">Question 6: Serving and Reporting Our Scaled OLAP Query Results</a></li>
@@ -518,6 +521,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="question-3-olap-infrastructure" class="level2">
 <h2 class="anchored" data-anchor-id="question-3-olap-infrastructure">Question 3: OLAP Infrastructure</h2>
+<section id="sample-question-enron-email-corpus" class="level3">
+<h3 class="anchored" data-anchor-id="sample-question-enron-email-corpus">Sample Question (Enron Email Corpus)</h3>
+<p>As you can see from the example emails in the <a href="./final-project/enron/index.html">vignette</a>, both the content of the emails themselves and their metadata vary wildly in terms of what might be streaming into the OLTP DB (which is just recording the raw text+metadata for every incoming and outgoing email): for example, sometimes the content of the email is included as simple, human-readable plaintext, but sometimes the email body essentially just “points to” a set of attached files. Given this variability, and given how frequently emails are streaming in at this 10,000+ employee organization, which of the following conclusions would you draw for a “best-fit” OLAP infrastructure? <em>(Choose one)</em></p>
+<ol type="a">
+<li>A Data Lake infrastructure where all raw data from each email is “dumped” into an S3 bucket (for downstream schema-on-read parsing) makes most sense, since the bandwidth required to write the emails into an S3 bucket would be significantly lower than the bandwidth required to write data from the emails into a warehouse DB table.</li>
+<li>A Data Lake infrastructure where all raw data from each email is “dumped” into an S3 bucket (for downstream schema-on-read parsing) makes most sense, since it’s difficult to plan in advance what specific “pieces” of the emails might be relevant.</li>
+<li>A Data Warehouse infrastructure where email data is written into a table with a pre-defined schema makes most sense, since we can determine in advance what data we want to record and pre-allocate columns within the warehouse DB accordingly</li>
+<li>A Data Warehouse infrastructure where email data is written into a table with a pre-defined schema makes most sense, since we can just allocate a “misc_data” column (of raw binary type) to hold any data from the emails that may not fit within the pre-defined schema</li>
+</ol>
+<p>Here the answer would be (b), since it’s the better choice of infrastructure paired with the better justification for using that infrastructure. (a) is “close” to the right answer, but wouldn’t be marked as correct because it’s an irrelevant justification (writing into a data warehouse DB doesn’t require any more or less bandwidth than writing into a data lake S3 bucket, in general!)</p>
+</section>
 </section>
 <section id="question-4-querying-olap-data" class="level2">
 <h2 class="anchored" data-anchor-id="question-4-querying-olap-data">Question 4: Querying OLAP Data</h2>

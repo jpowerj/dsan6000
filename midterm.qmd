@@ -37,6 +37,17 @@ This question is **started for you** in the vignette for your chosen dataset, wh
 
 ## Question 3: OLAP Infrastructure
 
+### Sample Question (Enron Email Corpus)
+
+As you can see from the example emails in the [vignette](./final-project/enron/index.qmd), both the content of the emails themselves and their metadata vary wildly in terms of what might be streaming into the OLTP DB (which is just recording the raw text+metadata for every incoming and outgoing email): for example, sometimes the content of the email is included as simple, human-readable plaintext, but sometimes the email body essentially just "points to" a set of attached files. Given this variability, and given how frequently emails are streaming in at this 10,000+ employee organization, which of the following conclusions would you draw for a "best-fit" OLAP infrastructure? *(Choose one)*
+
+(a) A Data Lake infrastructure where all raw data from each email is "dumped" into an S3 bucket (for downstream schema-on-read parsing) makes most sense, since the bandwidth required to write the emails into an S3 bucket would be significantly lower than the bandwidth required to write data from the emails into a warehouse DB table.
+(b) A Data Lake infrastructure where all raw data from each email is "dumped" into an S3 bucket (for downstream schema-on-read parsing) makes most sense, since it's difficult to plan in advance what specific "pieces" of the emails might be relevant.
+(c) A Data Warehouse infrastructure where email data is written into a table with a pre-defined schema makes most sense, since we can determine in advance what data we want to record and pre-allocate columns within the warehouse DB accordingly
+(d) A Data Warehouse infrastructure where email data is written into a table with a pre-defined schema makes most sense, since we can just allocate a "misc_data" column (of raw binary type) to hold any data from the emails that may not fit within the pre-defined schema
+
+Here the answer would be (b), since it's the better choice of infrastructure paired with the better justification for using that infrastructure. (a) is "close" to the right answer, but wouldn't be marked as correct because it's an irrelevant justification (writing into a data warehouse DB doesn't require any more or less bandwidth than writing into a data lake S3 bucket, in general!)
+
 ## Question 4: Querying OLAP Data
 
 ## Question 5: Scaling OLAP Queries
