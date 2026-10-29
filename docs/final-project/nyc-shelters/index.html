@@ -503,7 +503,7 @@ div.csl-indent {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-27, 07:05:14 PM</em></p>
+<p><em>Updated 2026-10-29, 06:21:20 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -574,7 +574,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="question-1-starter-oltp-infrastructure">Question 1 Starter: OLTP Infrastructure</h2>
 <p>As mentioned in the vignette, although the <strong>nightly PDF report</strong> contains aggregate counts of the number of men, women, and children across all shelters, this is [technically, in our terminology] the <strong>OLAP</strong> form of the data as it currently exists.</p>
 <p>The <strong>OLTP</strong> format — the form of the data as it is originally <strong>recorded</strong> — consists of <strong>entry</strong> and <strong>exit records</strong>, along with the timestamp of when the event was recorded. A small sample of this OLTP data is as follows. First, using <code>head()</code> to show the first five records that ever arrived in the OLTP DB (since it is an <strong>append-only log</strong>), we can see that the shelters started recording entries and exits late at night on September 26, 2026:</p>
-<div id="7454fd63" class="cell" data-execution_count="1">
+<div id="bb1893c8" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -584,7 +584,7 @@ div.csl-indent {
 </details>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_37f1bc51_bada_43b8_9edc_24308179757f">
+<table id="itables_ac6c1dc7_6e8d_4c91_b326_acc79014d134">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
@@ -654,7 +654,7 @@ div.csl-indent {
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_37f1bc51_bada_43b8_9edc_24308179757f:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_ac6c1dc7_6e8d_4c91_b326_acc79014d134:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
@@ -684,14 +684,14 @@ div.csl-indent {
 </ul></li>
 </ul>
 <p>The final tricky aspect of this setup becomes visible when we use <code>.tail()</code> to view the most <strong>recently-added</strong> records:</p>
-<div id="8b485b35" class="cell" data-execution_count="2">
+<div id="4cdea57f" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>itables.show(shelter_pldf.tail())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_49a0676d_fa5c_487b_81d5_2011ec560c54">
+<table id="itables_0d45b0d1_6404_4895_8d47_f5d4bd9b3d8a">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
@@ -761,7 +761,7 @@ div.csl-indent {
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_49a0676d_fa5c_487b_81d5_2011ec560c54:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_0d45b0d1_6404_4895_8d47_f5d4bd9b3d8a:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 

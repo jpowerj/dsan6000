@@ -443,7 +443,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-27, 07:05:14 PM</em></p>
+<p><em>Updated 2026-10-29, 06:21:20 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -453,7 +453,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#question-1-oltp-infrastructure" id="toc-question-1-oltp-infrastructure" class="nav-link active" data-scroll-target="#question-1-oltp-infrastructure">Question 1: OLTP Infrastructure</a></li>
-  <li><a href="#question-2-ingesting-transforming-and-loading-oltp-snapshots" id="toc-question-2-ingesting-transforming-and-loading-oltp-snapshots" class="nav-link" data-scroll-target="#question-2-ingesting-transforming-and-loading-oltp-snapshots">Question 2: Ingesting, Transforming, and Loading OLTP Snapshots</a></li>
+  <li><a href="#question-2-ingesting-transforming-and-loading-oltp-snapshots" id="toc-question-2-ingesting-transforming-and-loading-oltp-snapshots" class="nav-link" data-scroll-target="#question-2-ingesting-transforming-and-loading-oltp-snapshots">Question 2: Ingesting, Transforming, and Loading OLTP Snapshots</a>
+  <ul class="collapse">
+  <li><a href="#sample-question-nyc-shelter-data" id="toc-sample-question-nyc-shelter-data" class="nav-link" data-scroll-target="#sample-question-nyc-shelter-data">Sample Question (NYC Shelter Data)</a></li>
+  </ul></li>
   <li><a href="#question-3-olap-infrastructure" id="toc-question-3-olap-infrastructure" class="nav-link" data-scroll-target="#question-3-olap-infrastructure">Question 3: OLAP Infrastructure</a>
   <ul class="collapse">
   <li><a href="#sample-question-enron-email-corpus" id="toc-sample-question-enron-email-corpus" class="nav-link" data-scroll-target="#sample-question-enron-email-corpus">Sample Question (Enron Email Corpus)</a></li>
@@ -487,19 +490,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled" title="Under Construction">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Under Construction
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You are reading an <strong>early draft</strong> of the Practice Midterm! I want to make it available for eager beavers who are particularly worried about what the Midterm might look like, but I will announce over Canvas (and remove this message) when the final version is ready for you to work through.</p>
-</div>
-</div>
 <p>The <strong>in-class midterm</strong> will be held on the following days, based on your section:</p>
 <ul>
 <li><strong>Section 01:</strong> Monday, November 2, 2026</li>
@@ -518,6 +508,24 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="question-2-ingesting-transforming-and-loading-oltp-snapshots" class="level2">
 <h2 class="anchored" data-anchor-id="question-2-ingesting-transforming-and-loading-oltp-snapshots">Question 2: Ingesting, Transforming, and Loading OLTP Snapshots</h2>
+<section id="sample-question-nyc-shelter-data" class="level3">
+<h3 class="anchored" data-anchor-id="sample-question-nyc-shelter-data">Sample Question (NYC Shelter Data)</h3>
+<p>Although events are entered into the OLTP DB “on the fly” in this case, one issue is that receptionists are asked to <em>double-check</em> the daily entries towards the end of their shifts, for things like data entry errors.</p>
+<p>Given this information, which of the following OLTP-to-OLAP ingestion plans would make best use of the available information without affecting the OLTP system’s ability to store frequently-entered records? Think especially in terms of scalability: will the plan still satisfy these criteria if NYC decides to open up many more shelters in the near future? <em>(Circle <strong>all</strong> answers that would satisfy these goals)</em></p>
+<ol type="a">
+<li>Run analytic queries (in DuckDB, Polars, and/or Spark) <strong>directly on the OLTP database</strong>, so that the results of these queries always reflect the most up-to-date data available</li>
+<li>Take <em>“snapshots”</em> of the OLTP records at the very end of each desk worker’s shift, and “dump” each of these snapshots into an <strong>S3 bucket</strong>. Then allow data analysts to run analytic queries on the collection of snapshots in this bucket (e.g., using Athena)</li>
+<li>Take <em>“snapshots”</em> of the OLTP records at the very end of each desk worker’s shift, then use an SQL query to store the records contained in each snapshot into a centralized <strong>fact table</strong> with a pre-determined schema. Then allow data analysts to run analytic queries on this centralized fact table</li>
+<li>Every time a desk worker enters a record, immediately store the information from the record (e.g., in <code>.json</code> format) as a single file within an <strong>S3 bucket</strong>. Then allow data analysts to run analytic queries on the individual files in the S3 bucket using, e.g., Athena</li>
+<li>Every time a desk worker enters a record, immediately execute an SQL query to store the information from the record as a new row within a centralized <strong>fact table</strong> with a pre-determined schema. Then allow data analysts to run analytic queries on this centralized fact table.</li>
+</ol>
+<p>The two answers you would want to circle here are <strong>(b)</strong> and <strong>(c)</strong>: You can worry about the differential benefits and drawbacks of data <strong>warehouses</strong> vs.&nbsp;data <strong>lakes</strong> in Question 3, but for this question, the key would be to take the snapshots at the end of the shifts so that the <strong>extraction</strong> of the OLTP records doesn’t interfere with the actual <strong>operation</strong> of the OLTP system itself!</p>
+<p>Option (a) violates this principle, since (as the Boar Book puts it):</p>
+<blockquote class="blockquote">
+<p>Database administrators closely guard their OLTP databases. They are usually reluctant to let business analysts run ad hoc analytic queries on an OLTP database, since those queries are often expensive, scanning large parts of the dataset, which can harm the performance of concurrently executing transactions.</p>
+</blockquote>
+<p>Options (d) and (e), on the other hand, are worse than options (b) and (c) just because they “clash” with the <strong>columnar</strong> data-storage approach that we typically desire for OLAP infrastructures: to understand this, think of the discussion in Weeks 2-4 about how writing <strong>individual rows</strong> into a <strong>columnar</strong> format like a <code>.parquet</code> file or a DuckDB table is extremely computationally expensive: it requires “hopping” around the file many times. Thus, one of the primary benefits of taking <strong>“snapshots”</strong> of the OLTP DB is so that we capture many records at a time, and thus can add many values to the end of a given column before having to “hop” to the next column.</p>
+</section>
 </section>
 <section id="question-3-olap-infrastructure" class="level2">
 <h2 class="anchored" data-anchor-id="question-3-olap-infrastructure">Question 3: OLAP Infrastructure</h2>
