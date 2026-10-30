@@ -26,7 +26,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -51,6 +71,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-7863e08c2e36e6bbea21d3a7da267a83.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-41e08071874cfcdf2239640a8fc0dacf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-7863e08c2e36e6bbea21d3a7da267a83.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -443,7 +466,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-29, 06:21:20 PM</em></p>
+<p><em>Updated 2026-10-30, 06:10:30 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -461,9 +484,13 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#sample-question-enron-email-corpus" id="toc-sample-question-enron-email-corpus" class="nav-link" data-scroll-target="#sample-question-enron-email-corpus">Sample Question (Enron Email Corpus)</a></li>
   </ul></li>
-  <li><a href="#question-4-querying-olap-data" id="toc-question-4-querying-olap-data" class="nav-link" data-scroll-target="#question-4-querying-olap-data">Question 4: Querying OLAP Data</a></li>
+  <li><a href="#question-4-querying-olap-data" id="toc-question-4-querying-olap-data" class="nav-link" data-scroll-target="#question-4-querying-olap-data">Question 4: Querying OLAP Data</a>
+  <ul class="collapse">
+  <li><a href="#sample-questions-acled-event-data" id="toc-sample-questions-acled-event-data" class="nav-link" data-scroll-target="#sample-questions-acled-event-data">Sample Questions (ACLED Event Data)</a></li>
+  </ul></li>
   <li><a href="#question-5-scaling-olap-queries" id="toc-question-5-scaling-olap-queries" class="nav-link" data-scroll-target="#question-5-scaling-olap-queries">Question 5: Scaling OLAP Queries</a></li>
   <li><a href="#question-6-serving-and-reporting-our-scaled-olap-query-results" id="toc-question-6-serving-and-reporting-our-scaled-olap-query-results" class="nav-link" data-scroll-target="#question-6-serving-and-reporting-our-scaled-olap-query-results">Question 6: Serving and Reporting Our Scaled OLAP Query Results</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/midterm.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="midterm.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -543,12 +570,89 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="question-4-querying-olap-data" class="level2">
 <h2 class="anchored" data-anchor-id="question-4-querying-olap-data">Question 4: Querying OLAP Data</h2>
+<p>Since the Midterm is on paper rather than on a computer, you won’t need to code anything from scratch! However, this question is intended to test your understanding of the technologies we’ve learned for <strong>writing</strong>, <strong>optimizing</strong>, and then <strong>executing</strong> analytic queries on the (columnar) OLAP-structured data that you thought through in the previous question.</p>
+<section id="sample-questions-acled-event-data" class="level3">
+<h3 class="anchored" data-anchor-id="sample-questions-acled-event-data">Sample Questions (ACLED Event Data)</h3>
+<section id="sample-question-4.1" class="level4">
+<h4 class="anchored" data-anchor-id="sample-question-4.1">Sample Question 4.1</h4>
+<p>For the <strong>interactive dashboard</strong> mentioned in the vignette, you are hoping to develop a <strong>view</strong> available to users which will:</p>
+<ol type="1">
+<li>Allow the user to choose a <strong>statistic</strong> they are interested in (like event counts or civilian casualties),</li>
+<li>Allow the user to select a set of <strong>countries</strong> they are interested in,</li>
+<li>Allow the user to choose a <strong>level of resolution</strong> they are interested in (e.g., country-wide averages or province-specific averages), and then</li>
+<li>Display an interactive map with region-by-region values for their statistic of interest</li>
+</ol>
+<p>Although it is common to implement a dashboard like this via <em>server</em>-side queries (meaning, you call a web API to request sub-national or sub-sub-national data when the user clicks on a country), organizations like <em>Médecins Sans Frontières</em> often need to operate in regions without internet access. So, you opt to <strong>embed the database directly within your dashboard</strong> rather than utilizing server-side queries.</p>
+<p>Which of the following technologies we covered in class would be well-suited for this task – that is, for carrying out the <strong>select</strong> (to choose the particular statistic the user is interested in) and <strong>filter</strong> (to “zoom in” on the particular regions the user is interested in) queries <strong>in-memory</strong>, with <strong>[logical] query optimization</strong> to ensure that the user can get to the resulting map as quickly as possible? <em>(Circle <strong>all</strong> that would be well-suited to this task)</em></p>
+<ol type="a">
+<li>SQLite</li>
+<li>Spark</li>
+<li>Pandas</li>
+<li>DuckDB</li>
+</ol>
+</section>
+<section id="sample-question-4.1-solution" class="level4">
+<h4 class="anchored" data-anchor-id="sample-question-4.1-solution">Sample Question 4.1 Solution</h4>
+<p>Here the <strong>two</strong> correct answers would be <strong>(a) SQLite</strong> and <strong>(d) DuckDB</strong>: both of these are <strong>in-memory</strong> database management systems with <strong>[logical] query optimization engines</strong>, meaning that they can be embedded within any application (even on a mobile phone or tablet!) to handle loading and [optimally] querying from e.g.&nbsp;a <code>.parquet</code> file that ships with the dashboard.</p>
+<p><strong>(c) Pandas</strong> is not well-suited to this task because it does <strong>not</strong> have a [logical] query optimization engine: every query in Pandas is <strong>eagerly</strong> evaluated, so that the application would be unable to create and optimize a query plan before executing it.</p>
+<p><strong>(b) Spark</strong> is not well-suited to this task because, although it <em>does</em> have a query optimization engine (called Catalyst), this engine’s main goal is to optimize a <strong>physical</strong> query plan with respect to a <strong>distributed</strong> computing cluster. Since the question specified how the dashboard should operate on a <em>single</em> device, even <em>without a network connection</em>, Spark is the wrong tool for the job!</p>
+</section>
+<section id="sample-question-4.2" class="level4">
+<h4 class="anchored" data-anchor-id="sample-question-4.2">Sample Question 4.2</h4>
+<p>If we knew in advance that users were typically analyzing a small, fixed set of <strong>countries/regions</strong>, but that they were going to frequently change the <strong>statistic</strong> (the column in the ACLED dataset) that they were interested in for these countries/regions, which of the technologies would now be best for this task? <em>(Circle <strong>one</strong> option)</em></p>
+<ol type="a">
+<li>SQLite</li>
+<li>Spark</li>
+<li>Pandas</li>
+<li>DuckDB</li>
+</ol>
+</section>
+<section id="sample-question-4.2-solution" class="level4">
+<h4 class="anchored" data-anchor-id="sample-question-4.2-solution">Sample Question 4.2 Solution</h4>
+<p>By specifying that the queries will frequently <strong>select</strong> different subsets of <strong>columns</strong> from the full dataset, here we “narrow down” from the two correct answers in Question 4.1 to a single correct answer: <strong>(d) DuckDB</strong> is the best choice for handling the in-memory queries in this case, since (unlike SQLite) DuckDB utilizes a <strong>columnar storage format</strong>.</p>
+<p>Recall, from class, that using a columnar storage format entails that a <strong>column</strong> can be read from RAM in one <strong>sequential read</strong>, whereas reading a <strong>row</strong> from data stored in this format requires many “hops” around memory. In <a href="#fig-columnar" class="quarto-xref">Figure&nbsp;1</a>, for example (from the Boar Book!), you can see how all values in the third <em>column</em> (<code>store_sk</code>) are stored together in a single sequential array, whereas getting the values from the third <em>row</em> would require getting the third element in the <code>date_key</code> array, then the third element in the <code>product_sk</code> array, then the third element in the <code>store_sk</code> array, and so on.</p>
+<div id="fig-columnar" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-columnar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/columnar.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: From @kleppmann_designing_2026, p.&nbsp;138"><img src="images/columnar.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-columnar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: From <span class="citation" data-cites="kleppmann_designing_2026">Kleppmann and Riccomini (<a href="#ref-kleppmann_designing_2026" role="doc-biblioref">2026</a>)</span>, p.&nbsp;138
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sample-question-4.3" class="level4">
+<h4 class="anchored" data-anchor-id="sample-question-4.3">Sample Question 4.3</h4>
+<p>If we instead knew in advance that users were typically analyzing a small, fixed set of <strong>statistics</strong>, but that they were going to frequently change the <strong>regions</strong> that they wanted to visualize these statistics for, which of the technologies would now be best for this task? <em>(Circle <strong>one</strong> option)</em></p>
+<ol type="a">
+<li>SQLite</li>
+<li>Spark</li>
+<li>Pandas</li>
+<li>DuckDB</li>
+</ol>
+</section>
+<section id="sample-question-4.3-solution" class="level4">
+<h4 class="anchored" data-anchor-id="sample-question-4.3-solution">Sample Question 4.3 Solution</h4>
+<p>Here, since we’ve specified that queries will frequently <strong>filter</strong> different subsets of <strong>rows</strong> from the full dataset, the correct answer becomes <strong>(a) SQLite</strong> (in contrast to the DuckDB answer to Q4.2).</p>
+<p>As we saw in class, when we looked at the <strong>interactive shells</strong> for both SQLite and DuckDB, both of these <strong>in-memory DBMS</strong> frameworks support the same SQL syntax, such that the only difference between the two is that <strong>SQLite</strong> stores data row-wise rather than in columnar form. Thus, if we know in advance that the most common queries will involve <strong>filtering rows</strong>, we can embed SQLite rather than DuckDB in our application to ensure that these row-filtering operations are optimized.</p>
+<p>Note how, given the way we’ve framed OLTP vs.&nbsp;OLAP in this class, using SQLite here might seem strange at first: in <em>general</em>, OLTP DBs utilize <strong>row-wise</strong> storage (to enable writing individual records as quickly as possible), whereas OLAP infrastructures utilize <strong>columnar</strong> storage (to enable efficient columnar operations like the computing of mean squared residuals). However, the point of this question is to show how there <strong>are</strong> OLAP use cases where we nonetheless want to store and access row-based data: think of how, although the <em>default</em> behavior of <code>tidyverse</code> functions in R is to operate on columns, you <em>can</em> use the <a href="https://dplyr.tidyverse.org/articles/rowwise.html"><code>rowwise()</code> “switch”</a> in situations where your analytic pipeline requires row-by-row operations.</p>
+</section>
+</section>
 </section>
 <section id="question-5-scaling-olap-queries" class="level2">
 <h2 class="anchored" data-anchor-id="question-5-scaling-olap-queries">Question 5: Scaling OLAP Queries</h2>
 </section>
 <section id="question-6-serving-and-reporting-our-scaled-olap-query-results" class="level2">
 <h2 class="anchored" data-anchor-id="question-6-serving-and-reporting-our-scaled-olap-query-results">Question 6: Serving and Reporting Our Scaled OLAP Query Results</h2>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-kleppmann_designing_2026" class="csl-entry" role="listitem">
+Kleppmann, Martin, and Chris Riccomini. 2026. <em><a href="https://www.dropbox.com/scl/fi/8mjmyw4t5l7vuly2mvtl8/Designing-Data-Intensive-Applications.pdf?rlkey=jjxt5z28b14locj4fty7092l3&amp;st=eslkqa3p&amp;dl=1">Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems</a></em>. 2nd edition. Santa Rosa, CA: O’Reilly.
+</div>
+</div>
 
 
 </section>
@@ -975,8 +1079,40 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/midterm.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/midterm.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+</body></html>

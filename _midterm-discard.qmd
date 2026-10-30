@@ -1,0 +1,5 @@
+1.  Allow the user to choose a *statistic* they are interested in (like event counts or civilian casualties)
+2.  Allow the user to choose a **level of resolution** they are interested in 
+2.  Display a world map with country-by-country values for this statistic, then
+3.  Allow users to click on a country to see **sub**-national values (in the US, for example, this would be state-by-state values), and finally
+4.  Allow users to click on a **sub**-national region to see sub-sub-national values (in the US, for example, this would be county-by-county values within a given state)
