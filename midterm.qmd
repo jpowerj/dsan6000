@@ -130,7 +130,83 @@ Note how, given the way we've framed OLTP vs. OLAP in this class, using SQLite h
 
 ## Question 5: Scaling OLAP Queries
 
+There is a good amount of overlap between the previous question and this question, since both involve the process of actually executing queries once the OLAP infrastructure has been established. However, this question will focus more on the **efficiency** of the queries (e.g., how the query optimizers in DuckDB, Polars, and Spark might re-order the steps in a given "naïve" query plan).
+
+### Sample Questions (Synthetic FHIR Healthcare Records)
+
+For this question, assume that you have a file called `med_requests.parquet`, available to you in an S3 bucket, and that you initialize a *plan* to load the `MedicationRequest`s detailed in this file via a Polars `LazyFrame` called `req_lf`, as follows:
+
+``` {.python}
+import polars as pl
+req_lf = pl.scan_parquet('s3://my-s3/med_requests.parquet')
+```
+
+In talking with hospital staff about the rejected medication requests, you learn that many of the rejected requests (requests with `status` value of `"rejected"`) are the result of medical providers not providing a *reason* for the prescription (the `reasonReference` field is missing). Thus they are most concerned about cases where a reason for the prescription *was* given (the `reasonReference` field is *not* missing), yet the request was still rejected.
+
+You develop a hypothesis that these more-concerning cases may happen more frequently when providers write `"take as needed"` in the `dosageInstruction` field (in contrast to more specific instructions like `"take one 5mg tablet 3 times per day"`). You thus create a Polars `LazyFrame` which uses `pl.scan_parquet()` to initiate a "plan" to load all records, and you would like to analyze the **subset** of all request matching these criteria, which the following questions will walk you through!
+
+#### Sample Question 5.1
+
+Which of the following code examples successfully constructs a **lazily-executed Polars expression** "encoding" the English expression
+
+> *«The `MedicationRequest` was rejected, despite the fact that a reason for the request was given by the medical provider»*
+
+such that if a new column is created representing the result of checking this expression on each row, that column will be named `rejected_despite_reason`? Note that (like all Polars expressions), the expression here should work **regardless of the specific name of the `LazyFrame`** object that it might be applied to!
+
+``` {#lst-5-1a .python lst-cap="Option (a)"}
+concern_expr = req_lf[
+  (req_lf['status'] == 'rejected')
+  & (req_lf['reasonReference'] != 'null')
+]
+```
+
+``` {#lst-5-1b .python lst-cap="Option (b)"}
+concern_expr = (
+  (req_lf['status'] == 'rejected')
+  & (req_lf['reasonReference'].is_null())
+).alias('rejected_despite_reason')
+```
+
+
+``` {#lst-5-1c .python lst-cap="Option (c)"}
+concern_expr = (
+  (pl.col('status') == 'rejected')
+  & (pl.col('reasonReference').is_null())
+)
+```
+
+
+``` {#lst-5-1d .python lst-cap="Option (d)"}
+concern_expr = (
+  (pl.col('status') == 'rejected')
+  & (pl.col('reasonReference').is_null())
+).alias('rejected_despite_reason')
+```
+
+The answer here is **Option (d)!** By process of elimination:
+
+* Option (a) is how you would carry out this kind of filter in **Pandas**; however, since Pandas does not have a lazy-execution API (no `LazyFrame` type), this expression would be executed **immediately**, so that instead of being an **expression** object, `concern_expr` would actually contain the filtered data.
+* Option (b) fails to use Polars' `.col()` notation for selecting columns – it uses the specific *name* of the `LazyFrame` object we constructed earlier (`req_lf`), thus defeating one of the core purposes of Polars expressions, which is to **separate** computational expressions from the data they are executed on.
+* Option (c) is *almost* correct, but it fails to use Polars' `alias()` function to assign a **name** that you'd like to give to any columns created using this expression.
+* Option (d) thus "fixes" the final thing wrong with Option (c), by using `.alias('rejected_despite_reason')`, and is the correct answer!
+
 ## Question 6: Serving and Reporting Our Scaled OLAP Query Results
+
+Here the stakes are a bit lower than in other questions, since you will be graded based on making a [good faith attempt](https://www.cs.umd.edu/~nelson/classes/resources/good_faith_attempt/) at the question, since there is no single "correct" answer. But, this is still an important question, since the whole point is to give you time during the Midterm to think through the specifics of what your concrete **Final Project deliverable** might look like!
+
+### Sample Question (Banking77 Fraud Detection Dataset)
+
+As mentioned in the [vignette](./final-project/banking77/index.qmd), two of the key challenges in the banking fraud detection pipeline would be (a) **validating** that the machine-learned labels are indeed doing a good job of detecting fraud (for example, by effectively balancing false positives and false negatives!), but also (b) ensuring that the trained intent-prediction model can **adapt** to new topics or new fraud techniques over time.
+
+As a way to ensure human-in-the-loop "sanity checks" for these two goals, you decide to bundle a **live monitoring dashboard** with your ML-based intent-classification deliverable, so that staff within the fraud detection department can actually *see* the intent-classification decisions your model is making.
+
+The notion of "including a live dashboard" is easier said than done, however! The *specifics* of how this dashboard will work are key to the effectiveness of the project as a whole. For example, if the dashboard simply "streamed in" the text and predicted intent for every single message sent to the bank's website chatbot, this information would pour into the dashboard much much faster than any human could possible read the messages.
+
+So, for this final question, please draw on your knowledge from this class (as well as, e.g., your knowledge of supervised ML algorithms from prior classes) to write a paragraph (3-5 sentences) detailing how you would design the dashboard to avoid this too-many-messages-too-little-time issue, making the dashboard as useful as possible to the intended audience.
+
+> Given that the ML model aims to classify each chat message into one of 77 different **intent** classes, we have a **supervised multi-class classification problem**, and with $K = 77$ different classes there may be wide variation in how **successful** the algorithm's classifications are: for example, it may be very good at detecting the intent with index 21, **`change_pin`**, but may be awful at distinguishing between intent 14 (`card_not_working`) and intent 25 (`declined_card_payment`).
+> 
+> Thus I would compute the most-often-misclassified intents during the most recent training of the algorithm, then construct my live monitoring dashboard such that the **default view** would only show a sub-sample of all incoming messages that were labeled with these often-incorrect intents (the interface would allow users to change from this default view to other intents, if desired). Users observing this stream of messages would also be able to click on a **"Suggest Intent"** button next to any message they believe has been misclassified to bring up a modal dialog box where they could choose a more appropriate intent from a dropdown box. These suggestions would then be incorporated as *new* training data in the next round of training.
 
 ## References
 

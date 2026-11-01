@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -109,6 +144,35 @@ div.csl-indent {
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Honk&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -466,7 +530,7 @@ div.csl-indent {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-30, 06:10:30 PM</em></p>
+<p><em>Updated 2026-10-31, 09:12:00 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -488,8 +552,14 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#sample-questions-acled-event-data" id="toc-sample-questions-acled-event-data" class="nav-link" data-scroll-target="#sample-questions-acled-event-data">Sample Questions (ACLED Event Data)</a></li>
   </ul></li>
-  <li><a href="#question-5-scaling-olap-queries" id="toc-question-5-scaling-olap-queries" class="nav-link" data-scroll-target="#question-5-scaling-olap-queries">Question 5: Scaling OLAP Queries</a></li>
-  <li><a href="#question-6-serving-and-reporting-our-scaled-olap-query-results" id="toc-question-6-serving-and-reporting-our-scaled-olap-query-results" class="nav-link" data-scroll-target="#question-6-serving-and-reporting-our-scaled-olap-query-results">Question 6: Serving and Reporting Our Scaled OLAP Query Results</a></li>
+  <li><a href="#question-5-scaling-olap-queries" id="toc-question-5-scaling-olap-queries" class="nav-link" data-scroll-target="#question-5-scaling-olap-queries">Question 5: Scaling OLAP Queries</a>
+  <ul class="collapse">
+  <li><a href="#sample-questions-synthetic-fhir-healthcare-records" id="toc-sample-questions-synthetic-fhir-healthcare-records" class="nav-link" data-scroll-target="#sample-questions-synthetic-fhir-healthcare-records">Sample Questions (Synthetic FHIR Healthcare Records)</a></li>
+  </ul></li>
+  <li><a href="#question-6-serving-and-reporting-our-scaled-olap-query-results" id="toc-question-6-serving-and-reporting-our-scaled-olap-query-results" class="nav-link" data-scroll-target="#question-6-serving-and-reporting-our-scaled-olap-query-results">Question 6: Serving and Reporting Our Scaled OLAP Query Results</a>
+  <ul class="collapse">
+  <li><a href="#sample-question-banking77-fraud-detection-dataset" id="toc-sample-question-banking77-fraud-detection-dataset" class="nav-link" data-scroll-target="#sample-question-banking77-fraud-detection-dataset">Sample Question (Banking77 Fraud Detection Dataset)</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/midterm.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="midterm.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -642,9 +712,97 @@ Figure&nbsp;1: From <span class="citation" data-cites="kleppmann_designing_2026"
 </section>
 <section id="question-5-scaling-olap-queries" class="level2">
 <h2 class="anchored" data-anchor-id="question-5-scaling-olap-queries">Question 5: Scaling OLAP Queries</h2>
+<p>There is a good amount of overlap between the previous question and this question, since both involve the process of actually executing queries once the OLAP infrastructure has been established. However, this question will focus more on the <strong>efficiency</strong> of the queries (e.g., how the query optimizers in DuckDB, Polars, and Spark might re-order the steps in a given “naïve” query plan).</p>
+<section id="sample-questions-synthetic-fhir-healthcare-records" class="level3">
+<h3 class="anchored" data-anchor-id="sample-questions-synthetic-fhir-healthcare-records">Sample Questions (Synthetic FHIR Healthcare Records)</h3>
+<p>For this question, assume that you have a file called <code>med_requests.parquet</code>, available to you in an S3 bucket, and that you initialize a <em>plan</em> to load the <code>MedicationRequest</code>s detailed in this file via a Polars <code>LazyFrame</code> called <code>req_lf</code>, as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>req_lf <span class="op">=</span> pl.scan_parquet(<span class="st">'s3://my-s3/med_requests.parquet'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In talking with hospital staff about the rejected medication requests, you learn that many of the rejected requests (requests with <code>status</code> value of <code>"rejected"</code>) are the result of medical providers not providing a <em>reason</em> for the prescription (the <code>reasonReference</code> field is missing). Thus they are most concerned about cases where a reason for the prescription <em>was</em> given (the <code>reasonReference</code> field is <em>not</em> missing), yet the request was still rejected.</p>
+<p>You develop a hypothesis that these more-concerning cases may happen more frequently when providers write <code>"take as needed"</code> in the <code>dosageInstruction</code> field (in contrast to more specific instructions like <code>"take one 5mg tablet 3 times per day"</code>). You thus create a Polars <code>LazyFrame</code> which uses <code>pl.scan_parquet()</code> to initiate a “plan” to load all records, and you would like to analyze the <strong>subset</strong> of all request matching these criteria, which the following questions will walk you through!</p>
+<section id="sample-question-5.1" class="level4">
+<h4 class="anchored" data-anchor-id="sample-question-5.1">Sample Question 5.1</h4>
+<p>Which of the following code examples successfully constructs a <strong>lazily-executed Polars expression</strong> “encoding” the English expression</p>
+<blockquote class="blockquote">
+<p><em>«The <code>MedicationRequest</code> was rejected, despite the fact that a reason for the request was given by the medical provider»</em></p>
+</blockquote>
+<p>such that if a new column is created representing the result of checking this expression on each row, that column will be named <code>rejected_despite_reason</code>? Note that (like all Polars expressions), the expression here should work <strong>regardless of the specific name of the <code>LazyFrame</code></strong> object that it might be applied to!</p>
+<div id="lst-5-1a" class="python listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-5-1a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;1: Option (a)
+</figcaption>
+<div aria-describedby="lst-5-1a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>concern_expr <span class="op">=</span> req_lf[</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  (req_lf[<span class="st">'status'</span>] <span class="op">==</span> <span class="st">'rejected'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&amp;</span> (req_lf[<span class="st">'reasonReference'</span>] <span class="op">!=</span> <span class="st">'null'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+<div id="lst-5-1b" class="python listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-5-1b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;2: Option (b)
+</figcaption>
+<div aria-describedby="lst-5-1b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>concern_expr <span class="op">=</span> (</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  (req_lf[<span class="st">'status'</span>] <span class="op">==</span> <span class="st">'rejected'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&amp;</span> (req_lf[<span class="st">'reasonReference'</span>].is_null())</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>).alias(<span class="st">'rejected_despite_reason'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+<div id="lst-5-1c" class="python listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-5-1c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;3: Option (c)
+</figcaption>
+<div aria-describedby="lst-5-1c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>concern_expr <span class="op">=</span> (</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  (pl.col(<span class="st">'status'</span>) <span class="op">==</span> <span class="st">'rejected'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&amp;</span> (pl.col(<span class="st">'reasonReference'</span>).is_null())</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+<div id="lst-5-1d" class="python listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-5-1d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;4: Option (d)
+</figcaption>
+<div aria-describedby="lst-5-1d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>concern_expr <span class="op">=</span> (</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  (pl.col(<span class="st">'status'</span>) <span class="op">==</span> <span class="st">'rejected'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&amp;</span> (pl.col(<span class="st">'reasonReference'</span>).is_null())</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>).alias(<span class="st">'rejected_despite_reason'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</figure>
+</div>
+<p>The answer here is <strong>Option (d)!</strong> By process of elimination:</p>
+<ul>
+<li>Option (a) is how you would carry out this kind of filter in <strong>Pandas</strong>; however, since Pandas does not have a lazy-execution API (no <code>LazyFrame</code> type), this expression would be executed <strong>immediately</strong>, so that instead of being an <strong>expression</strong> object, <code>concern_expr</code> would actually contain the filtered data.</li>
+<li>Option (b) fails to use Polars’ <code>.col()</code> notation for selecting columns – it uses the specific <em>name</em> of the <code>LazyFrame</code> object we constructed earlier (<code>req_lf</code>), thus defeating one of the core purposes of Polars expressions, which is to <strong>separate</strong> computational expressions from the data they are executed on.</li>
+<li>Option (c) is <em>almost</em> correct, but it fails to use Polars’ <code>alias()</code> function to assign a <strong>name</strong> that you’d like to give to any columns created using this expression.</li>
+<li>Option (d) thus “fixes” the final thing wrong with Option (c), by using <code>.alias('rejected_despite_reason')</code>, and is the correct answer!</li>
+</ul>
+</section>
+</section>
 </section>
 <section id="question-6-serving-and-reporting-our-scaled-olap-query-results" class="level2">
 <h2 class="anchored" data-anchor-id="question-6-serving-and-reporting-our-scaled-olap-query-results">Question 6: Serving and Reporting Our Scaled OLAP Query Results</h2>
+<p>Here the stakes are a bit lower than in other questions, since you will be graded based on making a <a href="https://www.cs.umd.edu/~nelson/classes/resources/good_faith_attempt/">good faith attempt</a> at the question, since there is no single “correct” answer. But, this is still an important question, since the whole point is to give you time during the Midterm to think through the specifics of what your concrete <strong>Final Project deliverable</strong> might look like!</p>
+<section id="sample-question-banking77-fraud-detection-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="sample-question-banking77-fraud-detection-dataset">Sample Question (Banking77 Fraud Detection Dataset)</h3>
+<p>As mentioned in the <a href="./final-project/banking77/index.html">vignette</a>, two of the key challenges in the banking fraud detection pipeline would be (a) <strong>validating</strong> that the machine-learned labels are indeed doing a good job of detecting fraud (for example, by effectively balancing false positives and false negatives!), but also (b) ensuring that the trained intent-prediction model can <strong>adapt</strong> to new topics or new fraud techniques over time.</p>
+<p>As a way to ensure human-in-the-loop “sanity checks” for these two goals, you decide to bundle a <strong>live monitoring dashboard</strong> with your ML-based intent-classification deliverable, so that staff within the fraud detection department can actually <em>see</em> the intent-classification decisions your model is making.</p>
+<p>The notion of “including a live dashboard” is easier said than done, however! The <em>specifics</em> of how this dashboard will work are key to the effectiveness of the project as a whole. For example, if the dashboard simply “streamed in” the text and predicted intent for every single message sent to the bank’s website chatbot, this information would pour into the dashboard much much faster than any human could possible read the messages.</p>
+<p>So, for this final question, please draw on your knowledge from this class (as well as, e.g., your knowledge of supervised ML algorithms from prior classes) to write a paragraph (3-5 sentences) detailing how you would design the dashboard to avoid this too-many-messages-too-little-time issue, making the dashboard as useful as possible to the intended audience.</p>
+<blockquote class="blockquote">
+<p>Given that the ML model aims to classify each chat message into one of 77 different <strong>intent</strong> classes, we have a <strong>supervised multi-class classification problem</strong>, and with <span class="math inline">\(K = 77\)</span> different classes there may be wide variation in how <strong>successful</strong> the algorithm’s classifications are: for example, it may be very good at detecting the intent with index 21, <strong><code>change_pin</code></strong>, but may be awful at distinguishing between intent 14 (<code>card_not_working</code>) and intent 25 (<code>declined_card_payment</code>).</p>
+<p>Thus I would compute the most-often-misclassified intents during the most recent training of the algorithm, then construct my live monitoring dashboard such that the <strong>default view</strong> would only show a sub-sample of all incoming messages that were labeled with these often-incorrect intents (the interface would allow users to change from this default view to other intents, if desired). Users observing this stream of messages would also be able to click on a <strong>“Suggest Intent”</strong> button next to any message they believe has been misclassified to bring up a modal dialog box where they could choose a more appropriate intent from a dropdown box. These suggestions would then be incorporated as <em>new</em> training data in the next round of training.</p>
+</blockquote>
+</section>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
