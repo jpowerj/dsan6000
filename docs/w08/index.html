@@ -531,7 +531,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-10-31, 09:12:00 PM</em></p>
+<p><em>Updated 2026-11-05, 08:26:33 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -681,12 +681,12 @@ window.Quarto = {
 <p><span class="boxed-cb"><a href="https://spark.apache.org/downloads.html" class="external"><strong>Apache Spark Downloads Page</strong></a></span></p>
 </center>
 <ul>
-<li><p><i class="bi bi-1-circle"></i> <strong>Click through</strong> the <a href="https://www.apache.org/dyn/closer.lua/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3-connect.tgz">“Download Spark” link</a>…</p></li>
-<li><p><i class="bi bi-2-circle"></i> …To get the actual <a href="https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3-connect.tgz"><strong>download URL</strong></a> 😵‍💫</p></li>
-<li><p><i class="bi bi-3-circle"></i> Use <code>wget &lt;url&gt;</code> in terminal to download <code>.tar.gz</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="font-size: 80%;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3.tgz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><i class="bi bi-1-circle"></i> <strong>Click through</strong> the <a href="https://www.apache.org/dyn/closer.lua/spark/spark-4.3.0/spark-4.3.0-bin-hadoop3.tgz">“Download Spark” link</a>…</p></li>
+<li><p><i class="bi bi-2-circle"></i> …To get the actual <a href="https://dlcdn.apache.org/spark/spark-4.3.0/spark-4.3.0-bin-hadoop3.tgz"><strong>download URL</strong></a> 😵‍💫</p></li>
+<li><p><i class="bi bi-3-circle"></i> Use <code>wget &lt;url&gt;</code> in terminal to download the <code>.tgz</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="font-size: 80%;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://dlcdn.apache.org/spark/spark-4.3.0/spark-4.3.0-bin-hadoop3.tgz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><i class="bi bi-4-circle"></i> Extract using:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xzvf</span> spark-4.2.0-bin-hadoop3.tgz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xzvf</span> spark-4.3.0-bin-hadoop3.tgz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ul>
 </section>
 <section id="in-class-demo-2-your-first-spark-cluster" class="level2 smaller text-60 title-11 crunch-ul crunch-li-5">
@@ -702,9 +702,9 @@ window.Quarto = {
 <ul class="task-list">
 <li><p><label><input type="checkbox" checked="">Created</label></p></li>
 <li><p><label><input type="checkbox">JDK 21 installed: <code>sudo apt install openjdk-21-jdk-headless</code></label></p></li>
-<li><p><label><input type="checkbox">Spark 4.2.0 downloaded, extracted</label></p></li>
+<li><p><label><input type="checkbox">Spark 4.3.0 downloaded, extracted</label></p></li>
 <li><p><label><input type="checkbox"><strong>Private</strong> IP recorded:</label></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PRIVATE_IP</span><span class="op">=</span><span class="va">$(</span><span class="fu">hostname</span> <span class="at">-I</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print $1}'</span><span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hostname</span> <span class="at">-I</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><label><input type="checkbox"><code>start-master.sh -h &lt;Private IP&gt;</code></label></p></li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -713,7 +713,7 @@ window.Quarto = {
 <li><label><input type="checkbox">Created with <strong>existing security group</strong> <code>launch-wizard-1</code></label></li>
 <li><label><input type="checkbox"><code>sudo apt update</code></label></li>
 <li><label><input type="checkbox">JDK 21 installed: <code>sudo apt install openjdk-21-jdk-headless</code></label></li>
-<li><label><input type="checkbox">Spark 4.2.0 downloaded, extracted</label></li>
+<li><label><input type="checkbox">Spark 4.3.0 downloaded, extracted</label></li>
 <li><label><input type="checkbox"><code>start-worker.sh &lt;Private IP&gt;:7077</code></label></li>
 </ul>
 </div>

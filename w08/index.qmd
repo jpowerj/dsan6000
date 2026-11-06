@@ -138,17 +138,17 @@ https://colab.research.google.com/drive/16-Cr1Y8rwiE7h6jjYuBAdXc4iJ8XR59y?usp=dr
 
 </center>
 
-* <i class='bi bi-1-circle'></i> **Click through** the ["Download Spark" link](https://www.apache.org/dyn/closer.lua/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3-connect.tgz)...
-* <i class='bi bi-2-circle'></i> ...To get the actual [**download URL**](https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3-connect.tgz) 😵‍💫
-* <i class='bi bi-3-circle'></i> Use `wget <url>` in terminal to download `.tar.gz`:
+* <i class='bi bi-1-circle'></i> **Click through** the ["Download Spark" link](https://www.apache.org/dyn/closer.lua/spark/spark-4.3.0/spark-4.3.0-bin-hadoop3.tgz)...
+* <i class='bi bi-2-circle'></i> ...To get the actual [**download URL**](https://dlcdn.apache.org/spark/spark-4.3.0/spark-4.3.0-bin-hadoop3.tgz) 😵‍💫
+* <i class='bi bi-3-circle'></i> Use `wget <url>` in terminal to download the `.tgz`:
 
   ``` {.bash style="font-size: 80%;"}
-  wget https://dlcdn.apache.org/spark/spark-4.2.0/spark-4.2.0-bin-hadoop3.tgz
+  wget https://dlcdn.apache.org/spark/spark-4.3.0/spark-4.3.0-bin-hadoop3.tgz
   ```
 * <i class='bi bi-4-circle'></i> Extract using:
   
   ``` {.bash}
-  tar -xzvf spark-4.2.0-bin-hadoop3.tgz
+  tar -xzvf spark-4.3.0-bin-hadoop3.tgz
   ```
 
 ## In-Class Demo 2: Your First Spark *Cluster*! {.smaller .text-60 .title-11 .crunch-ul .crunch-li-5}
@@ -166,10 +166,10 @@ https://colab.research.google.com/drive/16-Cr1Y8rwiE7h6jjYuBAdXc4iJ8XR59y?usp=dr
 
 * [x] Created
 * [ ] JDK 21 installed: `sudo apt install openjdk-21-jdk-headless`
-* [ ] Spark 4.2.0 downloaded, extracted
+* [ ] Spark 4.3.0 downloaded, extracted
 * [ ] **Private** IP recorded:
   ``` {.bash}
-  export PRIVATE_IP=$(hostname -I | awk '{print $1}')
+  hostname -I
   ```
 * [ ] `start-master.sh -h <Private IP>`
 
@@ -181,7 +181,7 @@ https://colab.research.google.com/drive/16-Cr1Y8rwiE7h6jjYuBAdXc4iJ8XR59y?usp=dr
 * [ ] Created with **existing security group** `launch-wizard-1`
 * [ ] `sudo apt update`
 * [ ] JDK 21 installed: `sudo apt install openjdk-21-jdk-headless`
-* [ ] Spark 4.2.0 downloaded, extracted
+* [ ] Spark 4.3.0 downloaded, extracted
 * [ ] `start-worker.sh <Private IP>:7077`
 
 :::
