@@ -15,7 +15,16 @@ format:
     html-math-method: mathjax
     link-external-newwindow: true
     link-external-icon: true
+    include-in-header:
+      text: |
+        <style>
+        code {
+          white-space: wrap;
+        }
+        </style>
 ---
+
+## (1) Master Node Process is Unresponsive
 
 For example, if the `SparkSession` setup cell runs for ~a minute but then fails with the following message:
 
@@ -33,7 +42,7 @@ Note that, **if you do get this error**, or related errors, you will (after fixi
 
 before running the following code cell again. This is due to the fact mentioned in class that there can only be **one `SparkSession` per instance**. When the `getOrCreate()` function times out, and produces the above error message, it turns out that this means the `SparkSession` has been **stopped** but **not *terminated***. Although it is possible to terminate the `SparkSession`s programmatically, it makes for clearer code intent if you restart the kernel (since otherwise, someone reading your code might think that they *need* to terminate and restart it, when in reality if the master node is running correctly this is not necessary).
 
----
+## (2) Master Node Process Was Never Started
 
 ```
 26/11/07 04:20:16 WARN StandaloneAppClient$ClientEndpoint: Failed to connect to master 172.31.44.247:7077
