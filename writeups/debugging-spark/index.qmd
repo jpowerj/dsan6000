@@ -1,0 +1,42 @@
+---
+title: "Debugging Spark Clusters"
+author:
+  - name: "Jeff Jacobs"
+    email: jj1088@georgetown.edu
+date: 2026-11-06
+sidebar: mainnav
+categories:
+  - Extra Writeups
+assignments: Homework 7
+format:
+  html:
+    df-print: kable
+    code-fold: show
+    html-math-method: mathjax
+    link-external-newwindow: true
+    link-external-icon: true
+---
+
+For example, if the `SparkSession` setup cell runs for ~a minute but then fails with the following message:
+
+```
+ERROR StandaloneSchedulerBackend: Application has been killed. Reason: All masters are unresponsive! Giving up.
+```
+
+This is telling you that the `SparkSession` was **unable to connect to the master node process** running on your instance. So, the issue is likely related to either (a) this instance's **Security Group** not allowing incoming connections from within the security group, or (b) the master node process (the execution of `./start-master.sh`) not running.
+
+Note that, **if you do get this error**, or related errors, you will (after fixing it) need to:
+
+1.  Use the "kill" link next to the name 
+1.  **Restart this Jupyter notebook's kernel**, and then
+
+
+before running the following code cell again. This is due to the fact mentioned in class that there can only be **one `SparkSession` per instance**. When the `getOrCreate()` function times out, and produces the above error message, it turns out that this means the `SparkSession` has been **stopped** but **not *terminated***. Although it is possible to terminate the `SparkSession`s programmatically, it makes for clearer code intent if you restart the kernel (since otherwise, someone reading your code might think that they *need* to terminate and restart it, when in reality if the master node is running correctly this is not necessary).
+
+---
+
+```
+26/11/07 04:20:16 WARN StandaloneAppClient$ClientEndpoint: Failed to connect to master 172.31.44.247:7077
+```
+
+This one means that you haven't run `start-master.sh -h <Master Private IP>` yet! Remember that, rather than jumping directly to the Jupyter notebook, you can check that the master node process indeed started correctly by **checking the master node UI at the (forwarded) port: `localhost:8080`**.
