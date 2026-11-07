@@ -15,14 +15,15 @@ format:
     html-math-method: mathjax
     link-external-newwindow: true
     link-external-icon: true
-    include-in-header:
-      text: |
-        <style>
-        code {
-          white-space: wrap;
-        }
-        </style>
 ---
+
+```{=html}
+<style>
+code {
+  white-space: wrap;
+}
+</style>
+```
 
 ## (1) Master Node Process is Unresponsive
 
