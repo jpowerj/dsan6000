@@ -242,7 +242,7 @@ va.transform(sport_sdf).select('Country','features','Sport').show()
 
 * ...What about **categorical** data?
 
-[*(Example dataset is from @leskovec_mining_2014)*]{.text-90}
+[*(Example dataset from @leskovec_mining_2014; [Notebook here](https://github.com/jpowerj/dsan6000-w10)*]{.text-90}
 
 ## Categorical Features: `StringIndexer` + `OneHotEncoder` {.smaller .title-09 .crunch-p .crunch-ul}
 
@@ -432,6 +432,8 @@ java.lang.IllegalArgumentException: requirement failed: DecisionTree requires ma
 
 </center>
 
+* [Backup repo](https://github.com/jpowerj/dsan6000-w10)
+
 ## Spark NLP {.smaller .crunch-title data-name="Spark NLP"}
 
 :::: {.columns}
@@ -479,6 +481,8 @@ from sparknlp.base import DocumentAssembler
 [[**Distributed Sentiment Analysis with Spark NLP**](https://colab.research.google.com/drive/1CMokcCj4W0qruH946Y7dYeWYrE62iXkK?usp=sharing)]{.boxed-cb}
 
 </center>
+
+* [Backup repo](https://github.com/jpowerj/dsan6000-w10)
 
 ## References
 
