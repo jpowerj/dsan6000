@@ -546,7 +546,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-11-09, 08:17:21 AM</em></p>
+<p><em>Updated 2026-11-09, 03:06:06 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -758,7 +758,7 @@ Figure&nbsp;1: gSPIN analysis of a single email thread, from <span class="citati
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>=20</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>As part of handling these email records, the following <strong>metadata file</strong> collects the names of each “Person of Interest” (POI) during the fraud hearings, including the <strong>list</strong> of emails found in the corpus for each POI:</p>
-<div id="530e83f2" class="cell" data-execution_count="1">
+<div id="12107788" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -769,7 +769,7 @@ Figure&nbsp;1: gSPIN analysis of a single email thread, from <span class="citati
 </details>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_cec4e83d_5155_458c_a288_2730ccdec204">
+<table id="itables_73441dd3_bec5_42a7_af31_9f37d32c9f21">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
@@ -839,7 +839,7 @@ Figure&nbsp;1: gSPIN analysis of a single email thread, from <span class="citati
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_cec4e83d_5155_458c_a288_2730ccdec204:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_73441dd3_bec5_42a7_af31_9f37d32c9f21:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
@@ -858,7 +858,7 @@ Figure&nbsp;1: gSPIN analysis of a single email thread, from <span class="citati
 </div>
 </div>
 <p>Note that, although it is not the most <strong>efficient</strong> way to store the person-to-email mappings, the Parquet format <em>does</em> support typed <code>List</code>s, as we can see by calling Polars’ <code>read_parquet_schema()</code> function on the metadata file displayed above:</p>
-<div id="9fb986c2" class="cell" data-execution_count="2">
+<div id="d37b1fa6" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>

@@ -115,6 +115,16 @@ format:
 * *W12, <span class='sec-w12-date'>Nov 30</span>:* **Informal technical presentation** (*Formal slides: Sun, Dec 6*)
 * **[Formal] Final Presentations: *<span class='sec-presentation-date'>Monday, December 7</span>*** (*Report: Sun, Nov 13*)
 
+## How Do I Pick A Project?
+
+* [ ] Won't fit in RAM ("Raw" data or intermediate results)
+* [ ] Uses **Spark cluster** with **multiple** EC2 instances
+* [ ] *(Ideally)* Has both **numeric** and **text** components
+  * Could just be "associated notes" (healthcare)
+  * "Intake notes" (NYC shelters)
+  * Or short descriptions (ACLED)
+* [ ] *(Ideally)* Draws on your **domain knowledge**
+
 ## Today's Goal {.smaller .crunch-title .crunch-p .crunch-img data-name="MLlib &rarr; MLflow"}
 
 <center>
