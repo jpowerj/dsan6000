@@ -103,9 +103,9 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-7863e08c2e36e6bbea21d3a7da267a83.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-41e08071874cfcdf2239640a8fc0dacf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-7863e08c2e36e6bbea21d3a7da267a83.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-187d1f06a2732a187b415f49ca8405c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-d77edcc2d6d2053a5616e0060a33f28f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-187d1f06a2732a187b415f49ca8405c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -537,10 +537,17 @@ window.Quarto = {
  <span class="menu-text">Book Office Hour <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project-archive/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Past Project Archive <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
+  </div>
+</li>
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-11-07, 02:33:46 AM</em></p>
+<p><em>Updated 2026-11-09, 12:34:51 AM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -752,7 +759,7 @@ Figure&nbsp;1: gSPIN analysis of a single email thread, from <span class="citati
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>=20</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>As part of handling these email records, the following <strong>metadata file</strong> collects the names of each “Person of Interest” (POI) during the fraud hearings, including the <strong>list</strong> of emails found in the corpus for each POI:</p>
-<div id="a4acda48" class="cell" data-execution_count="1">
+<div id="9cb9e972" class="cell" data-execution_count="1">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -763,7 +770,7 @@ Figure&nbsp;1: gSPIN analysis of a single email thread, from <span class="citati
 </details>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_b5d9ea1d_7615_432d_ada0_935862408c34">
+<table id="itables_16f74d97_9fa8_4efc_970b_b567a76cf038">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
@@ -833,7 +840,7 @@ Figure&nbsp;1: gSPIN analysis of a single email thread, from <span class="citati
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_b5d9ea1d_7615_432d_ada0_935862408c34:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_16f74d97_9fa8_4efc_970b_b567a76cf038:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
@@ -852,7 +859,7 @@ Figure&nbsp;1: gSPIN analysis of a single email thread, from <span class="citati
 </div>
 </div>
 <p>Note that, although it is not the most <strong>efficient</strong> way to store the person-to-email mappings, the Parquet format <em>does</em> support typed <code>List</code>s, as we can see by calling Polars’ <code>read_parquet_schema()</code> function on the metadata file displayed above:</p>
-<div id="7276488b" class="cell" data-execution_count="2">
+<div id="585de3a5" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>

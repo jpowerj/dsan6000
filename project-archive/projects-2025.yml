@@ -1,0 +1,150 @@
+- year: 2025
+  title: "Mapping Toxicity and Engagement in Gaming Communities"
+  path: "https://akshayarun.georgetown.domains/dsan-6000-project/"
+  archive: "<a href='http://archive.today/YFFnk'>Archive</a>"
+  presentation-url: "https://drive.google.com/file/d/1rq_NNmQbEd_zU0CTYs4_Nu_IzhHpUySt/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1rq_NNmQbEd_zU0CTYs4_Nu_IzhHpUySt/view?usp=drive_link'>Presentation</a>"
+  first-auth: "Arun"
+  author:
+    - "Akshay Arun"
+    - "Caroline Delva"
+    - "Amanda Hao"
+    - "Amina Nsanza"
+- year: 2025
+  title: "AI Discourse at Scale: Topic, Sentiment, and Community Dynamics Across Reddit"
+  path: "https://kim-anna.quarto.pub/dsan-6000-big-data-project/"
+  archive: "<a href='http://archive.today/HLiZj'>Archive</a>"
+  first-auth: "Atoma"
+  author:
+    - "Erika Atoma"
+    - "Anna Hyunjung Kim"
+    - "Yu-Chien (Violet) Lin"
+    - "Mandy Sun"
+  report: "<a href='https://drive.google.com/file/d/1YynFlpidI4OCCF1LCmwT5reh2ZwLJHYe/view?usp=drive_link'>PDF</a>"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team16"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team16' class='no-icon'><i class='bi bi-github'></i></a>"
+- year: 2025
+  title: "Reading the Crowd"
+  path: "https://dsan600-team16.ajscastor.georgetown.domains/"
+  archive: "<a href='http://archive.today/8NcR3'>Archive</a>"
+  presentation-url: "https://drive.google.com/file/d/1k8JNo-pW26AjjBVrz8hoXBzwhhT5KOjG/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1k8JNo-pW26AjjBVrz8hoXBzwhhT5KOjG/view?usp=drive_link'>Presentation</a>"
+  first-auth: "Castor"
+  author:
+    - "Alivia Castor"
+    - "Samantha Wang"
+    - "Herry Wei"
+- year: 2025
+  title: "Reddit Community Garden"
+  path: "https://merdreiss.georgetown.domains/_dsan6k_docs/"
+  archive: "<a href='http://archive.today/CW5MS'>Archive</a>"
+  first-auth: "Alvarado"
+  author:
+    - "Ian Alvarado"
+    - "Sarah Chambers"
+    - "Morgan Dreiss"
+    - "Jacob Meyer"
+- year: 2025
+  title: "Digital Footprints: What Subreddits Reveal about City-Level Diversity"
+  path: "https://samyuvakkalanka.georgetown.domains/dsan_6000/"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team08/tree/main"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team08/tree/main' class='no-icon'><i class='bi bi-github'></i></a>"
+  archive: "<a href='http://archive.today/RwAtu'>Archive</a>"
+  first-auth: "Healy"
+  author: 
+    - Lizzie Healy
+    - Satomi Ito
+    - Samyu Vakkalanka
+    - Marie Vaughan
+- year: 2025
+  title: "What Redditors Eat"
+  path: ""
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team9"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team9' class='no-icon'><i class='bi bi-github'></i></a>"
+  presentation-url: "https://drive.google.com/file/d/1qgUhTrLTZorU4Ao_3IpAQw8A2arynbsX/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1qgUhTrLTZorU4Ao_3IpAQw8A2arynbsX/view?usp=drive_link'>Presentation</a>"
+  first-auth: "Li"
+  author:
+    - "Julia Li"
+    - "Yuxi Shen"
+    - "Fangzhou Wang"
+    - "Siru Wu"
+- year: 2025
+  title: "Analysis of Food Subreddits for Influencers"
+  path: "https://jzirkes.georgetown.domains/DSAN6000-Final/docs/"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-walter-friends/tree/main"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-walter-friends/tree/main' class='no-icon'><i class='bi bi-github'></i></a>"
+  first-auth: "Gerner"
+  author:
+    - "Nadav Gerner"
+    - "Walter Hall"
+    - "Jared Zirkes"
+# Tongrui
+- year: 2025
+  title: "AudioInsight: Consumer Intelligence from Reddit Audio Product Discussions"
+  path: ""
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team23"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team23' class='no-icon'><i class='bi bi-github'></i></a>"
+  first-auth: "Hill"
+  author:
+    - Ping Hill
+    - Josh Lin
+    - Zoo Un Park
+    - Tongrui Zhang
+- year: 2025
+  title: "Large-Scale Behavioral Insights from Retail Subreddits"
+  path: "https://xinzhouli.georgetown.domains/docs/"
+  archive-url: "http://archive.today/r29M0"
+  archive: "<a href='http://archive.today/r29M0'>Archive</a>"
+  first-auth: "Guo"
+  author:
+    - Alexia Guo
+    - Xinzhou Li
+    - Qingyang Wang
+    - Jiayi Yu
+- year: 2025
+  title: "Reddit Gaming Communities Comparison"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-lance"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-lance' class='no-icon'><i class='bi bi-github'></i></a>"
+  first-auth: "Lichtenthal"
+  author:
+    - "Jonah Lichtenthal"
+    - "Lance Yi"
+- year: 2025
+  title: "Emotional Dynamics in Reddit Mental Health Communities"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team03"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team03' class='no-icon'><i class='bi bi-github'></i></a>"
+  author:
+    - "Zixu Hao"
+    - "Yiran Tao"
+    - "Jiesen Wang"
+    - "Jinghan Yang"
+- year: 2025
+  title: "Precarity Pulse: Reddit Engagement with Job Insecurity"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team25"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team25' class='no-icon'><i class='bi bi-github'></i></a>"
+  first-auth: "Hong"
+  author:
+    - Chongyuan Hong
+    - Yuang Li
+    - Kehan Wu
+- year: 2025
+  title: "AI Subreddit Analysis"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team12"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team12' class='no-icon'><i class='bi bi-github'></i></a>"
+  first-auth: "Morris"
+  author:
+    - Sean Morris
+    - Mengjia Wei
+    - Yubo Xing
+    - Xiaolong Zhou
+- year: 2025
+  title: "Career Conversations on Reddit"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team13"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team13' class='no-icon'><i class='bi bi-github'></i></a>"
+  first-auth: "Chen"
+  author:
+    - "Yanjun Chen"
+    - "Jiahui Liu"
+    - "Jiaqi Wei"
+    - "Yiqin Zhou"

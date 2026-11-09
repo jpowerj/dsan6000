@@ -75,3 +75,20 @@ Like the above datasets, these are pre-approved if you find them interesting eno
 
 ::: {#final-datasets}
 :::
+
+## Final Project Roadmap
+
+If you go to a conference or summit or some similar kind of gathering in the "computational sciences" world (computer science, data science, applied math, engineering, etc.), like a [conference sponsored by the IEEE](https://www.ieee.org/conferences-events), you will find that the organizational structure is split into **"industry track"**
+
+### Proposal: Sunday, November 15, 2026
+
+### Progress Report: Sunday, November 22, 2026
+
+### Results Section: Sunday, November 29, 2026
+
+### Presentations: December 7-8, 2026
+
+### Final Report: Sunday, December 13, 2026
+
+## Past Project Archive
+

@@ -1,0 +1,42 @@
+---
+title: "DSAN 6000: Past Project Archive"
+sidebar: mainnav
+bibliography: "../_DSAN6000.bib"
+csl: "../chicago-17-no-url.csl"
+listing:
+  - contents:
+    - projects-2025.yml
+    # sort-ui: false
+    # filter-ui: false
+    id: past-projects
+    type: table
+    # categories: true
+    fields:
+      - year
+      - title
+      - author
+      - presentation
+      - report
+      - archive
+      - github
+      # - categories
+    field-display-names:
+      year: "Year"
+      title: "Title"
+      author: "Author(s)"
+      presentation: "Presentation"
+      report: "Final Report"
+      archive: "Site Archive"
+      github: "Repo"
+    sort:
+      - "first-auth asc"
+      - "title asc"
+    table-hover: true
+format:
+  html:
+    df-print: kable
+    toc: false
+---
+
+::: {#past-projects}
+:::

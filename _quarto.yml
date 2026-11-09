@@ -74,6 +74,9 @@ website:
       - href: "https://jjacobs.me/meet"
         text: "Book Office Hour <i class='bi bi-box-arrow-up-right ps-1' style='font-size: 75%;'></i>"
         target: "_blank"
+      - "---"
+      - text: "Past Project Archive <i class='bi bi-box-arrow-up-right ps-1' style='font-size: 75%;'></i>"
+        href: project-archive/index.qmd
 
 format:
   revealjs:

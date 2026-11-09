@@ -1,5 +1,32 @@
 [
   {
+    "listing": "/project-archive/index.html",
+    "items": []
+  },
+  {
+    "listing": "/final-project/index.html",
+    "items": [
+      "/final-project/acled/index.html",
+      "/final-project/banking77/index.html",
+      "/final-project/enron/index.html",
+      "/final-project/nyc-shelters/index.html",
+      "/final-project/healthcare/index.html",
+      "/final-project/colombia/index.html",
+      "/final-project/supreme-court/index.html"
+    ]
+  },
+  {
+    "listing": "/writeups/index.html",
+    "items": [
+      "/writeups/ec2/index.html",
+      "/writeups/s3/index.html",
+      "/writeups/new-accounts/index.html",
+      "/writeups/sql-guide/index.html",
+      "/writeups/athena/index.html",
+      "/writeups/debugging-spark/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/w01/index.html",
@@ -15,29 +42,6 @@
       "/w11/index.html",
       "/w12/index.html",
       "/w13/index.html"
-    ]
-  },
-  {
-    "listing": "/writeups/index.html",
-    "items": [
-      "/writeups/ec2/index.html",
-      "/writeups/s3/index.html",
-      "/writeups/new-accounts/index.html",
-      "/writeups/sql-guide/index.html",
-      "/writeups/athena/index.html",
-      "/writeups/debugging-spark/index.html"
-    ]
-  },
-  {
-    "listing": "/final-project/index.html",
-    "items": [
-      "/final-project/acled/index.html",
-      "/final-project/banking77/index.html",
-      "/final-project/enron/index.html",
-      "/final-project/nyc-shelters/index.html",
-      "/final-project/healthcare/index.html",
-      "/final-project/colombia/index.html",
-      "/final-project/supreme-court/index.html"
     ]
   }
 ]
