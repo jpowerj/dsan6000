@@ -21,10 +21,6 @@ format:
     link-external-icon: true
     link-external-newwindow: true
     footer: "{{< var weeks.8.footer >}}"
-    include-in-header:
-      text: |
-        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'>
-        <link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'>
     theme:
       - default
       - "../dsan-globals/jjquarto.scss"
@@ -212,68 +208,6 @@ Check status of **`SparkSession`** via **Spark Session UI**: `localhost:4040`
 * Confusion &darr;, Understanding &uarr; 🥳
 
 :::
-
-## MLlib: Hopping Up Another Abstraction Layer! {.smaller .not-title-slide .title-10 data-name="MLlib"}
-
-![[Image Source](https://www.qubole.com/developers/spark-getting-started-guide/workflow)](images/sparkml.png){.lightbox fig-align="center"}
-
-## In-Class Demo 3
-
-&nbsp;
-
-<center>
-
-[[**MLlib in Action**](https://colab.research.google.com/drive/1JmUjc65mEucPW0bZHHjzmt812oiIXeVE?usp=sharing)]{.boxed-cb}
-
-</center>
-
-## Spark NLP {.smaller .crunch-title data-name="Spark NLP"}
-
-:::: {.columns}
-::: {.column width="50%"}
-
-**MLlib**: `pyspark` as normal:
-
-``` {.python}
-from pyspark.sql import SparkSession
-spark = (
-    SparkSession
-    .builder
-    .appName('SF_Housing')
-    .getOrCreate()
-)
-type(spark)
-# >>> pyspark.sql.session.SparkSession
-from pyspark.ml.feature import VectorAssembler
-```
-
-**Spark NLP**: *Custom* `SparkSession` with `sparknlp.start()`:
-
-``` {.python}
-import sparknlp
-spark = sparknlp.start()
-type(spark)
-# >>> pyspark.sql.session.SparkSession
-from sparknlp.base import DocumentAssembler
-```
-
-:::
-::: {.column width="50%"}
-
-![@thomas_natural_2020: The [*chimango caracara*](https://en.wikipedia.org/wiki/Chimango_caracara) book](images/sparknlp.jpg){.nostretch fig-align="center" width="360"}
-
-:::
-::::
-
-## In-Class Demo 4
-
-&nbsp;
-
-<center>
-
-[[**Distributed Sentiment Analysis with Spark NLP**](https://colab.research.google.com/drive/1CMokcCj4W0qruH946Y7dYeWYrE62iXkK?usp=sharing)]{.boxed-cb}
-
-</center>
 
 ## References
 

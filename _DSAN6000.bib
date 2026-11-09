@@ -1,3 +1,19 @@
+@inproceedings{abuzaid_yggdrasil_2016,
+  title = {Yggdrasil: An Optimized System for Training Deep Decision Trees at Scale},
+  shorttitle = {Yggdrasil},
+  booktitle = {Proceedings of the 30th {{International Conference}} on {{Neural Information Processing Systems}}},
+  author = {Abuzaid, Firas and Bradley, Joseph and Liang, Feynman and Feng, Andrew and Yang, Lee and Zaharia, Matei and Talwalkar, Ameet},
+  date = {2016-12-05},
+  series = {{{NIPS}}'16},
+  pages = {3817--3825},
+  publisher = {Curran Associates Inc.},
+  location = {Red Hook, NY, USA},
+  url = {https://dl.acm.org/doi/10.5555/3157382.3157524},
+  urldate = {2026-11-09},
+  abstract = {Deep distributed decision trees and tree ensembles have grown in importance due to the need to model increasingly large datasets. However, PLANET, the standard distributed tree learning algorithm implemented in systems such as XGBOOST and Spark MLLIB, scales poorly as data dimensionality and tree depths grow. We present YGGDRASIL, a new distributed tree learning method that outperforms existing methods by up to 24x. Unlike PLANET, YGGDRASIL is based on vertical partitioning of the data (i.e., partitioning by feature), along with a set of optimized data structures to reduce the CPU and communication costs of training. YGGDRASIL (1) trains directly on compressed data for compressible features and labels; (2) introduces efficient data structures for training on uncompressed data; and (3) minimizes communication between nodes by using sparse bitvectors. Moreover, while PLANET approximates split points through feature binning, YGGDRASIL does not require binning, and we analytically characterize the impact of this approximation. We evaluate YGGDRASIL against the MNIST 8M dataset and a high-dimensional dataset at Yahoo; for both, YGGDRASIL is faster by up to an order of magnitude.},
+  isbn = {978-1-5108-3881-9}
+}
+
 @book{ambrose_how_2010,
   title = {How {{Learning Works}}: {{Seven Research-Based Principles}} for {{Smart Teaching}}},
   shorttitle = {How {{Learning Works}}},
@@ -27,6 +43,22 @@
   isbn = {978-1-80324-100-5 978-1-80323-253-9},
   langid = {english},
   file = {/Users/jpj/Zotero/storage/J7VFFJ9K/Aubury et al. - 2024 - Getting Started with DuckDB A practical guide for accelerating your data science, data analytics, a.pdf}
+}
+
+@book{bekkerman_scaling_2012,
+  title = {Scaling {{Up Machine Learning}}: {{Parallel}} and {{Distributed Approaches}}},
+  shorttitle = {Scaling {{Up Machine Learning}}},
+  author = {Bekkerman, Ron and Bilenko, Mikhail and Langford, John},
+  date = {2012},
+  eprint = {c5v5USMvcMYC},
+  eprinttype = {googlebooks},
+  publisher = {Cambridge University Press},
+  abstract = {This book presents an integrated collection of representative approaches for scaling up machine learning and data mining methods on parallel and distributed computing platforms. Demand for parallelizing learning algorithms is highly task-specific: in some settings it is driven by the enormous dataset sizes, in others by model complexity or by real-time performance requirements. Making task-appropriate algorithm and platform choices for large-scale machine learning requires understanding the benefits, trade-offs, and constraints of the available options. Solutions presented in the book cover a range of parallelization platforms from FPGAs and GPUs to multi-core systems and commodity clusters, concurrent programming frameworks including CUDA, MPI, MapReduce, and DryadLINQ, and learning settings (supervised, unsupervised, semi-supervised, and online learning). Extensive coverage of parallelization of boosted trees, SVMs, spectral clustering, belief propagation and other popular learning algorithms and deep dives into several applications make the book equally useful for researchers, students, and practitioners.},
+  isbn = {978-0-521-19224-8},
+  langid = {english},
+  pagetotal = {493},
+  keywords = {Computers / Artificial Intelligence / Computer Vision & Pattern Recognition,Computers / Artificial Intelligence / General,Computers / Data Science / Data Analytics,Computers / Data Science / Machine Learning,Computers / General,Computers / Optical Data Processing,Computers / Programming / Algorithms,Mathematics / Algebra / General},
+  file = {/Users/jpj/Zotero/storage/NLETCEQU/Scaling Up Machine Learning Parallel and Distributed Approaches.pdf}
 }
 
 @online{berk_demystifying_2022,
@@ -207,7 +239,8 @@
   abstract = {Written by leading authorities in database and Web technologies, this book is essential reading for students and practitioners alike. The popularity of the Web and Internet commerce provides many extremely large datasets from which information can be gleaned by data mining. This book focuses on practical algorithms that have been used to solve key problems in data mining and can be applied successfully to even the largest datasets. It begins with a discussion of the map-reduce framework, an important tool for parallelizing algorithms automatically. The authors explain the tricks of locality-sensitive hashing and stream processing algorithms for mining data that arrives too fast for exhaustive processing. Other chapters cover the PageRank idea and related tricks for organizing the Web, the problems of finding frequent itemsets and clustering. This second edition includes new and extended coverage on social networks, machine learning and dimensionality reduction.},
   isbn = {978-1-107-07723-2},
   langid = {english},
-  pagetotal = {480}
+  pagetotal = {480},
+  file = {/Users/jpj/Zotero/storage/GEX6J8KQ/Mining of Massive Datasets.pdf}
 }
 
 @online{loukides_what_2010,
@@ -303,6 +336,19 @@
   file = {/Users/jpj/Zotero/storage/GWWVFRUH/2022 - Front Matter.pdf}
 }
 
+@book{polak_scaling_2023,
+  title = {Scaling {{Machine Learning}} with {{Spark}}},
+  author = {Polak, Adi},
+  date = {2023-03-07},
+  publisher = {"O'Reilly Media, Inc."},
+  abstract = {Learn how to build end-to-end scalable machine learning solutions with Apache Spark. With this practical guide, author Adi Polak introduces data and ML practitioners to creative solutions that supersede today's traditional methods. You'll learn a more holistic approach that takes you beyond specific requirements and organizational goals--allowing data and ML practitioners to collaborate and understand each other better. Scaling Machine Learning with Spark examines several technologies for building end-to-end distributed ML workflows based on the Apache Spark ecosystem with Spark MLlib, MLflow, TensorFlow, and PyTorch. If you're a data scientist who works with machine learning, this book shows you when and why to use each technology. You will: Explore machine learning, including distributed computing concepts and terminologyManage the ML lifecycle with MLflowIngest data and perform basic preprocessing with SparkExplore feature engineering, and use Spark to extract featuresTrain a model with MLlib and build a pipeline to reproduce itBuild a data system to combine the power of Spark with deep learningGet a step-by-step example of working with distributed TensorFlowUse PyTorch to scale machine learning and its internal architecture},
+  isbn = {978-1-0981-0679-9},
+  langid = {english},
+  pagetotal = {294},
+  keywords = {Computers / Artificial Intelligence / General,Computers / Data Science / Data Analytics,Computers / Data Science / General,Computers / Data Science / Machine Learning,Computers / Programming / Open Source},
+  file = {/Users/jpj/Zotero/storage/MJ4R639J/Scaling Machine Learning with Spark.pdf}
+}
+
 @book{polanyi_great_1944,
   title = {The {{Great Transformation}}: {{The Political}} and {{Economic Origins}} of {{Our Time}}},
   author = {Polanyi, Karl},
@@ -393,6 +439,22 @@
   isbn = {978-0-8126-9706-3},
   langid = {english},
   pagetotal = {285}
+}
+
+@book{tandon_advanced_2022,
+  title = {Advanced {{Analytics}} with {{PySpark}}: {{Patterns}} for {{Learning}} from {{Data}} at {{Scale Using Python}} and {{Spark}}},
+  shorttitle = {Advanced {{Analytics}} with {{PySpark}}},
+  author = {Tandon, Akash and Ryza, Sandy and Laserson, Uri and Owen, Sean and Wills, Josh},
+  date = {2022-06-14},
+  eprint = {7Bh1EAAAQBAJ},
+  eprinttype = {googlebooks},
+  publisher = {"O'Reilly Media, Inc."},
+  abstract = {The amount of data being generated today is staggering and growing. Apache Spark has emerged as the de facto tool to analyze big data and is now a critical part of the data science toolbox. Updated for Spark 3.0, this practical guide brings together Spark, statistical methods, and real-world datasets to teach you how to approach analytics problems using PySpark, Spark's Python API, and other best practices in Spark programming.Data scientists Akash Tandon, Sandy Ryza, Uri Laserson, Sean Owen, and Josh Wills offer an introduction to the Spark ecosystem, then dive into patterns that apply common techniques-including classification, clustering, collaborative filtering, and anomaly detection, to fields such as genomics, security, and finance. This updated edition also covers NLP and image processing.If you have a basic understanding of machine learning and statistics and you program in Python, this book will get you started with large-scale data analysis.Familiarize yourself with Spark's programming model and ecosystemLearn general approaches in data scienceExamine complete implementations that analyze large public datasetsDiscover which machine learning tools make sense for particular problemsExplore code that can be adapted to many uses},
+  isbn = {978-1-0981-0360-6},
+  langid = {english},
+  pagetotal = {256},
+  keywords = {Computers / Data Science / Data Analytics,Computers / Data Science / General,Computers / Data Science / Machine Learning,Computers / Languages / Python},
+  file = {/Users/jpj/Zotero/storage/VLD3RVTA/Advanced Analytics with PySpark Patterns for Learning from Data at Scale Using Python and Spark.pdf}
 }
 
 @book{tanimura_sql_2021,

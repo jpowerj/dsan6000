@@ -54,7 +54,7 @@
     "href": "syllabus.html#course-topics-calendar",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "Course Topics / Calendar",
-    "text": "Course Topics / Calendar\nThe following is a rough map of what we will work through together throughout the semester; given that everyone learns at a different pace, my aim is to leave us with a good amount of flexibility in terms of how much time we spend on each topic.\nNonetheless, if you are able to do the recommended readings listed below before the start of each week’s lecture, this will be a good indication that you are “on pace”, relative to the overall set of topics I aim to cover by the end of the semester.\nIf you find any discrepancies between this schedule and Georgetown’s official calendar, please let us know!\n\n\n\n\n\n\n\n\n\nUnit\nWeek\nDate\nTopic\n\n\n\n\nUnit 1: Core Concepts\n1\nAug 31\nCourse Overview\n\n\n\n2\nSep 8\nUsing Cloud Resources for Horizontal Scaling\n\n\n\n3\nSep 14\nParallelization Concepts\n\n\nUnit 2: Scaling Pandas\n4\nSep 21\nDuckDB\n\n\n\n5\nSep 28\nPolars\n\n\n\n6\nOct 5\nData Engineering\n\n\nUnit 3: Distributed Computing with Spark\n7\nOct 19\nIntroduction to Spark\n\n\n\n8\nOct 26\nSpark MLLib, SparkNLP\n\n\n\n9\nNov 2\nIn-Class Midterm\n\n\nUnit 4: ETL for Vector DBs\n10\nNov 9\nETL Pipelines\n\n\n\n11\nNov 16\nVector Databases\n\n\n\n\nNov 23\nNo Class (Fall Break)\n\n\nUnit 5: Final Projects\n12\nNov 30\nFinal Project Preparation\n\n\n\n13\nDec 7\nFinal Presentations",
+    "text": "Course Topics / Calendar\nThe following is a rough map of what we will work through together throughout the semester; given that everyone learns at a different pace, my aim is to leave us with a good amount of flexibility in terms of how much time we spend on each topic.\nNonetheless, if you are able to do the recommended readings listed below before the start of each week’s lecture, this will be a good indication that you are “on pace”, relative to the overall set of topics I aim to cover by the end of the semester.\nIf you find any discrepancies between this schedule and Georgetown’s official calendar, please let us know!\n\n\n\n\n\n\n\n\n\nUnit\nWeek\nDate\nTopic\n\n\n\n\nUnit 1: Core Concepts\n1\nAug 31\nCourse Overview\n\n\n\n2\nSep 8\nUsing Cloud Resources for Horizontal Scaling\n\n\n\n3\nSep 14\nParallelization Concepts\n\n\nUnit 2: Scaling Pandas\n4\nSep 21\nDuckDB\n\n\n\n5\nSep 28\nPolars\n\n\n\n6\nOct 5\nData Engineering\n\n\nUnit 3: Distributed Computing with Spark\n7\nOct 19\nIntroduction to Spark\n\n\n\n8\nOct 26\nSetting Up a Spark Cluster\n\n\n\n9\nNov 2\nIn-Class Midterm\n\n\nUnit 4: ETL for Vector DBs\n10\nNov 9\nScalable Machine Learning with Spark MLlib, SparkNLP, and MLflow\n\n\n\n11\nNov 16\nETL Pipelines and Vector Databases\n\n\n\n\nNov 23\nNo Class (Fall Break)\n\n\nUnit 5: Final Projects\n12\nNov 30\nFinal Project Preparation\n\n\n\n13\nDec 7\nFinal Presentations",
     "crumbs": [
       "Syllabus"
     ]
@@ -366,39 +366,11 @@
     "text": "Now Use It From a Jupyter Notebook\nfrom pyspark.sql import SparkSession\nspark = (\n  SparkSession\n    .builder\n    .appName('UNSC_Speeches')\n    .master('spark://&lt;Private IP Here!&gt;:7077')\n    .config('spark.jars.packages','org.apache.hadoop:hadoop-aws:3.5.0')\n    .getOrCreate()\n)\n\nCheck status of SparkSession via Spark Session UI: localhost:4040\n\nMaster node UI: localhost:8080 (worker UI=localhost:8081)\nSparkSession UI: localhost:4040\nConfusion ↓, Understanding ↑ 🥳"
   },
   {
-    "objectID": "w08/slides.html#mllib-hopping-up-another-abstraction-layer",
-    "href": "w08/slides.html#mllib-hopping-up-another-abstraction-layer",
-    "title": "Week 8: Spark MLlib, Spark NLP",
-    "section": "MLlib: Hopping Up Another Abstraction Layer!",
-    "text": "MLlib: Hopping Up Another Abstraction Layer!\n\n\n\n\n\n\n\nImage Source"
-  },
-  {
-    "objectID": "w08/slides.html#in-class-demo-3",
-    "href": "w08/slides.html#in-class-demo-3",
-    "title": "Week 8: Spark MLlib, Spark NLP",
-    "section": "In-Class Demo 3",
-    "text": "In-Class Demo 3\n \n\nMLlib in Action"
-  },
-  {
-    "objectID": "w08/slides.html#spark-nlp",
-    "href": "w08/slides.html#spark-nlp",
-    "title": "Week 8: Spark MLlib, Spark NLP",
-    "section": "Spark NLP",
-    "text": "Spark NLP\n\n\nMLlib: pyspark as normal:\nfrom pyspark.sql import SparkSession\nspark = (\n    SparkSession\n    .builder\n    .appName('SF_Housing')\n    .getOrCreate()\n)\ntype(spark)\n# &gt;&gt;&gt; pyspark.sql.session.SparkSession\nfrom pyspark.ml.feature import VectorAssembler\nSpark NLP: Custom SparkSession with sparknlp.start():\nimport sparknlp\nspark = sparknlp.start()\ntype(spark)\n# &gt;&gt;&gt; pyspark.sql.session.SparkSession\nfrom sparknlp.base import DocumentAssembler\n\n\n\n\nThomas (2020): The chimango caracara book"
-  },
-  {
-    "objectID": "w08/slides.html#in-class-demo-4",
-    "href": "w08/slides.html#in-class-demo-4",
-    "title": "Week 8: Spark MLlib, Spark NLP",
-    "section": "In-Class Demo 4",
-    "text": "In-Class Demo 4\n \n\nDistributed Sentiment Analysis with Spark NLP"
-  },
-  {
     "objectID": "w08/slides.html#references",
     "href": "w08/slides.html#references",
     "title": "Week 8: Spark MLlib, Spark NLP",
     "section": "References",
-    "text": "References\n\n\nThomas, Alex. 2020. Natural Language Processing with Spark NLP: Learning to Understand Text at Scale. \"O’Reilly Media, Inc.\""
+    "text": "References"
   },
   {
     "objectID": "w08/index.html",
@@ -481,51 +453,11 @@
     ]
   },
   {
-    "objectID": "w08/index.html#mllib-hopping-up-another-abstraction-layer",
-    "href": "w08/index.html#mllib-hopping-up-another-abstraction-layer",
-    "title": "Week 8: Spark MLlib, Spark NLP",
-    "section": "MLlib: Hopping Up Another Abstraction Layer!",
-    "text": "MLlib: Hopping Up Another Abstraction Layer!\n\n\n\n\n\n\n\nImage Source",
-    "crumbs": [
-      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
-    ]
-  },
-  {
-    "objectID": "w08/index.html#in-class-demo-3",
-    "href": "w08/index.html#in-class-demo-3",
-    "title": "Week 8: Spark MLlib, Spark NLP",
-    "section": "In-Class Demo 3",
-    "text": "In-Class Demo 3\n \n\nMLlib in Action",
-    "crumbs": [
-      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
-    ]
-  },
-  {
-    "objectID": "w08/index.html#spark-nlp",
-    "href": "w08/index.html#spark-nlp",
-    "title": "Week 8: Spark MLlib, Spark NLP",
-    "section": "Spark NLP",
-    "text": "Spark NLP\n\n\nMLlib: pyspark as normal:\nfrom pyspark.sql import SparkSession\nspark = (\n    SparkSession\n    .builder\n    .appName('SF_Housing')\n    .getOrCreate()\n)\ntype(spark)\n# &gt;&gt;&gt; pyspark.sql.session.SparkSession\nfrom pyspark.ml.feature import VectorAssembler\nSpark NLP: Custom SparkSession with sparknlp.start():\nimport sparknlp\nspark = sparknlp.start()\ntype(spark)\n# &gt;&gt;&gt; pyspark.sql.session.SparkSession\nfrom sparknlp.base import DocumentAssembler\n\n\n\n\nThomas (2020): The chimango caracara book",
-    "crumbs": [
-      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
-    ]
-  },
-  {
-    "objectID": "w08/index.html#in-class-demo-4",
-    "href": "w08/index.html#in-class-demo-4",
-    "title": "Week 8: Spark MLlib, Spark NLP",
-    "section": "In-Class Demo 4",
-    "text": "In-Class Demo 4\n \n\nDistributed Sentiment Analysis with Spark NLP",
-    "crumbs": [
-      "Week 8: <span class='sec-w08-date'>Oct 26</span>"
-    ]
-  },
-  {
     "objectID": "w08/index.html#references",
     "href": "w08/index.html#references",
     "title": "Week 8: Spark MLlib, Spark NLP",
     "section": "References",
-    "text": "References\n\n\nThomas, Alex. 2020. Natural Language Processing with Spark NLP: Learning to Understand Text at Scale. \"O’Reilly Media, Inc.\"",
+    "text": "References",
     "crumbs": [
       "Week 8: <span class='sec-w08-date'>Oct 26</span>"
     ]
@@ -626,198 +558,93 @@
     ]
   },
   {
-    "objectID": "w10/slides.html#pipelines-for-triggered-execution",
-    "href": "w10/slides.html#pipelines-for-triggered-execution",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Pipelines for Triggered Execution",
-    "text": "Pipelines for Triggered Execution\n\n\n\n\n\n\n…HEY! WAKE UP! NEW DATA JUST CAME IN!\n\n\n\n\n\n\n\n\nYou before this week:\n\n\nSprint to your .ipynb and/or Spark cluster\nLoad, clean, process new data, manually, step-by-step\nEmail update to boss\n\n\n\n\n\n\n\n\n\n\nYou after this week:\n\n\nAsset-aware pipeline automatically triggered\nAirflow orchestrates loading, cleaning, processing\nEmailOperator sends update"
+    "objectID": "w10/slides.html#post-midterm-roadmap",
+    "href": "w10/slides.html#post-midterm-roadmap",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Post-Midterm Roadmap",
+    "text": "Post-Midterm Roadmap\nJust for this week and next week, we need to split our brains in half!\n\n\n\n\nClass Material\n\nThis week (W10, Nov 9):\n\nScalable ML with Spark\nHW7: Sun, Nov 15\n\nNext week (W11, Nov 16):\n\nETLing into Vector DB\nHW8: Sun, Nov 22\n\n\n\n\n\n\nImage source\n\n\n\n\n\nFinal Project\n\nThis week (W10, Nov 9):\n\nFinalize topic \\leadsto Proposal\nProposal: Sun, Nov 15\n\nNext week (W11, Nov 16):\n\nExploratory Data Analysis\nEDA 1-pager: Sun, Nov 22\n\n\n\n\n\nNov 23: No class! Spark cluster run (Spark 1-pager: Sun, Nov 29)\nW12, Nov 30: Informal technical presentation (Formal slides: Sun, Dec 6)\n[Formal] Final Presentations: Monday, December 7 (Report: Sun, Nov 13)"
   },
   {
-    "objectID": "w10/slides.html#pipelines-vs.-pipeline-orchestration",
-    "href": "w10/slides.html#pipelines-vs.-pipeline-orchestration",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Pipelines vs. Pipeline Orchestration",
-    "text": "Pipelines vs. Pipeline Orchestration\n\nFrom Astronomer Academy’s Airflow 101"
+    "objectID": "w10/slides.html#todays-goal",
+    "href": "w10/slides.html#todays-goal",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Today’s Goal",
+    "text": "Today’s Goal\n\nCombination of your skills &gt; sum of its parts!"
   },
   {
-    "objectID": "w10/slides.html#key-airflow-specific-buzzwords",
-    "href": "w10/slides.html#key-airflow-specific-buzzwords",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Key Airflow-Specific Buzzwords",
-    "text": "Key Airflow-Specific Buzzwords\n(Underlined words link to Airflow docs “Core Concepts” section)\n\nDirected Acyclic Graph (DAG): Your pipeline as a whole!\nDAGs consist of multiple tasks, which you “string together” using the control flow operators &gt;&gt; and &lt;&lt;\n[Ex ] second_task, third_task can’t start until first_task completes:\nfirst_task &gt;&gt; [second_task, third_task]\n# Equivalent to:\nfirst_task.set_downstream([second_task, third_task])\n[Ex ] fourth_task can’t start until third_task completes:\nfourth_task &lt;&lt; third_task\n# Equivalent to:\nfourth_task.set_upstream(third_task)\nWhat kinds of tasks can we create? Brings us to another concept…"
+    "objectID": "w10/slides.html#mllib-hopping-up-another-abstraction-layer",
+    "href": "w10/slides.html#mllib-hopping-up-another-abstraction-layer",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "MLlib: Hopping Up Another Abstraction Layer!",
+    "text": "MLlib: Hopping Up Another Abstraction Layer!\n\n\n\n\n\n\n\nImage Source"
   },
   {
-    "objectID": "w10/slides.html#operators-what-kind-of-task",
-    "href": "w10/slides.html#operators-what-kind-of-task",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Operators: What Kind of task?",
-    "text": "Operators: What Kind of task?\n\n“Core” Operators: BashOperator and PythonOperator\n\n\n\n\n\n+ Hundreds of “community provider” Operators:\nHttpOperator\nS3FileTransformOperator\nSQLExecuteQueryOperator\nEmailOperator\nSlackAPIOperator\n\n\n+ Jinja templating for managing how data “passes” from one step to the next:"
+    "objectID": "w10/slides.html#numeric-features-vectorassembler",
+    "href": "w10/slides.html#numeric-features-vectorassembler",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Numeric Features: VectorAssembler",
+    "text": "Numeric Features: VectorAssembler\n\nMLlib models expect features to be combined into a single column\nFor numeric data, VectorAssembler does what we want!\n\n\n\n\n\nCode\nfrom pyspark.ml.feature import VectorAssembler\nfrom pyspark.ml.regression import DecisionTreeRegressor\nsport_sdf = (\n    spark\n    .read\n    .option('header', 'true')\n    .csv(\"assets/country_sports.csv\")\n)\nsport_sdf.show()\n\n\n+--------------+---------+----------+--------+\n|       Country|Continent|Population|   Sport|\n+--------------+---------+----------+--------+\n|     Argentina|       SA|        44|  Soccer|\n|     Australia|      Aus|        34| Cricket|\n|        Brazil|       SA|       211|  Soccer|\n|        Canada|       NA|        36|  Hockey|\n|          Cuba|       NA|        11|Baseball|\n|       Germany|      Eur|        80|  Soccer|\n|         India|     Asia|      1342| Cricket|\n|         Italy|      Eur|        59|  Soccer|\n|        Russia|     Asia|       143|  Hockey|\n|         Spain|      Eur|        46|  Soccer|\n|United Kingdom|      Eur|        65| Cricket|\n| United States|       NA|       326|Baseball|\n+--------------+---------+----------+--------+\n\n\n\nCode\nfrom pyspark.ml.feature import VectorAssembler, StringIndexer, OneHotEncoder\nfrom pyspark.ml.regression import DecisionTreeRegressor\nsport_sdf = (\n    spark\n    .read\n    .option('header', 'true')\n    .schema('Country STRING, Continent STRING, Population INT, Sport STRING')\n    .csv(\"assets/country_sports.csv\")\n)\nva = VectorAssembler(\n  inputCols=['Population'],\n  outputCol='features'\n)\nva.transform(sport_sdf).select('Country','features','Sport').show()\n\n\n+--------------+--------+--------+\n|       Country|features|   Sport|\n+--------------+--------+--------+\n|     Argentina|  [44.0]|  Soccer|\n|     Australia|  [34.0]| Cricket|\n|        Brazil| [211.0]|  Soccer|\n|        Canada|  [36.0]|  Hockey|\n|          Cuba|  [11.0]|Baseball|\n|       Germany|  [80.0]|  Soccer|\n|         India|[1342.0]| Cricket|\n|         Italy|  [59.0]|  Soccer|\n|        Russia| [143.0]|  Hockey|\n|         Spain|  [46.0]|  Soccer|\n|United Kingdom|  [65.0]| Cricket|\n| United States| [326.0]|Baseball|\n+--------------+--------+--------+\n\n\n…What about categorical data?\n\n(Example dataset is from Leskovec, Rajaraman, and Ullman (2014))"
   },
   {
-    "objectID": "w10/slides.html#task-vs.-operator-a-sanity-preserving-distinction",
-    "href": "w10/slides.html#task-vs.-operator-a-sanity-preserving-distinction",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Task vs. Operator: A Sanity-Preserving Distinction",
-    "text": "Task vs. Operator: A Sanity-Preserving Distinction\nFrom Operator docs:\n\nWhen we talk about a Task, we mean the generic “unit of execution” of a DAG; when we talk about an Operator, we mean a [specific] pre-made Task template, whose logic is all done for you and that just needs some arguments.\n\n\n\n\nTask:\n\n\n\n\n\n\n\n\nOperator:\n\n\n\n\n\n\n\n\n\n\nFrom (ruiter_data_2026?)"
+    "objectID": "w10/slides.html#categorical-features-stringindexer-onehotencoder",
+    "href": "w10/slides.html#categorical-features-stringindexer-onehotencoder",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Categorical Features: StringIndexer + OneHotEncoder",
+    "text": "Categorical Features: StringIndexer + OneHotEncoder\n\n\n\nStringIndexer\n\n\n\nCode\nsi = StringIndexer(\n  inputCols=['Continent'],\n  outputCols=['Continent_Index'],\n  handleInvalid=\"skip\"\n)\nfitted_si = si.fit(sport_sdf)\nsport_ci_sdf = fitted_si.transform(sport_sdf)\nsport_ci_sdf.select('Country','Continent','Continent_Index').show()\n\n\n+--------------+---------+---------------+\n|       Country|Continent|Continent_Index|\n+--------------+---------+---------------+\n|     Argentina|       SA|            3.0|\n|     Australia|      Aus|            4.0|\n|        Brazil|       SA|            3.0|\n|        Canada|       NA|            1.0|\n|          Cuba|       NA|            1.0|\n|       Germany|      Eur|            0.0|\n|         India|     Asia|            2.0|\n|         Italy|      Eur|            0.0|\n|        Russia|     Asia|            2.0|\n|         Spain|      Eur|            0.0|\n|United Kingdom|      Eur|            0.0|\n| United States|       NA|            1.0|\n+--------------+---------+---------------+\n\n\nOneHotEncoder\n\n\n\nCode\nfrom pyspark.ml.linalg import DenseVector\nfrom pyspark.ml.functions import vector_to_array, array_to_vector\nohe = OneHotEncoder(\n  inputCols=['Continent_Index'],\n  outputCols=['Continent_OHE'],\n)\nfitted_ohe = ohe.fit(sport_ci_sdf)\nsport_ohe_sdf = fitted_ohe.transform(sport_ci_sdf)\nsport_dense_sdf = (\n  sport_ohe_sdf\n  .withColumn(\n    \"Continent_Dense\",\n    array_to_vector(\n      vector_to_array(\"Continent_OHE\")\n    )\n  )\n)\n(\n  sport_dense_sdf\n  .select('Country','Continent_Index','Continent_OHE','Continent_Dense')\n).show()\n\n\n+--------------+---------------+-------------+-----------------+\n|       Country|Continent_Index|Continent_OHE|  Continent_Dense|\n+--------------+---------------+-------------+-----------------+\n|     Argentina|            3.0|(4,[3],[1.0])|[0.0,0.0,0.0,1.0]|\n|     Australia|            4.0|    (4,[],[])|[0.0,0.0,0.0,0.0]|\n|        Brazil|            3.0|(4,[3],[1.0])|[0.0,0.0,0.0,1.0]|\n|        Canada|            1.0|(4,[1],[1.0])|[0.0,1.0,0.0,0.0]|\n|          Cuba|            1.0|(4,[1],[1.0])|[0.0,1.0,0.0,0.0]|\n|       Germany|            0.0|(4,[0],[1.0])|[1.0,0.0,0.0,0.0]|\n|         India|            2.0|(4,[2],[1.0])|[0.0,0.0,1.0,0.0]|\n|         Italy|            0.0|(4,[0],[1.0])|[1.0,0.0,0.0,0.0]|\n|        Russia|            2.0|(4,[2],[1.0])|[0.0,0.0,1.0,0.0]|\n|         Spain|            0.0|(4,[0],[1.0])|[1.0,0.0,0.0,0.0]|\n|United Kingdom|            0.0|(4,[0],[1.0])|[1.0,0.0,0.0,0.0]|\n| United States|            1.0|(4,[1],[1.0])|[0.0,1.0,0.0,0.0]|\n+--------------+---------------+-------------+-----------------+\n\n\nNote 1: PySpark automatically chooses SparseVector if % non-zero is low\nNote 2: StringIndexer uses 0 for most common, 1 for next most common, etc.\nIn scikit-learn we’d be ready to go! In MLlib…"
   },
   {
-    "objectID": "w10/slides.html#concepts-leadsto-code",
-    "href": "w10/slides.html#concepts-leadsto-code",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Concepts \\(\\leadsto\\) Code",
-    "text": "Concepts \\(\\leadsto\\) Code\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\n\nFull Airflow “ecosystem” is running once you’ve started each piece via above (bash) commands!\nLet’s look at each in turn…"
+    "objectID": "w10/slides.html#map-reduced-vs.-serial-algorithms",
+    "href": "w10/slides.html#map-reduced-vs.-serial-algorithms",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Map-Reduced vs. Serial Algorithms",
+    "text": "Map-Reduced vs. Serial Algorithms\n\n\n\n\n\nFrom Abuzaid et al. (2016)\n\n\n\n\nDecision Trees: Optimal split s^* \\overset{\\tiny\\text{def}}{\\small{=}} a constant value c^* for feature j^* such that «go left if x_{ij^*} \\leq s^*» produces maximum reduction in uncertainty about label (entropy)\nMaximum over what? All data\n…But workers don’t have all data!\n\\Rightarrow spark.ml can’t use same algorithm as scikit-learn!\nUses distributed DT learner instead: Planet"
   },
   {
-    "objectID": "w10/slides.html#db-migrate-the-airflow-metastore",
-    "href": "w10/slides.html#db-migrate-the-airflow-metastore",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "db migrate: The Airflow Metastore",
-    "text": "db migrate: The Airflow Metastore\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nGeneral info used by DAGs: variables, connections, XComs\nData about DAG and task runs (generated by scheduler)\nLogs / error information\n Not modified directly/manually! Managed by Airflow; To modify, use API Server →"
+    "objectID": "w10/slides.html#why-do-you-need-to-know-these-details",
+    "href": "w10/slides.html#why-do-you-need-to-know-these-details",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Why Do You Need To Know These Details?",
+    "text": "Why Do You Need To Know These Details?\n\nfrom pyspark.ml.regression import DecisionTreeRegressor \ndt = DecisionTreeRegressor(labelCol=\"price\")\ndt_model = dt.fit(train_sdf)\njava.lang.IllegalArgumentException: requirement failed: DecisionTree requires maxBins (= 32) to be at least as large as the number of values in each categorical feature, but categorical feature 3 has 36 values. Consider removing this and other categorical features with a large number of values, or add more training examples.\n\n\nscikit-learn has no maxBins parameter\nspark.ml does, and it’s important!\nShould be power of 2, and the next one above the default value (64) can massively increase computation time for datasets with many categorical features\n\n(Many spark.ml algorithms also fail if # features p &gt; 4096…)"
   },
   {
-    "objectID": "w10/slides.html#api-server",
-    "href": "w10/slides.html#api-server",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "API Server",
-    "text": "API Server\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\nWeb UI for managing Airflow (much more on this later!)\n\n\n\n\n\n\n\n Default Login Info\n\n\nDefault db migrate generates admin password in ~/simple_auth_manager_passwords.json.generated"
+    "objectID": "w10/slides.html#final-note-different-algorithms-for-long-vs.-wide",
+    "href": "w10/slides.html#final-note-different-algorithms-for-long-vs.-wide",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Final Note: Different Algorithms for Long vs. Wide",
+    "text": "Final Note: Different Algorithms for Long vs. Wide\n\n\n\n\n\nPlanet: MLlib’s default DT learner when # features p \\leq 4096. From Abuzaid et al. (2016)\n\n\n\n\n\n\nMLlib switches over to Yggdrasil when # features p &gt; 4096. Also Abuzaid et al. (2016)… Unrelated to YGG Tay\n\n\n\n\nNote that this switching occurs when Spark hits its hard constraint: p \\leq 4096\nYou may want to switch it manually… When would this be helpful? In which Jeff sits in silence until his heart explodes"
   },
   {
-    "objectID": "w10/slides.html#scheduler-executor",
-    "href": "w10/slides.html#scheduler-executor",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Scheduler → Executor",
-    "text": "Scheduler → Executor\n\n\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nDefault: LocalExecutor\nFor scaling: EcsExecutor (AWS ECS), KubernetesExecutor\nSee also SparkSubmitOperator\n\n\n\n\n\nFrom (ruiter_data_2026?)"
+    "objectID": "w10/slides.html#in-class-demo-3",
+    "href": "w10/slides.html#in-class-demo-3",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "In-Class Demo 3",
+    "text": "In-Class Demo 3\n \n\nMLlib in Action"
   },
   {
-    "objectID": "w10/slides.html#dag-processor",
-    "href": "w10/slides.html#dag-processor",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "DAG Processor",
-    "text": "DAG Processor\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nFrom (ruiter_data_2026?)"
+    "objectID": "w10/slides.html#spark-nlp",
+    "href": "w10/slides.html#spark-nlp",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Spark NLP",
+    "text": "Spark NLP\n\n\nMLlib: pyspark as normal:\nfrom pyspark.sql import SparkSession\nspark = (\n    SparkSession\n    .builder\n    .appName('My_ML_App')\n    .getOrCreate()\n)\ntype(spark)\n# &gt;&gt;&gt; pyspark.sql.session.SparkSession\nfrom pyspark.ml.feature import VectorAssembler\nSpark NLP: Custom SparkSession with sparknlp.start():\nimport sparknlp\nspark = sparknlp.start()\ntype(spark)\n# &gt;&gt;&gt; pyspark.sql.session.SparkSession\nfrom sparknlp.base import DocumentAssembler\n\n\n\n\nThomas (2020): The chimango caracara book"
   },
   {
-    "objectID": "w10/slides.html#the-schedule-argument",
-    "href": "w10/slides.html#the-schedule-argument",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "The schedule Argument",
-    "text": "The schedule Argument\n(Airflow uses pendulum under the hood, rather than datetime!)\n\n\ndag_scheduling.py\n\nfrom airflow.sdk import DAG\nimport pendulum\ndag = DAG(\"regular_interval_cron_example\", schedule=\"0 0 * * *\", ...)\ndag = DAG(\"regular_interval_cron_preset_example\", schedule=\"@daily\", ...)\ndag = DAG(\"regular_interval_timedelta_example\", schedule=pendulum.timedelta(days=1), ...)\n\nCron: Full-on scheduling language (used by computers since 1975!)\n\n\ncrontab.sh\n\n# ┌───────────── minute (0–59)\n# │ ┌───────────── hour (0–23)\n# │ │ ┌───────────── day of the month (1–31)\n# │ │ │ ┌───────────── month (1–12)\n# │ │ │ │ ┌───────────── day of the week (0–6) (Sunday to Saturday)\n# │ │ │ │ │\n# │ │ │ │ │\n# │ │ │ │ │\n# * * * * * &lt;command to execute&gt;\n\nCron Presets: None, \"@once\", \"@continuous\", \"@hourly\", \"@daily\", \"@weekly\""
-  },
-  {
-    "objectID": "w10/slides.html#external-service-integration",
-    "href": "w10/slides.html#external-service-integration",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "External Service Integration",
-    "text": "External Service Integration\n\n\n\nService\nCommand\n\n\n\n\nAWS\npip install 'apache-airflow[amazon]'\n\n\nAzure\npip install 'apache-airflow[microsoft-azure]'\n\n\nDatabricks\npip install 'apache-airflow[databricks]'\n\n\nGitHub\npip install 'apache-airflow[github]'\n\n\nGoogle Cloud\npip install 'apache-airflow[google]'\n\n\nMongoDB\npip install 'apache-airflow[mongo]'\n\n\nOpenAI\npip install 'apache-airflow[openai]'\n\n\nSlack\npip install 'apache-airflow[slack]'\n\n\nSpark\npip install 'apache-airflow[apache-spark]'\n\n\nTableau\npip install 'apache-airflow[tableau]'\n\n\n\n(And many more:)"
-  },
-  {
-    "objectID": "w10/slides.html#jinja-example",
-    "href": "w10/slides.html#jinja-example",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Jinja Example",
-    "text": "Jinja Example\n\n\n\n\n\nhomepage.jinja\n\n&lt;h4&gt;{{ me['name'] }}'s Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n{%- for hobby in hobbies %}\n  &lt;li&gt;{{ hobby }}&lt;/li&gt;\n{%- endfor %}\n&lt;/ul&gt;\n\n\n\n+\n\n\n\n\nrender_jinja.py\n\nfrom jinja2 import Template\ntmpl = Template('homepage.jinja')\ntmpl.render(\n    me = {'name': 'Jeff'},\n    hobbies = [\n        'eat',\n        'sleep',\n        'attend to the proverbial bag'\n    ]\n)\n\n\n\n\n\n↓\n\n\n\n\n\n\n\nrendered.html\n\n&lt;h4&gt;Jeff's Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n  &lt;li&gt;eat&lt;/li&gt;\n  &lt;li&gt;sleep&lt;/li&gt;\n  &lt;li&gt;attend to the proverbial bag&lt;/li&gt;\n&lt;/ul&gt;\n\n\n\\(\\leadsto\\)\n\nJeff's Favorite Hobbies\n\n  eat\n  sleep\n  attend to the proverbial bag"
-  },
-  {
-    "objectID": "w10/slides.html#airflow-ui-grid-view",
-    "href": "w10/slides.html#airflow-ui-grid-view",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Airflow UI: Grid View",
-    "text": "Airflow UI: Grid View"
-  },
-  {
-    "objectID": "w10/slides.html#airflow-ui-run-details",
-    "href": "w10/slides.html#airflow-ui-run-details",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Airflow UI: Run Details",
-    "text": "Airflow UI: Run Details"
-  },
-  {
-    "objectID": "w10/slides.html#airflow-ui-task-instance-details",
-    "href": "w10/slides.html#airflow-ui-task-instance-details",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Airflow UI: Task Instance Details",
-    "text": "Airflow UI: Task Instance Details"
-  },
-  {
-    "objectID": "w10/slides.html#tasks-task-groups",
-    "href": "w10/slides.html#tasks-task-groups",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Tasks → Task Groups",
-    "text": "Tasks → Task Groups"
-  },
-  {
-    "objectID": "w10/slides.html#graph-view",
-    "href": "w10/slides.html#graph-view",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Graph View",
-    "text": "Graph View"
-  },
-  {
-    "objectID": "w10/slides.html#calendar-view",
-    "href": "w10/slides.html#calendar-view",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Calendar View",
-    "text": "Calendar View"
-  },
-  {
-    "objectID": "w10/slides.html#gantt-view",
-    "href": "w10/slides.html#gantt-view",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Gantt View",
-    "text": "Gantt View"
-  },
-  {
-    "objectID": "w10/slides.html#new-book-up-to-date-airflow-3.0-demos",
-    "href": "w10/slides.html#new-book-up-to-date-airflow-3.0-demos",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓",
-    "text": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓\n\n\n\n\n\n\n(harenslak_data_2021?)\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n(ruiter_data_2026?)"
-  },
-  {
-    "objectID": "w10/slides.html#conceptual-pipelines-leadsto-dags",
-    "href": "w10/slides.html#conceptual-pipelines-leadsto-dags",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Conceptual Pipelines \\(\\leadsto\\) DAGs",
-    "text": "Conceptual Pipelines \\(\\leadsto\\) DAGs\nMain challenge: converting “intuitive” pipelines in our heads:\n\n\n\nFrom (ruiter_data_2026?)\n\n\nInto DAGs with concrete Tasks, dependencies, and triggers:\n\n\n\nAlso from (ruiter_data_2026?)"
-  },
-  {
-    "objectID": "w10/slides.html#implementation-detail-1-backfilling",
-    "href": "w10/slides.html#implementation-detail-1-backfilling",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Implementation Detail 1: Backfilling",
-    "text": "Implementation Detail 1: Backfilling"
-  },
-  {
-    "objectID": "w10/slides.html#implementation-detail-2-train-model-only-after-backfill",
-    "href": "w10/slides.html#implementation-detail-2-train-model-only-after-backfill",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Implementation Detail 2: Train Model Only After Backfill",
-    "text": "Implementation Detail 2: Train Model Only After Backfill\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n\nLatestOnlyOperator\n\n\n\n\nFig 1: Both figures from (ruiter_data_2026?)"
-  },
-  {
-    "objectID": "w10/slides.html#implementation-detail-3-downstream-consumers",
-    "href": "w10/slides.html#implementation-detail-3-downstream-consumers",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Implementation Detail 3: Downstream Consumers",
-    "text": "Implementation Detail 3: Downstream Consumers\n\nFrom (ruiter_data_2026?)"
-  },
-  {
-    "objectID": "w10/slides.html#lab-time",
-    "href": "w10/slides.html#lab-time",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Lab Time!",
-    "text": "Lab Time!\nLab 10: ETL Pipeline Orchestration with Airflow"
+    "objectID": "w10/slides.html#in-class-demo-4",
+    "href": "w10/slides.html#in-class-demo-4",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "In-Class Demo 4",
+    "text": "In-Class Demo 4\n \n\nDistributed Sentiment Analysis with Spark NLP"
   },
   {
     "objectID": "w10/slides.html#references",
     "href": "w10/slides.html#references",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
     "section": "References",
-    "text": "References"
+    "text": "References\n\n\nAbuzaid, Firas, Joseph Bradley, Feynman Liang, Andrew Feng, Lee Yang, Matei Zaharia, and Ameet Talwalkar. 2016. “Yggdrasil: An Optimized System for Training Deep Decision Trees at Scale.” In Proceedings of the 30th International Conference on Neural Information Processing Systems, 3817–25. NIPS’16. Red Hook, NY, USA: Curran Associates Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nThomas, Alex. 2020. Natural Language Processing with Spark NLP: Learning to Understand Text at Scale. \"O’Reilly Media, Inc.\""
   },
   {
     "objectID": "w10/index.html",
     "href": "w10/index.html",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
     "section": "",
     "text": "Open slides in new tab →",
     "crumbs": [
@@ -825,261 +652,111 @@
     ]
   },
   {
-    "objectID": "w10/index.html#pipelines-for-triggered-execution",
-    "href": "w10/index.html#pipelines-for-triggered-execution",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Pipelines for Triggered Execution",
-    "text": "Pipelines for Triggered Execution\n\n\n\n\n\n\n…HEY! WAKE UP! NEW DATA JUST CAME IN!\n\n\n\n\n\n\n\n\n\n\nYou before this week:\n\n\nSprint to your .ipynb and/or Spark cluster\nLoad, clean, process new data, manually, step-by-step\nEmail update to boss\n\n\n\n\n\n\n\n\n\n\nYou after this week:\n\n\nAsset-aware pipeline automatically triggered\nAirflow orchestrates loading, cleaning, processing\nEmailOperator sends update",
+    "objectID": "w10/index.html#post-midterm-roadmap",
+    "href": "w10/index.html#post-midterm-roadmap",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Post-Midterm Roadmap",
+    "text": "Post-Midterm Roadmap\nJust for this week and next week, we need to split our brains in half!\n\n\n\n\nClass Material\n\nThis week (W10, Nov 9):\n\nScalable ML with Spark\nHW7: Sun, Nov 15\n\nNext week (W11, Nov 16):\n\nETLing into Vector DB\nHW8: Sun, Nov 22\n\n\n\n\n\n\nImage source\n\n\n\n\n\nFinal Project\n\nThis week (W10, Nov 9):\n\nFinalize topic \\(\\leadsto\\) Proposal\nProposal: Sun, Nov 15\n\nNext week (W11, Nov 16):\n\nExploratory Data Analysis\nEDA 1-pager: Sun, Nov 22\n\n\n\n\n\nNov 23: No class! Spark cluster run (Spark 1-pager: Sun, Nov 29)\nW12, Nov 30: Informal technical presentation (Formal slides: Sun, Dec 6)\n[Formal] Final Presentations: Monday, December 7 (Report: Sun, Nov 13)",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 9</span>"
     ]
   },
   {
-    "objectID": "w10/index.html#pipelines-vs.-pipeline-orchestration",
-    "href": "w10/index.html#pipelines-vs.-pipeline-orchestration",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Pipelines vs. Pipeline Orchestration",
-    "text": "Pipelines vs. Pipeline Orchestration\n\n\n\nFrom Astronomer Academy’s Airflow 101",
+    "objectID": "w10/index.html#todays-goal",
+    "href": "w10/index.html#todays-goal",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Today’s Goal",
+    "text": "Today’s Goal\n\nCombination of your skills &gt; sum of its parts!",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 9</span>"
     ]
   },
   {
-    "objectID": "w10/index.html#key-airflow-specific-buzzwords",
-    "href": "w10/index.html#key-airflow-specific-buzzwords",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Key Airflow-Specific Buzzwords",
-    "text": "Key Airflow-Specific Buzzwords\n(Underlined words link to Airflow docs “Core Concepts” section)\n\nDirected Acyclic Graph (DAG): Your pipeline as a whole!\nDAGs consist of multiple tasks, which you “string together” using the control flow operators &gt;&gt; and &lt;&lt;\n[Ex ] second_task, third_task can’t start until first_task completes:\nfirst_task &gt;&gt; [second_task, third_task]\n# Equivalent to:\nfirst_task.set_downstream([second_task, third_task])\n[Ex ] fourth_task can’t start until third_task completes:\nfourth_task &lt;&lt; third_task\n# Equivalent to:\nfourth_task.set_upstream(third_task)\nWhat kinds of tasks can we create? Brings us to another concept…",
+    "objectID": "w10/index.html#mllib-hopping-up-another-abstraction-layer",
+    "href": "w10/index.html#mllib-hopping-up-another-abstraction-layer",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "MLlib: Hopping Up Another Abstraction Layer!",
+    "text": "MLlib: Hopping Up Another Abstraction Layer!\n\n\n\n\n\n\n\nImage Source",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 9</span>"
     ]
   },
   {
-    "objectID": "w10/index.html#operators-what-kind-of-task",
-    "href": "w10/index.html#operators-what-kind-of-task",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Operators: What Kind of task?",
-    "text": "Operators: What Kind of task?\n\n“Core” Operators: BashOperator and PythonOperator\n\n\n\n\n\n+ Hundreds of “community provider” Operators:\nHttpOperator\nS3FileTransformOperator\nSQLExecuteQueryOperator\nEmailOperator\nSlackAPIOperator\n\n\n\n+ Jinja templating for managing how data “passes” from one step to the next:",
+    "objectID": "w10/index.html#numeric-features-vectorassembler",
+    "href": "w10/index.html#numeric-features-vectorassembler",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Numeric Features: VectorAssembler",
+    "text": "Numeric Features: VectorAssembler\n\nMLlib models expect features to be combined into a single column\nFor numeric data, VectorAssembler does what we want!\n\n\nfrom pyspark.sql import SparkSession\nspark = (\n  SparkSession\n  .builder\n  .appName('Sport_Predict')\n  .getOrCreate()\n)\n\n\n\n\n\nCode\nfrom pyspark.ml.feature import VectorAssembler\nfrom pyspark.ml.regression import DecisionTreeRegressor\nsport_sdf = (\n    spark\n    .read\n    .option('header', 'true')\n    .csv(\"assets/country_sports.csv\")\n)\nsport_sdf.show()\n\n\n+--------------+---------+----------+--------+\n|       Country|Continent|Population|   Sport|\n+--------------+---------+----------+--------+\n|     Argentina|       SA|        44|  Soccer|\n|     Australia|      Aus|        34| Cricket|\n|        Brazil|       SA|       211|  Soccer|\n|        Canada|       NA|        36|  Hockey|\n|          Cuba|       NA|        11|Baseball|\n|       Germany|      Eur|        80|  Soccer|\n|         India|     Asia|      1342| Cricket|\n|         Italy|      Eur|        59|  Soccer|\n|        Russia|     Asia|       143|  Hockey|\n|         Spain|      Eur|        46|  Soccer|\n|United Kingdom|      Eur|        65| Cricket|\n| United States|       NA|       326|Baseball|\n+--------------+---------+----------+--------+\n\n\n\nCode\nfrom pyspark.ml.feature import VectorAssembler, StringIndexer, OneHotEncoder\nfrom pyspark.ml.regression import DecisionTreeRegressor\nsport_sdf = (\n    spark\n    .read\n    .option('header', 'true')\n    .schema('Country STRING, Continent STRING, Population INT, Sport STRING')\n    .csv(\"assets/country_sports.csv\")\n)\nva = VectorAssembler(\n  inputCols=['Population'],\n  outputCol='features'\n)\nva.transform(sport_sdf).select('Country','features','Sport').show()\n\n\n+--------------+--------+--------+\n|       Country|features|   Sport|\n+--------------+--------+--------+\n|     Argentina|  [44.0]|  Soccer|\n|     Australia|  [34.0]| Cricket|\n|        Brazil| [211.0]|  Soccer|\n|        Canada|  [36.0]|  Hockey|\n|          Cuba|  [11.0]|Baseball|\n|       Germany|  [80.0]|  Soccer|\n|         India|[1342.0]| Cricket|\n|         Italy|  [59.0]|  Soccer|\n|        Russia| [143.0]|  Hockey|\n|         Spain|  [46.0]|  Soccer|\n|United Kingdom|  [65.0]| Cricket|\n| United States| [326.0]|Baseball|\n+--------------+--------+--------+\n\n\n\n…What about categorical data?\n\n(Example dataset is from Leskovec, Rajaraman, and Ullman (2014))",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 9</span>"
     ]
   },
   {
-    "objectID": "w10/index.html#task-vs.-operator-a-sanity-preserving-distinction",
-    "href": "w10/index.html#task-vs.-operator-a-sanity-preserving-distinction",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Task vs. Operator: A Sanity-Preserving Distinction",
-    "text": "Task vs. Operator: A Sanity-Preserving Distinction\nFrom Operator docs:\n\nWhen we talk about a Task, we mean the generic “unit of execution” of a DAG; when we talk about an Operator, we mean a [specific] pre-made Task template, whose logic is all done for you and that just needs some arguments.\n\n\n\n\nTask:\n\n\n\n\n\n\n\n\nOperator:\n\n\n\n\n\n\n\n\n\n\n\nFrom (ruiter_data_2026?)",
+    "objectID": "w10/index.html#categorical-features-stringindexer-onehotencoder",
+    "href": "w10/index.html#categorical-features-stringindexer-onehotencoder",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Categorical Features: StringIndexer + OneHotEncoder",
+    "text": "Categorical Features: StringIndexer + OneHotEncoder\n\n\n\nStringIndexer\n\n\n\nCode\nsi = StringIndexer(\n  inputCols=['Continent'],\n  outputCols=['Continent_Index'],\n  handleInvalid=\"skip\"\n)\nfitted_si = si.fit(sport_sdf)\nsport_ci_sdf = fitted_si.transform(sport_sdf)\nsport_ci_sdf.select('Country','Continent','Continent_Index').show()\n\n\n+--------------+---------+---------------+\n|       Country|Continent|Continent_Index|\n+--------------+---------+---------------+\n|     Argentina|       SA|            3.0|\n|     Australia|      Aus|            4.0|\n|        Brazil|       SA|            3.0|\n|        Canada|       NA|            1.0|\n|          Cuba|       NA|            1.0|\n|       Germany|      Eur|            0.0|\n|         India|     Asia|            2.0|\n|         Italy|      Eur|            0.0|\n|        Russia|     Asia|            2.0|\n|         Spain|      Eur|            0.0|\n|United Kingdom|      Eur|            0.0|\n| United States|       NA|            1.0|\n+--------------+---------+---------------+\n\n\nOneHotEncoder\n\n\n\nCode\nfrom pyspark.ml.linalg import DenseVector\nfrom pyspark.ml.functions import vector_to_array, array_to_vector\nohe = OneHotEncoder(\n  inputCols=['Continent_Index'],\n  outputCols=['Continent_OHE'],\n)\nfitted_ohe = ohe.fit(sport_ci_sdf)\nsport_ohe_sdf = fitted_ohe.transform(sport_ci_sdf)\nsport_dense_sdf = (\n  sport_ohe_sdf\n  .withColumn(\n    \"Continent_Dense\",\n    array_to_vector(\n      vector_to_array(\"Continent_OHE\")\n    )\n  )\n)\n(\n  sport_dense_sdf\n  .select('Country','Continent_Index','Continent_OHE','Continent_Dense')\n).show()\n\n\n+--------------+---------------+-------------+-----------------+\n|       Country|Continent_Index|Continent_OHE|  Continent_Dense|\n+--------------+---------------+-------------+-----------------+\n|     Argentina|            3.0|(4,[3],[1.0])|[0.0,0.0,0.0,1.0]|\n|     Australia|            4.0|    (4,[],[])|[0.0,0.0,0.0,0.0]|\n|        Brazil|            3.0|(4,[3],[1.0])|[0.0,0.0,0.0,1.0]|\n|        Canada|            1.0|(4,[1],[1.0])|[0.0,1.0,0.0,0.0]|\n|          Cuba|            1.0|(4,[1],[1.0])|[0.0,1.0,0.0,0.0]|\n|       Germany|            0.0|(4,[0],[1.0])|[1.0,0.0,0.0,0.0]|\n|         India|            2.0|(4,[2],[1.0])|[0.0,0.0,1.0,0.0]|\n|         Italy|            0.0|(4,[0],[1.0])|[1.0,0.0,0.0,0.0]|\n|        Russia|            2.0|(4,[2],[1.0])|[0.0,0.0,1.0,0.0]|\n|         Spain|            0.0|(4,[0],[1.0])|[1.0,0.0,0.0,0.0]|\n|United Kingdom|            0.0|(4,[0],[1.0])|[1.0,0.0,0.0,0.0]|\n| United States|            1.0|(4,[1],[1.0])|[0.0,1.0,0.0,0.0]|\n+--------------+---------------+-------------+-----------------+\n\n\n\nNote 1: PySpark automatically chooses SparseVector if % non-zero is low\nNote 2: StringIndexer uses 0 for most common, 1 for next most common, etc.\nIn scikit-learn we’d be ready to go! In MLlib…",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 9</span>"
     ]
   },
   {
-    "objectID": "w10/index.html#concepts-leadsto-code",
-    "href": "w10/index.html#concepts-leadsto-code",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Concepts \\(\\leadsto\\) Code",
-    "text": "Concepts \\(\\leadsto\\) Code\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\n\nFull Airflow “ecosystem” is running once you’ve started each piece via above (bash) commands!\nLet’s look at each in turn…",
+    "objectID": "w10/index.html#map-reduced-vs.-serial-algorithms",
+    "href": "w10/index.html#map-reduced-vs.-serial-algorithms",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Map-Reduced vs. Serial Algorithms",
+    "text": "Map-Reduced vs. Serial Algorithms\n\n\n\n\n\nFrom Abuzaid et al. (2016)\n\n\n\n\nDecision Trees: Optimal split \\(s^*\\) \\(\\overset{\\tiny\\text{def}}{\\small{=}}\\) a constant value \\(c^*\\) for feature \\(j^*\\) such that «go left if \\(x_{ij^*} \\leq s^*\\)» produces maximum reduction in uncertainty about label (entropy)\nMaximum over what? All data\n…But workers don’t have all data!\n\\(\\Rightarrow\\) spark.ml can’t use same algorithm as scikit-learn!\nUses distributed DT learner instead: Planet",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 9</span>"
     ]
   },
   {
-    "objectID": "w10/index.html#db-migrate-the-airflow-metastore",
-    "href": "w10/index.html#db-migrate-the-airflow-metastore",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "db migrate: The Airflow Metastore",
-    "text": "db migrate: The Airflow Metastore\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nGeneral info used by DAGs: variables, connections, XComs\nData about DAG and task runs (generated by scheduler)\nLogs / error information\n Not modified directly/manually! Managed by Airflow; To modify, use API Server →",
+    "objectID": "w10/index.html#why-do-you-need-to-know-these-details",
+    "href": "w10/index.html#why-do-you-need-to-know-these-details",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Why Do You Need To Know These Details?",
+    "text": "Why Do You Need To Know These Details?\n\nfrom pyspark.ml.regression import DecisionTreeRegressor \ndt = DecisionTreeRegressor(labelCol=\"price\")\ndt_model = dt.fit(train_sdf)\njava.lang.IllegalArgumentException: requirement failed: DecisionTree requires maxBins (= 32) to be at least as large as the number of values in each categorical feature, but categorical feature 3 has 36 values. Consider removing this and other categorical features with a large number of values, or add more training examples.\n\n\nscikit-learn has no maxBins parameter\nspark.ml does, and it’s important!\nShould be power of 2, and the next one above the default value (64) can massively increase computation time for datasets with many categorical features\n\n(Many spark.ml algorithms also fail if # features \\(p &gt; 4096\\)…)",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 9</span>"
     ]
   },
   {
-    "objectID": "w10/index.html#api-server",
-    "href": "w10/index.html#api-server",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "API Server",
-    "text": "API Server\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\nWeb UI for managing Airflow (much more on this later!)\n\n\n\n\n\n\nWarning Default Login Info\n\n\n\nDefault db migrate generates admin password in ~/simple_auth_manager_passwords.json.generated",
+    "objectID": "w10/index.html#final-note-different-algorithms-for-long-vs.-wide",
+    "href": "w10/index.html#final-note-different-algorithms-for-long-vs.-wide",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Final Note: Different Algorithms for Long vs. Wide",
+    "text": "Final Note: Different Algorithms for Long vs. Wide\n\n\n\n\n\nPlanet: MLlib’s default DT learner when # features \\(p \\leq 4096\\). From Abuzaid et al. (2016)\n\n\n\n\n\n\nMLlib switches over to Yggdrasil when # features \\(p &gt; 4096\\). Also Abuzaid et al. (2016)… Unrelated to YGG Tay\n\n\n\n\n\nNote that this switching occurs when Spark hits its hard constraint: \\(p \\leq 4096\\)\nYou may want to switch it manually… When would this be helpful? In which Jeff sits in silence until his heart explodes",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 9</span>"
     ]
   },
   {
-    "objectID": "w10/index.html#scheduler-executor",
-    "href": "w10/index.html#scheduler-executor",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Scheduler → Executor",
-    "text": "Scheduler → Executor\n\n\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nDefault: LocalExecutor\nFor scaling: EcsExecutor (AWS ECS), KubernetesExecutor\nSee also SparkSubmitOperator\n\n\n\n\n\nFrom (ruiter_data_2026?)",
+    "objectID": "w10/index.html#in-class-demo-3",
+    "href": "w10/index.html#in-class-demo-3",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "In-Class Demo 3",
+    "text": "In-Class Demo 3\n \n\nMLlib in Action",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 9</span>"
     ]
   },
   {
-    "objectID": "w10/index.html#dag-processor",
-    "href": "w10/index.html#dag-processor",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "DAG Processor",
-    "text": "DAG Processor\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\n\nFrom (ruiter_data_2026?)",
+    "objectID": "w10/index.html#spark-nlp",
+    "href": "w10/index.html#spark-nlp",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "Spark NLP",
+    "text": "Spark NLP\n\n\nMLlib: pyspark as normal:\nfrom pyspark.sql import SparkSession\nspark = (\n    SparkSession\n    .builder\n    .appName('My_ML_App')\n    .getOrCreate()\n)\ntype(spark)\n# &gt;&gt;&gt; pyspark.sql.session.SparkSession\nfrom pyspark.ml.feature import VectorAssembler\nSpark NLP: Custom SparkSession with sparknlp.start():\nimport sparknlp\nspark = sparknlp.start()\ntype(spark)\n# &gt;&gt;&gt; pyspark.sql.session.SparkSession\nfrom sparknlp.base import DocumentAssembler\n\n\n\n\nThomas (2020): The chimango caracara book",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 9</span>"
     ]
   },
   {
-    "objectID": "w10/index.html#the-schedule-argument",
-    "href": "w10/index.html#the-schedule-argument",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "The schedule Argument",
-    "text": "The schedule Argument\n(Airflow uses pendulum under the hood, rather than datetime!)\n\n\ndag_scheduling.py\n\nfrom airflow.sdk import DAG\nimport pendulum\ndag = DAG(\"regular_interval_cron_example\", schedule=\"0 0 * * *\", ...)\ndag = DAG(\"regular_interval_cron_preset_example\", schedule=\"@daily\", ...)\ndag = DAG(\"regular_interval_timedelta_example\", schedule=pendulum.timedelta(days=1), ...)\n\nCron: Full-on scheduling language (used by computers since 1975!)\n\n\ncrontab.sh\n\n# ┌───────────── minute (0–59)\n# │ ┌───────────── hour (0–23)\n# │ │ ┌───────────── day of the month (1–31)\n# │ │ │ ┌───────────── month (1–12)\n# │ │ │ │ ┌───────────── day of the week (0–6) (Sunday to Saturday)\n# │ │ │ │ │\n# │ │ │ │ │\n# │ │ │ │ │\n# * * * * * &lt;command to execute&gt;\n\nCron Presets: None, \"@once\", \"@continuous\", \"@hourly\", \"@daily\", \"@weekly\"",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#external-service-integration",
-    "href": "w10/index.html#external-service-integration",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "External Service Integration",
-    "text": "External Service Integration\n\n\n\nService\nCommand\n\n\n\n\nAWS\npip install 'apache-airflow[amazon]'\n\n\nAzure\npip install 'apache-airflow[microsoft-azure]'\n\n\nDatabricks\npip install 'apache-airflow[databricks]'\n\n\nGitHub\npip install 'apache-airflow[github]'\n\n\nGoogle Cloud\npip install 'apache-airflow[google]'\n\n\nMongoDB\npip install 'apache-airflow[mongo]'\n\n\nOpenAI\npip install 'apache-airflow[openai]'\n\n\nSlack\npip install 'apache-airflow[slack]'\n\n\nSpark\npip install 'apache-airflow[apache-spark]'\n\n\nTableau\npip install 'apache-airflow[tableau]'\n\n\n\n(And many more:)",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#jinja-example",
-    "href": "w10/index.html#jinja-example",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Jinja Example",
-    "text": "Jinja Example\n\n\n\n\n\nhomepage.jinja\n\n&lt;h4&gt;{{ me['name'] }}'s Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n{%- for hobby in hobbies %}\n  &lt;li&gt;{{ hobby }}&lt;/li&gt;\n{%- endfor %}\n&lt;/ul&gt;\n\n\n\n\n+\n\n\n\n\n\nrender_jinja.py\n\nfrom jinja2 import Template\ntmpl = Template('homepage.jinja')\ntmpl.render(\n    me = {'name': 'Jeff'},\n    hobbies = [\n        'eat',\n        'sleep',\n        'attend to the proverbial bag'\n    ]\n)\n\n\n\n\n\n\n↓\n\n\n\n\n\n\n\nrendered.html\n\n&lt;h4&gt;Jeff's Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n  &lt;li&gt;eat&lt;/li&gt;\n  &lt;li&gt;sleep&lt;/li&gt;\n  &lt;li&gt;attend to the proverbial bag&lt;/li&gt;\n&lt;/ul&gt;\n\n\n\n\\(\\leadsto\\)\n\n\nJeff's Favorite Hobbies\n\n  eat\n  sleep\n  attend to the proverbial bag",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#airflow-ui-grid-view",
-    "href": "w10/index.html#airflow-ui-grid-view",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Airflow UI: Grid View",
-    "text": "Airflow UI: Grid View",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#airflow-ui-run-details",
-    "href": "w10/index.html#airflow-ui-run-details",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Airflow UI: Run Details",
-    "text": "Airflow UI: Run Details",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#airflow-ui-task-instance-details",
-    "href": "w10/index.html#airflow-ui-task-instance-details",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Airflow UI: Task Instance Details",
-    "text": "Airflow UI: Task Instance Details",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#tasks-task-groups",
-    "href": "w10/index.html#tasks-task-groups",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Tasks → Task Groups",
-    "text": "Tasks → Task Groups",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#graph-view",
-    "href": "w10/index.html#graph-view",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Graph View",
-    "text": "Graph View",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#calendar-view",
-    "href": "w10/index.html#calendar-view",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Calendar View",
-    "text": "Calendar View",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#gantt-view",
-    "href": "w10/index.html#gantt-view",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Gantt View",
-    "text": "Gantt View",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#new-book-up-to-date-airflow-3.0-demos",
-    "href": "w10/index.html#new-book-up-to-date-airflow-3.0-demos",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓",
-    "text": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓\n\n\n\n\n\n\n(harenslak_data_2021?)\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n(ruiter_data_2026?)",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#conceptual-pipelines-leadsto-dags",
-    "href": "w10/index.html#conceptual-pipelines-leadsto-dags",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Conceptual Pipelines \\(\\leadsto\\) DAGs",
-    "text": "Conceptual Pipelines \\(\\leadsto\\) DAGs\nMain challenge: converting “intuitive” pipelines in our heads:\n\n\n\nFrom (ruiter_data_2026?)\n\n\nInto DAGs with concrete Tasks, dependencies, and triggers:\n\n\n\nAlso from (ruiter_data_2026?)",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#implementation-detail-1-backfilling",
-    "href": "w10/index.html#implementation-detail-1-backfilling",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Implementation Detail 1: Backfilling",
-    "text": "Implementation Detail 1: Backfilling",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#implementation-detail-2-train-model-only-after-backfill",
-    "href": "w10/index.html#implementation-detail-2-train-model-only-after-backfill",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Implementation Detail 2: Train Model Only After Backfill",
-    "text": "Implementation Detail 2: Train Model Only After Backfill\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n\n\nLatestOnlyOperator\n\n\n\n\n\nFig 1: Both figures from (ruiter_data_2026?)",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#implementation-detail-3-downstream-consumers",
-    "href": "w10/index.html#implementation-detail-3-downstream-consumers",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Implementation Detail 3: Downstream Consumers",
-    "text": "Implementation Detail 3: Downstream Consumers\n\n\n\nFrom (ruiter_data_2026?)",
-    "crumbs": [
-      "Week 10: <span class='sec-w10-date'>Nov 9</span>"
-    ]
-  },
-  {
-    "objectID": "w10/index.html#lab-time",
-    "href": "w10/index.html#lab-time",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
-    "section": "Lab Time!",
-    "text": "Lab Time!\nLab 10: ETL Pipeline Orchestration with Airflow",
+    "objectID": "w10/index.html#in-class-demo-4",
+    "href": "w10/index.html#in-class-demo-4",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
+    "section": "In-Class Demo 4",
+    "text": "In-Class Demo 4\n \n\nDistributed Sentiment Analysis with Spark NLP",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 9</span>"
     ]
@@ -1087,9 +764,9 @@
   {
     "objectID": "w10/index.html#references",
     "href": "w10/index.html#references",
-    "title": "Week 10: ETL Pipeline Orchestration with Prefect",
+    "title": "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow",
     "section": "References",
-    "text": "References",
+    "text": "References\n\n\nAbuzaid, Firas, Joseph Bradley, Feynman Liang, Andrew Feng, Lee Yang, Matei Zaharia, and Ameet Talwalkar. 2016. “Yggdrasil: An Optimized System for Training Deep Decision Trees at Scale.” In Proceedings of the 30th International Conference on Neural Information Processing Systems, 3817–25. NIPS’16. Red Hook, NY, USA: Curran Associates Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nThomas, Alex. 2020. Natural Language Processing with Spark NLP: Learning to Understand Text at Scale. \"O’Reilly Media, Inc.\"",
     "crumbs": [
       "Week 10: <span class='sec-w10-date'>Nov 9</span>"
     ]
@@ -1148,7 +825,7 @@
     "href": "writeups/sql-guide/index.html#onto-duckdb",
     "title": "From Pandas to SQL",
     "section": "Onto DuckDB!",
-    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌────────────────────────────────────────────────┐\n│┌──────────────────────────────────────────────┐│\n││              Total Time: 0.0035s             ││\n│└──────────────────────────────────────────────┘│\n└────────────────────────────────────────────────┘\n┌───────────────────────────┐\n│           QUERY           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│    ────────────────────   │\n│                           │\n│           0 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│    ────────────────────   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│           FILTER          │\n│    ────────────────────   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         TABLE_SCAN        │\n│    ────────────────────   │\n│   Function: PANDAS_SCAN   │\n│                           │\n│        Projections:       │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│                           │\n│                           │\n│                           │\n│           7 rows          │\n│           0.00s           │\n└───────────────────────────┘\n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
+    "text": "Onto DuckDB!\nOnce you get the hang of the material in Weeks 4-6, it may slowly dawn on you that Polars is kind of a… “middle ground” compromise, allowing:\n\nPandas enthusiasts who are most comfortable writing Python code but want to write it in a way that it can be optimized before execution to “meet halfway” with\nSQL enthusiasts who are already used to writing all of their queries out before executing them\n\nI choose the “meet halfway” metaphor very specifically because, when you write Polars expressions like the compute_ratios_expr expression in the above code block, you are essentially writing SQL queries programmatically! Meaning, as you become more and more comfortable with Polars, you are also implicitly becoming more and more comfortable with writing queries, you just don’t know it yet!\nTo see what I mean, let’s do one final “translation” and re-write our pipeline once more using DuckDB this time:\n\n\nCode\nimport duckdb\ncon = duckdb.connect()\nratio_query = \"\"\"\nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\"\"\"\nresult_df = con.execute(ratio_query).df()\nresult_df\n\n\n\n\n\n\n\n\n\nday\nsleep_hrs\nwork_hrs\nratio\n\n\n\n\n0\nMonday\n6.089095\n7.418997\n1.218407\n\n\n1\nTuesday\n7.912447\n8.747633\n1.105553\n\n\n2\nWednesday\n5.393727\n6.011502\n1.114536\n\n\n3\nThursday\n4.347202\n7.318025\n1.683387\n\n\n4\nFriday\n4.556042\n6.341836\n1.391962\n\n\n\n\n\n\n\nNow, just like with Polars, we can ask DuckDB to explain how it will carry out this query: the syntax is a bit weird, but you can just add the commands EXPLAIN ANALYZE to the beginning of any query to obtain DuckDB’s query plan:\n\n\nCode\nratio_query_explain = f\"EXPLAIN ANALYZE {ratio_query}\"\nprint(ratio_query_explain)\nexplanation = con.execute(ratio_query_explain).fetchone()\nprint(explanation[1])\n\n\nEXPLAIN ANALYZE \nSELECT\n  day,\n  sleep_hrs,\n  work_hrs,\n  work_hrs / sleep_hrs AS ratio\nFROM sleep_df\nWHERE day NOT IN ('Saturday','Sunday')\n\n┌─────────────────────────────────────┐\n│┌───────────────────────────────────┐│\n││    Query Profiling Information    ││\n│└───────────────────────────────────┘│\n└─────────────────────────────────────┘\nEXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') \n┌────────────────────────────────────────────────┐\n│┌──────────────────────────────────────────────┐│\n││              Total Time: 0.0025s             ││\n│└──────────────────────────────────────────────┘│\n└────────────────────────────────────────────────┘\n┌───────────────────────────┐\n│           QUERY           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│      EXPLAIN_ANALYZE      │\n│    ────────────────────   │\n│                           │\n│           0 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         PROJECTION        │\n│    ────────────────────   │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│           ratio           │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│           FILTER          │\n│    ────────────────────   │\n│ ((day != 'Saturday') AND  │\n│     (day != 'Sunday'))    │\n│                           │\n│                           │\n│                           │\n│           5 rows          │\n│           0.00s           │\n└─────────────┬─────────────┘\n┌─────────────┴─────────────┐\n│         TABLE_SCAN        │\n│    ────────────────────   │\n│   Function: PANDAS_SCAN   │\n│                           │\n│        Projections:       │\n│            day            │\n│         sleep_hrs         │\n│          work_hrs         │\n│                           │\n│                           │\n│                           │\n│           7 rows          │\n│           0.00s           │\n└───────────────────────────┘\n\n\n\nAnd, like before (again reading from bottom to top of the query plan), we can see that despite us writing the division work_hrs / sleep_hrs earlier in our query than the filtering step (the WHERE statement), DuckDB has also successfully figured out that executing these in reverse order is more efficient! (The PROJECTION step, occurring after the FILTER step, is the first step where the ratio result appears)"
   },
   {
     "objectID": "writeups/sql-guide/index.html#basic-pandas-operations-in-sql",
@@ -1897,7 +1574,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Separating Data from Computation for Parallel Processing",
     "section": "In Action",
-    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8294 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8276 s",
+    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8102 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8050 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 14</span>"
     ]
@@ -2103,7 +1780,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Separating Data from Computation for Parallel Processing",
     "section": "In Action",
-    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8104 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8014 s"
+    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8016 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8298 s"
   },
   {
     "objectID": "w03/slides.html#what-is-joblib-doing-here",
@@ -2611,6 +2288,266 @@
     ]
   },
   {
+    "objectID": "w11/index.html#pipelines-for-triggered-execution",
+    "href": "w11/index.html#pipelines-for-triggered-execution",
+    "title": "Week 11: Vector Databases",
+    "section": "Pipelines for Triggered Execution",
+    "text": "Pipelines for Triggered Execution\n\n\n\n\n\n\n…HEY! WAKE UP! NEW DATA JUST CAME IN!\n\n\n\n\n\n\n\n\n\n\nYou before this week:\n\n\nSprint to your .ipynb and/or Spark cluster\nLoad, clean, process new data, manually, step-by-step\nEmail update to boss\n\n\n\n\n\n\n\n\n\n\nYou after this week:\n\n\nAsset-aware pipeline automatically triggered\nAirflow orchestrates loading, cleaning, processing\nEmailOperator sends update",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#pipelines-vs.-pipeline-orchestration",
+    "href": "w11/index.html#pipelines-vs.-pipeline-orchestration",
+    "title": "Week 11: Vector Databases",
+    "section": "Pipelines vs. Pipeline Orchestration",
+    "text": "Pipelines vs. Pipeline Orchestration\n\n\n\nFrom Astronomer Academy’s Airflow 101",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#key-airflow-specific-buzzwords",
+    "href": "w11/index.html#key-airflow-specific-buzzwords",
+    "title": "Week 11: Vector Databases",
+    "section": "Key Airflow-Specific Buzzwords",
+    "text": "Key Airflow-Specific Buzzwords\n(Underlined words link to Airflow docs “Core Concepts” section)\n\nDirected Acyclic Graph (DAG): Your pipeline as a whole!\nDAGs consist of multiple tasks, which you “string together” using the control flow operators &gt;&gt; and &lt;&lt;\n[Ex ] second_task, third_task can’t start until first_task completes:\nfirst_task &gt;&gt; [second_task, third_task]\n# Equivalent to:\nfirst_task.set_downstream([second_task, third_task])\n[Ex ] fourth_task can’t start until third_task completes:\nfourth_task &lt;&lt; third_task\n# Equivalent to:\nfourth_task.set_upstream(third_task)\nWhat kinds of tasks can we create? Brings us to another concept…",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#operators-what-kind-of-task",
+    "href": "w11/index.html#operators-what-kind-of-task",
+    "title": "Week 11: Vector Databases",
+    "section": "Operators: What Kind of task?",
+    "text": "Operators: What Kind of task?\n\n“Core” Operators: BashOperator and PythonOperator\n\n\n\n\n\n+ Hundreds of “community provider” Operators:\nHttpOperator\nS3FileTransformOperator\nSQLExecuteQueryOperator\nEmailOperator\nSlackAPIOperator\n\n\n\n+ Jinja templating for managing how data “passes” from one step to the next:",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#task-vs.-operator-a-sanity-preserving-distinction",
+    "href": "w11/index.html#task-vs.-operator-a-sanity-preserving-distinction",
+    "title": "Week 11: Vector Databases",
+    "section": "Task vs. Operator: A Sanity-Preserving Distinction",
+    "text": "Task vs. Operator: A Sanity-Preserving Distinction\nFrom Operator docs:\n\nWhen we talk about a Task, we mean the generic “unit of execution” of a DAG; when we talk about an Operator, we mean a [specific] pre-made Task template, whose logic is all done for you and that just needs some arguments.\n\n\n\n\nTask:\n\n\n\n\n\n\n\n\nOperator:\n\n\n\n\n\n\n\n\n\n\n\nFrom (ruiter_data_2026?)",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#concepts-leadsto-code",
+    "href": "w11/index.html#concepts-leadsto-code",
+    "title": "Week 11: Vector Databases",
+    "section": "Concepts \\(\\leadsto\\) Code",
+    "text": "Concepts \\(\\leadsto\\) Code\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\n\nFull Airflow “ecosystem” is running once you’ve started each piece via above (bash) commands!\nLet’s look at each in turn…",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#db-migrate-the-airflow-metastore",
+    "href": "w11/index.html#db-migrate-the-airflow-metastore",
+    "title": "Week 11: Vector Databases",
+    "section": "db migrate: The Airflow Metastore",
+    "text": "db migrate: The Airflow Metastore\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nGeneral info used by DAGs: variables, connections, XComs\nData about DAG and task runs (generated by scheduler)\nLogs / error information\n Not modified directly/manually! Managed by Airflow; To modify, use API Server →",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#api-server",
+    "href": "w11/index.html#api-server",
+    "title": "Week 11: Vector Databases",
+    "section": "API Server",
+    "text": "API Server\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\nWeb UI for managing Airflow (much more on this later!)\n\n\n\n\n\n\nWarning Default Login Info\n\n\n\nDefault db migrate generates admin password in ~/simple_auth_manager_passwords.json.generated",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#scheduler-executor",
+    "href": "w11/index.html#scheduler-executor",
+    "title": "Week 11: Vector Databases",
+    "section": "Scheduler → Executor",
+    "text": "Scheduler → Executor\n\n\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nDefault: LocalExecutor\nFor scaling: EcsExecutor (AWS ECS), KubernetesExecutor\nSee also SparkSubmitOperator\n\n\n\n\n\nFrom (ruiter_data_2026?)",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#dag-processor",
+    "href": "w11/index.html#dag-processor",
+    "title": "Week 11: Vector Databases",
+    "section": "DAG Processor",
+    "text": "DAG Processor\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\n\nFrom (ruiter_data_2026?)",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#the-schedule-argument",
+    "href": "w11/index.html#the-schedule-argument",
+    "title": "Week 11: Vector Databases",
+    "section": "The schedule Argument",
+    "text": "The schedule Argument\n(Airflow uses pendulum under the hood, rather than datetime!)\n\n\ndag_scheduling.py\n\nfrom airflow.sdk import DAG\nimport pendulum\ndag = DAG(\"regular_interval_cron_example\", schedule=\"0 0 * * *\", ...)\ndag = DAG(\"regular_interval_cron_preset_example\", schedule=\"@daily\", ...)\ndag = DAG(\"regular_interval_timedelta_example\", schedule=pendulum.timedelta(days=1), ...)\n\nCron: Full-on scheduling language (used by computers since 1975!)\n\n\ncrontab.sh\n\n# ┌───────────── minute (0–59)\n# │ ┌───────────── hour (0–23)\n# │ │ ┌───────────── day of the month (1–31)\n# │ │ │ ┌───────────── month (1–12)\n# │ │ │ │ ┌───────────── day of the week (0–6) (Sunday to Saturday)\n# │ │ │ │ │\n# │ │ │ │ │\n# │ │ │ │ │\n# * * * * * &lt;command to execute&gt;\n\nCron Presets: None, \"@once\", \"@continuous\", \"@hourly\", \"@daily\", \"@weekly\"",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#external-service-integration",
+    "href": "w11/index.html#external-service-integration",
+    "title": "Week 11: Vector Databases",
+    "section": "External Service Integration",
+    "text": "External Service Integration\n\n\n\nService\nCommand\n\n\n\n\nAWS\npip install 'apache-airflow[amazon]'\n\n\nAzure\npip install 'apache-airflow[microsoft-azure]'\n\n\nDatabricks\npip install 'apache-airflow[databricks]'\n\n\nGitHub\npip install 'apache-airflow[github]'\n\n\nGoogle Cloud\npip install 'apache-airflow[google]'\n\n\nMongoDB\npip install 'apache-airflow[mongo]'\n\n\nOpenAI\npip install 'apache-airflow[openai]'\n\n\nSlack\npip install 'apache-airflow[slack]'\n\n\nSpark\npip install 'apache-airflow[apache-spark]'\n\n\nTableau\npip install 'apache-airflow[tableau]'\n\n\n\n(And many more:)",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#jinja-example",
+    "href": "w11/index.html#jinja-example",
+    "title": "Week 11: Vector Databases",
+    "section": "Jinja Example",
+    "text": "Jinja Example\n\n\n\n\n\nhomepage.jinja\n\n&lt;h4&gt;{{ me['name'] }}'s Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n{%- for hobby in hobbies %}\n  &lt;li&gt;{{ hobby }}&lt;/li&gt;\n{%- endfor %}\n&lt;/ul&gt;\n\n\n\n\n+\n\n\n\n\n\nrender_jinja.py\n\nfrom jinja2 import Template\ntmpl = Template('homepage.jinja')\ntmpl.render(\n    me = {'name': 'Jeff'},\n    hobbies = [\n        'eat',\n        'sleep',\n        'attend to the proverbial bag'\n    ]\n)\n\n\n\n\n\n\n↓\n\n\n\n\n\n\n\nrendered.html\n\n&lt;h4&gt;Jeff's Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n  &lt;li&gt;eat&lt;/li&gt;\n  &lt;li&gt;sleep&lt;/li&gt;\n  &lt;li&gt;attend to the proverbial bag&lt;/li&gt;\n&lt;/ul&gt;\n\n\n\n\\(\\leadsto\\)\n\n\nJeff's Favorite Hobbies\n\n  eat\n  sleep\n  attend to the proverbial bag",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#airflow-ui-grid-view",
+    "href": "w11/index.html#airflow-ui-grid-view",
+    "title": "Week 11: Vector Databases",
+    "section": "Airflow UI: Grid View",
+    "text": "Airflow UI: Grid View",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#airflow-ui-run-details",
+    "href": "w11/index.html#airflow-ui-run-details",
+    "title": "Week 11: Vector Databases",
+    "section": "Airflow UI: Run Details",
+    "text": "Airflow UI: Run Details",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#airflow-ui-task-instance-details",
+    "href": "w11/index.html#airflow-ui-task-instance-details",
+    "title": "Week 11: Vector Databases",
+    "section": "Airflow UI: Task Instance Details",
+    "text": "Airflow UI: Task Instance Details",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#tasks-task-groups",
+    "href": "w11/index.html#tasks-task-groups",
+    "title": "Week 11: Vector Databases",
+    "section": "Tasks → Task Groups",
+    "text": "Tasks → Task Groups",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#graph-view",
+    "href": "w11/index.html#graph-view",
+    "title": "Week 11: Vector Databases",
+    "section": "Graph View",
+    "text": "Graph View",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#calendar-view",
+    "href": "w11/index.html#calendar-view",
+    "title": "Week 11: Vector Databases",
+    "section": "Calendar View",
+    "text": "Calendar View",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#gantt-view",
+    "href": "w11/index.html#gantt-view",
+    "title": "Week 11: Vector Databases",
+    "section": "Gantt View",
+    "text": "Gantt View",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#new-book-up-to-date-airflow-3.0-demos",
+    "href": "w11/index.html#new-book-up-to-date-airflow-3.0-demos",
+    "title": "Week 11: Vector Databases",
+    "section": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓",
+    "text": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓\n\n\n\n\n\n\n(harenslak_data_2021?)\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n(ruiter_data_2026?)",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#conceptual-pipelines-leadsto-dags",
+    "href": "w11/index.html#conceptual-pipelines-leadsto-dags",
+    "title": "Week 11: Vector Databases",
+    "section": "Conceptual Pipelines \\(\\leadsto\\) DAGs",
+    "text": "Conceptual Pipelines \\(\\leadsto\\) DAGs\nMain challenge: converting “intuitive” pipelines in our heads:\n\n\n\nFrom (ruiter_data_2026?)\n\n\nInto DAGs with concrete Tasks, dependencies, and triggers:\n\n\n\nAlso from (ruiter_data_2026?)",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#implementation-detail-1-backfilling",
+    "href": "w11/index.html#implementation-detail-1-backfilling",
+    "title": "Week 11: Vector Databases",
+    "section": "Implementation Detail 1: Backfilling",
+    "text": "Implementation Detail 1: Backfilling",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#implementation-detail-2-train-model-only-after-backfill",
+    "href": "w11/index.html#implementation-detail-2-train-model-only-after-backfill",
+    "title": "Week 11: Vector Databases",
+    "section": "Implementation Detail 2: Train Model Only After Backfill",
+    "text": "Implementation Detail 2: Train Model Only After Backfill\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n\n\nLatestOnlyOperator\n\n\n\n\n\nFig 1: Both figures from (ruiter_data_2026?)",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#implementation-detail-3-downstream-consumers",
+    "href": "w11/index.html#implementation-detail-3-downstream-consumers",
+    "title": "Week 11: Vector Databases",
+    "section": "Implementation Detail 3: Downstream Consumers",
+    "text": "Implementation Detail 3: Downstream Consumers\n\n\n\nFrom (ruiter_data_2026?)",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/index.html#lab-time",
+    "href": "w11/index.html#lab-time",
+    "title": "Week 11: Vector Databases",
+    "section": "Lab Time!",
+    "text": "Lab Time!\nLab 10: ETL Pipeline Orchestration with Airflow",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
     "objectID": "w11/index.html#word-counts-good-enough",
     "href": "w11/index.html#word-counts-good-enough",
     "title": "Week 11: Vector Databases",
@@ -2675,7 +2612,7 @@
     "href": "w11/index.html#unstructured-data-leadsto-structured-geometric-query-space",
     "title": "Week 11: Vector Databases",
     "section": "Unstructured Data \\(\\leadsto\\) Structured Geometric Query Space",
-    "text": "Unstructured Data \\(\\leadsto\\) Structured Geometric Query Space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFig 1: Image Source",
+    "text": "Unstructured Data \\(\\leadsto\\) Structured Geometric Query Space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFig 2: Image Source",
     "crumbs": [
       "Week 11: <span class='sec-w11-date'>Nov 16</span>"
     ]
@@ -2709,6 +2646,198 @@
     "crumbs": [
       "Week 11: <span class='sec-w11-date'>Nov 16</span>"
     ]
+  },
+  {
+    "objectID": "w11/index.html#references-1",
+    "href": "w11/index.html#references-1",
+    "title": "Week 11: Vector Databases",
+    "section": "References",
+    "text": "References\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court.",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
+    "objectID": "w11/slides.html#pipelines-for-triggered-execution",
+    "href": "w11/slides.html#pipelines-for-triggered-execution",
+    "title": "Week 11: Vector Databases",
+    "section": "Pipelines for Triggered Execution",
+    "text": "Pipelines for Triggered Execution\n\n\n\n\n\n\n…HEY! WAKE UP! NEW DATA JUST CAME IN!\n\n\n\n\n\n\n\n\nYou before this week:\n\n\nSprint to your .ipynb and/or Spark cluster\nLoad, clean, process new data, manually, step-by-step\nEmail update to boss\n\n\n\n\n\n\n\n\n\n\nYou after this week:\n\n\nAsset-aware pipeline automatically triggered\nAirflow orchestrates loading, cleaning, processing\nEmailOperator sends update"
+  },
+  {
+    "objectID": "w11/slides.html#pipelines-vs.-pipeline-orchestration",
+    "href": "w11/slides.html#pipelines-vs.-pipeline-orchestration",
+    "title": "Week 11: Vector Databases",
+    "section": "Pipelines vs. Pipeline Orchestration",
+    "text": "Pipelines vs. Pipeline Orchestration\n\nFrom Astronomer Academy’s Airflow 101"
+  },
+  {
+    "objectID": "w11/slides.html#key-airflow-specific-buzzwords",
+    "href": "w11/slides.html#key-airflow-specific-buzzwords",
+    "title": "Week 11: Vector Databases",
+    "section": "Key Airflow-Specific Buzzwords",
+    "text": "Key Airflow-Specific Buzzwords\n(Underlined words link to Airflow docs “Core Concepts” section)\n\nDirected Acyclic Graph (DAG): Your pipeline as a whole!\nDAGs consist of multiple tasks, which you “string together” using the control flow operators &gt;&gt; and &lt;&lt;\n[Ex ] second_task, third_task can’t start until first_task completes:\nfirst_task &gt;&gt; [second_task, third_task]\n# Equivalent to:\nfirst_task.set_downstream([second_task, third_task])\n[Ex ] fourth_task can’t start until third_task completes:\nfourth_task &lt;&lt; third_task\n# Equivalent to:\nfourth_task.set_upstream(third_task)\nWhat kinds of tasks can we create? Brings us to another concept…"
+  },
+  {
+    "objectID": "w11/slides.html#operators-what-kind-of-task",
+    "href": "w11/slides.html#operators-what-kind-of-task",
+    "title": "Week 11: Vector Databases",
+    "section": "Operators: What Kind of task?",
+    "text": "Operators: What Kind of task?\n\n“Core” Operators: BashOperator and PythonOperator\n\n\n\n\n\n+ Hundreds of “community provider” Operators:\nHttpOperator\nS3FileTransformOperator\nSQLExecuteQueryOperator\nEmailOperator\nSlackAPIOperator\n\n\n+ Jinja templating for managing how data “passes” from one step to the next:"
+  },
+  {
+    "objectID": "w11/slides.html#task-vs.-operator-a-sanity-preserving-distinction",
+    "href": "w11/slides.html#task-vs.-operator-a-sanity-preserving-distinction",
+    "title": "Week 11: Vector Databases",
+    "section": "Task vs. Operator: A Sanity-Preserving Distinction",
+    "text": "Task vs. Operator: A Sanity-Preserving Distinction\nFrom Operator docs:\n\nWhen we talk about a Task, we mean the generic “unit of execution” of a DAG; when we talk about an Operator, we mean a [specific] pre-made Task template, whose logic is all done for you and that just needs some arguments.\n\n\n\n\nTask:\n\n\n\n\n\n\n\n\nOperator:\n\n\n\n\n\n\n\n\n\n\nFrom (ruiter_data_2026?)"
+  },
+  {
+    "objectID": "w11/slides.html#concepts-leadsto-code",
+    "href": "w11/slides.html#concepts-leadsto-code",
+    "title": "Week 11: Vector Databases",
+    "section": "Concepts \\(\\leadsto\\) Code",
+    "text": "Concepts \\(\\leadsto\\) Code\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\n\nFull Airflow “ecosystem” is running once you’ve started each piece via above (bash) commands!\nLet’s look at each in turn…"
+  },
+  {
+    "objectID": "w11/slides.html#db-migrate-the-airflow-metastore",
+    "href": "w11/slides.html#db-migrate-the-airflow-metastore",
+    "title": "Week 11: Vector Databases",
+    "section": "db migrate: The Airflow Metastore",
+    "text": "db migrate: The Airflow Metastore\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nGeneral info used by DAGs: variables, connections, XComs\nData about DAG and task runs (generated by scheduler)\nLogs / error information\n Not modified directly/manually! Managed by Airflow; To modify, use API Server →"
+  },
+  {
+    "objectID": "w11/slides.html#api-server",
+    "href": "w11/slides.html#api-server",
+    "title": "Week 11: Vector Databases",
+    "section": "API Server",
+    "text": "API Server\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\n\nWeb UI for managing Airflow (much more on this later!)\n\n\n\n\n\n\n\n Default Login Info\n\n\nDefault db migrate generates admin password in ~/simple_auth_manager_passwords.json.generated"
+  },
+  {
+    "objectID": "w11/slides.html#scheduler-executor",
+    "href": "w11/slides.html#scheduler-executor",
+    "title": "Week 11: Vector Databases",
+    "section": "Scheduler → Executor",
+    "text": "Scheduler → Executor\n\n\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nDefault: LocalExecutor\nFor scaling: EcsExecutor (AWS ECS), KubernetesExecutor\nSee also SparkSubmitOperator\n\n\n\n\n\nFrom (ruiter_data_2026?)"
+  },
+  {
+    "objectID": "w11/slides.html#dag-processor",
+    "href": "w11/slides.html#dag-processor",
+    "title": "Week 11: Vector Databases",
+    "section": "DAG Processor",
+    "text": "DAG Processor\n\n\nstart-airflow.sh\n\nairflow db migrate\nairflow api-server --port 8080\nairflow scheduler\nairflow dag-processor\nairflow triggerer\n\n\nFrom (ruiter_data_2026?)"
+  },
+  {
+    "objectID": "w11/slides.html#the-schedule-argument",
+    "href": "w11/slides.html#the-schedule-argument",
+    "title": "Week 11: Vector Databases",
+    "section": "The schedule Argument",
+    "text": "The schedule Argument\n(Airflow uses pendulum under the hood, rather than datetime!)\n\n\ndag_scheduling.py\n\nfrom airflow.sdk import DAG\nimport pendulum\ndag = DAG(\"regular_interval_cron_example\", schedule=\"0 0 * * *\", ...)\ndag = DAG(\"regular_interval_cron_preset_example\", schedule=\"@daily\", ...)\ndag = DAG(\"regular_interval_timedelta_example\", schedule=pendulum.timedelta(days=1), ...)\n\nCron: Full-on scheduling language (used by computers since 1975!)\n\n\ncrontab.sh\n\n# ┌───────────── minute (0–59)\n# │ ┌───────────── hour (0–23)\n# │ │ ┌───────────── day of the month (1–31)\n# │ │ │ ┌───────────── month (1–12)\n# │ │ │ │ ┌───────────── day of the week (0–6) (Sunday to Saturday)\n# │ │ │ │ │\n# │ │ │ │ │\n# │ │ │ │ │\n# * * * * * &lt;command to execute&gt;\n\nCron Presets: None, \"@once\", \"@continuous\", \"@hourly\", \"@daily\", \"@weekly\""
+  },
+  {
+    "objectID": "w11/slides.html#external-service-integration",
+    "href": "w11/slides.html#external-service-integration",
+    "title": "Week 11: Vector Databases",
+    "section": "External Service Integration",
+    "text": "External Service Integration\n\n\n\nService\nCommand\n\n\n\n\nAWS\npip install 'apache-airflow[amazon]'\n\n\nAzure\npip install 'apache-airflow[microsoft-azure]'\n\n\nDatabricks\npip install 'apache-airflow[databricks]'\n\n\nGitHub\npip install 'apache-airflow[github]'\n\n\nGoogle Cloud\npip install 'apache-airflow[google]'\n\n\nMongoDB\npip install 'apache-airflow[mongo]'\n\n\nOpenAI\npip install 'apache-airflow[openai]'\n\n\nSlack\npip install 'apache-airflow[slack]'\n\n\nSpark\npip install 'apache-airflow[apache-spark]'\n\n\nTableau\npip install 'apache-airflow[tableau]'\n\n\n\n(And many more:)"
+  },
+  {
+    "objectID": "w11/slides.html#jinja-example",
+    "href": "w11/slides.html#jinja-example",
+    "title": "Week 11: Vector Databases",
+    "section": "Jinja Example",
+    "text": "Jinja Example\n\n\n\n\n\nhomepage.jinja\n\n&lt;h4&gt;{{ me['name'] }}'s Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n{%- for hobby in hobbies %}\n  &lt;li&gt;{{ hobby }}&lt;/li&gt;\n{%- endfor %}\n&lt;/ul&gt;\n\n\n\n+\n\n\n\n\nrender_jinja.py\n\nfrom jinja2 import Template\ntmpl = Template('homepage.jinja')\ntmpl.render(\n    me = {'name': 'Jeff'},\n    hobbies = [\n        'eat',\n        'sleep',\n        'attend to the proverbial bag'\n    ]\n)\n\n\n\n\n\n↓\n\n\n\n\n\n\n\nrendered.html\n\n&lt;h4&gt;Jeff's Favorite Hobbies&lt;/h4&gt;\n&lt;ul&gt;\n  &lt;li&gt;eat&lt;/li&gt;\n  &lt;li&gt;sleep&lt;/li&gt;\n  &lt;li&gt;attend to the proverbial bag&lt;/li&gt;\n&lt;/ul&gt;\n\n\n\\(\\leadsto\\)\n\nJeff's Favorite Hobbies\n\n  eat\n  sleep\n  attend to the proverbial bag"
+  },
+  {
+    "objectID": "w11/slides.html#airflow-ui-grid-view",
+    "href": "w11/slides.html#airflow-ui-grid-view",
+    "title": "Week 11: Vector Databases",
+    "section": "Airflow UI: Grid View",
+    "text": "Airflow UI: Grid View"
+  },
+  {
+    "objectID": "w11/slides.html#airflow-ui-run-details",
+    "href": "w11/slides.html#airflow-ui-run-details",
+    "title": "Week 11: Vector Databases",
+    "section": "Airflow UI: Run Details",
+    "text": "Airflow UI: Run Details"
+  },
+  {
+    "objectID": "w11/slides.html#airflow-ui-task-instance-details",
+    "href": "w11/slides.html#airflow-ui-task-instance-details",
+    "title": "Week 11: Vector Databases",
+    "section": "Airflow UI: Task Instance Details",
+    "text": "Airflow UI: Task Instance Details"
+  },
+  {
+    "objectID": "w11/slides.html#tasks-task-groups",
+    "href": "w11/slides.html#tasks-task-groups",
+    "title": "Week 11: Vector Databases",
+    "section": "Tasks → Task Groups",
+    "text": "Tasks → Task Groups"
+  },
+  {
+    "objectID": "w11/slides.html#graph-view",
+    "href": "w11/slides.html#graph-view",
+    "title": "Week 11: Vector Databases",
+    "section": "Graph View",
+    "text": "Graph View"
+  },
+  {
+    "objectID": "w11/slides.html#calendar-view",
+    "href": "w11/slides.html#calendar-view",
+    "title": "Week 11: Vector Databases",
+    "section": "Calendar View",
+    "text": "Calendar View"
+  },
+  {
+    "objectID": "w11/slides.html#gantt-view",
+    "href": "w11/slides.html#gantt-view",
+    "title": "Week 11: Vector Databases",
+    "section": "Gantt View",
+    "text": "Gantt View"
+  },
+  {
+    "objectID": "w11/slides.html#new-book-up-to-date-airflow-3.0-demos",
+    "href": "w11/slides.html#new-book-up-to-date-airflow-3.0-demos",
+    "title": "Week 11: Vector Databases",
+    "section": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓",
+    "text": "New Book: Up-To-Date (Airflow 3.0) Demos 🤓\n\n\n\n\n\n\n(harenslak_data_2021?)\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n(ruiter_data_2026?)"
+  },
+  {
+    "objectID": "w11/slides.html#conceptual-pipelines-leadsto-dags",
+    "href": "w11/slides.html#conceptual-pipelines-leadsto-dags",
+    "title": "Week 11: Vector Databases",
+    "section": "Conceptual Pipelines \\(\\leadsto\\) DAGs",
+    "text": "Conceptual Pipelines \\(\\leadsto\\) DAGs\nMain challenge: converting “intuitive” pipelines in our heads:\n\n\n\nFrom (ruiter_data_2026?)\n\n\nInto DAGs with concrete Tasks, dependencies, and triggers:\n\n\n\nAlso from (ruiter_data_2026?)"
+  },
+  {
+    "objectID": "w11/slides.html#implementation-detail-1-backfilling",
+    "href": "w11/slides.html#implementation-detail-1-backfilling",
+    "title": "Week 11: Vector Databases",
+    "section": "Implementation Detail 1: Backfilling",
+    "text": "Implementation Detail 1: Backfilling"
+  },
+  {
+    "objectID": "w11/slides.html#implementation-detail-2-train-model-only-after-backfill",
+    "href": "w11/slides.html#implementation-detail-2-train-model-only-after-backfill",
+    "title": "Week 11: Vector Databases",
+    "section": "Implementation Detail 2: Train Model Only After Backfill",
+    "text": "Implementation Detail 2: Train Model Only After Backfill\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\leadsto\\)\n\n\n\n\n\n\nLatestOnlyOperator\n\n\n\n\nFig 1: Both figures from (ruiter_data_2026?)"
+  },
+  {
+    "objectID": "w11/slides.html#implementation-detail-3-downstream-consumers",
+    "href": "w11/slides.html#implementation-detail-3-downstream-consumers",
+    "title": "Week 11: Vector Databases",
+    "section": "Implementation Detail 3: Downstream Consumers",
+    "text": "Implementation Detail 3: Downstream Consumers\n\nFrom (ruiter_data_2026?)"
+  },
+  {
+    "objectID": "w11/slides.html#lab-time",
+    "href": "w11/slides.html#lab-time",
+    "title": "Week 11: Vector Databases",
+    "section": "Lab Time!",
+    "text": "Lab Time!\nLab 10: ETL Pipeline Orchestration with Airflow"
   },
   {
     "objectID": "w11/slides.html#word-counts-good-enough",
@@ -2757,7 +2886,7 @@
     "href": "w11/slides.html#unstructured-data-leadsto-structured-geometric-query-space",
     "title": "Week 11: Vector Databases",
     "section": "Unstructured Data \\(\\leadsto\\) Structured Geometric Query Space",
-    "text": "Unstructured Data \\(\\leadsto\\) Structured Geometric Query Space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFig 1: Image Source"
+    "text": "Unstructured Data \\(\\leadsto\\) Structured Geometric Query Space\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFig 2: Image Source"
   },
   {
     "objectID": "w11/slides.html#more-data-leadsto-increasing-returns",
@@ -2781,11 +2910,18 @@
     "text": "References\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court."
   },
   {
+    "objectID": "w11/slides.html#references-1",
+    "href": "w11/slides.html#references-1",
+    "title": "Week 11: Vector Databases",
+    "section": "References",
+    "text": "References\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "DSAN 6000: Big Data and Cloud Computing",
     "section": "",
-    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHolidays / Irregular Lecture Days\n\n\n\nPlease keep in mind the following dates, when course meetings will be shifted or skipped:\n\nTuesday, September 8: The Week 2 meeting for the Monday section (Section 01) falls on a Tuesday, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)\nMonday, October 12 and Thursday, October 15: No class due to Georgetown’s Mid-Semester Holiday\nMonday, November 23 and Thursday, November 26: No class due to Georgetown’s 2026 Fall Recess\n\n\n\nWelcome! This webpage contains slides, resources, and auxiliary writeups for DSAN 6000: Big Data and Cloud Computing, Fall 2026 at Georgetown University.\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394. Use the links in the sidebar, or in the table below, to explore the content for a particular week.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 31\n\n\n\n\n\n\nWeek 2: Using Cloud Resources for Horizontal Scaling\n\n\nSep 8\n\n\n\n\n\n\nWeek 3: Separating Data from Computation for Parallel Processing\n\n\nSep 14\n\n\n\n\n\n\nWeek 4: Columnar Data Formats and DuckDB\n\n\nSep 21\n\n\n\n\n\n\nWeek 5: From DuckDB to Polars\n\n\nSep 28\n\n\n\n\n\n\nWeek 6: Data Engineering\n\n\nOct 5\n\n\n\n\n\n\nWeek 7: Introduction to Spark\n\n\nOct 19\n\n\n\n\n\n\nWeek 8: Spark MLlib, Spark NLP\n\n\nOct 26\n\n\n\n\n\n\nWeek 9: In-Class Midterm\n\n\nNov 2\n\n\n\n\n\n\nWeek 10: ETL Pipeline Orchestration with Prefect\n\n\nNov 9\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 16\n\n\n\n\n\n\nWeek 12: Final Project Preparation\n\n\nNov 30\n\n\n\n\n\n\nWeek 13: Final Project Presentations\n\n\nDec 7\n\n\n\n\n\n\nNo matching items",
+    "text": "Big Data: \"When the size of the data itself becomes part of the engineering problem\"\n\n\n\n\n\nCan be processed on single machine?\nNo\nMedium(Parallel Processing)\nBig!Parallel + Distributed Processing\n\n\nYes\nSmall(Your Laptop)\nMedium(Data Streaming)\n\n\n\n\nYes\nNo\n\n\n\n\nCan be stored on single machine?\n\n\n\n\n\n\n\n\n\n\n\n\nNoteHolidays / Irregular Lecture Days\n\n\n\nPlease keep in mind the following dates, when course meetings will be shifted or skipped:\n\nTuesday, September 8: The Week 2 meeting for the Monday section (Section 01) falls on a Tuesday, as the University follows a Monday schedule on this day (due to the Labor Day holiday on Monday, September 7)\nMonday, October 12 and Thursday, October 15: No class due to Georgetown’s Mid-Semester Holiday\nMonday, November 23 and Thursday, November 26: No class due to Georgetown’s 2026 Fall Recess\n\n\n\nWelcome! This webpage contains slides, resources, and auxiliary writeups for DSAN 6000: Big Data and Cloud Computing, Fall 2026 at Georgetown University.\nSection 01 of the course takes place on Wednesday from 3:30pm to 6:00pm in Walsh 394. Use the links in the sidebar, or in the table below, to explore the content for a particular week.\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWeek 1: Course Overview\n\n\nAug 31\n\n\n\n\n\n\nWeek 2: Using Cloud Resources for Horizontal Scaling\n\n\nSep 8\n\n\n\n\n\n\nWeek 3: Separating Data from Computation for Parallel Processing\n\n\nSep 14\n\n\n\n\n\n\nWeek 4: Columnar Data Formats and DuckDB\n\n\nSep 21\n\n\n\n\n\n\nWeek 5: From DuckDB to Polars\n\n\nSep 28\n\n\n\n\n\n\nWeek 6: Data Engineering\n\n\nOct 5\n\n\n\n\n\n\nWeek 7: Introduction to Spark\n\n\nOct 19\n\n\n\n\n\n\nWeek 8: Spark MLlib, Spark NLP\n\n\nOct 26\n\n\n\n\n\n\nWeek 9: In-Class Midterm\n\n\nNov 2\n\n\n\n\n\n\nWeek 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow\n\n\nNov 9\n\n\n\n\n\n\nWeek 11: Vector Databases\n\n\nNov 16\n\n\n\n\n\n\nWeek 12: Informal Technical Presentations\n\n\nNov 30\n\n\n\n\n\n\nWeek 13: Final Project Presentations\n\n\nDec 7\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "<i class='bi bi-house'></i> Home"
     ]
@@ -3139,7 +3275,7 @@
     "href": "resources.html#pdfs-of-books",
     "title": "Resource Hub",
     "section": "PDFs of Books",
-    "text": "PDFs of Books\nThe remainder of this page is auto-generated from all of the references across the slides for each week: click on the name of a reference to download the ebook version, if available!\n\n\nAmbrose, Susan A., Michael W. Bridges, Michele DiPietro, Marsha C. Lovett, and Marie K. Norman. 2010. How Learning Works: Seven Research-Based Principles for Smart Teaching. John Wiley & Sons.\n\n\nAubury, Simon. 2024. Getting Started with DuckDB: A Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows. Birmingham: Packt Publishing Limited.\n\n\nBerk, Michael. 2022. “Demystifying the Parquet File Format.” Towards Data Science. August 16, 2022.\n\n\nBielsa, Esperanca, and Susan Bassnett. 2008. Translation in Global News. Routledge.\n\n\nDamji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. Learning Spark. O’Reilly Media, Inc.\n\n\nEagar, Gareth. 2021. Data Engineering with AWS: Learn How to Design and Build Cloud-Based Data Transformation Pipelines Using AWS. 1st ed. Birmingham: Packt Publishing Limited.\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc.\n\n\nGrama, Ananth. 2003. Introduction to Parallel Computing. Addison-Wesley.\n\n\nHennessy, John L., and David A. Patterson. 2017. Computer Architecture: A Quantitative Approach. Morgan Kaufmann.\n\n\nInmon, W. H. 1992. Building the Data Warehouse. John Wiley & Sons.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nKleppmann, Martin, and Chris Riccomini. 2026. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. 2nd edition. Santa Rosa, CA: O’Reilly.\n\n\nLee, Wei-Meng. 2024. DuckDB: Up and Running: Fast Data Analytics and Reporting. First edition. Sebastopol, CA: O’Reilly Media, Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. June 2, 2010.\n\n\nLovett, Marsha C., Michael W. Bridges, Michele DiPietro, Susan A. Ambrose, and Marie K. Norman. 2023. How Learning Works: Eight Research-Based Principles for Smart Teaching. John Wiley & Sons.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.\n\n\nMishra, Sakti, Dylan Qu, and Anusha Challa. 2025. AWS Certified Data Engineer Associate Study Guide: In-Depth Guidance and Practice. \"O’Reilly Media, Inc.\"\n\n\nNeedham, Mark, Michael Hunger, and Michael Simons. 2024. DuckDB in Action. Simon and Schuster.\n\n\nNoble, David F. 1995. Progress Without People: New Technology, Unemployment, and the Message of Resistance. Toronto: Between the Lines.\n\n\nPacheco, Peter, and Matthew Malensek. 2022. An Introduction to Parallel Programming. Morgan Kaufmann.\n\n\nPolanyi, Karl. 1944. The Great Transformation: The Political and Economic Origins of Our Time. Beacon Press.\n\n\nPrabhakaran, Vinodkumar. 2015. Social Power in Interactions: Computational Analysis and Detection of Power Relations. Dissertation, Columbia University.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nRaff, Edward, Drew Farris, and Stella Biderman. 2025. How Large Language Models Work.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc.\n\n\nSakamoto, Takuto, Tomoyuki Matsuoka, and Hiroto Ito. 2026. “The Security Council in Its Entirety: Unveiling 80 Years of Deliberation Through the UNSC Meetings and Speeches Dataset.” Journal of Peace Research 63 (4): 735–44.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court.\n\n\nTanimura, Cathy. 2021. SQL for Data Analysis: Advanced Techniques for Transforming Data into Insights. O’Reilly Media, Inc.\n\n\nThomas, Alex. 2020. Natural Language Processing with Spark NLP: Learning to Understand Text at Scale. \"O’Reilly Media, Inc.\"\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.\n\n\nTranquillin, Marco, Valliappa Lakshmanan, and Firat Tekiner. 2023. Architecting Data and Machine Learning Platforms. \"O’Reilly Media, Inc.\"\n\n\nVirtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. Serverless Analytics with Amazon Athena: Query Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure. Packt Publishing Ltd.\n\n\nWojtowicz, Zachary, and Simon DeDeo. 2025. “Undermining Mental Proof: How AI Can Make Cooperation Harder by Making Thinking Easier.”\n\n\nWolohan, John. 2020. Mastering Large Datasets with Python: Parallelize and Distribute Your Python Code. Simon and Schuster.\n\n\nZilliz. 2025. “Introduction to Unstructured Data.” 2025.",
+    "text": "PDFs of Books\nThe remainder of this page is auto-generated from all of the references across the slides for each week: click on the name of a reference to download the ebook version, if available!\n\n\nAbuzaid, Firas, Joseph Bradley, Feynman Liang, Andrew Feng, Lee Yang, Matei Zaharia, and Ameet Talwalkar. 2016. “Yggdrasil: An Optimized System for Training Deep Decision Trees at Scale.” In Proceedings of the 30th International Conference on Neural Information Processing Systems, 3817–25. NIPS’16. Red Hook, NY, USA: Curran Associates Inc.\n\n\nAmbrose, Susan A., Michael W. Bridges, Michele DiPietro, Marsha C. Lovett, and Marie K. Norman. 2010. How Learning Works: Seven Research-Based Principles for Smart Teaching. John Wiley & Sons.\n\n\nAubury, Simon. 2024. Getting Started with DuckDB: A Practical Guide for Accelerating Your Data Science, Data Analytics, and Data Engineering Workflows. Birmingham: Packt Publishing Limited.\n\n\nBekkerman, Ron, Mikhail Bilenko, and John Langford. 2012. Scaling Up Machine Learning: Parallel and Distributed Approaches. Cambridge University Press.\n\n\nBerk, Michael. 2022. “Demystifying the Parquet File Format.” Towards Data Science. August 16, 2022.\n\n\nBielsa, Esperanca, and Susan Bassnett. 2008. Translation in Global News. Routledge.\n\n\nDamji, Jules S., Brooke Wenig, Tathagata Das, and Denny Lee. 2020. Learning Spark. O’Reilly Media, Inc.\n\n\nEagar, Gareth. 2021. Data Engineering with AWS: Learn How to Design and Build Cloud-Based Data Transformation Pipelines Using AWS. 1st ed. Birmingham: Packt Publishing Limited.\n\n\nFirth, John Rupert. 1957. Papers in Linguistics, 1934-1951. Oxford University Press.\n\n\nGopalan, Rukmani. 2022. The Cloud Data Lake: A Guide to Building Robust Cloud Data Architecture. O’Reilly Media, Inc.\n\n\nGrama, Ananth. 2003. Introduction to Parallel Computing. Addison-Wesley.\n\n\nHennessy, John L., and David A. Patterson. 2017. Computer Architecture: A Quantitative Approach. Morgan Kaufmann.\n\n\nInmon, W. H. 1992. Building the Data Warehouse. John Wiley & Sons.\n\n\nJanssens, Jeroen, and Thijs Nieuwdorp. 2025. Python Polars: The Definitive Guide: Transforming, Analyzing, and Visualizing Data with a Fast and Expressive DataFrame API. O’Reilly Media, Inc.\n\n\nKleppmann, Martin, and Chris Riccomini. 2026. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems. 2nd edition. Santa Rosa, CA: O’Reilly.\n\n\nLee, Wei-Meng. 2024. DuckDB: Up and Running: Fast Data Analytics and Reporting. First edition. Sebastopol, CA: O’Reilly Media, Inc.\n\n\nLeskovec, Jure, Anand Rajaraman, and Jeffrey David Ullman. 2014. Mining of Massive Datasets. Cambridge University Press.\n\n\nLoukides, Mike. 2010. “What Is Data Science?” O’Reilly Media. June 2, 2010.\n\n\nLovett, Marsha C., Michael W. Bridges, Michele DiPietro, Susan A. Ambrose, and Marie K. Norman. 2023. How Learning Works: Eight Research-Based Principles for Smart Teaching. John Wiley & Sons.\n\n\nMell, Peter, and Timothy Grance. 2011. “The NIST Definition of Cloud Computing.” National Institute of Standards and Technology, Special Publication 800 (2011): 145.\n\n\nMishra, Sakti, Dylan Qu, and Anusha Challa. 2025. AWS Certified Data Engineer Associate Study Guide: In-Depth Guidance and Practice. \"O’Reilly Media, Inc.\"\n\n\nNeedham, Mark, Michael Hunger, and Michael Simons. 2024. DuckDB in Action. Simon and Schuster.\n\n\nNoble, David F. 1995. Progress Without People: New Technology, Unemployment, and the Message of Resistance. Toronto: Between the Lines.\n\n\nPacheco, Peter, and Matthew Malensek. 2022. An Introduction to Parallel Programming. Morgan Kaufmann.\n\n\nPolak, Adi. 2023. Scaling Machine Learning with Spark. \"O’Reilly Media, Inc.\"\n\n\nPolanyi, Karl. 1944. The Great Transformation: The Political and Economic Origins of Our Time. Beacon Press.\n\n\nPrabhakaran, Vinodkumar. 2015. Social Power in Interactions: Computational Analysis and Detection of Power Relations. Dissertation, Columbia University.\n\n\nRaasveldt, Mark, and Hannes Mühleisen. 2019. “DuckDB: An Embeddable Analytical Database.” In Proceedings of the 2019 International Conference on Management of Data, 1981–84. SIGMOD ’19. New York, NY, USA: Association for Computing Machinery.\n\n\nRaff, Edward, Drew Farris, and Stella Biderman. 2025. How Large Language Models Work.\n\n\nReis, Joe, and Matt Housley. 2022. Fundamentals of Data Engineering: Plan and Build Robust Data Systems. O’Reilly Media, Inc.\n\n\nSakamoto, Takuto, Tomoyuki Matsuoka, and Hiroto Ito. 2026. “The Security Council in Its Entirety: Unveiling 80 Years of Deliberation Through the UNSC Meetings and Speeches Dataset.” Journal of Peace Research 63 (4): 735–44.\n\n\nSaussure, Ferdinand de. 1916. Course in General Linguistics. Open Court.\n\n\nTandon, Akash, Sandy Ryza, Uri Laserson, Sean Owen, and Josh Wills. 2022. Advanced Analytics with PySpark: Patterns for Learning from Data at Scale Using Python and Spark. \"O’Reilly Media, Inc.\"\n\n\nTanimura, Cathy. 2021. SQL for Data Analysis: Advanced Techniques for Transforming Data into Insights. O’Reilly Media, Inc.\n\n\nThomas, Alex. 2020. Natural Language Processing with Spark NLP: Learning to Understand Text at Scale. \"O’Reilly Media, Inc.\"\n\n\nTopol, Matthew, and Wes McKinney. 2024. In-Memory Analytics with Apache Arrow. Packt Publishing Ltd.\n\n\nTranquillin, Marco, Valliappa Lakshmanan, and Firat Tekiner. 2023. Architecting Data and Machine Learning Platforms. \"O’Reilly Media, Inc.\"\n\n\nVirtuoso, Anthony, Mert Turkay Hocanin, Aaron Wishnick, and Rahul Pathak. 2021. Serverless Analytics with Amazon Athena: Query Structured, Unstructured, or Semi-Structured Data in Seconds Without Setting up Any Infrastructure. Packt Publishing Ltd.\n\n\nWojtowicz, Zachary, and Simon DeDeo. 2025. “Undermining Mental Proof: How AI Can Make Cooperation Harder by Making Thinking Easier.”\n\n\nWolohan, John. 2020. Mastering Large Datasets with Python: Parallelize and Distribute Your Python Code. Simon and Schuster.\n\n\nZilliz. 2025. “Introduction to Unstructured Data.” 2025.",
     "crumbs": [
       "Resources"
     ]

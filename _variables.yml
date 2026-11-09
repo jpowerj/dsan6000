@@ -35,20 +35,20 @@ weeks:
   footer: "DSAN 6000 Week 7: Intro to Spark"
   date-md: "Oct 19"
 - weeknum: 8
-  title: "Spark MLLib, SparkNLP"
-  footer: "DSAN 6000 Week 8: Spark MLLib, SparkNLP"
+  title: "Setting Up a Spark Cluster"
+  footer: "DSAN 6000 Week 8: Spark Clusters"
   date-md: "Oct 26"
 - weeknum: 9
   title: "In-Class Midterm"
   footer: "DSAN 6000 Week 9: Midterm"
   date-md: "Nov 2"
 - weeknum: 10
-  title: "ETL Pipelines"
-  footer: "DSAN 6000 Week 10: ETL Pipelines"
+  title: "Scalable Machine Learning with Spark MLlib, SparkNLP, and MLflow"
+  footer: "DSAN 6000 Week 10: Scalable ML with Spark"
   date-md: "Nov 9"
 - weeknum: 11
-  title: "Vector Databases"
-  footer: "DSAN 6000 Week 11: Vector Databases"
+  title: "ETL Pipelines and Vector Databases"
+  footer: "DSAN 6000 Week 11: ETL, Vector Databases"
   date-md: "Nov 16"
 - weeknum: 12
   title: "Final Project Preparation"

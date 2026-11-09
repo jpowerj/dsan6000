@@ -10,7 +10,7 @@ categories:
   - "Class Sessions"
 crossref:
   fig-title: Fig
-cache: false
+# cache: false
 bibliography: "../_DSAN6000.bib"
 csl: "../chicago-17-no-url.csl"
 format:
@@ -22,16 +22,6 @@ format:
     link-external-icon: true
     link-external-newwindow: true
     footer: "{{< var weeks.6.footer >}}"
-    include-in-header:
-      text: |
-        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'>
-        <link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='' crossorigin='anonymous' referrerpolicy='no-referrer'></script>
-        <script src='../sidebar.js'></script>
-    theme:
-      - default
-      - "../dsan-globals/jjquarto.scss"
-      - "../dsan-globals/jjquarto-light.scss"
     revealjs-plugins:
       - simplemenu
     simplemenu:

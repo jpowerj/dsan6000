@@ -1,5 +1,5 @@
 ---
-title: "Week 10: ETL Pipeline Orchestration with Prefect"
+title: "Week 10: Scalable Machine Learning with Spark MLlib, SparkNLP, and MLFlow"
 subtitle: "{{< var course.slides-subtitle >}}"
 author: "{{< var course.author >}}"
 institute: "{{< var course.institute >}}"
@@ -12,25 +12,40 @@ categories:
   - "Class Sessions"
 crossref:
   fig-title: Fig
-cache: true
+eval: false
+execute:
+  enabled: false
+# cache: true
 format:
   revealjs:
     output-file: "slides.html"
-    html-math-method: mathjax
+    mainfont: "Atkinson Hyperlegible Next"
+    theme:
+      - default
+      - "../dsan-globals/jjquarto.scss"
+      - "../dsan-globals/jjquarto-light.scss"
+    html-math-method: katex
     slide-number: true
     scrollable: true
     link-external-icon: true
     link-external-newwindow: true
     footer: "{{< var weeks.10.footer >}}"
-    include-in-header:
-      text: "<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'><link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css'><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'><script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz' crossorigin='anonymous'></script>"
-    theme: [default, "../dsan-globals/jjquarto.scss"]
     revealjs-plugins:
       - simplemenu
     simplemenu:
       flat: true
       barhtml:
-        header: "<div class='menubar'><span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span><ul class='menu'></ul></div>"
+        header: >
+          <div class='menubar'>
+            <span style='position: absolute; left: 8; padding-left: 8px;'><a href='./index.html'>&larr; Return to Notes</a></span>
+            
+            <span style='position: absolute; right: 0; padding-right: 8px; padding-top: 3px; z-index: 10; display: inline-flex !important; align-items: center !important;'>
+              <a id='toggle-01-label' href='#' onclick="window.toggleSectionClicked('01'); return(false);" class='no-decoration'>01</a>
+              <a href='#' onclick="window.toggleIconClicked(); return(false);" class='no-decoration'><i id='section-toggle-icon' class='bi bi-toggle-off' style='padding-top: 0px; padding-left: 3px; padding-right: 3px;'></i></a>
+              <a id='toggle-02-label' href='#' onclick="window.toggleSectionClicked('02'); return(false);" class='no-decoration'>02</a>
+            </span>
+            <ul class='menu'></ul>
+          </div>
       scale: 0.5
   html:
     output-file: "index.html"
@@ -46,506 +61,414 @@ format:
 
 :::
 
-## Pipelines for *Triggered* Execution {.text-85 .crunch-title .crunch-quarto-layout-panel .crunch-quarto-layout-cell .crunch-p .crunch-ul .crunch-li-8 .crunch-img data-name="Key Concepts"}
+## Post-Midterm Roadmap {.crunch-title .smaller .crunch-p .crunch-img .crunch-quarto-figure .crunch-quarto-layout-panel .crunch-li-8 data-name="Roadmap"}
 
-<!-- https://projects.verou.me/bubbly/ -->
+*Just for **this week** and **next week**, we need to **split our brains in half!***
+
+:::: {layout="[35,30,35]" layout-align="center" layout-valign="center"}
+::: {#brain-left}
+
+<center>
+
+**Class Material**
+
+</center>
+
+*This week (W10, <span class='sec-w10-date'>Nov 9</span>):*
+
+* **Scalable ML** with Spark
+* *HW7: Sun, Nov 15*
+
+*Next week (W11, <span class='sec-w11-date'>Nov 16</span>):*
+
+* **ETL**ing into **Vector DB**
+* *HW8: Sun, Nov 22*
+
+:::
+::: {#brain-center}
+
+![[Image source](https://www.psychologytoday.com/us/blog/me-human/201902/my-two-brains-why-are-they-not-the-same)](images/brain-lr-crop.png){fig-align="center" width="100%"}
+
+:::
+::: {#brain-right}
+
+<center>
+
+**Final Project**
+
+</center>
+
+*This week (W10, <span class='sec-w10-date'>Nov 9</span>):*
+
+* Finalize topic $\leadsto$ Proposal
+* *Proposal: Sun, Nov 15*
+
+*Next week (W11, <span class='sec-w11-date'>Nov 16</span>):*
+
+* Exploratory Data Analysis
+* *EDA 1-pager: Sun, Nov 22*
+
+:::
+::::
+
+* *<span class='sec-w115-date'>Nov 23</span>:* **No class!** Spark cluster run (*Spark 1-pager: Sun, Nov 29*)
+* *W12, <span class='sec-w12-date'>Nov 30</span>:* **Informal technical presentation** (*Formal slides: Sun, Dec 6*)
+* **[Formal] Final Presentations: *<span class='sec-presentation-date'>Monday, December 7</span>*** (*Report: Sun, Nov 13*)
+
+## Today's Goal {.smaller .crunch-title .crunch-p .crunch-img data-name="MLlib &rarr; MLflow"}
+
+<center>
+
+[***Combination** of your skills > **sum of its parts!***]{.boxed-g style="padding-left: 8px !important; padding-right: 8px !important;"}
+
+</center>
+
+![](images/hand-final.jpeg){.nostretch fig-align="center" width="50%"}
+
+## MLlib: Hopping Up Another Abstraction Layer! {.smaller .not-title-slide .title-10}
+
+![[Image Source](https://www.qubole.com/developers/spark-getting-started-guide/workflow)](images/sparkml.png){.lightbox fig-align="center"}
+
+## Numeric Features: `VectorAssembler` {.smaller .crunch-ul .crunch-p .title-12}
+
+* MLlib models expect features to be combined into a **single column**
+* For numeric data, `VectorAssembler` does what we want!
+
+```{python}
+#| label: build-sparksession
+#| eval: false
+from pyspark.sql import SparkSession
+spark = (
+  SparkSession
+  .builder
+  .appName('Sport_Predict')
+  .getOrCreate()
+)
+```
+
+:::: {.columns}
+::: {.column width="50%"}
+
+```{python}
+#| label: mllib-load-data
+#| echo: true
+#| code-fold: true
+#| eval: false
+from pyspark.ml.feature import VectorAssembler
+from pyspark.ml.regression import DecisionTreeRegressor
+sport_sdf = (
+    spark
+    .read
+    .option('header', 'true')
+    .csv("assets/country_sports.csv")
+)
+sport_sdf.show()
+```
+
+```
++--------------+---------+----------+--------+
+|       Country|Continent|Population|   Sport|
++--------------+---------+----------+--------+
+|     Argentina|       SA|        44|  Soccer|
+|     Australia|      Aus|        34| Cricket|
+|        Brazil|       SA|       211|  Soccer|
+|        Canada|       NA|        36|  Hockey|
+|          Cuba|       NA|        11|Baseball|
+|       Germany|      Eur|        80|  Soccer|
+|         India|     Asia|      1342| Cricket|
+|         Italy|      Eur|        59|  Soccer|
+|        Russia|     Asia|       143|  Hockey|
+|         Spain|      Eur|        46|  Soccer|
+|United Kingdom|      Eur|        65| Cricket|
+| United States|       NA|       326|Baseball|
++--------------+---------+----------+--------+
+```
+
+:::
+::: {.column width="50%"}
+
+```{python}
+#| label: mllib-vector-assembler
+#| echo: true
+#| code-fold: true
+#| eval: false
+from pyspark.ml.feature import VectorAssembler, StringIndexer, OneHotEncoder
+from pyspark.ml.regression import DecisionTreeRegressor
+sport_sdf = (
+    spark
+    .read
+    .option('header', 'true')
+    .schema('Country STRING, Continent STRING, Population INT, Sport STRING')
+    .csv("assets/country_sports.csv")
+)
+va = VectorAssembler(
+  inputCols=['Population'],
+  outputCol='features'
+)
+va.transform(sport_sdf).select('Country','features','Sport').show()
+```
+
+```
++--------------+--------+--------+
+|       Country|features|   Sport|
++--------------+--------+--------+
+|     Argentina|  [44.0]|  Soccer|
+|     Australia|  [34.0]| Cricket|
+|        Brazil| [211.0]|  Soccer|
+|        Canada|  [36.0]|  Hockey|
+|          Cuba|  [11.0]|Baseball|
+|       Germany|  [80.0]|  Soccer|
+|         India|[1342.0]| Cricket|
+|         Italy|  [59.0]|  Soccer|
+|        Russia| [143.0]|  Hockey|
+|         Spain|  [46.0]|  Soccer|
+|United Kingdom|  [65.0]| Cricket|
+| United States| [326.0]|Baseball|
++--------------+--------+--------+
+```
+
+:::
+::::
+
+* ...What about **categorical** data?
+
+[*(Example dataset is from @leskovec_mining_2014)*]{.text-90}
+
+## Categorical Features: `StringIndexer` + `OneHotEncoder` {.smaller .title-09 .crunch-p .crunch-ul}
+
+:::: {.columns}
+::: {.column width="40%"}
+
+<center>
+
+**`StringIndexer`**
+
+</center>
+
+```{python}
+#| label: mllib-indexer
+#| echo: true
+#| code-fold: true
+#| eval: false
+si = StringIndexer(
+  inputCols=['Continent'],
+  outputCols=['Continent_Index'],
+  handleInvalid="skip"
+)
+fitted_si = si.fit(sport_sdf)
+sport_ci_sdf = fitted_si.transform(sport_sdf)
+sport_ci_sdf.select('Country','Continent','Continent_Index').show()
+```
+
+```
++--------------+---------+---------------+
+|       Country|Continent|Continent_Index|
++--------------+---------+---------------+
+|     Argentina|       SA|            3.0|
+|     Australia|      Aus|            4.0|
+|        Brazil|       SA|            3.0|
+|        Canada|       NA|            1.0|
+|          Cuba|       NA|            1.0|
+|       Germany|      Eur|            0.0|
+|         India|     Asia|            2.0|
+|         Italy|      Eur|            0.0|
+|        Russia|     Asia|            2.0|
+|         Spain|      Eur|            0.0|
+|United Kingdom|      Eur|            0.0|
+| United States|       NA|            1.0|
++--------------+---------+---------------+
+```
+
+:::
+::: {.column width="60%"}
+
+<center>
+
+**`OneHotEncoder`**
+
+</center>
+
+```{python}
+#| label: mllib-ohe
+#| echo: true
+#| code-fold: true
+#| eval: false
+from pyspark.ml.linalg import DenseVector
+from pyspark.ml.functions import vector_to_array, array_to_vector
+ohe = OneHotEncoder(
+  inputCols=['Continent_Index'],
+  outputCols=['Continent_OHE'],
+)
+fitted_ohe = ohe.fit(sport_ci_sdf)
+sport_ohe_sdf = fitted_ohe.transform(sport_ci_sdf)
+sport_dense_sdf = (
+  sport_ohe_sdf
+  .withColumn(
+    "Continent_Dense",
+    array_to_vector(
+      vector_to_array("Continent_OHE")
+    )
+  )
+)
+(
+  sport_dense_sdf
+  .select('Country','Continent_Index','Continent_OHE','Continent_Dense')
+).show()
+```
+
+```
++--------------+---------------+-------------+-----------------+
+|       Country|Continent_Index|Continent_OHE|  Continent_Dense|
++--------------+---------------+-------------+-----------------+
+|     Argentina|            3.0|(4,[3],[1.0])|[0.0,0.0,0.0,1.0]|
+|     Australia|            4.0|    (4,[],[])|[0.0,0.0,0.0,0.0]|
+|        Brazil|            3.0|(4,[3],[1.0])|[0.0,0.0,0.0,1.0]|
+|        Canada|            1.0|(4,[1],[1.0])|[0.0,1.0,0.0,0.0]|
+|          Cuba|            1.0|(4,[1],[1.0])|[0.0,1.0,0.0,0.0]|
+|       Germany|            0.0|(4,[0],[1.0])|[1.0,0.0,0.0,0.0]|
+|         India|            2.0|(4,[2],[1.0])|[0.0,0.0,1.0,0.0]|
+|         Italy|            0.0|(4,[0],[1.0])|[1.0,0.0,0.0,0.0]|
+|        Russia|            2.0|(4,[2],[1.0])|[0.0,0.0,1.0,0.0]|
+|         Spain|            0.0|(4,[0],[1.0])|[1.0,0.0,0.0,0.0]|
+|United Kingdom|            0.0|(4,[0],[1.0])|[1.0,0.0,0.0,0.0]|
+| United States|            1.0|(4,[1],[1.0])|[0.0,1.0,0.0,0.0]|
++--------------+---------------+-------------+-----------------+
+```
+
+:::
+::::
+
+* Note 1: PySpark **automatically** chooses `SparseVector` if % non-zero is low
+* Note 2: `StringIndexer` uses **`0` for most common**, **`1` for next most common**, etc.
+* In `scikit-learn` we'd be ready to go! In MLlib...
+
+## Map-Reduced vs. Serial Algorithms {.smaller .crunch-title}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![From @abuzaid_yggdrasil_2016](images/planet.svg){fig-align="center" width="80%"}
+
+:::
+::: {.column width="50%"}
+
+* **Decision Trees**: Optimal split $s^*$ $\overset{\tiny\text{def}}{\small{=}}$ a constant value $c^*$ for feature $j^*$ such that *«go left if $x_{ij^*} \leq s^*$»* produces **maximum reduction in uncertainty about label (entropy)**
+* Maximum over what? **All data**
+* ...But workers **don't have all data!**
+* $\Rightarrow$ `spark.ml` can't use same algorithm as `scikit-learn`!
+* Uses **distributed** DT learner instead: [[Planet]{.alg}](https://ir.cs.georgetown.edu/cs422/files/DM-DistributedDT.pdf)
+
+:::
+::::
+
+## Why Do You Need To Know These Details? {.title-08 .crunch-ul .crunch-p}
 
 ```{=html}
 <style>
-.speech-bubble {
-	position: relative;
-	background: #e69f00;
-	border-radius: .3em;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+.reveal pre.sourceCode.default code {
+  white-space: wrap;
 }
-
-.speech-bubble:after {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 50%;
-	width: 0;
-	height: 0;
-	border: 24px solid transparent;
-	border-right-color: #e69f00;
-	border-left: 0;
-	border-bottom: 0;
-	margin-top: -12px;
-	margin-left: -24px;
+.reveal pre.sourceCode.default code > * {
+  color: #f20000;
 }
 </style>
 ```
 
-<center>
+``` {.python}
+from pyspark.ml.regression import DecisionTreeRegressor 
+dt = DecisionTreeRegressor(labelCol="price")
+dt_model = dt.fit(train_sdf)
+```
 
-:::: {layout="[90,10]" layout-valign="center"}
-::: {.column width="90%"}
+``` {.default code-line-numbers="false"}
+java.lang.IllegalArgumentException: requirement failed: DecisionTree requires maxBins (= 32) to be at least as large as the number of values in each categorical feature, but categorical feature 3 has 36 values. Consider removing this and other categorical features with a large number of values, or add more training examples.
+```
 
-[***...HEY! WAKE UP! NEW DATA JUST CAME IN!***]{.speech-bubble style="float: right;"}
+::: {.text-85 .inline-80}
+
+* `scikit-learn` **has no `maxBins` parameter**
+* `spark.ml` [does](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.ml.regression.DecisionTreeRegressor.html#pyspark.ml.regression.DecisionTreeRegressor.maxBins), and it's important!
+* Should be **power of 2**, and the next one above the default value (`64`) can **massively increase computation time** for datasets with many categorical features
+
+*(Many `spark.ml` algorithms also fail if \# features $p > 4096$...)*
 
 :::
-::: {.column width="10%"}
 
-![](images/shocked-cat.jpg){width="90" style="float: left;"}
-
-:::
-::::
-
-</center>
+## Final Note: *Different* Algorithms for Long vs. Wide {.smaller .title-10 .crunch-img .crunch-quarto-figure .crunch-ul .crunch-li-8}
 
 :::: {.columns}
 ::: {.column width="50%"}
 
-<center>
-
-You before this week:
-
-</center>
-
-* Sprint to your `.ipynb` and/or Spark cluster
-* Load, clean, process new data, manually, step-by-step
-* Email update to boss
-
-<center>
-
-![](images/all_nighter_crop.jpg){width="44%" fig-align="center"}
-
-</center>
+![[Planet]{.alg}: MLlib's default DT learner when \# features $p \leq 4096$. From @abuzaid_yggdrasil_2016](images/planet.svg){.nostretch fig-align="center" width="380"}
 
 :::
 ::: {.column width="50%"}
 
-<center>
-
-You after this week:
-
-</center>
-
-* [Asset-aware](https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/asset-scheduling.html) pipeline automatically triggered
-* Airflow **orchestrates** loading, cleaning, processing
-* `EmailOperator` sends update
-
-<center>
-
-![](images/biko_2025-10-13_crop.jpg){width="50%" fig-align="center"}
-
-</center>
+![MLlib **switches over** to [Yggdrasil]{.alg} when \# features $p > 4096$. Also @abuzaid_yggdrasil_2016... Unrelated to [YGG Tay](https://youtu.be/u5K0hFhXLus?si=6_RWKfoVzUfD_67O)](images/yggdrasil.svg){.nostretch fig-align="center" width="340"}
 
 :::
 ::::
 
-## Pipelines vs. Pipeline *Orchestration*
+* *Note that this switching occurs when Spark hits its **hard constraint**: $p \leq 4096$*
+* **You** may want to **switch it manually**... ***When would this be helpful?*** [In which Jeff sits in silence until his heart explodes]{style="font-size: 20%"}
 
-![From Astronomer Academy's [Airflow 101](https://academy.astronomer.io/path/airflow-101)](images/orchestration.jpeg){fig-align="center"}
+## In-Class Demo 3
 
-## Key Airflow-Specific Buzzwords {.text-75}
+&nbsp;
 
-*(Underlined words link to Airflow docs ["Core Concepts" section](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html))*
+<center>
 
-* [**Directed Acyclic Graph (`DAG`)**](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html){.under}: Your pipeline as a whole!
-* `DAG`s consist of **multiple** [**`task`s**](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/tasks.html){.under}, which you "string together" using the [**control flow**](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html#control-flow) operators `>>` and `<<`
-* [Ex <i class='bi bi-1-circle' style='font-size: 90%;'></i>] `second_task`, `third_task` can't start until `first_task` completes:
-  ``` {.python}
-  first_task >> [second_task, third_task]
-  # Equivalent to:
-  first_task.set_downstream([second_task, third_task])
-  ```
-* [Ex <i class='bi bi-2-circle' style='font-size: 90%;'></i>] `fourth_task` can't start until `third_task` completes:
-  ``` {.python}
-  fourth_task << third_task
-  # Equivalent to:
-  fourth_task.set_upstream(third_task)
-  ```
-* What *kinds* of `task`s can we create? Brings us to another concept...
+[[**MLlib in Action**](https://colab.research.google.com/drive/1JmUjc65mEucPW0bZHHjzmt812oiIXeVE?usp=sharing)]{.boxed-cb}
 
-## `Operator`s: What *Kind* of `task`? {.text-90 .crunch-ul .crunch-quarto-layout-panel .li-even}
+</center>
 
-* "Core" `Operator`s: [`BashOperator`](https://airflow.apache.org/docs/apache-airflow-providers-standard/stable/_api/airflow/providers/standard/operators/bash/index.html#airflow.providers.standard.operators.bash.BashOperator) and [`PythonOperator`](https://airflow.apache.org/docs/apache-airflow-providers-standard/stable/_api/airflow/providers/standard/operators/python/index.html#airflow.providers.standard.operators.python.PythonOperator)
-
-:::: {layout="[1,1]" layout-valign="default"}
-::: {.column width="50%"}
-
-* \+ Hundreds of "community provider" `Operator`s:
-* `HttpOperator`
-* `S3FileTransformOperator`
-* `SQLExecuteQueryOperator`
-* `EmailOperator`
-* `SlackAPIOperator`
-
-:::
-::: {.column width="50%"}
-
-\+ [`Jinja` templating](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html#jinja-templating) for managing how data "passes" from one step to the next:
-
-![](images/jinja.svg){fig-align="center"}
-
-<!-- https://edotor.net/?engine=dot?engine=dot#digraph%20G%20%7B%0A%20%20%20%20rankdir%3D%22LR%22%3B%0A%09edge%20%5Bpenwidth%3D0.75%2Carrowsize%3D0.6%5D%0A%20%20%20%20%23%20results%0A%09csv%20%5Blabel%3D%22CSV%22%5D%3B%0A%09json%20%5Blabel%3D%22JSON%22%5D%3B%0A%09pl%20%5Blabel%3D%22Python%20lists%22%5D%3B%0A%20%20%20%20logs%20%5Blabel%3D%22Logged%20outputs%22%5D%3B%0A%20%20%20%20%23%20%3F%0A%20%20%20%20qm%20%5Blabel%3D%22%3F%3F%3F%22%5D%3B%0A%20%20%20%20%23%20summaries%0A%20%20%20%20email%20%5Blabel%3D%22Email%20%2F%20Text%20message%22%5D%0A%20%20%20%20slack%20%5Blabel%3D%22Slack%20message%22%5D%0A%09%23text%20%5Blabel%3D%22Text%20message%22%5D%0A%20%20%20%20reports%20%5Blabel%3D%22Markdown%20report%22%5D%0A%09subgraph%20cluster_G1%20%7B%0A%20%20%20%20%20%20%20%20style%3D%22dashed%22%3B%0A%09%09%09%09label%3D%22Messy%20Pipeline%20Results%22%0A%09%09%09%09csv%3B%0A%09%09%09%09json%3B%0A%09%09%09%09pl%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20logs%3B%0A%09%7D%0A%09subgraph%20cluster_G2%20%7B%0A%20%20%20%20%20%20%20%20style%3D%22dashed%22%3B%0A%09%09%09%09label%3D%22Clean%20Summaries%22%0A%09%09%09%09email%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20slack%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23text%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20reports%3B%0A%09%7D%0A%20%20%20%20csv%20-%3E%20qm%3B%0A%20%20%20%20json%20-%3E%20qm%3B%0A%20%20%20%20pl%20-%3E%20qm%3B%0A%20%20%20%20logs%20-%3E%20qm%3B%0A%20%20%20%20qm%20-%3E%20email%3B%0A%20%20%20%20qm%20-%3E%20slack%3B%0A%20%20%20%20%23qm%20-%3E%20text%3B%0A%20%20%20%20qm%20-%3E%20reports%3B%0A%7D%0A -->
-
-:::
-::::
-
-## `Task` vs. `Operator`: A Sanity-Preserving Distinction {.smaller .title-09 .crunch-title .crunch-blockquote .crunch-quarto-figure}
-
-*From [`Operator`](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html) docs:*
-
-> *When we talk about a `Task`, we mean the **generic** "unit of execution" of a `DAG`; when we talk about an `Operator`, we mean a **[specific] pre-made `Task` template**, whose logic is all done for you and that **just needs some arguments**.*
+## Spark NLP {.smaller .crunch-title data-name="Spark NLP"}
 
 :::: {.columns}
 ::: {.column width="50%"}
 
-<center>
+**MLlib**: `pyspark` as normal:
 
-`Task`:
-
-</center>
-
-![](images/black_box.svg){fig-align="center" width="90%"}
-
-:::
-::: {.column width="50%"}
-
-<center>
-
-`Operator`:
-
-</center>
-
-![](images/data-x-crop-2.jpeg){fig-align="center" width="60%"}
-
-:::
-::::
-
-![From @ruiter_data_2026](images/task-operator.png){fig-align="center" width="60%"}
-
-## Concepts $\leadsto$ Code {.crunch-title .crunch-ul data-name="Airflow Components+UI"}
-
-``` {.bash filename="start-airflow.sh"}
-airflow db migrate
-airflow api-server --port 8080
-airflow scheduler
-airflow dag-processor
-airflow triggerer
-```
-
-:::: {.columns}
-::: {.column width="50%"}
-
-* Full Airflow "ecosystem" is running once you've started each piece via above (`bash`) commands!
-* Let's look at each in turn...
-
-:::
-::: {.column width="50%"}
-
-![](images/ecosystem.jpg){fig-align="center" width="400"}
-
-:::
-::::
-
-## `db migrate`: The Airflow Metastore {.crunch-title}
-
-``` {.bash filename="start-airflow.sh" code-line-numbers="1"}
-airflow db migrate
-airflow api-server --port 8080
-airflow scheduler
-airflow dag-processor
-airflow triggerer
-```
-
-* General info used by DAGs: variables, connections, XComs
-* Data about DAG and task runs (generated by scheduler)
-* Logs / error information
-* <i class='bi bi-exclamation-triangle' style='font-size: 90%;'></i> Not modified directly/manually! Managed by Airflow; To modify, use API Server &rarr;
-
-## API Server {.crunch-title .crunch-quarto-figure}
-
-``` {.bash filename="start-airflow.sh" code-line-numbers="2"}
-airflow db migrate
-airflow api-server --port 8080
-airflow scheduler
-airflow dag-processor
-airflow triggerer
-```
-
-:::: {.columns}
-::: {.column width="50%"}
-
-Web UI for managing Airflow (much more on this later!)
-
-::: {.callout-warning title="&nbsp;Default Login Info"}
-
-Default `db migrate` generates **admin password** in `~/simple_auth_manager_passwords.json.generated`
-
-:::
-
-:::
-::: {.column width="50%"}
-
-![](images/airflow_login.jpeg){fig-align="center" width="85%"}
-
-:::
-::::
-
-## `Scheduler` &rarr; `Executor` {.crunch-title}
-
-:::: {.columns}
-::: {.column width="50%"}
-
-``` {.bash filename="start-airflow.sh" code-line-numbers="3"}
-airflow db migrate
-airflow api-server --port 8080
-airflow scheduler
-airflow dag-processor
-airflow triggerer
-```
-
-* Default: `LocalExecutor`
-* For scaling: `EcsExecutor` (AWS ECS), `KubernetesExecutor`
-* See also [`SparkSubmitOperator`](https://airflow.apache.org/docs/apache-airflow-providers-apache-spark/stable/operators.html)
-
-:::
-::: {.column width="50%"}
-
-![From @ruiter_data_2026](images/executor_loop.png){fig-align="center"}
-
-:::
-::::
-
-## `DAG` Processor {.smaller}
-
-``` {.bash filename="start-airflow.sh" code-line-numbers="4"}
-airflow db migrate
-airflow api-server --port 8080
-airflow scheduler
-airflow dag-processor
-airflow triggerer
-```
-
-![From @ruiter_data_2026](images/dag_processor.png){fig-align="center"}
-
-## The `schedule` Argument {.smaller .crunch-title .crunch-ul}
-
-*(Airflow uses [`pendulum`](https://pendulum.eustace.io/) under the hood, rather than `datetime`!)*
-
-``` {.python filename="dag_scheduling.py"}
-from airflow.sdk import DAG
-import pendulum
-dag = DAG("regular_interval_cron_example", schedule="0 0 * * *", ...)
-dag = DAG("regular_interval_cron_preset_example", schedule="@daily", ...)
-dag = DAG("regular_interval_timedelta_example", schedule=pendulum.timedelta(days=1), ...)
-```
-
-[**`Cron`**](https://crontab.guru/): Full-on scheduling language (used by computers since [1975](https://en.wikipedia.org/wiki/Cron)!)
-
-```bash {filename="crontab.sh"}
-# ┌───────────── minute (0–59)
-# │ ┌───────────── hour (0–23)
-# │ │ ┌───────────── day of the month (1–31)
-# │ │ │ ┌───────────── month (1–12)
-# │ │ │ │ ┌───────────── day of the week (0–6) (Sunday to Saturday)
-# │ │ │ │ │
-# │ │ │ │ │
-# │ │ │ │ │
-# * * * * * <command to execute>
-```
-
-[Cron Presets](https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/cron.html#cron-presets): `None`, `"@once"`, `"@continuous"`, `"@hourly"`, `"@daily"`, `"@weekly"`
-
-## External Service Integration {.smaller .crunch-title .crunch-ul}
-
-| Service | Command |
-| - | - |
-| AWS | `pip install 'apache-airflow[amazon]'` |
-| Azure | `pip install 'apache-airflow[microsoft-azure]'` |
-| Databricks | `pip install 'apache-airflow[databricks]'` |
-| GitHub | `pip install 'apache-airflow[github]'` |
-| Google Cloud | `pip install 'apache-airflow[google]'` |
-| MongoDB | `pip install 'apache-airflow[mongo]'` |
-| OpenAI | `pip install 'apache-airflow[openai]'` |
-| Slack | `pip install 'apache-airflow[slack]'` |
-| Spark | `pip install 'apache-airflow[apache-spark]'` |
-| Tableau | `pip install 'apache-airflow[tableau]'` |
-
-*(And [many more](https://airflow.apache.org/docs/apache-airflow/stable/extra-packages-ref.html#external-services-extras):)*
-
-## `Jinja` Example {.crunch-title .smaller .crunch-hr .crunch-ul}
-
-:::: {layout="[48,4,48]" layout-valign="center"}
-::: {.column width="48%"}
-
-```html {filename="homepage.jinja"}
-<h4>{{ me['name'] }}'s Favorite Hobbies</h4>
-<ul>
-{%- for hobby in hobbies %}
-  <li>{{ hobby }}</li>
-{%- endfor %}
-</ul>
-```
-
-:::
-::: {.column width="4%"}
-
-<center>
-\+
-</center>
-
-:::
-::: {.column width="48%"}
-
-```python {filename="render_jinja.py"}
-from jinja2 import Template
-tmpl = Template('homepage.jinja')
-tmpl.render(
-    me = {'name': 'Jeff'},
-    hobbies = [
-        'eat',
-        'sleep',
-        'attend to the proverbial bag'
-    ]
+``` {.python}
+from pyspark.sql import SparkSession
+spark = (
+    SparkSession
+    .builder
+    .appName('My_ML_App')
+    .getOrCreate()
 )
+type(spark)
+# >>> pyspark.sql.session.SparkSession
+from pyspark.ml.feature import VectorAssembler
 ```
+
+**Spark NLP**: *Custom* `SparkSession` with `sparknlp.start()`:
+
+``` {.python}
+import sparknlp
+spark = sparknlp.start()
+type(spark)
+# >>> pyspark.sql.session.SparkSession
+from sparknlp.base import DocumentAssembler
+```
+
+:::
+::: {.column width="50%"}
+
+![@thomas_natural_2020: The [*chimango caracara*](https://en.wikipedia.org/wiki/Chimango_caracara) book](images/sparknlp.jpg){.nostretch fig-align="center" width="360"}
 
 :::
 ::::
 
-<hr>
+## In-Class Demo 4
+
+&nbsp;
 
 <center>
-&darr;
+
+[[**Distributed Sentiment Analysis with Spark NLP**](https://colab.research.google.com/drive/1CMokcCj4W0qruH946Y7dYeWYrE62iXkK?usp=sharing)]{.boxed-cb}
+
 </center>
-
-<hr>
-
-:::: {layout="[48,4,48]" layout-valign="center"}
-::: {.column width="48%"}
-
-```html {filename="rendered.html"}
-<h4>Jeff's Favorite Hobbies</h4>
-<ul>
-  <li>eat</li>
-  <li>sleep</li>
-  <li>attend to the proverbial bag</li>
-</ul>
-```
-
-:::
-::: {.column width="4%"}
-
-$\leadsto$
-
-:::
-::: {.column width="48%"}
-
-```{=html}
-<h4>Jeff's Favorite Hobbies</h4>
-<ul>
-  <li>eat</li>
-  <li>sleep</li>
-  <li>attend to the proverbial bag</li>
-</ul>
-```
-
-:::
-::::
-
-## Airflow UI: Grid View
-
-![](images/grid_view.png){fig-align="center"}
-
-## Airflow UI: Run Details
-
-![](images/grid_run_details.png){fig-align="center"}
-
-## Airflow UI: Task Instance Details
-
-![](images/grid_instance_details.png){fig-align="center"}
-
-## Tasks &rarr; Task Groups
-
-![](images/grid_task_group.png){fig-align="center"}
-
-## Graph View
-
-![](images/graph.png){fig-align="center"}
-
-## Calendar View
-
-![](images/calendar.png){fig-align="center"}
-
-## Gantt View
-
-![](images/gantt.png){fig-align="center"}
-
-## New Book: Up-To-Date (Airflow 3.0) Demos 🤓 {.smaller .title-10 .nostretch}
-
-:::: {layout="[48,4,48]" layout-valign="center"}
-::: {.column width="48%"}
-
-![@harenslak_data_2021](images/manning_1e.jpg){fig-align="center" width="380"}
-
-:::
-::: {.column width="4%"}
-
-$\leadsto$
-
-:::
-::: {.column width="48%"}
-
-![@ruiter_data_2026](images/manning_2e.png){fig-align="center" width="380"}
-
-:::
-::::
-
-## Conceptual Pipelines $\leadsto$ DAGs {.smaller}
-
-Main challenge: converting "intuitive" pipelines in our heads:
-
-![From @ruiter_data_2026](images/pipeline-abstract.png){fig-align="center" width="60%"}
-
-Into **`DAG`s** with concrete `Task`s, dependencies, and triggers:
-
-![Also from @ruiter_data_2026](images/pipeline_dag.png){fig-align="center" width="60%"}
-
-## Implementation Detail 1: Backfilling {.smaller .title-10}
-
-![](images/backfill.png){fig-align="center"}
-
-## Implementation Detail 2: Train Model Only *After* Backfill {.smaller .title-09 .crunch-title .crunch-quarto-figure}
-
-::::: {#fig-ml-deploy}
-
-:::: {layout="[48,4,48]" layout-valign="center"}
-::: {.column width="48%"}
-
-![](images/latestonly_dag.png){fig-align="center" width="400"}
-
-:::
-::: {.column width="4%"}
-
-$\leadsto$
-
-:::
-::: {.column width="48%"}
-
-![](images/latestonly_grid.png){fig-align="center" width="400"}
-
-[`LatestOnlyOperator`](https://airflow.apache.org/docs/apache-airflow-providers-standard/stable/_api/airflow/providers/standard/operators/latest_only/index.html#module-contents){.under}
-
-:::
-::::
-
-Both figures from @ruiter_data_2026
-:::::
-
-## Implementation Detail 3: Downstream Consumers
-
-![From @ruiter_data_2026](images/asset_aware.png){fig-align="center"}
-
-## Lab Time! {data-name="Lab"}
-
-[Lab 10: ETL Pipeline Orchestration with Airflow](https://classroom.github.com/classrooms/34950344-georgetown-university-dsan6000-big-data-and-cloud-computing)
 
 ## References
 

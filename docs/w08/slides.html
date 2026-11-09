@@ -7,10 +7,7 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Jeff Jacobs">
@@ -108,7 +105,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -125,7 +121,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-12511758f183ca32f0aa9eb0609d6068.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-d81e807cb9a1792d8de94eb340408cf3.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -219,8 +215,12 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
+  <script src="../sidebar.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -378,69 +378,10 @@ Jeff Jacobs
 </ul>
 </div>
 </section>
-<section id="mllib-hopping-up-another-abstraction-layer" class="slide level2 smaller not-title-slide title-10" data-name="MLlib">
-<h2>MLlib: Hopping Up Another Abstraction Layer!</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="images/sparkml.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Image Source"><img data-src="images/sparkml.png" class="quarto-figure quarto-figure-center" alt="Image Source"></a></p>
-</figure>
-</div>
-<figcaption><a href="https://www.qubole.com/developers/spark-getting-started-guide/workflow">Image Source</a></figcaption>
-</figure>
-</div>
-</section>
-<section id="in-class-demo-3" class="slide level2">
-<h2>In-Class Demo 3</h2>
-<p>&nbsp;</p>
-<center>
-<p><span class="boxed-cb"><a href="https://colab.research.google.com/drive/1JmUjc65mEucPW0bZHHjzmt812oiIXeVE?usp=sharing"><strong>MLlib in Action</strong></a></span></p>
-</center>
-</section>
-<section id="spark-nlp" class="slide level2 smaller crunch-title" data-name="Spark NLP">
-<h2>Spark NLP</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>MLlib</strong>: <code>pyspark</code> as normal:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-label="1"></a><span class="im">from</span> pyspark.sql <span class="im">import</span> SparkSession</span>
-<span id="cb9-2"><a aria-label="2"></a>spark <span class="op">=</span> (</span>
-<span id="cb9-3"><a aria-label="3"></a>    SparkSession</span>
-<span id="cb9-4"><a aria-label="4"></a>    .builder</span>
-<span id="cb9-5"><a aria-label="5"></a>    .appName(<span class="st">'SF_Housing'</span>)</span>
-<span id="cb9-6"><a aria-label="6"></a>    .getOrCreate()</span>
-<span id="cb9-7"><a aria-label="7"></a>)</span>
-<span id="cb9-8"><a aria-label="8"></a><span class="bu">type</span>(spark)</span>
-<span id="cb9-9"><a aria-label="9"></a><span class="co"># &gt;&gt;&gt; pyspark.sql.session.SparkSession</span></span>
-<span id="cb9-10"><a aria-label="10"></a><span class="im">from</span> pyspark.ml.feature <span class="im">import</span> VectorAssembler</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Spark NLP</strong>: <em>Custom</em> <code>SparkSession</code> with <code>sparknlp.start()</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-label="1"></a><span class="im">import</span> sparknlp</span>
-<span id="cb10-2"><a aria-label="2"></a>spark <span class="op">=</span> sparknlp.start()</span>
-<span id="cb10-3"><a aria-label="3"></a><span class="bu">type</span>(spark)</span>
-<span id="cb10-4"><a aria-label="4"></a><span class="co"># &gt;&gt;&gt; pyspark.sql.session.SparkSession</span></span>
-<span id="cb10-5"><a aria-label="5"></a><span class="im">from</span> sparknlp.base <span class="im">import</span> DocumentAssembler</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/sparknlp.jpg" class="" width="360"></p>
-<figcaption><span class="citation" data-cites="thomas_natural_2020">Thomas (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>: The <a href="https://en.wikipedia.org/wiki/Chimango_caracara"><em>chimango caracara</em></a> book</figcaption>
-</figure>
-</div>
-</div></div>
-</section>
-<section id="in-class-demo-4" class="slide level2">
-<h2>In-Class Demo 4</h2>
-<p>&nbsp;</p>
-<center>
-<p><span class="boxed-cb"><a href="https://colab.research.google.com/drive/1CMokcCj4W0qruH946Y7dYeWYrE62iXkK?usp=sharing"><strong>Distributed Sentiment Analysis with Spark NLP</strong></a></span></p>
-</center>
-</section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-thomas_natural_2020" class="csl-entry" role="listitem">
-Thomas, Alex. 2020. <em><a href="https://www.dropbox.com/scl/fi/tpwvbcsd2qsfd3bkposyx/Natural-Language-Processing-with-Spark-NLP.pdf?rlkey=v61v42g9m6v123qxjg26vcwmu&amp;dl=1">Natural <span>Language Processing</span> with <span>Spark NLP</span>: <span>Learning</span> to <span>Understand Text</span> at <span>Scale</span></a></em>. "O’Reilly Media, Inc."
-</div>
+<div id="refs" role="list">
+
 </div>
 
 
@@ -448,7 +389,7 @@ Thomas, Alex. 2020. <em><a href="https://www.dropbox.com/scl/fi/tpwvbcsd2qsfd3bk
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>DSAN 6000 Week 8: Spark MLLib, SparkNLP</p>
+<p>DSAN 6000 Week 8: Spark Clusters</p>
 </div>
 </div></div>
 
@@ -837,38 +778,6 @@ Thomas, Alex. 2020. <em><a href="https://www.dropbox.com/scl/fi/tpwvbcsd2qsfd3bk
         }
       });
       </script>
-    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-    (function() {
-      let previousOnload = window.onload;
-      window.onload = () => {
-        if (previousOnload) {
-          previousOnload();
-        }
-        lightboxQuarto.on('slide_before_load', (data) => {
-          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-          const href = trigger.getAttribute('href');
-          if (href !== null) {
-            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-            if (imgEl !== null) {
-              const srcAttr = imgEl.getAttribute("src");
-              if (srcAttr && srcAttr.startsWith("data:")) {
-                slideConfig.href = srcAttr;
-              }
-            }
-          } 
-        });
-      
-        lightboxQuarto.on('slide_after_load', (data) => {
-          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(slideNode);
-          }
-        });
-      
-      };
-      
-    })();
-              </script>
     
 
 </body></html>
