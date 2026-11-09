@@ -54,7 +54,7 @@ website:
       - href: w12/index.qmd
         text: "Week 12: <span class='sec-w12-date'>Nov 30</span>"
       - href: w13/index.qmd
-        text: "Week 13: <span class='sec-w13-date'>Dec 7-8</span>"
+        text: "Week 13: <span class='sec-w13-date'>Dec 7</span>"
       - "---"
       - href: "https://georgetown.instructure.com/courses/234516"
         text: "GU Canvas <i class='bi bi-box-arrow-up-right ps-1' style='font-size: 75%;'></i>"
@@ -113,4 +113,3 @@ format:
           white-space: wrap;
         }
         </style>
-
