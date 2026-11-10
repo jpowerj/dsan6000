@@ -1,9 +1,42 @@
 - year: 2025
+  title: "Reddit at Scale: Community Dynamics, Language, and Virality"
+  presentation-url: "https://drive.google.com/file/d/1Lte9FAKzX24T5WNJ4IbPFlDyIhcylbjw/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1Lte9FAKzX24T5WNJ4IbPFlDyIhcylbjw/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Alaeddin"
+  author:
+    - Ihsan Alaeddin
+    - Shanay Wadhwani
+    - Zexi Wu
+    - Ruijie Xu
+- year: 2025
+  title: "Reddit Community Garden"
+  path: "https://merdreiss.georgetown.domains/_dsan6k_docs/"
+  archive-url: ""
+  archive: "<a href='http://archive.today/CW5MS' class='no-icon'><i class='bi bi-archive'></i></a>"
+  presentation-url: "https://drive.google.com/file/d/13-nwzpgLZp9TcnGB9Y7YGUW03Hvq6U7m/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/13-nwzpgLZp9TcnGB9Y7YGUW03Hvq6U7m/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Alvarado"
+  author:
+    - "Ian Alvarado"
+    - "Sarah Chambers"
+    - "Morgan Dreiss"
+    - "Jacob Meyer"
+- year: 2025
+  title: "AI Anxiety in Online Communities"
+  presentation-url: "https://drive.google.com/file/d/1YBfbTOVKm9QAXhpDhZ0R5jt0pzWnXY_5/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1YBfbTOVKm9QAXhpDhZ0R5jt0pzWnXY_5/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Arora"
+  author:
+    - Manav Arora
+    - Jessica Joy
+    - Kristin Lloyd
+    - Viviana Luccioli
+- year: 2025
   title: "Mapping Toxicity and Engagement in Gaming Communities"
   path: "https://akshayarun.georgetown.domains/dsan-6000-project/"
-  archive: "<a href='http://archive.today/YFFnk'>Archive</a>"
+  archive: "<a href='http://archive.today/YFFnk' class='no-icon'><i class='bi bi-archive'></i></a>"
   presentation-url: "https://drive.google.com/file/d/1rq_NNmQbEd_zU0CTYs4_Nu_IzhHpUySt/view?usp=drive_link"
-  presentation: "<a href='https://drive.google.com/file/d/1rq_NNmQbEd_zU0CTYs4_Nu_IzhHpUySt/view?usp=drive_link'>Presentation</a>"
+  presentation: "<a href='https://drive.google.com/file/d/1rq_NNmQbEd_zU0CTYs4_Nu_IzhHpUySt/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
   first-auth: "Arun"
   author:
     - "Akshay Arun"
@@ -13,43 +46,176 @@
 - year: 2025
   title: "AI Discourse at Scale: Topic, Sentiment, and Community Dynamics Across Reddit"
   path: "https://kim-anna.quarto.pub/dsan-6000-big-data-project/"
-  archive: "<a href='http://archive.today/HLiZj'>Archive</a>"
+  archive: "<a href='http://archive.today/HLiZj' class='no-icon'><i class='bi bi-archive'></i></a>"
   first-auth: "Atoma"
   author:
     - "Erika Atoma"
     - "Anna Hyunjung Kim"
     - "Yu-Chien (Violet) Lin"
     - "Mandy Sun"
-  report: "<a href='https://drive.google.com/file/d/1YynFlpidI4OCCF1LCmwT5reh2ZwLJHYe/view?usp=drive_link'>PDF</a>"
+  report: "<a href='https://drive.google.com/file/d/1YynFlpidI4OCCF1LCmwT5reh2ZwLJHYe/view?usp=drive_link' class='no-icon'><i class='bi bi-file-earmark-richtext'></i></a>"
   github-url: "https://github.com/gu-dsan6000/fall-2025-project-team16"
   github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team16' class='no-icon'><i class='bi bi-github'></i></a>"
 - year: 2025
-  title: "Reading the Crowd"
+  title: "A Large-Scale Analysis of Reddit Fitness Communities"
+  presentation-url: "https://drive.google.com/file/d/1pEKMP5xP8M-T8sZEHjpnzO5XSkBhCX7A/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1pEKMP5xP8M-T8sZEHjpnzO5XSkBhCX7A/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Bevec"
+  author:
+    - Erin Bevec
+    - David Corcoran
+    - Sophia Rutman
+    - Hung Tran
+- year: 2025
+  title: "Reading the Crowd: Reddit Sports Engagement Analysis"
   path: "https://dsan600-team16.ajscastor.georgetown.domains/"
-  archive: "<a href='http://archive.today/8NcR3'>Archive</a>"
+  archive-url: "http://archive.today/8NcR3"
+  archive: "<a href='http://archive.today/8NcR3' class='no-icon'><i class='bi bi-archive'></i></a>"
   presentation-url: "https://drive.google.com/file/d/1k8JNo-pW26AjjBVrz8hoXBzwhhT5KOjG/view?usp=drive_link"
-  presentation: "<a href='https://drive.google.com/file/d/1k8JNo-pW26AjjBVrz8hoXBzwhhT5KOjG/view?usp=drive_link'>Presentation</a>"
+  presentation: "<a href='https://drive.google.com/file/d/1k8JNo-pW26AjjBVrz8hoXBzwhhT5KOjG/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
   first-auth: "Castor"
   author:
     - "Alivia Castor"
     - "Samantha Wang"
     - "Herry Wei"
 - year: 2025
-  title: "Reddit Community Garden"
-  path: "https://merdreiss.georgetown.domains/_dsan6k_docs/"
-  archive: "<a href='http://archive.today/CW5MS'>Archive</a>"
-  first-auth: "Alvarado"
+  title: "Relationship Advice Subreddit Analysis"
+  presentation-url: "https://drive.google.com/file/d/10C7g_IwfwxmN-MSUzEi4vPzM6s0RxNze/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/10C7g_IwfwxmN-MSUzEi4vPzM6s0RxNze/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team-17"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team-17' class='no-icon'><i class='bi bi-archive'></i></a>"
+  first-auth: "Che"
   author:
-    - "Ian Alvarado"
-    - "Sarah Chambers"
-    - "Morgan Dreiss"
-    - "Jacob Meyer"
+    - "Stacy Che"
+    - "Kexin Lyu"
+    - "Jiayi Peng"
+    - "Yanan Wu"
+- year: 2025
+  title: "Personal Narrative Communities"
+  path: "https://theoncxz.georgetown.domains/dsan-6000-project/docs/"
+  archive-url: ""
+  archive: "<a href='http://archive.today/edyCV' class='no-icon'><i class='bi bi-archive'></i></a>"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team01/"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team01/' class='no-icon'><i class='bi bi-github'></i></a>"
+  first-auth: "Chen_X"
+  author: 
+    - Xiangzhi Chen
+    - Troy Cheng
+    - Hongzhe Wang
+- year: 2025
+  title: "Career Conversations on Reddit"
+  path: "https://yanjun-chen53.github.io/dsan6000-project-team13/"
+  archive-url: "http://archive.today/UcYFV"
+  archive: "<a href='http://archive.today/UcYFV' class='no-icon'></a>"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team13"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team13' class='no-icon'><i class='bi bi-github'></i></a>"
+  first-auth: "Chen_Y"
+  author:
+    - Yanjun Chen
+    - Jiahui Liu
+    - Jiaqi Wei
+    - Yiqin Zhou
+- year: 2025
+  title: "r/AmItheAsshole?: Understanding Online Moral Judgement at Scale"
+  presentation-url: "https://drive.google.com/file/d/1IDh_LdqOxbPeVIApQI1u6wImO-G09NY3/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1IDh_LdqOxbPeVIApQI1u6wImO-G09NY3/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Choice"
+  author:
+    - Anile Choice
+    - Isak Dai
+    - Alexander Garcia
+    - Courtney Green
+- year: 2025
+  title: "Understanding Online Conspiracy Communities Using Big Data Approaches"
+  presentation-url: "https://drive.google.com/file/d/17qWlUc6MBRqDfsOW8gq7c7L3jI1_Kvdl/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/17qWlUc6MBRqDfsOW8gq7c7L3jI1_Kvdl/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Clemence"
+  author:
+    - Chase Clemence
+    - CJ Jones
+    - Gentry Lamb
+    - Adam Stein
+- year: 2025
+  title: "Political Reddit at Scale: A Spark-Based Framework for Business and Policy Analytics"
+  presentation-url: "https://drive.google.com/file/d/1U85R7MS1_PauuZV41iD5P7hQ0ZoDnUDH/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1U85R7MS1_PauuZV41iD5P7hQ0ZoDnUDH/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Deng"
+  author:
+    - Renke Deng
+    - Hermann Fan
+    - Ke Tian
+    - Liming Ye
+- year: 2025
+  title: "What Drives Reddit Engagement?"
+  presentation-url: "https://drive.google.com/file/d/1_Zzx9GZwAO_3dmJtgzqphSuIFvoIDTt4/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1_Zzx9GZwAO_3dmJtgzqphSuIFvoIDTt4/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Fang"
+  author:
+    - Wenbin Fang
+    - Xun Lei
+    - Hailing Liao
+- year: 2025
+  title: "Reddit as an Early Warning System: Can Reddit Posting Patterns on Key Subreddits Act as Early Indicators of Outage Events?"
+  presentation-url: "https://drive.google.com/file/d/1Fh53M0khezSo5VpYc7YyZxYITEVB0XKX/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1Fh53M0khezSo5VpYc7YyZxYITEVB0XKX/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Fischer"
+  author:
+    - Danielle Fischer
+    - Sophie McDowall
+- year: 2025
+  title: "Analysis of Food Subreddits for Influencers"
+  path: "https://jzirkes.georgetown.domains/DSAN6000-Final/docs/"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-walter-friends/tree/main"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-walter-friends/tree/main' class='no-icon'><i class='bi bi-github'></i></a>"
+  presentation-url: "https://drive.google.com/file/d/1ogVDTSjwGkuhxCbVKa88K18gEJ9lTbbV/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1ogVDTSjwGkuhxCbVKa88K18gEJ9lTbbV/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Gerner"
+  author:
+    - Nadav Gerner
+    - "Walter Hall"
+    - "Jared Zirkes"
+- year: 2025
+  title: "Large-Scale Behavioral Insights from Retail Subreddits"
+  path: "https://xinzhouli.georgetown.domains/docs/"
+  archive-url: "http://archive.today/r29M0"
+  archive: "<a href='http://archive.today/r29M0' class='no-icon'><i class='bi bi-archive'></i></a>"
+  presentation-url: "https://drive.google.com/file/d/1HuB7Cmzgb3Kwp12y0YlLibB_uPYKBJJi/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1HuB7Cmzgb3Kwp12y0YlLibB_uPYKBJJi/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Guo_A"
+  author:
+    - Alexia Guo
+    - Xinzhou Li
+    - Qingyang Wang
+    - Jiayi Yu
+- year: 2025
+  title: "Evolution of Online Science and Technology Communities on Reddit"
+  presentation-url: "https://drive.google.com/file/d/1UVvzGOXFG-4TVM9k0TcscdeLB5pCEEi3/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1UVvzGOXFG-4TVM9k0TcscdeLB5pCEEi3/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Guo_C"
+  author:
+    - Chenxi Guo
+    - Linjin He
+    - Xiaoya Meng
+- year: 2025
+  title: "Emotional Dynamics in Reddit Mental Health Communities"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team03"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team03' class='no-icon'><i class='bi bi-github'></i></a>"
+  presentation-url: "https://drive.google.com/file/d/1Vo3Y3nIjkG3a39U0PSwZ6fyC4PAe9cWE/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1Vo3Y3nIjkG3a39U0PSwZ6fyC4PAe9cWE/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Hao"
+  author:
+    - Zixu Hao
+    - "Yiran Tao"
+    - "Jiesen Wang"
+    - "Jinghan Yang"
 - year: 2025
   title: "Digital Footprints: What Subreddits Reveal about City-Level Diversity"
   path: "https://samyuvakkalanka.georgetown.domains/dsan_6000/"
   github-url: "https://github.com/gu-dsan6000/fall-2025-project-team08/tree/main"
   github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team08/tree/main' class='no-icon'><i class='bi bi-github'></i></a>"
-  archive: "<a href='http://archive.today/RwAtu'>Archive</a>"
+  archive: "<a href='http://archive.today/RwAtu' class='no-icon'><i class='bi bi-archive'></i></a>"
+  presentation-url: "https://drive.google.com/file/d/1NxVj-M-Ej8xSO_6Wj1YkQ2K_xLk5TWaR/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1NxVj-M-Ej8xSO_6Wj1YkQ2K_xLk5TWaR/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
   first-auth: "Healy"
   author: 
     - Lizzie Healy
@@ -57,34 +223,12 @@
     - Samyu Vakkalanka
     - Marie Vaughan
 - year: 2025
-  title: "What Redditors Eat"
-  path: ""
-  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team9"
-  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team9' class='no-icon'><i class='bi bi-github'></i></a>"
-  presentation-url: "https://drive.google.com/file/d/1qgUhTrLTZorU4Ao_3IpAQw8A2arynbsX/view?usp=drive_link"
-  presentation: "<a href='https://drive.google.com/file/d/1qgUhTrLTZorU4Ao_3IpAQw8A2arynbsX/view?usp=drive_link'>Presentation</a>"
-  first-auth: "Li"
-  author:
-    - "Julia Li"
-    - "Yuxi Shen"
-    - "Fangzhou Wang"
-    - "Siru Wu"
-- year: 2025
-  title: "Analysis of Food Subreddits for Influencers"
-  path: "https://jzirkes.georgetown.domains/DSAN6000-Final/docs/"
-  github-url: "https://github.com/gu-dsan6000/fall-2025-project-walter-friends/tree/main"
-  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-walter-friends/tree/main' class='no-icon'><i class='bi bi-github'></i></a>"
-  first-auth: "Gerner"
-  author:
-    - "Nadav Gerner"
-    - "Walter Hall"
-    - "Jared Zirkes"
-# Tongrui
-- year: 2025
   title: "AudioInsight: Consumer Intelligence from Reddit Audio Product Discussions"
   path: ""
   github-url: "https://github.com/gu-dsan6000/fall-2025-project-team23"
   github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team23' class='no-icon'><i class='bi bi-github'></i></a>"
+  presentation-url: "https://drive.google.com/file/d/1uL0AtXHWWDLcInAP1uN6uFmCjE3qKnMv/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1uL0AtXHWWDLcInAP1uN6uFmCjE3qKnMv/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
   first-auth: "Hill"
   author:
     - Ping Hill
@@ -92,42 +236,73 @@
     - Zoo Un Park
     - Tongrui Zhang
 - year: 2025
-  title: "Large-Scale Behavioral Insights from Retail Subreddits"
-  path: "https://xinzhouli.georgetown.domains/docs/"
-  archive-url: "http://archive.today/r29M0"
-  archive: "<a href='http://archive.today/r29M0'>Archive</a>"
-  first-auth: "Guo"
-  author:
-    - Alexia Guo
-    - Xinzhou Li
-    - Qingyang Wang
-    - Jiayi Yu
-- year: 2025
-  title: "Reddit Gaming Communities Comparison"
-  github-url: "https://github.com/gu-dsan6000/fall-2025-project-lance"
-  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-lance' class='no-icon'><i class='bi bi-github'></i></a>"
-  first-auth: "Lichtenthal"
-  author:
-    - "Jonah Lichtenthal"
-    - "Lance Yi"
-- year: 2025
-  title: "Emotional Dynamics in Reddit Mental Health Communities"
-  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team03"
-  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team03' class='no-icon'><i class='bi bi-github'></i></a>"
-  author:
-    - "Zixu Hao"
-    - "Yiran Tao"
-    - "Jiesen Wang"
-    - "Jinghan Yang"
-- year: 2025
   title: "Precarity Pulse: Reddit Engagement with Job Insecurity"
   github-url: "https://github.com/gu-dsan6000/fall-2025-project-team25"
   github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team25' class='no-icon'><i class='bi bi-github'></i></a>"
+  presentation-url: "https://drive.google.com/file/d/1dIqFVMN7BTg0svt-zYjcQ0ebjhpstSZv/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1dIqFVMN7BTg0svt-zYjcQ0ebjhpstSZv/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
   first-auth: "Hong"
   author:
     - Chongyuan Hong
     - Yuang Li
     - Kehan Wu
+- year: 2025
+  title: "Reddit as a Travel Guide"
+  presentation-url: "https://drive.google.com/file/d/1BOh9jvLz3vFCDeu1hc7rXNnrPaJSzSL_/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1BOh9jvLz3vFCDeu1hc7rXNnrPaJSzSL_/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Hu"
+  author:
+    - "Li-Wen Hu"
+    - "Siyu Hu"
+    - "Nandini Kodali"
+- year: 2025
+  title: "What Redditors Eat"
+  path: ""
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team9"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team9' class='no-icon'><i class='bi bi-github'></i></a>"
+  presentation-url: "https://drive.google.com/file/d/1qgUhTrLTZorU4Ao_3IpAQw8A2arynbsX/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1qgUhTrLTZorU4Ao_3IpAQw8A2arynbsX/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Li_J"
+  author:
+    - Julia Li
+    - "Yuxi Shen"
+    - "Fangzhou Wang"
+    - "Siru Wu"
+- year: 2025
+  title: "AI Community Discourse Analysis on Reddit"
+  path: "https://hailunma1114.github.io/fall-2025-project-team27/website/home/index.html"
+  archive-url: "http://archive.today/cqgAb"
+  archive: "<a href='http://archive.today/cqgAb' class='no-icon'><i class='bi bi-archive'></i></a>"
+  first-auth: "Li_X"
+  author:
+    - Xinran Li
+    - Hailun Ma
+    - Shuyu Meng
+    - Binghui Ni
+- year: 2025
+  title: "Reddit Gaming Communities Comparison"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-lance"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-lance' class='no-icon'><i class='bi bi-github'></i></a>"
+  presentation-url: "https://drive.google.com/file/d/1y1CzK5kwbuE5VC1P6n9oI4zYGK53IgXo/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1y1CzK5kwbuE5VC1P6n9oI4zYGK53IgXo/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Lichtenthal"
+  author:
+    - "Jonah Lichtenthal"
+    - "Lance Yi"
+- year: 2025
+  title: "THE MOON LANDING WAS FAKE"
+  path: "https://mstrey.georgetown.domains/big_data_conspiracies/"
+  archive-url: "http://archive.today/3RchI"
+  archive: "<a href='http://archive.today/3RchI' class='no-icon'><i class='bi bi-archive'></i></a>"
+  presentation-url: "https://drive.google.com/file/d/1d7Ex_vBB8L0svFlRSCoRzWMoI2S9Sn8d/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1d7Ex_vBB8L0svFlRSCoRzWMoI2S9Sn8d/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team-20-1/"
+  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team-20-1/' class='no-icon'><i class='bi bi-github'></i></a>"
+  first-auth: "Manna"
+  author:
+    - Alie Manna
+    - Rachna Rawalpally
+    - Trey Roark
 - year: 2025
   title: "AI Subreddit Analysis"
   github-url: "https://github.com/gu-dsan6000/fall-2025-project-team12"
@@ -139,12 +314,9 @@
     - Yubo Xing
     - Xiaolong Zhou
 - year: 2025
-  title: "Career Conversations on Reddit"
-  github-url: "https://github.com/gu-dsan6000/fall-2025-project-team13"
-  github: "<a href='https://github.com/gu-dsan6000/fall-2025-project-team13' class='no-icon'><i class='bi bi-github'></i></a>"
-  first-auth: "Chen"
+  title: "Identifying the Tipping Point of Digital Community Decline"
+  presentation-url: "https://drive.google.com/file/d/1FGXiTm_pmboSaEcuMhtKEBh-FNdVdQmM/view?usp=drive_link"
+  presentation: "<a href='https://drive.google.com/file/d/1FGXiTm_pmboSaEcuMhtKEBh-FNdVdQmM/view?usp=drive_link' class='no-icon'><i class='bi bi-easel'></i></a>"
+  first-auth: "Wang"
   author:
-    - "Yanjun Chen"
-    - "Jiahui Liu"
-    - "Jiaqi Wei"
-    - "Yiqin Zhou"
+    - Jaden Wang

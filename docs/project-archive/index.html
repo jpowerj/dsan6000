@@ -50,9 +50,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-af642418a2aacfdf0bb0952110c05af1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-af1f3cbc77339429df67185d1cc481c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-af642418a2aacfdf0bb0952110c05af1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-93e7fff9c5c004f07a8438326a7d93af.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-51908efb1ebe94ea81be6fb747e00db8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-93e7fff9c5c004f07a8438326a7d93af.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-year','listing-title','listing-author','listing-presentation','listing-report','listing-archive','listing-github',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-year","listing-title","listing-archive","listing-presentation-url","listing-presentation","listing-first-auth","listing-author","listing-report","listing-github-url","listing-github","listing-archive-url"],
+      searchColumns: ["listing-year","listing-title","listing-presentation-url","listing-presentation","listing-first-auth","listing-author","listing-archive-url","listing-archive","listing-report","listing-github-url","listing-github"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -324,7 +324,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project-archive/index.html">Past Project Archive <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project-archive/index.html">Past Project Archive</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -470,6 +470,13 @@ window.Quarto = {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../project-archive/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Past Project Archive</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="https://georgetown.instructure.com/courses/234516" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">GU Canvas <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
   </div>
@@ -504,17 +511,10 @@ window.Quarto = {
  <span class="menu-text">Book Office Hour <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
   </div>
 </li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../project-archive/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Past Project Archive <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
-  </div>
-</li>
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-11-09, 03:20:05 PM</em></p>
+<p><em>Updated 2026-11-09, 08:14:32 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -542,6 +542,64 @@ window.Quarto = {
 </header>
 
 
+<style>
+/* 1 = Year */
+.quarto-listing-table td:nth-child(1) {
+  text-align: center;
+}
+.quarto-listing-table th:nth-child(1) {
+  text-align: center;
+}
+/* 3 = Authors */
+.quarto-listing-table td:nth-child(3) {
+  font-size: 90%;
+}
+/* 4 = Presentation */
+.quarto-listing-table td:nth-child(4) {
+  text-align: center;
+}
+.quarto-listing-table th:nth-child(4) {
+  text-align: center;
+}
+/* 5 = Report */
+.quarto-listing-table td:nth-child(5) {
+  text-align: center;
+}
+.quarto-listing-table th:nth-child(5) {
+  text-align: center;
+}
+/* 6 = Archive */
+.quarto-listing-table td:nth-child(6) {
+  text-align: center;
+}
+.quarto-listing-table th:nth-child(6) {
+  text-align: center;
+}
+/* 7 = Repo */
+.quarto-listing-table td:nth-child(7) {
+  text-align: center;
+}
+.quarto-listing-table th:nth-child(7) {
+  text-align: center;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+thead {
+  position: sticky;
+  top: 0;
+  background-color: var(--default-bg) !important;
+  /* border-bottom: 2px solid gray !important; */
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: inset 0 -1px 0 gray;
+  padding: 1px 0;
+}
+.bi {
+  font-size: 125% !important;
+}
+</style>
 <div id="listing-past-projects" class="quarto-listing quarto-listing-container-table">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
@@ -555,17 +613,17 @@ window.Quarto = {
       <option value="listing-title-sort" data-direction="asc">
         Title
       </option>
-      <option value="listing-archive" data-direction="asc">
-        Site Archive
-      </option>
       <option value="listing-presentation" data-direction="asc">
         Presentation
       </option>
       <option value="listing-author" data-direction="asc">
         Author(s)
       </option>
+      <option value="listing-archive" data-direction="asc">
+        Archive
+      </option>
       <option value="listing-report" data-direction="asc">
-        Final Report
+        Report
       </option>
       <option value="listing-github" data-direction="asc">
         Repo
@@ -577,7 +635,7 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table table-hover">
+<table class="quarto-listing-table table table-striped">
 <thead>
 <tr>
 
@@ -598,11 +656,11 @@ window.Quarto = {
 </th>
 
 <th>
-<a class="sort" data-sort="listing-report" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Final Report</a>
+<a class="sort" data-sort="listing-report" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Report</a>
 </th>
 
 <th>
-<a class="sort" data-sort="listing-archive" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Site Archive</a>
+<a class="sort" data-sort="listing-archive" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Archive</a>
 </th>
 
 <th>
@@ -613,8 +671,32 @@ window.Quarto = {
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-title-sort="Reddit Community Garden" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="0" data-listing-title-sort="Reddit at Scale: Community Dynamics, Language, and Virality">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<span class="listing-title">Reddit at Scale: Community Dynamics, Language, and Virality</span>
+</td>
+<td>
+<span class="listing-author">Ihsan Alaeddin, Shanay Wadhwani, Zexi Wu, Ruijie Xu</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1Lte9FAKzX24T5WNJ4IbPFlDyIhcylbjw/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive">&nbsp;</span>
+</td>
+<td>
+<span class="listing-github">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="1" data-listing-title-sort="Reddit Community Garden">
 <td>
 <span class="listing-year">2025</span>
 </td>
@@ -625,13 +707,13 @@ window.Quarto = {
 <span class="listing-author">Ian Alvarado, Sarah Chambers, Morgan Dreiss, Jacob Meyer</span>
 </td>
 <td>
-<span class="listing-presentation">&nbsp;</span>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/13-nwzpgLZp9TcnGB9Y7YGUW03Hvq6U7m/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
 </td>
 <td>
 <span class="listing-report">&nbsp;</span>
 </td>
 <td>
-<span class="listing-archive"><a href="http://archive.today/CW5MS">Archive</a></span>
+<span class="listing-archive"><a href="http://archive.today/CW5MS" class="no-icon"><i class="bi bi-archive"></i></a></span>
 </td>
 <td>
 <span class="listing-github">&nbsp;</span>
@@ -639,8 +721,32 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="1" data-listing-title-sort="Mapping Toxicity and Engagement in Gaming Communities" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="2" data-listing-title-sort="AI Anxiety in Online Communities">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<span class="listing-title">AI Anxiety in Online Communities</span>
+</td>
+<td>
+<span class="listing-author">Manav Arora, Jessica Joy, Kristin Lloyd, Viviana Luccioli</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1YBfbTOVKm9QAXhpDhZ0R5jt0pzWnXY_5/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive">&nbsp;</span>
+</td>
+<td>
+<span class="listing-github">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="3" data-listing-title-sort="Mapping Toxicity and Engagement in Gaming Communities">
 <td>
 <span class="listing-year">2025</span>
 </td>
@@ -651,13 +757,13 @@ window.Quarto = {
 <span class="listing-author">Akshay Arun, Caroline Delva, Amanda Hao, Amina Nsanza</span>
 </td>
 <td>
-<span class="listing-presentation"><a href="https://drive.google.com/file/d/1rq_NNmQbEd_zU0CTYs4_Nu_IzhHpUySt/view?usp=drive_link">Presentation</a></span>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1rq_NNmQbEd_zU0CTYs4_Nu_IzhHpUySt/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
 </td>
 <td>
 <span class="listing-report">&nbsp;</span>
 </td>
 <td>
-<span class="listing-archive"><a href="http://archive.today/YFFnk">Archive</a></span>
+<span class="listing-archive"><a href="http://archive.today/YFFnk" class="no-icon"><i class="bi bi-archive"></i></a></span>
 </td>
 <td>
 <span class="listing-github">&nbsp;</span>
@@ -665,8 +771,7 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="2" data-listing-title-sort="AI Discourse at Scale: Topic, Sentiment, and Community Dynamics Across Reddit" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="4" data-listing-title-sort="AI Discourse at Scale: Topic, Sentiment, and Community Dynamics Across Reddit">
 <td>
 <span class="listing-year">2025</span>
 </td>
@@ -680,10 +785,10 @@ window.Quarto = {
 <span class="listing-presentation">&nbsp;</span>
 </td>
 <td>
-<span class="listing-report"><a href="https://drive.google.com/file/d/1YynFlpidI4OCCF1LCmwT5reh2ZwLJHYe/view?usp=drive_link">PDF</a></span>
+<span class="listing-report"><a href="https://drive.google.com/file/d/1YynFlpidI4OCCF1LCmwT5reh2ZwLJHYe/view?usp=drive_link" class="no-icon"><i class="bi bi-file-earmark-richtext"></i></a></span>
 </td>
 <td>
-<span class="listing-archive"><a href="http://archive.today/HLiZj">Archive</a></span>
+<span class="listing-archive"><a href="http://archive.today/HLiZj" class="no-icon"><i class="bi bi-archive"></i></a></span>
 </td>
 <td>
 <span class="listing-github"><a href="https://github.com/gu-dsan6000/fall-2025-project-team16" class="no-icon"><i class="bi bi-github"></i></a></span>
@@ -691,25 +796,24 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="3" data-listing-title-sort="Reading the Crowd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="5" data-listing-title-sort="A Large-Scale Analysis of Reddit Fitness Communities">
 <td>
 <span class="listing-year">2025</span>
 </td>
 <td>
-<a href="https://dsan600-team16.ajscastor.georgetown.domains/" class="title listing-title">Reading the Crowd</a>
+<span class="listing-title">A Large-Scale Analysis of Reddit Fitness Communities</span>
 </td>
 <td>
-<span class="listing-author">Alivia Castor, Samantha Wang, Herry Wei</span>
+<span class="listing-author">Erin Bevec, David Corcoran, Sophia Rutman, Hung Tran</span>
 </td>
 <td>
-<span class="listing-presentation"><a href="https://drive.google.com/file/d/1k8JNo-pW26AjjBVrz8hoXBzwhhT5KOjG/view?usp=drive_link">Presentation</a></span>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1pEKMP5xP8M-T8sZEHjpnzO5XSkBhCX7A/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
 </td>
 <td>
 <span class="listing-report">&nbsp;</span>
 </td>
 <td>
-<span class="listing-archive"><a href="http://archive.today/8NcR3">Archive</a></span>
+<span class="listing-archive">&nbsp;</span>
 </td>
 <td>
 <span class="listing-github">&nbsp;</span>
@@ -717,13 +821,87 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="4" data-listing-title-sort="Career Conversations on Reddit" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="6" data-listing-title-sort="Reading the Crowd: Reddit Sports Engagement Analysis">
 <td>
 <span class="listing-year">2025</span>
 </td>
 <td>
-<span class="listing-title">Career Conversations on Reddit</span>
+<a href="https://dsan600-team16.ajscastor.georgetown.domains/" class="title listing-title">Reading the Crowd: Reddit Sports Engagement Analysis</a>
+</td>
+<td>
+<span class="listing-author">Alivia Castor, Samantha Wang, Herry Wei</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1k8JNo-pW26AjjBVrz8hoXBzwhhT5KOjG/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive"><a href="http://archive.today/8NcR3" class="no-icon"><i class="bi bi-archive"></i></a></span>
+</td>
+<td>
+<span class="listing-github">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="7" data-listing-title-sort="Relationship Advice Subreddit Analysis">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<span class="listing-title">Relationship Advice Subreddit Analysis</span>
+</td>
+<td>
+<span class="listing-author">Stacy Che, Kexin Lyu, Jiayi Peng, Yanan Wu</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/10C7g_IwfwxmN-MSUzEi4vPzM6s0RxNze/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive">&nbsp;</span>
+</td>
+<td>
+<span class="listing-github"><a href="https://github.com/gu-dsan6000/fall-2025-project-team-17" class="no-icon"><i class="bi bi-archive"></i></a></span>
+</td>
+
+</tr>
+
+<tr data-index="8" data-listing-title-sort="Personal Narrative Communities">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<a href="https://theoncxz.georgetown.domains/dsan-6000-project/docs/" class="title listing-title">Personal Narrative Communities</a>
+</td>
+<td>
+<span class="listing-author">Xiangzhi Chen, Troy Cheng, Hongzhe Wang</span>
+</td>
+<td>
+<span class="listing-presentation">&nbsp;</span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive"><a href="http://archive.today/edyCV" class="no-icon"><i class="bi bi-archive"></i></a></span>
+</td>
+<td>
+<span class="listing-github"><a href="https://github.com/gu-dsan6000/fall-2025-project-team01/" class="no-icon"><i class="bi bi-github"></i></a></span>
+</td>
+
+</tr>
+
+<tr data-index="9" data-listing-title-sort="Career Conversations on Reddit">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<a href="https://yanjun-chen53.github.io/dsan6000-project-team13/" class="title listing-title">Career Conversations on Reddit</a>
 </td>
 <td>
 <span class="listing-author">Yanjun Chen, Jiahui Liu, Jiaqi Wei, Yiqin Zhou</span>
@@ -735,7 +913,7 @@ window.Quarto = {
 <span class="listing-report">&nbsp;</span>
 </td>
 <td>
-<span class="listing-archive">&nbsp;</span>
+<span class="listing-archive"><a href="http://archive.today/UcYFV" class="no-icon"></a></span>
 </td>
 <td>
 <span class="listing-github"><a href="https://github.com/gu-dsan6000/fall-2025-project-team13" class="no-icon"><i class="bi bi-github"></i></a></span>
@@ -743,8 +921,132 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="5" data-listing-title-sort="Analysis of Food Subreddits for Influencers" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="10" data-listing-title-sort="r/AmItheAsshole?: Understanding Online Moral Judgement at Scale">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<span class="listing-title">r/AmItheAsshole?: Understanding Online Moral Judgement at Scale</span>
+</td>
+<td>
+<span class="listing-author">Anile Choice, Isak Dai, Alexander Garcia, Courtney Green</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1IDh_LdqOxbPeVIApQI1u6wImO-G09NY3/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive">&nbsp;</span>
+</td>
+<td>
+<span class="listing-github">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="11" data-listing-title-sort="Understanding Online Conspiracy Communities Using Big Data Approaches">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<span class="listing-title">Understanding Online Conspiracy Communities Using Big Data Approaches</span>
+</td>
+<td>
+<span class="listing-author">Chase Clemence, CJ Jones, Gentry Lamb, Adam Stein</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/17qWlUc6MBRqDfsOW8gq7c7L3jI1_Kvdl/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive">&nbsp;</span>
+</td>
+<td>
+<span class="listing-github">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="12" data-listing-title-sort="Political Reddit at Scale: A Spark-Based Framework for Business and Policy Analytics">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<span class="listing-title">Political Reddit at Scale: A Spark-Based Framework for Business and Policy Analytics</span>
+</td>
+<td>
+<span class="listing-author">Renke Deng, Hermann Fan, Ke Tian, Liming Ye</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1U85R7MS1_PauuZV41iD5P7hQ0ZoDnUDH/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive">&nbsp;</span>
+</td>
+<td>
+<span class="listing-github">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="13" data-listing-title-sort="What Drives Reddit Engagement?">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<span class="listing-title">What Drives Reddit Engagement?</span>
+</td>
+<td>
+<span class="listing-author">Wenbin Fang, Xun Lei, Hailing Liao</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1_Zzx9GZwAO_3dmJtgzqphSuIFvoIDTt4/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive">&nbsp;</span>
+</td>
+<td>
+<span class="listing-github">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="14" data-listing-title-sort="Reddit as an Early Warning System: Can Reddit Posting Patterns on Key Subreddits Act as Early Indicators of Outage Events?">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<span class="listing-title">Reddit as an Early Warning System: Can Reddit Posting Patterns on Key Subreddits Act as Early Indicators of Outage Events?</span>
+</td>
+<td>
+<span class="listing-author">Danielle Fischer, Sophie McDowall</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1Fh53M0khezSo5VpYc7YyZxYITEVB0XKX/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive">&nbsp;</span>
+</td>
+<td>
+<span class="listing-github">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="15" data-listing-title-sort="Analysis of Food Subreddits for Influencers">
 <td>
 <span class="listing-year">2025</span>
 </td>
@@ -755,7 +1057,7 @@ window.Quarto = {
 <span class="listing-author">Nadav Gerner, Walter Hall, Jared Zirkes</span>
 </td>
 <td>
-<span class="listing-presentation">&nbsp;</span>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1ogVDTSjwGkuhxCbVKa88K18gEJ9lTbbV/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
 </td>
 <td>
 <span class="listing-report">&nbsp;</span>
@@ -769,8 +1071,7 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="6" data-listing-title-sort="Large-Scale Behavioral Insights from Retail Subreddits" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="16" data-listing-title-sort="Large-Scale Behavioral Insights from Retail Subreddits">
 <td>
 <span class="listing-year">2025</span>
 </td>
@@ -781,13 +1082,13 @@ window.Quarto = {
 <span class="listing-author">Alexia Guo, Xinzhou Li, Qingyang Wang, Jiayi Yu</span>
 </td>
 <td>
-<span class="listing-presentation">&nbsp;</span>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1HuB7Cmzgb3Kwp12y0YlLibB_uPYKBJJi/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
 </td>
 <td>
 <span class="listing-report">&nbsp;</span>
 </td>
 <td>
-<span class="listing-archive"><a href="http://archive.today/r29M0">Archive</a></span>
+<span class="listing-archive"><a href="http://archive.today/r29M0" class="no-icon"><i class="bi bi-archive"></i></a></span>
 </td>
 <td>
 <span class="listing-github">&nbsp;</span>
@@ -795,8 +1096,57 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="7" data-listing-title-sort="Digital Footprints: What Subreddits Reveal about City-Level Diversity" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="17" data-listing-title-sort="Evolution of Online Science and Technology Communities on Reddit">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<span class="listing-title">Evolution of Online Science and Technology Communities on Reddit</span>
+</td>
+<td>
+<span class="listing-author">Chenxi Guo, Linjin He, Xiaoya Meng</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1UVvzGOXFG-4TVM9k0TcscdeLB5pCEEi3/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive">&nbsp;</span>
+</td>
+<td>
+<span class="listing-github">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="18" data-listing-title-sort="Emotional Dynamics in Reddit Mental Health Communities">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<span class="listing-title">Emotional Dynamics in Reddit Mental Health Communities</span>
+</td>
+<td>
+<span class="listing-author">Zixu Hao, Yiran Tao, Jiesen Wang, Jinghan Yang</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1Vo3Y3nIjkG3a39U0PSwZ6fyC4PAe9cWE/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive">&nbsp;</span>
+</td>
+<td>
+<span class="listing-github"><a href="https://github.com/gu-dsan6000/fall-2025-project-team03" class="no-icon"><i class="bi bi-github"></i></a></span>
+</td>
+
+</tr>
+
+<tr data-index="19" data-listing-title-sort="Digital Footprints: What Subreddits Reveal about City-Level Diversity">
 <td>
 <span class="listing-year">2025</span>
 </td>
@@ -807,13 +1157,13 @@ window.Quarto = {
 <span class="listing-author">Lizzie Healy, Satomi Ito, Samyu Vakkalanka, Marie Vaughan</span>
 </td>
 <td>
-<span class="listing-presentation">&nbsp;</span>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1NxVj-M-Ej8xSO_6Wj1YkQ2K_xLk5TWaR/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
 </td>
 <td>
 <span class="listing-report">&nbsp;</span>
 </td>
 <td>
-<span class="listing-archive"><a href="http://archive.today/RwAtu">Archive</a></span>
+<span class="listing-archive"><a href="http://archive.today/RwAtu" class="no-icon"><i class="bi bi-archive"></i></a></span>
 </td>
 <td>
 <span class="listing-github"><a href="https://github.com/gu-dsan6000/fall-2025-project-team08/tree/main" class="no-icon"><i class="bi bi-github"></i></a></span>
@@ -821,8 +1171,7 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="8" data-listing-title-sort="AudioInsight: Consumer Intelligence from Reddit Audio Product Discussions" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="20" data-listing-title-sort="AudioInsight: Consumer Intelligence from Reddit Audio Product Discussions">
 <td>
 <span class="listing-year">2025</span>
 </td>
@@ -833,7 +1182,7 @@ window.Quarto = {
 <span class="listing-author">Ping Hill, Josh Lin, Zoo Un Park, Tongrui Zhang</span>
 </td>
 <td>
-<span class="listing-presentation">&nbsp;</span>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1uL0AtXHWWDLcInAP1uN6uFmCjE3qKnMv/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
 </td>
 <td>
 <span class="listing-report">&nbsp;</span>
@@ -847,8 +1196,7 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="9" data-listing-title-sort="Precarity Pulse: Reddit Engagement with Job Insecurity" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="21" data-listing-title-sort="Precarity Pulse: Reddit Engagement with Job Insecurity">
 <td>
 <span class="listing-year">2025</span>
 </td>
@@ -859,7 +1207,7 @@ window.Quarto = {
 <span class="listing-author">Chongyuan Hong, Yuang Li, Kehan Wu</span>
 </td>
 <td>
-<span class="listing-presentation">&nbsp;</span>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1dIqFVMN7BTg0svt-zYjcQ0ebjhpstSZv/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
 </td>
 <td>
 <span class="listing-report">&nbsp;</span>
@@ -873,8 +1221,32 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="10" data-listing-title-sort="What Redditors Eat" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="22" data-listing-title-sort="Reddit as a Travel Guide">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<span class="listing-title">Reddit as a Travel Guide</span>
+</td>
+<td>
+<span class="listing-author">Li-Wen Hu, Siyu Hu, Nandini Kodali</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1BOh9jvLz3vFCDeu1hc7rXNnrPaJSzSL_/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive">&nbsp;</span>
+</td>
+<td>
+<span class="listing-github">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="23" data-listing-title-sort="What Redditors Eat">
 <td>
 <span class="listing-year">2025</span>
 </td>
@@ -885,7 +1257,7 @@ window.Quarto = {
 <span class="listing-author">Julia Li, Yuxi Shen, Fangzhou Wang, Siru Wu</span>
 </td>
 <td>
-<span class="listing-presentation"><a href="https://drive.google.com/file/d/1qgUhTrLTZorU4Ao_3IpAQw8A2arynbsX/view?usp=drive_link">Presentation</a></span>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1qgUhTrLTZorU4Ao_3IpAQw8A2arynbsX/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
 </td>
 <td>
 <span class="listing-report">&nbsp;</span>
@@ -899,8 +1271,32 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="11" data-listing-title-sort="Reddit Gaming Communities Comparison" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="24" data-listing-title-sort="AI Community Discourse Analysis on Reddit">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<a href="https://hailunma1114.github.io/fall-2025-project-team27/website/home/index.html" class="title listing-title">AI Community Discourse Analysis on Reddit</a>
+</td>
+<td>
+<span class="listing-author">Xinran Li, Hailun Ma, Shuyu Meng, Binghui Ni</span>
+</td>
+<td>
+<span class="listing-presentation">&nbsp;</span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive"><a href="http://archive.today/cqgAb" class="no-icon"><i class="bi bi-archive"></i></a></span>
+</td>
+<td>
+<span class="listing-github">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="25" data-listing-title-sort="Reddit Gaming Communities Comparison">
 <td>
 <span class="listing-year">2025</span>
 </td>
@@ -911,7 +1307,7 @@ window.Quarto = {
 <span class="listing-author">Jonah Lichtenthal, Lance Yi</span>
 </td>
 <td>
-<span class="listing-presentation">&nbsp;</span>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1y1CzK5kwbuE5VC1P6n9oI4zYGK53IgXo/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
 </td>
 <td>
 <span class="listing-report">&nbsp;</span>
@@ -925,8 +1321,32 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="12" data-listing-title-sort="AI Subreddit Analysis" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="26" data-listing-title-sort="THE MOON LANDING WAS FAKE">
+<td>
+<span class="listing-year">2025</span>
+</td>
+<td>
+<a href="https://mstrey.georgetown.domains/big_data_conspiracies/" class="title listing-title">THE MOON LANDING WAS FAKE</a>
+</td>
+<td>
+<span class="listing-author">Alie Manna, Rachna Rawalpally, Trey Roark</span>
+</td>
+<td>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1d7Ex_vBB8L0svFlRSCoRzWMoI2S9Sn8d/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
+</td>
+<td>
+<span class="listing-report">&nbsp;</span>
+</td>
+<td>
+<span class="listing-archive"><a href="http://archive.today/3RchI" class="no-icon"><i class="bi bi-archive"></i></a></span>
+</td>
+<td>
+<span class="listing-github"><a href="https://github.com/gu-dsan6000/fall-2025-project-team-20-1/" class="no-icon"><i class="bi bi-github"></i></a></span>
+</td>
+
+</tr>
+
+<tr data-index="27" data-listing-title-sort="AI Subreddit Analysis">
 <td>
 <span class="listing-year">2025</span>
 </td>
@@ -951,19 +1371,18 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="13" data-listing-title-sort="Emotional Dynamics in Reddit Mental Health Communities" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
+<tr data-index="28" data-listing-title-sort="Identifying the Tipping Point of Digital Community Decline">
 <td>
 <span class="listing-year">2025</span>
 </td>
 <td>
-<span class="listing-title">Emotional Dynamics in Reddit Mental Health Communities</span>
+<span class="listing-title">Identifying the Tipping Point of Digital Community Decline</span>
 </td>
 <td>
-<span class="listing-author">Zixu Hao, Yiran Tao, Jiesen Wang, Jinghan Yang</span>
+<span class="listing-author">Jaden Wang</span>
 </td>
 <td>
-<span class="listing-presentation">&nbsp;</span>
+<span class="listing-presentation"><a href="https://drive.google.com/file/d/1FGXiTm_pmboSaEcuMhtKEBh-FNdVdQmM/view?usp=drive_link" class="no-icon"><i class="bi bi-easel"></i></a></span>
 </td>
 <td>
 <span class="listing-report">&nbsp;</span>
@@ -972,7 +1391,7 @@ window.Quarto = {
 <span class="listing-archive">&nbsp;</span>
 </td>
 <td>
-<span class="listing-github"><a href="https://github.com/gu-dsan6000/fall-2025-project-team03" class="no-icon"><i class="bi bi-github"></i></a></span>
+<span class="listing-github">&nbsp;</span>
 </td>
 
 </tr>

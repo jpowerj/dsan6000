@@ -4,39 +4,99 @@ sidebar: mainnav
 bibliography: "../_DSAN6000.bib"
 csl: "../chicago-17-no-url.csl"
 listing:
-  - contents:
-    - projects-2025.yml
-    # sort-ui: false
-    # filter-ui: false
-    id: past-projects
-    type: table
-    # categories: true
-    fields:
-      - year
-      - title
-      - author
-      - presentation
-      - report
-      - archive
-      - github
-      # - categories
-    field-display-names:
-      year: "Year"
-      title: "Title"
-      author: "Author(s)"
-      presentation: "Presentation"
-      report: "Final Report"
-      archive: "Site Archive"
-      github: "Repo"
-    sort:
-      - "first-auth asc"
-      - "title asc"
-    table-hover: true
+  contents:
+  - projects-2025.yml
+  id: past-projects
+  type: table
+  # categories: true
+  fields:
+    - year
+    - title
+    - author
+    - presentation
+    - report
+    - archive
+    - github
+    # - categories
+  field-display-names:
+    year: "Year"
+    title: "Title"
+    author: "Author(s)"
+    presentation: "Presentation"
+    report: "Report"
+    archive: "Archive"
+    github: "Repo"
+  sort:
+    - "first-auth asc"
+    - "title asc"
+  # table-hover: true
+  table-striped: true
 format:
   html:
     df-print: kable
     toc: false
 ---
+
+```{=html}
+<style>
+/* 1 = Year */
+.quarto-listing-table td:nth-child(1) {
+  text-align: center;
+}
+.quarto-listing-table th:nth-child(1) {
+  text-align: center;
+}
+/* 3 = Authors */
+.quarto-listing-table td:nth-child(3) {
+  font-size: 90%;
+}
+/* 4 = Presentation */
+.quarto-listing-table td:nth-child(4) {
+  text-align: center;
+}
+.quarto-listing-table th:nth-child(4) {
+  text-align: center;
+}
+/* 5 = Report */
+.quarto-listing-table td:nth-child(5) {
+  text-align: center;
+}
+.quarto-listing-table th:nth-child(5) {
+  text-align: center;
+}
+/* 6 = Archive */
+.quarto-listing-table td:nth-child(6) {
+  text-align: center;
+}
+.quarto-listing-table th:nth-child(6) {
+  text-align: center;
+}
+/* 7 = Repo */
+.quarto-listing-table td:nth-child(7) {
+  text-align: center;
+}
+.quarto-listing-table th:nth-child(7) {
+  text-align: center;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+thead {
+  position: sticky;
+  top: 0;
+  background-color: var(--default-bg) !important;
+  /* border-bottom: 2px solid gray !important; */
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: inset 0 -1px 0 gray;
+  padding: 1px 0;
+}
+.bi {
+  font-size: 125% !important;
+}
+</style>
+```
 
 ::: {#past-projects}
 :::

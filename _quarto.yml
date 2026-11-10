@@ -56,6 +56,9 @@ website:
       - href: w13/index.qmd
         text: "Week 13: <span class='sec-w13-date'>Dec 7</span>"
       - "---"
+      - text: "Past Project Archive"
+        href: project-archive/index.qmd
+      - "---"
       - href: "https://georgetown.instructure.com/courses/234516"
         text: "GU Canvas <i class='bi bi-box-arrow-up-right ps-1' style='font-size: 75%;'></i>"
         target: "_blank"
@@ -74,9 +77,6 @@ website:
       - href: "https://jjacobs.me/meet"
         text: "Book Office Hour <i class='bi bi-box-arrow-up-right ps-1' style='font-size: 75%;'></i>"
         target: "_blank"
-      - "---"
-      - text: "Past Project Archive <i class='bi bi-box-arrow-up-right ps-1' style='font-size: 75%;'></i>"
-        href: project-archive/index.qmd
 format:
   revealjs:
     include-in-header:

@@ -85,9 +85,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-af642418a2aacfdf0bb0952110c05af1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-af1f3cbc77339429df67185d1cc481c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-af642418a2aacfdf0bb0952110c05af1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-93e7fff9c5c004f07a8438326a7d93af.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-51908efb1ebe94ea81be6fb747e00db8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-93e7fff9c5c004f07a8438326a7d93af.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -452,6 +452,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../project-archive/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Past Project Archive</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="https://georgetown.instructure.com/courses/234516" class="sidebar-item-text sidebar-link" target="_blank">
  <span class="menu-text">GU Canvas <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
   </div>
@@ -486,17 +493,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Book Office Hour <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
   </div>
 </li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../project-archive/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Past Project Archive <i class="bi bi-box-arrow-up-right ps-1" style="font-size: 75%;"></i></span></a>
-  </div>
-</li>
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-11-09, 03:20:05 PM</em></p>
+<p><em>Updated 2026-11-09, 08:14:32 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -950,7 +950,7 @@ WHERE day NOT IN ('Saturday','Sunday')
 EXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs AS ratio FROM sleep_df WHERE day NOT IN ('Saturday','Sunday') 
 ┌────────────────────────────────────────────────┐
 │┌──────────────────────────────────────────────┐│
-││              Total Time: 0.0026s             ││
+││              Total Time: 0.0029s             ││
 │└──────────────────────────────────────────────┘│
 └────────────────────────────────────────────────┘
 ┌───────────────────────────┐
@@ -1413,7 +1413,7 @@ EXPLAIN ANALYZE  SELECT   day,   sleep_hrs,   work_hrs,   work_hrs / sleep_hrs A
 <section id="combining-operations" class="level3">
 <h3 class="anchored" data-anchor-id="combining-operations">Combining Operations</h3>
 <p>To bring everything together, let’s see how we can combine the above three tasks into a single query!</p>
-<div id="96c30cc4" class="cell" data-execution_count="17">
+<div id="eb94eadd" class="cell" data-execution_count="17">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>con.execute(<span class="st">"""</span></span>
