@@ -1,5 +1,5 @@
 ---
-title: "Midterm &rarr; Final Project Datasets"
+title: "Final Project: Datasets and Timeline"
 sidebar: mainnav
 bibliography: "../_DSAN6000.bib"
 csl: "../chicago-17-no-url.csl"
@@ -47,7 +47,7 @@ format:
     df-print: kable
 ---
 
-## Selection Criteria
+::: {.callout-note title="Pre-Approved Datasets: Our Selection Criteria" collapse="true"}
 
 Looking at a dataset of all [H1-B visa job registrations](https://www.dol.gov/agencies/eta/foreign-labor/performance) submitted by US employers to the Department of Labor, the top industries (by share of total postings per [NAICS code](https://www.naics.com/search/)) hiring **data scientists** specifically (OES Code [15-2051](https://www.bls.gov/oes/2025/may/oes_stru.htm)) are:
 
@@ -64,12 +64,44 @@ Thus, in choosing datasets for the midterm, my aim was to cover the **types of d
 
 One implication of this approach is that, although some of the data is *historical* (like the Enron Email Corpus), the goal will **not** be just to analyze this nicely-packaged self-contained datasets, but instead to imagine **how you would handle *new* data continuously streaming into an OLTP database** with the same structure! So, in the Enron Email Corpus example, your interest won't be in analyzing those emails in particular, but to use them as a **case study**, extrapolating how you might use the tools we've learned in class thus far to derive analytic insights from a hypothetical employer's email database.
 
-## Datasets with Midterm Vignettes
+:::
+
+## Overview
+
+Starting **after the Midterm**, and up through the **presentations** on December 7th and December 10th and **reports** due on December 13th, you will apply the skills you've learned in the course towards a **Final Project**.
+
+### Dataset Choice
+
+Note that, as indicated by the **"pre-approved"** qualifier on the datasets listed below, you **do not need to restrict yourself** to only these datasets! We encourage you to choose a dataset and topic that you are particularly interested in, as long as they meet the general requirements described in class at the beginning of [Week 10](../w10/index.qmd).
+
+Projects using datasets outside of the "pre-approved" list will just need to describe these datasets in the [Proposal](#proposal-due-sunday-november-15-2026) document, as described in that section below.
+
+### Individual vs. Group Projects
+
+Projects can be done **individually** or in **groups** of between 2 and 4 students. The only differences between individual and group projects are as follows:
+
+* **Expectations** in terms of the **work** carried out as part of a project will be **scaled** based on the size of the group: a group with 4 members will be expected to carry out 2x more work than a group with 2 members.
+* **Final Presentation times** will also be scaled according to group size, as described in the next paragraph.
+
+Course staff will **recalculate the number of minutes per presentation** (based on the distribution of groups this semester) once the [**Proposals**](#proposal-due-sunday-november-15-2026) have been submitted, but last semester the timing worked out as follows:
+
+| Group Size | Presentation Time Limit |
+|:-:| - |
+| 1 | 5 minutes |
+| 2 | 8 minutes |
+| 3 | 10 minutes |
+| 4 | 12 minutes |
+
+### Deliverables
+
+The ultimate deliverable (on top of the progress reports and Final Presentation) will be a **Final Report**, due by **11:59pm, Sunday, December 13, 2026**. The report is described in more detail [below](#final-report-due-sunday-december-13-2026), but the format should be a **Quarto Manuscript Page** hosted on **GitHub Pages**, and thus accessible to course staff via a URL like `gh_username.github.io/project-name`.
+
+## Pre-Approved Datasets with Midterm Vignettes
 
 ::: {#midterm-datasets}
 :::
 
-## Additional Final Project Datasets
+## Additional Pre-Approved Final Project Datasets
 
 Like the above datasets, these are pre-approved if you find them interesting enough to analyze for your Final Project! They do not have midterm vignettes, but you can start diving into them immediately after handing in your midterm if you'd like 😎
 
@@ -78,17 +110,88 @@ Like the above datasets, these are pre-approved if you find them interesting eno
 
 ## Final Project Roadmap
 
-If you go to a conference or summit or some similar kind of gathering in the "computational sciences" world (computer science, data science, applied math, engineering, etc.), like a [conference sponsored by the IEEE](https://www.ieee.org/conferences-events), you will find that the organizational structure is split into **"industry track"**
+If you go to a conference or summit or some similar kind of gathering in the "computational sciences" world (computer science, data science, applied math, engineering, etc.), like a [conference sponsored by the IEEE](https://www.ieee.org/conferences-events), you will find that the organizational structure is often based on a split between an **"industry track"** and an **"academic track"**. By the same logic, it might help you to think about whether you would submit your DSAN 6000 Final Project to an "industry track" or an "academic track".
 
-### Proposal: Sunday, November 15, 2026
+The main reason for mentioning this dual-track setup, however, is to point out that there are **shared standards** across the two tracks: for example, both would require **abstracts** providing 300-500 word descriptions of the projects, and both would have constraints on how long each presenter will be able to speak.
 
-### Progress Report: Sunday, November 22, 2026
+Thus, whether your **goal** in carrying out your project is:
 
-### Results Section: Sunday, November 29, 2026
+* More oriented towards a "product", with (e.g.) a proof-of-concept demonstration forming the core of the final presentation, or
+* More oriented towards a "scientific finding", e.g., using big healthcare data to machine-learn likely indicators of allgergies to certain medications,
 
-### Presentations: December 7-8, 2026
+The following **weekly milestones** are meant to provide the "conference organizers" (the course staff) with progress updates, so that we can help you bring the projects to fruition given the time and resources we have available between now and the week of December 7th!
 
-### Final Report: Sunday, December 13, 2026
+### Proposal: Due *Sunday, November 15, 2026*
+
+<center>
+
+[Canvas submission link]({{< var project.proposal-url >}})
+
+</center>
+
+The initial proposal is a 1-to-2-page document, due by 11:59pm, Sunday, November 15, 2026 on **Canvas**, which should include the following:
+
+1.  **Name(s)** of who will work on the project,
+2.  **Dataset(s)** that will be utilized in the project (see [Dataset Choice Details](#dataset-choice-details) below),
+3.  **Preliminary "extended abstract"** describing the goals of the project (here you can use the structure of the Midterm vignettes as a guide), and
+4.  **(Optional) Questions for course staff**, where you can include anything you'd like us to address to help you before you start working on the project.
+
+#### Dataset Choice Details
+
+As described in the [Overview](#overview) section, you **do not need to use** one of the "pre-approved" datasets! We encourage you to choose anything you are particularly interested in that meets the general requirements described in class at the beginning of [Week 10](../w10/index.qmd).
+
+The only difference, therefore, is that projects using a non-"pre-approved" dataset will need to describe the dataset in this Proposal document. Please write your description so that the course staff has a sense for the **scale** and **feasibility** of applying course tools to the dataset – for example, you can copy the structure used in the Midterm vignettes, including an indication of **where** exactly the dataset can be accessed (say, an S3 bucket URI like `s3://data-bucket/specific-dataset/`).
+
+### Progress Report (EDA): Due *Sunday, November 22, 2026*
+
+<center>
+
+[Canvas submission link]({{< var project.eda-url >}})
+
+</center>
+
+The **progress report** document was described in class during Week 10. More details will be added here and at the Canvas submission page linked above closer to the due date.
+
+### Results (Spark Cluster Usage): Due *Sunday, November 29, 2026*
+
+<center>
+
+[Canvas submission link]({{< var project.spark-progress-url >}})
+
+</center>
+
+The **Spark cluster usage report** document was described in class during Week 10. More details will be added here and at the Canvas submission page linked above closer to the due date.
+
+### Presentations: *Monday, December 7* and *Thursday, December 10, 2026*
+
+<center>
+
+[Canvas: Presentation slides submission link]({{< var project.slides-url >}})
+
+</center>
+
+Finalized **slides** for your presentation are due at the Canvas link above by **Sunday, December 6, 2026** – the evening before the first presentation session on **Monday, December 7, 2026**.
+
+### Final Report: Due *Sunday, December 13, 2026*
+
+<center>
+
+[Canvas submission link]({{< var project.report-url >}})
+
+</center>
+
+The Final Report, as described in class during [Week 11](../w11/index.qmd), should be structured as a **Quarto Manuscript** page hosted on **GitHub Pages**, with an easily-accessible URL like `gh_username.github.io/project-name`. You (or your group leader) will then **submit this URL** to the above Canvas page.
+
+A **PDF-formatted version of the report** should be **easily accessible** to course staff at that URL: for example, within the **"Other Formats"** section that Quarto automatically includes in the page header for multi-format Manuscript projects.
+
+If you have privacy concerns, and don't want the report to be publicly-accessible at a URL like this, please **email the instructional staff at** [**`dsan6000@georgetown.edu`**](mailto:dsan6000@georgetown.edu) to obtain approval for a PDF-upload-only Final Report submission.
 
 ## Past Project Archive
 
+The past project archive is now up and running on a separate page, with links to all Fall 2025 student project materials that the course staff was able to locate! It can be found at the following link (and is also linked in the website sidebar to the left):
+
+<center>
+
+[Past Project Archive](../project-archive/index.qmd)
+
+</center>

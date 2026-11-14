@@ -1,0 +1,14 @@
+---
+title: "Reddit Discussions Corpus"
+sidebar: mainnav
+midterm: false
+categories:
+  - "Discourse Analysis"
+datatypes:
+  - "Text"
+  - "Numeric"
+format:
+  html: default
+---
+
+The Reddit Discussions Corpus is (like the [Supreme Court Discussions Corpus](../supreme-court/index.qmd)) available through the [**ConvoKit Python library**](https://convokit.cornell.edu/).

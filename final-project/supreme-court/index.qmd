@@ -13,4 +13,5 @@ format:
   html: default
 ---
 
-Supreme Court
+The Supreme Court Discussions Corpus is (like the [Reddit Discussions Corpus](../reddit/index.qmd)) available through the [**ConvoKit Python library**](https://convokit.cornell.edu/).
+
