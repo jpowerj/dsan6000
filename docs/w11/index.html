@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jeff Jacobs">
 
-<title>Week 11: Vector Databases – DSAN 6000: Big Data and Cloud Computing</title>
+<title>Week 11: ETL Pipelines and Vector Databases – DSAN 6000: Big Data and Cloud Computing</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -104,9 +104,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-93e7fff9c5c004f07a8438326a7d93af.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-51908efb1ebe94ea81be6fb747e00db8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-93e7fff9c5c004f07a8438326a7d93af.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-471a5c45c08a81b09be66853670b5c63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-2c93ddcc6a6cdda89cf5883dc1af3812.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-471a5c45c08a81b09be66853670b5c63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -545,7 +545,7 @@ window.Quarto = {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-11-14, 04:41:05 AM</em></p>
+<p><em>Updated 2026-11-16, 12:40:43 AM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -560,26 +560,12 @@ window.Quarto = {
   <li><a href="#operators-what-kind-of-task" id="toc-operators-what-kind-of-task" class="nav-link" data-scroll-target="#operators-what-kind-of-task"><code>Operator</code>s: What <em>Kind</em> of <code>task</code>?</a></li>
   <li><a href="#task-vs.-operator-a-sanity-preserving-distinction" id="toc-task-vs.-operator-a-sanity-preserving-distinction" class="nav-link" data-scroll-target="#task-vs.-operator-a-sanity-preserving-distinction"><code>Task</code> vs.&nbsp;<code>Operator</code>: A Sanity-Preserving Distinction</a></li>
   <li><a href="#concepts-leadsto-code" id="toc-concepts-leadsto-code" class="nav-link" data-scroll-target="#concepts-leadsto-code">Concepts <span class="math inline">\(\leadsto\)</span> Code</a></li>
-  <li><a href="#db-migrate-the-airflow-metastore" id="toc-db-migrate-the-airflow-metastore" class="nav-link" data-scroll-target="#db-migrate-the-airflow-metastore"><code>db migrate</code>: The Airflow Metastore</a></li>
-  <li><a href="#api-server" id="toc-api-server" class="nav-link" data-scroll-target="#api-server">API Server</a></li>
-  <li><a href="#scheduler-executor" id="toc-scheduler-executor" class="nav-link" data-scroll-target="#scheduler-executor"><code>Scheduler</code> → <code>Executor</code></a></li>
-  <li><a href="#dag-processor" id="toc-dag-processor" class="nav-link" data-scroll-target="#dag-processor"><code>DAG</code> Processor</a></li>
-  <li><a href="#the-schedule-argument" id="toc-the-schedule-argument" class="nav-link" data-scroll-target="#the-schedule-argument">The <code>schedule</code> Argument</a></li>
-  <li><a href="#external-service-integration" id="toc-external-service-integration" class="nav-link" data-scroll-target="#external-service-integration">External Service Integration</a></li>
-  <li><a href="#jinja-example" id="toc-jinja-example" class="nav-link" data-scroll-target="#jinja-example"><code>Jinja</code> Example</a></li>
-  <li><a href="#airflow-ui-grid-view" id="toc-airflow-ui-grid-view" class="nav-link" data-scroll-target="#airflow-ui-grid-view">Airflow UI: Grid View</a></li>
-  <li><a href="#airflow-ui-run-details" id="toc-airflow-ui-run-details" class="nav-link" data-scroll-target="#airflow-ui-run-details">Airflow UI: Run Details</a></li>
-  <li><a href="#airflow-ui-task-instance-details" id="toc-airflow-ui-task-instance-details" class="nav-link" data-scroll-target="#airflow-ui-task-instance-details">Airflow UI: Task Instance Details</a></li>
-  <li><a href="#tasks-task-groups" id="toc-tasks-task-groups" class="nav-link" data-scroll-target="#tasks-task-groups">Tasks → Task Groups</a></li>
-  <li><a href="#graph-view" id="toc-graph-view" class="nav-link" data-scroll-target="#graph-view">Graph View</a></li>
-  <li><a href="#calendar-view" id="toc-calendar-view" class="nav-link" data-scroll-target="#calendar-view">Calendar View</a></li>
-  <li><a href="#gantt-view" id="toc-gantt-view" class="nav-link" data-scroll-target="#gantt-view">Gantt View</a></li>
-  <li><a href="#new-book-up-to-date-airflow-3.0-demos" id="toc-new-book-up-to-date-airflow-3.0-demos" class="nav-link" data-scroll-target="#new-book-up-to-date-airflow-3.0-demos">New Book: Up-To-Date (Airflow 3.0) Demos 🤓</a></li>
-  <li><a href="#conceptual-pipelines-leadsto-dags" id="toc-conceptual-pipelines-leadsto-dags" class="nav-link" data-scroll-target="#conceptual-pipelines-leadsto-dags">Conceptual Pipelines <span class="math inline">\(\leadsto\)</span> DAGs</a></li>
-  <li><a href="#implementation-detail-1-backfilling" id="toc-implementation-detail-1-backfilling" class="nav-link" data-scroll-target="#implementation-detail-1-backfilling">Implementation Detail 1: Backfilling</a></li>
-  <li><a href="#implementation-detail-2-train-model-only-after-backfill" id="toc-implementation-detail-2-train-model-only-after-backfill" class="nav-link" data-scroll-target="#implementation-detail-2-train-model-only-after-backfill">Implementation Detail 2: Train Model Only <em>After</em> Backfill</a></li>
-  <li><a href="#implementation-detail-3-downstream-consumers" id="toc-implementation-detail-3-downstream-consumers" class="nav-link" data-scroll-target="#implementation-detail-3-downstream-consumers">Implementation Detail 3: Downstream Consumers</a></li>
-  <li><a href="#lab-time" id="toc-lab-time" class="nav-link" data-scroll-target="#lab-time">Lab Time!</a></li>
+  <li><a href="#the-payoff-downstream-consumers-can-establish-their-own-triggered-executions" id="toc-the-payoff-downstream-consumers-can-establish-their-own-triggered-executions" class="nav-link" data-scroll-target="#the-payoff-downstream-consumers-can-establish-their-own-triggered-executions">The Payoff: <em>Downstream</em> Consumers Can Establish Their Own Triggered Execution(s)!</a></li>
+  <li><a href="#what-are-we-loading-into" id="toc-what-are-we-loading-into" class="nav-link" data-scroll-target="#what-are-we-loading-into">What are we <strong>L</strong>oading Into?</a>
+  <ul class="collapse">
+  <li><a href="#our-working-etl-example" id="toc-our-working-etl-example" class="nav-link" data-scroll-target="#our-working-etl-example">Our Working ETL Example</a></li>
+  <li><a href="#intuition-why-did-we-split-olap-from-oltp-in-the-first-place" id="toc-intuition-why-did-we-split-olap-from-oltp-in-the-first-place" class="nav-link" data-scroll-target="#intuition-why-did-we-split-olap-from-oltp-in-the-first-place">Intuition: …Why Did We “Split” OLAP from OLTP in the First Place?</a></li>
+  </ul></li>
   <li><a href="#vector-spaces-the-geometry-of-ai" id="toc-vector-spaces-the-geometry-of-ai" class="nav-link" data-scroll-target="#vector-spaces-the-geometry-of-ai">Vector Spaces: The Geometry of AI!</a>
   <ul class="collapse">
   <li><a href="#word-counts-good-enough" id="toc-word-counts-good-enough" class="nav-link" data-scroll-target="#word-counts-good-enough">Word Counts: Good Enough?</a></li>
@@ -594,11 +580,7 @@ window.Quarto = {
   <li><a href="#unstructured-data-leadsto-structured-geometric-query-space" id="toc-unstructured-data-leadsto-structured-geometric-query-space" class="nav-link" data-scroll-target="#unstructured-data-leadsto-structured-geometric-query-space">Unstructured Data <span class="math inline">\(\leadsto\)</span> Structured Geometric Query Space</a></li>
   <li><a href="#more-data-leadsto-increasing-returns" id="toc-more-data-leadsto-increasing-returns" class="nav-link" data-scroll-target="#more-data-leadsto-increasing-returns">More Data <span class="math inline">\(\leadsto\)</span> “Increasing Returns”</a></li>
   <li><a href="#queries-embedded-via-the-same-model" id="toc-queries-embedded-via-the-same-model" class="nav-link" data-scroll-target="#queries-embedded-via-the-same-model">Queries Embedded via the <em>Same</em> Model!</a></li>
-  </ul></li>
-  <li><a href="#lab-time-1" id="toc-lab-time-1" class="nav-link" data-scroll-target="#lab-time-1">Lab Time!</a>
-  <ul class="collapse">
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#references-1" id="toc-references-1" class="nav-link" data-scroll-target="#references-1">References</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/w11/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -609,7 +591,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 11: Vector Databases</h1>
+<h1 class="title">Week 11: ETL Pipelines and Vector Databases</h1>
 <p class="subtitle lead"><em>DSAN 6000: Big Data and Cloud Computing</em><br>Fall 2026</p>
   <div class="quarto-categories">
     <div class="quarto-category">Class Sessions</div>
@@ -729,8 +711,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="pipelines-vs.-pipeline-orchestration" class="level2">
-<h2 class="anchored" data-anchor-id="pipelines-vs.-pipeline-orchestration">Pipelines vs.&nbsp;Pipeline <em>Orchestration</em></h2>
+<section id="pipelines-vs.-pipeline-orchestration" class="level2 smaller title-12">
+<h2 class="smaller title-12 anchored" data-anchor-id="pipelines-vs.-pipeline-orchestration">Pipelines vs.&nbsp;Pipeline <em>Orchestration</em></h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/orchestration.jpeg" class="img-fluid figure-img"></p>
@@ -814,12 +796,12 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/task-operator.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption>From <span class="citation" data-cites="ruiter_data_2026">(<a href="#ref-ruiter_data_2026" role="doc-biblioref"><strong>ruiter_data_2026?</strong></a>)</span></figcaption>
+<figcaption>From <span class="citation" data-cites="ruiter_data_2026">Ruiter et al. (<a href="#ref-ruiter_data_2026" role="doc-biblioref">2026</a>)</span></figcaption>
 </figure>
 </div>
 </section>
-<section id="concepts-leadsto-code" class="level2 crunch-title crunch-ul" data-name="Airflow Components+UI">
-<h2 class="crunch-title crunch-ul anchored" data-name="Airflow Components+UI" data-anchor-id="concepts-leadsto-code">Concepts <span class="math inline">\(\leadsto\)</span> Code</h2>
+<section id="concepts-leadsto-code" class="level2 crunch-title crunch-ul">
+<h2 class="crunch-title crunch-ul anchored" data-anchor-id="concepts-leadsto-code">Concepts <span class="math inline">\(\leadsto\)</span> Code</h2>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>start-airflow.sh</strong></pre>
@@ -834,7 +816,7 @@ window.Quarto = {
 <div class="column" style="width:50%;">
 <ul>
 <li>Full Airflow “ecosystem” is running once you’ve started each piece via above (<code>bash</code>) commands!</li>
-<li>Let’s look at each in turn…</li>
+<li>Let’s look at each in turn… <a href="../writeups/airflow/index.html" class="external" target="_blank"><strong>(Optional) Bonus slides!</strong></a></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -845,422 +827,153 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="db-migrate-the-airflow-metastore" class="level2 crunch-title">
-<h2 class="crunch-title anchored" data-anchor-id="db-migrate-the-airflow-metastore"><code>db migrate</code>: The Airflow Metastore</h2>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>start-airflow.sh</strong></pre>
+<section id="the-payoff-downstream-consumers-can-establish-their-own-triggered-executions" class="level2 smaller title-11">
+<h2 class="smaller title-11 anchored" data-anchor-id="the-payoff-downstream-consumers-can-establish-their-own-triggered-executions">The Payoff: <em>Downstream</em> Consumers Can Establish Their Own Triggered Execution(s)!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/asset_aware.png" class="img-fluid figure-img"></p>
+<figcaption>From <span class="citation" data-cites="ruiter_data_2026">Ruiter et al. (<a href="#ref-ruiter_data_2026" role="doc-biblioref">2026</a>)</span></figcaption>
+</figure>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="start-airflow.sh"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="ex">airflow</span> db migrate</span>
-<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
-<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a><span class="ex">airflow</span> scheduler</span>
-<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a><span class="ex">airflow</span> dag-processor</span>
-<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+</section>
+<section id="what-are-we-loading-into" class="level1" data-stack-name="Unstructured Data">
+<h1 data-stack-name="Unstructured Data">What are we <strong>L</strong>oading Into?</h1>
+<section id="our-working-etl-example" class="level2 smaller crunch-title crunch-ul table-80">
+<h2 class="smaller crunch-title crunch-ul table-80 anchored" data-anchor-id="our-working-etl-example">Our Working ETL Example</h2>
+<style>
+details.spoiler {
+    display: inline;
+    cursor: pointer;
+  font-size: 1.2rem !important;
+
+    summary {
+        display: inline;
+    color: black;
+        background: black;
+        padding-inline: 0.25rem;
+        border-radius: 0.2rem;
+        user-select: none;
+        transition: opacity 0.2s ease;
+    font-size: 1.5rem !important;
+
+        &:hover {
+            opacity: 0.75;
+        }
+    }
+  summary > * {
+    color: black;
+    font-size: 1.5rem !important;
+  }
+
+    &[open] summary {
+    display: inline;
+        background: #1c1c1c;
+        color: white;
+    }
+  &[open] summary > * {
+    display: inline;
+    color: unset;
+  }
+}
+</style>
 <ul>
-<li>General info used by DAGs: variables, connections, XComs</li>
-<li>Data about DAG and task runs (generated by scheduler)</li>
-<li>Logs / error information</li>
-<li><i class="bi bi-exclamation-triangle" style="font-size: 90%;"></i> Not modified directly/manually! Managed by Airflow; To modify, use API Server →</li>
+<li><strong>Extract</strong> text from OLTP, <strong>Transform</strong> by <strong>embedding</strong> into semantic vector space</li>
+<li><strong>Load</strong> into… OLAP DB, but what kind? Data Lake? ❌ Warehouse? ❌</li>
 </ul>
-</section>
-<section id="api-server" class="level2 crunch-title crunch-quarto-figure">
-<h2 class="crunch-title crunch-quarto-figure anchored" data-anchor-id="api-server">API Server</h2>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>start-airflow.sh</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="start-airflow.sh"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a><span class="ex">airflow</span> db migrate</span>
-<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
-<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a><span class="ex">airflow</span> scheduler</span>
-<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a><span class="ex">airflow</span> dag-processor</span>
-<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Web UI for managing Airflow (much more on this later!)</p>
-<div class="callout callout-style-default callout-warning callout-titled" title="&nbsp;Default Login Info">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>&nbsp;Default Login Info
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Default <code>db migrate</code> generates <strong>admin password</strong> in <code>~/simple_auth_manager_passwords.json.generated</code></p>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/airflow_login.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="scheduler-executor" class="level2 crunch-title">
-<h2 class="crunch-title anchored" data-anchor-id="scheduler-executor"><code>Scheduler</code> → <code>Executor</code></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>start-airflow.sh</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="start-airflow.sh"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a><span class="ex">airflow</span> db migrate</span>
-<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
-<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a><span class="ex">airflow</span> scheduler</span>
-<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a><span class="ex">airflow</span> dag-processor</span>
-<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li>Default: <code>LocalExecutor</code></li>
-<li>For scaling: <code>EcsExecutor</code> (AWS ECS), <code>KubernetesExecutor</code></li>
-<li>See also <a href="https://airflow.apache.org/docs/apache-airflow-providers-apache-spark/stable/operators.html"><code>SparkSubmitOperator</code></a></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/executor_loop.png" class="img-fluid figure-img"></p>
-<figcaption>From <span class="citation" data-cites="ruiter_data_2026">(<a href="#ref-ruiter_data_2026" role="doc-biblioref"><strong>ruiter_data_2026?</strong></a>)</span></figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="dag-processor" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="dag-processor"><code>DAG</code> Processor</h2>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>start-airflow.sh</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-filename="start-airflow.sh"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a><span class="ex">airflow</span> db migrate</span>
-<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a><span class="ex">airflow</span> api-server <span class="at">--port</span> 8080</span>
-<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a><span class="ex">airflow</span> scheduler</span>
-<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a><span class="ex">airflow</span> dag-processor</span>
-<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a><span class="ex">airflow</span> triggerer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/dag_processor.png" class="img-fluid figure-img"></p>
-<figcaption>From <span class="citation" data-cites="ruiter_data_2026">(<a href="#ref-ruiter_data_2026" role="doc-biblioref"><strong>ruiter_data_2026?</strong></a>)</span></figcaption>
-</figure>
-</div>
-</section>
-<section id="the-schedule-argument" class="level2 smaller crunch-title crunch-ul">
-<h2 class="smaller crunch-title crunch-ul anchored" data-anchor-id="the-schedule-argument">The <code>schedule</code> Argument</h2>
-<p><em>(Airflow uses <a href="https://pendulum.eustace.io/"><code>pendulum</code></a> under the hood, rather than <code>datetime</code>!)</em></p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>dag_scheduling.py</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-filename="dag_scheduling.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> airflow.sdk <span class="im">import</span> DAG</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pendulum</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>dag <span class="op">=</span> DAG(<span class="st">"regular_interval_cron_example"</span>, schedule<span class="op">=</span><span class="st">"0 0 * * *"</span>, ...)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>dag <span class="op">=</span> DAG(<span class="st">"regular_interval_cron_preset_example"</span>, schedule<span class="op">=</span><span class="st">"@daily"</span>, ...)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>dag <span class="op">=</span> DAG(<span class="st">"regular_interval_timedelta_example"</span>, schedule<span class="op">=</span>pendulum.timedelta(days<span class="op">=</span><span class="dv">1</span>), ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><a href="https://crontab.guru/"><strong><code>Cron</code></strong></a>: Full-on scheduling language (used by computers since <a href="https://en.wikipedia.org/wiki/Cron">1975</a>!)</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>crontab.sh</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-filename="crontab.sh"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ┌───────────── minute (0–59)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># │ ┌───────────── hour (0–23)</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># │ │ ┌───────────── day of the month (1–31)</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># │ │ │ ┌───────────── month (1–12)</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># │ │ │ │ ┌───────────── day of the week (0–6) (Sunday to Saturday)</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># │ │ │ │ │</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># │ │ │ │ │</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># │ │ │ │ │</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># * * * * * &lt;command to execute&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><a href="https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/cron.html#cron-presets">Cron Presets</a>: <code>None</code>, <code>"@once"</code>, <code>"@continuous"</code>, <code>"@hourly"</code>, <code>"@daily"</code>, <code>"@weekly"</code></p>
-</section>
-<section id="external-service-integration" class="level2 smaller crunch-title crunch-ul">
-<h2 class="smaller crunch-title crunch-ul anchored" data-anchor-id="external-service-integration">External Service Integration</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 49%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 5%">
+<col style="width: 11%">
+<col style="width: 6%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Service</th>
-<th>Command</th>
+<th rowspan="2" class="tdvc tdc" data-quarto-table-cell-role="th">name</th>
+<th rowspan="2" class="tdvc" data-quarto-table-cell-role="th">message</th>
+<th colspan="4" class="tdc tdvc" data-quarto-table-cell-role="th">embedding</th>
+<th rowspan="2" class="tdc tdvc" data-quarto-table-cell-role="th">label</th>
+</tr>
+<tr class="even">
+<th style="text-align: center;" data-quarto-table-cell-role="th">dim<sub>1</sub></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">dim<sub>2</sub></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><span class="math inline">\(\cdots\)</span></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">dim<sub>3072</sub></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>AWS</td>
-<td><code>pip install 'apache-airflow[amazon]'</code></td>
+<td>Fangzhou</td>
+<td><code>card broke in half</code></td>
+<td class="tdc"><code>[0.8723</code></td>
+<td class="tdc"><code>0.7536</code></td>
+<td class="tdc"><span class="math inline">\(\cdots\)</span></td>
+<td class="tdc"><code>0.8022]</code></td>
+<td class="tdc"><code>card_issue</code></td>
 </tr>
 <tr class="even">
-<td>Azure</td>
-<td><code>pip install 'apache-airflow[microsoft-azure]'</code></td>
+<td class="tdc tdvc">Samyu</td>
+<td><code>accidentally folded card into möbius strip, cant figure out which part is the back</code></td>
+<td class="tdc tdvc"><code>[0.1296</code></td>
+<td class="tdc tdvc"><code>0.5923</code></td>
+<td class="tdc tdvc"><span class="math inline">\(\cdots\)</span></td>
+<td class="tdc tdvc"><code>0.1105]</code></td>
+<td class="tdc tdvc"><code>NA</code> (❓)</td>
 </tr>
 <tr class="odd">
-<td>Databricks</td>
-<td><code>pip install 'apache-airflow[databricks]'</code></td>
-</tr>
-<tr class="even">
-<td>GitHub</td>
-<td><code>pip install 'apache-airflow[github]'</code></td>
-</tr>
-<tr class="odd">
-<td>Google Cloud</td>
-<td><code>pip install 'apache-airflow[google]'</code></td>
-</tr>
-<tr class="even">
-<td>MongoDB</td>
-<td><code>pip install 'apache-airflow[mongo]'</code></td>
-</tr>
-<tr class="odd">
-<td>OpenAI</td>
-<td><code>pip install 'apache-airflow[openai]'</code></td>
-</tr>
-<tr class="even">
-<td>Slack</td>
-<td><code>pip install 'apache-airflow[slack]'</code></td>
-</tr>
-<tr class="odd">
-<td>Spark</td>
-<td><code>pip install 'apache-airflow[apache-spark]'</code></td>
-</tr>
-<tr class="even">
-<td>Tableau</td>
-<td><code>pip install 'apache-airflow[tableau]'</code></td>
+<td class="tdc tdvc">Jeff</td>
+<td><code>off the lean in italy like i was pisa, put it on the mastercard, already owe visa</code></td>
+<td class="tdc tdvc"><code>[0.2399</code></td>
+<td class="tdc tdvc"><code>0.0656</code></td>
+<td class="tdc tdvc"><span class="math inline">\(\cdots\)</span></td>
+<td class="tdc tdvc"><code>0.0967]</code></td>
+<td class="tdc tdvc"><code>rapping</code></td>
 </tr>
 </tbody>
 </table>
-<p><em>(And <a href="https://airflow.apache.org/docs/apache-airflow/stable/extra-packages-ref.html#external-services-extras">many more</a>:)</em></p>
-</section>
-<section id="jinja-example" class="level2 crunch-title smaller crunch-hr crunch-ul">
-<h2 class="crunch-title smaller crunch-hr crunch-ul anchored" data-anchor-id="jinja-example"><code>Jinja</code> Example</h2>
-<div class="quarto-layout-panel" data-layout="[48,4,48]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="column quarto-layout-cell" style="flex-basis: 48.0%;justify-content: flex-start;">
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>homepage.jinja</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename="homepage.jinja"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h4</span><span class="dt">&gt;</span>{{ me['name'] }}'s Favorite Hobbies<span class="dt">&lt;/</span><span class="kw">h4</span><span class="dt">&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>{%- for hobby in hobbies %}</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>{{ hobby }}<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>{%- endfor %}</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-<div class="column quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
-<center>
-+
-</center>
-</div>
-<div class="column quarto-layout-cell" style="flex-basis: 48.0%;justify-content: flex-start;">
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>render_jinja.py</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename="render_jinja.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> jinja2 <span class="im">import</span> Template</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>tmpl <span class="op">=</span> Template(<span class="st">'homepage.jinja'</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>tmpl.render(</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    me <span class="op">=</span> {<span class="st">'name'</span>: <span class="st">'Jeff'</span>},</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    hobbies <span class="op">=</span> [</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'eat'</span>,</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'sleep'</span>,</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'attend to the proverbial bag'</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</div>
-<hr>
-<center>
-↓
-</center>
-<hr>
-<div class="quarto-layout-panel" data-layout="[48,4,48]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="column quarto-layout-cell" style="flex-basis: 48.0%;justify-content: flex-start;">
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>rendered.html</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-filename="rendered.html"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h4</span><span class="dt">&gt;</span>Jeff's Favorite Hobbies<span class="dt">&lt;/</span><span class="kw">h4</span><span class="dt">&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>eat<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>sleep<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>attend to the proverbial bag<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-<div class="column quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
-<p><span class="math inline">\(\leadsto\)</span></p>
-</div>
-<div class="column quarto-layout-cell" style="flex-basis: 48.0%;justify-content: flex-start;">
-<h4 class="anchored">Jeff's Favorite Hobbies</h4>
 <ul>
-  <li>eat</li>
-  <li>sleep</li>
-  <li>attend to the proverbial bag</li>
+<li>In fact, <strong>none</strong> of the approaches thus far (whether OLTP or OLAP) are very helpful for this case: “standard” <strong>tabular</strong> storage fails to capture <strong>spatial structure</strong>…</li>
+</ul>
+</section>
+<section id="intuition-why-did-we-split-olap-from-oltp-in-the-first-place" class="level2 smaller crunch-p">
+<h2 class="smaller crunch-p anchored" data-anchor-id="intuition-why-did-we-split-olap-from-oltp-in-the-first-place">Intuition: …Why Did We “Split” OLAP from OLTP in the First Place?</h2>
+<div id="intuition-head" style="width: 100%; margin-bottom: 14px;">
+<p><em>The answer: Different <strong>use cases</strong> <span class="math inline">\(\Rightarrow\)</span> Optimizing for different <strong>“critical operations”</strong></em></p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<center>
+<p><strong>OLTP</strong></p>
+</center>
+<ul>
+<li>Optimized for rapid <strong>insertion</strong></li>
+<li>Ex: Append-only logs, website events, sensor readings</li>
+<li>…Vector DBs? ❌ Not typically a critical operation (vectors can be inserted offline/overnight at pace chosen by engineers)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<center>
+<p><strong>OLAP</strong></p>
+</center>
+<ul>
+<li>Optimized for rapid <strong>vectorized columnar computations</strong> (across many observations at once)</li>
+<li>Ex: <code>(df['y'] - df['yhat'])^2</code></li>
+<li>Vector DBs? ❌ Each observation has not 1 but (say) 3,072 <em>non-independent</em> attributes; a single column</li>
 </ul>
 </div>
 </div>
-</div>
+<ul>
+<li>Critical operation for Vector DBs? <strong>Nearest-neighbors search</strong></li>
+<li>Need a <strong>data structure</strong> that <em>forces</em> records <strong>close</strong> in vector space to be <strong>close</strong> in DB… Spoiler (<a href="https://jimkang.com/quadtreevis/"></a>):
+<details class="spoiler">
+<summary>
+<code>QuadTree</code>!
+</summary>
+</details></li>
+</ul>
 </section>
-<section id="airflow-ui-grid-view" class="level2">
-<h2 class="anchored" data-anchor-id="airflow-ui-grid-view">Airflow UI: Grid View</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/grid_view.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="airflow-ui-run-details" class="level2">
-<h2 class="anchored" data-anchor-id="airflow-ui-run-details">Airflow UI: Run Details</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/grid_run_details.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="airflow-ui-task-instance-details" class="level2">
-<h2 class="anchored" data-anchor-id="airflow-ui-task-instance-details">Airflow UI: Task Instance Details</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/grid_instance_details.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="tasks-task-groups" class="level2">
-<h2 class="anchored" data-anchor-id="tasks-task-groups">Tasks → Task Groups</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/grid_task_group.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="graph-view" class="level2">
-<h2 class="anchored" data-anchor-id="graph-view">Graph View</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/graph.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="calendar-view" class="level2">
-<h2 class="anchored" data-anchor-id="calendar-view">Calendar View</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/calendar.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="gantt-view" class="level2">
-<h2 class="anchored" data-anchor-id="gantt-view">Gantt View</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/gantt.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="new-book-up-to-date-airflow-3.0-demos" class="level2 smaller title-10 nostretch">
-<h2 class="smaller title-10 nostretch anchored" data-anchor-id="new-book-up-to-date-airflow-3.0-demos">New Book: Up-To-Date (Airflow 3.0) Demos 🤓</h2>
-<div class="quarto-layout-panel" data-layout="[48,4,48]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="column quarto-layout-cell" style="flex-basis: 48.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/manning_1e.jpg" class="img-fluid figure-img" width="380"></p>
-<figcaption><span class="citation" data-cites="harenslak_data_2021">(<a href="#ref-harenslak_data_2021" role="doc-biblioref"><strong>harenslak_data_2021?</strong></a>)</span></figcaption>
-</figure>
-</div>
-</div>
-<div class="column quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
-<p><span class="math inline">\(\leadsto\)</span></p>
-</div>
-<div class="column quarto-layout-cell" style="flex-basis: 48.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/manning_2e.png" class="img-fluid figure-img" width="380"></p>
-<figcaption><span class="citation" data-cites="ruiter_data_2026">(<a href="#ref-ruiter_data_2026" role="doc-biblioref"><strong>ruiter_data_2026?</strong></a>)</span></figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="conceptual-pipelines-leadsto-dags" class="level2 smaller">
-<h2 class="smaller anchored" data-anchor-id="conceptual-pipelines-leadsto-dags">Conceptual Pipelines <span class="math inline">\(\leadsto\)</span> DAGs</h2>
-<p>Main challenge: converting “intuitive” pipelines in our heads:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/pipeline-abstract.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption>From <span class="citation" data-cites="ruiter_data_2026">(<a href="#ref-ruiter_data_2026" role="doc-biblioref"><strong>ruiter_data_2026?</strong></a>)</span></figcaption>
-</figure>
-</div>
-<p>Into <strong><code>DAG</code>s</strong> with concrete <code>Task</code>s, dependencies, and triggers:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/pipeline_dag.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption>Also from <span class="citation" data-cites="ruiter_data_2026">(<a href="#ref-ruiter_data_2026" role="doc-biblioref"><strong>ruiter_data_2026?</strong></a>)</span></figcaption>
-</figure>
-</div>
-</section>
-<section id="implementation-detail-1-backfilling" class="level2 smaller title-10">
-<h2 class="smaller title-10 anchored" data-anchor-id="implementation-detail-1-backfilling">Implementation Detail 1: Backfilling</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/backfill.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="implementation-detail-2-train-model-only-after-backfill" class="level2 smaller title-09 crunch-title crunch-quarto-figure">
-<h2 class="smaller title-09 crunch-title crunch-quarto-figure anchored" data-anchor-id="implementation-detail-2-train-model-only-after-backfill">Implementation Detail 2: Train Model Only <em>After</em> Backfill</h2>
-<div id="fig-ml-deploy" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ml-deploy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-panel" data-layout="[48,4,48]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="column quarto-layout-cell" style="flex-basis: 48.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/latestonly_dag.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
-</figure>
-</div>
-</div>
-<div class="column quarto-layout-cell" style="flex-basis: 4.0%;justify-content: flex-start;">
-<p><span class="math inline">\(\leadsto\)</span></p>
-</div>
-<div class="column quarto-layout-cell" style="flex-basis: 48.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/latestonly_grid.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
-</figure>
-</div>
-<p><a href="https://airflow.apache.org/docs/apache-airflow-providers-standard/stable/_api/airflow/providers/standard/operators/latest_only/index.html#module-contents" class="under"><code>LatestOnlyOperator</code></a></p>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ml-deploy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Fig&nbsp;1: Both figures from <span class="citation" data-cites="ruiter_data_2026">(<a href="#ref-ruiter_data_2026" role="doc-biblioref"><strong>ruiter_data_2026?</strong></a>)</span>
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="implementation-detail-3-downstream-consumers" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-detail-3-downstream-consumers">Implementation Detail 3: Downstream Consumers</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/asset_aware.png" class="img-fluid figure-img"></p>
-<figcaption>From <span class="citation" data-cites="ruiter_data_2026">(<a href="#ref-ruiter_data_2026" role="doc-biblioref"><strong>ruiter_data_2026?</strong></a>)</span></figcaption>
-</figure>
-</div>
-</section>
-<section id="lab-time" class="level2" data-name="Lab">
-<h2 data-name="Lab" class="anchored" data-anchor-id="lab-time">Lab Time!</h2>
-<p><a href="https://classroom.github.com/classrooms/34950344-georgetown-university-dsan6000-big-data-and-cloud-computing">Lab 10: ETL Pipeline Orchestration with Airflow</a></p>
 </section>
 <section id="vector-spaces-the-geometry-of-ai" class="level1 not-title-slide smaller crunch-title title-12" data-stack-name="Embeddings Overview">
 <h1 class="not-title-slide smaller crunch-title title-12" data-stack-name="Embeddings Overview">Vector Spaces: The Geometry of AI!</h1>
@@ -1653,7 +1366,7 @@ taste very
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-embed-images-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Fig&nbsp;2: <a href="https://www.youtube.com/watch?v=ebMkbWzFCnA&amp;t=80s">Image Source</a>
+Fig&nbsp;1: <a href="https://www.youtube.com/watch?v=ebMkbWzFCnA&amp;t=80s">Image Source</a>
 </figcaption>
 </figure>
 </div>
@@ -1699,29 +1412,14 @@ Fig&nbsp;2: <a href="https://www.youtube.com/watch?v=ebMkbWzFCnA&amp;t=80s">Imag
 </figure>
 </div>
 </section>
-</section>
-<section id="lab-time-1" class="level1" data-stack-name="Lab 11">
-<h1 data-stack-name="Lab 11">Lab Time!</h1>
-<ul>
-<li>Lab 11 on <a href="https://georgetown.instructure.com/courses/213755/assignments/1280778">Canvas</a></li>
-<li>Lab 11 on <a href="https://classroom.github.com/a/Ek1Auxq3">GitHub Classroom</a></li>
-</ul>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-firth_papers_1957" class="csl-entry" role="listitem">
 Firth, John Rupert. 1957. <em><a href="https://books.google.com?id=yxZZAAAAMAAJ">Papers in <span>Linguistics</span>, 1934-1951</a></em>. Oxford University Press.
 </div>
-<div id="ref-saussure_course_1916" class="csl-entry" role="listitem">
-Saussure, Ferdinand de. 1916. <em><a href="https://books.google.com?id=lDmOvAAD7CMC">Course in <span>General Linguistics</span></a></em>. Open Court.
-</div>
-</div>
-</section>
-<section id="references-1" class="level2">
-<h2 class="anchored" data-anchor-id="references-1">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-firth_papers_1957" class="csl-entry" role="listitem">
-Firth, John Rupert. 1957. <em><a href="https://books.google.com?id=yxZZAAAAMAAJ">Papers in <span>Linguistics</span>, 1934-1951</a></em>. Oxford University Press.
+<div id="ref-ruiter_data_2026" class="csl-entry" role="listitem">
+Ruiter, Julian de, Ismael Cabral, Kris Geusebroek, Daniel van der Ende, and Bas Harenslak. 2026. <em><a href="https://www.dropbox.com/scl/fi/ntj0br4l0q09wibnrwn0u/JuliandeRuiter-DataPipelineswithApacheAirflow-SecondEdition.epub?rlkey=8tdw2c6f6g0zryu7pku0vt3nw&amp;dl=1">Data <span>Pipelines</span> with <span>Apache Airflow</span>, <span>Second Edition</span></a></em>. <span>Simon and Schuster</span>.
 </div>
 <div id="ref-saussure_course_1916" class="csl-entry" role="listitem">
 Saussure, Ferdinand de. 1916. <em><a href="https://books.google.com?id=lDmOvAAD7CMC">Course in <span>General Linguistics</span></a></em>. Open Court.

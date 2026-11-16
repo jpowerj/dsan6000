@@ -48,7 +48,7 @@ weeks:
   date-md: "Nov 9"
 - weeknum: 11
   title: "ETL Pipelines and Vector Databases"
-  footer: "DSAN 6000 Week 11: ETL, Vector Databases"
+  footer: "DSAN 6000 Week 11: ETL Pipelines, Vector DBs"
   date-md: "Nov 16"
 - weeknum: 12
   title: "Final Project Preparation"

@@ -4,6 +4,18 @@
     "items": []
   },
   {
+    "listing": "/writeups/index.html",
+    "items": [
+      "/writeups/ec2/index.html",
+      "/writeups/s3/index.html",
+      "/writeups/new-accounts/index.html",
+      "/writeups/sql-guide/index.html",
+      "/writeups/athena/index.html",
+      "/writeups/debugging-spark/index.html",
+      "/writeups/airflow/index.html"
+    ]
+  },
+  {
     "listing": "/final-project/index.html",
     "items": [
       "/final-project/acled/index.html",
@@ -14,17 +26,6 @@
       "/final-project/colombia/index.html",
       "/final-project/reddit/index.html",
       "/final-project/supreme-court/index.html"
-    ]
-  },
-  {
-    "listing": "/writeups/index.html",
-    "items": [
-      "/writeups/ec2/index.html",
-      "/writeups/s3/index.html",
-      "/writeups/new-accounts/index.html",
-      "/writeups/sql-guide/index.html",
-      "/writeups/athena/index.html",
-      "/writeups/debugging-spark/index.html"
     ]
   },
   {

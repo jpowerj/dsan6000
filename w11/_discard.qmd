@@ -1,0 +1,6 @@
+| `comment` | `dim1` | `dim2` | ... | `dim1024` |
+| - |:-:|:-:|:-:|:-:|
+| `i accidentally folded my card into a möbius strip now i cant figure out which part is the back` | 0.1296377 | 0.5923374 | ... | 0.1105677 |
+| `off the lean in italy, like im pisa, charge that to mastercard, already owe visa` | 
+
+: {tbl-colwidths="[50, 15, 15, 5, 15]"}
