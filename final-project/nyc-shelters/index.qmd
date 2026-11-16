@@ -35,11 +35,16 @@ This `.csv` file represents the **OLTP log** of all intakes (which are appended 
 The file is approximately 3.8GB, and has the following columns (you can download this codebook directly, in `.csv` format, [here](./intakes_codebook.csv))
 
 ```{python}
+#| label: display-codebook
+#| code-fold: true
 import polars as pl
-from great_tables import GT
+# from great_tables import GT
+import itables
 codebook_df = pl.read_csv('intakes_codebook.csv')
-with pl.Config(tbl_rows=30):
-  display(GT(codebook_df))
+itables.show(
+  codebook_df,
+  layout={'topStart': None, 'topEnd': None},
+)
 ```
 
 The content of the individual non-free-text columns was manually checked (using a small sample) for coherence with the `intake_notes` column, based on the DC shelter intake form documentation [here](https://drive.google.com/file/d/1lKyquleHTm8B2k3wJlvIL41zS-Zj8FDR/view?usp=drive_link).

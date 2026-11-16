@@ -1,0 +1,18 @@
+```{python}
+#| label: display-codebook
+#| code-fold: true
+import polars as pl
+# from great_tables import GT
+import itables
+codebook_df = pl.read_csv('intakes_codebook.csv')
+with pl.Config(tbl_rows=30):
+  display(
+    GT(codebook_df)
+    .cols_width(
+      cases = {
+        'column_name': '25%',
+        'column_description': '75%',
+      }
+    )
+  )
+```
