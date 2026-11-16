@@ -679,6 +679,10 @@ For each article, vote for section with highest keyword count:
 
 ![](images/vector-db-query.jpeg){fig-align="center"}
 
+## In-Class Demo: Vector DBs
+
+[[https://github.com/jpowerj/dsan6000-vectordb-demo](https://github.com/jpowerj/dsan6000-vectordb-demo)}{.boxed-cb}
+
 ## References
 
 ::: {#refs}

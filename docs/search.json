@@ -1643,7 +1643,7 @@
     "href": "w03/index.html#in-action",
     "title": "Week 3: Separating Data from Computation for Parallel Processing",
     "section": "In Action",
-    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8247 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8264 s",
+    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8184 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8629 s",
     "crumbs": [
       "Week 3: <span class='sec-w03-date'>Sep 14</span>"
     ]
@@ -1849,7 +1849,7 @@
     "href": "w03/slides.html#in-action",
     "title": "Week 3: Separating Data from Computation for Parallel Processing",
     "section": "In Action",
-    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.8011 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8314 s"
+    "text": "In Action\n\n\n\n\n\n\nimport time\nfrom sympy.ntheory import factorint\nfrom joblib import Parallel, delayed\nparallel_runner = Parallel(n_jobs=4)\nstart, end = 500, 650\ndef find_prime_factors(num):\n  time.sleep(.01)\n  return factorint(num, multiple=True)\ndisp_time = lambda start, end: print('{:.4f} s'.format(end - start))\n\n\n\n\nserial_start = time.time()\nresult = [\n  (i,find_prime_factors(i))\n  for i in range(start, end+1)\n]\nserial_end = time.time()\ndisp_time(serial_start, serial_end)\n\n1.7894 s\n\n\n\n\npar_start = time.time()\nresult = parallel_runner(\n  delayed(find_prime_factors)(i)\n  for i in range(start, end+1)\n)\npar_end = time.time()\ndisp_time(par_start, par_end)\n\n0.8690 s"
   },
   {
     "objectID": "w03/slides.html#what-is-joblib-doing-here",
@@ -2800,6 +2800,16 @@
     ]
   },
   {
+    "objectID": "w11/index.html#in-class-demo-vector-dbs",
+    "href": "w11/index.html#in-class-demo-vector-dbs",
+    "title": "Week 11: ETL Pipelines and Vector Databases",
+    "section": "In-Class Demo: Vector DBs",
+    "text": "In-Class Demo: Vector DBs\n[https://github.com/jpowerj/dsan6000-vectordb-demo}{.boxed-cb}",
+    "crumbs": [
+      "Week 11: <span class='sec-w11-date'>Nov 16</span>"
+    ]
+  },
+  {
     "objectID": "w11/index.html#references",
     "href": "w11/index.html#references",
     "title": "Week 11: ETL Pipelines and Vector Databases",
@@ -2934,6 +2944,13 @@
     "title": "Week 11: ETL Pipelines and Vector Databases",
     "section": "Queries Embedded via the Same Model!",
     "text": "Queries Embedded via the Same Model!"
+  },
+  {
+    "objectID": "w11/slides.html#in-class-demo-vector-dbs",
+    "href": "w11/slides.html#in-class-demo-vector-dbs",
+    "title": "Week 11: ETL Pipelines and Vector Databases",
+    "section": "In-Class Demo: Vector DBs",
+    "text": "In-Class Demo: Vector DBs\n[https://github.com/jpowerj/dsan6000-vectordb-demo}{.boxed-cb}"
   },
   {
     "objectID": "w11/slides.html#references",
