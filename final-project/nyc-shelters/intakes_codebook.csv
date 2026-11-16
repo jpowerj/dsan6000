@@ -1,0 +1,27 @@
+column_name,column_description
+intake_id,"A unique identifier for each intake"
+synthetic_data,"Always true (to avoid this data accidentally being merged into non-synthetic intake logs)"
+client_display_name,
+age,
+household_type,
+children_count,
+program_type,
+contact_type,
+intake_date,
+presenting_reason,
+prior_living_situation_reported,
+reported_housing_instability_days,
+employment_status_reported,
+income_status_reported,
+primary_barrier,
+immediate_needs,
+potential_referral,
+referral_status,
+client_goal,
+follow_up_days,
+follow_up_target_date,
+housing_eligibility_verified,
+staff_role,
+note_word_count,"The length, in words, of the (plaintext) intake note for the entering individual or family"
+intake_note,"The plaintext intake note for the entering individual or family"
+intake_photo_b64,"A Base64-encoded image of the entering individual or family, taken at the time of intake"

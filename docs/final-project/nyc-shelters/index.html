@@ -520,7 +520,7 @@ div.csl-indent {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-11-16, 12:40:43 AM</em></p>
+<p><em>Updated 2026-11-16, 05:25:09 AM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -529,7 +529,8 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#midterm-vignette" id="toc-midterm-vignette" class="nav-link active" data-scroll-target="#midterm-vignette">Midterm Vignette</a></li>
+  <li><a href="#data-access" id="toc-data-access" class="nav-link active" data-scroll-target="#data-access">Data Access</a></li>
+  <li><a href="#midterm-vignette" id="toc-midterm-vignette" class="nav-link" data-scroll-target="#midterm-vignette">Midterm Vignette</a></li>
   <li><a href="#question-1-starter-oltp-infrastructure" id="toc-question-1-starter-oltp-infrastructure" class="nav-link" data-scroll-target="#question-1-starter-oltp-infrastructure">Question 1 Starter: OLTP Infrastructure</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/final-project/nyc-shelters/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
@@ -570,6 +571,208 @@ div.csl-indent {
 
 
 <p><a href="../../final-project/index.html">← Back to Datasets</a></p>
+<section id="data-access" class="level2">
+<h2 class="anchored" data-anchor-id="data-access">Data Access</h2>
+<p>The NYC Shelter Intake Reports dataset is now available for DSAN 6000 students at the following S3 URI:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>s3://dsan6000-final/nyc-shelters/intake_log.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>However, for “pointing” a <strong>Spark cluster</strong> at this dataset, you will need to use the <code>s3a://</code> prefix instead:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>s3a://dsan6000-final/nyc-shelters/intake_log.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This <code>.csv</code> file represents the <strong>OLTP log</strong> of all intakes (which are appended to the file immediately upon reaching the OLTP server). It is your job, therefore, to <strong>transform</strong> this “raw” dataset into an OLAP form suitable for deriving your project’s insights.</p>
+<p>The file is approximately 3.8GB, and has the following columns (you can download this codebook directly, in <code>.csv</code> format, <a href="./intakes_codebook.csv">here</a>)</p>
+<div id="c0f13fda" class="cell" data-execution_count="1">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>codebook_df <span class="op">=</span> pl.read_csv(<span class="st">'intakes_codebook.csv'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pl.Config(tbl_rows<span class="op">=</span><span class="dv">30</span>):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  display(GT(codebook_df))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="emnbbzapzu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#emnbbzapzu table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#emnbbzapzu thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#emnbbzapzu p { margin: 0; padding: 0; }
+ #emnbbzapzu .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #emnbbzapzu .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #emnbbzapzu .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #emnbbzapzu .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #emnbbzapzu .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #emnbbzapzu .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #emnbbzapzu .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #emnbbzapzu .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #emnbbzapzu .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #emnbbzapzu .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #emnbbzapzu .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #emnbbzapzu .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #emnbbzapzu .gt_spanner_row { border-bottom-style: hidden; }
+ #emnbbzapzu .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #emnbbzapzu .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #emnbbzapzu .gt_from_md> :first-child { margin-top: 0; }
+ #emnbbzapzu .gt_from_md> :last-child { margin-bottom: 0; }
+ #emnbbzapzu .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #emnbbzapzu .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #emnbbzapzu .gt_indent_1 { text-indent: 5px; }
+ #emnbbzapzu .gt_indent_2 { text-indent: calc(5px * 2); }
+ #emnbbzapzu .gt_indent_3 { text-indent: calc(5px * 3); }
+ #emnbbzapzu .gt_indent_4 { text-indent: calc(5px * 4); }
+ #emnbbzapzu .gt_indent_5 { text-indent: calc(5px * 5); }
+ #emnbbzapzu .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #emnbbzapzu .gt_row_group_first td { border-top-width: 2px; }
+ #emnbbzapzu .gt_row_group_first th { border-top-width: 2px; }
+ #emnbbzapzu .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #emnbbzapzu .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #emnbbzapzu .gt_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #emnbbzapzu .gt_first_summary_row { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; }
+ #emnbbzapzu .gt_last_summary_row_top { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #emnbbzapzu .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #emnbbzapzu .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #emnbbzapzu .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #emnbbzapzu .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #emnbbzapzu .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #emnbbzapzu .gt_left { text-align: left; }
+ #emnbbzapzu .gt_center { text-align: center; }
+ #emnbbzapzu .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #emnbbzapzu .gt_font_normal { font-weight: normal; }
+ #emnbbzapzu .gt_font_bold { font-weight: bold; }
+ #emnbbzapzu .gt_font_italic { font-style: italic; }
+ #emnbbzapzu .gt_super { font-size: 65%; }
+ #emnbbzapzu .gt_footnotes { color: font-color(#FFFFFF); background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #emnbbzapzu .gt_footnote { margin: 0px; font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; }
+ #emnbbzapzu .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #emnbbzapzu .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #emnbbzapzu .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #emnbbzapzu .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="column_name" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">column_name</th>
+<th id="column_description" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">column_description</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">intake_id</td>
+<td class="gt_row gt_left" headers="column_description">A unique identifier for each intake</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">synthetic_data</td>
+<td class="gt_row gt_left" headers="column_description">Always true (to avoid this data accidentally being merged into non-synthetic intake logs)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">client_display_name</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">age</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">household_type</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">children_count</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">program_type</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">contact_type</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">intake_date</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">presenting_reason</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">prior_living_situation_reported</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">reported_housing_instability_days</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">employment_status_reported</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">income_status_reported</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">primary_barrier</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">immediate_needs</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">potential_referral</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">referral_status</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">client_goal</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">follow_up_days</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">follow_up_target_date</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">housing_eligibility_verified</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">staff_role</td>
+<td class="gt_row gt_left" headers="column_description">None</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">note_word_count</td>
+<td class="gt_row gt_left" headers="column_description">The length, in words, of the (plaintext) intake note for the entering individual or family</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="column_name">intake_note</td>
+<td class="gt_row gt_left" headers="column_description">The plaintext intake note for the entering individual or family</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="column_name">intake_photo_b64</td>
+<td class="gt_row gt_left" headers="column_description">A Base64-encoded image of the entering individual or family, taken at the time of intake</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
 <section id="midterm-vignette" class="level2">
 <h2 class="anchored" data-anchor-id="midterm-vignette">Midterm Vignette</h2>
 <p>In his final book, 2024’s <em>Genesis: Artificial Intelligence, Hope, and the Human Spirit</em>, tech visionary Henry Kissinger joined forces with former Google CEO Eric Schmidt and a third guy to explore how AI “enables the achievement of higher, more difficult, and grander problems than those currently solvable by the human brain” (40). With their trademark concern for the disadvantaged, Kissinger and friends describe an exhilarating technology-driven future, wherein</p>
@@ -591,17 +794,17 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="question-1-starter-oltp-infrastructure">Question 1 Starter: OLTP Infrastructure</h2>
 <p>As mentioned in the vignette, although the <strong>nightly PDF report</strong> contains aggregate counts of the number of men, women, and children across all shelters, this is [technically, in our terminology] the <strong>OLAP</strong> form of the data as it currently exists.</p>
 <p>The <strong>OLTP</strong> format — the form of the data as it is originally <strong>recorded</strong> — consists of <strong>entry</strong> and <strong>exit records</strong>, along with the timestamp of when the event was recorded. A small sample of this OLTP data is as follows. First, using <code>head()</code> to show the first five records that ever arrived in the OLTP DB (since it is an <strong>append-only log</strong>), we can see that the shelters started recording entries and exits late at night on September 26, 2026:</p>
-<div id="ecd588c5" class="cell" data-execution_count="1">
+<div id="9751d01a" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itables</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>shelter_pldf <span class="op">=</span> pl.read_parquet(<span class="st">'oltp_fam_children.parquet'</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>itables.show(shelter_pldf.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itables</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>shelter_pldf <span class="op">=</span> pl.read_parquet(<span class="st">'oltp_fam_children.parquet'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>itables.show(shelter_pldf.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_26238a6f_4b86_44e6_bd52_aee277320292">
+<table id="itables_72bfd9ca_6184_4bdb_8938_1470a10946e1">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
@@ -671,7 +874,7 @@ div.csl-indent {
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_26238a6f_4b86_44e6_bd52_aee277320292:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_72bfd9ca_6184_4bdb_8938_1470a10946e1:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
@@ -701,14 +904,14 @@ div.csl-indent {
 </ul></li>
 </ul>
 <p>The final tricky aspect of this setup becomes visible when we use <code>.tail()</code> to view the most <strong>recently-added</strong> records:</p>
-<div id="678f2df0" class="cell" data-execution_count="2">
+<div id="97c20942" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>itables.show(shelter_pldf.tail())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>itables.show(shelter_pldf.tail())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_cce743b3_b8b6_446d_a5c0_8bf360d3300b">
+<table id="itables_0140a55f_4a2a_43e2_a490_104d2e2a7657">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
@@ -778,7 +981,7 @@ div.csl-indent {
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_cce743b3_b8b6_446d_a5c0_8bf360d3300b:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_0140a55f_4a2a_43e2_a490_104d2e2a7657:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 

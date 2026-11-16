@@ -16,6 +16,32 @@ format:
 
 [&larr; Back to Datasets](../index.qmd)
 
+## Data Access
+
+The NYC Shelter Intake Reports dataset is now available for DSAN 6000 students at the following S3 URI:
+
+``` {.default}
+s3://dsan6000-final/nyc-shelters/intake_log.csv
+```
+
+However, for "pointing" a **Spark cluster** at this dataset, you will need to use the `s3a://` prefix instead:
+
+``` {.default}
+s3a://dsan6000-final/nyc-shelters/intake_log.csv
+```
+
+This `.csv` file represents the **OLTP log** of all intakes (which are appended to the file immediately upon reaching the OLTP server). It is your job, therefore, to **transform** this "raw" dataset into an OLAP form suitable for deriving your project's insights.
+
+The file is approximately 3.8GB, and has the following columns (you can download this codebook directly, in `.csv` format, [here](./intakes_codebook.csv))
+
+```{python}
+import polars as pl
+from great_tables import GT
+codebook_df = pl.read_csv('intakes_codebook.csv')
+with pl.Config(tbl_rows=30):
+  display(GT(codebook_df))
+```
+
 ## Midterm Vignette
 
 In his final book, 2024's *Genesis: Artificial Intelligence, Hope, and the Human Spirit*, tech visionary Henry Kissinger joined forces with former Google CEO Eric Schmidt and a third guy to explore how AI "enables the achievement of higher, more difficult, and grander problems than those currently solvable by the human brain" (40). With their trademark concern for the disadvantaged, Kissinger and friends describe an exhilarating technology-driven future, wherein
