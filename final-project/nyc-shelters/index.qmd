@@ -44,6 +44,7 @@ codebook_df = pl.read_csv('intakes_codebook.csv')
 itables.show(
   codebook_df,
   layout={'topStart': None, 'topEnd': None},
+  classes="display compact",
 )
 ```
 
