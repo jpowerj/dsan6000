@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -462,7 +497,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-11-17, 09:59:30 PM</em></p>
+<p><em>Updated 2026-11-18, 03:33:47 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -472,6 +507,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#data-access" id="toc-data-access" class="nav-link active" data-scroll-target="#data-access">Data Access</a></li>
+  <li><a href="#codebook" id="toc-codebook" class="nav-link" data-scroll-target="#codebook">Codebook</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/final-project/colombia/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -520,7 +556,45 @@ ul.task-list li input[type="checkbox"] {
 <p>With that note on the trajectory of this dataset out of the way, here is your vignette and accompanying sample midterm questions:</p>
 <section id="data-access" class="level2">
 <h2 class="anchored" data-anchor-id="data-access">Data Access</h2>
-<p>Here, for ease of use, we have <strong>translated</strong> the (abbreviated) column headers into simpler-to-understand English versions. The codebook is as follows:</p>
+<p>The Colombian Customs data is now available for DSAN 6000 students at the following S3 URI:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>s3://dsan6000-final/colombia-customs/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>However, for “pointing” a <strong>Spark cluster</strong> at this dataset, you will need to use the <code>s3a://</code> prefix instead:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>s3a://dsan6000-final/colombia-customs/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Unlike the <a href="../../final-project/nyc-shelters/index.html">NYC Shelter data</a>, where we have a single snapshot for the entire history of intakes, for this dataset we have <strong>monthly snapshots</strong> released by the Colombian government. So, the files within the bucket mirror this release structure, like:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>colombia-customs/</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>├─ Expo_2025/</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>│  ├─ 01_Enero/</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Enero.csv</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Enero.dta</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Enero.sav</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>│  ├─ 02_Febrero/</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Febrero.csv</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Febrero.dta</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Febrero.sav</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>│  │  ...</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>│  ├─ 12_Diciembre/</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Diciembre.csv</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Diciembre.dta</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Diciembre.sav</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>├─ Impo_2025/</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>│  ├─ 01_Enero/</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Enero.csv</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Enero.dta</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Enero.sav</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>│  ├─ 02_Febrero/</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Febrero.csv</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Febrero.dta</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Febrero.sav</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>│  │  ...</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>│  ├─ 12_Diciembre/</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Diciembre.csv</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Diciembre.dta</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Diciembre.sav</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This pattern continues down to <code>Expo_2024</code>, <code>Impo_2024</code>, <code>Expo_2023</code>, <code>Impo_2023</code>, and so on, until it reaches <strong>2004</strong>, the first year for which this digitized customs data is available.</p>
+</section>
+<section id="codebook" class="level2">
+<h2 class="anchored" data-anchor-id="codebook">Codebook</h2>
+<p>Here, for ease of use, I have taken the data files for 2025 imports and exports and <strong>translated</strong> the (abbreviated) column headers into simpler-to-understand English versions. The spelled-out versions of each variable (in Spanish) can be found <a href="https://microdatos.dane.gov.co/index.php/catalog/472/datafile/F3">here</a>, along with the <em>meaning</em> for each value of the numeric codes (for example, the country codes used for the <code>PAIS</code> and <code>BANDERA</code> variable). The translated codebook is as follows:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 5%">
@@ -547,12 +621,12 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td><code>PAIS</code></td>
-<td><code>country</code></td>
+<td><code>destination_country</code></td>
 <td><code>PAIS</code> is the ASCII version of <em>país</em>, meaning “country”. It is a <strong>numeric</strong> variable, a three-digit code representing the country that the good(s) were imported from / exported to. For example, imports from / exports to the United States have code <code>840</code>.</td>
 </tr>
 <tr class="even">
 <td><code>COD_PAI4</code></td>
-<td><code>country_code</code></td>
+<td><code>destination_country_code</code></td>
 <td>For each value of <code>PAIS</code>, this value is the corresponding <code>string</code>-valued <strong>three-letter code</strong> for the country. For example, imports from / exports to the United States have <code>COD_PAI4</code> value <code>USA</code>.</td>
 </tr>
 <tr class="odd">
@@ -567,17 +641,107 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td><code>DPTO2</code></td>
-<td><code>department</code></td>
-<td><em>departamento</em></td>
+<td><code>dept_of_origin</code></td>
+<td>Short for <em>departamento de procedencia</em>, Spanish for “department of origin”. The meanings for each value are listed <a href="https://microdatos.dane.gov.co/index.php/catalog/472/datafile/F3">here</a>.</td>
 </tr>
 <tr class="even">
 <td><code>VIA</code></td>
-<td><code>via</code></td>
-<td></td>
+<td><code>transport_mode</code></td>
+<td>A numeric code for the mode of transport. The meanings for each value are listed <a href="https://microdatos.dane.gov.co/index.php/catalog/472/datafile/F3">here</a></td>
 </tr>
 <tr class="odd">
 <td><code>BANDERA</code></td>
 <td><code>flag</code></td>
+<td>The nationality of the <em>transport vehicle</em> that is carrying out the shipment. Note that this is not the same as the destination country! (For example, a shipment destined for Mexico could be carried by a Fijian vessel)</td>
+</tr>
+<tr class="even">
+<td><code>REGIM</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>MODAD</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>FINALID</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>CER_ORI1</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>SISESP</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>POSAR</code></td>
+<td><code>tariff_line</code></td>
+<td>Short for <em>posición arancelaria</em>, Spanish for “tariff classification”.</td>
+</tr>
+<tr class="even">
+<td><code>DPTO1</code></td>
+<td><code>dept_of_origin_tariff</code></td>
+<td>Short for <em>departamento de origen por posición</em>, Spanish for “department of origin by position”, but “position” here refers to the tariff line given by <code>POSAR</code></td>
+</tr>
+<tr class="odd">
+<td><code>UNID</code></td>
+<td><code>unit_code</code></td>
+<td><code>UNID</code> is short for <em>unidad</em>, Spanish for “unit”. It provides a <em>numeric code</em> for the unit of the quantity in the <code>CANTI</code> variable; for example, kilograms are represented by code <code>33</code> (the <code>CODUNI2</code> variable provides a more helpful <code>string</code>-format code).</td>
+</tr>
+<tr class="even">
+<td><code>CODUNI2</code></td>
+<td><code>unit</code></td>
+<td>Provides a more human-readable, <code>string</code>-formatted version of <code>UNID</code>; for example, <code>"KG"</code> for kilograms, which corresponds to the <code>UNID</code> value <code>33</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>CANTI</code></td>
+<td><code>quantity</code></td>
+<td><code>CANTI</code> is short for <em>cantidad</em>, Spanish for “amount”. The <em>unit</em> for the quantity is given by the <code>UNID</code> variable (as a numeric code), but more helpfully by the <code>CODUNI2</code> variable (as a string, like <code>"KG"</code> for kilograms).</td>
+</tr>
+<tr class="even">
+<td><code>PBK</code></td>
+<td><code>weight_kg_gross</code></td>
+<td>Short for <em>total kilos brutos de la posición</em>, Spanish for “gross weight in kilograms”. The <em>gross</em> weight is the weight of the shipment <em>including</em> the packaging.</td>
+</tr>
+<tr class="odd">
+<td><code>PNK</code></td>
+<td><code>weight_kg_net</code></td>
+<td>Short for <em>total kilos netos de la posición</em>, Spanish for “net weight in kilograms”. The <em>net</em> weight is the weight of the shipment once the weight of the packaging is subtracted.</td>
+</tr>
+<tr class="even">
+<td><code>FOBDOL</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>FOBPES</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>AGRENA</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>FLETES</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>SEGURO</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>OTROSG</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

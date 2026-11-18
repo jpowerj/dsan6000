@@ -24,19 +24,86 @@ With that note on the trajectory of this dataset out of the way, here is your vi
 
 ## Data Access
 
-Here, for ease of use, we have **translated** the (abbreviated) column headers into simpler-to-understand English versions. The codebook is as follows:
+The Colombian Customs data is now available for DSAN 6000 students at the following S3 URI:
+
+``` {.default}
+s3://dsan6000-final/colombia-customs/
+```
+
+However, for "pointing" a **Spark cluster** at this dataset, you will need to use the `s3a://` prefix instead:
+
+``` {.default}
+s3a://dsan6000-final/colombia-customs/
+```
+
+Unlike the [NYC Shelter data](../nyc-shelters/index.qmd), where we have a single snapshot for the entire history of intakes, for this dataset we have **monthly snapshots** released by the Colombian government. So, the files within the bucket mirror this release structure, like:
+
+``` {.default}
+colombia-customs/
+├─ Expo_2025/
+│  ├─ 01_Enero/
+│  │  ├─ Enero.csv
+│  │  ├─ Enero.dta
+│  │  ├─ Enero.sav
+│  ├─ 02_Febrero/
+│  │  ├─ Febrero.csv
+│  │  ├─ Febrero.dta
+│  │  ├─ Febrero.sav
+│  │  ...
+│  ├─ 12_Diciembre/
+│  │  ├─ Diciembre.csv
+│  │  ├─ Diciembre.dta
+│  │  ├─ Diciembre.sav
+├─ Impo_2025/
+│  ├─ 01_Enero/
+│  │  ├─ Enero.csv
+│  │  ├─ Enero.dta
+│  │  ├─ Enero.sav
+│  ├─ 02_Febrero/
+│  │  ├─ Febrero.csv
+│  │  ├─ Febrero.dta
+│  │  ├─ Febrero.sav
+│  │  ...
+│  ├─ 12_Diciembre/
+│  │  ├─ Diciembre.csv
+│  │  ├─ Diciembre.dta
+│  │  ├─ Diciembre.sav
+```
+
+This pattern continues down to `Expo_2024`, `Impo_2024`, `Expo_2023`, `Impo_2023`, and so on, until it reaches **2004**, the first year for which this digitized customs data is available.
+
+## Codebook
+
+Here, for ease of use, I have taken the data files for 2025 imports and exports and **translated** the (abbreviated) column headers into simpler-to-understand English versions. The spelled-out versions of each variable (in Spanish) can be found [here](https://microdatos.dane.gov.co/index.php/catalog/472/datafile/F3), along with the *meaning* for each value of the numeric codes (for example, the country codes used for the `PAIS` and `BANDERA` variable). The translated codebook is as follows:
 
 | Column Name | Translation | Description |
 | - | - | - |
 | `FECH` | `date` | `FECH` is short for *fecha*, meaning **"date"**. Here, the date has **four digits**, where the first two represent the year and the second two represent the month: `YYMM`. |
 | `ADUA` | `customs_house` | `ADUA` is short for *aduana*, meaning "customs house". Here, the specific sub-department of the customs declaration is encoded as an **integer**. Department `3`, for example, processed over 10K exports in January 2025, whereas department `27` processed only 1. (Note that all of the department codes may not used within a given year, meaning that you shouldn't assume that you can loop from `1` to `n`) |
-| `PAIS` | `country` | `PAIS` is the ASCII version of *país*, meaning "country". It is a **numeric** variable, a three-digit code representing the country that the good(s) were imported from / exported to. For example, imports from / exports to the United States have code `840`. |
-| `COD_PAI4` | `country_code` | For each value of `PAIS`, this value is the corresponding `string`-valued **three-letter code** for the country. For example, imports from / exports to the United States have `COD_PAI4` value `USA`. |
+| `PAIS` | `destination_country` | `PAIS` is the ASCII version of *país*, meaning "country". It is a **numeric** variable, a three-digit code representing the country that the good(s) were imported from / exported to. For example, imports from / exports to the United States have code `840`. |
+| `COD_PAI4` | `destination_country_code` | For each value of `PAIS`, this value is the corresponding `string`-valued **three-letter code** for the country. For example, imports from / exports to the United States have `COD_PAI4` value `USA`. |
 | `COD_SAL1` | `departure_point_code1` | `COD_SAL` and `COD_SAL1` are both short for *código lugar de salida*, meaning "departure point". `COD_SAL1` is a *numeric* (integer) code for the point of departure. For example, the port of [Cartagena](https://en.wikipedia.org/wiki/Cartagena,_Colombia) is represented by `6`. |
 | `COD_SAL` | `departure_point_code` | `COD_SAL` and `COD_SAL1` are both short for *código lugar de salida*, meaning "departure point". `COD_SAL` is a `string`-valued **three-letter code** for the point of departure. For example, the port of [Cartagena](https://en.wikipedia.org/wiki/Cartagena,_Colombia) is represented as `"CTG"`. |
-| `DPTO2` | `department` | *departamento* |
-| `VIA` | `via` | |
-| `BANDERA` | `flag` | |
+| `DPTO2` | `dept_of_origin` | Short for *departamento de procedencia*, Spanish for "department of origin". The meanings for each value are listed [here](https://microdatos.dane.gov.co/index.php/catalog/472/datafile/F3). |
+| `VIA` | `transport_mode` | A numeric code for the mode of transport. The meanings for each value are listed [here](https://microdatos.dane.gov.co/index.php/catalog/472/datafile/F3) |
+| `BANDERA` | `flag` | The nationality of the *transport vehicle* that is carrying out the shipment. Note that this is not the same as the destination country! (For example, a shipment destined for Mexico could be carried by a Fijian vessel) |
+| `REGIM` | | |
+| `MODAD` | | |
+| `FINALID` | | |
+| `CER_ORI1` | | |
+| `SISESP` | | |
+| `POSAR` | `tariff_line` | Short for *posición arancelaria*, Spanish for "tariff classification". |
+| `DPTO1` | `dept_of_origin_tariff` | Short for *departamento de origen por posición*, Spanish for "department of origin by position", but "position" here refers to the tariff line given by `POSAR` |
+| `UNID` | `unit_code` | `UNID` is short for *unidad*, Spanish for "unit". It provides a *numeric code* for the unit of the quantity in the `CANTI` variable; for example, kilograms are represented by code `33` (the `CODUNI2` variable provides a more helpful `string`-format code). |
+| `CODUNI2` | `unit` | Provides a more human-readable, `string`-formatted version of `UNID`; for example, `"KG"` for kilograms, which corresponds to the `UNID` value `33`. |
+| `CANTI` | `quantity` | `CANTI` is short for *cantidad*, Spanish for "amount". The *unit* for the quantity is given by the `UNID` variable (as a numeric code), but more helpfully by the `CODUNI2` variable (as a string, like `"KG"` for kilograms). |
+| `PBK` | `weight_kg_gross` | Short for *total kilos brutos de la posición*, Spanish for "gross weight in kilograms". The *gross* weight is the weight of the shipment *including* the packaging. |
+| `PNK` | `weight_kg_net` | Short for *total kilos netos de la posición*, Spanish for "net weight in kilograms". The *net* weight is the weight of the shipment once the weight of the packaging is subtracted. |
+| `FOBDOL` | | |
+| `FOBPES` | | |
+| `AGRENA` | | |
+| `FLETES` | | |
+| `SEGURO` | | |
+| `OTROSG` | | |
 
 : {tbl-colwidths="[5, 10, 85]"}
-
