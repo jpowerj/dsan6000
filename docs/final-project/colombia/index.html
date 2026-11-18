@@ -462,7 +462,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-11-16, 08:01:32 PM</em></p>
+<p><em>Updated 2026-11-17, 09:59:30 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -471,10 +471,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#midterm-vignette" id="toc-midterm-vignette" class="nav-link active" data-scroll-target="#midterm-vignette">Midterm Vignette</a>
-  <ul class="collapse">
-  <li><a href="#question-1-starter-oltp-structure" id="toc-question-1-starter-oltp-structure" class="nav-link" data-scroll-target="#question-1-starter-oltp-structure">Question 1 Starter: OLTP Structure</a></li>
-  </ul></li>
+  <li><a href="#data-access" id="toc-data-access" class="nav-link active" data-scroll-target="#data-access">Data Access</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/final-project/colombia/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -521,8 +518,8 @@ ul.task-list li input[type="checkbox"] {
 <li>For the <strong>microdata</strong> we really want – so that we can simulate the kind of <strong>individual financial transaction data</strong> that you might encounter as a data scientist in <strong>Retail Sales</strong>, it turns out that Colombia’s <em>Departamento Administrativo Nacional de Estadística (DANE)</em> provides individual-transaction level data!</li>
 </ul>
 <p>With that note on the trajectory of this dataset out of the way, here is your vignette and accompanying sample midterm questions:</p>
-<section id="midterm-vignette" class="level2">
-<h2 class="anchored" data-anchor-id="midterm-vignette">Midterm Vignette</h2>
+<section id="data-access" class="level2">
+<h2 class="anchored" data-anchor-id="data-access">Data Access</h2>
 <p>Here, for ease of use, we have <strong>translated</strong> the (abbreviated) column headers into simpler-to-understand English versions. The codebook is as follows:</p>
 <table class="caption-top table">
 <colgroup>
@@ -541,20 +538,52 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td><code>FECH</code></td>
 <td><code>date</code></td>
-<td><code>FECH</code> is short for “fecha”, meaning <strong>“date”</strong>. Here, the date has <strong>four digits</strong>, where the first two represent the year and the second two represent the month: <code>YYMM</code>.</td>
+<td><code>FECH</code> is short for <em>fecha</em>, meaning <strong>“date”</strong>. Here, the date has <strong>four digits</strong>, where the first two represent the year and the second two represent the month: <code>YYMM</code>.</td>
 </tr>
 <tr class="even">
 <td><code>ADUA</code></td>
+<td><code>customs_house</code></td>
+<td><code>ADUA</code> is short for <em>aduana</em>, meaning “customs house”. Here, the specific sub-department of the customs declaration is encoded as an <strong>integer</strong>. Department <code>3</code>, for example, processed over 10K exports in January 2025, whereas department <code>27</code> processed only 1. (Note that all of the department codes may not used within a given year, meaning that you shouldn’t assume that you can loop from <code>1</code> to <code>n</code>)</td>
+</tr>
+<tr class="odd">
+<td><code>PAIS</code></td>
+<td><code>country</code></td>
+<td><code>PAIS</code> is the ASCII version of <em>país</em>, meaning “country”. It is a <strong>numeric</strong> variable, a three-digit code representing the country that the good(s) were imported from / exported to. For example, imports from / exports to the United States have code <code>840</code>.</td>
+</tr>
+<tr class="even">
+<td><code>COD_PAI4</code></td>
+<td><code>country_code</code></td>
+<td>For each value of <code>PAIS</code>, this value is the corresponding <code>string</code>-valued <strong>three-letter code</strong> for the country. For example, imports from / exports to the United States have <code>COD_PAI4</code> value <code>USA</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>COD_SAL1</code></td>
+<td><code>departure_point_code1</code></td>
+<td><code>COD_SAL</code> and <code>COD_SAL1</code> are both short for <em>código lugar de salida</em>, meaning “departure point”. <code>COD_SAL1</code> is a <em>numeric</em> (integer) code for the point of departure. For example, the port of <a href="https://en.wikipedia.org/wiki/Cartagena,_Colombia">Cartagena</a> is represented by <code>6</code>.</td>
+</tr>
+<tr class="even">
+<td><code>COD_SAL</code></td>
+<td><code>departure_point_code</code></td>
+<td><code>COD_SAL</code> and <code>COD_SAL1</code> are both short for <em>código lugar de salida</em>, meaning “departure point”. <code>COD_SAL</code> is a <code>string</code>-valued <strong>three-letter code</strong> for the point of departure. For example, the port of <a href="https://en.wikipedia.org/wiki/Cartagena,_Colombia">Cartagena</a> is represented as <code>"CTG"</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>DPTO2</code></td>
 <td><code>department</code></td>
-<td><code>ADUA</code> is short for “Aduana”, meaning “customs house”. Here, the specific sub-department of the customs declaration is encoded as a <strong>number</strong>. Department <code>3</code>, for example, processed over 10K exports in January 2025, whereas department <code>27</code> processed only 1.</td>
+<td><em>departamento</em></td>
+</tr>
+<tr class="even">
+<td><code>VIA</code></td>
+<td><code>via</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>BANDERA</code></td>
+<td><code>flag</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<section id="question-1-starter-oltp-structure" class="level3">
-<h3 class="anchored" data-anchor-id="question-1-starter-oltp-structure">Question 1 Starter: OLTP Structure</h3>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

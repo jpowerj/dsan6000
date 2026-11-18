@@ -22,17 +22,21 @@ The "final form" of this dataset evolved over a few stages:
 
 With that note on the trajectory of this dataset out of the way, here is your vignette and accompanying sample midterm questions:
 
-## Midterm Vignette
+## Data Access
 
 Here, for ease of use, we have **translated** the (abbreviated) column headers into simpler-to-understand English versions. The codebook is as follows:
 
 | Column Name | Translation | Description |
 | - | - | - |
-| `FECH` | `date` | `FECH` is short for "fecha", meaning **"date"**. Here, the date has **four digits**, where the first two represent the year and the second two represent the month: `YYMM`. |
-| `ADUA` | `department` | `ADUA` is short for "Aduana", meaning "customs house". Here, the specific sub-department of the customs declaration is encoded as a **number**. Department `3`, for example, processed over 10K exports in January 2025, whereas department `27` processed only 1. |
+| `FECH` | `date` | `FECH` is short for *fecha*, meaning **"date"**. Here, the date has **four digits**, where the first two represent the year and the second two represent the month: `YYMM`. |
+| `ADUA` | `customs_house` | `ADUA` is short for *aduana*, meaning "customs house". Here, the specific sub-department of the customs declaration is encoded as an **integer**. Department `3`, for example, processed over 10K exports in January 2025, whereas department `27` processed only 1. (Note that all of the department codes may not used within a given year, meaning that you shouldn't assume that you can loop from `1` to `n`) |
+| `PAIS` | `country` | `PAIS` is the ASCII version of *país*, meaning "country". It is a **numeric** variable, a three-digit code representing the country that the good(s) were imported from / exported to. For example, imports from / exports to the United States have code `840`. |
+| `COD_PAI4` | `country_code` | For each value of `PAIS`, this value is the corresponding `string`-valued **three-letter code** for the country. For example, imports from / exports to the United States have `COD_PAI4` value `USA`. |
+| `COD_SAL1` | `departure_point_code1` | `COD_SAL` and `COD_SAL1` are both short for *código lugar de salida*, meaning "departure point". `COD_SAL1` is a *numeric* (integer) code for the point of departure. For example, the port of [Cartagena](https://en.wikipedia.org/wiki/Cartagena,_Colombia) is represented by `6`. |
+| `COD_SAL` | `departure_point_code` | `COD_SAL` and `COD_SAL1` are both short for *código lugar de salida*, meaning "departure point". `COD_SAL` is a `string`-valued **three-letter code** for the point of departure. For example, the port of [Cartagena](https://en.wikipedia.org/wiki/Cartagena,_Colombia) is represented as `"CTG"`. |
+| `DPTO2` | `department` | *departamento* |
+| `VIA` | `via` | |
+| `BANDERA` | `flag` | |
 
 : {tbl-colwidths="[5, 10, 85]"}
-
-
-### Question 1 Starter: OLTP Structure
 
