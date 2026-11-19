@@ -70,11 +70,21 @@ colombia-customs/
 │  │  ├─ Diciembre.sav
 ```
 
-This pattern continues down to `Expo_2024`, `Impo_2024`, `Expo_2023`, `Impo_2023`, and so on, until it reaches **2004**, the first year for which this digitized customs data is available.
+This pattern continues down to `Expo_2024`, `Impo_2024`, `Expo_2023`, `Impo_2023`, and so on, until it reaches **2012**, the first year for which digitized imports and exports are both available.
+
+::: {.callout-warning title="Data Caveats"}
+
+While cleaning the data for the DASN 6000 S3 bucket, I encountered the following issues with the original data (I will add more here if students find additional issues!):
+
+* Export data for **December 2024** is missing from the original data (so is also missing in the S3 bucket)
+
+:::
 
 ## Codebook
 
-Here, for ease of use, I have taken the data files for 2025 imports and exports and **translated** the (abbreviated) column headers into simpler-to-understand English versions. The spelled-out versions of each variable (in Spanish) can be found [here](https://microdatos.dane.gov.co/index.php/catalog/472/datafile/F3), along with the *meaning* for each value of the numeric codes (for example, the country codes used for the `PAIS` and `BANDERA` variable). The translated codebook is as follows:
+Here, for ease of use, I have taken the data files for 2025 imports and exports and **translated** the (abbreviated) column headers into simpler-to-understand English versions. The spelled-out versions of each variable (in Spanish) can be found [here](https://microdatos.dane.gov.co/index.php/catalog/472/datafile/F3), along with the *meaning* for each value of the numeric codes (for example, the country codes used for the `PAIS` and `BANDERA` variable). The translated codebooks are as follows:
+
+### Exports (`Expo_2025` to `Expo_2012`)
 
 | Column Name | Translation | Description |
 | - | - | - |
@@ -87,7 +97,7 @@ Here, for ease of use, I have taken the data files for 2025 imports and exports 
 | `DPTO2` | `dept_of_origin` | Short for *departamento de procedencia*, Spanish for "department of origin". The meanings for each value are listed [here](https://microdatos.dane.gov.co/index.php/catalog/472/datafile/F3). |
 | `VIA` | `transport_mode` | A numeric code for the mode of transport. The meanings for each value are listed [here](https://microdatos.dane.gov.co/index.php/catalog/472/datafile/F3) |
 | `BANDERA` | `flag` | The nationality of the *transport vehicle* that is carrying out the shipment. Note that this is not the same as the destination country! (For example, a shipment destined for Mexico could be carried by a Fijian vessel) |
-| `REGIM` | | |
+| `REGIM` | `customs_regime` | Import regime of the customs declaration. Note that this is `REGIMEN` in the export data! |
 | `MODAD` | | |
 | `FINALID` | | |
 | `CER_ORI1` | | |
@@ -99,11 +109,64 @@ Here, for ease of use, I have taken the data files for 2025 imports and exports 
 | `CANTI` | `quantity` | `CANTI` is short for *cantidad*, Spanish for "amount". The *unit* for the quantity is given by the `UNID` variable (as a numeric code), but more helpfully by the `CODUNI2` variable (as a string, like `"KG"` for kilograms). |
 | `PBK` | `weight_kg_gross` | Short for *total kilos brutos de la posición*, Spanish for "gross weight in kilograms". The *gross* weight is the weight of the shipment *including* the packaging. |
 | `PNK` | `weight_kg_net` | Short for *total kilos netos de la posición*, Spanish for "net weight in kilograms". The *net* weight is the weight of the shipment once the weight of the packaging is subtracted. |
-| `FOBDOL` | | |
-| `FOBPES` | | |
+| `FOBDOL` | `fob_value_usd` | The "Free on Board" (FOB) value, in US Dollars. |
+| `FOBPES` | `fob_value_pesos` | The "Free on Board" (FOB) value, in Colombian Pesos. |
 | `AGRENA` | | |
 | `FLETES` | | |
 | `SEGURO` | | |
-| `OTROSG` | | |
+| `OTROSG` | `other_expenses` | Short for *valor otros gastos de la posición*, Spanish for "value of other position-related expenses", where "position" again generally refers to the `POSAR` variable. |
+
+: {tbl-colwidths="[5, 10, 85]"}
+
+### Imports (`Impo_2025` to `Impo_2012`)
+
+The corresponding (Spanish-language) listing of the full variable names can be found [here](https://microdatos.dane.gov.co/index.php/catalog/473/data-dictionary/F10?file_name=Enero), and the following table is again my attempt at translating and describing them!
+
+| Column Name | Translation | Description |
+| - | - | - |
+| `FECH` | `date` | `FECH` is short for *fecha*, meaning **"date"**. Here, the date has **four digits**, where the first two represent the year and the second two represent the month: `YYMM`. |
+| `ADUA` | `customs_house` | `ADUA` is short for *aduana*, meaning "customs house". Here, the specific sub-department of the customs declaration is encoded as an **integer**. Department `3`, for example, processed over 10K exports in January 2025, whereas department `27` processed only 1. (Note that all of the department codes may not used within a given year, meaning that you shouldn't assume that you can loop from `1` to `n`) |
+| `PAISGEN` | `origin_country` | Short for *país origen*, meaning "country of origin". It is a **numeric** variable, a three-digit code representing the country that the good(s) were **produced**. For example, goods produced in the United States have code `840`. |
+| `PAISPRO` | `provenance_country` | Short for *país de procedencia*, meaning "country of provenance". This seems similar to `PAISGEN` at first, but here the value is the country that the goods were **shipped from** (whereaas they may have been *produced* in a different country, indicated by the `PAISGEN` value). |
+| `PAISCOM` | `purchase_country` | Short for *país de compra*, or country of purchase. Once again, this may be different from the country of production (`origin_country`) and country of provenance (`provenance_country`). |
+| `DEPTODES` | `destination_department` | The customs house (within Colombia) receiving the goods |
+| `VIATRANS` | `transport_mode` | Same as `VIA` in the export data (but, notice the difference in naming convention here, e.g. if you want to merge Impo and Expo at some point!) |
+| `BANDERA` | `flag` | Same as in export data. |
+| `REGIMEN` | `customs_regime` | Import regime of the customs declaration. Note that this is `REGIM` in the import data! |
+| `ACUERDO` | `trade_agreement_code` | Preferential trade agreement claimed (if any) |
+| `PBK` | `weight_kg_gross` | Same as in export data. |
+| `PNK` | `weight_kg_net` | Same as in export data. |
+| `CANU` | `quantity` | Same as `CANTI` in the export data. |
+| `CODA` | `unit_code` | Same as `UNID` in the export data. |
+| `NABAN` | `tariff_line` | Same as `POSAR` in the export data. |
+| `VAFODO` | `fob_value` | The "Free on Board" (FOB) value, in USD (same as `fob_value_usd` in the export data). |
+| `FLETE` | `freight` | |
+| `VACID` | | |
+| `VACIP` | | |
+| `IMP1` | `vat_tax` | Sales tax (VAT) |
+| `OTDER` | `other_duties` | Value of other duties. |
+| `CLASE` | `importer_class` | Classification code for importer |
+| `CUIDAIMP` | `importer_city` | City of importer |
+| `CUIDAEXP` | `exporter_city` | City of exporter |
+| `ACTECON` | `econ_activity_code` | Economic activity coding |
+| `CODADAD` | `customs_admin_code` | Customs administration code |
+| `VADUA` | `customs_value` | |
+| `VRAJUS` | `adjustment_value` | Adjustment value |
+| `BASEIVA` | `vat_base` | |
+| `OTROSP` | `rate_other_charges` | |
+| `OTROSBASE` | `base_other_charges` | |
+| `TOTALIVAYO` | `total_vat_other` | Sum of VAT and other charges |
+| `SEGUROS` | `insurance` | |
+| `OTROSG` | `other_expenses` | |
+| `LUIN` | `entry_place` | |
+| `CODLUIN` | `entry_place_code` | |
+| `DEPIM` | `importer_department` | |
+| `COPAEX` | `exporter_country_code` | |
+| `TIPOIM` | `import_type` | |
+| `PORARA` | `tariff_rate` | (Unit is percentage) |
+| `NIT` | `importer_tax_id` | |
+| `DIGV` | `tax_id_check_digit` | |
+| `RZIMPO` | `importer_name` | |
+| `DEREL` | `tariff_duty_amount` | |
 
 : {tbl-colwidths="[5, 10, 85]"}

@@ -520,7 +520,7 @@ div.csl-indent {
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-11-18, 03:33:47 PM</em></p>
+<p><em>Updated 2026-11-19, 05:50:31 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -594,7 +594,7 @@ div.csl-indent {
 </details>
 <div id="display-codebook" class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_28b664ab_366b_4144_bb25_1c46e67e6ae0">
+<table id="itables_73a9e700_999a_4bda_ac22_f4f9b65f3288">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
@@ -664,7 +664,7 @@ div.csl-indent {
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_28b664ab_366b_4144_bb25_1c46e67e6ae0:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_73a9e700_999a_4bda_ac22_f4f9b65f3288:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
@@ -705,7 +705,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="question-1-starter-oltp-infrastructure">Question 1 Starter: OLTP Infrastructure</h2>
 <p>As mentioned in the vignette, although the <strong>nightly PDF report</strong> contains aggregate counts of the number of men, women, and children across all shelters, this is [technically, in our terminology] the <strong>OLAP</strong> form of the data as it currently exists.</p>
 <p>The <strong>OLTP</strong> format — the form of the data as it is originally <strong>recorded</strong> — consists of <strong>entry</strong> and <strong>exit records</strong>, along with the timestamp of when the event was recorded. A small sample of this OLTP data is as follows. First, using <code>head()</code> to show the first five records that ever arrived in the OLTP DB (since it is an <strong>append-only log</strong>), we can see that the shelters started recording entries and exits late at night on September 26, 2026:</p>
-<div id="7917344a" class="cell" data-execution_count="2">
+<div id="67d12a5c" class="cell" data-execution_count="2">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
@@ -715,7 +715,7 @@ div.csl-indent {
 </details>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_8e97a601_75ba_4f30_9d8a_8cfbfb509565">
+<table id="itables_e7bb9f74_adc0_4078_a461_81769fb535d2">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
@@ -785,7 +785,7 @@ div.csl-indent {
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_8e97a601_75ba_4f30_9d8a_8cfbfb509565:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_e7bb9f74_adc0_4078_a461_81769fb535d2:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
@@ -815,14 +815,14 @@ div.csl-indent {
 </ul></li>
 </ul>
 <p>The final tricky aspect of this setup becomes visible when we use <code>.tail()</code> to view the most <strong>recently-added</strong> records:</p>
-<div id="e09c10b5" class="cell" data-execution_count="3">
+<div id="6d963fba" class="cell" data-execution_count="3">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>itables.show(shelter_pldf.tail())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_894b828e_5e75_4560_98e5_c59ee87fe229">
+<table id="itables_6c6875f5_c122_463b_9acd_2ea0cedcfbda">
   <tbody>
     <tr>
       <td style="vertical-align:middle; text-align:left"><a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
@@ -892,7 +892,7 @@ div.csl-indent {
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
 
-    document.querySelectorAll("#itables_894b828e_5e75_4560_98e5_c59ee87fe229:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_6c6875f5_c122_463b_9acd_2ea0cedcfbda:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 

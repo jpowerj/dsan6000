@@ -497,7 +497,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><em>Updated 2026-11-18, 03:33:47 PM</em></p>
+<p><em>Updated 2026-11-19, 05:50:31 PM</em></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -507,7 +507,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#data-access" id="toc-data-access" class="nav-link active" data-scroll-target="#data-access">Data Access</a></li>
-  <li><a href="#codebook" id="toc-codebook" class="nav-link" data-scroll-target="#codebook">Codebook</a></li>
+  <li><a href="#codebook" id="toc-codebook" class="nav-link" data-scroll-target="#codebook">Codebook</a>
+  <ul class="collapse">
+  <li><a href="#exports-expo_2025-to-expo_2012" id="toc-exports-expo_2025-to-expo_2012" class="nav-link" data-scroll-target="#exports-expo_2025-to-expo_2012">Exports (<code>Expo_2025</code> to <code>Expo_2012</code>)</a></li>
+  <li><a href="#imports-impo_2025-to-impo_2012" id="toc-imports-impo_2025-to-impo_2012" class="nav-link" data-scroll-target="#imports-impo_2025-to-impo_2012">Imports (<code>Impo_2025</code> to <code>Impo_2012</code>)</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jpowerj/dsan6000/blob/main/final-project/colombia/index.qmd" target="_blank" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -590,11 +594,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Diciembre.csv</span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Diciembre.dta</span>
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>│  │  ├─ Diciembre.sav</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This pattern continues down to <code>Expo_2024</code>, <code>Impo_2024</code>, <code>Expo_2023</code>, <code>Impo_2023</code>, and so on, until it reaches <strong>2004</strong>, the first year for which this digitized customs data is available.</p>
+<p>This pattern continues down to <code>Expo_2024</code>, <code>Impo_2024</code>, <code>Expo_2023</code>, <code>Impo_2023</code>, and so on, until it reaches <strong>2012</strong>, the first year for which digitized imports and exports are both available.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Data Caveats">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Data Caveats
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While cleaning the data for the DASN 6000 S3 bucket, I encountered the following issues with the original data (I will add more here if students find additional issues!):</p>
+<ul>
+<li>Export data for <strong>December 2024</strong> is missing from the original data (so is also missing in the S3 bucket)</li>
+</ul>
+</div>
+</div>
 </section>
 <section id="codebook" class="level2">
 <h2 class="anchored" data-anchor-id="codebook">Codebook</h2>
-<p>Here, for ease of use, I have taken the data files for 2025 imports and exports and <strong>translated</strong> the (abbreviated) column headers into simpler-to-understand English versions. The spelled-out versions of each variable (in Spanish) can be found <a href="https://microdatos.dane.gov.co/index.php/catalog/472/datafile/F3">here</a>, along with the <em>meaning</em> for each value of the numeric codes (for example, the country codes used for the <code>PAIS</code> and <code>BANDERA</code> variable). The translated codebook is as follows:</p>
+<p>Here, for ease of use, I have taken the data files for 2025 imports and exports and <strong>translated</strong> the (abbreviated) column headers into simpler-to-understand English versions. The spelled-out versions of each variable (in Spanish) can be found <a href="https://microdatos.dane.gov.co/index.php/catalog/472/datafile/F3">here</a>, along with the <em>meaning</em> for each value of the numeric codes (for example, the country codes used for the <code>PAIS</code> and <code>BANDERA</code> variable). The translated codebooks are as follows:</p>
+<section id="exports-expo_2025-to-expo_2012" class="level3">
+<h3 class="anchored" data-anchor-id="exports-expo_2025-to-expo_2012">Exports (<code>Expo_2025</code> to <code>Expo_2012</code>)</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 5%">
@@ -656,8 +678,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td><code>REGIM</code></td>
-<td></td>
-<td></td>
+<td><code>customs_regime</code></td>
+<td>Import regime of the customs declaration. Note that this is <code>REGIMEN</code> in the export data!</td>
 </tr>
 <tr class="odd">
 <td><code>MODAD</code></td>
@@ -716,13 +738,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td><code>FOBDOL</code></td>
-<td></td>
-<td></td>
+<td><code>fob_value_usd</code></td>
+<td>The “Free on Board” (FOB) value, in US Dollars.</td>
 </tr>
 <tr class="odd">
 <td><code>FOBPES</code></td>
-<td></td>
-<td></td>
+<td><code>fob_value_pesos</code></td>
+<td>The “Free on Board” (FOB) value, in Colombian Pesos.</td>
 </tr>
 <tr class="even">
 <td><code>AGRENA</code></td>
@@ -741,13 +763,254 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td><code>OTROSG</code></td>
+<td><code>other_expenses</code></td>
+<td>Short for <em>valor otros gastos de la posición</em>, Spanish for “value of other position-related expenses”, where “position” again generally refers to the <code>POSAR</code> variable.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="imports-impo_2025-to-impo_2012" class="level3">
+<h3 class="anchored" data-anchor-id="imports-impo_2025-to-impo_2012">Imports (<code>Impo_2025</code> to <code>Impo_2012</code>)</h3>
+<p>The corresponding (Spanish-language) listing of the full variable names can be found <a href="https://microdatos.dane.gov.co/index.php/catalog/473/data-dictionary/F10?file_name=Enero">here</a>, and the following table is again my attempt at translating and describing them!</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 10%">
+<col style="width: 85%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Translation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>FECH</code></td>
+<td><code>date</code></td>
+<td><code>FECH</code> is short for <em>fecha</em>, meaning <strong>“date”</strong>. Here, the date has <strong>four digits</strong>, where the first two represent the year and the second two represent the month: <code>YYMM</code>.</td>
+</tr>
+<tr class="even">
+<td><code>ADUA</code></td>
+<td><code>customs_house</code></td>
+<td><code>ADUA</code> is short for <em>aduana</em>, meaning “customs house”. Here, the specific sub-department of the customs declaration is encoded as an <strong>integer</strong>. Department <code>3</code>, for example, processed over 10K exports in January 2025, whereas department <code>27</code> processed only 1. (Note that all of the department codes may not used within a given year, meaning that you shouldn’t assume that you can loop from <code>1</code> to <code>n</code>)</td>
+</tr>
+<tr class="odd">
+<td><code>PAISGEN</code></td>
+<td><code>origin_country</code></td>
+<td>Short for <em>país origen</em>, meaning “country of origin”. It is a <strong>numeric</strong> variable, a three-digit code representing the country that the good(s) were <strong>produced</strong>. For example, goods produced in the United States have code <code>840</code>.</td>
+</tr>
+<tr class="even">
+<td><code>PAISPRO</code></td>
+<td><code>provenance_country</code></td>
+<td>Short for <em>país de procedencia</em>, meaning “country of provenance”. This seems similar to <code>PAISGEN</code> at first, but here the value is the country that the goods were <strong>shipped from</strong> (whereaas they may have been <em>produced</em> in a different country, indicated by the <code>PAISGEN</code> value).</td>
+</tr>
+<tr class="odd">
+<td><code>PAISCOM</code></td>
+<td><code>purchase_country</code></td>
+<td>Short for <em>país de compra</em>, or country of purchase. Once again, this may be different from the country of production (<code>origin_country</code>) and country of provenance (<code>provenance_country</code>).</td>
+</tr>
+<tr class="even">
+<td><code>DEPTODES</code></td>
+<td><code>destination_department</code></td>
+<td>The customs house (within Colombia) receiving the goods</td>
+</tr>
+<tr class="odd">
+<td><code>VIATRANS</code></td>
+<td><code>transport_mode</code></td>
+<td>Same as <code>VIA</code> in the export data (but, notice the difference in naming convention here, e.g.&nbsp;if you want to merge Impo and Expo at some point!)</td>
+</tr>
+<tr class="even">
+<td><code>BANDERA</code></td>
+<td><code>flag</code></td>
+<td>Same as in export data.</td>
+</tr>
+<tr class="odd">
+<td><code>REGIMEN</code></td>
+<td><code>customs_regime</code></td>
+<td>Import regime of the customs declaration. Note that this is <code>REGIM</code> in the import data!</td>
+</tr>
+<tr class="even">
+<td><code>ACUERDO</code></td>
+<td><code>trade_agreement_code</code></td>
+<td>Preferential trade agreement claimed (if any)</td>
+</tr>
+<tr class="odd">
+<td><code>PBK</code></td>
+<td><code>weight_kg_gross</code></td>
+<td>Same as in export data.</td>
+</tr>
+<tr class="even">
+<td><code>PNK</code></td>
+<td><code>weight_kg_net</code></td>
+<td>Same as in export data.</td>
+</tr>
+<tr class="odd">
+<td><code>CANU</code></td>
+<td><code>quantity</code></td>
+<td>Same as <code>CANTI</code> in the export data.</td>
+</tr>
+<tr class="even">
+<td><code>CODA</code></td>
+<td><code>unit_code</code></td>
+<td>Same as <code>UNID</code> in the export data.</td>
+</tr>
+<tr class="odd">
+<td><code>NABAN</code></td>
+<td><code>tariff_line</code></td>
+<td>Same as <code>POSAR</code> in the export data.</td>
+</tr>
+<tr class="even">
+<td><code>VAFODO</code></td>
+<td><code>fob_value</code></td>
+<td>The “Free on Board” (FOB) value, in USD (same as <code>fob_value_usd</code> in the export data).</td>
+</tr>
+<tr class="odd">
+<td><code>FLETE</code></td>
+<td><code>freight</code></td>
 <td></td>
+</tr>
+<tr class="even">
+<td><code>VACID</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>VACIP</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>IMP1</code></td>
+<td><code>vat_tax</code></td>
+<td>Sales tax (VAT)</td>
+</tr>
+<tr class="odd">
+<td><code>OTDER</code></td>
+<td><code>other_duties</code></td>
+<td>Value of other duties.</td>
+</tr>
+<tr class="even">
+<td><code>CLASE</code></td>
+<td><code>importer_class</code></td>
+<td>Classification code for importer</td>
+</tr>
+<tr class="odd">
+<td><code>CUIDAIMP</code></td>
+<td><code>importer_city</code></td>
+<td>City of importer</td>
+</tr>
+<tr class="even">
+<td><code>CUIDAEXP</code></td>
+<td><code>exporter_city</code></td>
+<td>City of exporter</td>
+</tr>
+<tr class="odd">
+<td><code>ACTECON</code></td>
+<td><code>econ_activity_code</code></td>
+<td>Economic activity coding</td>
+</tr>
+<tr class="even">
+<td><code>CODADAD</code></td>
+<td><code>customs_admin_code</code></td>
+<td>Customs administration code</td>
+</tr>
+<tr class="odd">
+<td><code>VADUA</code></td>
+<td><code>customs_value</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>VRAJUS</code></td>
+<td><code>adjustment_value</code></td>
+<td>Adjustment value</td>
+</tr>
+<tr class="odd">
+<td><code>BASEIVA</code></td>
+<td><code>vat_base</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>OTROSP</code></td>
+<td><code>rate_other_charges</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>OTROSBASE</code></td>
+<td><code>base_other_charges</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>TOTALIVAYO</code></td>
+<td><code>total_vat_other</code></td>
+<td>Sum of VAT and other charges</td>
+</tr>
+<tr class="odd">
+<td><code>SEGUROS</code></td>
+<td><code>insurance</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>OTROSG</code></td>
+<td><code>other_expenses</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>LUIN</code></td>
+<td><code>entry_place</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>CODLUIN</code></td>
+<td><code>entry_place_code</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>DEPIM</code></td>
+<td><code>importer_department</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>COPAEX</code></td>
+<td><code>exporter_country_code</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>TIPOIM</code></td>
+<td><code>import_type</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>PORARA</code></td>
+<td><code>tariff_rate</code></td>
+<td>(Unit is percentage)</td>
+</tr>
+<tr class="odd">
+<td><code>NIT</code></td>
+<td><code>importer_tax_id</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>DIGV</code></td>
+<td><code>tax_id_check_digit</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>RZIMPO</code></td>
+<td><code>importer_name</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>DEREL</code></td>
+<td><code>tariff_duty_amount</code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
